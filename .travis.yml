@@ -9,5 +9,5 @@ script:
 deploy:
   provider: heroku
   api_key: 12345
-  app: https://git.heroku.com/viewing--party.git
+  app: API_Key
   run: rails db:migrate
