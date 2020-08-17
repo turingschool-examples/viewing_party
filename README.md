@@ -19,3 +19,6 @@ Viewing party is an application in which users can explore movie options and cre
 - Ruby 2.5.3
 
 - Rails 5.2.4.3
+
+## DTR
+- Link: https://docs.google.com/document/d/1sjzZvNGlkjZywJNFxIZIZrD3WLFrudbAot5aZr_S34U/edit
