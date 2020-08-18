@@ -1,10 +1,11 @@
-[commit]
-  template = ~/.gitmessage
-[core]
-  editor = atom --wait
 [user]
   email = jKwibe@users.noreply.github.com
   name = kwibe merci
-[user]
-    email = neeruram1@users.noreply.github.com
-    name = neeru ram
+  email = neeruram1@users.noreply.github.com
+  name = neeru ram
+
+[commit]
+  template = ~/.gitmessage
+  
+[core]
+  editor = atom --wait
