@@ -1,0 +1,2 @@
+class ViewPartyAttendees < ApplicationRecord
+end 
