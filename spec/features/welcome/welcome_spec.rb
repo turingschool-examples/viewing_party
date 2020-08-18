@@ -6,6 +6,4 @@ RSpec.describe "as a user" do
     expect(page).to have_content('viewing party app')
   end
 end
-# As a user,
-# When I visit the root path,
-# I should see a welcome page with a brief description of the application.
+
