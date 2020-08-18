@@ -14,9 +14,12 @@ RSpec.describe 'movie show page' do
       "vote_average": 8.45
     }
 
-    # binding.pry
     visit "/movies/#{movie[:id]}"
 
     expect(page).to  have_button('Add Viewing Party for Movie')
+
+    click_on 'Add Viewing Party for Movie'
+
+    expect(current_path).to  eq('/viewing_party/new')
   end
 end
