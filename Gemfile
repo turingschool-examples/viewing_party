@@ -16,6 +16,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'bootsnap'
 gem 'jbuilder', '~> 2.5'
 gem 'omniauth-google-oauth2'
+gem 'figaro', '~> 1.2'
 
 group :development, :test do
   gem 'pry'
