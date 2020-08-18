@@ -1,4 +1,4 @@
 class ViewParty < ApplicationRecord
-  validates_presence_of :duration
-  validates_presence_of :date
+  validates_presence_of :duration,
+                        :date
 end
