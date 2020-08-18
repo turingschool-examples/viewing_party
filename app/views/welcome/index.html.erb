@@ -1,9 +1,11 @@
 <div class="center">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <meta name="google-signin-client_id" content="62868422183-mcitplkv4usrjks0t02h67q69oeh7hlu.apps.googleusercontent.com">
+
   <h1>Welcome to Viewing Party!</h1>
 
   <h4>Watch movies with your friends.</h4>
 
-  <%= link_to "Sign in with Google",
-  "https://accounts.google.com/o/oauth2/v2/auth?response_type=code&client_id=8e3l4ASA5L_sS5-QV6q0oAdV&redirect_uri=http://localhost:3000&scope=openid%20profile" %>
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
 
 </div>
