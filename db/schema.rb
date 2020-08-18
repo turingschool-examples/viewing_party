@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_18_215202) do
+ActiveRecord::Schema.define(version: 2020_08_18_220721) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(version: 2020_08_18_215202) do
     t.date "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_view_parties_on_user_id"
   end
 
   create_table "view_party_attendees", force: :cascade do |t|
@@ -46,6 +48,7 @@ ActiveRecord::Schema.define(version: 2020_08_18_215202) do
     t.index ["view_party_id"], name: "index_view_party_attendees_on_view_party_id"
   end
 
+  add_foreign_key "view_parties", "users"
   add_foreign_key "view_party_attendees", "users"
   add_foreign_key "view_party_attendees", "view_parties"
 end
