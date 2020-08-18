@@ -6,4 +6,10 @@ RSpec.describe User, type: :model do
     it {should validate_presence_of :email}
     it {should validate_presence_of :user_name}
   end
+
+  describe 'Relationships' do
+    it {should have_many(:view_parties).through(:view_party_attendees)}
+    it {should have_many :view_party_attendees}
+    it {should have_many :view_parties}
+  end
 end
