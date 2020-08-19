@@ -7,6 +7,6 @@ RSpec.describe 'User dashboard page' do
   end
 
   it "I see a welcome message" do
-    expect(page).to have_content("Welcome #{@neeru.name}!")
+    expect(page).to have_content("Welcome (PLACEHOLDER)!")
   end
 end
