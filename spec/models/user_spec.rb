@@ -11,5 +11,7 @@ RSpec.describe User, type: :model do
     it {should have_many(:view_parties).through(:view_party_attendees)}
     it {should have_many :view_party_attendees}
     it {should have_many :view_parties}
+    it {should have_many(:friends).through(:friendships)}
+    it {should have_many(:friendships)}
   end
 end
