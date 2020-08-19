@@ -1,11 +1,11 @@
 class SessionsController < ApplicationController
 
   def omniauth
-    access_token = request.env["omniauth.auth"]
-    user = User.from_omniauth(access_token)
+    user_info = request.env["omniauth.auth"]
+    user = User.from_omniauth(user_info)
     #log_in(user)
-    user.google_token = access_token.credentials.token
-    refresh_token = access_token.credentials.refresh_token
+    user.google_token = user_info.credentials.token
+    refresh_token = user_info.credentials.refresh_token
     user.google_refresh_token = refresh_token if refresh_token.present?
     if user.save
       session[:user_id] = user.id
