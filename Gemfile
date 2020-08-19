@@ -34,6 +34,8 @@ group :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'launchy'
+  gem 'simplecov'
+  gem 'webmock'
   gem 'shoulda-matchers'
   gem 'simplecov'
 end
