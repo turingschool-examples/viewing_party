@@ -12,5 +12,9 @@ RSpec.describe 'User dashboard page' do
 
   it "I see a button to Discover Movies" do
     expect(page).to have_button("Discover Movies")
+
+    click_on "Discover Movies"
+    
+    expect(current_path).to eq("/discover")
   end
 end
