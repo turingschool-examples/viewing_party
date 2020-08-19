@@ -6,5 +6,10 @@ RSpec.describe 'As a user' do
       visit root_path
       expect(page).to have_content("Viewing Party is an application that allows users to create and watch movies with other users integrated with Google Calender")
     end
+
+    it "I should see a button to Log In with Google" do
+      visit root_path
+      expect(page).to have_link("Login")
+    end
   end
 end
