@@ -23,4 +23,10 @@ RSpec.describe 'User dashboard page' do
       expect(page).to have_content('Friends')
     end
   end
+
+  it "I see a viewing parties section" do
+    within '.viewing-parties' do
+      expect(page).to have_content('Viewing Parties')
+    end
+  end
 end
