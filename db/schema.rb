@@ -46,8 +46,8 @@ ActiveRecord::Schema.define(version: 2020_08_19_002926) do
     t.date "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_view_parties_on_user_id"
+    t.bigint "host_id"
+    t.index ["host_id"], name: "index_view_parties_on_host_id"
   end
 
   create_table "view_party_attendees", force: :cascade do |t|
@@ -61,7 +61,6 @@ ActiveRecord::Schema.define(version: 2020_08_19_002926) do
 
   add_foreign_key "friendships", "users"
   add_foreign_key "movies", "view_parties"
-  add_foreign_key "view_parties", "users"
   add_foreign_key "view_party_attendees", "users"
   add_foreign_key "view_party_attendees", "view_parties"
 end
