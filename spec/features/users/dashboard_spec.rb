@@ -14,7 +14,13 @@ RSpec.describe 'User dashboard page' do
     expect(page).to have_button("Discover Movies")
 
     click_on "Discover Movies"
-    
+
     expect(current_path).to eq("/discover")
+  end
+
+  it "I see a friends section" do
+    within '.friends' do
+      expect(page).to have_content('Friends')
+    end
   end
 end
