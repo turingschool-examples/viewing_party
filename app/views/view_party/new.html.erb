@@ -1,0 +1,11 @@
+<%= form_tag view_party_index_path do %>
+  <%= label_tag :duration, "Movie Time" %>
+  <%= text_field_tag :duration %>
+  <br>
+  <br>
+  <%= label_tag :date, "When" %>
+  <%= date_field_tag :date %>
+  <br>
+  <br>
+  <%= submit_tag "Create Party" %>
+<% end %>
