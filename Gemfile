@@ -23,6 +23,12 @@ gem 'figaro'
 group :development, :test do
   gem 'pry'
   gem 'travis'
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'simplecov'
+  gem 'shoulda-matchers'
+  gem "nyan-cat-formatter"
 end
 
 group :development do
