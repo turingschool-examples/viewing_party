@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   get '/', to: 'welcome#index'
   get '/auth/:provider/callback', to: 'sessions#omniauth'
 
+  get '/movies', to: 'movies#index'
+
   namespace :dashboard do
     get '/', to: 'users#show'
     get '/discover', to: 'discover#index'
-  end 
+  end
 end
