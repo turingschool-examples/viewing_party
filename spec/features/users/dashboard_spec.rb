@@ -9,4 +9,8 @@ RSpec.describe 'User dashboard page' do
   it "I see a welcome message" do
     expect(page).to have_content("Welcome (PLACEHOLDER)!")
   end
+
+  it "I see a button to Discover Movies" do
+    expect(page).to have_button("Discover Movies")
+  end
 end
