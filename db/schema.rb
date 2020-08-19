@@ -15,4 +15,52 @@ ActiveRecord::Schema.define(version: 0) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "friendships", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "friend_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["friend_id"], name: "index_friendships_on_friend_id"
+    t.index ["user_id"], name: "index_friendships_on_user_id"
+  end
+
+  create_table "movies", force: :cascade do |t|
+    t.string "name"
+    t.integer "duration"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "view_party_id"
+    t.index ["view_party_id"], name: "index_movies_on_view_party_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "user_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "view_parties", force: :cascade do |t|
+    t.integer "duration"
+    t.date "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "host_id"
+    t.index ["host_id"], name: "index_view_parties_on_host_id"
+  end
+
+  create_table "view_party_attendees", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "view_party_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_view_party_attendees_on_user_id"
+    t.index ["view_party_id"], name: "index_view_party_attendees_on_view_party_id"
+  end
+
+  add_foreign_key "friendships", "users"
+  add_foreign_key "movies", "view_parties"
+  add_foreign_key "view_party_attendees", "users"
+  add_foreign_key "view_party_attendees", "view_parties"
 end
