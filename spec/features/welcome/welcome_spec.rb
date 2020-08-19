@@ -14,7 +14,7 @@ RSpec.describe 'As any user' do
 
     it 'Shows a button to log in with google' do
 
-      expect(page).to have_button("Log In with Google")
+      expect(page).to have_link("Sign in with Google")
     end
   end
 end
