@@ -3,7 +3,6 @@
 
   <h4>Watch movies with your friends.</h4>
 
-  <%= link_to "Sign in with Google",
-    "https://accounts.google.com/o/oauth2/v2/auth?response_type=code&client_id=62868422183-mcitplkv4usrjks0t02h67q69oeh7hlu.apps.googleusercontent.com&redirect_uri=http://localhost:3000/auth/google_oauth2&scope=openid%20profile" %>
+  <%= link_to "Sign in with Google", "/auth/google_oauth2?client_id=#{ENV['GOOGLE_CLIENT_ID']}" %>
 
 </div>
