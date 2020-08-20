@@ -5,10 +5,12 @@ RSpec.describe 'User dashboard page' do
     OmniAuth.config.mock_auth[:google_oauth2]
     visit '/'
     click_on 'Login with Google'
+    @user = User.last
   end
 
   it "I see a welcome message" do
-    expect(page).to have_content("Welcome (PLACEHOLDER)!")
+    expect(current_path).to eq('/dashboard')
+    expect(page).to have_content("Welcome #{@user.name}!")
   end
 
   it "I see a button to Discover Movies" do

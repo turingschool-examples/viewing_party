@@ -3,10 +3,10 @@ class SessionsController < ApplicationController
     user = User.find_by(uid: user_data[:uid])
     if user.nil?
       User.create(user_data)
-      session[:user_id] = user_data[:uid]
+      session[:user_id] = User.find_by(uid: user_data[:uid]).id
       redirect_to '/dashboard'
     elsif user.uid == user_data[:uid]
-      session[:user_id] = user_data[:uid]
+      session[:user_id] = User.find_by(uid: user_data[:uid]).id
       redirect_to '/dashboard'
     end
   end
