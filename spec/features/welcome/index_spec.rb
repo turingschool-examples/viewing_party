@@ -9,7 +9,8 @@ RSpec.describe 'As a user' do
 
     it "I should see a button to Log In with Google" do
       visit root_path
-      expect(page).to have_link("Login")
+      expect(page).to have_link("Login with Google")
+      click_on "Login with Google"
     end
   end
 end
