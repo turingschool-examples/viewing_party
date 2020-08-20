@@ -1,1 +1,12 @@
-<h1>Movies</h1>
+<h1>40 Top Rated Movies of All Time</h1>
+
+
+<div class="blockbusters">
+<ol>
+  <% @movies.each do |movie| %>
+    <section class="movie">
+      <li>Title: <%= link_to movie.title, "/movies/#{movie.id}" %> Vote Average: <%= movie.vote_average %></li>
+    </section>
+  <% end %>
+</ol>
+</div> 
