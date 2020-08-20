@@ -8,4 +8,16 @@ class User < ApplicationRecord
   has_many :view_party_attendees, dependent: :destroy
   has_many :friends, through: :friendships
   has_many :friendships, dependent: :destroy
+
+  def self.update_or_create(user_data)
+    user = User.find_by(uid: user_data[:uid]) || User.new
+    user.attributes =
+      {
+        uid: user_data[:uid],
+        name: user_data[:name],
+        email: user_data[:email]
+      }
+    user.save!
+    user
+  end
 end

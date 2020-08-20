@@ -1,14 +1,8 @@
 class SessionsController < ApplicationController
   def create
-    user = User.find_by(uid: user_data[:uid])
-    if user.nil?
-      User.create(user_data)
-      session[:user_id] = User.find_by(uid: user_data[:uid]).id
-      redirect_to '/dashboard'
-    elsif user.uid == user_data[:uid]
-      session[:user_id] = User.find_by(uid: user_data[:uid]).id
-      redirect_to '/dashboard'
-    end
+    user = User.update_or_create(user_data)
+    session[:user_id] = user.id
+    redirect_to '/dashboard'
   end
 
   private
