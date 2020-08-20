@@ -12,7 +12,7 @@ RSpec.describe "As a registered user" do
     click_on "Find Top Rated Movies"
     expect(current_path).to eq('/movies')
     expect(page).to have_css(".blockbusters")
-    expect(page).to have_content("Title:", count: 40)
+    expect(page).to have_css(".title", count: 40)
     within(first(".movie")) do
       expect(page).to have_css(".title")
       title = find(".title").text
@@ -20,7 +20,6 @@ RSpec.describe "As a registered user" do
       expect(page).to have_css(".vote-average")
       vote_ave = find(".vote-average").text
       expect(vote_ave).not_to be_empty
-    save_and_open_page
     end
   end
 end
