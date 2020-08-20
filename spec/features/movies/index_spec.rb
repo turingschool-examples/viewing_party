@@ -15,10 +15,12 @@ RSpec.describe "As a registered user" do
     expect(page).to have_content("Title:", count: 40)
     within(first(".movie")) do
       expect(page).to have_css(".title")
-      within(".title") do
-        expect(page).to have_content("Title:")
-        expect(page).to have_content("Vote Average:")
-      end
+      title = find(".title").text
+      expect(title).not_to be_empty
+      expect(page).to have_css(".vote-average")
+      vote_ave = find(".vote-average").text
+      expect(vote_ave).not_to be_empty
+    save_and_open_page
     end
   end
 end
