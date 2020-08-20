@@ -6,7 +6,16 @@
 <br>
 <section class='friends'>
   <p>Friends</p>
+  <%= form_tag '/friendships', method: :post %>
+  <%= label_tag :friend_email, "Friend's Email" %>
+  <%= text_field_tag :friend_email %>
+  <%= submit_tag "Add Friend" %>
+  <%= render partial: '/partials/flash' %>
   <hr>
+  <%current_user.friends.each do |friend|%>
+    <%= friend.name %>
+  <% end %>
+
 </section>
 <br>
 <section class='viewing-parties'>
