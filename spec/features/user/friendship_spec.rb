@@ -32,6 +32,7 @@ RSpec.describe "As a registered user " do
       expect(current_path).to eq('/dashboard')
 
       within ".friends" do
+        expect(page).to have_content("You currently have no friends")
         fill_in "Email", with: 'janegreenecasa@gmail.com'
         click_button "Add Friend"
         expect(page).to have_content("Jane Greene")

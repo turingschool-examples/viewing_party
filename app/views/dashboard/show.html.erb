@@ -12,8 +12,12 @@
   <%= submit_tag "Add Friend" %>
   <%= render partial: '/partials/flash' %>
   <hr>
-  <%current_user.friends.each do |friend|%>
-    <%= friend.name %>
+  <% if current_user.friends.empty?  %>
+    <p>You currently have no friends</p>
+  <% else %>
+    <%current_user.friends.each do |friend|%>
+      <%= friend.name %>
+    <% end %>
   <% end %>
 
 </section>
