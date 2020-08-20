@@ -4,8 +4,10 @@ class SessionsController < ApplicationController
     if user.nil?
       User.create(user_data)
       session[:user_id] = user_data[:uid]
+      redirect_to '/dashboard'
     elsif user.uid == user_data[:uid]
       session[:user_id] = user_data[:uid]
+      redirect_to '/dashboard'
     end
   end
 

@@ -2,7 +2,9 @@ require 'rails_helper'
 
 RSpec.describe 'User dashboard page' do
   before :each do
-    visit '/dashboard'
+    OmniAuth.config.mock_auth[:google_oauth2]
+    visit '/'
+    click_on 'Login with Google'
   end
 
   it "I see a welcome message" do
