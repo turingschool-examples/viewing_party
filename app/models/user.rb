@@ -1,10 +1,11 @@
 class User < ApplicationRecord
-  validates_presence_of :name,
-                        :email,
-                        :uid
-  has_many :view_parties
+  validates :name, presence: true
+  validates :email, presence: true
+  validates :uid, presence: true
+
+  has_many :view_parties, dependent: :destroy_all
   has_many :view_parties, through: :view_party_attendees
-  has_many :view_party_attendees
+  has_many :view_party_attendees, dependent: :destroy_all
   has_many :friends, through: :friendships
-  has_many :friendships
+  has_many :friendships, dependent: :destroy_all
 end
