@@ -3,10 +3,10 @@
 
 <div class="blockbusters">
 <ol>
-  <% @movies.each do |movie| %>
+  <% @movies.each_with_index do |movie| %>
     <section class="movie">
-      <li>Title: <%= link_to movie.title, "/movies/#{movie.id}" %> Vote Average: <%= movie.vote_average %></li>
+      <li class="title">Title: <%= link_to movie.title, "/movies/#{movie.id}" %> Vote Average: <%= movie.vote_average %></li>
     </section>
   <% end %>
 </ol>
-</div> 
+</div>
