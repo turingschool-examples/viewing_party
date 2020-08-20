@@ -70,3 +70,7 @@ RSpec.configure do |config|
     end
   end
 end
+
+def stub_auth
+
+end
