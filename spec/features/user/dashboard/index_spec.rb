@@ -17,5 +17,25 @@ RSpec.describe 'As a verified user' do
       expect(page).to have_button("Discover Movies")
       expect(page).to have_css(".viewing_parties")
     end
+
+    it "on the dashboard I can add friends" do
+      within ".friends" do
+
+        page.find_field("email")
+        expect(page).to have_button "Add Friend"
+        expect(page).to have_content "You have no Friends"
+      end
+    end
+
+
+    it "can add a friend" do
+      user1 = User.create(name: "Bugs", email:"bugs_bunny@gmail.com")
+      user2 = User.create(name: "Lola", email:"lola_bunny@gmail.com")
+
+      fill_in('email', with: 'lola_bunny@gmail.com')
+      click_on("Add Friend")
+      expect(page).to have_content("lola_bunny@gmail.com")
+      expect(page).to_not have_content("You have no Friends")
+    end
   end
 end

@@ -6,7 +6,26 @@
 
 
 <section class="friends">
+  <div id="flash-alert">
+   <% if !!flash[:errors] %>
+     <% flash[:errors].each do |error| %>
+       <p><%= error %></p>
+     <% end %>
+   <% end %>
+ </div>
 <p>Friends:</p>
+<%= form_tag friendships_path, method: :post do %>
+  <%= label_tag :email %>
+  <%= text_field_tag :email %>
+  <%= submit_tag "Add Friend" %>
+<% end %>
+<% if @friends.empty? %>
+     <p>You have no Friends</p>
+<% else %>
+  <% @friends.each do |friend| %>
+    <%= friend.email %>
+  <% end %>
+<% end %>
 </section>
 
 
