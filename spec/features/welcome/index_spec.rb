@@ -9,7 +9,16 @@ RSpec.describe "Welcome path" do
   end
 
   it "has a button to login with google" do
+    OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new({
+      :provider => 'google_oauth2',
+      :uid => '123545',
+      :name => 'John Doe',
+      :email => 'johndoe@test.com'
+    })
     visit '/'
-    expect(page).to  have_button("Login with Google")
+    expect(page).to  have_link("Login with Google")
+    click_on "Login with Google"
+
+    expect(current_path).to  eq('/dashboard')
   end
 end
