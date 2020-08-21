@@ -10,5 +10,5 @@ deploy:
   provider: heroku
   api_key:
     secure: PB6VVtmRV7obi7wJFrVYOVMrsFZ9zYqEd/xkeXuxeBa+FaONKbXojFEw7mrMvBbsao9yox8x3r/QqM5f17tP5ySuTyv+H4L01LSonCWJ7CX3cBLgZdOwNEiwYXIIpt53QXj9fRI+qkVz438QOIsKjlPv2Zef7tryBkaBuG19RG2JEgXz0mvYXZL7NURAtnrXWZC6fmU4cd2vg6fjTWJI61AZ3Jpa8jjx/Fw2MHG5aNa+zDAClcRGcFB6W1keW26KI4KlxZSCsOgclHORxhPRbwBty7jHg+7/134PCXdNJxSt61XvYy9tX44kUktELBR2vh85TgV9eQzutKYwZI+d/nffKInSlUaJcFDwSGk6J5fkENb08DyUmluuWDPzwRF/vvQlBqfMspiOdh9MW14gHw2330BN8dY0pi+9pmyxjU/7QewIJKdPzD6YmMHfhRJplE4csV1vSlAmURKpHKx4hsJ0GjTyfnwumb8j8f7z7eTbP5IbAlFzxPFquZIoNGJ0JzG017j3iE863OsTX7qgy6oG0w0YuvniRejMLW3+//XReccaLJOT2BMRCvTj0Lb8sXSMmdWt2FcqdOyAUMQKHuDT3SMSSHH+N4sIC74XFiHByb5bElLtW6MguOIk2K8cB/IOkaz15j/GM3A8k4unFsswfCsQiD5WZyh0V8faBS0=
-  app: https://ps-jt-viewing-party.heroku.com/
+  app: ps-jt-viewing-party.heroku.com
   run: rails db:migrate
