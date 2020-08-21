@@ -1,7 +1,7 @@
 <h1>Welcome, <%= current_user.name %>!</h1>
 <br>
 <center>
-  <%= button_to 'Discover Movies' %>
+  <%= button_to 'Discover Movies', '/discover', method: :get %>
 </center>
 <br>
 <section class='friends'>
