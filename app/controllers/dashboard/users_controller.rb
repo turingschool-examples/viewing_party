@@ -1,5 +1,3 @@
 class Dashboard::UsersController < Dashboard::BaseController
-  def show
-    
-  end 
-end 
+  def show; end
+end
