@@ -1,5 +1,10 @@
 class User < ApplicationRecord
+  validates_presence_of :name
+  validates_presence_of :email
 
+  has_many :friendships, dependent: :destroy
+  has_many :friends, through: :friendships
+  
   def self.from_omniauth(auth)
     user = User.find_by(id: auth[:uid]) || User.new
     user.attributes = {

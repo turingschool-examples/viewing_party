@@ -2,4 +2,31 @@
   <h4>Welcome <%= @user.name %>!</h4>
 </div>
 <hr>
-<%= button_to "Discover Movies" %>
+<%= button_to "Discover Movies", "/movies", method: :get%>
+
+<div id="flash-alert">
+ <% if !!flash[:error] %>
+  <%= flash[:error]%>
+ <% end %>
+</div>
+
+<section class="friends">
+<p>Friends:</p>
+<%= form_tag friendships_path, method: :post do %>
+  <%= label_tag :email %>
+  <%= text_field_tag :email %>
+  <%= submit_tag "Add Friend" %>
+<% end %>
+<% if @friends.empty? %>
+     <p>You have no Friends</p>
+<% else %>
+  <% @friends.each do |friend| %>
+    <%= friend.email %>
+  <% end %>
+<% end %>
+</section>
+
+
+<section class="viewing_parties">
+
+</section>
