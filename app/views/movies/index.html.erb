@@ -1,0 +1,15 @@
+<h1>40 Top Rated Movies of All Time</h1>
+
+
+<table class="blockbusters">
+<tr>
+  <th>Title</th>
+  <th>Vote Average</th>
+</tr>
+  <% @movies.each_with_index do |movie| %>
+    <tr class="movie">
+      <td class="title"><%= link_to movie.title, "/movies/#{movie.id}" %></td>
+      <td class="vote-average">Vote Average: <%= movie.vote_average %></td>
+    </tr>
+  <% end %>
+</table>
