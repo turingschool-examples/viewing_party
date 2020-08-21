@@ -52,6 +52,8 @@ RSpec.describe MoviesService do
   
       expect(reviews).to be_an(Array)
       expect(reviews.first[:author]).to be_a(String)
+      author = reviews.first[:author]
+      expect(author).to_not be_empty
       expect(reviews.first[:content]).to be_a(String)
     end 
 
