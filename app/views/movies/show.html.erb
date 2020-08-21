@@ -1,0 +1,34 @@
+<h1><%= @movie.title %></h1>
+
+<div class="description">
+
+  <p>Description of film:<br><%= @movie.description %></p>
+</div>
+
+<div class="vote_average">
+  <p>Vote Average: <%= @movie.vote_average %></p>
+</div>
+
+<div class="runtime">
+  <p>Runtime: <%= @movie.runtime_formatted %></p>
+</div>
+
+<div class="genres">
+  <p>Genres: <%= @movie.genres %></p>
+</div>
+<ol>
+  <div class="cast">
+  <h3>List of cast members:</h3>
+    <% @movie.cast.each_with_index do |member, index| %>
+        <li><%= member %></li>
+    <% end %>
+  </div>
+</ol>
+
+<div class="reviews">
+  <h3><%= @reviews.length %> Reviews </h3>
+  <% @reviews.each do |review| %>
+    <li>Author: <%= review.author %></li><br>
+    <%= review.content %><br><br><br> 
+  <% end %>
+</div>

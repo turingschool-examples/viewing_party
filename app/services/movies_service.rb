@@ -11,6 +11,18 @@ class MoviesService
     @movies = acc.map{|info| MovieIndexObject.new(info)}
   end 
 
+  def film_info(id)
+    get_json("/3/movie/#{id}")
+  end
+
+  def cast(id)
+    get_json("/3/movie/#{id}/credits")[:cast]
+  end 
+  
+  def movie_reviews(id)
+    get_json("/3/movie/#{id}/reviews")[:results]
+  end 
+
   private
 
   def get_json(url)
