@@ -4,15 +4,13 @@
 <hr>
 <%= button_to "Discover Movies", "/movies", method: :get%>
 
+<div id="flash-alert">
+ <% if !!flash[:error] %>
+  <%= flash[:error]%>
+ <% end %>
+</div>
 
 <section class="friends">
-  <div id="flash-alert">
-   <% if !!flash[:errors] %>
-     <% flash[:errors].each do |error| %>
-       <p><%= error %></p>
-     <% end %>
-   <% end %>
- </div>
 <p>Friends:</p>
 <%= form_tag friendships_path, method: :post do %>
   <%= label_tag :email %>

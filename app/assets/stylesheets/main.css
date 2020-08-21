@@ -1,3 +1,8 @@
 .center {
   text-align: center;
 }
+
+#flash-alert {
+	color: red;
+	margin: 10px 0px 20px 0px;
+}
