@@ -15,7 +15,7 @@ RSpec.describe 'As an authenticated user' do
 
       click_button("Discover Movies")
 
-      expect(current_path).to eq("/movies")
+      expect(current_path).to eq("/discover")
     end
   end
 end

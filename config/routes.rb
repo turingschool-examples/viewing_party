@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   get '/dashboard', to: 'users#show'
 
-  get '/movies', to: 'movies#index'
+  get '/discover', to: 'movies#index'
 
   post '/friendships', to: 'friendships#create'
 end
