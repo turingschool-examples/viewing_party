@@ -3,8 +3,6 @@ class User < ApplicationRecord
   validates :uid, uniqueness: true, presence: true
   has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships
-  # has_many :inverse_friendships, class_name: 'Friendship', foreign_key: 'friend_id', dependent: :destroy
-  # has_many :inverse_friends, through: :inverse_friendships, source: :user
 
   def self.from_omniauth(params)
     user = find_or_create_by(uid: params[:uid])
