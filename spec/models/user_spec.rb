@@ -21,9 +21,9 @@ RSpec.describe User do
         info: {name: 'Joe', email: 'joe@me.com'},
         credentials: {token: 'access'}
       }
-
       user = User.from_omniauth(params)
       user_id = user.id
+
       expect(user).to eq(User.last)
       expect(user.uid).to eq('123')
       expect(user.name).to eq('Joe')
@@ -35,12 +35,10 @@ RSpec.describe User do
         info: {name: 'Bob', email: 'bob@me.com'},
         credentials: {token: 'more_access'}
       }
-
       user_2 = User.from_omniauth(params_2)
 
       expect(User.from_omniauth(params)).to eq(user)
       expect(User.from_omniauth(params).id).to eq(user_id)
-
       expect(User.last).to eq(user_2)
     end
   end

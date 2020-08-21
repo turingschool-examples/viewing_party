@@ -1,17 +1,15 @@
-<h1>Welcome, <%= current_user.name %>!</h1>
-<br>
 <center>
   <%= button_to 'Discover Movies', '/discover', method: :get %>
 </center>
 <br>
 <section class='friends'>
   <p>Friends</p>
-  <%= form_tag '/friendships', method: :post %>
-  <%= label_tag :friend_email, "Friend's Email" %>
-  <%= text_field_tag :friend_email %>
-  <%= submit_tag "Add Friend" %>
-  <%= render partial: '/partials/flash' %>
   <hr>
+  <%= form_tag '/friendships', method: :post %>
+    <%= label_tag :friend_email, 'Email' %>
+    <%= text_field_tag :friend_email, nil, placeholder: "Friend's Email" %>
+  <%= submit_tag 'Add Friend' %>
+  <%= render partial: '/partials/flash' %>
   <% if current_user.friends.empty?  %>
     <p>You currently have no friends</p>
   <% else %>
@@ -19,7 +17,6 @@
       <%= friend.name %>
     <% end %>
   <% end %>
-
 </section>
 <br>
 <section class='viewing-parties'>

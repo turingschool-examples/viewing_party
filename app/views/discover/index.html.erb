@@ -1,6 +1,9 @@
 <center>
   <%= button_to 'Find Top Rated Movies', '/movies', method: :get %>
+  <br>
+  <p style='font-size:20px;'>OR</p>
+  <br>
+  <%= form_tag '/movies', method: :get %>
+    <%= text_field_tag :keywords, nil, placeholder: 'Search by movie title' %>
+  <%= submit_tag "Find Movies" %>
 </center>
-<%= form_tag '/movies', method: :get %>
-<%= text_field_tag :keywords %>
-<%= submit_tag "Find Movies" %>
