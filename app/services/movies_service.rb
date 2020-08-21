@@ -1,15 +1,14 @@
-class MoviesService 
-
+class MoviesService
   def top40
     acc = []
     get_json('/3/movie/top_rated?page=1')[:results].each do |movie|
       acc << movie
-    end 
+    end
     get_json('/3/movie/top_rated?page=2')[:results].each do |movie|
       acc << movie
-    end 
-    @movies = acc.map{|info| MovieIndexObject.new(info)}
-  end 
+    end
+    @movies = acc.map { |info| MovieIndexObject.new(info) }
+  end
 
   def film_info(id)
     get_json("/3/movie/#{id}")
@@ -17,11 +16,11 @@ class MoviesService
 
   def cast(id)
     get_json("/3/movie/#{id}/credits")[:cast]
-  end 
-  
+  end
+
   def movie_reviews(id)
     get_json("/3/movie/#{id}/reviews")[:results]
-  end 
+  end
 
   private
 
@@ -31,9 +30,8 @@ class MoviesService
   end
 
   def conn
-    Faraday.new("https://api.themoviedb.org") do |faraday|
+    Faraday.new('https://api.themoviedb.org') do |faraday|
       faraday.params[:api_key] = ENV['MOVIES_API_KEY']
     end
   end
-end 
-#https://api.themoviedb.org/3/movie/top_rated?api_key=768c17292f63a7075f76e2c15d79d38f
+end

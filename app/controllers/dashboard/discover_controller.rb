@@ -1,6 +1,3 @@
 class Dashboard::DiscoverController < Dashboard::BaseController
-
-  def index
-  end 
-  
-end 
+  def index; end
+end

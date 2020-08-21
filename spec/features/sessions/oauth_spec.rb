@@ -27,5 +27,7 @@ RSpec.describe "user logs in", type: :feature do
     expect(page).to have_content("Log In with Google")
     click_on "Log In with Google"
     expect(current_path).to eq("/dashboard")
+    expect(page).to have_content("Welcome Phillip Strom to the Viewing Party!")
+    expect(page).to have_link("Discover Movies!")
   end
 end

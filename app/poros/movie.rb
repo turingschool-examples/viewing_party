@@ -1,4 +1,4 @@
-class Movie 
+class Movie
   attr_reader :id, :title, :description, :vote_average, :runtime, :genres, :cast
 
   def initialize(info, cast)
@@ -12,14 +12,14 @@ class Movie
   end
 
   def genres_formatting(genres)
-    genres.map{|genre| genre[:name]}.join(", ")
-  end 
+    genres.map { |genre| genre[:name] }.join(', ')
+  end
 
   def runtime_formatted
     "#{@runtime / 60}hr #{@runtime % 60}min"
-  end 
+  end
 
   def formatted_cast(cast)
-    cast.map{|member| "#{member[:name]} as #{member[:character]}"}[0..9]
-  end 
-end 
+    cast.map { |member| "#{member[:name]} as #{member[:character]}" }[0..9]
+  end
+end

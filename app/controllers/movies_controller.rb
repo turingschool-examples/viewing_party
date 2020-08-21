@@ -8,7 +8,7 @@ class MoviesController < ApplicationController
     cast = MoviesService.new.cast(params[:id])
     reviews_info = MoviesService.new.movie_reviews(params[:id])
 
-    @reviews = reviews_info.map{|review| FilmReview.new(review)}
+    @reviews = reviews_info.map { |review| FilmReview.new(review) }
     @movie = Movie.new(movie_details, cast)
-  end 
+  end
 end
