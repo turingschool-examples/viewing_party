@@ -30,5 +30,12 @@ RSpec.describe "As a registered user" do
 
       expect(current_path).to eq('/movies')
     end
+    it "has a friends section that is empty if no friendships" do
+      visit '/dashboard'
+
+      expect(page).to have_content("Friends")
+      expect(page).to have_content("You currently have no friends")
+      expect(page).to have_button("Add Friend")
+    end
   end
 end

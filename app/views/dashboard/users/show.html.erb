@@ -2,3 +2,21 @@
 
 
 <h3 align="center"> <%= link_to "Discover Movies!", "/dashboard/discover" %>
+
+<section class="friend-list">
+  <h3>Friends</h3>
+  <% if current_user.friends.empty? %>
+    <p>You currently have no friends</p>
+  <% else %>
+    <% current_user.friends.each do |friend| %>
+      <ul>
+        <li><%= friend.username %></li>
+      </ul>
+    <% end %>
+  <% end %>
+  <%= form_tag "/friendships", method: :post do %>
+    <%= label_tag :email %>
+    <%= text_field_tag :email, "Friend's Email" %>
+    <%= submit_tag "Add Friend" %>
+  <% end %>
+</section>
