@@ -12,6 +12,9 @@ class SessionsController < ApplicationController
 
   def oauth_user
     user_info = request.env['omniauth.auth']
+    if user_info.empty?
+      return User.new
+    end
     user = User.from_omniauth(user_info)
     user.google_token = user_info.credentials.token
     refresh_token = user_info.credentials.refresh_token

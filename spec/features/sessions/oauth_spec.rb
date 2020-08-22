@@ -30,4 +30,19 @@ RSpec.describe "user logs in", type: :feature do
     expect(page).to have_content("Welcome Phillip Strom to the Viewing Party!")
     expect(page).to have_link("Discover Movies!")
   end
+  scenario "using bad credentials" do
+    def stub_omniauth
+      # first, set OmniAuth to run in test mode
+      OmniAuth.config.test_mode = true
+      # then, provide a set of fake oauth data that
+      # omniauth will use when a user tries to authenticate:
+      OmniAuth.config.mock_auth[:default] = OmniAuth::AuthHash.new({})
+    end
+    stub_omniauth
+    visit "/"
+    expect(page).to have_content("Log In with Google")
+    click_on "Log In with Google"
+    expect(current_path).to eq("/")
+    expect(page).to have_content("Credentials don't work")
+  end
 end
