@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get '/', to: 'welcome#index'
   get '/auth/:provider/callback', to: 'sessions#omniauth'
   
+  post '/movies', to: 'movies#index'
   resources :movies, only:[:index, :show]
   #get '/movies', to: 'movies#index'
   #get '/movies', to: 'movies#show'

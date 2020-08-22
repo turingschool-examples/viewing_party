@@ -1,6 +1,11 @@
 class MoviesController < ApplicationController
   def index
-    @movies = MoviesService.new.top40
+    if params[:search] == "true"
+      keyword = params[:keyword]
+      @movies = MoviesService.new.search(keyword)
+    else
+      @movies = MoviesService.new.top40
+    end 
   end
 
   def show

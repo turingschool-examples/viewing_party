@@ -5,6 +5,7 @@ RSpec.describe "As a registered user" do
     @user = User.create!(username: "Quentin", email: "tarantino@gmail.com")
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
   end
+
   it "can see top 40 movies index" do
     visit '/dashboard'
     click_on 'Discover Movies!'
@@ -21,5 +22,15 @@ RSpec.describe "As a registered user" do
       vote_ave = find(".vote-average").text
       expect(vote_ave).not_to be_empty
     end
+  end
+
+  it "can show a list of movies related to a keyword search" do
+    visit '/dashboard/discover'
+    keyword = "Superman"
+    fill_in :keyword, with: keyword
+    click_on "Find Movies"
+   
+    expect(current_path).to eq('/movies')
+    expect(page).to have_content("Films related to #{keyword}")
   end
 end
