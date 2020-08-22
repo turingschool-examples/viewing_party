@@ -18,4 +18,14 @@ RSpec.describe 'As an authenticated user' do
       expect(current_path).to eq("/discover")
     end
   end
+
+  describe "On the discover page" do
+    it "should have a button to discover top movies and a search bar" do
+      visit "/discover"
+      save_and_open_page
+      expect(page).to have_button("Find Top Rated Movies")
+      expect(page).to have_field('Search by movie title')
+      expect(page).to have_button("Find Movies")
+    end
+  end
 end
