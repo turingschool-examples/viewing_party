@@ -21,19 +21,19 @@ class MoviesService
   def movie_reviews(id)
     get_json("/3/movie/#{id}/reviews")[:results]
   end
-  
+
   def search(keyword)
     acc = []
     get_json("/3/search/movie?query=#{keyword}&page=1")[:results].each do |movie|
       acc << movie
     end
-    if !get_json("/3/search/movie?query=#{keyword}&page=2")[:results].nil? 
+    unless get_json("/3/search/movie?query=#{keyword}&page=2")[:results].nil?
       get_json("/3/search/movie?query=#{keyword}&page=2")[:results].each do |movie|
         acc << movie
       end
     end
-    acc.map { |info| MovieIndexObject.new(info) } 
-  end 
+    acc.map { |info| MovieIndexObject.new(info) }
+  end
 
   private
 
