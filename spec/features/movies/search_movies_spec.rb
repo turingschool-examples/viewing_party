@@ -13,7 +13,7 @@ RSpec.describe 'As a user, I can input search terms for movies' do
 
     visit discover_path
 
-    fill_in :keywords, with: 'the river'
+    fill_in :search_terms, with: 'the river'
 
     click_button 'Find Movies'
 
