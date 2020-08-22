@@ -9,6 +9,15 @@ class Movie
     end
   end
 
+  def self.search(keywords)
+    movie_service = MovieService.new
+    movie_info = movie_service.search(keywords)
+
+    @movies = movie_info.map do |movie|
+      Movie.new(movie)
+    end
+  end
+
 
   attr_reader :original_title,
               :vote_average

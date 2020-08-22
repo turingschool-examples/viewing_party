@@ -1,9 +1,9 @@
 <section class="center">
-  <%= button_to "Find Top Rated Movies", movies_path, method: :get %>
+  <%= button_to "Find Top Rated Movies", movies_top_rated_path, method: :get %>
   <br>
   <p>OR</p>
   <br>
-  <%= form_tag(movies_path) do %>
+  <%= form_tag(movies_search_path) do %>
     <%= text_field_tag :find_movies, nil, placeholder: 'Search by movie title' %>
     <%= submit_tag 'Find Movies', class: 'submit' %>
   <% end %>
