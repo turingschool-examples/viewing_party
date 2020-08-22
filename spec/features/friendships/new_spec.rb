@@ -33,4 +33,23 @@ RSpec.describe "User Friendships" do
     expect(page).to have_content("You currently have no friends")
     expect(page).to have_content("User not found")
   end
+  it "can have many friends" do
+    visit '/dashboard'
+    expect(page).to have_content("You currently have no friends")
+
+    fill_in :email, with: @user2.email
+    click_on "Add Friend"
+
+    expect(current_path).to eq('/dashboard')
+
+    fill_in :email, with: @user3.email
+    click_on "Add Friend"
+
+    expect(page).to_not have_content("You currently have no friends")
+    expect(page).to have_content("You are now friends with #{@user3.username}")
+    within(".friend-list") do
+      expect(page).to have_content(@user2.username)
+      expect(page).to have_content(@user3.username)
+    end
+  end
 end
