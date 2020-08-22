@@ -1,8 +1,12 @@
-<h2>Top 40 Movies</h2>
+<% if controller.params[:search_terms] %>
+  <h2>Search Results</h2>
+<% else %>
+  <h2>Top 40 Movies</h2>
+<% end %>
 <section class='movies'>
   <% @movies.each do |movie| %>
     <p class='movie'>
-      <%= movie.title %>
+      <%= link_to movie.title, "/movies/#{movie.id}" %>
       Vote Average: <%= movie.vote_avg %>
     </p>
   <% end %>
