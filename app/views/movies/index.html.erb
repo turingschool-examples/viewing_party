@@ -1,3 +1,8 @@
+<%= button_to 'Find Top Rated Movies', '/movies', method: :get, params: {search: 'top_40'} %>
+<br>
+<%= form_tag '/movies', method: :get %>
+  <%= text_field_tag :search_terms, nil, placeholder: 'Search by movie title' %>
+<%= submit_tag "Find Movies" %>
 <% if controller.params[:search_terms] %>
   <h2>Search Results</h2>
 <% else %>
