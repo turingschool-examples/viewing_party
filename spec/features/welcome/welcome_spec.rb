@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe "as a user" do
-  it "I can visit welcome and see descrition" do
+RSpec.describe 'As a user,' do
+  it 'I can visit welcome and see descrition' do
     visit '/'
 
     expect(page).to have_content('Viewing Party App')

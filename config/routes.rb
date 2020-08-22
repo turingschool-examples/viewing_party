@@ -3,10 +3,11 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   get '/auth/google_oauth2/callback', to: 'sessions#create'
-  get '/auth/failure', to: redirect('/')
+  get '/auth/failure',                to: redirect('/')
+  get '/logout',                      to: 'sessions#destroy'
 
-  get '/dashboard', to: 'dashboard#show'
-  get '/logout', to: 'sessions#destroy'
+  get  '/dashboard',   to: 'dashboard#show'
   post '/friendships', to: 'friendships#create'
-  get '/discover', to: 'discover#index'
+  get  '/discover',    to: 'discover#index'
+  get  '/movies',      to: 'movies#index'
 end

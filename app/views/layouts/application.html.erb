@@ -10,6 +10,10 @@
 
   <body>
     <main>
+      <% if current_user %>
+        <p style='font-size:30px;'>Welcome, <%= current_user.name %>!</p>
+      <% end %>
+      <br>
       <%= yield %>
     </main>
     <footer>
