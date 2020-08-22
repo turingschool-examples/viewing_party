@@ -32,6 +32,8 @@ RSpec.describe 'As an authenticated user' do
       click_button "Find Top Rated Movies"
 
       expect(current_path).to eq('/movies/top_rated')
+      expect(page).to have_content("Title: Gabriel's Inferno Part II")
+      expect(page).to have_content("Average Rating: 9.1")
     end
   end
 end
