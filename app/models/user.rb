@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   validates :username, presence: true
   validates :email, uniqueness: true, presence: true
-  has_many :friendships
+  has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships
 
   def self.from_omniauth(user_info)
