@@ -11,5 +11,8 @@ Rails.application.routes.draw do
 
   post '/friendships', to: 'friendships#create'
 
-  get '/movies/top_rated', to: 'movies#top_rated', as: :movies 
+  get '/movies/top_rated', to: 'movies#top_rated'
+
+  post '/movies/search', to: 'movies#search'
+
 end

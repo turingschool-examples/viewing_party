@@ -35,5 +35,16 @@ RSpec.describe 'As an authenticated user' do
       expect(page).to have_content("Title: Gabriel's Inferno Part II")
       expect(page).to have_content("Average Rating: 9.1")
     end
+
+    it "can search for movie based on keywords" do
+      visit "/discover"
+
+      fill_in :find_movies, with: "kung fu"
+      click_on "Find Movies"
+
+      expect(current_path).to eq("/movies/search")
+      
+      expect(page).to have_content("Title: Kung Fu Panda")
+    end
   end
 end
