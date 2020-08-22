@@ -14,7 +14,7 @@
       </ul>
     <% end %>
   <% end %>
-  <%= form_tag "/friendships", method: :post do %>
+  <%= form_tag "/dashboard/friendships", method: :post do %>
     <%= label_tag :email %>
     <%= text_field_tag :email, "Friend's Email" %>
     <%= submit_tag "Add Friend" %>
