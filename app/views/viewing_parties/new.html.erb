@@ -1,0 +1,18 @@
+<div class="center">
+  <h4>Viewing Party Detais </h4><br>
+  <p>Movie Title: <%= @movie.original_title %> </p><br>
+  <%= form_tag("/viewing_party") do %>
+    <%= label_tag :duration_of_party %>
+    <%= number_field_tag :duration_of_party, nil, placeholder: "#{@movie.runtime}" %>minutes<br><br>
+    <label for="when">When:</label>
+    <input type="date" id="party_time" name="party_time"><br><br>
+    <p>Add Friends:</p>
+    <% @friends.each do |friend| %>
+    <div class=<%= "friend-#{friend.id}" %>>
+      <input type="checkbox" id=<%= "#{friend.id}" %> name=<%= "#{friend.name}" %>>
+      <label for=<%= "#{friend.email}" %>> <%= "#{friend.email}" %></label><br>
+    </div>
+    <% end %><br>
+    <%= submit_tag 'Create Party', class: 'submit' %>
+  <% end %>
+</div>
