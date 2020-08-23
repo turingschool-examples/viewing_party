@@ -1,34 +1,33 @@
 <section class='movie-info'>
-
   <section class = 'title'>
-    <%= @movie.title %>
+    <%= @movie.info.title %>
   </section>
   <section class = 'vote_average'>
-    <%= @movie.vote_avg %>
+    <%= @movie.info.vote_avg %>
   </section>
   <section class = 'runtime'>
-    <%= @movie.runtime %>
+    <%= @movie.info.runtime %>
   </section>
   <section class = 'genres'>
-    <% @movie.genres.each do |genre| %>
+    <% @movie.info.genres.each do |genre| %>
       <%= genre %>
     <% end %>
   </section>
   <section class = 'overview'>
-    <%= @movie.overview %>
+    <%= @movie.info.overview %>
   </section>
 </section>
 <section class = 'cast'>
-  <% @cast.members.each do |name, character| %>
+  <% @movie.cast.members.each do |name, character| %>
   <p class= 'member'>
       <%= name %> as <%= character %>
     </p>
     <% end %>
 </section>
 <section class = 'reviews'>
-  <% @review.reviews.each do |author, content| %>
-      <p>Author: <%= author %>
-      <%= content %>
+  <% @movie.reviews.each do |review| %>
+      <p>Author: <%= review.author %>
+      <%= review.content %>
       </p>
     <% end %>
 </section>
