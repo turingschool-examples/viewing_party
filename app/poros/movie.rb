@@ -30,12 +30,25 @@ class Movie
     cast[:cast].first(10)
   end
 
+  def self.reviews(id)
+    movie_service = MovieService.new
+    reviews = movie_service.reviews(id)
+    reviews_array = []
+    reviews[:results].each do |review|
+      new_array = []
+      new_array << review[:author]
+      new_array << review[:content]
+      reviews_array << new_array
+    end
+    reviews_array
+  end
 
   attr_reader :original_title,
               :vote_average,
               :id,
               :summary,
               :runtime
+
 
   def initialize(movie_info)
     @original_title = movie_info[:original_title]
@@ -53,5 +66,4 @@ class Movie
     end
     results.chomp(", ")
   end
-
 end

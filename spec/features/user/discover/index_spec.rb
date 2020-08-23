@@ -69,5 +69,14 @@ RSpec.describe 'As an authenticated user' do
       expect(page).to have_content("Romance")
       expect(page).to have_content("Melanie Zanetti as Julia Mitchell")
     end
+
+    it "shows a movies reviews" do
+      visit "/discover"
+      click_button "Find Top Rated Movies"
+
+      click_on("The Shawshank Redemption")
+
+      expect(page).to have_content("very good movie 9.5/1")
+    end
   end
 end
