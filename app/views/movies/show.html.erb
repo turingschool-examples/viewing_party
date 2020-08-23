@@ -1,16 +1,17 @@
+<%= button_to 'Create Viewing Party' %>
 <section class='movie-info'>
-  <section class = 'title'>
+  <section class='title'>
     <h1><%= @movie.info.title %></h1>
   </section>
-  <section class = 'vote_average'>
+  <section class='vote_average'>
     Vote Average: <%= @movie.info.vote_avg %>
   </section>
   <br>
-  <section class = 'runtime'>
+  <section class='runtime'>
     Runtime: <%= @movie.info.runtime / 60 %> hr <%= @movie.info.runtime % 60 %> mins
   </section>
   <br>
-  <section class = 'genres'>
+  <section class='genres'>
     Genre(s):<br>
     <% @movie.info.genres.each do |genre| %>
       <%= genre %><br>
