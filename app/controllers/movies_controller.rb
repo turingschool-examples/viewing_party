@@ -4,32 +4,10 @@ class MoviesController < ApplicationController
       @movies = MovieFacade.get_top_movies
     elsif params[:search_terms]
       keywords = params[:search_terms].gsub(' ', '+')
-      url = 'https://api.themoviedb.org'
-      connection = Faraday.new(url)
-
-      response_1 = connection.get('/3/search/movie') do |f|
-        f.headers['Content-Type'] = 'application/json'
-        f.params['api_key']       = ENV['TMDB_API_KEY']
-        f.params['query']         = keywords
-      end
-
-      response_2 = connection.get('/3/search/movie') do |f|
-        f.headers['Content-Type'] = 'application/json'
-        f.params['api_key']       = ENV['TMDB_API_KEY']
-        f.params['query']         = keywords
-        f.params['page']          = '2'
-      end
-
-      parsed_1 = JSON.parse(response_1.body, symbolize_names: true)
-      parsed_2 = JSON.parse(response_2.body, symbolize_names: true)
-
-      parsed_movies = parsed_1[:results] << parsed_2[:results]
-
-      @movies = parsed_movies.flatten.map do |movie_info|
-        Movie.new(movie_info)
-      end
+      @movies = MovieFacade.movies_from_search(keywords)
     end
   end
+
   def show
     id = params[:id]
     url = 'https://api.themoviedb.org'
