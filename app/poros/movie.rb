@@ -10,7 +10,7 @@ class Movie
     @id       = movie_info[:id]
     @title    = movie_info[:title]
     @genres   = get_genres(movie_info)
-    @runtime = movie_info[:runtime] if movie_info[:runtime]
+    @runtime  = movie_info[:runtime] if movie_info[:runtime]
     @vote_avg = movie_info[:vote_average].to_f
     @overview = movie_info[:overview]
   end

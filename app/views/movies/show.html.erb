@@ -1,34 +1,48 @@
+<%= button_to 'Create Viewing Party' %>
 <section class='movie-info'>
-
-  <section class = 'title'>
-    <%= @movie.title %>
+  <section class='title'>
+    <h1><%= @movie.info.title %></h1>
   </section>
-  <section class = 'vote_average'>
-    <%= @movie.vote_avg %>
+  <section class='vote_average'>
+    Vote Average: <%= @movie.info.vote_avg %>
   </section>
-  <section class = 'runtime'>
-    <%= @movie.runtime %>
+  <br>
+  <section class='runtime'>
+    Runtime: <%= @movie.info.runtime / 60 %> hr <%= @movie.info.runtime % 60 %> mins
   </section>
-  <section class = 'genres'>
-    <% @movie.genres.each do |genre| %>
-      <%= genre %>
+  <br>
+  <section class='genres'>
+    Genre(s):<br>
+    <% @movie.info.genres.each do |genre| %>
+      <%= genre %><br>
     <% end %>
   </section>
-  <section class = 'overview'>
-    <%= @movie.overview %>
+  <br>
+  <section class='overview'>
+    Summary:<br>
+    <%= @movie.info.overview %>
   </section>
 </section>
-<section class = 'cast'>
-  <% @cast.members.each do |name, character| %>
-  <p class= 'member'>
+
+<section class='cast'>
+  <h3>Cast:</h3>
+  <hr>
+  <% @movie.cast.members.each do |name, character| %>
+    <p class='member'>
       <%= name %> as <%= character %>
     </p>
-    <% end %>
+  <% end %>
 </section>
-<section class = 'reviews'>
-  <% @review.reviews.each do |author, content| %>
-      <p>Author: <%= author %>
-      <%= content %>
-      </p>
-    <% end %>
+
+<section class='reviews'>
+  <h3>Reviews:</h3>
+  <hr>
+  <% @movie.reviews.each do |review| %>
+    <p>
+      Author: <%= review.author %>
+      <br>
+      <br>
+      <%= review.content %>
+    </p>
+  <% end %>
 </section>

@@ -1,9 +1,8 @@
 class Review
-  attr_reader :reviews
+  attr_reader :author, :content
+
   def initialize(review_info)
-    @reviews = review_info.inject({}) do |acc, review|
-      acc[review[:author]] = review[:content]
-      acc
-    end
+    @author = review_info[:author]
+    @content = review_info[:content]
   end
 end
