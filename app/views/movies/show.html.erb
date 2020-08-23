@@ -19,10 +19,10 @@
 </section>
 <section class = 'cast'>
   <% @movie.cast.members.each do |name, character| %>
-  <p class= 'member'>
+    <p class= 'member'>
       <%= name %> as <%= character %>
     </p>
-    <% end %>
+  <% end %>
 </section>
 <section class = 'reviews'>
   <% @movie.reviews.each do |review| %>

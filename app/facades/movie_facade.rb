@@ -2,9 +2,9 @@ class MovieFacade
   attr_reader :info, :cast, :reviews
 
   def initialize(movie_id)
-    @movie_service ||= MovieService.new
-    @info    = movie_details(movie_id)
-    @cast    = cast_details(movie_id)
+    @movie_service = MovieService.new
+    @info = movie_details(movie_id)
+    @cast = cast_details(movie_id)
     @reviews = movie_reviews(movie_id)
   end
 
