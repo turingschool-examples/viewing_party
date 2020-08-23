@@ -10,15 +10,15 @@ RSpec.describe 'As a user, I can click a movie title' do
       visit root_path
       click_button 'Log In with Google'
 
-      visit movies_path(search: 'top_40')
+      visit movies_path(search_terms: 'godfather')
       first('.movie > a').click
-      # expect(current_path).to eq(???)
+      expect(current_path).to eq('/movies/238')
 
-      expect(page).to have_css('.movie_info')
-      movie_info = find('.movie_info').text
+      expect(page).to have_css('.movie-info')
+      movie_info = find('.movie-info').text
       expect(movie_info).not_to be_empty
 
-      within '.movie_info' do
+      within '.movie-info' do
         expect(page).to have_css('.title')
         title = find('.title').text
         expect(title).not_to be_empty
@@ -31,8 +31,8 @@ RSpec.describe 'As a user, I can click a movie title' do
         runtime = find('.runtime').text
         expect(runtime).not_to be_empty
 
-        expect(page).to have_css('.genre')
-        genre = find('.genre').text
+        expect(page).to have_css('.genres')
+        genre = find('.genres').text
         expect(genre).not_to be_empty
 
         expect(page).to have_css('.overview')
