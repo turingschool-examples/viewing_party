@@ -51,4 +51,20 @@ class MoviesController < ApplicationController
       end
     end
   end
+  def show
+    id = params[:id]
+    url = 'https://api.themoviedb.org'
+    connection = Faraday.new(url)
+
+    response = connection.get("/3/movie/#{id}") do |f|
+      f.headers['Content-Type'] = 'application/json'
+      f.params['api_key']       = ENV['TMDB_API_KEY']
+    end
+    parsed = JSON.parse(response.body, symbolize_names: true)
+    # require "pry"; binding.pry
+    @movie = Movie.new(parsed)
+
+
+
+  end
 end
