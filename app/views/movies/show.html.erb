@@ -1,33 +1,47 @@
 <section class='movie-info'>
   <section class = 'title'>
-    <%= @movie.info.title %>
+    <h1><%= @movie.info.title %></h1>
   </section>
   <section class = 'vote_average'>
-    <%= @movie.info.vote_avg %>
+    Vote Average: <%= @movie.info.vote_avg %>
   </section>
+  <br>
   <section class = 'runtime'>
-    <%= @movie.info.runtime %>
+    Runtime: <%= @movie.info.runtime / 60 %> hr <%= @movie.info.runtime % 60 %> mins
   </section>
+  <br>
   <section class = 'genres'>
+    Genre(s):<br>
     <% @movie.info.genres.each do |genre| %>
-      <%= genre %>
+      <%= genre %><br>
     <% end %>
   </section>
-  <section class = 'overview'>
+  <br>
+  <section class='overview'>
+    Summary:<br>
     <%= @movie.info.overview %>
   </section>
 </section>
-<section class = 'cast'>
+
+<section class='cast'>
+  <h3>Cast:</h3>
+  <hr>
   <% @movie.cast.members.each do |name, character| %>
-    <p class= 'member'>
+    <p class='member'>
       <%= name %> as <%= character %>
     </p>
   <% end %>
 </section>
-<section class = 'reviews'>
+
+<section class='reviews'>
+  <h3>Reviews:</h3>
+  <hr>
   <% @movie.reviews.each do |review| %>
-      <p>Author: <%= review.author %>
+    <p>
+      Author: <%= review.author %>
+      <br>
+      <br>
       <%= review.content %>
-      </p>
-    <% end %>
+    </p>
+  <% end %>
 </section>
