@@ -16,15 +16,26 @@ class MovieService
 
     page1 = JSON.parse(search1.body, symbolize_names: true)
     page2 = JSON.parse(search2.body, symbolize_names: true)
-    
+
     top_40 = (page1[:results] << page2[:results]).flatten!
     top_40
   end
+
+  def details(id)
+    movie =  conn.get("/3/movie/#{id}?api_key=#{ENV['MOVIE_DATA_BASE_API_KEY']}")
+    JSON.parse(movie.body, symbolize_names: true)
+  end
+
+  def cast(id)
+    movie_cast = conn.get("/3/movie/#{id}/credits?api_key=#{ENV['MOVIE_DATA_BASE_API_KEY']}")
+    JSON.parse(movie_cast.body, symbolize_names: true)
+  end
+
+
 
   private
 
   def conn
     Faraday.new(url: "https://api.themoviedb.org")
-    # "/76341?api_key=#{ENV['MOVIE_DATA_BASE_API_KEY']}"
   end
 end

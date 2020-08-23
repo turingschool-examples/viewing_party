@@ -10,5 +10,5 @@
 
 
 <% @movies.each do |movie| %>
-    <p>Title: <%= movie.original_title %> - Average Rating: <%= movie.vote_average %> </p>
+  <p>Title: <%= link_to movie.original_title, "/movies/#{movie.id}" %> - Average Rating: <%= movie.vote_average %> </p>
 <% end %>
