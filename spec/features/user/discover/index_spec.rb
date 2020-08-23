@@ -43,8 +43,40 @@ RSpec.describe 'As an authenticated user' do
       click_on "Find Movies"
 
       expect(current_path).to eq("/movies/search")
-      
+
       expect(page).to have_content("Title: Kung Fu Panda")
+    end
+
+    it "can click on a movie title and go to its show page" do
+      visit "/discover"
+      click_button "Find Top Rated Movies"
+
+      expect(page).to have_link("Gabriel's Inferno Part II")
+      click_on("Gabriel's Inferno Part II")
+
+      expect(current_path).to eq("/movies/724089")
+    end
+
+    it "shows a movies information" do
+      visit "/discover"
+      click_button "Find Top Rated Movies"
+
+      expect(page).to have_link("Gabriel's Inferno Part II")
+      click_on("Gabriel's Inferno Part II")
+
+      expect(page).to have_content("Gabriel's Inferno Part II")
+      expect(page).to have_content("Average Rating: 9.1")
+      expect(page).to have_content("Romance")
+      expect(page).to have_content("Melanie Zanetti as Julia Mitchell")
+    end
+
+    it "shows a movies reviews" do
+      visit "/discover"
+      click_button "Find Top Rated Movies"
+
+      click_on("The Shawshank Redemption")
+
+      expect(page).to have_content("very good movie 9.5/1")
     end
   end
 end

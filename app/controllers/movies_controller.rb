@@ -7,9 +7,15 @@ class MoviesController < ApplicationController
     @movies = Movie.get_movies
   end
 
+  def show
+    @movie = Movie.details(params[:id])
+    @cast = Movie.cast(params[:id])
+    @reviews = Movie.reviews(params[:id])
+  end
+
   private
 
   def movies_search_params
-    params.require(:movie).permit(:find_movies)
+    params.require(:movie).permit(:find_movies, :id)
   end
 end

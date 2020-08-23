@@ -15,4 +15,6 @@ Rails.application.routes.draw do
 
   post '/movies/search', to: 'movies#search'
 
+  get '/movies/:id', to: 'movies#show'
+
 end
