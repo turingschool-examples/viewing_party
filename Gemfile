@@ -19,6 +19,7 @@ gem 'omniauth-google-oauth2'
 gem 'figaro', '~> 1.2'
 gem 'json'
 gem 'faraday'
+gem 'google-api-client' 
 
 group :development, :test do
   gem 'pry'
