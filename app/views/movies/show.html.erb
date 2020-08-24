@@ -32,3 +32,8 @@
     <%= review.content %><br><br><br> 
   <% end %>
 </div>
+
+
+<div class="viewing-party">
+  <%= button_to "Create Viewing Party for #{@movie.title}", "/dashboard/viewing_parties/new?title=#{@movie.title}&runtime=#{@movie.runtime}", method: :post %>
+</div>
