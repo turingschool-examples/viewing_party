@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_20_191349) do
+ActiveRecord::Schema.define(version: 2020_08_24_230519) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,15 @@ ActiveRecord::Schema.define(version: 2020_08_20_191349) do
     t.index ["user_id"], name: "index_friendships_on_user_id"
   end
 
+  create_table "user_parties", force: :cascade do |t|
+    t.bigint "viewing_party_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_user_parties_on_user_id"
+    t.index ["viewing_party_id"], name: "index_user_parties_on_viewing_party_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -32,5 +41,19 @@ ActiveRecord::Schema.define(version: 2020_08_20_191349) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "viewing_parties", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "title"
+    t.integer "runtime"
+    t.string "poster"
+    t.string "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_viewing_parties_on_user_id"
+  end
+
   add_foreign_key "friendships", "users"
+  add_foreign_key "user_parties", "users"
+  add_foreign_key "user_parties", "viewing_parties"
+  add_foreign_key "viewing_parties", "users"
 end
