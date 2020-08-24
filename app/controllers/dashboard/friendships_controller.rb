@@ -5,6 +5,7 @@ class Dashboard::FriendshipsController < Dashboard::BaseController
       flash[:error] = 'User not found'
     else
       current_user.friends << friend
+      friend.friends << current_user
       flash[:success] = "You are now friends with #{friend.username}"
     end
     redirect_to '/dashboard'
