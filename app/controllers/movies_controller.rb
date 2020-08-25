@@ -1,8 +1,8 @@
 class MoviesController < ApplicationController
   def index
     if params[:search]
-      keyword = params[:keyword]
-      @movies = MoviesService.new.search(keyword)
+      @keyword = params[:keyword]
+      @movies = MoviesService.new.search(@keyword)
     else
       @movies = MoviesService.new.top40
     end

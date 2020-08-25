@@ -5,11 +5,11 @@ class Dashboard::ViewingPartiesController < Dashboard::BaseController
     title = params[:title]
     runtime = params[:runtime]
     @movie_details = ViewPartyMovie.new(title, runtime)
-  end 
+  end
 
   def create
     date = params['date']
-    
+
     binding.pry
-  end 
-end 
+  end
+end
