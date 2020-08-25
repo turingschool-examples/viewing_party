@@ -50,5 +50,15 @@ RSpec.describe 'As a user, when I visit a movie show page' do
       expect(page).to have_content('20:00')
       expect(page).to have_css("img[src*='https://image.tmdb.org/t/p/w185/iVZ3JAcAjmguGPnRNfWFOtLHOuY.jpg']")
     end
+    party = ViewParty.create(title: 'Jack Reacher', duration: 118, date: '2020-12-08', time: '21:00', poster: 'https://image.tmdb.org/t/p/w185/7baSUtFKi8PQ9SLo6ECYBfAW2K8.jpg', user_id: friend.id)
+    PartyGuest.create(view_party_id: party.id, user_id:user.id)
+
+    visit dashboard_path
+    within '.viewing-parties' do
+      expect(page).to have_content('Jack Reacher')
+      expect(page).to have_content('2020-12-08')
+      expect(page).to have_content('21:00')
+      expect(page).to have_css("img[src*='https://image.tmdb.org/t/p/w185/7baSUtFKi8PQ9SLo6ECYBfAW2K8.jpg']")
+    end
   end
 end
