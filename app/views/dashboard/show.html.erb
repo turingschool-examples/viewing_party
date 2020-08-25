@@ -33,7 +33,11 @@
 <% end %>
 <% if !current_user.party_guests.empty? %>
   <% current_user.party_guests.each do |party| %>
-    
+    <%= party.view_party.title %>
+    <%= party.view_party.date %>
+    <%= party.view_party.time %>
+    <%= image_tag party.view_party.poster %>
+  <% end %>
 <% end %>
   <hr>
 </section>
