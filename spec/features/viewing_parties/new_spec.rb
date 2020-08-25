@@ -35,11 +35,20 @@ RSpec.describe 'As a user, when I visit a movie show page' do
     new_party = ViewParty.last
     expect(new_party.title).to eq('The Godfather')
     expect(new_party.duration).to eq(180)
-    expect(new_party.poster).to eq('/iVZ3JAcAjmguGPnRNfWFOtLHOuY.jpg')
+    expect(new_party.poster).to eq('https://image.tmdb.org/t/p/w185/iVZ3JAcAjmguGPnRNfWFOtLHOuY.jpg')
     expect(new_party.date).to eq('2020-12-12')
     expect(new_party.time).to eq('20:00')
     guests = PartyGuest.last
     expect(guests.view_party_id).to eq(new_party.id)
     expect(guests.user_id).to eq(friend.id)
+
+    expect(current_path).to eq(dashboard_path)
+
+    within '.viewing-parties' do
+      expect(page).to have_content('The Godfather')
+      expect(page).to have_content('2020-12-12')
+      expect(page).to have_content('20:00')
+      expect(page).to have_css("img[src*='https://image.tmdb.org/t/p/w185/iVZ3JAcAjmguGPnRNfWFOtLHOuY.jpg']")
+    end
   end
 end

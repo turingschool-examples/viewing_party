@@ -21,5 +21,19 @@
 <br>
 <section class='viewing-parties'>
   <p>Viewing Parties</p>
+<% if !current_user.view_parties.empty? %>
+  <% current_user.view_parties.each do |party| %>
+  <div class="party-<%=party.id%>">
+    <%= party.title %>
+    <%= party.date %>
+    <%= party.time %>
+    <%= image_tag party.poster %>
+  </div>
+  <% end %>
+<% end %>
+<% if !current_user.party_guests.empty? %>
+  <% current_user.party_guests.each do |party| %>
+    
+<% end %>
   <hr>
 </section>
