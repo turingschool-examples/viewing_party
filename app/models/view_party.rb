@@ -1,8 +1,10 @@
-class ViewParty
-  attr_reader :movie_title, :date, :runtime
-  def initialize(info)
-    @movie_title = info[:title]
-    @date = info[:date]
-    @runtime = info[:runtime]
-  end
-end 
+class ViewParty < ApplicationRecord
+  validates_presence_of :movie_title,
+                        :date,
+                        :time,
+                        :runtime
+
+  has_many :user_view_parties
+  has_many :users, through: :user_view_parties
+
+end

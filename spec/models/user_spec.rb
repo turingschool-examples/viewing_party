@@ -9,6 +9,8 @@ RSpec.describe User, type: :model do
   describe "relationships" do
     it {should have_many :friendships}
     it {should have_many(:friends).through(:friendships)}
+    it {should have_many :user_view_parties}
+    it {should have_many(:view_parties).through(:user_view_parties)}
   end
 
   describe "class methods" do
