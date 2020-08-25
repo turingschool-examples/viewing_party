@@ -19,7 +19,7 @@
 <ol>
   <div class="cast">
   <h3>List of cast members:</h3>
-    <% @movie.cast.each_with_index do |member, index| %>
+    <% @movie.cast.each do |member| %>
         <li><%= member %></li>
     <% end %>
   </div>

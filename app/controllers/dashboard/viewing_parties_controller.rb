@@ -9,7 +9,10 @@ class Dashboard::ViewingPartiesController < Dashboard::BaseController
 
   def create
     date = params['date']
+    title = params['title']
+    runtime = params['runtime']
+    friends = User.where(id: params[:user][:friends])
 
-    binding.pry
+    @party = ViewParty.new({ date: date, title: title, runtime: runtime })
   end
 end
