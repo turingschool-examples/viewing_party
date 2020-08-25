@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ViewingParties do
+RSpec.describe ViewParty do
   describe 'validations' do
     it { should validate_presence_of :title }
     it { should validate_presence_of :duration }
@@ -10,5 +10,6 @@ RSpec.describe ViewingParties do
   end
   describe 'relationships' do
     it { should belong_to :user}
+    it { should have_many :party_guests}
   end
 end

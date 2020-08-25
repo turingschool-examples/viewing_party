@@ -19,7 +19,7 @@ RSpec.describe 'As a user, when I visit a movie show page' do
 
     click_button 'Create Viewing Party'
 
-    expect(current_path).to eq(new_viewing_party_path)
+    expect(current_path).to eq(new_view_party_path)
 
     expect(page).to have_content('The Godfather')
     expect(page).to have_content('Duration of Party')
@@ -32,13 +32,14 @@ RSpec.describe 'As a user, when I visit a movie show page' do
     fill_in :date, with: '2020-12-12'
     fill_in :time, with: '20:00'
     click_button 'Create Party'
-    new_party = ViewingParties.last
+    new_party = ViewParty.last
     expect(new_party.title).to eq('The Godfather')
-    expect(new_party.duration).to eq('180')
+    expect(new_party.duration).to eq(180)
     expect(new_party.poster).to eq('/iVZ3JAcAjmguGPnRNfWFOtLHOuY.jpg')
-    expect(new_party.date).to eq('2020-12-12/20:00')
-    guests = UserParty.last
-    expect(guests.viewing_party_id).to eq(new_party.id)
+    expect(new_party.date).to eq('2020-12-12')
+    expect(new_party.time).to eq('20:00')
+    guests = PartyGuest.last
+    expect(guests.view_party_id).to eq(new_party.id)
     expect(guests.user_id).to eq(friend.id)
   end
 end
