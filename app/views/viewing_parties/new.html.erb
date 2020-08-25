@@ -1,5 +1,5 @@
 <h1>Movie Title :<%= @movie.info.title %></h1>
-<%= form_tag viewing_parties_path(:title => @movie.info.title) %>
+<%= form_tag viewing_parties_path(:title => @movie.info.title, :poster => @movie.info.poster) %>
   <%= label_tag :duration, 'Duration of Party' %>
   <%= text_field_tag :duration, "#{@movie.info.runtime}" %>
   <br>
