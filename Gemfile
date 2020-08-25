@@ -19,6 +19,8 @@ gem 'omniauth'
 gem 'dotenv-rails'
 gem 'omniauth-google-oauth2'
 gem 'figaro'
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 group :development, :test do
   gem 'pry'

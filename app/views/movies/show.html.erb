@@ -19,7 +19,7 @@
 <ol>
   <div class="cast">
   <h3>List of cast members:</h3>
-    <% @movie.cast.each_with_index do |member, index| %>
+    <% @movie.cast.each do |member| %>
         <li><%= member %></li>
     <% end %>
   </div>
@@ -31,4 +31,9 @@
     <li>Author: <%= review.author %></li><br>
     <%= review.content %><br><br><br> 
   <% end %>
+</div>
+
+
+<div class="viewing-party">
+  <%= button_to "Create Viewing Party for #{@movie.title}", "/dashboard/viewing_parties/new?title=#{@movie.title}&runtime=#{@movie.runtime}", method: :post%>
 </div>
