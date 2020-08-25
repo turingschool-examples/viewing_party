@@ -40,7 +40,7 @@ RSpec.describe 'As a verified user' do
     it "should give an error message when adding a friend that does not exist" do
       fill_in('email', with: 'daffy_duck@gmail.com')
       click_on("Add Friend")
-      expect(page).to have_content("daffy_duck@gmail.com does not exist in our database")
+      expect(page).to have_content("I'm sorry, daffy_duck@gmail.com cannot be found.")
       expect(page).to have_content("You have no Friends")
     end
   end

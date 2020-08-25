@@ -25,7 +25,7 @@ RSpec.describe 'As an authenticated user' do
 
       click_on "Create Viewing Party for This Movie"
 
-      expect(current_path).to eq("/viewing_parties/278/new")
+      expect(current_path).to eq(parties_path)
     end
 
     it "shows information to create a new viewing party" do
@@ -33,9 +33,9 @@ RSpec.describe 'As an authenticated user' do
       click_button "Find Top Rated Movies"
 
       click_on("The Shawshank Redemption")
-
       click_on "Create Viewing Party for This Movie"
-      expect(page).to have_content("Movie Title: The Shawshank Redemption")
+
+      expect(page).to have_content("The Shawshank Redemption")
       expect(page).to have_field("Duration of party")
       expect(page).to have_content("When:")
       expect(page).to have_field("party_date")
@@ -71,9 +71,9 @@ RSpec.describe 'As an authenticated user' do
       click_button("Create Party")
       expect(current_path).to eq('/dashboard')
       within('.viewing_parties') do
-        expect(page).to have_content('Harry Potter and the Goblet of Fire')
-        expect(page).to have_content('August 28, 2020')
-        expect(page).to have_content('08:00 PM')
+        expect(page).to have_content('Movie Title: Harry Potter and the Goblet of Fire')
+        expect(page).to have_content('Party Date: 08/28/2020')
+        expect(page).to have_content('Party Time: 08:00 PM')
       end
     end
   end
