@@ -5,8 +5,10 @@
     <h3>Duration of party: </h3>
     <p><%= text_field_tag :time, @movie_details.runtime %></p>
     <h3>When:</h3>
-     <%= label_tag "date" %>
+     <%= label_tag "Date" %>
      <%= text_field_tag "date", Date.today, id: "viewing_party" %>
+     <%= label_tag "Start Time" %>
+     <%= time_field_tag :start_time, Time.now.strftime("%H:%M"), id: "viewing_party_time" %>
   </section>
   <%= submit_tag "Create Party!" %>
   <% end %>
