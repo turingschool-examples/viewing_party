@@ -6,8 +6,7 @@ class ViewingPartiesController < ApplicationController
   def create
     require "pry"; binding.pry
     #have
-    #current_user, duration, auth token, movie title, datetime(schema date string), friend_ids
-    #need
-    # poster
+    #current_user, poster, duration, auth token, movie title, datetime(schema date string), friend_ids
+    ViewingParties.new
   end
 end
