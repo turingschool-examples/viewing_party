@@ -14,7 +14,7 @@ class Movie
     @runtime  = movie_info[:runtime] if movie_info[:runtime]
     @vote_avg = movie_info[:vote_average].to_f
     @overview = movie_info[:overview]
-    @poster = movie_info[:poster_path]
+    @poster = "https://image.tmdb.org/t/p/w185#{movie_info[:poster_path]}"
   end
 
   def get_genres(movie_info)
