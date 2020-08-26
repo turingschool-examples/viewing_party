@@ -1,0 +1,17 @@
+<h1>Movie Title :<%= @movie.info.title %></h1>
+<%= form_tag view_parties_path(:title => @movie.info.title, :poster => @movie.info.poster) %>
+  <%= label_tag :duration, 'Duration of Party' %>
+  <%= text_field_tag :duration, "#{@movie.info.runtime}" %>
+  <br>
+  <%= label_tag :date, "When" %>
+  <br>
+  <%= date_field_tag :date %>
+  <%= time_field_tag :time %>
+  <br>
+  <p>Include</p>
+    <% if current_user.friends.empty? == false %>
+      <%= collection_check_boxes(:viewing_party, :friend_ids, current_user.friends, :id, :name) %>
+    <% else %>
+      <p>You must find some Friends for the party.</p>
+    <% end %>
+    <%= submit_tag "Create Party" %>

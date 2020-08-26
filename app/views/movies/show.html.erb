@@ -1,4 +1,4 @@
-<%= button_to 'Create Viewing Party' %>
+<%= button_to 'Create Viewing Party', new_view_party_path, method: :get, params: {movie_id: @movie.info.id} %>
 <section class='movie-info'>
   <section class='title'>
     <h1><%= @movie.info.title %></h1>
