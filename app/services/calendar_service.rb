@@ -2,7 +2,6 @@ class CalendarService
   def create_google_client(user)
     client = conn
     secrets = client_secrets(user)
-    require "pry"; binding.pry
     begin
       client.authorization = secrets.to_authorization
       client.authorization.grant_type = "refresh_token"
@@ -22,8 +21,10 @@ class CalendarService
   end
 
   def create_event(view_party, user)
-    attendee = {email: user.email}
-    require "pry"; binding.pry
+    attendee = [{email: user.email}]
+    # attendees = view_party.users.map do |friend|
+    #   {email: friend.email}
+    # end
     event = Google::Apis::CalendarV3::Event.new({
       summary: view_party[:movie_title],
       start: {
