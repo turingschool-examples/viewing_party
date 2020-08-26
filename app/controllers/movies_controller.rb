@@ -4,13 +4,15 @@ class MoviesController < ApplicationController
   end
 
   def top_rated
-    @movies = Movie.get_movies
+    @movies = Movie.movies
   end
 
   def show
     @movie = Movie.details(params[:id])
     @cast = Movie.cast(params[:id])
     @reviews = Movie.reviews(params[:id])
+    @trailer = Movie.videos(params[:id])
+    @recommended = Movie.recommended(params[:id])
   end
 
   private

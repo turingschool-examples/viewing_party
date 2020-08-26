@@ -9,5 +9,10 @@ script:
 deploy:
   provider: heroku
   api_key:
-  app:
+    secure: tI0/CsBtRIe+aV9lwmY+kvDM6WUtzanE9bfQszSbUFKP8Yg/7+imLN2hkJmUr9SFLcotXWoYq7kPBaaLxJMLV2H1FNZLvnOdwJuOIHvIt5xNAd4bCgyx8YU6bhnsXoAEVXTpLOQb/GzUvA8JWGF6Yrzw91dV05i5bR2ixqdZ2rDX4RopBIhCIJ/PmUch36vNRdSe9NPP9I453w2sUvUPoR+idj9Lbl9eHs+aaH+2Rc9pMcWe71VF/TXMsLj+Qtocl2C+z41alCmcGyDz8tCeMUukE2CsKyVRw9juZi5XpJm0Cjk5y9ql4JHft8Y6I73jC3OU3LVL0lEL7wzGZZAo0M3ov7eQvg+qNvXF1TN5afIypczymqT5FPUjK8V2tKAZCAbsVsxB7ysv8fvnBtmQpYH4fnTAE+dT4o3ef1L3A1Rdk/GS1SrwVyzryrW7z+UE5JZ9T237WIlJYo7ZeE59Vy9W9dogbJc26GrgNoS8nLa6Kqn7zNN1eLYEH8wMUtm+e9syHFXbWPTzmFJPrFYwhz+0oWxa4Nmg9v5T7/VnBIGDZTyMypWuNGrYx4K8mIO5stcOTOuS8716ZEkug5vuBv4MiQfy2iTdwY43AFPHhnIuQqMHxPgLSWFuYCENoVv5mQmKOTmTOmb5mcDTjF2MbB9FdNG8g+TL21lvFNrmTD4=
+  app: stark-oasis-05505
+  on:
+    repo: NickEdwin/viewing_party
+    branch: main
+  skip_cleanup: 'true'
   run: rails db:migrate

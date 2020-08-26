@@ -14,16 +14,26 @@
   <%= text_field_tag :email %>
   <%= submit_tag "Add Friend" %>
 <% end %>
+<hr>
 <% if @friends.empty? %>
      <p>You have no Friends</p>
 <% else %>
+<p>Current Friends:</p>
   <% @friends.each do |friend| %>
     <%= friend.email %>
   <% end %>
 <% end %>
 </section>
-
-
+<hr>
 <section class="viewing_parties">
-
+  <% if @parties.any? %>
+  <p>Upcoming Parties:</p>
+    <% @parties.each do |party| %>
+      <p>Movie Title: <%= party.title %></p>
+      <p>Party Time: <%= party.party_time %></p>
+      <p>Party Date: <%= party.party_date %></p>
+    <% end %>
+    <% else %>
+    <p>You have no upcoming parties.</p>
+  <% end %>
 </section>

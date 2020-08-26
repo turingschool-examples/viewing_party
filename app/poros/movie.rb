@@ -1,8 +1,7 @@
 class Movie
-
-  def self.get_movies
+  def self.movies
     movie_service = MovieService.new
-    movie_info = movie_service.get_top_rated
+    movie_info = movie_service.top_rated
 
     @movies = movie_info.map do |movie|
       Movie.new(movie)
@@ -21,7 +20,7 @@ class Movie
   def self.details(id)
     movie_service = MovieService.new
     movie_info = movie_service.details(id)
-    movie = Movie.new(movie_info)
+    Movie.new(movie_info)
   end
 
   def self.cast(id)
@@ -43,15 +42,33 @@ class Movie
     reviews_array
   end
 
+  def self.videos(id)
+    movie_service = MovieService.new
+    videos = movie_service.videos(id)
+    trailer = []
+    videos[:results].map do |result|
+      trailer << result if result[:name].include?('Trailer')
+    end
+    return trailer[0][:key] unless trailer.empty?
+  end
+
+  def self.recommended(id)
+    movie_service = MovieService.new
+    recommended = movie_service.recommended(id)
+
+    @recommended = recommended[:results].map do |movie|
+      Movie.new(movie)
+    end
+  end
+
   attr_reader :original_title,
               :vote_average,
               :id,
               :summary,
               :runtime
 
-
   def initialize(movie_info)
-    @original_title = movie_info[:original_title]
+    @original_title = movie_info[:title]
     @vote_average = movie_info[:vote_average]
     @id = movie_info[:id]
     @genres = movie_info[:genres]
@@ -60,10 +77,10 @@ class Movie
   end
 
   def genre_names
-    results = ""
+    results = ''
     @genres.map do |genre|
-      results << genre[:name] + ", "
+      results << genre[:name] + ', '
     end
-    results.chomp(", ")
+    results.chomp(', ')
   end
 end

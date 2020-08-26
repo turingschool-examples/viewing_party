@@ -1,0 +1,21 @@
+<div class="center">
+  <h4>Viewing Party Details </h4><br>
+  <p>Movie Title: <%= @movie.original_title %> </p><br>
+  <%= form_tag("/parties") do %>
+    <%= hidden_field_tag :title, @movie.original_title %>
+    <%= label_tag :duration_of_party %>
+    <%= number_field_tag :duration_of_party, "#{@movie.runtime}" %>minutes<br><br>
+    <label for="when">When:</label>
+    <input type="date" id="party_date" name="party_date"><br><br>
+    <label for="time">Time:</label>
+    <input type="time" id="party_time" name="party_time"><br><br>
+    <p>Add Friends:</p>
+    <% @friends.each do |friend| %>
+    <div class=<%= "friend-#{friend.id}" %>>
+      <input type="checkbox" id=<%= "#{friend.id}" %> name="friend_id[<%= "#{friend.name}"%>]" value=<%= "#{friend.id}" %>>
+      <label for=<%= "#{friend.email}" %>> <%= "#{friend.email}" %></label><br>
+    </div>
+    <% end %><br>
+    <%= submit_tag 'Create Party', class: 'submit' %>
+  <% end %>
+</div>
