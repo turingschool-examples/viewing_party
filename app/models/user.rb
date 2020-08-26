@@ -15,6 +15,7 @@ class User < ApplicationRecord
 
   def rsvp(party)
     user_view_party = self.user_view_parties.where(view_party_id: party.id).first
-    user_view_party.attending
+    user_view_party.attending = true
+    user_view_party.save
   end
 end

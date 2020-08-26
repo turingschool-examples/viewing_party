@@ -65,11 +65,12 @@ RSpec.describe "As a logged in user" do
       click_on "Create Party!"
 
       expect(current_path).to eq("/dashboard")
+      save_and_open_page
       within ".viewing-parties-list" do
         expect(page).to have_content(@movie.title)
         expect(page).to_not have_button("Add to Google Calendar")
       end
-
+      
       expect(@user.view_parties.length).to eq(1)
       expect(@user2.view_parties.length).to eq(1)
       expect(@user3.view_parties.length).to eq(0)

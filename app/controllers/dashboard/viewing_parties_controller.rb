@@ -12,6 +12,7 @@ class Dashboard::ViewingPartiesController < Dashboard::BaseController
   def create
     friends = User.where(id: params[:user][:friends])
     @party = current_user.view_parties.create(date: params[:date], time: params[:start_time], movie_title: params[:title], runtime: params[:runtime])
+    current_user.rsvp(@party)
     friends.each do |friend|
       @party.users << friend
     end
