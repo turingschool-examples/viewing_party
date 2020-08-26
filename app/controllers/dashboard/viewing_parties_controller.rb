@@ -58,20 +58,14 @@ class Dashboard::ViewingPartiesController < Dashboard::BaseController
   private
 
   def create_event(view_party)
-    # attendees = task[:members].split(',').map{ |t| {email: t.strip} }
     attendees = view_party.users.map do |friend|
       {email: friend.email}
     end
-    # require "pry"; binding.pry
     event = Google::Apis::CalendarV3::Event.new({
       summary: view_party[:movie_title],
-      # location: '800 Howard St., San Francisco, CA 94103',
-      # description: task[:description],
       start: {
         date_time: view_party.start_time,
         time_zone: "America/Denver"
-        # date_time: '2019-09-07T09:00:00-07:00',
-        # time_zone: 'America/Denver',
       },
       end: {
         date_time: view_party.end_time,
