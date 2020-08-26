@@ -30,9 +30,9 @@ RSpec.describe 'As a registered user,' do
         expect(page).to have_content('You currently have no friends')
         fill_in 'Email', with: user.email
         click_button 'Add Friend'
-        expect(page).to have_content('You have a new friend!')
         expect(page).to have_content("#{user.email}")
       end
+      expect(page).to have_content('You have a new friend!')
 
       within '.friends' do
         fill_in 'Email', with: 'junk@gmail.com'
@@ -42,5 +42,4 @@ RSpec.describe 'As a registered user,' do
       expect(page).to have_content('Sorry, your friend cannot be found.')
     end
   end
-
 end
