@@ -36,6 +36,16 @@ class MovieService
     JSON.parse(reviews.body, symbolize_names: true)
   end
 
+  def videos(id)
+    videos = conn.get("/3/movie/#{id}/videos?api_key=#{ENV['MOVIE_DATA_BASE_API_KEY']}&language=en-US")
+    JSON.parse(videos.body, symbolize_names: true)
+  end
+
+  def recommended(id)
+    recommended = conn.get("/3/movie/#{id}/recommendations?api_key=#{ENV['MOVIE_DATA_BASE_API_KEY']}&language=en-US&page=1")
+    JSON.parse(recommended.body, symbolize_names: true)
+  end
+
   private
 
   def conn

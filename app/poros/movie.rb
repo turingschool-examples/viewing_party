@@ -43,6 +43,30 @@ class Movie
     reviews_array
   end
 
+  def self.videos(id)
+    movie_service = MovieService.new
+    videos = movie_service.videos(id)
+    trailer = []
+    videos[:results].map do |result|
+      if result[:name].include?("Trailer")
+        trailer << result
+      end
+    end
+    if !trailer.empty?
+      trailer[0][:key]
+    end
+  end
+
+  def self.recommended(id)
+    movie_service = MovieService.new
+    recommended = movie_service.recommended(id)
+
+    @recommended = recommended[:results].map do |movie|
+      Movie.new(movie)
+    end
+  end
+
+
   attr_reader :original_title,
               :vote_average,
               :id,

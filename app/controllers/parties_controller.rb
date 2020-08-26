@@ -30,7 +30,7 @@ class PartiesController < ApplicationController
     client = calendar::CalendarService.new
     client.authorization = access_token
 
-    year, month, day = params[:party_date].split("-").map(&:to_i)
+    month, day, year = params[:party_date].split("/").map(&:to_i)
     hour, minute = params[:party_time].split(":").map(&:to_i)
     start = DateTime.new(year, month, day, hour, minute, 0, "-06:00")
     end_time = DateTime.new(year, month, day, hour + (params[:duration_of_party].to_i / 60), minute + (params[:duration_of_party].to_i % 60), 0, "-06:00")

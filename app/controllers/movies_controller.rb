@@ -11,6 +11,8 @@ class MoviesController < ApplicationController
     @movie = Movie.details(params[:id])
     @cast = Movie.cast(params[:id])
     @reviews = Movie.reviews(params[:id])
+    @trailer = Movie.videos(params[:id])
+    @recommended = Movie.recommended(params[:id])
   end
 
   private
