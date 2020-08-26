@@ -1,4 +1,6 @@
 require 'date'
+require 'google/apis/calendar_v3'
+require 'google/api_client/client_secrets.rb'
 
 class Dashboard::ViewingPartiesController < Dashboard::BaseController
   def new
@@ -24,10 +26,11 @@ class Dashboard::ViewingPartiesController < Dashboard::BaseController
   def create_google_client
     client = Google::Apis::CalendarV3::CalendarService.new
     # return unless (current_user.present? && current_user.access_token.present? && current_user.refresh_token.present?)
+    require "pry"; binding.pry
     secrets = Google::APIClient::ClientSecrets.new({
       "web" => {
-        "access_token" => current_user.access_token,
-        "refresh_token" => current_user.refresh_token,
+        "access_token" => current_user.google_token,
+        "refresh_token" => current_user.google_refresh_token,
         "client_id" => ENV["GOOGLE_API_KEY"],
         "client_secret" => ENV["GOOGLE_API_SECRET"]
       }
