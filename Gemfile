@@ -21,16 +21,12 @@ gem 'omniauth-google-oauth2'
 gem 'figaro'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+gem 'google-api-client', require: 'google/apis/calendar_v3'
 
 group :development, :test do
   gem 'pry'
   gem 'travis'
-  gem 'rspec-rails'
-  gem 'capybara'
-  gem 'launchy'
-  gem 'simplecov'
   gem 'shoulda-matchers'
-  gem "nyan-cat-formatter"
 end
 
 group :development do

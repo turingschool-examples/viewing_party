@@ -11,4 +11,16 @@ RSpec.describe ViewParty, type: :model do
     it {should have_many :user_view_parties}
     it {should have_many(:users).through(:user_view_parties)}
   end
+  describe 'instance methods' do
+    before :each do
+      @user = User.create!(username: "Quentin", email: "tarantino@gmail.com")
+      @party = @user.view_parties.create!(date: "2020-08-30", movie_title: "Speed", runtime: "90", time: "19:30")
+    end
+    it 'can create start_time' do
+      expect(@party.start_time).to eq("2020-08-30T")
+    end
+    it 'can create end_time' do
+
+    end
+  end
 end

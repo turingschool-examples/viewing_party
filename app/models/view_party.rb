@@ -7,4 +7,13 @@ class ViewParty < ApplicationRecord
   has_many :user_view_parties
   has_many :users, through: :user_view_parties
 
+  def start_time
+    
+  end
+
+
+  def end_time
+
+  end
+
 end
