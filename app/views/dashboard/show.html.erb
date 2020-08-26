@@ -26,7 +26,7 @@
   <p>Viewing Parties</p>
   <% if !current_user.view_parties.empty? %>
     <% current_user.view_parties.each do |party| %>
-      <div class="party">
+      <div class='party'>
         <%= party.title %>
         <br>
         <%= party.date %> at <%= party.time %>
@@ -41,7 +41,7 @@
   <br>
   <% if !current_user.party_guests.empty? %>
     <% current_user.party_guests.each do |party| %>
-      <div class="party"
+      <div class='party'>
       <%= button_to 'Add to Calendar', "/events?party_id=#{party.id}" %>
         <br>
         <%= party.view_party.title %>
