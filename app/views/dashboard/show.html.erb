@@ -14,7 +14,7 @@
     <p>You currently have no friends.</p>
   <% else %>
     <%current_user.friends.each do |friend|%>
-      <%= friend.name %>
+      <%= friend.email %>
     <% end %>
   <% end %>
 </section>
