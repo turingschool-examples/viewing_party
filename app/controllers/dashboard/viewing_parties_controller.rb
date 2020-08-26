@@ -17,8 +17,9 @@ class Dashboard::ViewingPartiesController < Dashboard::BaseController
       @party.users << friend
     end
     # add happy/sad paths
-    client = create_google_client
-    event = create_event(@party)
+    client = CalendarService.new.create_google_client(current_user)
+    event = CalendarService.new.create_event(@party, current_user)
+    require "pry"; binding.pry
     client.insert_event('primary', event)
     flash[:notice] = 'Party was successfully scheduled.'
     redirect_to '/dashboard'
@@ -55,38 +56,36 @@ class Dashboard::ViewingPartiesController < Dashboard::BaseController
     client
   end
 
-  private
-
-  def create_event(view_party)
-    attendees = view_party.users.map do |friend|
-      {email: friend.email}
-    end
-    event = Google::Apis::CalendarV3::Event.new({
-      summary: view_party[:movie_title],
-      start: {
-        date_time: view_party.start_time,
-        time_zone: "America/Denver"
-      },
-      end: {
-        date_time: view_party.end_time,
-        time_zone: "America/Denver"
-      },
-      attendees: attendees,
-      reminders: {
-        use_default: false,
-        overrides: [
-          Google::Apis::CalendarV3::EventReminder.new(reminder_method:"popup", minutes: 10),
-          Google::Apis::CalendarV3::EventReminder.new(reminder_method:"email", minutes: 20)
-        ]
-      },
-      notification_settings: {
-        notifications: [
-                        {type: 'event_creation', method: 'email'},
-                        {type: 'event_change', method: 'email'},
-                        {type: 'event_cancellation', method: 'email'},
-                        {type: 'event_response', method: 'email'}
-                       ]
-      }, 'primary': true
-    })
-  end
+  # private
+  #
+  # def create_event(view_party)
+  #   attendee = {email: current_user.email}
+  #   event = Google::Apis::CalendarV3::Event.new({
+  #     summary: view_party[:movie_title],
+  #     start: {
+  #       date_time: view_party.start_time,
+  #       time_zone: "America/Denver"
+  #     },
+  #     end: {
+  #       date_time: view_party.end_time,
+  #       time_zone: "America/Denver"
+  #     },
+  #     attendees: attendee,
+  #     reminders: {
+  #       use_default: false,
+  #       overrides: [
+  #         Google::Apis::CalendarV3::EventReminder.new(reminder_method:"popup", minutes: 10),
+  #         Google::Apis::CalendarV3::EventReminder.new(reminder_method:"email", minutes: 20)
+  #       ]
+  #     },
+  #     notification_settings: {
+  #       notifications: [
+  #                       {type: 'event_creation', method: 'email'},
+  #                       {type: 'event_change', method: 'email'},
+  #                       {type: 'event_cancellation', method: 'email'},
+  #                       {type: 'event_response', method: 'email'}
+  #                      ]
+  #     }, 'primary': true
+  #   })
+  # end
 end
