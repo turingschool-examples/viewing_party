@@ -54,6 +54,9 @@ RSpec.describe "As a logged in user" do
       expect(page).to have_button("Create Party!")
     end
     it "can create a party" do
+      json_response = File.read('spec/fixtures/calendar_event_success.json')
+      allow_any_instance_of(Google::Apis::CalendarV3::CalendarService).to receive(:insert_event).and_return(json_response)
+
       visit "/movies/#{@movie.id}"
       click_on "Create Viewing Party for #{@movie.title}"
       fill_in "date", with: "2020-08-28"

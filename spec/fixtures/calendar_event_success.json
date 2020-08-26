@@ -1,0 +1,44 @@
+Success - #<Google::Apis::CalendarV3::Event:0x00007fcc5f12dc10
+ @attendees=
+  [#<Google::Apis::CalendarV3::EventAttendee:0x00007fcc5f12c2c0
+    @email="phillip.strom@gmail.com",
+    @organizer=true,
+    @response_status="needsAction",
+    @self=true>],
+ @created=Wed, 26 Aug 2020 19:52:01 +0000,
+ @creator=
+  #<Google::Apis::CalendarV3::Event::Creator:0x00007fcc5e935710
+   @email="phillip.strom@gmail.com",
+   @self=true>,
+ @end=
+  #<Google::Apis::CalendarV3::EventDateTime:0x00007fcc5e934590
+   @date_time=Wed, 26 Aug 2020 16:12:00 -0600,
+   @time_zone="America/Denver">,
+ @etag="\"3196943043028000\"",
+ @html_link=
+  "https://www.google.com/calendar/event?eid=ZWxhYzYycWRyOWNpNzBybmRma3RhNjJjZmcgcGhpbGxpcC5zdHJvbUBt",
+ @i_cal_uid="elac62qdr9ci70rndfkta62cfg@google.com",
+ @id="elac62qdr9ci70rndfkta62cfg",
+ @kind="calendar#event",
+ @organizer=
+  #<Google::Apis::CalendarV3::Event::Organizer:0x00007fcc5e92d380
+   @email="phillip.strom@gmail.com",
+   @self=true>,
+ @reminders=
+  #<Google::Apis::CalendarV3::Event::Reminders:0x00007fcc691b7ac8
+   @overrides=
+    [#<Google::Apis::CalendarV3::EventReminder:0x00007fcc691b7348
+      @minutes=20,
+      @reminder_method="email">,
+     #<Google::Apis::CalendarV3::EventReminder:0x00007fcc691b6ab0
+      @minutes=10,
+      @reminder_method="popup">],
+   @use_default=false>,
+ @sequence=0,
+ @start=
+  #<Google::Apis::CalendarV3::EventDateTime:0x00007fcc691b5980
+   @date_time=Wed, 26 Aug 2020 13:50:00 -0600,
+   @time_zone="America/Denver">,
+ @status="confirmed",
+ @summary="The Shawshank Redemption",
+ @updated=Wed, 26 Aug 2020 19:52:01 +0000>
