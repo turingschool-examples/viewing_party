@@ -9,8 +9,8 @@ class FriendshipsController < ApplicationController
     redirect_to dashboard_path
   end
 
-  def destroy
-    Friendship.destroy_reciprocal_for_ids(current_user_id, params[:friend_id])
-    redirect_to(request.referer)
-  end
+  # def destroy
+  #   Friendship.destroy_reciprocal_for_ids(current_user_id, params[:friend_id])
+  #   redirect_to(request.referer)
+  # end
 end

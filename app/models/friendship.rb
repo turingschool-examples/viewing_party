@@ -8,10 +8,10 @@ class Friendship < ApplicationRecord
     [user_friendship, friend_friendship]
   end
 
-  def self.destroy_reciprocal_for_ids(user_id, friend_id)
-    friendship1 = Friendship.find_by(user_id: user_id, friend_id: friend_id)
-    friendship2 = Friendship.find_by(user_id: friend_id, friend_id: user_id)
-    friendship1.destroy
-    friendship2.destroy
-  end
+  # def self.destroy_reciprocal_for_ids(user_id, friend_id)
+  #   friendship1 = Friendship.find_by(user_id: user_id, friend_id: friend_id)
+  #   friendship2 = Friendship.find_by(user_id: friend_id, friend_id: user_id)
+  #   friendship1.destroy
+  #   friendship2.destroy
+  # end
 end
