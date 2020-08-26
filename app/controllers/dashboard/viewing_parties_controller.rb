@@ -26,7 +26,7 @@ class Dashboard::ViewingPartiesController < Dashboard::BaseController
   def create_google_client
     client = Google::Apis::CalendarV3::CalendarService.new
     # return unless (current_user.present? && current_user.access_token.present? && current_user.refresh_token.present?)
-    require "pry"; binding.pry
+    # require "pry"; binding.pry
     secrets = Google::APIClient::ClientSecrets.new({
       "web" => {
         "access_token" => current_user.google_token,
@@ -48,7 +48,7 @@ class Dashboard::ViewingPartiesController < Dashboard::BaseController
         )
       end
     rescue
-      flash[:error] = 'Your token has been expired. Please login again with google.'
+      flash[:error] = 'Your token has expired. Please login again with Google.'
       redirect_to '/'
     end
     client
@@ -61,6 +61,7 @@ class Dashboard::ViewingPartiesController < Dashboard::BaseController
     attendees = view_party.users.map do |friend|
       {email: friend.email}
     end
+    # require "pry"; binding.pry
     event = Google::Apis::CalendarV3::Event.new({
       summary: view_party[:movie_title],
       # location: '800 Howard St., San Francisco, CA 94103',

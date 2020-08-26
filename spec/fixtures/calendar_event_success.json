@@ -17,8 +17,8 @@ Success - #<Google::Apis::CalendarV3::Event:0x00007fcc5f12dc10
  @etag="\"3196943043028000\"",
  @html_link=
   "https://www.google.com/calendar/event?eid=ZWxhYzYycWRyOWNpNzBybmRma3RhNjJjZmcgcGhpbGxpcC5zdHJvbUBt",
- @i_cal_uid="elac62qdr9ci70rndfkta62cfg@google.com",
- @id="elac62qdr9ci70rndfkta62cfg",
+ @i_cal_uid="62qdr9ci70rndfkta62cfg@google.com",
+ @id="62qdr9ci70rndfkta62cfg",
  @kind="calendar#event",
  @organizer=
   #<Google::Apis::CalendarV3::Event::Organizer:0x00007fcc5e92d380
