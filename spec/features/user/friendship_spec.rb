@@ -31,7 +31,7 @@ RSpec.describe 'As a registered user,' do
         fill_in 'Email', with: user.email
         click_button 'Add Friend'
         expect(page).to have_content('You have a new friend!')
-        expect(page).to have_content("#{user.name}")
+        expect(page).to have_content("#{user.email}")
       end
 
       within '.friends' do

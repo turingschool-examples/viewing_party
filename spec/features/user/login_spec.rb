@@ -14,7 +14,7 @@ RSpec.describe 'As a visitor, when I visit the welcome page' do
     user = User.last
 
     expect(current_path).to eq('/dashboard')
-    expect(page).to have_content("Welcome, #{user.name}!")
+    expect(page).to have_content("Welcome, #{user.email}!")
   end
 
   it 'and provide incorrect login information, I am redirected to the welcome page' do
