@@ -1,10 +1,9 @@
 class FriendshipsController < ApplicationController
-
   def create
-    if User.where(email: params["email"]).first.nil?
-      flash[:error] = "I'm sorry, #{params["email"]} cannot be found."
+    if User.where(email: params['email']).first.nil?
+      flash[:error] = "I'm sorry, #{params['email']} cannot be found."
     else
-      friend = User.where(email: params["email"]).first
+      friend = User.where(email: params['email']).first
       @new_friendships = Friendship.create_reciprocal_for_ids(current_user.id, friend.id)
     end
     redirect_to dashboard_path

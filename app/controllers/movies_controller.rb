@@ -4,7 +4,7 @@ class MoviesController < ApplicationController
   end
 
   def top_rated
-    @movies = Movie.get_movies
+    @movies = Movie.movies
   end
 
   def show

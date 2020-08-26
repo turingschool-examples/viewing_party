@@ -1,13 +1,13 @@
 class MovieService
-  def get_top_rated
+  def top_rated
     top_rated1 = conn.get("/3/movie/top_rated?api_key=#{ENV['MOVIE_DATA_BASE_API_KEY']}&language=en-US&page=1")
     top_rated2 = conn.get("/3/movie/top_rated?api_key=#{ENV['MOVIE_DATA_BASE_API_KEY']}&language=en-US&page=2")
 
     page1 = JSON.parse(top_rated1.body, symbolize_names: true)
     page2 = JSON.parse(top_rated2.body, symbolize_names: true)
 
-    top_40 = (page1[:results] << page2[:results]).flatten!
-    top_40
+    top40 = (page1[:results] << page2[:results]).flatten!
+    top40
   end
 
   def search(keywords)
@@ -17,12 +17,12 @@ class MovieService
     page1 = JSON.parse(search1.body, symbolize_names: true)
     page2 = JSON.parse(search2.body, symbolize_names: true)
 
-    top_40 = (page1[:results] << page2[:results]).flatten!
-    top_40
+    top40 = (page1[:results] << page2[:results]).flatten!
+    top40
   end
 
   def details(id)
-    movie =  conn.get("/3/movie/#{id}?api_key=#{ENV['MOVIE_DATA_BASE_API_KEY']}")
+    movie = conn.get("/3/movie/#{id}?api_key=#{ENV['MOVIE_DATA_BASE_API_KEY']}")
     JSON.parse(movie.body, symbolize_names: true)
   end
 
@@ -42,13 +42,13 @@ class MovieService
   end
 
   def recommended(id)
-    recommended = conn.get("/3/movie/#{id}/recommendations?api_key=#{ENV['MOVIE_DATA_BASE_API_KEY']}&language=en-US&page=1")
+    recommended = conn.get("/3/movie/#{id}/recommendations?api_key=#{ENV['MOVIE_DATA_BASE_API_KEY']}&language=en-US")
     JSON.parse(recommended.body, symbolize_names: true)
   end
 
   private
 
   def conn
-    Faraday.new(url: "https://api.themoviedb.org")
+    Faraday.new(url: 'https://api.themoviedb.org')
   end
 end

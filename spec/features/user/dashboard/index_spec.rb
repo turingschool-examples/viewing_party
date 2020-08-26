@@ -14,7 +14,7 @@ RSpec.describe 'As a verified user' do
     it 'see\s a dashboard that welcomes me' do
 
       expect(current_path).to eq("/dashboard")
-      expect(page).to have_content("Welcome Tony Stark!")
+      expect(page).to have_content("Welcome tony@stark.com!")
       expect(page).to have_css ".friends"
       expect(page).to have_button("Discover Movies")
       expect(page).to have_css(".viewing_parties")
