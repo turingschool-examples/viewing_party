@@ -10,15 +10,15 @@ RSpec.describe Friendship do
     before :each do
       params = {
         uid: '123',
-        info: {name: 'Joe', email: 'joe@me.com'},
-        credentials: {token: 'access'}
+        info: {email: 'joe@me.com'},
+        credentials: {token: 'access', refresh_token: '34ilkaf'}
       }
       @user = User.from_omniauth(params)
 
       params_2 = {
         uid: '456',
-        info: {name: 'Bob', email: 'bob@me.com'},
-        credentials: {token: 'more_access'}
+        info: {email: 'bob@me.com'},
+        credentials: {token: 'more_access', refresh_token: '2394810'}
       }
       @user_2 = User.from_omniauth(params_2)
     end

@@ -22,5 +22,5 @@
 # Ignore application configuration
 /config/application.yml
 
-# Ignore Google Calendar API credentials
-credentials.json
+# Ignore Google Calendar API client_secret
+client_secret_47075019486-tsis1746n6vcst052klpc97gv90l97e6.apps.googleusercontent.com.json

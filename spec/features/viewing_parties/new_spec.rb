@@ -9,7 +9,7 @@ RSpec.describe 'As a user, when I visit a movie show page' do
     visit root_path
     click_button 'Log In with Google'
     user = User.last
-    friend = User.create(uid: '999999', access_token: 'shdfjsadhflsjdhf', name: 'Jane Greene', email: 'jane@email.com')
+    friend = User.create(uid: '999999', access_token: 'shdfjsadhflsjdhf', email: 'jane@email.com', refresh_token: '2394809348')
     Friendship.create(user_id: user.id, friend_id: friend.id)
     Friendship.create(user_id: friend.id, friend_id: user.id)
 
@@ -27,8 +27,8 @@ RSpec.describe 'As a user, when I visit a movie show page' do
     expect(find_field(:duration).value).to eq('175')
     fill_in :duration, with: '180'
 
-    expect(page).to have_content(friend.name)
-    check('Jane Greene')
+    expect(page).to have_content(friend.email)
+    check('jane@email.com')
     fill_in :date, with: '2020-12-12'
     fill_in :time, with: '20:00'
     click_button 'Create Party'
@@ -51,7 +51,7 @@ RSpec.describe 'As a user, when I visit a movie show page' do
       expect(page).to have_css("img[src*='https://image.tmdb.org/t/p/w185/iVZ3JAcAjmguGPnRNfWFOtLHOuY.jpg']")
     end
     party = ViewParty.create(title: 'Jack Reacher', duration: 118, date: '2020-12-08', time: '21:00', poster: 'https://image.tmdb.org/t/p/w185/7baSUtFKi8PQ9SLo6ECYBfAW2K8.jpg', user_id: friend.id)
-    PartyGuest.create(view_party_id: party.id, user_id:user.id)
+    PartyGuest.create(view_party_id: party.id, user_id: user.id)
 
     visit dashboard_path
     within '.viewing-parties' do
@@ -59,6 +59,10 @@ RSpec.describe 'As a user, when I visit a movie show page' do
       expect(page).to have_content('2020-12-08')
       expect(page).to have_content('21:00')
       expect(page).to have_css("img[src*='https://image.tmdb.org/t/p/w185/7baSUtFKi8PQ9SLo6ECYBfAW2K8.jpg']")
+      expect(page).to have_button('Add to Calendar')
     end
+
+    allow_any_instance_of(GoogleCalendarService).to receive(:add_to_calendar).and_return('confirmed')
+    allow_any_instance_of(EventsController).to receive(:create).and_return('Event added to your Google Calendar!')
   end
 end
