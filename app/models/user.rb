@@ -12,4 +12,9 @@ class User < ApplicationRecord
       user.email = user_info.info.email
     end
   end
+
+  def rsvp(party)
+    user_view_party = self.user_view_parties.where(view_party_id: party.id).first
+    user_view_party.attending
+  end
 end
