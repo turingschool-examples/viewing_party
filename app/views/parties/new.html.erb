@@ -12,7 +12,7 @@
     <p>Add Friends:</p>
     <% @friends.each do |friend| %>
     <div class=<%= "friend-#{friend.id}" %>>
-      <input type="checkbox" id=<%= "#{friend.id}" %> name="friend_id[<%= "#{friend.name}"%>]" value=<%= "#{friend.id}" %>>
+      <input type="checkbox" id=<%= "#{friend.id}" %> name="friend_id[<%= "#{friend.email}"%>]" value=<%= "#{friend.id}" %>>
       <label for=<%= "#{friend.email}" %>> <%= "#{friend.email}" %></label><br>
     </div>
     <% end %><br>
