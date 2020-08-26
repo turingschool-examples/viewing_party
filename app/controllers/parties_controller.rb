@@ -1,3 +1,4 @@
+require 'google/api_client/client_secrets.rb'
 require 'google/apis/calendar_v3'
 
 class PartiesController < ApplicationController
@@ -20,5 +21,58 @@ class PartiesController < ApplicationController
       flash[:success] = "Your party for #{params[:title]} on #{params[:party_date]} at #{params[:party_time]} was created"
       redirect_to dashboard_path
     end
+    post_to_calendar
+  end
+
+  def post_to_calendar
+    access_token = AccessToken.new current_user.token
+    calendar = Google::Apis::CalendarV3
+    client = calendar::CalendarService.new
+    client.authorization = access_token
+
+    year, month, day = params[:party_date].split("-").map(&:to_i)
+    hour, minute = params[:party_time].split(":").map(&:to_i)
+    start = DateTime.new(year, month, day, hour, minute, 0, "-06:00")
+    end_time = DateTime.new(year, month, day, hour + (params[:duration_of_party].to_i / 60), minute + (params[:duration_of_party].to_i % 60), 0, "-06:00")
+
+    event = Google::Apis::CalendarV3::Event.new(
+    summary: 'Viewing Party With Friends',
+    location: 'Internet',
+    description: "#{params[:title]}",
+    start: Google::Apis::CalendarV3::EventDateTime.new(
+      date_time: start,
+      time_zone: 'America/Denver'
+    ),
+    end: Google::Apis::CalendarV3::EventDateTime.new(
+      date_time: end_time,
+      time_zone: 'America/Denver'
+    )
+  )
+    client.insert_event('primary', event)
+  end
+
+  private
+
+  def google_secret
+    Google::APIClient::ClientSecrets.new(
+      { "web" =>
+        { "access_token" => current_user.token,
+          "refresh_token" => current_user.refresh_token,
+          "client_id" => Rails.application.secrets.google_client_id,
+          "client_secret" => Rails.application.secrets.google_client_secret,
+        }
+      }
+    )
+  end
+end
+
+class AccessToken
+  attr_reader :token
+  def initialize(token)
+    @token = token
+  end
+
+  def apply!(headers)
+    headers['Authorization'] = "Bearer #{@token}"
   end
 end

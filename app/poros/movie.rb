@@ -51,7 +51,7 @@ class Movie
 
 
   def initialize(movie_info)
-    @original_title = movie_info[:original_title]
+    @original_title = movie_info[:title]
     @vote_average = movie_info[:vote_average]
     @id = movie_info[:id]
     @genres = movie_info[:genres]
