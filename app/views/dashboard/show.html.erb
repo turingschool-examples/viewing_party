@@ -5,17 +5,19 @@
 <section class='friends'>
   <p>Friends</p>
   <hr>
+  <% if current_user.friends.empty?  %>
+  <p>You currently have no friends.</p>
+  <% else %>
+  <%current_user.friends.each do |friend|%>
+  <%= friend.email %>
+  <% end %>
+  <br>
+  <br>
   <%= form_tag '/friendships', method: :post %>
     <%= label_tag :friend_email, 'Email' %>
     <%= text_field_tag :friend_email, nil, placeholder: "Friend's Email" %>
   <%= submit_tag 'Add Friend' %>
   <%= render partial: '/partials/flash' %>
-  <% if current_user.friends.empty?  %>
-    <p>You currently have no friends.</p>
-  <% else %>
-    <%current_user.friends.each do |friend|%>
-      <%= friend.email %>
-    <% end %>
   <% end %>
 </section>
 <br>
