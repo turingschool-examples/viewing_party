@@ -1,23 +1,24 @@
 <center>
   <%= button_to 'Discover Movies', '/discover', method: :get %>
 </center>
+<%= render partial: '/partials/flash' %>
 <br>
 <section class='friends'>
   <p>Friends</p>
   <hr>
   <% if current_user.friends.empty?  %>
-  <p>You currently have no friends.</p>
+    <p>You currently have no friends.</p>
   <% else %>
-  <%current_user.friends.each do |friend|%>
-  <%= friend.email %>
+    <%current_user.friends.each do |friend|%>
+      <%= friend.email %>
+      <br>
+    <% end %>
   <% end %>
   <br>
-  <br>
-  <%= form_tag '/friendships', method: :post %>
+  <%= form_tag '/friendships', method: :post do %>
     <%= label_tag :friend_email, 'Email' %>
     <%= text_field_tag :friend_email, nil, placeholder: "Friend's Email" %>
-  <%= submit_tag 'Add Friend' %>
-  <%= render partial: '/partials/flash' %>
+    <%= submit_tag 'Add Friend' %>
   <% end %>
 </section>
 <br>
@@ -25,21 +26,33 @@
   <p>Viewing Parties</p>
   <% if !current_user.view_parties.empty? %>
     <% current_user.view_parties.each do |party| %>
-      <div class="party-<%=party.id%>">
+      <div class="party">
         <%= party.title %>
-        <%= party.date %>
-        <%= party.time %>
+        <br>
+        <%= party.date %> at <%= party.time %>
+        <br>
+        <br>
         <%= image_tag party.poster %>
+        <br>
+        <br>
       </div>
     <% end %>
   <% end %>
+  <br>
   <% if !current_user.party_guests.empty? %>
     <% current_user.party_guests.each do |party| %>
-      <%= party.view_party.title %>
-      <%= party.view_party.date %>
-      <%= party.view_party.time %>
-      <%= image_tag party.view_party.poster %>
+      <div class="party"
+      <%= button_to 'Add to Calendar', "/events?party_id=#{party.id}" %>
+        <br>
+        <%= party.view_party.title %>
+        <br>
+        <%= party.view_party.date %> at <%= party.view_party.time %>
+        <br>
+        <br>
+        <%= image_tag party.view_party.poster %>
+      </div>
     <% end %>
   <% end %>
+  <br>
   <hr>
 </section>
