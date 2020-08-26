@@ -27,7 +27,7 @@ class PartiesController < ApplicationController
     client = calendar::CalendarService.new
     client.authorization = access_token
 
-    month, day, year = params[:party_date].split('/').map(&:to_i)
+    year, month, day = params[:party_date].split('-').map(&:to_i)
     hour, minute = params[:party_time].split(':').map(&:to_i)
     party_duration = params[:duration_of_party].to_i
     start = DateTime.new(year, month, day, hour, minute, 0, '-06:00')

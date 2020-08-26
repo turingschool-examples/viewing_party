@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  validates :email, presence: 'value'
+  validates_presence_of :email
 
   has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships

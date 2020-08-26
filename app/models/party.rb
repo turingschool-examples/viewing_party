@@ -1,8 +1,8 @@
 class Party < ApplicationRecord
-  validates :title, presence: 'value'
-  validates :party_date, presence: 'value'
-  validates :party_time, presence: 'value'
-  validates :attendees, presence: 'value'
+  validates_presence_of :title
+  validates_presence_of :party_date
+  validates_presence_of :party_time
+  validates_presence_of :attendees
 
   belongs_to :user
 end
