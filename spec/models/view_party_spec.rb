@@ -17,10 +17,12 @@ RSpec.describe ViewParty, type: :model do
       @party = @user.view_parties.create!(date: "2020-08-30", movie_title: "Speed", runtime: "90", time: "19:30")
     end
     it 'can create start_time' do
-      expect(@party.start_time).to eq("2020-08-30T")
+      expect(@party.start_time).to eq("2020-08-30T19:30:00-06:00")
     end
     it 'can create end_time' do
-
+      expect(@party.end_time).to eq("2020-08-30T21:00:00-06:00")
+      @party.runtime = 300
+      expect(@party.end_time).to eq("2020-08-31T00:30:00-06:00")
     end
   end
 end
