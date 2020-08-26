@@ -28,7 +28,7 @@ RSpec.describe 'As a user, when I visit a movie show page' do
     fill_in :duration, with: '180'
 
     expect(page).to have_content(friend.email)
-    check('janegreenecasa@gmail.com')
+    check('jane@email.com')
     fill_in :date, with: '2020-12-12'
     fill_in :time, with: '20:00'
     click_button 'Create Party'
