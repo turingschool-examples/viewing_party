@@ -5,7 +5,7 @@
   <%= form_tag "/dashboard/viewing_parties?title=#{@movie_details.title}", method: :post do%>
     <h3>Duration of party: </h3>
     <%= label_tag "runtime" %>
-    <p><%= text_field_tag :runtime, @movie_details.runtime, id: "runtime" %></p>
+    <%= text_field_tag :runtime, @movie_details.runtime, id: "runtime" %>
     <h3>When:</h3>
      <%= label_tag "Date" %>
      <%= text_field_tag "date", Date.today, id: "viewing_party" %>

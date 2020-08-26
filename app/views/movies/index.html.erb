@@ -1,3 +1,11 @@
+<h2><%= button_to "Find Top Rated Movies", "/movies", method: :get %>
+
+<%= form_tag "/movies?search=true" do %>
+<%= label_tag "Search Keywords" %><br>
+<%= text_field_tag :keyword %>
+<%= submit_tag "Find Movies" %>
+<% end %>
+
 <% if @keyword %>
   <h1> Films related to <%= @keyword %> </h1>
 <% else %>
