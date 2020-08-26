@@ -59,7 +59,7 @@ RSpec.describe 'As a user, when I visit a movie show page' do
       expect(page).to have_content('2020-12-08')
       expect(page).to have_content('21:00')
       expect(page).to have_css("img[src*='https://image.tmdb.org/t/p/w185/7baSUtFKi8PQ9SLo6ECYBfAW2K8.jpg']")
-      click_button 'Add to Calendar'
+      expect(page).to have_button('Add to Calendar')
     end
 
     allow_any_instance_of(GoogleCalendarService).to receive(:add_to_calendar).and_return('confirmed')
