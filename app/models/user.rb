@@ -1,10 +1,11 @@
 class User < ApplicationRecord
   validates :name, :email, :access_token, presence: true
   validates :uid, uniqueness: true, presence: true
+
   has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships
-  has_many :view_parties
-  has_many :party_guests
+  has_many :view_parties, dependent: :destroy
+  has_many :party_guests, dependent: :destroy
 
   def self.from_omniauth(params)
     user = find_or_create_by(uid: params[:uid])

@@ -1,5 +1,6 @@
 class ViewParty < ApplicationRecord
   validates :title, :date, :time, :duration, :poster, presence: true
+
   belongs_to :user
-  has_many :party_guests
+  has_many :party_guests, dependent: :destroy
 end
