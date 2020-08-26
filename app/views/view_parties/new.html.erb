@@ -9,9 +9,9 @@
   <%= time_field_tag :time %>
   <br>
   <p>Include</p>
-    <% if current_user.friends.empty? == false %>
-      <%= collection_check_boxes(:viewing_party, :friend_ids, current_user.friends, :id, :name) %>
-    <% else %>
-      <p>You must find some Friends for the party.</p>
-    <% end %>
-    <%= submit_tag "Create Party" %>
+  <% if !current_user.friends.empty? %>
+    <%= collection_check_boxes(:view_party, :friend_ids, current_user.friends, :id, :name) %>
+  <% else %>
+    <p>You must find some Friends for the party.</p>
+  <% end %>
+<%= submit_tag "Create Party" %>
