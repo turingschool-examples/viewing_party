@@ -9,10 +9,15 @@ class Dashboard::ViewingPartiesController < Dashboard::BaseController
 
   def create
     date = params['date']
+    time = params['start_time']
     title = params['title']
     runtime = params['runtime']
     friends = User.where(id: params[:user][:friends])
-
-    @party = ViewParty.new({ date: date, title: title, runtime: runtime })
+    @party = current_user.view_parties.create(date: date, time: time, movie_title: title, runtime: runtime)
+    # @party.users << current_user
+    friends.each do |friend|
+      @party.users << friend
+    end
+    redirect_to '/dashboard'
   end
 end
