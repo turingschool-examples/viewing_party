@@ -31,7 +31,9 @@
         <p><%= party.movie_title %></p>
         <p><%= party.date %></p>
         <p><%= party.time %></p>
-        <!-- Add to calendar -->
+        <% unless party.attending?(current_user) %>
+          <%= button_to "Add to Google Calendar", "/dashboard/calendar"  %>
+        <% end %>
       </div class="view-party">
     <% end %>
   <% end %>

@@ -67,11 +67,32 @@ RSpec.describe "As a logged in user" do
       expect(current_path).to eq("/dashboard")
       within ".viewing-parties-list" do
         expect(page).to have_content(@movie.title)
+        expect(page).to_not have_button("Add to Google Calendar")
       end
 
       expect(@user.view_parties.length).to eq(1)
       expect(@user2.view_parties.length).to eq(1)
       expect(@user3.view_parties.length).to eq(0)
+    end
+    it "toggles add to calendar button" do
+      @party = @user2.view_parties.create!(date: "2020-08-28", time: "07:00", movie_title: @movie.title, runtime: @movie.runtime)
+      @party.users << @user
+
+      visit '/dashboard'
+
+      within ".viewing-parties-list" do
+        expect(page).to have_content(@movie.title)
+        expect(page).to have_button("Add to Google Calendar")
+      end
+
+      click_on "Add to Google Calendar"
+
+      expect(current_path).to eq("/dashboard")
+
+      within ".viewing-parties-list" do
+        expect(page).to have_content(@movie.title)
+        expect(page).to_not have_button("Add to Google Calendar")
+      end
     end
   end
 
