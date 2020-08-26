@@ -61,5 +61,8 @@ RSpec.describe 'As a user, when I visit a movie show page' do
       expect(page).to have_css("img[src*='https://image.tmdb.org/t/p/w185/7baSUtFKi8PQ9SLo6ECYBfAW2K8.jpg']")
       click_button 'Add to Calendar'
     end
+
+    allow_any_instance_of(GoogleCalendarService).to receive(:add_to_calendar).and_return('confirmed')
+    allow_any_instance_of(EventsController).to receive(:create).and_return('Event added to your Google Calendar!')
   end
 end
