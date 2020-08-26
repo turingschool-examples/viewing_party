@@ -12,6 +12,7 @@
      <%= label_tag "Start Time" %>
      <%= time_field_tag :start_time, Time.now.strftime("%H:%M"), id: "viewing_party_time" %><br>
      <h3>Select friends to invite</h3>
+     <!-- if statement for no friends -->
      <%= collection_check_boxes(:user, :friends, current_user.friends, :id, :username) %><br><br>
   <%= submit_tag "Create Party!" %>
   <% end %>

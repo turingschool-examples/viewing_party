@@ -13,6 +13,7 @@ class Dashboard::ViewingPartiesController < Dashboard::BaseController
     friends.each do |friend|
       @party.users << friend
     end
+    # add happy/sad paths
     redirect_to '/dashboard'
   end
 end
