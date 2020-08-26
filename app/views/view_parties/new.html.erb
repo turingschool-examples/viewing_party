@@ -3,15 +3,17 @@
   <%= label_tag :duration, 'Duration of Party' %>
   <%= text_field_tag :duration, "#{@movie.info.runtime}" %>
   <br>
-  <%= label_tag :date, "When" %>
   <br>
+  <%= label_tag :date, 'When: ' %>
   <%= date_field_tag :date %>
   <%= time_field_tag :time %>
   <br>
-  <p>Include</p>
+  <p>Friends to include:</p>
   <% if !current_user.friends.empty? %>
     <%= collection_check_boxes(:view_party, :friend_ids, current_user.friends, :id, :email) %>
   <% else %>
     <p>You must find some Friends for the party.</p>
   <% end %>
+  <br>
+  <br>
 <%= submit_tag "Create Party" %>
