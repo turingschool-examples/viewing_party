@@ -5,7 +5,7 @@ class ViewPartiesController < ApplicationController
 
   def create
     party = current_user.view_parties.create(view_party_params)
-    PartyGuest.create_invites(party.id, params[:viewing_party][:friend_ids])
+    PartyGuest.create_invites(party.id, params[:view_party][:friend_ids])
     redirect_to dashboard_path
   end
 
