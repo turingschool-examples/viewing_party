@@ -1,4 +1,6 @@
 class MoviesController < ApplicationController
+  before_action :require_authenticated_user
+
   def index
     if params[:search]
       @movies = MoviesFacade.new.top_40

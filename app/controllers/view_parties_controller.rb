@@ -1,4 +1,6 @@
 class ViewPartiesController < ApplicationController
+  before_action :require_authenticated_user
+
   def new
     @movie = MovieFacade.new(params[:movie_id])
   end
