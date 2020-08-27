@@ -65,7 +65,7 @@ RSpec.describe "As a logged in user" do
       click_on "Create Party!"
 
       expect(current_path).to eq("/dashboard")
-  
+
       within ".viewing-parties-list" do
         expect(page).to have_content(@movie.title)
         expect(page).to_not have_button("Add to Google Calendar")
@@ -76,6 +76,9 @@ RSpec.describe "As a logged in user" do
       expect(@user3.view_parties.length).to eq(0)
     end
     it "toggles add to calendar button" do
+      json_response = File.read('spec/fixtures/calendar_event_success.json')
+      allow_any_instance_of(Google::Apis::CalendarV3::CalendarService).to receive(:insert_event).and_return(json_response)
+
       @party = @user2.view_parties.create!(date: "2020-08-28", time: "07:00", movie_title: @movie.title, runtime: @movie.runtime)
       @party.users << @user
 

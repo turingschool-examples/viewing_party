@@ -32,7 +32,7 @@
         <p><%= party.date %></p>
         <p><%= party.time %></p>
         <% unless party.attending?(current_user) %>
-          <%= button_to "Add to Google Calendar", "/dashboard/calendar"  %>
+          <%= button_to "Add to Google Calendar", "/dashboard/calendar?party=#{party.id}"  %>
         <% end %>
       </div class="view-party">
     <% end %>
