@@ -11,7 +11,12 @@ class Dashboard::ViewingPartiesController < Dashboard::BaseController
 
   def create
     friends = User.where(id: params[:user][:friends])
-    party = current_user.view_parties.create(date: params[:date], time: params[:start_time], movie_title: params[:title], runtime: params[:runtime])
+    party = current_user.view_parties.create(
+      date: params[:date],
+      time: params[:start_time],
+      movie_title: params[:title],
+      runtime: params[:runtime]
+    )
     friends.each do |friend|
       party.users << friend
     end
@@ -19,7 +24,7 @@ class Dashboard::ViewingPartiesController < Dashboard::BaseController
     event = CalendarService.new.create_event(party, current_user)
     client.insert_event('primary', event)
     current_user.rsvp(party)
-    flash[:notice] = 'Party was successfully scheduled.'
+    flash[:success] = 'Party was successfully scheduled.'
     redirect_to '/dashboard'
   end
 end

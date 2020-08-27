@@ -3,7 +3,8 @@
 
 <h3 align="center"> <%= link_to "Discover Movies!", "/dashboard/discover" %></h3>
 
-<section class="friend-list">
+<div class="wrapper">
+<section class="box friend-list">
   <h3>Friends</h3>
   <% if current_user.friends.empty? %>
     <p>You currently have no friends</p>
@@ -16,12 +17,12 @@
   <% end %>
   <%= form_tag "/dashboard/friendships", method: :post do %>
     <%= label_tag :email %>
-    <%= text_field_tag :email, "Friend's Email" %>
+    <%= text_field_tag :email, nil, placeholder: "Friend's Email" %>
     <%= submit_tag "Add Friend" %>
   <% end %>
 </section>
 
-<section class="viewing-parties-list">
+<section class="box viewing-parties-list">
   <h3>Viewing Parties</h3>
   <% if current_user.view_parties.empty? %>
     <p>No upcoming parties</p>
@@ -34,7 +35,9 @@
         <% unless party.attending?(current_user) %>
           <%= button_to "Add to Google Calendar", "/dashboard/calendar?party=#{party.id}"  %>
         <% end %>
-      </div class="view-party">
+        <br>
+      </div>
     <% end %>
   <% end %>
 </section>
+</div>

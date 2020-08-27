@@ -26,6 +26,7 @@ gem 'google-api-client', require: 'google/apis/calendar_v3'
 group :development, :test do
   gem 'pry'
   gem 'travis'
+  gem 'rspec'
   gem 'shoulda-matchers'
 end
 
