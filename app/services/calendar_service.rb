@@ -13,7 +13,7 @@ class CalendarService
           expires_at: client.authorization.expires_at.to_i
         )
       end
-    rescue
+    rescue StandardError
       flash[:error] = 'Your token has expired. Please login again with Google.'
       redirect_to '/'
     end

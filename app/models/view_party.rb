@@ -1,8 +1,8 @@
 class ViewParty < ApplicationRecord
-  validates_presence_of :movie_title,
-                        :date,
-                        :time,
-                        :runtime
+  validates :movie_title, presence: true
+  validates :date, presence: true
+  validates :time, presence: true
+  validates :runtime, presence: true
 
   has_many :user_view_parties, dependent: :destroy
   has_many :users, through: :user_view_parties
