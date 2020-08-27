@@ -18,4 +18,15 @@ RSpec.describe User, type: :model do
 
     end
   end
+
+  describe "instance methods" do
+    it "can rsvp" do
+      user = User.create!(username: "Quentin", email: "tarantino@gmail.com")
+      party = user.view_parties.create!(date: "2020-08-30", movie_title: "Speed", runtime: "90", time: "19:30")
+
+      expect(party.attending?(user)).to be_falsey
+      user.rsvp(party)
+      expect(party.attending?(user)).to eq(true)
+    end
+  end
 end
