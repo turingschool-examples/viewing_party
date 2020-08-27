@@ -24,5 +24,8 @@ RSpec.describe ViewParty, type: :model do
       @party.runtime = 300
       expect(@party.end_time).to eq("2020-08-31T00:30:00-06:00")
     end
+    it "can return attending status" do
+      expect(@party.attending?(@user)).to be_falsey
+    end
   end
 end
