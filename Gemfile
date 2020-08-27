@@ -21,23 +21,18 @@ gem 'omniauth-google-oauth2'
 gem 'figaro'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+gem 'google-api-client', require: 'google/apis/calendar_v3'
 
 group :development, :test do
   gem 'pry'
   gem 'travis'
-  gem 'rspec-rails'
-  gem 'capybara'
-  gem 'launchy'
-  gem 'simplecov'
   gem 'shoulda-matchers'
-  gem "nyan-cat-formatter"
 end
 
 group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'rubocop-rails'
-  gem 'travis'
 end
 
 group :test do
@@ -45,6 +40,7 @@ group :test do
   gem 'capybara'
   gem 'launchy'
   gem 'simplecov'
+  gem 'webmock'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

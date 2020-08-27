@@ -45,15 +45,15 @@ RSpec.describe "User Friendships" do
     within(".friend-list") do
       expect(page).to have_content(@user2.username)
     end
-    
+
     fill_in :email, with: "scorsese@hotmail.com"
     click_on "Add Friend"
-    
+
     within(".friend-list") do
       expect(page).to have_content(@user3.username)
       expect(page).to have_content(@user2.username)
     end
-  end 
+  end
   it "when a friend is created it is mutual for both users" do
     visit '/dashboard'
     expect(page).to have_content("You currently have no friends")

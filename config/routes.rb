@@ -12,8 +12,9 @@ Rails.application.routes.draw do
     get '/', to: 'users#show'
     get '/discover', to: 'discover#index'
     post '/friendships', to: 'friendships#create'
-    post '/viewing_parties/new', to: 'viewing_parties#new'
+    get '/viewing_parties/new', to: 'viewing_parties#new'
     post '/viewing_parties', to: 'viewing_parties#create'
+    post '/calendar', to: 'calendar#create'
   end
 
 end

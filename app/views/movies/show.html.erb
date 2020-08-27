@@ -29,11 +29,10 @@
   <h3><%= @reviews.length %> Reviews </h3>
   <% @reviews.each do |review| %>
     <li>Author: <%= review.author %></li><br>
-    <%= review.content %><br><br><br> 
+    <%= review.content %><br><br><br>
   <% end %>
 </div>
 
-
 <div class="viewing-party">
-  <%= button_to "Create Viewing Party for #{@movie.title}", "/dashboard/viewing_parties/new?title=#{@movie.title}&runtime=#{@movie.runtime}", method: :post%>
+  <%= link_to "Create Viewing Party for #{@movie.title}", "/dashboard/viewing_parties/new?title=#{@movie.title}&runtime=#{@movie.runtime}", method: :get %>
 </div>

@@ -1,16 +1,19 @@
 <div class="title">
   <h1>Movie Title: <%= @movie_details.title  %></h1>
 </div>
+<div>
   <%= form_tag "/dashboard/viewing_parties?title=#{@movie_details.title}", method: :post do%>
     <h3>Duration of party: </h3>
     <%= label_tag "runtime" %>
-    <p><%= text_field_tag :runtime, @movie_details.runtime, id: "runtime" %></p>
+    <%= text_field_tag :runtime, @movie_details.runtime, id: "runtime" %>
     <h3>When:</h3>
-     <%= label_tag "date" %>
-     <%= text_field_tag "date", Date.today, id: "viewing_party" %><br>
+     <%= label_tag "Date" %>
+     <%= text_field_tag "date", Date.today, id: "viewing_party" %>
+     <%= label_tag "Start Time" %>
+     <%= time_field_tag :start_time, Time.now.strftime("%H:%M"), id: "viewing_party_time" %><br>
      <h3>Select friends to invite</h3>
+     <!-- if statement for no friends -->
      <%= collection_check_boxes(:user, :friends, current_user.friends, :id, :username) %><br><br>
-  </section>
   <%= submit_tag "Create Party!" %>
   <% end %>
 </div>
