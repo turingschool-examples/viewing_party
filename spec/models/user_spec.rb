@@ -15,10 +15,13 @@ RSpec.describe User, type: :model do
 
   describe "class methods" do
     it "creates a new user with #from_omniauth" do
+      user = User.create!(username: "Quentin", email: "tarantino@gmail.com")
+      email = "test@gmail.com"
+      test_hash = OmniAuth::AuthHash.new({info: {email: email}})
 
+      expect(User.from_omniauth(test_hash)).to eq(User.last)
     end
   end
-
   describe "instance methods" do
     it "can rsvp" do
       user = User.create!(username: "Quentin", email: "tarantino@gmail.com")
