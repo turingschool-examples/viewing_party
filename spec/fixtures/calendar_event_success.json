@@ -1,28 +1,28 @@
 Success - #<Google::Apis::CalendarV3::Event:0x00007fcc5f12dc10
  @attendees=
   [#<Google::Apis::CalendarV3::EventAttendee:0x00007fcc5f12c2c0
-    @email="phillip.strom@gmail.com",
+    @email="email@gmail.com",
     @organizer=true,
     @response_status="needsAction",
     @self=true>],
  @created=Wed, 26 Aug 2020 19:52:01 +0000,
  @creator=
   #<Google::Apis::CalendarV3::Event::Creator:0x00007fcc5e935710
-   @email="phillip.strom@gmail.com",
+   @email="email@gmail.com",
    @self=true>,
  @end=
   #<Google::Apis::CalendarV3::EventDateTime:0x00007fcc5e934590
    @date_time=Wed, 26 Aug 2020 16:12:00 -0600,
    @time_zone="America/Denver">,
- @etag="\"3196943043028000\"",
+ @etag="\"9866943043028000\"",
  @html_link=
-  "https://www.google.com/calendar/event?eid=ZWxhYzYycWRyOWNpNzBybmRma3RhNjJjZmcgcGhpbGxpcC5zdHJvbUBt",
- @i_cal_uid="62qdr9ci70rndfkta62cfg@google.com",
- @id="62qdr9ci70rndfkta62cfg",
+  "https://www.google.com/calendar/event?eid=ZWxhYzYycWRyOWNpNzByhHhH3RhNjJjZmcgcGhpbGxpcC5zdHJvbUBt",
+ @i_cal_uid="xrxr62qdr9ci70rndfkta62cfg@google.com",
+ @id="xrxr62qdr9ci70rndfkta62cfg",
  @kind="calendar#event",
  @organizer=
   #<Google::Apis::CalendarV3::Event::Organizer:0x00007fcc5e92d380
-   @email="phillip.strom@gmail.com",
+   @email="email@gmail.com",
    @self=true>,
  @reminders=
   #<Google::Apis::CalendarV3::Event::Reminders:0x00007fcc691b7ac8
