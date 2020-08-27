@@ -3,6 +3,9 @@
   <section class='title'>
     <h1><%= @movie.info.title %></h1>
   </section>
+  <section class='poster'>
+    <%= image_tag @movie.info.poster %>
+  </section>
   <section class='vote_average'>
     Vote Average: <%= @movie.info.vote_avg %>
   </section>
