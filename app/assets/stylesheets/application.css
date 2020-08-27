@@ -97,6 +97,17 @@ main {
  text-align: center
 }
 
+.error-flash {
+  padding: 8px;
+  background-color: red;
+  color: white;
+}
+.success-flash {
+  padding: 8px;
+  background-color: green;
+  color: white;
+}
+
 
 footer {
   display: flex;

@@ -17,7 +17,7 @@
   <% end %>
   <%= form_tag "/dashboard/friendships", method: :post do %>
     <%= label_tag :email %>
-    <%= text_field_tag :email, "Friend's Email" %>
+    <%= text_field_tag :email, nil, placeholder: "Friend's Email" %>
     <%= submit_tag "Add Friend" %>
   <% end %>
 </section>
