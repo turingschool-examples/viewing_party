@@ -8,7 +8,7 @@ class Dashboard::CalendarController < Dashboard::BaseController
     event = CalendarService.new.create_event(party, current_user)
     client.insert_event('primary', event)
     current_user.rsvp(party)
-    flash[:notice] = 'Party was added to Google Calendar'
+    flash[:success] = 'Party was added to Google Calendar'
     redirect_to '/dashboard'
   end
 end
