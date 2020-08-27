@@ -3,7 +3,7 @@ class User < ApplicationRecord
   validates :email, uniqueness: true, presence: true
   has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships
-  has_many :user_view_parties
+  has_many :user_view_parties, dependent: :destroy
   has_many :view_parties, through: :user_view_parties
 
   def self.from_omniauth(user_info)
@@ -14,7 +14,7 @@ class User < ApplicationRecord
   end
 
   def rsvp(party)
-    user_view_party = self.user_view_parties.where(view_party_id: party.id).first
+    user_view_party = user_view_parties.find_by(view_party_id: party.id)
     user_view_party.attending = true
     user_view_party.save
   end
