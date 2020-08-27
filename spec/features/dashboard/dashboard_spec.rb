@@ -16,7 +16,7 @@ RSpec.describe "As a registered user" do
       expect(current_path).to eq('/dashboard/discover')
     end
   end
-  describe "on dashboard show page" do
+  describe "on dashboard show page", :vcr do
     before :each do
       @user = User.create!(username: "Quentin", email: "tarantino@gmail.com")
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
