@@ -1,19 +1,12 @@
 class MoviesController < ApplicationController
   def index
-    if params[:search]
-      @keyword = params[:keyword]
-      @movies = MoviesService.new.search(@keyword)
-    else
-      @movies = MoviesService.new.top40
-    end
+    @keyword = params[:keyword]
+    @movies = MovieFacade.new.movies(@keyword)
   end
 
   def show
-    movie_details = MoviesService.new.film_info(params[:id])
-    cast = MoviesService.new.cast(params[:id])
-    reviews_info = MoviesService.new.movie_reviews(params[:id])
-
-    @reviews = reviews_info.map { |review| FilmReview.new(review) }
-    @movie = Movie.new(movie_details, cast)
+    id = params[:id]
+    @movie = MovieFacade.new.movie_result(id)
+    @reviews = MovieFacade.new.movie_reviews(id)
   end
 end
