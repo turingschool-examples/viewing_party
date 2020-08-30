@@ -29,9 +29,17 @@
   <% else %>
     <% current_user.view_parties.each do |party| %>
       <div class="view-party">
-        <p><%= party.movie_title %></p>
+        <p>Showing: <%= party.movie_title %></p>
+        <p>Party Host: <%= party.host %></p>
         <p><%= party.date %></p>
         <p><%= party.time %></p>
+        <p><%= party.number_attending %> Attending</p>
+        <p>Guests Attending: </p>
+        <ul>
+          <% party.guests_attending.each do |guest| %>
+          <li><%= guest.user.username %></li>
+          <% end %>
+        </ul>
         <% unless party.attending?(current_user) %>
           <%= button_to "Add to Google Calendar", "/dashboard/calendar?party=#{party.id}"  %>
         <% end %>
