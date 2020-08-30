@@ -23,4 +23,12 @@ class ViewParty < ApplicationRecord
     user_view_party = user_view_parties.find_by(user_id: current_user.id)
     user_view_party.attending
   end
+
+  def guests_attending
+    user_view_parties.where(attending: true)
+  end
+
+  def number_attending
+    guests_attending.size
+  end
 end

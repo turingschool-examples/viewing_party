@@ -15,11 +15,12 @@ class Dashboard::ViewingPartiesController < Dashboard::BaseController
       date: params[:date],
       time: params[:start_time],
       movie_title: params[:title],
-      runtime: params[:runtime]
+      runtime: params[:runtime],
+      host: current_user.username
     )
     friends.each do |friend|
       party.users << friend
-      friend.email_user(party, current_user)
+      # friend.email_user(party, current_user)
     end
     client = CalendarService.new.create_google_client(current_user)
     event = CalendarService.new.create_event(party, current_user)
