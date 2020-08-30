@@ -17,4 +17,17 @@ class User < ApplicationRecord
     user_view_party = user_view_parties.find_by(view_party_id: party.id)
     user_view_party.update(attending: true)
   end
+
+  def email_user(party, sender)
+    recipient = self.email
+
+    email_info = {
+      party: party,
+      host: sender,
+      friend: self.username,
+      message: "You have been invited to a movie viewing party!"
+    }
+    
+    FriendNotifierMailer.inform(email_info, recipient).deliver_now
+  end
 end

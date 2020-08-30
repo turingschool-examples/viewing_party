@@ -70,6 +70,7 @@ RSpec.describe "As a logged in user" do
         expect(page).to have_content(@movie.title)
         expect(page).to_not have_button("Add to Google Calendar")
       end
+      expect(page).to have_content("Party Host: #{@user.username}")
 
       expect(@user.view_parties.length).to eq(1)
       expect(@user2.view_parties.length).to eq(1)

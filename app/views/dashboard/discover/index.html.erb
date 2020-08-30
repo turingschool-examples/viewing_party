@@ -1,7 +1,7 @@
 <h2>Welcome <%= current_user.username %></h2>
 <h2><%= button_to "Find Top Rated Movies", "/movies", method: :get %><br>
 
-<%= form_tag "/movies?search=true" do %>
+<%= form_tag "/movies" do %>
 <%= label_tag "Search Keywords" %><br>
 <%= text_field_tag :keyword %>
 <%= submit_tag "Find Movies" %>
