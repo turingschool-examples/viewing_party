@@ -1,9 +1,7 @@
 class MoviesController < ApplicationController
   def index
     @keyword = params[:keyword]
-    
-    @movies = MovieFacade.new(@keyword).movies(@keyword)
-
+    @movies = MovieFacade.new(@keyword)
   end
 
   def show
