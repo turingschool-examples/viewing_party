@@ -8,6 +8,6 @@ script:
 - bundle exec rspec
 deploy:
   provider: heroku
-  api_key:
-  app:
+  api_key: 7ffa8967d74a4dfdad2d52dc5b98dc48
+  app: https://limitless-castle-72832.herokuapp.com/
   run: rails db:migrate

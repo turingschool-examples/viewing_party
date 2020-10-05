@@ -1,0 +1,9 @@
+[user]
+  email = lkriffell@gmail.com
+  name = Logan Riffell
+
+[commit]
+  template = ~/.gitmessage
+
+[core]
+  editor = atom --wait
