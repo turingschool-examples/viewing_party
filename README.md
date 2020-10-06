@@ -2,7 +2,7 @@
 
 This is a group project betwee myself, Saryn and Norma.
 
-The link to this app: https://gentle-brook-14232.herokuapp.com/
+The link to this app: [found here](https://gentle-brook-14232.herokuapp.com/)
 
 ### About this Project
 
