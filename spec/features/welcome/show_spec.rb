@@ -4,6 +4,8 @@ include ActionView::Helpers::NumberHelper
 RSpec.describe 'Welcome Page' do
   describe 'As a user' do
     before :each do
+      @user = User.create(name: 'Jackie Chan', email: 'a@a.com', password: 'a')
+
       visit '/'
     end
 
@@ -17,6 +19,15 @@ RSpec.describe 'Welcome Page' do
 
     it "I can see a button to log in" do
       expect(page).to have_button("Log In")
+    end
+
+    it "I can fill in my information, click the Log In button, and be logged in" do
+      fill_in 'Email', with: @user.email
+      fill_in 'Password', with: @user.password
+
+      click_button "Log In"
+
+      expect_current(path).to eq("/dashboard")
     end
 
     it "I can see a link to register" do
