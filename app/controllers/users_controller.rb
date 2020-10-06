@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action require: :user, only: :show
+
   def new
     @user = User.new
   end
@@ -28,7 +30,9 @@ class UsersController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @user = User.find(session[:current_user])
+  end
 
   private
 
