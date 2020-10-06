@@ -8,7 +8,7 @@ To download this app onto your compter, follow the instructions bellow;
 
 ### About this Project
 
-Viewing party is an application in which users can explore movie options and create a viewing party event for the user and friend's..
+In this project we were expected to build an app where a user can register and create viewing parties involving a movie of their choice.
 
 ## Local Setup
 
