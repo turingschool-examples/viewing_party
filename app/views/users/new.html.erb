@@ -1,0 +1,18 @@
+<h1 align= "center">Register User</h1>
+  <center>
+  <%= form_for :user, :as => :user do |f| %>
+    
+    <%= f.label :email %>
+    <%= f.text_field :email %><br />
+
+    <%= f.label :password %>
+    <%= f.password_field :password, value: nil %>
+
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+
+    <%= f.submit 'Register New User' %>
+  <% end %>
+
+
+</center>
