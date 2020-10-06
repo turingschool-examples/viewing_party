@@ -19,8 +19,11 @@ RSpec.describe 'Welcome Page' do
       expect(page).to have_button("Log In")
     end
 
+    it "I can see a link to register" do
+      expect(page).to have_link("Register")
+    end
+
   end
 end
 
-#  Link to Registration
 # Details: Implement basic auth in the application allowing a user to log in with an email and password. The password should be stored in the database using bcrypt.
