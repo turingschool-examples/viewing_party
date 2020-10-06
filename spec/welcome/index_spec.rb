@@ -9,7 +9,7 @@ RSpec.describe 'Welcome Page' do
       expect(page).to have_content("Welcome to Viewing Party! This app allows ....")
     end
 
-    it 'and button to log in, and link to register' do
+    it 'and button to log in' do
       visit '/'
 
       expect(page).to have_content('Email:')
