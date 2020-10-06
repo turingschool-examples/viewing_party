@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'users#show'
   post '/login', to: 'users#login'
 
+  #User Dashboard
+  get '/discover', to: 'dashboard#index'
+
   #Movies
-  get '/discover', to: 'movies#index'
+  get '/discover/top-40', to: 'movies#index'
+  get '/movie/find', to: 'movies#show'
 end
