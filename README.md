@@ -24,4 +24,3 @@ In this project we were expected to build an app where a user can register and c
 - Rails 5.2.4.3
 
 Example wireframes to follow are found [here](https://backend.turing.io/module3/projects/viewing_party/wireframes)
-
