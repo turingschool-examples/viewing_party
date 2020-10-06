@@ -1,6 +1,8 @@
 # Viewing Party
 
-This is the base repo for the [viewing party project](https://backend.turing.io/module3/projects/viewing_party) used for Turing's Backend Module 3.
+This is a group project betwee myself, Saryn and Norma.
+
+The link to this app: https://gentle-brook-14232.herokuapp.com/
 
 ### About this Project
 
@@ -20,5 +22,3 @@ Viewing party is an application in which users can explore movie options and cre
 - Rails 5.2.4.3
 
 Example wireframes to follow are found [here](https://backend.turing.io/module3/projects/viewing_party/wireframes)
-
-## Testing 
