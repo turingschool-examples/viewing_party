@@ -29,3 +29,10 @@ footer {
   align-self: baseline;
   flex-direction: row;
 }
+
+.form {
+  text-align: center;
+    background-color: bisque;
+    width: 30%;
+    margin: auto;
+}
