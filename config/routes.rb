@@ -5,6 +5,6 @@ Rails.application.routes.draw do
 
   get '/register', to: 'register#index'
 
-  post '/login', to: 'user/dashboard#index'
+  post '/dashboard', to: 'user/dashboard#index'
 
 end
