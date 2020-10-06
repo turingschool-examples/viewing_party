@@ -4,6 +4,8 @@ This is a group project betwee myself, Saryn and Norma.
 
 The link to this app: [found here](https://gentle-brook-14232.herokuapp.com/)
 
+To download this app onto your compter, follow the instructions bellow;
+
 ### About this Project
 
 Viewing party is an application in which users can explore movie options and create a viewing party event for the user and friend's..
@@ -23,4 +25,3 @@ Viewing party is an application in which users can explore movie options and cre
 
 Example wireframes to follow are found [here](https://backend.turing.io/module3/projects/viewing_party/wireframes)
 
-## Test for TravisCI
