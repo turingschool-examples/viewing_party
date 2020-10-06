@@ -34,11 +34,11 @@ RSpec.describe 'Welcome Page' do
       expect(page).to have_link("Register")
     end
 
-    it "I can click link to register, and am taken to the register page" do
-      click_link "Register"
-
-      expect(current_path).to eq("/register")
-    end
+    # it "I can click link to register, and am taken to the register page" do
+    #   click_link "Register"
+    #
+    #   expect(current_path).to eq("/register")
+    # end
 
   end
 end
