@@ -18,7 +18,6 @@ RSpec.describe 'authenticated user dashboard', type: :feature do
       click_button 'Discover Movies'
 
       expect(current_path).to eq('/discover')
-      require "pry"; binding.pry
     end
   end
 end
