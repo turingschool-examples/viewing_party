@@ -27,7 +27,7 @@ RSpec.describe 'Welcome Page' do
 
       click_button "Log In"
 
-      expect_current(path).to eq("/dashboard")
+      expect(current_path).to eq("/dashboard")
     end
 
     it "I can see a link to register" do
@@ -37,7 +37,7 @@ RSpec.describe 'Welcome Page' do
     it "I can click link to register, and am taken to the register page" do
       click_link "Register"
 
-      expect_current(path).to eq("/register")
+      expect(current_path).to eq("/register")
     end
 
   end
