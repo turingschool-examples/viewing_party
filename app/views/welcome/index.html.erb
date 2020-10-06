@@ -1,0 +1,13 @@
+<h1>Welcome to Viewing Party</h1>
+
+
+<p>This is an app for you and your friends to search for movies and schedule dates and times to watch them together! Six feet apart!</p>
+<%= form_tag user_login_path, method: :get do %>
+  <%= label_tag :email %>
+  <%= text_field_tag :email %><br>
+  <%= label_tag :password %>
+  <%= text_field_tag :password %><br>
+  <%= submit_tag 'Sign In' %>
+<% end %>
+
+<%= link_to 'Register Here' %>
