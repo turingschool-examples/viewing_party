@@ -15,11 +15,12 @@ RSpec.describe 'Welcome Page' do
       expect(page).to have_content("This is the premier website for planning your next movie night!")
     end
 
+    it "I can see a button to log in" do
+      expect(page).to have_button("Log In")
+    end
+
   end
 end
 
-#  Welcome message
-#  Brief description of the application
-#  Button to Log in
 #  Link to Registration
 # Details: Implement basic auth in the application allowing a user to log in with an email and password. The password should be stored in the database using bcrypt.
