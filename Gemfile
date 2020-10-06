@@ -22,8 +22,9 @@ gem 'bcrypt'
 group :development, :test do
   gem 'pry'
   gem 'travis'
+  gem 'factory_bot_rails'
+  gem 'faker'
   gem 'shoulda-matchers'
-
 end
 
 group :development do
