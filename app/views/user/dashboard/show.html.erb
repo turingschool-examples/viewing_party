@@ -3,3 +3,6 @@
 <p><%= button_to 'Discover Movies', "/movies" %></p>
 
 <h3>Friends:</h3>
+<% @friends.each do |friend| %>
+  <%= friend.name %>
+<% end %>
