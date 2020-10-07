@@ -4,10 +4,10 @@ include ActionView::Helpers::NumberHelper
 RSpec.describe 'Dashboard Page' do
   describe 'As a user' do
     before :each do
-      @user_1 = User.create(name: 'Jackie Chan', email: 'a@a.com', password: 'a')
-      @user_2 = User.create(name: 'Cynthia Rothrock', email: 'b@b.com', password: 'a')
-      @user_3 = User.create(name: 'Michelle Yeoh', email: 'c@c.com', password: 'a')
-      @user_4 = User.create(name: 'Bilbo Baggins', email: 'd@d.com', password: 'a')
+      @user_1 = User.create(name: 'Jackie Chan', email: 'a@a.com', password: 'a', password_confirmation: 'a')
+      @user_2 = User.create(name: 'Cynthia Rothrock', email: 'b@b.com', password: 'a', password_confirmation: 'a')
+      @user_3 = User.create(name: 'Michelle Yeoh', email: 'c@c.com', password: 'a', password_confirmation: 'a')
+      @user_4 = User.create(name: 'Bilbo Baggins', email: 'd@d.com', password: 'a', password_confirmation: 'a')
 
       @friendship_1 = Friendship.create(user_id: @user_1.id, friend_id: @user_2.id)
       @friendship_2 = Friendship.create(user_id: @user_1.id, friend_id: @user_3.id)
