@@ -29,9 +29,12 @@ RSpec.describe 'Dashboard Page' do
       @party_user_4 = PartyUser.create(party_id: @party_2.id, user_id: @user_4.id, status: 0)
       @party_user_5 = PartyUser.create(party_id: @party_3.id, user_id: @user_3.id, status: 1)
       @party_user_6 = PartyUser.create(party_id: @party_3.id, user_id: @user_4.id, status: 0)
-      @party_user_7 = PartyUser.create(party_id: @party_3.id, user_id: @user_1.id, status: 1)
-      @party_user_8 = PartyUser.create(party_id: @party_3.id, user_id: @user_3.id, status: 0)
-      @party_user_9 = PartyUser.create(party_id: @party_3.id, user_id: @user_5.id, status: 0)
+      @party_user_7 = PartyUser.create(party_id: @party_4.id, user_id: @user_1.id, status: 1)
+      @party_user_8 = PartyUser.create(party_id: @party_4.id, user_id: @user_3.id, status: 0)
+      @party_user_9 = PartyUser.create(party_id: @party_5.id, user_id: @user_1.id, status: 2)
+      @party_user_10 = PartyUser.create(party_id: @party_5.id, user_id: @user_5.id, status: 2)
+      @party_user_11 = PartyUser.create(party_id: @party_6.id, user_id: @user_2.id, status: 2)
+      @party_user_12 = PartyUser.create(party_id: @party_6.id, user_id: @user_5.id, status: 2)
 
       visit root_path
 
