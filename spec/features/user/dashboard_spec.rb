@@ -5,16 +5,25 @@ RSpec.describe 'Dashboard Page' do
   describe 'As a user' do
     before :each do
       @user_1 = User.create(name: 'Jackie Chan', email: 'a@a.com', password: 'a', password_confirmation: 'a')
-      @user_2 = User.create(name: 'Cynthia Rothrock', email: 'b@b.com', password: 'a', password_confirmation: 'a')
-      @user_3 = User.create(name: 'Michelle Yeoh', email: 'c@c.com', password: 'a', password_confirmation: 'a')
-      @user_4 = User.create(name: 'Bilbo Baggins', email: 'd@d.com', password: 'a', password_confirmation: 'a')
+      @user_2 = User.create(name: 'Cynthia Rothrock', email: 'b@b.com', password: 'b', password_confirmation: 'b')
+      @user_3 = User.create(name: 'Michelle Yeoh', email: 'c@c.com', password: 'c', password_confirmation: 'c')
+      @user_4 = User.create(name: 'Bilbo Baggins', email: 'd@d.com', password: 'd', password_confirmation: 'd')
+      @user_5 = User.create(name: 'Gandolf', email: 'e@e.com', password: 'e', password_confirmation: 'e')
 
       @friendship_1 = Friendship.create(user_id: @user_1.id, friend_id: @user_2.id)
       @friendship_2 = Friendship.create(user_id: @user_1.id, friend_id: @user_3.id)
+      @friendship_2 = Friendship.create(user_id: @user_1.id, friend_id: @user_4.id)
 
-      @party_1 = Party.create(movie_title: "Big City", user_id: @user_1.id, date: "June 26th, 1997", time: "12:45pm")
+      @party_1 = Party.create(movie_title: "The Exorcist III", user_id: @user_1.id, date: "October 26th, 1997", time: "12:45pm")
+      @party_2 = Party.create(movie_title: "Psycho II", user_id: @user_1.id, date: "June 2nd, 1998", time: "12:45pm")
+      @party_3 = Party.create(movie_title: "Hellbound: Hellraiser II", user_id: @user_1.id, date: "September 22nd, 1999", time: "12:45pm")
 
-      @party_user_1 = PartyUser.create(party_id: @party_1.id, user_id: @user_2.id, status: 0)
+      @party_user_1 = PartyUser.create(party_id: @party_1.id, user_id: @user_2.id, status: 2)
+      @party_user_2 = PartyUser.create(party_id: @party_1.id, user_id: @user_3.id, status: 2)
+      @party_user_3 = PartyUser.create(party_id: @party_2.id, user_id: @user_2.id, status: 2)
+      @party_user_4 = PartyUser.create(party_id: @party_2.id, user_id: @user_4.id, status: 0)
+      @party_user_5 = PartyUser.create(party_id: @party_3.id, user_id: @user_3.id, status: 1)
+      @party_user_6 = PartyUser.create(party_id: @party_3.id, user_id: @user_4.id, status: 0)
 
       visit root_path
 
@@ -43,7 +52,8 @@ RSpec.describe 'Dashboard Page' do
       expect(page).to have_content("Friends:")
       expect(page).to have_content("Cynthia Rothrock")
       expect(page).to have_content("Michelle Yeoh")
-      expect(page).to_not have_content("Bilbo Baggins")
+      expect(page).to have_content("Bilbo Baggins")
+      expect(page).to_not have_content("Gandolf")
     end
 
   end
