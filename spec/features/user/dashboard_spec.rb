@@ -67,5 +67,13 @@ RSpec.describe 'Dashboard Page' do
       expect(page).to_not have_content("Gandolf")
     end
 
+    it "I can see a section showing my viewing parties" do
+      expect(page).to have_content("Viewing Parties:")
+      expect(page).to have_content("The Exorcist III")
+      expect(page).to have_content("Psycho II")
+      expect(page).to have_content("House II: The Second Story")
+      expect(page).to have_content("The Gate II")
+      expect(page).to_not have_content("Ip Man II")
+    end
   end
 end
