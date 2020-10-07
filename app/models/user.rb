@@ -1,14 +1,11 @@
 class User < ApplicationRecord
-  has_secure_password
+    has_secure_password
+    validates :email, uniqueness: true, presence: true
+    validates_presence_of :password, require: true
 
-  has_many :friendships
+    has_many :friendships
+    has_many :friends, through: :friendships
+    has_many :inverse_friendships, class_name: "Friendship", foreign_key: "friend_id"
+    has_many :inverse_friends, through: :inverse_friendships, source: :user
 
-  has_many :friended_users, foreign_key: :friender_id, class_name: 'Friendship'
-  has_many :frienders, through: :friended_users
-
-  has_many :friender_users, foreign_key: :friended_id, class_name: 'Friendship'
-  has_many :friendeds, through: :friender_users
-
-  validates :email, uniqueness: true, presence: true
-  validates_presence_of :password, require: true
 end
