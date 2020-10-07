@@ -27,5 +27,3 @@ RSpec.describe 'Welcome Page' do
 
   end
 end
-
-# Details: Implement basic auth in the application allowing a user to log in with an email and password. The password should be stored in the database using bcrypt.
