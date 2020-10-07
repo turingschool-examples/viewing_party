@@ -25,6 +25,10 @@ RSpec.describe 'Dashboard Page' do
       expect(page).to have_content('Welcome Jackie Chan!')
     end
 
+    it "I can see a button to Discover Movies" do
+      expect(page).to have_button('Discover Movies')
+    end
+
   end
 
 end
