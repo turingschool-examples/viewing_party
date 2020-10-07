@@ -9,8 +9,8 @@ RSpec.describe 'Dashboard Page' do
       @user_3 = User.create(name: 'Michelle Yeoh', email: 'c@c.com', password: 'a')
       @user_4 = User.create(name: 'Bilbo Baggins', email: 'd@d.com', password: 'a')
 
-      @friendship_1 = Friendship.create(user_1: @user_1.id, user_2: @user_2.id)
-      @friendship_2 = Friendship.create(user_1: @user_1.id, user_2: @user_3.id)
+      @friendship_1 = Friendship.create(user_id: @user_1.id, friend_id: @user_2.id)
+      @friendship_2 = Friendship.create(user_id: @user_1.id, friend_id: @user_3.id)
 
       @viewing_party_1 = ViewingParty.create(movie_title: "Big City", host: @user_1, date: "June 26th, 1997", time: "12:45pm")
 
