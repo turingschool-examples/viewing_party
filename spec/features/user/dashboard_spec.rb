@@ -12,7 +12,7 @@ RSpec.describe 'Dashboard Page' do
 
       @friendship_1 = Friendship.create(user_id: @user_1.id, friend_id: @user_2.id)
       @friendship_2 = Friendship.create(user_id: @user_1.id, friend_id: @user_3.id)
-      @friendship_2 = Friendship.create(user_id: @user_1.id, friend_id: @user_4.id)
+      @friendship_2 = Friendship.create(user_id: @user_4.id, friend_id: @user_1.id)
 
       @party_1 = Party.create(movie_title: "The Exorcist III", user_id: @user_1.id, date: "October 26th, 1997", time: "12:45pm")
       @party_2 = Party.create(movie_title: "Psycho II", user_id: @user_1.id, date: "June 2nd, 1998", time: "12:45pm")
