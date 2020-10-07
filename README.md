@@ -14,9 +14,10 @@ In this project we were expected to build an app where a user can register and c
 
 ## Local Setup
 
-1. Fork and Clone the repo
-2. Install gem packages: `bundle install`
-3. Setup the database: `rails db:create`
+1. Make sure you are running the same versions of Ruby and Rails as the ones listed below in 'Versions'
+2. Fork and Clone the repo
+3. Install gem packages: `bundle install`
+4. Setup the database: `rails db:create`
 
 
 ## Versions
