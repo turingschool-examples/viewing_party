@@ -7,7 +7,8 @@ RSpec.describe 'Home page' do
     visit "/"
     # save_and_open_page
     expect(page).to have_content("Let's")
-    expect(page).to have_content("Make a Party!")
+    expect(page).to have_content("Make a")
+    expect(page).to have_content("Party!")
   end
 
   it "has a description of the application" do
