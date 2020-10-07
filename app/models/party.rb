@@ -1,5 +1,5 @@
 class Party < ApplicationRecord
-  has_many :users
+  # alias_method :host, :user_id
 
   validates_presence_of :movie_title,
             :user_id,
