@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   #login
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
+
+  resources :discover, only: :index
 end
