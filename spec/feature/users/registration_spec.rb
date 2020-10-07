@@ -13,10 +13,21 @@ RSpec.describe 'User registration page' do
     fill_in :email, with: 'test123@gmail.com'
     fill_in :password, with: 'password'
     fill_in :password_confirmation, with: 'password'
-    
+
     click_button("Register New User")
 
     expect(current_path).to eq('/dashboard')
   end
 
+  it "does not allow registration if form is not complete" do
+    visit '/registration'
+
+    fill_in :email, with: 'test123@gmail.com'
+    fill_in :password, with: 'password'
+    fill_in :password_confirmation, with: 'password'
+
+    click_button("Register New User")
+
+    expect(page).to have_content("Username can't be blank")
+  end
 end
