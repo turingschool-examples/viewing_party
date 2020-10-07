@@ -9,7 +9,7 @@ RSpec.describe 'User Registration' do
 
       expect(current_path).to eq("/register")
     end
-    
+
     it 'I can register as a user' do
       visit register_path
 
@@ -20,7 +20,7 @@ RSpec.describe 'User Registration' do
       click_button 'Register'
 
       expect(current_path).to eq('/user/dashboard')
-      expect(page).to have_content('Hello, Megan!')
+      expect(page).to have_content('Welcome, Megan!')
     end
 
     describe 'I can not register as a user if' do
