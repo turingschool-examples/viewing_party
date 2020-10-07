@@ -1,9 +1,9 @@
 class Party < ApplicationRecord
   # alias_method :host, :user_id
+  # belongs_to :host, class_name: 'User'
 
-  validates_presence_of :movie_title,
+  validates :movie_title,
             :user_id,
             :date,
-            :time
-
+            :time, presence: true
 end
