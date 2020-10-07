@@ -5,7 +5,9 @@ RSpec.describe 'Home page' do
   it "When a user visit's the root page, they see a welcome message" do
 
     visit "/"
-    expect(page).to have_content("Let's Make a Party!")
+    # save_and_open_page
+    expect(page).to have_content("Let's")
+    expect(page).to have_content("Make a Party!")
   end
 
   it "has a description of the application" do
