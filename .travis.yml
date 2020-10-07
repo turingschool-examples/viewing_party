@@ -8,6 +8,9 @@ script:
 - bundle exec rspec
 deploy:
   provider: heroku
-  api_key: 0099c7b4-f2eb-48ff-b25a-b846c5724e32
+  api_key:
   app: gentle-brook-14232
   run: rails db:migrate
+env:
+  global:
+  - secure: DPPgyUZGHPbzwlleYRA6pdBDGFp+TKTdA0UkmQ2ujm4NfBZ/MSXHGlX5dxol64Lkfw2NeCmgh83ajrm2ahIHorAODByKIJSvGQi/9zfXffjIVBvnUqlKiVmvFlgP3o6bD4OXZf9bnTTkgqEL1BKBzpkY6qC+bTGGeDWRQHfGGfbu3RcI6uQl0TDomiZAmGpfHIQmsZfQRDERYeygmhShKbPvyEV7ndCL3vml0vlEkSvm8+rKR2Vv+Xv0UQ7pz+GYHsqzLeOETU69n9NqqYRT4ZgjNO3p8v5rsLK4WRFaQIfUWk/olq+H52NLP8grs0PvOK7zvoy0KrTHpbjrjWbt2MgQXup/5gBF4MWO9pjJLxn8Xyt6EOMobEkbSMdhSgZjPFaPrWI5MTNmEUhyAopL7HfEhpBT4Zt/9Ib8ERj//8xN82+cAdYdTDHZynRDKnhLvdH5UNNE0SXUhbTHVYaGLFpzlCNo7qe0nkP6dUNl2ZMkcIcEHfatFAJXhCKQ20+j9fzKsvcvwp4WOK6joENR4uJn4aaUkfi0ZxcV5/pGDfDj7pr8CmN6dHpmEqI6UHBVtENUHX+GRqL+pq3PHVTQAF4syyopewuBmdQZTYLT54kY7VpHfsc5ShL2f9r1nIOrEgsOFDw3bX0BgVgnCsc7rrhqhvPth7OSJkGltRcfSDk=
