@@ -30,4 +30,18 @@ RSpec.describe 'User registration page' do
 
     expect(page).to have_content("Username can't be blank")
   end
+
+  it "does not allow registration if email is not unique" do
+    user = User.create!(username: "eDog", email: "elah@email.com", password: "password")
+
+    visit '/registration'
+
+    fill_in :username, with: 'Zelda'
+    fill_in :email, with: 'elah@email.com'
+    fill_in :password, with: 'password2'
+    fill_in :password_confirmation, with: 'password2'
+    click_button("Register New User")
+
+    expect(page).to have_content("Email has already been taken")
+  end
 end
