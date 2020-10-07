@@ -59,9 +59,7 @@ RSpec.describe 'Dashboard Page' do
       expect(page).to have_button('Discover Movies')
     end
 
-    #This will pass when
-
-    xit "I am sent to Discover Movies when I click the button" do
+    it "I am sent to Discover Movies when I click the button" do
       click_button 'Discover Movies'
 
       expect(current_path).to eq('/discover')
