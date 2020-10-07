@@ -16,10 +16,16 @@ gem 'coffee-rails', '~> 4.2'
 gem 'bootsnap'
 gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
+gem 'figaro'
 
 group :development, :test do
   gem 'pry'
   gem 'travis'
+  gem 'shoulda-matchers'
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'simplecov'
 end
 
 group :development do
@@ -29,11 +35,5 @@ group :development do
   gem 'travis'
 end
 
-group :test do
-  gem 'rspec-rails'
-  gem 'capybara'
-  gem 'launchy'
-  gem 'simplecov'
-end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
