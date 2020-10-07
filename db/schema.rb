@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_07_030354) do
+ActiveRecord::Schema.define(version: 2020_10_07_033423) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,5 +40,16 @@ ActiveRecord::Schema.define(version: 2020_10_07_030354) do
     t.index ["user_id"], name: "index_viewing_parties_on_user_id"
   end
 
+  create_table "viewing_party_users", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "viewing_party_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_viewing_party_users_on_user_id"
+    t.index ["viewing_party_id"], name: "index_viewing_party_users_on_viewing_party_id"
+  end
+
   add_foreign_key "viewing_parties", "users"
+  add_foreign_key "viewing_party_users", "users"
+  add_foreign_key "viewing_party_users", "viewing_parties"
 end
