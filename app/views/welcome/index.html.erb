@@ -1,23 +1,25 @@
-<div class="login-button">
-  <%= button_to "Login", "/dashboard", :style => 'font-size: 20px;background-color:rgb(236, 116, 173);border-radius:5px;box-shadow: 0 0 10px #a9a9a9;' %>
-</div>
+<body class="welcome-page">
+  <div class="login-button">
+    <%= button_to "Login", "/dashboard", :style => 'font-size: 20px;background-color:rgb(236, 116, 173);border-radius:5px;box-shadow: 0 0 10px #a9a9a9;' %>
+  </div>
 
-<div class="register-button">
-  <%= button_to "Register", "/registration", :style => 'font-size: 20px;background-color:rgb(236, 116, 173);border-radius:5px;box-shadow: 0 0 10px #a9a9a9;', method: :get %>
-</div>
+  <div class="register-button">
+    <%= button_to "Register", "/registration", :style => 'font-size: 20px;background-color:rgb(236, 116, 173);border-radius:5px;box-shadow: 0 0 10px #a9a9a9;', :id => "register-button", method: :get %>
+  </div>
 
-<div class="container">
-    <div class="animation">
-      <span class="first"><h1>Let's </h1></span>
-      <span class="oh">
-        <span class="second"><h1>Make a Party!</h1></span>
-      </span>
-    </div>
-</div>
-<br>
-<br>
+  <div class="container">
+      <div class="animation">
+        <span class="first"><h1>Let's </h1></span>
+        <span class="oh">
+          <span class="second"><h1>Make a Party!</h1></span>
+        </span>
+      </div>
+  </div>
+  <br>
+  <br>
 
-<div class="text">
-  <h2>Explore movies and create a viewing party event for you and your friends to watch a movie together!</h2>
-    <img src="https://media.giphy.com/media/5xtDarIHieSzSJdmn0A/source.gif" alt="Funny dancing" class="home-page" id="home-page">
-</div>
+  <div class="text">
+    <h2>Explore movies and create a viewing party event for you and your friends to watch a movie together!</h2>
+      <img src="https://media.giphy.com/media/5xtDarIHieSzSJdmn0A/source.gif" alt="Funny dancing" class="home-page" id="home-page">
+  </div>
+</body>
