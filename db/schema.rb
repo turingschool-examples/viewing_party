@@ -50,7 +50,29 @@ ActiveRecord::Schema.define(version: 2020_10_07_194256) do
     t.string "password_digest"
   end
 
+  create_table "viewing_parties", force: :cascade do |t|
+    t.string "movie_title"
+    t.bigint "user_id"
+    t.string "date"
+    t.string "time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_viewing_parties_on_user_id"
+  end
+
+  create_table "viewing_party_users", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "viewing_party_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_viewing_party_users_on_user_id"
+    t.index ["viewing_party_id"], name: "index_viewing_party_users_on_viewing_party_id"
+  end
+
   add_foreign_key "parties", "users"
   add_foreign_key "party_users", "parties"
   add_foreign_key "party_users", "users"
+  add_foreign_key "viewing_parties", "users"
+  add_foreign_key "viewing_party_users", "users"
+  add_foreign_key "viewing_party_users", "viewing_parties"
 end
