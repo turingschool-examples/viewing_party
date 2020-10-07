@@ -6,7 +6,7 @@ RSpec.describe 'Welcome Page' do
     before :each do
       @user = User.create(name: 'Jackie Chan', email: 'a@a.com', password: 'a')
 
-      visit '/'
+      visit root_path
     end
 
     it "I can see a welcome message" do
@@ -27,7 +27,7 @@ RSpec.describe 'Welcome Page' do
 
       click_button "Log In"
 
-      expect(current_path).to eq("/dashboard")
+      expect(current_path).to eq("/user/dashboard")
     end
 
     it "I can see a link to register" do
