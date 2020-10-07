@@ -23,6 +23,7 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   gem 'pry'
   gem 'travis'
+  gem "nyan-cat-formatter"
 end
 
 group :development do
