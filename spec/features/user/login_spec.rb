@@ -20,7 +20,7 @@ RSpec.describe 'Login' do
     end
 
     describe "If already logged in" do
-      it "I see a flash message indicating I'm already logged in" do
+      it "I do not see a login form or register link" do
 
         fill_in 'Email', with: @user.email
         fill_in 'Password', with: @user.password
@@ -29,13 +29,9 @@ RSpec.describe 'Login' do
 
         visit root_path
 
-        fill_in 'Email', with: @user.email
-        fill_in 'Password', with: @user.password
-
-        click_button "Log In"
-
-        expect(current_path).to eq("/user/dashboard")
-        expect(page).to have_content("You are already logged in")
+        expect(page).to_not have_content('Email')
+        expect(page).to_not have_content('Password')
+        expect(page).to_not have_link('Register')
       end
     end
 
