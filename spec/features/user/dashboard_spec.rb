@@ -12,9 +12,9 @@ RSpec.describe 'Dashboard Page' do
       @friendship_1 = Friendship.create(user_id: @user_1.id, friend_id: @user_2.id)
       @friendship_2 = Friendship.create(user_id: @user_1.id, friend_id: @user_3.id)
 
-      @viewing_party_1 = ViewingParty.create(movie_title: "Big City", host: @user_1, date: "June 26th, 1997", time: "12:45pm")
+      @party_1 = Party.create(movie_title: "Big City", host: @user_1, date: "June 26th, 1997", time: "12:45pm")
 
-      @party_invites_1 = ViewingParty.create(viewing_party_id: @viewing_party_1.id, user_id: @user_2.id, status: 0)
+      @party_user_1 = PartyUser.create(party_id: @party_1.id, user_id: @user_2.id, status: 0)
 
       visit root_path
 
