@@ -14,8 +14,15 @@ RSpec.describe 'Dashboard Page' do
       click_button "Log In"
     end
 
-    it "I can see a personalized welcome message" do
+    it "I can see a personalized welcome message after logging in" do
       expect(page).to have_content('Welcome, Jackie Chan, you are logged in!')
+    end
+
+    it "I can see a personalized greeting if I navigate away, and navigate back" do
+      visit root_path
+      visit 'user/dashboard'
+
+      expect(page).to have_content('Hello, Jackie Chan!')
     end
 
   end
