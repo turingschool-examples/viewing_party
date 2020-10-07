@@ -1,8 +1,8 @@
 class Party < ApplicationRecord
   has_many :users
 
-  validates :movie_title,
-            :host,
+  validates_presence_of :movie_title,
+            :user_id,
             :date,
             :time
 
