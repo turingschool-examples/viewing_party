@@ -260,7 +260,7 @@ select {
   margin-bottom: 30px;
 }
 
-button {
+input[type=submit] {
   padding: 19px 39px 18px 39px;
   color: #FFF;
   background-color: #e96ca5;
