@@ -22,7 +22,7 @@ RSpec.describe 'Dashboard Page' do
       visit root_path
       visit 'user/dashboard'
 
-      expect(page).to have_content('Hello, Jackie Chan!')
+      expect(page).to have_content('Welcome Jackie Chan!')
     end
 
   end
