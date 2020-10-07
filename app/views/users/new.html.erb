@@ -1,24 +1,20 @@
 <body class="form-page">
-  <form action="/users" method="post">
-
-    <h1>Sign Up</h1>
-
-    <fieldset>
-      <legend><span class="number">1</span> Your basic info</legend>
-      <label for="usernamename">User-name:</label>
-      <input type="text" id="username" name="username">
-
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email">
-
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password">
-
-      <label for="password_confirmation">Confirm password:</label>
-      <input type="password" id="password_confirmation" name="password_confirmation">
-    </fieldset>
-
-    <button type="submit">Register New User</button>
-
-  </form>
+  <center>
+    <br>
+    <br>
+    <br>
+    <br>
+    <%= form_tag "/users", value: "Register", method: :create do %>
+    <legend><span class="number"></span> Register User</legend>
+      <%= label_tag :username %>
+      <%= text_field_tag :username %>
+      <%= label_tag :email %>
+      <%= text_field_tag :email %>
+      <%= label_tag :password %>
+      <%= password_field_tag :password, value: nil %>
+      <%= label_tag :password_confirmation %>
+      <%= password_field_tag :password_confirmation %>
+      <%= submit_tag 'Register New User' %>
+    <% end %>
+  </center>
 </body>

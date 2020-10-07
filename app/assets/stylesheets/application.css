@@ -61,6 +61,19 @@ footer {
   float:right;
 }
 
+.welcome-page input[type=submit] {
+  padding: 10px 20px 10px 20px;
+  color: #FFF;
+  background-color: #e96ca5;
+  font-size: 15px;
+  text-align: center;
+  font-style: normal;
+  border-radius: 5px;
+  border: 1px solid #91129c;
+  border-width: 1px 1px 3px;
+  margin-bottom: 10px;
+}
+
 *{
   padding: 0;
   margin: 0;
@@ -260,7 +273,7 @@ select {
   margin-bottom: 30px;
 }
 
-button {
+.form-page input[type=submit] {
   padding: 19px 39px 18px 39px;
   color: #FFF;
   background-color: #e96ca5;
