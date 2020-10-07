@@ -38,7 +38,7 @@ RSpec.describe 'Welcome Page' do
       click_button 'Log in'
 
       expect(current_path).to eq('/')
-      expect(page).to have_content('That email/password combonation does not exist in our records')
+      expect(page).to have_content('That email/password combination does not exist in our records')
       
     end
     it 'and link to register' do
