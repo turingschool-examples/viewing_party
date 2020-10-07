@@ -6,5 +6,4 @@ class ViewingParty < ApplicationRecord
             :date,
             :time
 
-
 end
