@@ -1,14 +1,16 @@
 # Viewing Party
 
-This is a group project betwee myself, Saryn and Norma.
+This is a group project between Travis McKinstry, Saryn Mooney and Norma Lopez.
 
 The link to this app: [found here](https://gentle-brook-14232.herokuapp.com/)
 
-To download this app onto your compter, follow the instructions bellow;
+To download this app onto your compter, follow the instructions labelled 'Local Setup';
 
 ### About this Project
 
-In this project we were expected to build an app where a user can register and create viewing parties involving a movie of their choice.
+In this project we were expected to build an app where a user can register and create viewing parties involving a movie of their choice. The app has the following features;
+
+-a user can register and subsequently login/logout of the app
 
 ## Local Setup
 
