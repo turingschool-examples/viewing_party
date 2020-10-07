@@ -10,34 +10,34 @@ RSpec.describe 'User Registration' do
     #   expect(current_path).to eq(registration_path)
     # end
 
-    it 'I can register as a user' do
-      visit registration_path
+    # it 'I can register as a user' do
+    #   visit registration_path
+    #
+    #   fill_in 'Name', with: 'Megan'
+    #   fill_in 'Email', with: 'megan@example.com'
+    #   fill_in 'Password', with: 'securepassword'
+    #   fill_in 'Password confirmation', with: 'securepassword'
+    #   click_button 'Register'
+    #
+    #   expect(current_path).to eq(profile_path)
+    #   expect(page).to have_content('Welcome, Megan!')
+    # end
 
-      fill_in 'Name', with: 'Megan'
-      fill_in 'Email', with: 'megan@example.com'
-      fill_in 'Password', with: 'securepassword'
-      fill_in 'Password confirmation', with: 'securepassword'
-      click_button 'Register'
-
-      expect(current_path).to eq(profile_path)
-      expect(page).to have_content('Welcome, Megan!')
-    end
-
-    describe 'I can not register as a user if' do
-      it 'I do not complete the registration form' do
-        visit registration_path
-
-        fill_in 'Name', with: 'Megan'
-        click_button 'Register'
-
-        expect(page).to have_button('Register')
-        expect(page).to have_content("address: [\"can't be blank\"]")
-        expect(page).to have_content("city: [\"can't be blank\"]")
-        expect(page).to have_content("state: [\"can't be blank\"]")
-        expect(page).to have_content("zip: [\"can't be blank\"]")
-        expect(page).to have_content("email: [\"can't be blank\"]")
-        expect(page).to have_content("password: [\"can't be blank\"]")
-      end
+    # describe 'I can not register as a user if' do
+    #   it 'I do not complete the registration form' do
+    #     visit registration_path
+    #
+    #     fill_in 'Name', with: 'Megan'
+    #     click_button 'Register'
+    #
+    #     expect(page).to have_button('Register')
+    #     expect(page).to have_content("address: [\"can't be blank\"]")
+    #     expect(page).to have_content("city: [\"can't be blank\"]")
+    #     expect(page).to have_content("state: [\"can't be blank\"]")
+    #     expect(page).to have_content("zip: [\"can't be blank\"]")
+    #     expect(page).to have_content("email: [\"can't be blank\"]")
+    #     expect(page).to have_content("password: [\"can't be blank\"]")
+    #   end
 
       # it 'I use a non-unique email' do
       #   user = User.create(name: 'Megan', address: '123 Main St', city: 'Denver', state: 'CO', zip: 80218, email: 'megan@example.com', password: 'securepassword')
@@ -57,6 +57,6 @@ RSpec.describe 'User Registration' do
       #   expect(page).to have_button('Register')
       #   expect(page).to have_content("email: [\"has already been taken\"]")
       # end
-    end
+    # end
   end
 end
