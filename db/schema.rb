@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_07_024423) do
+ActiveRecord::Schema.define(version: 2020_10_07_191736) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,14 @@ ActiveRecord::Schema.define(version: 2020_10_07_024423) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "parties", force: :cascade do |t|
+    t.string "movie_title"
+    t.bigint "user_id"
+    t.string "date"
+    t.string "time"
+    t.index ["user_id"], name: "index_parties_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -30,4 +38,27 @@ ActiveRecord::Schema.define(version: 2020_10_07_024423) do
     t.string "password_digest"
   end
 
+  create_table "viewing_parties", force: :cascade do |t|
+    t.string "movie_title"
+    t.bigint "user_id"
+    t.string "date"
+    t.string "time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_viewing_parties_on_user_id"
+  end
+
+  create_table "viewing_party_users", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "viewing_party_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_viewing_party_users_on_user_id"
+    t.index ["viewing_party_id"], name: "index_viewing_party_users_on_viewing_party_id"
+  end
+
+  add_foreign_key "parties", "users"
+  add_foreign_key "viewing_parties", "users"
+  add_foreign_key "viewing_party_users", "users"
+  add_foreign_key "viewing_party_users", "viewing_parties"
 end
