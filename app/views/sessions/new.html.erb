@@ -1,0 +1,18 @@
+<body class="form-page">
+  <center>
+    <br>
+    <br>
+    <br>
+    <br>
+    <%= form_tag "/login", value: "Register", method: :post do %>
+    <legend><span class="number"></span> Login</legend>
+      <%= label_tag :username %>
+      <%= text_field_tag :username %>
+      <%= label_tag :email %>
+      <%= text_field_tag :email %>
+      <%= label_tag :password %>
+      <%= password_field_tag :password, value: nil %>
+      <%= submit_tag 'Login' %>
+    <% end %>
+  </center>
+</body>
