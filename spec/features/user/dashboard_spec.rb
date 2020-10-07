@@ -14,11 +14,14 @@ RSpec.describe 'Dashboard Page' do
       @friendship_2 = Friendship.create(user_id: @user_1.id, friend_id: @user_3.id)
       @friendship_3 = Friendship.create(user_id: @user_4.id, friend_id: @user_1.id)
       @friendship_4 = Friendship.create(user_id: @user_2.id, friend_id: @user_5.id)
+      @friendship_5 = Friendship.create(user_id: @user_2.id, friend_id: @user_3.id)
 
       @party_1 = Party.create(movie_title: "The Exorcist III", user_id: @user_1.id, date: "October 26th, 1997", time: "12:45pm")
       @party_2 = Party.create(movie_title: "Psycho II", user_id: @user_1.id, date: "June 2nd, 1998", time: "12:45pm")
       @party_3 = Party.create(movie_title: "Hellbound: Hellraiser II", user_id: @user_1.id, date: "September 22nd, 1999", time: "12:45pm")
       @party_4 = Party.create(movie_title: "House II: The Second Story", user_id: @user_2.id, date: "April 22nd, 2000", time: "12:45pm")
+      @party_5 = Party.create(movie_title: "The Gate II", user_id: @user_2.id, date: "January 19nd, 2001", time: "12:45pm")
+      @party_6 = Party.create(movie_title: "Ip Man II", user_id: @user_2.id, date: "July 1nd, 2002", time: "12:45pm")
 
       @party_user_1 = PartyUser.create(party_id: @party_1.id, user_id: @user_2.id, status: 2)
       @party_user_2 = PartyUser.create(party_id: @party_1.id, user_id: @user_3.id, status: 2)
