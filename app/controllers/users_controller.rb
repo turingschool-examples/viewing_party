@@ -25,7 +25,7 @@ class UsersController < ApplicationController
       session[:current_user] = @user.id
       redirect_to '/dashboard'
     else
-      flash[:error] = 'That email/password combonation does not exist in our records'
+      flash[:error] = 'That email/password combination does not exist in our records'
       redirect_to '/'
     end
   end
