@@ -14,7 +14,7 @@ RSpec.describe 'Dashboard Page' do
 
       @viewing_party_1 = ViewingParty.create(movie_title: "Big City", host: @user_1, date: "June 26th, 1997", time: "12:45pm")
 
-      @party_invites_1 = ViewingParty.create(viewing_party_id: @viewing_party_1.id, user_id: @user_2.id, status: 0)
+      @viewing_party_user_1 = ViewingPartyUser.create(viewing_party_id: @viewing_party_1.id, user_id: @user_2.id, status: 0)
 
       visit root_path
 
