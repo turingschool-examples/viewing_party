@@ -32,7 +32,7 @@ RSpec.describe 'User Registration' do
 
         expect(page).to have_button('Register')
         expect(page).to have_content("email: [\"can't be blank\"]")
-        expect(page).to have_content("password: [\"can't be blank\", \"can't be blank\"]")
+        expect(page).to have_content("password: [\"can't be blank\"")
       end
 
       it "My password and password confirmation does not match" do
