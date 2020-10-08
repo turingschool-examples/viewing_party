@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :friendships
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   #Welcome
@@ -11,5 +12,11 @@ Rails.application.routes.draw do
 
   #Sessions
   post '/login', to: 'sessions#new'
+
+  #Movies
+  get '/discover', to: 'movies#index'
+
+  #Friendships
+  post '/dashboard', to: 'friendships#new'
 
 end
