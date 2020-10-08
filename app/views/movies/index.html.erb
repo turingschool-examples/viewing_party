@@ -1,10 +1,16 @@
 <%x = 0 %>
 <%y = 20 %>
+<%= button_to "Top Rated Movies", "/movies", method: :get %>
 
-<% @json[:results].each do |movie_info| %>
-  <h2><%= x += 1 %>. <%= movie_info[:title] %></h2>
-<%end %>
+<%= form_tag "/movies", value: "Search", method: :get do %>
+  <%= label_tag :search %>
+  <%= text_field_tag :search %>
+  <%= submit_tag 'Search' %>
+<% end %>
 
-<% @json2[:results].each do |movie_info| %>
-  <h2><%= y += 1 %>. <%= movie_info[:title] %></h2>
+<% @results.each do |movie_info| %>
+  <div class="movie">
+    <div> <%= link_to "#{x += 1}. #{movie_info[:title]}", "/movies/#{movie_info[:id]}" %></div>
+    <div class="vote">Vote average: <%=movie_info[:vote_average]%></div>
+  </div>
 <%end %>

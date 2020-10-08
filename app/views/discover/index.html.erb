@@ -5,7 +5,6 @@
 </div>
 
 <%= form_tag "/movies", value: "Search", method: :get do %>
-<legend><span class="number"></span> Search By Movie</legend>
   <%= label_tag :search %>
   <%= text_field_tag :search %>
   <%= submit_tag 'Search By Movie' %>
