@@ -1,9 +1,22 @@
-require 'rails_helper'
+
 
 class MovieService
   def conn
-    Faraday.new(url: 'https://api.themoviedb.org') do |faraday|
+    Faraday.new(url: 'https://api.themoviedb.org')
+  end
+
+  def all_movies
+    page_num = 1
+    movie_collection = []
+    2.times do
+      connection = conn.get("/3/discover/movie?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US&page=#{page_num}")
+      movie_collection = JSON.parse(connection.body, symbolize_names: true)
+      movie_collection[:results].each do |movie|
+        new_movie = Movie.new(title: movie[:title], api_id: movie[:id])
+      end
+      page_num += 1
     end
+    require "pry"; binding.pry
   end
 
   def top_40_first_half
