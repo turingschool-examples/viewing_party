@@ -1,10 +1,10 @@
 <%x = 0 %>
 <%y = 20 %>
 
-<% @json[:results].each do |movie_info| %>
+<% @results.each do |movie_info| %>
   <h2><%= x += 1 %>. <%= movie_info[:title] %></h2>
 <%end %>
 
-<% @json2[:results].each do |movie_info| %>
+<% @results.each do |movie_info| %>
   <h2><%= y += 1 %>. <%= movie_info[:title] %></h2>
 <%end %>
