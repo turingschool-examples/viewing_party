@@ -20,7 +20,12 @@ RSpec.describe 'discover', type: :feature do
 
       click_button 'Top 40 Movies'
 
-      expect(current_path).to eq('/discover/top-40')
+      expect(current_path).to eq('/movies')
+
+      expect(page).to have_content("Gabriel's Inferno Part II")
+      expect(page).to have_content("8.9")
+      expect(page).to have_content("Sunset Boulevard")
+      expect(page).to have_content("8.4")
     end
 
     it 'has form to search by movie title' do
@@ -30,7 +35,7 @@ RSpec.describe 'discover', type: :feature do
 
       click_button 'Search By Title'
 
-      expect(current_path).to eq('/movie/find')
+      expect(current_path).to eq('/movies')
     end
   end
 end
