@@ -28,7 +28,14 @@ RSpec.describe 'movie discover page' do
   it 'displays search bar for movies' do
     visit '/discover'
 
-    expect(page).to have_button('Search By Movie')
     expect(page).to have_field('Search')
+  end
+
+  it 'displays search button which redirects to the movies page' do
+    visit '/discover'
+
+    expect(page).to have_button('Search By Movie')
+    click_button 'Search By Movie'
+    expect(current_path). to eq('/movies')
   end
 end
