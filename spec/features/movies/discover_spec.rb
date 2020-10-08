@@ -29,8 +29,8 @@ RSpec.describe 'Discover Movies' do
         describe "And click the Search By Movie Title button" do
           it "I am redirected to the movies page" do
 
-            fill_in 'Movie title', with: 'whatever'
-            click_button('Discover Top 40')
+            fill_in 'Keywords', with: 'whatever'
+            click_button('Search By Movie Title')
             expect(current_path).to eq('/movies')
           end
         end
@@ -40,7 +40,7 @@ RSpec.describe 'Discover Movies' do
         describe "And click the Search By Movie Title button" do
           xit "I see an error message indicating I must enter text" do
 
-            click_button('Discover Top 40')
+            click_button('Search By Movie Title')
             expect(current_path).to eq('/discover')
             expect(page).to have_content('Must enter text to search')
           end
