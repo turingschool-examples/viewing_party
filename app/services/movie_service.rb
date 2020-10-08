@@ -1,6 +1,4 @@
-require 'faraday'
-require 'json'
-require 'figaro'
+require 'rails_helper'
 
 class MovieService
   def conn
