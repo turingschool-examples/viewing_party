@@ -13,4 +13,8 @@ Rails.application.routes.draw do
 
   #Movies
   get '/discover', to: 'movies#index'
+
+  #Friendships
+  post '/dashboard', to: 'friendships#new'
+
 end
