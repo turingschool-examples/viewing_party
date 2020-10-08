@@ -1,13 +1,22 @@
-<h1>Welcome <%= @user.username %></h1>
+<body class="dashboard-page">
+  <div class="bottom-container">
+    <h1>Welcome <%= @user.username %></h1>
+  </div>
 
-<section id="discover-movies">
-  <%= button_to "Discover Movies", discover_index_path, method: :get %>
-</section>
+  <div class="top-container">
+    <h1>Welcome <%= @user.username %></h1>
+  </div>
 
-<section id="friends">
-  Check Out Yo Friends
-</section>
+  <section id="discover-movies" class="discover-movies">
+    <%= button_to "Discover Movies", discover_index_path, method: :get %>
+  </section>
 
-<section id="viewing-parties">
-  Check Out Yo Viewing Parties
-</section>
+  <section id="friends">
+    Check Out Yo Friends
+  </section>
+
+  <section id="viewing-parties">
+    Check Out Yo Viewing Parties
+  </section>
+
+</body>
