@@ -20,11 +20,12 @@ RSpec.describe 'movie discover page' do
         expect(page).to have_content("40. ")
       end
         it "I should also see the 'Find Top Rated Movies' button and the Find Movies form at the top of the page." do
-          #
-          # visit '/movies'
-          #
-          # expect(page).to have_content("Movie #40")
-          #
+          json1 = File.read('spec/fixtures/top_40_movies_1.json')
+          json2 = File.read('spec/fixtures/top_40_movies_2.json')
+          visit '/movies'
+
+          expect(page).to have_button("Top Rated Movies")
+
       end
     end
   end
