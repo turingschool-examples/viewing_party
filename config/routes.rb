@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   get '/register', to: 'users#new'
   post '/register', to: 'users#create'
   get '/dashboard', to: 'users#show'
-  post '/login', to: 'users#login'
+
+  #Sessions
+  post '/login', to: 'sessions#new'
 
   #Movies
   get '/discover', to: 'movies#index'

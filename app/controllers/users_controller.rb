@@ -18,21 +18,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def login
-    @user = User.find_by(email: user_params[:email])
-    if @user && @user.authenticate(user_params[:password])
-      flash[:success] = "Now logged in as #{@user.email}!"
-      session[:current_user] = @user.id
-      redirect_to '/dashboard'
-    else
-      flash[:error] = 'That email/password combination does not exist in our records'
-      redirect_to '/'
-    end
-  end
-
-  def show
-    @user = User.find(session[:current_user])
-  end
+  def show; end
 
   private
 
