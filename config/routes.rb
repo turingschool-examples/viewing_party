@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/registration', to: 'users#new', as: :user_registration
   post '/users', to: 'users#create', as: :user_create
   post '/friends', to: 'friendships#create', as: :friend
+  get '/discover', to: 'movies#index', as: :discover
 
   namespace :user do
     get '/dashboard', to: 'dashboard#index'
