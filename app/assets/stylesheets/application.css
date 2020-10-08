@@ -241,7 +241,6 @@ a:hover::after {
 
 body {
   font-family: 'Nunito', sans-serif;
-  color: #384047;
 }
 
 form {
@@ -298,6 +297,32 @@ select {
   margin-bottom: 10px;
 }
 
+.discover-movies {
+  padding: 5px 10px 5px 10px;
+  color: #FFF;
+  background-color: #e96ca5;
+  font-size: 18px;
+  text-align: center;
+  font-style: normal;
+  border-radius: 5px;
+  width: 190px;
+  margin: auto;
+  margin-top: 110px;
+  border: 1px solid #91129c;
+  border-width: 1px 1px 3px;
+  box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+}
+
+.discover-movies input[type=submit]{
+  height: 30px;
+  width: 90%;
+  font-size: 13px;
+}
+
+.dashboard-page h1{
+  margin-top: 20px;
+}
+
 fieldset {
   margin-bottom: 30px;
   border: none;
@@ -351,4 +376,36 @@ label.light {
   margin-left: auto;
   margin-right: auto;
   width: 30%;
+}
+
+
+.bottom-container,
+.top-container {
+  width: 40vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 30vw;
+  padding: 1vw;
+}
+
+.bottom-container {
+  color: #232323;
+}
+
+.top-container {
+  background-color: rgb(255, 115, 153);
+  color: white;
+  clip-path: circle(13% at 85% 50%);
+  animation: circleMove 100s ease-in-out infinite;
+}
+
+@keyframes circleMove {
+  0%, 100% {
+    clip-path: circle(13% at 85% 50%);
+  }
+  50% {
+    clip-path: circle(13% at 15% 50%);
+  }
 }
