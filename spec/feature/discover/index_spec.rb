@@ -19,8 +19,10 @@ RSpec.describe 'movie discover page' do
 
   it 'When the user clicks on the top 40 button they should be taken to the movies page' do
     json1 = File.read('spec/fixtures/top_40_movies_1.json')
+    json2 = File.read('spec/fixtures/top_40_movies_2.json')
 
     stub_request(:get, "https://api.themoviedb.org/3/movie/top_rated?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US&page=1").to_return(status: 200, body: json1)
+    stub_request(:get, "https://api.themoviedb.org/3/movie/top_rated?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US&page=2").to_return(status: 200, body: json2)
     visit '/discover'
 
     expect(page).to have_button("Discover Top 40 Movies")
@@ -35,6 +37,11 @@ RSpec.describe 'movie discover page' do
   end
 
   it 'displays search button which redirects to the movies page' do
+    json1 = File.read('spec/fixtures/top_40_movies_1.json')
+    json2 = File.read('spec/fixtures/top_40_movies_2.json')
+
+    stub_request(:get, "https://api.themoviedb.org/3/movie/top_rated?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US&page=1").to_return(status: 200, body: json1)
+    stub_request(:get, "https://api.themoviedb.org/3/movie/top_rated?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US&page=2").to_return(status: 200, body: json2)
     visit '/discover'
 
     expect(page).to have_button('Search By Movie')
