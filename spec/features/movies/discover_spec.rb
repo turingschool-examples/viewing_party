@@ -29,7 +29,7 @@ RSpec.describe 'Discover Movies' do
         describe "And click the Search By Movie Title button" do
           it "I am redirected to the movies page" do
 
-            fill_in 'Keywords', with: 'whatever'
+            fill_in 'Keywords', with: 'whatever works'
             click_button('Search By Movie Title')
             expect(current_path).to eq('/movies')
           end
