@@ -1,0 +1,19 @@
+<h1 align= "center">Top 40 Movies</h1>
+  <center>
+
+    <% if @movie %>
+
+    <% else %>
+      <ol>
+        <% @top_20.each do |movie| %>
+          <h3><li><%= movie[:title] %></li></h3>
+          <p>Rating: <%= movie[:vote_average] %></p><br>
+        <% end %>
+
+        <% @second_top_20.each do |movie| %>
+          <h3><li><%= movie[:title] %></li></h3>
+          <p>Rating: <%= movie[:vote_average] %></p><br>
+        <% end %>
+      <ol>
+    <% end %>
+</center>
