@@ -13,7 +13,7 @@ RSpec.describe 'Discover Movies' do
       end
 
       it "I see a search field with button to search movies by title" do
-        expect(page).to have_field('movie_title')
+        expect(page).to have_field('keywords')
         expect(page).to have_button('Search By Movie Title')
       end
 
