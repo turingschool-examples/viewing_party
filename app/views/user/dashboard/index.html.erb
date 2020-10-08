@@ -4,6 +4,20 @@
 
 <section class='friends'>
   <h3>Friends</h3>
+  <%= form_tag friend_path, method: :post do %>
+    <%= label_tag :email %>
+    <%= text_field_tag :email %>
+    <%= submit_tag "Add Friend" %>
+    <% if current_user.friends.empty? %>
+      <p>You have no friends</p>
+    <% else %>
+    <ul>
+      <% current_user.friends.each do |friend| %>
+      <li><%= friend.email %></li><br>
+      <% end %>
+    </ul>
+    <% end %>
+  <% end %>
 </section>
 
 <section class='viewing_parties'>

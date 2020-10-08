@@ -26,6 +26,7 @@ group :development, :test do
   gem 'capybara'
   gem 'launchy'
   gem 'simplecov'
+  gem "factory_bot_rails"
 end
 
 group :development do
