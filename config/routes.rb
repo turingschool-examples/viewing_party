@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
 
   resources :discover, only: :index
+
+  get '/movies', to: 'movies#index'
 end
