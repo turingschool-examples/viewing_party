@@ -190,16 +190,6 @@ footer {
 }
 
 
-/* Linkedin href */
-a {
-  position: fixed;
-  bottom: 20px;
-  right: 25px;
-  transition: 0.2s;
-  animation: slideLeft 1.5s forwards;
-  z-index: 10;
-}
-
 a:after {
   content: "";
   position: absolute;
