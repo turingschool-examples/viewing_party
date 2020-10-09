@@ -22,5 +22,6 @@ class MoviesController < ApplicationController
     @runtime = Movie.new.calculate_time(@movie)
     cast = Movie.new.find_cast(params[:id].to_i)[:cast]
     cast.length >= 10 ? @cast = Movie.new.find_cast(params[:id].to_i)[:cast][0...9] : @cast = Movie.new.find_cast(params[:id].to_i)[:cast]
+    @reviews = Movie.new.find_reviews(params[:id].to_i)
   end
 end

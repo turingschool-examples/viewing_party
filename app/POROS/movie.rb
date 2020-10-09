@@ -32,4 +32,11 @@ class Movie
     response = conn.get("/3/movie/724089/credits?api_key=#{ENV['MOVIE_API_KEY']}")
     json = JSON.parse(response.body, symbolize_names: true)
   end
+
+  def find_reviews(id)
+    api_key = ENV['MOVIE_API_KEY']
+    conn = Faraday.new(url: 'https://api.themoviedb.org')
+    response = conn.get("/3/movie/#{id}/reviews?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US&page=1")
+    json = JSON.parse(response.body, symbolize_names: true)
+  end
 end

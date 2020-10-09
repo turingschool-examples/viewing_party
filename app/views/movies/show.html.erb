@@ -3,7 +3,12 @@
 <h3>Run time: <%= @runtime%> minutes</h3>
 <h3>Genres: <%= @movie[:genres][0][:name] %></h3>
 <h3>Overview: <%= @movie[:overview] %></h3>
-<p>Cast:</p>
+<p style="font-weight:bold;">Cast:</p>
 <%@cast.each do |per| %>
-  <%=per[:name] %>
+  <%=per[:name] %>, 
+<%end %>
+<h3>Reviews: <%=@reviews[:results].length %></h3>
+<%@reviews[:results].each do |rev| %>
+  <p style="font-weight:bold;">Author: <%=rev[:author] %> </p>
+  <p> Review: <%=rev[:content] %>
 <%end %>
