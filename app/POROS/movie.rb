@@ -33,5 +33,3 @@ class Movie
     json = JSON.parse(response.body, symbolize_names: true)
   end
 end
-
-# https://api.themoviedb.org/3/movie/724089/credits?api_key=3335130aaac90cef9662d0344b016029
