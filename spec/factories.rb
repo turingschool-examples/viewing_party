@@ -4,9 +4,4 @@ FactoryBot.define do
     email { Faker::Internet.email }
     password { "password" }
   end
-
-  factory :friendship do
-    user { nil }
-    user { nil }
-  end
 end

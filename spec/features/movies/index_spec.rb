@@ -18,7 +18,6 @@ RSpec.describe 'discover', type: :feature do
       @top_40 = movies.top_40
 
       visit '/discover'
-
       expect(page).to have_button('Top 40 Movies')
 
       click_button 'Top 40 Movies'
