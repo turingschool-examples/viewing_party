@@ -20,6 +20,7 @@ class MoviesController < ApplicationController
   def show
     @movie = Movie.new.get_specific_movie(params[:id].to_i)
     @runtime = Movie.new.calculate_time(@movie)
-    @cast = Movie.new.find_cast(params[:id].to_i)
+    cast = Movie.new.find_cast(params[:id].to_i)[:cast]
+    cast.length >= 10 ? @cast = Movie.new.find_cast(params[:id].to_i)[:cast][0...9] : @cast = Movie.new.find_cast(params[:id].to_i)[:cast]
   end
 end
