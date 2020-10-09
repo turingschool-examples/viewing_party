@@ -10,17 +10,22 @@ RSpec.describe 'movie show page' do
     describe "When I visit the movies detail page," do
       describe "I should see a button 'create a viewing party'" do
         it "and if I click this button it takes me to a new event page" do
-          first_movie_id = JSON.parse(File.read('spec/fixtures/top_40_movies_1.json'), symbolize_names: true)[:results].first[:id]
+          first_movie = JSON.parse(File.read('spec/fixtures/first_movie_link.json'), symbolize_names: true)
+          first_movie_cast = JSON.parse(File.read('spec/fixtures/first_movie_cast.json'), symbolize_names: true)
+
           json1 = File.read('spec/fixtures/top_40_movies_1.json')
           json2 = File.read('spec/fixtures/top_40_movies_2.json')
           json3 = File.read('spec/fixtures/first_movie_link.json')
+          json4 = File.read('spec/fixtures/first_movie_cast.json')
 
 
           stub_request(:get, "https://api.themoviedb.org/3/movie/top_rated?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US&page=1").to_return(status: 200, body: json1)
           stub_request(:get, "https://api.themoviedb.org/3/movie/top_rated?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US&page=2").to_return(status: 200, body: json2)
-          stub_request(:get, "https://api.themoviedb.org/3/movie/#{first_movie_id}?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US").to_return(status: 200, body: json3)
+          stub_request(:get, "https://api.themoviedb.org/3/movie/#{first_movie[:id]}?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US").to_return(status: 200, body: json3)
+          stub_request(:get, "https://api.themoviedb.org/3/movie/724089/credits?api_key=#{ENV['MOVIE_API_KEY']}").to_return(status: 200, body: json4)
 
-          first_movie = JSON.parse(File.read('spec/fixtures/first_movie_link.json'), symbolize_names: true)
+          first_movie_cast_list = first_movie_cast[:cast].map{ |per| per[:name]}[0...9].join(", ")
+
           hours = first_movie[:runtime]/60
           minutes = first_movie[:runtime] % 60
 
@@ -30,13 +35,14 @@ RSpec.describe 'movie show page' do
           within(first(".movie")) do
             click_link
           end
+
           expect(current_path).to eq("/movies/#{first_movie[:id]}")
           expect(page).to have_content("#{first_movie[:title]}")
           expect(page).to have_content("Vote average: #{first_movie[:vote_average]}")
           expect(page).to have_content("Run time: #{hours} hour and #{minutes} minutes")
           expect(page).to have_content("Genres: #{first_movie[:genres][0][:name]}")
           expect(page).to have_content("Overview: #{first_movie[:overview]}")
-
+          expect(page).to have_content("#{first_movie_cast_list}")
         end
       end
     end
