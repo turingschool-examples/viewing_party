@@ -16,18 +16,23 @@ class MovieService
   #   end
   # end
 
-  def top_40_first_half
-    connection = conn.get("/3/movie/top_rated?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US&page=1")
-    JSON.parse(connection.body, symbolize_names: true)
+  def top_40
+    page_num = 1
+    movies = []
+    2.times do
+      connection = conn.get("/3/movie/top_rated?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US&page=1")
+      movies << JSON.parse(connection.body, symbolize_names: true)[:results]
+    end
+    movies.flatten
   end
 
-  def top_40_second_half
-    connection = conn.get("/3/movie/top_rated?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US&page=2")
-    JSON.parse(connection.body, symbolize_names: true)
-  end
-
-  def example_movie_request
-    connection = conn.get("/3/movie/76341?api_key=#{ENV['MOVIE_API_KEY']}")
-    JSON.parse(connection.body, symbolize_names: true)
+  def find(title)
+    page_num = 1
+    movies = []
+    2.times do
+      connection = conn.get("/3/search/movie?api_key=#{ENV['MOVIE_API_KEY']}&language=en&query=#{title}&page=#{page_num}")
+      movies << JSON.parse(connection.body, symbolize_names: true)[:results]
+    end
+    movies.flatten
   end
 end
