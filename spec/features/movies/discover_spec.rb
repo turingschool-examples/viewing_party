@@ -27,14 +27,8 @@ RSpec.describe 'Discover Movies' do
 
       describe "When I enter text in the search field" do
         describe "And click the Search By Movie Title button" do
-<<<<<<< HEAD
-          it "I am redirected to the movies page" do
-
-            fill_in 'Keywords', with: 'whatever works'
-=======
           before :each do
             fill_in 'Keywords', with: 'whatever'
->>>>>>> d825e0b6dd6d9a35f53c1d5646646aa576b0ec4d
             click_button('Search By Movie Title')
           end
 
