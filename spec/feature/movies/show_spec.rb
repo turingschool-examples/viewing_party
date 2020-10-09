@@ -24,7 +24,7 @@ RSpec.describe 'movie show page' do
           stub_request(:get, "https://api.themoviedb.org/3/movie/#{first_movie[:id]}?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US").to_return(status: 200, body: json3)
           stub_request(:get, "https://api.themoviedb.org/3/movie/724089/credits?api_key=#{ENV['MOVIE_API_KEY']}").to_return(status: 200, body: json4)
 
-          first_movie_cast_list = first_movie_cast[:cast].map{ |per| per[:name]}[0...9].join(", ")
+          first_movie_cast_list = first_movie_cast[:cast].map{ |per| per[:name]}[0...9]
 
           hours = first_movie[:runtime]/60
           minutes = first_movie[:runtime] % 60
@@ -42,7 +42,7 @@ RSpec.describe 'movie show page' do
           expect(page).to have_content("Run time: #{hours} hour and #{minutes} minutes")
           expect(page).to have_content("Genres: #{first_movie[:genres][0][:name]}")
           expect(page).to have_content("Overview: #{first_movie[:overview]}")
-          expect(page).to have_content("#{first_movie_cast_list}")
+          first_movie_cast_list.each{ |per| expect(page).to have_content(per)}
         end
       end
     end
