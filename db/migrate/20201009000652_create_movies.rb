@@ -3,6 +3,8 @@ class CreateMovies < ActiveRecord::Migration[5.2]
     create_table :movies do |t|
       t.string :title
       t.integer :api_id
+
+      t.timestamps
     end
   end
 end
