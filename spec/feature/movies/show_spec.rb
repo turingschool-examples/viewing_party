@@ -15,13 +15,16 @@ RSpec.describe 'movie show page' do
 
           stub_request(:get, "https://api.themoviedb.org/3/movie/top_rated?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US&page=1").to_return(status: 200, body: json1)
           stub_request(:get, "https://api.themoviedb.org/3/movie/top_rated?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US&page=2").to_return(status: 200, body: json2)
+
+          first_movie_id = JSON.parse(File.read('spec/fixtures/top_40_movies_1.json'), symbolize_names: true)[:results].first[:id]
+
           visit "/discover"
           click_button "Discover Top 40 Movies"
 
           within(first(".movie")) do
             click_link
           end
-          expect(current_path).to eq("/party#{@user.id}/new")
+          expect(current_path).to eq("/movie/#{first_movie_id}")
         end
       end
     end
