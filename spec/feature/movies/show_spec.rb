@@ -73,6 +73,7 @@ RSpec.describe 'movie show page' do
           end
 
           expect(page).to have_content("Reviews: #{first_movie_reviews[:total_results]}")
+          expect(page).to have_button("Create viewing party")
         end
       end
     end
