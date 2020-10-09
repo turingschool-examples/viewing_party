@@ -13,6 +13,18 @@
 
   <section id="friends">
     Check Out Yo Friends
+    <% if @user.friends.empty? %>
+       <p>You currently have no friends.</p>
+    <% else %>
+      <% @user.friends.each do |friend| %>
+        <%= friend.username %>
+      <% end %>
+    <% end %>
+    <%= form_tag "/dashboard", method: :post do %>
+    <%= label_tag :email %>
+    <%= text_field_tag :email %>
+    <%= submit_tag 'Add Friend' %>
+    <% end %>
   </section>
 
   <section id="viewing-parties">
