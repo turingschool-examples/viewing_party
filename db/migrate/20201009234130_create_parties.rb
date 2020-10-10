@@ -7,7 +7,6 @@ class CreateParties < ActiveRecord::Migration[5.2]
       t.date :date_of_party
       t.time :start_time
       t.references :user
-      t.integer :friend_id
       t.timestamps
     end
   end
