@@ -5,7 +5,6 @@ class CreateMovieParties < ActiveRecord::Migration[5.2]
       t.integer :duration
       t.string :date
       t.string :start_time
-      t.integer :host
 
       t.timestamps
     end
