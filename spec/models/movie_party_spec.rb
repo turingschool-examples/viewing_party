@@ -6,11 +6,14 @@ describe MovieParty, type: :model do
     it {should validate_presence_of :duration}
     it {should validate_presence_of :date}
     it {should validate_presence_of :start_time}
-    it {should validate_presence_of :host}
   end
-  #
-  # describe 'relationships' do
-  #   it {should have_many :friendships}
-  #   it {should have_many(:friends).through(:friendships)}
-  # end
+
+  describe 'relationships' do
+    #host
+    it {should belong_to :user}
+    #joins table
+    it {should have_many :party_users}
+    #attendees
+    it {should have_many(:users).through(:party_users)}
+  end
 end
