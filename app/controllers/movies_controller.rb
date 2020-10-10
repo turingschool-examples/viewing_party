@@ -2,7 +2,15 @@ class MoviesController < ApplicationController
   def index; end
 
   def show
+    conn = Faraday.new(url: 'https://api.themoviedb.org') do |faraday|
+      faraday.headers['X-API-Key'] = ENV['MOVIEDB_API_KEY']
+    end
 
+    movie = conn.get("3/movie/#{params[:id]}?api_key=#{ENV['MOVIEDB_API_KEY']}&language=en-US")
+
+    json = JSON.parse(movie.body, symbolize_names: true)
+
+    require "pry"; binding.pry
   end
 
   def search
@@ -29,7 +37,7 @@ class MoviesController < ApplicationController
     movies = json1[:results] + json2[:results]
 
     movies.each do |movie|
-      Movie.create(title: movie[:title], vote_average: movie[:vote_average], genre: movie[:genre_ids], summary: movie[:overview], total_reviews: movie[:vote_count])
+      Movie.create(title: movie[:title], vote_average: movie[:vote_average], genre: movie[:genre_ids], summary: movie[:overview], total_reviews: movie[:vote_count], movie_db_id: movie[:id])
     end
 
     @movies_info = Movie.all
@@ -49,11 +57,9 @@ class MoviesController < ApplicationController
     movies = json1[:results] + json2[:results]
 
     movies.each do |movie|
-      Movie.create(title: movie[:title], vote_average: movie[:vote_average], genre: movie[:genre_ids], summary: movie[:overview], total_reviews: movie[:vote_count])
+      Movie.create(title: movie[:title], vote_average: movie[:vote_average], genre: movie[:genre_ids], summary: movie[:overview], total_reviews: movie[:vote_count], movie_db_id: movie[:id])
     end
 
     @movies_info = Movie.all
-
-
   end
 end
