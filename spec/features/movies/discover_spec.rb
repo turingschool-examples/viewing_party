@@ -4,7 +4,7 @@ RSpec.describe 'Discover Movies' do
   describe 'As an authenticated user' do
     describe "When I visit the discover page " do
       before :each do
-        @movie_1 = Movie.create(title: "Whatever Works", vote_average: 7.1, genre: [4, 1], summary: "It's a boring film", total_reviews: 999)
+        # @movie_1 = Movie.create(title: "Whatever Works", vote_average: 7.1, genre: [4, 1], summary: "It's a boring film", total_reviews: 999)
 
         visit '/discover'
       end
