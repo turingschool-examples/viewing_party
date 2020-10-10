@@ -1,8 +1,11 @@
 <div class='movies'>
-    <% @movies.each do |movie| %>
-    <ul>
-        <li><%= link_to movie.title, "movies/#{@movie.id}" %></li>
-        <li>Vote Average: <%= movie.vote_average %></li>
-    </ul>
+    <% @movies_info.each do |movie| %>
+
+    <section class='movie' id='movie=<%= movie.id %>'>
+        <ul>
+            <li><%= link_to movie.title, "movies/#{movie.id}" %></li>
+            <li>Vote Average: <%= movie.vote_average %></li>
+        </ul>
+    </section>
     <% end %>
 </div>
