@@ -2,7 +2,7 @@ class FriendshipsController < ApplicationController
   def create
     new_friend = User.where(email: params["New Friend's Email"])
     if new_friend == []
-      flash[:notice] = 'Friend not in our system.'
+      flash[:notice] = 'Email Address not in our system.'
     else
       already_friend = User.where(id: Friendship.where(user_id: new_friend[0].id).pluck(:friend_id)).or(User.where(id: Friendship.where(friend_id: new_friend[0].id).pluck(:user_id))).where(id: current_user.id)
       if current_user.id == new_friend[0].id

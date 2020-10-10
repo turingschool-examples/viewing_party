@@ -17,12 +17,13 @@ RSpec.describe 'Dashboard Page' do
       @friendship_4 = Friendship.create(user_id: @user_2.id, friend_id: @user_5.id)
       @friendship_5 = Friendship.create(user_id: @user_2.id, friend_id: @user_3.id)
 
-      @party_1 = Party.create(movie_title: "The Exorcist III", user_id: @user_1.id, date: "October 26th, 1997", time: "12:45pm")
-      @party_2 = Party.create(movie_title: "Psycho II", user_id: @user_1.id, date: "June 2nd, 1998", time: "12:45pm")
-      @party_3 = Party.create(movie_title: "Hellbound: Hellraiser II", user_id: @user_1.id, date: "September 22nd, 1999", time: "12:45pm")
-      @party_4 = Party.create(movie_title: "House II: The Second Story", user_id: @user_2.id, date: "April 22nd, 2000", time: "12:45pm")
-      @party_5 = Party.create(movie_title: "The Gate II", user_id: @user_2.id, date: "January 19nd, 2001", time: "12:45pm")
-      @party_6 = Party.create(movie_title: "Ip Man II", user_id: @user_2.id, date: "July 1nd, 2002", time: "12:45pm")
+      @party_1 = Party.create(movie_title: "The Exorcist III", user_id: @user_1.id, date: "October 26th, 1997", time: "1:45pm")
+      @party_2 = Party.create(movie_title: "Psycho II", user_id: @user_1.id, date: "June 2nd, 1998", time: "2:45pm")
+      @party_3 = Party.create(movie_title: "Hellbound: Hellraiser II", user_id: @user_1.id, date: "September 22nd, 1999", time: "3:45pm")
+      @party_4 = Party.create(movie_title: "House II: The Second Story", user_id: @user_2.id, date: "April 22nd, 2000", time: "4:45pm")
+      @party_5 = Party.create(movie_title: "The Gate II", user_id: @user_2.id, date: "January 19nd, 2001", time: "5:45pm")
+      @party_6 = Party.create(movie_title: "Ip Man II", user_id: @user_2.id, date: "July 1nd, 2002", time: "6:45pm")
+      @party_7 = Party.create(movie_title: "The Fortress II", user_id: @user_3.id, date: "January 7th, 2003", time: "7:45pm")
 
       @party_user_1 = PartyUser.create(party_id: @party_1.id, user_id: @user_2.id, status: 2)
       @party_user_2 = PartyUser.create(party_id: @party_1.id, user_id: @user_3.id, status: 2)
@@ -36,6 +37,7 @@ RSpec.describe 'Dashboard Page' do
       @party_user_10 = PartyUser.create(party_id: @party_5.id, user_id: @user_5.id, status: 2)
       @party_user_11 = PartyUser.create(party_id: @party_6.id, user_id: @user_2.id, status: 2)
       @party_user_12 = PartyUser.create(party_id: @party_6.id, user_id: @user_5.id, status: 2)
+      @party_user_13 = PartyUser.create(party_id: @party_7.id, user_id: @user_1.id, status: 0)
     end
 
     it "I can see that I don't have friends if I don't have friends" do
@@ -111,7 +113,7 @@ RSpec.describe 'Dashboard Page' do
 
         click_button "Add Friend"
 
-        expect(page).to have_content("Friend not in our system.")
+        expect(page).to have_content("Email Address not in our system.")
       end
 
       it "I can not add a friend I already have" do
@@ -128,6 +130,34 @@ RSpec.describe 'Dashboard Page' do
         click_button "Add Friend"
 
         expect(page).to have_content("Well that's your email address! We do like that you're trying to be your own friend though :)")
+      end
+
+      it "I can see the viewing parties I'm hosting" do
+        expect(page).to have_content("Parties I'm Hosting")
+        within "#party-#{@party_1.id}" do
+          expect(page).to have_content("The Exorcist III")
+          expect(page).to have_content("October 26th, 1997")
+          expect(page).to have_content("1:45pm")
+          expect(page).to have_content("Host: Jackie Chan")
+        end
+      end
+
+      it "I can see the viewing parties I'm invited to" do
+        expect(page).to have_content("Parties I'm Invited To")
+        within "#party-#{@party_4.id}" do
+          expect(page).to have_content("House II: The Second Story",)
+          expect(page).to have_content("April 22nd, 2000")
+          expect(page).to have_content("4:45pm")
+          expect(page).to have_content("declined")
+        end
+
+        within "#party-#{@party_5.id}" do
+          expect(page).to have_content("accepted")
+        end
+
+        within "#party-#{@party_7.id}" do
+          expect(page).to have_content("pending")
+        end
       end
     end
   end

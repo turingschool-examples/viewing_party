@@ -2,7 +2,7 @@
 
 <p><%= button_to 'Discover Movies', "/discover" %></p>
 
-<h3>Friends:</h3>
+<h2>Friends:</h2>
 <section class='friends'>
   <% if @friends == [] %>
     <p>You currently have no friends.</p>
@@ -19,7 +19,23 @@
   <% end %>
 </section>
 
-<h3>Viewing Parties:</h3>
-<% @parties.each do |party| %>
-  <%= party.movie_title %></br>
+<h2>Viewing Parties:</h2>
+<h3>Parties I'm Hosting:</h3>
+  <% @parties_hosting.each do |party| %>
+  <section class='party' id='party-<%= party.id %>'>
+    <%= party.movie_title %>,
+    <%= party.date %>,
+    <%= party.time %>,
+    Host: <%= current_user.name %></br>
+  </section>
+  <% end %>
+</br>
+<h3>Parties I'm Invited To:</h3>
+  <% @parties_invited_with_status.each do |party| %>
+  <section class='party' id='party-<%= party[0].id %>'>
+    <%= party[0].movie_title %>
+    <%= party[0].date %>
+    <%= party[0].time %>
+    <%= party[1] %></br>
+  </section>
 <% end %>
