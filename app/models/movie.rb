@@ -1,7 +1,5 @@
 class Movie < ApplicationRecord
   validates :title,
             :vote_average,
-            :genre,
-            :summary,
-            :total_reviews, presence: true
+            :movie_db_id, presence: true
 end
