@@ -3,11 +3,23 @@
 <p><%= button_to 'Discover Movies', "/discover" %></p>
 
 <h3>Friends:</h3>
-<% @friends.each do |friend| %>
-  <%= friend.name %>
-<% end %>
+<section class='friends'>
+  <% if @friends == [] %>
+    <p>You currently have no friends.</p>
+  <% else %>
+    <% @friends.each do |friend| %>
+      <%= friend.name %></br>
+    <% end %>
+  <% end %>
+  <%= form_tag "/friendship/new", method: :post do %>
+    <%= label_tag "New Friend's Email" %>:<br>
+    <%= text_field_tag "New Friend's Email" %><br>
+
+    <%= submit_tag 'Add Friend', class: :button %>
+  <% end %>
+</section>
 
 <h3>Viewing Parties:</h3>
 <% @parties.each do |party| %>
-  <%= party.movie_title %>
+  <%= party.movie_title %></br>
 <% end %>

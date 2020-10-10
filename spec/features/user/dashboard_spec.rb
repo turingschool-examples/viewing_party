@@ -9,6 +9,7 @@ RSpec.describe 'Dashboard Page' do
       @user_3 = User.create(name: 'Michelle Yeoh', email: 'c@c.com', password: 'c', password_confirmation: 'c')
       @user_4 = User.create(name: 'Bilbo Baggins', email: 'd@d.com', password: 'd', password_confirmation: 'd')
       @user_5 = User.create(name: 'Gandolf', email: 'e@e.com', password: 'e', password_confirmation: 'e')
+      @user_6 = User.create(name: 'Sneezy', email: 'f@f.com', password: 'f', password_confirmation: 'f')
 
       @friendship_1 = Friendship.create(user_id: @user_1.id, friend_id: @user_2.id)
       @friendship_2 = Friendship.create(user_id: @user_1.id, friend_id: @user_3.id)
@@ -35,51 +36,99 @@ RSpec.describe 'Dashboard Page' do
       @party_user_10 = PartyUser.create(party_id: @party_5.id, user_id: @user_5.id, status: 2)
       @party_user_11 = PartyUser.create(party_id: @party_6.id, user_id: @user_2.id, status: 2)
       @party_user_12 = PartyUser.create(party_id: @party_6.id, user_id: @user_5.id, status: 2)
+    end
 
+    it "I can see that I don't have friends if I don't have friends" do
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_6)
+      visit 'user/dashboard'
+      expect(page).to have_content("You currently have no friends.")
+    end
+
+    it "I can see a personalized welcome message after logging in" do
       visit root_path
 
       fill_in 'Email', with: @user_1.email
       fill_in 'Password', with: @user_1.password
 
       click_button "Log In"
-    end
 
-    it "I can see a personalized welcome message after logging in" do
       expect(page).to have_content('Welcome, Jackie Chan, you are logged in!')
     end
 
-    it "I can see a personalized greeting if I navigate away, and navigate back" do
-      visit root_path
-      visit 'user/dashboard'
+    describe "If I'm logged in and have friends" do
+      before :each do
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
+        visit 'user/dashboard'
+      end
 
-      expect(page).to have_content('Welcome Jackie Chan!')
-    end
+      it "I can see a personalized greeting if I navigate away, and navigate back" do
+        visit root_path
+        visit 'user/dashboard'
+        expect(page).to have_content('Welcome Jackie Chan!')
+      end
 
-    it "I can see a button to Discover Movies" do
-      expect(page).to have_button('Discover Movies')
-    end
+      it "I can see a button to Discover Movies" do
+        expect(page).to have_button('Discover Movies')
+      end
 
-    it "I am sent to Discover Movies when I click the button" do
-      click_button 'Discover Movies'
+      it "I am sent to Discover Movies when I click the button" do
+        click_button 'Discover Movies'
 
-      expect(current_path).to eq('/discover')
-    end
+        expect(current_path).to eq('/discover')
+      end
 
-    it "I can see a section showing my friends" do
-      expect(page).to have_content("Friends:")
-      expect(page).to have_content("Cynthia Rothrock")
-      expect(page).to have_content("Michelle Yeoh")
-      expect(page).to have_content("Bilbo Baggins")
-      expect(page).to_not have_content("Gandolf")
-    end
+      it "I can see a section showing my friends" do
+        expect(page).to have_content("Friends:")
+        expect(page).to have_content("Cynthia Rothrock")
+        expect(page).to have_content("Michelle Yeoh")
+        expect(page).to have_content("Bilbo Baggins")
+        expect(page).to_not have_content("Gandolf")
+      end
 
-    it "I can see a section showing my viewing parties" do
-      expect(page).to have_content("Viewing Parties:")
-      expect(page).to have_content("The Exorcist III")
-      expect(page).to have_content("Psycho II")
-      expect(page).to have_content("House II: The Second Story")
-      expect(page).to have_content("The Gate II")
-      expect(page).to_not have_content("Ip Man II")
+      it "I can see a section showing my viewing parties" do
+        expect(page).to have_content("Viewing Parties:")
+        expect(page).to have_content("The Exorcist III")
+        expect(page).to have_content("Psycho II")
+        expect(page).to have_content("House II: The Second Story")
+        expect(page).to have_content("The Gate II")
+        expect(page).to_not have_content("Ip Man II")
+      end
+
+      it "I can see a button allowing me to add a friend" do
+        expect(page).to have_button("Add Friend")
+      end
+
+      it "I can add a new friend if they exist in the system" do
+        fill_in "New Friend's Email", with: @user_6.email
+
+        click_button "Add Friend"
+
+        expect(page).to have_content("Sneezy")
+      end
+
+      it "I can not add a new friend if they don't exist in the system" do
+        fill_in "New Friend's Email", with: "z@z.com"
+
+        click_button "Add Friend"
+
+        expect(page).to have_content("Friend not in our system.")
+      end
+
+      it "I can not add a friend I already have" do
+        fill_in "New Friend's Email", with: "b@b.com"
+
+        click_button "Add Friend"
+
+        expect(page).to have_content("They're already your friend!")
+      end
+
+      it "I can not add myself as a friend" do
+        fill_in "New Friend's Email", with: "a@a.com"
+
+        click_button "Add Friend"
+
+        expect(page).to have_content("Well that's your email address! We do like that you're trying to be your own friend though :)")
+      end
     end
   end
 end
