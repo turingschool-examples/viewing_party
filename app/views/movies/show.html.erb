@@ -4,7 +4,7 @@
 
 <h2>Details:</h2>
 <p>Vote Average: <%= @movie_details[:vote_average] %></p>
-<p>Runtime: <%= @movie_details[:runtime] %> minutes</p>
+<p>Runtime: <%= @runtime %></p>
 <p>Genres:</p>
 <% @movie_details[:genres].each do |genre| %>
   <%= genre[:name] %>
@@ -15,7 +15,7 @@
 
 <h2>Actors: </h2>
 <% @actors.each do |actor| %>
-  <p><%= actor[:name] %></p>
+  <p><%= actor[:name] %> as <%= actor[:character] %></p>
 <% end %>
 
 <h2>Reviews: </h2>
