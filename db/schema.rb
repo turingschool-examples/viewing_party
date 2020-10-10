@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_10_033226) do
+ActiveRecord::Schema.define(version: 2020_10_10_035055) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,9 +25,6 @@ ActiveRecord::Schema.define(version: 2020_10_10_033226) do
   create_table "movies", force: :cascade do |t|
     t.string "title"
     t.float "vote_average"
-    t.string "genre", default: [], array: true
-    t.string "summary"
-    t.integer "total_reviews"
     t.integer "movie_db_id"
   end
 
