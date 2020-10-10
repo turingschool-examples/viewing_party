@@ -1,0 +1,44 @@
+require 'rails_helper'
+include ActionView::Helpers::NumberHelper
+
+RSpec.describe 'Movie Details Page' do
+  describe 'As an authenticated user' do
+    before :each do
+      visit "/movies/278"
+    end
+
+    it "I can see a button to create a viewing party" do
+      expect(page).to have_button("Create Viewing Party")
+    end
+
+    it "I can see Movie Details" do
+      expect(page).to have_content("The Shawshank Redemption")
+      expect(page).to have_content("Vote Average: 8.7")
+      expect(page).to have_content("Runtime: 142 minutes")
+      expect(page).to have_content("Drama")
+      expect(page).to have_content("Crime")
+
+      expect(page).to have_content("Tim Robbins")
+      expect(page).to have_content("Morgan Freeman")
+      expect(page).to have_content("Bob Gunton")
+      expect(page).to have_content("William Sadler")
+      expect(page).to have_content("Clancy Brown")
+      expect(page).to have_content("Gil Bellow")
+      expect(page).to have_content("Mark Rolston")
+      expect(page).to have_content("James Whitmore")
+      expect(page).to have_content("Jeffrey DeMunn")
+      expect(page).to have_content("Larry Brandenburg")
+
+      expect(page).to have_content("Reviews: 6")
+      expect(page).to have_content("elshaarawy")
+      expect(page).to have_content("John Chard")
+      expect(page).to have_content("tmdb73913433")
+      expect(page).to have_content("thommo_nz")
+      expect(page).to have_content("Andrew Gentry")
+      expect(page).to have_content("Matthew Dixon")
+
+      expect(page).to have_content("Framed in the 1940s for the double murder of his wife and her lover, upstanding banker Andy Dufresne begins a new life at the Shawshank prison, where he puts his accounting skills to work for an amoral warden. During his long stretch in prison, Dufresne comes to be admired by the other inmates -- including an older prisoner named Red -- for his integrity and unquenchable sense of hope.")
+    end
+
+  end
+end
