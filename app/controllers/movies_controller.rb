@@ -1,6 +1,10 @@
 class MoviesController < ApplicationController
   def index; end
 
+  def show
+
+  end
+
   def search
     if params[:keywords].nil? || params[:keywords] == ''
       top_40
