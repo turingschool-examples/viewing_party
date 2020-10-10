@@ -51,7 +51,7 @@ RSpec.describe 'user dashboard' do
     visit '/dashboard'
     fill_in :email, with: "#{@user2.email}"
     click_button 'Add Friend'
-    save_and_open_page
+
     expect(page).to have_content("#{@user2.username}")
   end
 
