@@ -35,7 +35,7 @@ RSpec.describe 'Discover Movies' do
         it "I click on movie title" do
           click_link @movie_1.title
 
-          expect(current_path).to eq("movies/#{@movie_1.id}")
+          expect(current_path).to eq("/movies/#{@movie_1.id}")
         end
       end
 
