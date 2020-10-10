@@ -40,7 +40,9 @@ RSpec.describe 'viewing party page' do
           click_link
         end
         expect(current_path).to eq("/movies/#{first_movie[:id]}")
-
+        click_button("Create viewing party")
+        expect(current_path).to eq("/movies/#{first_movie[:id]}/party/new")
+        save_and_open_page
         expect(page).to have_content("#{first_movie[:title]}")
         expect(page).to have_field("Duration: ")
         expect(page).to have_content("#{hours} hour and #{minutes} minute")
