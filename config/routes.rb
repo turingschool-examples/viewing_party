@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
 
   resources :discover, only: :index
-
+  #movies
   resources :movies, only: [:index, :show]
+
+  #viewing party
+  get '/movies/:id/party/new', to: 'movie_party#new'
 end

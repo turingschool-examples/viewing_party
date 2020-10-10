@@ -1,0 +1,20 @@
+<body class="form-page">
+  <center>
+    <br>
+    <br>
+    <br>
+    <br>
+    <%= form_tag "/users", value: "Register", method: :create do %>
+    <legend><span class="number"></span> Register User</legend>
+      <h1><%=@movie[:title]%></h1>
+      <%= label_tag :duration %>
+      <%= text_field_tag :duration, "#{@duration}" %>
+      <%= label_tag :date %>
+      <%= date_select("article", "written_on", use_two_digit_numbers: true) %>
+      <%= label_tag :start_time %>
+      <%= time_select :name, 'method', {:default => {:hour => '10', :minute => '30'}} %>
+      <h2>Friends</h2>
+      <%= submit_tag 'Create viewing party' %>
+    <% end %>
+  </center>
+</body>
