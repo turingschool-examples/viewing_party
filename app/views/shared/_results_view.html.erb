@@ -1,8 +1,8 @@
 <div class='movies'>
-    <% @movies_info.each do |movie_info| %>
+    <% @movies.each do |movie| %>
     <ul>
-        <li><%= movie_info[0] %></li>
-        <li>Vote Average: <%= movie_info[1] %></li>
+        <li><%= link_to movie.title, "movies/#{@movie.id}" %></li>
+        <li>Vote Average: <%= movie.vote_average %></li>
     </ul>
     <% end %>
 </div>
