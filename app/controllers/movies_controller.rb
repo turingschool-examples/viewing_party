@@ -10,36 +10,43 @@ class MoviesController < ApplicationController
   end
 
   def keywords
-    keywords = params[:keywords]
-
-    conn = Faraday.new(url: 'https://api.themoviedb.org') do |faraday|
-      faraday.headers['X-API-Key'] = ENV['MOVIEDB_API_KEY']
-    end
-
-    page1 = conn.get("3/search/movie?api_key=#{ENV['MOVIEDB_API_KEY']}&language=en-US&query=#{keywords}&page=1")
-    page2 = conn.get("3/search/movie?api_key=#{ENV['MOVIEDB_API_KEY']}&language=en-US&query=#{keywords}&page=2")
-
-    json1 = JSON.parse(page1.body, symbolize_names: true)
-    json2 = JSON.parse(page2.body, symbolize_names: true)
-
-    movies = json1[:results] + json2[:results]
-
+    movies = get_movies(2).flatten
     @movies_info = movies.pluck(:title).zip(movies.pluck(:vote_average))
   end
 
   def top_40
+    page = 1
+    results = []
     conn = Faraday.new(url: 'https://api.themoviedb.org') do |faraday|
       faraday.headers['X-API-Key'] = ENV['MOVIEDB_API_KEY']
     end
-
-    page1 = conn.get("/3/movie/top_rated?api_key=#{ENV['MOVIEDB_API_KEY']}&language=en-US&page=1")
-    page2 = conn.get("/3/movie/top_rated?api_key=#{ENV['MOVIEDB_API_KEY']}&language=en-US&page=2")
-
-    json1 = JSON.parse(page1.body, symbolize_names: true)
-    json2 = JSON.parse(page2.body, symbolize_names: true)
-
-    movies = json1[:results] + json2[:results]
-
+    until results.length >= 2
+      res = conn.get("/3/movie/top_rated?api_key=#{ENV['MOVIEDB_API_KEY']}&language=en-US&page=#{page}") do |f|
+        f.params['page'] = page
+      end
+      json1 = JSON.parse(res.body, symbolize_names: true)
+      results << json1[:results]
+      page += 1
+    end
+    movies = results.flatten
     @movies_info = movies.pluck(:title).zip(movies.pluck(:vote_average))
+  end
+
+  def get_movies(movie_count_limit)
+    keywords = params[:keywords]
+    page = 1
+    results = []
+    conn = Faraday.new(url: 'https://api.themoviedb.org') do |faraday|
+      faraday.headers['X-API-Key'] = ENV['MOVIEDB_API_KEY']
+    end
+    until results.length >= movie_count_limit
+      res = conn.get("3/search/movie?api_key=#{ENV['MOVIEDB_API_KEY']}&language=en-US&query=#{keywords}&page=#{page}") do |f|
+        f.params['page'] = page
+      end
+      json1 = JSON.parse(res.body, symbolize_names: true)
+      results << json1[:results]
+      page += 1
+    end
+    results
   end
 end
