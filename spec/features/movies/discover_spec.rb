@@ -29,13 +29,13 @@ RSpec.describe 'Discover Movies' do
 
         it "I click on movie title" do
 
-          expect(page).to have_link("Gabriel's Inferno Part II")
+          expect(page).to have_link("The Shawshank Redemption")
         end
 
         it "I click on movie title" do
-          click_link "Gabriel's Inferno Part II"
+          click_link "The Shawshank Redemption"
 
-          expect(current_path).to eq("/movies/724089")
+          expect(current_path).to eq("/movies/278")
         end
       end
 
