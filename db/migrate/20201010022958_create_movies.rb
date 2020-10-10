@@ -6,6 +6,8 @@ class CreateMovies < ActiveRecord::Migration[5.2]
       t.string :genre, array: true, default: []
       t.string :summary
       t.integer :total_reviews
+
+      t.timestamps
     end
   end
 end
