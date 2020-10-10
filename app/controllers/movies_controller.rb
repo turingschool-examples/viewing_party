@@ -8,9 +8,7 @@ class MoviesController < ApplicationController
 
     movie = conn.get("3/movie/#{params[:id]}?api_key=#{ENV['MOVIEDB_API_KEY']}&language=en-US")
 
-    json = JSON.parse(movie.body, symbolize_names: true)
-
-    require "pry"; binding.pry
+    @movie = JSON.parse(movie.body, symbolize_names: true)
   end
 
   def search
