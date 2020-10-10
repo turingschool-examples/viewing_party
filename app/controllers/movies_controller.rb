@@ -6,9 +6,16 @@ class MoviesController < ApplicationController
       faraday.headers['X-API-Key'] = ENV['MOVIEDB_API_KEY']
     end
 
-    movie = conn.get("3/movie/#{params[:id]}?api_key=#{ENV['MOVIEDB_API_KEY']}&language=en-US")
+    movie = conn.get("/3/movie/#{params[:id]}?api_key=#{ENV['MOVIEDB_API_KEY']}&language=en-US")
+    @movie_details = JSON.parse(movie.body, symbolize_names: true)
 
-    @movie = JSON.parse(movie.body, symbolize_names: true)
+    credits = conn.get("/3/movie/#{params[:id]}/credits?api_key=#{ENV['MOVIEDB_API_KEY']}")
+    credits_details = JSON.parse(credits.body, symbolize_names: true)
+    @actors = credits_details[:cast].take(10)
+
+    reviews = conn.get("/3/movie/#{params[:id]}/reviews?api_key=#{ENV['MOVIEDB_API_KEY']}&language=en-US&page=1")
+    @reviews_details = JSON.parse(reviews.body, symbolize_names: true)[:results]
+
   end
 
   def search
@@ -26,8 +33,8 @@ class MoviesController < ApplicationController
       faraday.headers['X-API-Key'] = ENV['MOVIEDB_API_KEY']
     end
 
-    page1 = conn.get("3/search/movie?api_key=#{ENV['MOVIEDB_API_KEY']}&language=en-US&query=#{keywords}&page=1")
-    page2 = conn.get("3/search/movie?api_key=#{ENV['MOVIEDB_API_KEY']}&language=en-US&query=#{keywords}&page=2")
+    page1 = conn.get("/3/search/movie?api_key=#{ENV['MOVIEDB_API_KEY']}&language=en-US&query=#{keywords}&page=1")
+    page2 = conn.get("/3/search/movie?api_key=#{ENV['MOVIEDB_API_KEY']}&language=en-US&query=#{keywords}&page=2")
 
     json1 = JSON.parse(page1.body, symbolize_names: true)
     json2 = JSON.parse(page2.body, symbolize_names: true)
