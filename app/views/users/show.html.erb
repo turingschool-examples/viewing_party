@@ -16,19 +16,21 @@
     <%= label_tag :email %>
     <%= text_field_tag :email %>
     <%= submit_tag 'Add Friend' %>
-    Check Out Yo Friends
-    <% if @user.friends.empty? %>
-       <p>You currently have no friends.</p>
-    <% else %>
-      <% @user.friends.each do |friend| %>
-        <%= friend.username %>
-      <% end %>
-    <% end %>
     <% end %>
   </section>
 
+  <h2>Check Out Yo Friends</h2>
+  <% if @user.friends.empty? %>
+      <p>You currently have no friends.</p>
+  <% else %>
+    <% @user.friends.each do |friend| %>
+      <%= friend.username %>
+    <% end %>
+  <% end %>
+  <br>
+  <br>
   <section id="viewing-parties">
-    Check Out Yo Viewing Parties
+    <h2>Check Out Yo Viewing Parties</h2>
   </section>
 
 </body>
