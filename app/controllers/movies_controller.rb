@@ -5,9 +5,11 @@ class MoviesController < ApplicationController
     conn = Faraday.new(url: 'https://api.themoviedb.org') do |faraday|
       faraday.headers['X-API-Key'] = ENV['MOVIEDB_API_KEY']
     end
-
+    
     movie = conn.get("/3/movie/#{params[:id]}?api_key=#{ENV['MOVIEDB_API_KEY']}&language=en-US")
     @movie_details = JSON.parse(movie.body, symbolize_names: true)
+
+    @runtime = "#{@movie_details[:runtime] / 60}hrs, #{((@movie_details[:runtime].to_f / 60 - @movie_details[:runtime] / 60) * 60).to_i} minutes"
 
     credits = conn.get("/3/movie/#{params[:id]}/credits?api_key=#{ENV['MOVIEDB_API_KEY']}")
     credits_details = JSON.parse(credits.body, symbolize_names: true)
@@ -15,7 +17,6 @@ class MoviesController < ApplicationController
 
     reviews = conn.get("/3/movie/#{params[:id]}/reviews?api_key=#{ENV['MOVIEDB_API_KEY']}&language=en-US&page=1")
     @reviews_details = JSON.parse(reviews.body, symbolize_names: true)[:results]
-
   end
 
   def search
