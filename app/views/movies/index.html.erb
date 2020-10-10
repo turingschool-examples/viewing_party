@@ -10,7 +10,7 @@
 
 <% @results.each do |movie_info| %>
   <div class="movie">
-    <%=link_to "#{x+=1}. #{movie_info[:title]}", "https://turing.io/" %>
+    <%=link_to "#{x+=1}. #{movie_info[:title]}", "/movies/#{movie_info[:id]}" %>
     <div class="vote">Vote average: <%=movie_info[:vote_average]%></div>
   </div>
 <%end %>
