@@ -1,0 +1,60 @@
+require 'rails_helper'
+
+RSpec.describe 'viewing party page' do
+  before(:each) do
+    @user = User.create!(username: "eDog", email: "elah@email.com", password: "password")
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+  end
+
+  describe 'As an authenticated user' do
+    describe "When I visit the new viewing party page," do
+      it "I should see a form with movie title, duration, date, time, friends, and button to create it" do
+        first_movie = JSON.parse(File.read('spec/fixtures/first_movie_link.json'), symbolize_names: true)
+        first_movie_cast = JSON.parse(File.read('spec/fixtures/first_movie_cast.json'), symbolize_names: true)
+
+        first_movie_reviews = JSON.parse(File.read('spec/fixtures/first_movie_reviews.json'), symbolize_names: true)
+        json5 = File.read('spec/fixtures/first_movie_reviews.json')
+        json1 = File.read('spec/fixtures/top_40_movies_1.json')
+        json2 = File.read('spec/fixtures/top_40_movies_2.json')
+        json3 = File.read('spec/fixtures/first_movie_link.json')
+        json4 = File.read('spec/fixtures/first_movie_cast.json')
+
+
+        stub_request(:get, "https://api.themoviedb.org/3/movie/top_rated?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US&page=1").to_return(status: 200, body: json1)
+        stub_request(:get, "https://api.themoviedb.org/3/movie/top_rated?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US&page=2").to_return(status: 200, body: json2)
+        stub_request(:get, "https://api.themoviedb.org/3/movie/#{first_movie[:id]}?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US").to_return(status: 200, body: json3)
+        stub_request(:get, "https://api.themoviedb.org/3/movie/#{first_movie[:id]}/credits?api_key=#{ENV['MOVIE_API_KEY']}").to_return(status: 200, body: json4)
+        stub_request(:get, "https://api.themoviedb.org/3/movie/#{first_movie[:id]}/reviews?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US&page=1").to_return(status: 200, body: json5)
+        hours = first_movie[:runtime]/60
+        minutes = first_movie[:runtime] % 60
+        @user1 = User.create!(username: "eDog2", email: "elah1@email.com", password: "password")
+        @user2 = User.create!(username: "eCat2", email: "ecat1@email.com", password: "cats")
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user1)
+
+        visit '/dashboard'
+        fill_in :email, with: "#{@user2.email}"
+        click_button 'Add Friend'
+        visit "/discover"
+        click_button "Discover Top 40 Movies"
+        within(first(".movie")) do
+          click_link
+        end
+        expect(current_path).to eq("/movies/#{first_movie[:id]}")
+
+        expect(page).to have_content("#{first_movie[:title]}")
+        expect(page).to have_field("Duration: ")
+        expect(page).to have_content("#{hours} hour and #{minutes} minute")
+        expect(page).to have_field("Date: ")
+        expect(page).to have_field("Time: ")
+        expect(page).to have_field("Invite Friends: ")
+        expect(page).to have_field("#{@user2.username}")
+        expect(page).to have_button("Create Party")
+        click_button("Create Party")
+        expect(current_path).to eq("/dashboard")
+        within(first(".viewing-parties")) do
+          expect(page).to have_content("Check Out Yo Viewing Parties")
+        end
+      end
+    end
+  end
+end
