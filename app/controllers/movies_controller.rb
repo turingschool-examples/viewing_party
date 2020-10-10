@@ -32,11 +32,7 @@ class MoviesController < ApplicationController
     json1 = JSON.parse(page1.body, symbolize_names: true)
     json2 = JSON.parse(page2.body, symbolize_names: true)
 
-    movies = json1[:results] + json2[:results]
-
-    movies.each do |movie|
-      Movie.create(title: movie[:title], vote_average: movie[:vote_average], genre: movie[:genre_ids], summary: movie[:overview], total_reviews: movie[:vote_count], movie_db_id: movie[:id])
-    end
+    make_movies(json1, json2)
 
     @movies_info = Movie.all
   end
@@ -52,12 +48,15 @@ class MoviesController < ApplicationController
     json1 = JSON.parse(page1.body, symbolize_names: true)
     json2 = JSON.parse(page2.body, symbolize_names: true)
 
-    movies = json1[:results] + json2[:results]
-
-    movies.each do |movie|
-      Movie.create(title: movie[:title], vote_average: movie[:vote_average], genre: movie[:genre_ids], summary: movie[:overview], total_reviews: movie[:vote_count], movie_db_id: movie[:id])
-    end
+    make_movies(json1, json2)
 
     @movies_info = Movie.all
+  end
+
+  def make_movies(json1, json2)
+    movies = json1[:results] + json2[:results]
+    movies.each do |movie|
+      Movie.create(title: movie[:title], vote_average: movie[:vote_average], movie_db_id: movie[:id])
+    end
   end
 end
