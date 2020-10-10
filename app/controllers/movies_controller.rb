@@ -25,12 +25,10 @@ class MoviesController < ApplicationController
     movies = json1[:results] + json2[:results]
 
     movies.each do |movie|
-      Movie.create(title: movie[:title], vote_average: movie[:vote_average], genre: movie[:genre], summary: movie[:overview], total_reviews: movie[:vote_count])
-      require "pry"; binding.pry
+      Movie.create(title: movie[:title], vote_average: movie[:vote_average], genre: movie[:genre_ids], summary: movie[:overview], total_reviews: movie[:vote_count])
     end
 
-
-    # @movies_info = movies.pluck(:title).zip(movies.pluck(:vote_average))
+    @movies_info = Movie.all
   end
 
   def top_40
@@ -46,6 +44,12 @@ class MoviesController < ApplicationController
 
     movies = json1[:results] + json2[:results]
 
-    @movies_info = movies.pluck(:title).zip(movies.pluck(:vote_average))
+    movies.each do |movie|
+      Movie.create(title: movie[:title], vote_average: movie[:vote_average], genre: movie[:genre_ids], summary: movie[:overview], total_reviews: movie[:vote_count])
+    end
+
+    @movies_info = Movie.all
+
+
   end
 end
