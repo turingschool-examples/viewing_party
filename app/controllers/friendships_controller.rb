@@ -6,9 +6,9 @@ class FriendshipsController < ApplicationController
     friendship1 = Friendship.new(user: user, friend: friend)
     friendship2 = Friendship.new(user: friend, friend: user)
     if friendship1.save && friendship2.save
-      flash[:success] = "Friend has been added"
+      flash[:success] = 'Friend has been added'
     else
-      flash[:notice] = "Sorry, friend cannot be found"
+      flash[:notice] = 'Sorry, friend cannot be found'
     end
     redirect_to '/dashboard'
   end
