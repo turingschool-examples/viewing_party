@@ -4,6 +4,6 @@ class Friendship < ApplicationRecord
   validates_uniqueness_of :friend, scope: :user
   validate :check_user
   def check_user
-      errors.add(:friend, "can't be yourself") if friend_id == user_id
+    errors.add(:friend, "can't be yourself") if friend_id == user_id
   end
 end
