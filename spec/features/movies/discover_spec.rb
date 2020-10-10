@@ -43,6 +43,10 @@ RSpec.describe 'Discover Movies' do
             expect(page).to have_content("Vote Average: 6.5")
           end
 
+          it "I click on movie title" do
+            expect(page).to have_link("Whatever Works")
+          end
+
           it "I can see 40 movie_info classes" do
             expect(page).to have_css('ul', :count => 40)
           end
