@@ -51,7 +51,19 @@ RSpec.describe 'user dashboard' do
     visit '/dashboard'
     fill_in :email, with: "#{@user2.email}"
     click_button 'Add Friend'
-    save_and_open_page
-    expect(page).to have_content("eCat")
+
+    expect(page).to have_content("#{@user2.username}")
+  end
+
+  it 'displays an error message when an email is added that does not belong to a registered user' do
+    @user1 = User.create!(username: "eDog", email: "elah@email.com", password: "password")
+    @user2 = User.create!(username: "eCat", email: "ecat@email.com", password: "cats")
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user1)
+
+    visit '/dashboard'
+    fill_in :email, with: "s@gmail.com"
+    click_button 'Add Friend'
+
+    expect(page).to have_content("Sorry, friend cannot be found")
   end
 end

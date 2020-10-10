@@ -1,21 +1,23 @@
 class FriendshipsController < ApplicationController
 
   def create
-    @friendship = current_user.friendships.build(:friend_id => params[:friend_id])
-    if @friendship.save
+    user = User.find(current_user.id)
+    friend = User.find_by(email: params[:email])
+    friendship1 = Friendship.new(user: user, friend: friend)
+    friendship2 = Friendship.new(user: friend, friend: user)
+    if friendship1.save && friendship2.save
       flash[:success] = "Friend has been added"
-      redirect_to '/dashboard'
     else
-      flash[:notice] = "Please enter a valid user email"
-      redirect_to '/dashboard'
+      flash[:notice] = "Sorry, friend cannot be found"
     end
+    redirect_to '/dashboard'
   end
 
-  def destroy
-    @friendship = Friendship.find(params[:id])
-    @friendship.destroy
-    flash[:notice]
-    redirect
-  end
+  # def destroy
+  #   @friendship = Friendship.find(params[:id])
+  #   @friendship.destroy
+  #   flash[:notice]
+  #   redirect
+  # end
 
 end
