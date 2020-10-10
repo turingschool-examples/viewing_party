@@ -4,6 +4,8 @@ RSpec.describe 'Discover Movies' do
   describe 'As an authenticated user' do
     describe "When I visit the discover page " do
       before :each do
+        @movie_1 = Movie.create(title: "Whatever Works", vote_average: 7.1, genre: [4, 1], summary: "It's a boring film", total_reviews: 999)
+
         visit '/discover'
       end
 
@@ -22,6 +24,16 @@ RSpec.describe 'Discover Movies' do
 
           click_button('Discover Top 40')
           expect(current_path).to eq('/movies')
+        end
+
+        it "I click on movie title" do
+          expect(page).to have_link(@movie_1.title)
+        end
+
+        it "I click on movie title" do
+          click_link movie_1.title
+
+          expect(current_path).to eq("movies/#{@movie_1.id}")
         end
       end
 
@@ -43,9 +55,6 @@ RSpec.describe 'Discover Movies' do
             expect(page).to have_content("Vote Average: 6.5")
           end
 
-          it "I click on movie title" do
-            expect(page).to have_link("Whatever Works")
-          end
 
           it "I can see 40 movie_info classes" do
             expect(page).to have_css('ul', :count => 40)
