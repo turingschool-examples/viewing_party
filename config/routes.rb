@@ -16,7 +16,6 @@ Rails.application.routes.draw do
   #Movies
   get '/discover', to: 'dashboard#index'
   resources :movies, only: [:index, :show]
-  # get '/movies', to: 'movies#index'
 
   #Friendships
   post '/dashboard', to: 'friendships#new'
