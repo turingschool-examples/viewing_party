@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Discover Movies' do
   describe 'As an authenticated user' do
-    describe "When I visit the discover page " do
+    describe "When I visit the discover page" do
       before :each do
         visit '/discover'
       end
