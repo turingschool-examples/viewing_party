@@ -15,11 +15,7 @@ RSpec.describe 'Discover Movies' do
         expect(page).to have_field('keywords')
         expect(page).to have_button('Search By Movie Title')
       end
-    end
-  end
-end
 
-<<<<<<< HEAD
       describe "When I click the Discover Top 40 button" do
         before :each do
           click_button('Discover Top 40')
@@ -65,15 +61,14 @@ end
           end
         end
       end
+    end
+  end
+end
 
-      describe "When I do not enter any text in the search field" do
-        describe "And click the Search By Movie Title button" do
-          it "I am shown the top 40 movies" do
-=======
+
 feature 'Results for top 40 movies' do
   scenario "User clicks the top 40 button", :vcr do
       visit '/discover'
->>>>>>> 6372146da6456d33cfdabc8552797114345fe7be
 
       click_button('Discover Top 40')
       expect(current_path).to eq('/movies')
