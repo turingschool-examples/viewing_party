@@ -1,5 +1,5 @@
 class MovieService
-  def conn
+  def self.conn
     Faraday.new(url: 'https://api.themoviedb.org')
   end
 
@@ -16,24 +16,30 @@ class MovieService
   #   end
   # end
 
-  def top_40
+  def self.find_top_40
     page_num = 1
-    movies = []
+    movies_data = []
     2.times do
       connection = conn.get("/3/movie/top_rated?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US&page=1")
-      movies << JSON.parse(connection.body, symbolize_names: true)[:results]
+      movies_data << JSON.parse(connection.body, symbolize_names: true)[:results]
     end
-    movies.flatten
+    movies_data.flatten
   end
 
-  def find(title)
+  def self.find_title(title)
     page_num = 1
-    movies = []
+    movies_data = []
     2.times do
       connection = conn.get("/3/search/movie?api_key=#{ENV['MOVIE_API_KEY']}&language=en&query=#{title}&page=#{page_num}")
-      movies << JSON.parse(connection.body, symbolize_names: true)[:results]
+      movies_data << JSON.parse(connection.body, symbolize_names: true)[:results]
       page_num +=1
     end
-    movies.flatten
+    movies_data.flatten
+  end
+
+  def self.get_details(movie_id)
+    connection = conn.get("/3/movie/#{movie_id}?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US")
+    movies_data = JSON.parse(connection.body, symbolize_names: true)[:results]
+    binding.pry
   end
 end
