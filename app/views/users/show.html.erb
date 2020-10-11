@@ -32,9 +32,12 @@
   <% current_user.movie_parties.each do |party| %>
   <div class="viewing-parties">
     <p>Movie: <%= party[:movie_title] %></p>
-    <p>On: <%= @date %></p>
-    <p>At: <%= @time %></p>
-    <p>With: <%= @friends[:username] %></p>
+    <p>On: <%= party.date %></p>
+    <p>At: <%= party.start_time %></p>
+    <p>With: </p>
+    <% party.find_friends.each do |friend| %>
+      <%= friend.username %>
+    <%end %>
     </div>
   <%end %>
 <%end %>
