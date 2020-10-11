@@ -1,5 +1,4 @@
 class FriendshipsController < ApplicationController
-
   def create
     user = User.find(current_user.id)
     friend = User.find_by(email: params[:email])
@@ -19,5 +18,4 @@ class FriendshipsController < ApplicationController
   #   flash[:notice]
   #   redirect
   # end
-
 end

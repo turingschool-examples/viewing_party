@@ -3,10 +3,6 @@
     <h1>Welcome <%= @user.username %></h1>
   </div>
 
-  <div class="top-container">
-    <h1>Welcome <%= @user.username %></h1>
-  </div>
-
   <section id="discover-movies" class="discover-movies">
     <%= button_to "Discover Movies", discover_index_path, method: :get %>
   </section>
@@ -29,8 +25,29 @@
   <% end %>
   <br>
   <br>
-  <section id="viewing-parties">
-    <h2>Check Out Yo Viewing Parties</h2>
-  </section>
+<% if current_user.movie_parties.empty? %>
+  <p>You haven't created any viewing parties yet!</p>
+<% elsif !current_user.movie_parties.empty? || current_user.been_invited? %>
+  <h2>Check Out Yo Viewing Parties: </h2>
+  <% if !current_user.movie_parties.empty? %>
+    <% current_user.movie_parties.each do |party| %>
+    <div class="viewing-parties">
+      <p style="font-weight:bold;">Hosting</p>
+      <p>Movie: <%= party[:movie_title] %></p>
+      <p>On: <%= party.date %></p>
+      <p>At: <%= party.start_time %></p>
+      <p>With: </p>
+      <% party.find_friends.each do |friend| %>
+          <%= friend.username %>
+        <%end %>
+        </div>
+      <%end %>
+    <% else %>
+    <p>You haven't created any viewing parties yet!</p>
+    <%end %>
+    <% if current_user.been_invited? %>
+    <p style="font-weight:bold;">Invited</p>
+    <%end %>
+<%end %>
 
 </body>

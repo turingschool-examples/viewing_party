@@ -3,6 +3,9 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    return unless @user.movie_parties.empty?
+
+    @movie_parties = current_user.movie_parties
   end
 
   def create

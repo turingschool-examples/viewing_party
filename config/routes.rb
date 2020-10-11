@@ -14,6 +14,10 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
 
   resources :discover, only: :index
-
+  #movies
   resources :movies, only: [:index, :show]
+
+  #viewing party
+  get '/movies/:id/party/new', to: 'movie_party#new'
+  post '/party', to: 'movie_party#create'
 end
