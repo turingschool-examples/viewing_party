@@ -1,7 +1,7 @@
 class User::DashboardController < ApplicationController
   def show
     cu_id = current_user.id
-    @friends = User.where(id: Friendship.where(user_id: cu_id).pluck(:friend_id)).or(User.where(id: Friendship.where(friend_id: cu_id).pluck(:user_id)))
+    @friends = User.where(id: Friendship.where(user_id: cu_id).pluck(:friend_id))
     @parties_hosting = Party.where(user_id: cu_id)
     parties_invited = Party.where(id: PartyUser.where(user_id: cu_id).pluck(:party_id))
     parties_status = PartyUser.where(user_id: cu_id).pluck(:status)
