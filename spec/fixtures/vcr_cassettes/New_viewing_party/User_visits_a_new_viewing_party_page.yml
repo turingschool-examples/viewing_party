@@ -1,0 +1,71 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/128?api_key=<MOVIEDB_API_KEY>&language=en-US
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      X-Api-Key:
+      - "<MOVIEDB_API_KEY>"
+      User-Agent:
+      - Faraday v1.0.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Sun, 11 Oct 2020 19:23:02 GMT
+      Server:
+      - openresty
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
+        Content-Length, Content-Range
+      Cache-Control:
+      - public, max-age=21600
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - b6fa0197119fab614481226d62345fe3
+      X-Memc-Age:
+      - '15038'
+      X-Memc-Expires:
+      - '6562'
+      Etag:
+      - W/"6ce8b0a1796e8a6a20a5db29818cd2c0"
+      Last-Modified:
+      - Sun, 11 Oct 2020 19:23:02 GMT
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 29f1da35ce271d2cdc88184ed0c1f86d.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - DEN50-C2
+      X-Amz-Cf-Id:
+      - "-xsbEnft5OQQS-NJ_3DQioSGfdaaDGuCmH9SORaHd19RedmQsL0XRQ=="
+      Age:
+      - '2605'
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJhZHVsdCI6ZmFsc2UsImJhY2tkcm9wX3BhdGgiOiIvY1NZYUpuOWZYU2ZERGpodVFaUWhyczZISTBqLmpwZyIsImJlbG9uZ3NfdG9fY29sbGVjdGlvbiI6bnVsbCwiYnVkZ2V0IjoyNjUwMDAwMCwiZ2VucmVzIjpbeyJpZCI6MTIsIm5hbWUiOiJBZHZlbnR1cmUifSx7ImlkIjoxNCwibmFtZSI6IkZhbnRhc3kifSx7ImlkIjoxNiwibmFtZSI6IkFuaW1hdGlvbiJ9XSwiaG9tZXBhZ2UiOiIiLCJpZCI6MTI4LCJpbWRiX2lkIjoidHQwMTE5Njk4Iiwib3JpZ2luYWxfbGFuZ3VhZ2UiOiJqYSIsIm9yaWdpbmFsX3RpdGxlIjoi44KC44Gu44Gu44GR5aerIiwib3ZlcnZpZXciOiJBc2hpdGFrYSwgYSBwcmluY2Ugb2YgdGhlIGRpc2FwcGVhcmluZyBFbWlzaGkgcGVvcGxlLCBpcyBjdXJzZWQgYnkgYSBkZW1vbml6ZWQgYm9hciBnb2QgYW5kIG11c3Qgam91cm5leSB0byB0aGUgd2VzdCB0byBmaW5kIGEgY3VyZS4gQWxvbmcgdGhlIHdheSwgaGUgZW5jb3VudGVycyBTYW4sIGEgeW91bmcgaHVtYW4gd29tYW4gZmlnaHRpbmcgdG8gcHJvdGVjdCB0aGUgZm9yZXN0LCBhbmQgTGFkeSBFYm9zaGksIHdobyBpcyB0cnlpbmcgdG8gZGVzdHJveSBpdC4gQXNoaXRha2EgbXVzdCBmaW5kIGEgd2F5IHRvIGJyaW5nIGJhbGFuY2UgdG8gdGhpcyBjb25mbGljdC4iLCJwb3B1bGFyaXR5IjozNS43NTQsInBvc3Rlcl9wYXRoIjoiL3BkdHpFcmVLdktBbHFhMllFQmFHd2lBNDVWOC5qcGciLCJwcm9kdWN0aW9uX2NvbXBhbmllcyI6W3siaWQiOjEwMzQyLCJsb2dvX3BhdGgiOiIvZVM3OXBzbG5vS2JXZzd0M1BNQTlheWwwYkdzLnBuZyIsIm5hbWUiOiJTdHVkaW8gR2hpYmxpIiwib3JpZ2luX2NvdW50cnkiOiJKUCJ9LHsiaWQiOjEyNTE2LCJsb2dvX3BhdGgiOm51bGwsIm5hbWUiOiJOaWJhcmlraSIsIm9yaWdpbl9jb3VudHJ5IjoiSlAifSx7ImlkIjoyNzUyLCJsb2dvX3BhdGgiOm51bGwsIm5hbWUiOiJERU5UU1UgTXVzaWMgQW5kIEVudGVydGFpbm1lbnQiLCJvcmlnaW5fY291bnRyeSI6IkpQIn0seyJpZCI6Njc2ODEsImxvZ29fcGF0aCI6bnVsbCwibmFtZSI6IlROREciLCJvcmlnaW5fY291bnRyeSI6IiJ9LHsiaWQiOjE3NzksImxvZ29fcGF0aCI6bnVsbCwibmFtZSI6IlRva3VtYSBTaG90ZW4iLCJvcmlnaW5fY291bnRyeSI6IkpQIn0seyJpZCI6Njc1NSwibG9nb19wYXRoIjoiL2JXaU0yaVk4MkIzMk5HbVBDT0ZhdGdmZWtJUi5wbmciLCJuYW1lIjoiTmlwcG9uIFRlbGV2aXNpb24gTmV0d29yayBDb3Jwb3JhdGlvbiIsIm9yaWdpbl9jb3VudHJ5IjoiSlAifV0sInByb2R1Y3Rpb25fY291bnRyaWVzIjpbeyJpc29fMzE2Nl8xIjoiSlAiLCJuYW1lIjoiSmFwYW4ifV0sInJlbGVhc2VfZGF0ZSI6IjE5OTctMDctMTIiLCJyZXZlbnVlIjoxNTk0MTQzNjksInJ1bnRpbWUiOjEzNCwic3Bva2VuX2xhbmd1YWdlcyI6W3siaXNvXzYzOV8xIjoiamEiLCJuYW1lIjoi5pel5pys6KqeIn1dLCJzdGF0dXMiOiJSZWxlYXNlZCIsInRhZ2xpbmUiOiJUaGUgRmF0ZSBPZiBUaGUgV29ybGQgUmVzdHMgT24gVGhlIENvdXJhZ2UgT2YgT25lIFdhcnJpb3IuIiwidGl0bGUiOiJQcmluY2VzcyBNb25vbm9rZSIsInZpZGVvIjpmYWxzZSwidm90ZV9hdmVyYWdlIjo4LjQsInZvdGVfY291bnQiOjUwODJ9
+  recorded_at: Sun, 11 Oct 2020 20:06:27 GMT
+recorded_with: VCR 6.0.0
