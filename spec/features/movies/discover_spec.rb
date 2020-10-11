@@ -1,19 +1,20 @@
 require 'rails_helper'
 
-describe 'As an authenticated user' do
-  describe "When I visit the discover page " do
-    before :each do
-      visit '/discover'
-    end
+RSpec.describe 'Discover Movies' do
+  describe 'As an authenticated user' do
+    describe "When I visit the discover page " do
+      before :each do
+        visit '/discover'
+      end
 
-    it "I see a button to discover top 40 movies" do
+      it "I see a button to discover top 40 movies" do
+        expect(page).to have_button('Discover Top 40')
+      end
 
-      expect(page).to have_button('Discover Top 40')
-    end
-
-    it "I see a search field with button to search movies by title" do
-      expect(page).to have_field('keywords')
-      expect(page).to have_button('Search By Movie Title')
+      it "I see a search field with button to search movies by title" do
+        expect(page).to have_field('keywords')
+        expect(page).to have_button('Search By Movie Title')
+      end
     end
   end
 end
