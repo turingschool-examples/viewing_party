@@ -46,5 +46,6 @@ RSpec.describe 'Home page' do
 
     expect(page).to_not have_button('Register')
     expect(page).to_not have_button('Login')
+    expect(page).to have_button('Logout')
   end
 end
