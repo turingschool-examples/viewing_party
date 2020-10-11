@@ -1,15 +1,15 @@
 <center>
-  <% if @found_movies %>
-    <% @found_movies.each do |found_movie| %>
-      <h3><%= found_movie[:title] %></h3>
-      <h2><%= found_movie[:vote_average] %></h2>
+  <% if params[:title] %>
+    <% @movies.each do |movie| %>
+      <h3><%= movie.title %></h3>
+      <p>Rating: <%= movie.vote_avg %></p>
     <% end %>
-  <% elsif @top_40 %>
+  <% else %>
   <h1>Top 40 Movies</h1>
     <ol>
-      <% @top_40.each do |movie| %>
-        <h3><li><%= movie[:title] %></li></h3>
-        <p>Rating: <%= movie[:vote_average] %></p><br>
+      <% @movies.each do |movie| %>
+        <h3><li><%= movie.title %></li></h3>
+        <p>Rating: <%= movie.vote_avg %></p><br>
       <% end %>
     <ol>
   <% end %>
