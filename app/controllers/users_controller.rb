@@ -4,11 +4,9 @@ class UsersController < ApplicationController
   def show
     @user = current_user
     if !current_user.movie_parties.empty?
-      # the active record below needs to be changed to find multiple users
-      current_user.movie_parties.first[:friend_id]
-      @date = Movie.new.convert_date(current_user.movie_parties.first[:date])
-      @time = Movie.new.convert_time(current_user.movie_parties.first[:start_time])
-      @friends = User.find(current_user.movie_parties.first[:friend_id])
+      @movie_parties = current_user.movie_parties
+      # @date = Movie.new.convert_date(current_user.movie_parties.first[:date])
+      # @time = Movie.new.convert_time(current_user.movie_parties.first[:start_time])
     end
   end
 
