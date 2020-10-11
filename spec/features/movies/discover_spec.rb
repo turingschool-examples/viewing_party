@@ -8,7 +8,6 @@ RSpec.describe 'Discover Movies' do
       end
 
       it "I see a button to discover top 40 movies" do
-
         expect(page).to have_button('Discover Top 40')
       end
 
@@ -46,36 +45,27 @@ RSpec.describe 'Discover Movies' do
             click_button('Search By Movie Title')
           end
 
-          it "I am redirected to the movies page" do
-            expect(current_path).to eq('/movies')
-          end
-
           it "I can see movie titles and vote average" do
             expect(page).to have_content("The Boys in the Band")
             expect(page).to have_content("Vote Average: 6.8")
             expect(page).to have_content("Before the Fire")
             expect(page).to have_content("Vote Average: 6.2")
           end
-
-          it "I can see 40 movie_info classes" do
-            expect(page).to have_css('ul', :count => 40)
-          end
-        end
-      end
-
-      describe "When I do not enter any text in the search field" do
-        describe "And click the Search By Movie Title button" do
-          it "I am shown the top 40 movies" do
-
-            click_button('Search By Movie Title')
-            expect(current_path).to eq('/movies')
-            expect(page).to have_content("The Green Mile")
-            expect(page).to have_content("Vote Average: 8.5")
-            expect(page).to have_content("Pulp Fiction")
-            expect(page).to have_content("Vote Average: 8.5")
-          end
         end
       end
     end
+  end
+end
+
+feature 'Results for top 40 movies' do
+  scenario "User clicks the top 40 button", :vcr do
+      visit '/discover'
+
+      click_button('Discover Top 40')
+      expect(current_path).to eq('/movies')
+      expect(page).to have_content("The Green Mile")
+      expect(page).to have_content("Vote Average: 8.5")
+      expect(page).to have_content("Pulp Fiction")
+      expect(page).to have_content("Vote Average: 8.5")
   end
 end
