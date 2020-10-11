@@ -27,7 +27,7 @@
   <br>
 <% if current_user.movie_parties.empty? %>
   <p>You haven't created any viewing parties yet!</p>
-<% elsif !current_user.movie_parties.empty? || current_user.has_been_invited? %>
+<% elsif !current_user.movie_parties.empty? || current_user.been_invited? %>
   <h2>Check Out Yo Viewing Parties: </h2>
   <% if !current_user.movie_parties.empty? %>
     <% current_user.movie_parties.each do |party| %>
@@ -45,7 +45,7 @@
     <% else %>
     <p>You haven't created any viewing parties yet!</p>
     <%end %>
-    <% if current_user.has_been_invited? %>
+    <% if current_user.been_invited? %>
     <p style="font-weight:bold;">Invited</p>
     <%end %>
 <%end %>

@@ -3,11 +3,9 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
-    if !current_user.movie_parties.empty?
-      @movie_parties = current_user.movie_parties
-      # @date = Movie.new.convert_date(current_user.movie_parties.first[:date])
-      # @time = Movie.new.convert_time(current_user.movie_parties.first[:start_time])
-    end
+    return unless @user.movie_parties.empty?
+
+    @movie_parties = current_user.movie_parties
   end
 
   def create

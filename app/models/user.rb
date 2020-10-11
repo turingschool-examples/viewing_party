@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :friends, through: :friendships
   has_many :movie_parties, dependent: :destroy
 
-  def has_been_invited?
+  def been_invited?
     false
   end
 end
