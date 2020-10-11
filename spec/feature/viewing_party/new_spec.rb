@@ -61,6 +61,7 @@ RSpec.describe 'viewing party page' do
           expect(page).to have_content("On:")
           expect(page).to have_content("At:")
           expect(page).to have_content("With:")
+          expect(page).to have_content("#{@user2.username}")
         end
       end
     end
