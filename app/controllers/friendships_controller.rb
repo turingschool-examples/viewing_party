@@ -1,5 +1,4 @@
 class FriendshipsController < ApplicationController
-
   def create
     user = User.find(current_user.id)
     friend = User.find_by(email: params[:email])
@@ -13,4 +12,10 @@ class FriendshipsController < ApplicationController
     redirect_to '/dashboard'
   end
 
+  # def destroy
+  #   @friendship = Friendship.find(params[:id])
+  #   @friendship.destroy
+  #   flash[:notice]
+  #   redirect
+  # end
 end
