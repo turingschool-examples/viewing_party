@@ -27,19 +27,27 @@
   <br>
 <% if current_user.movie_parties.empty? %>
   <p>You haven't created any viewing parties yet!</p>
-<% else %>
+<% elsif !current_user.movie_parties.empty? || current_user.has_been_invited? %>
   <h2>Check Out Yo Viewing Parties: </h2>
-  <% current_user.movie_parties.each do |party| %>
-  <div class="viewing-parties">
-    <p>Movie: <%= party[:movie_title] %></p>
-    <p>On: <%= party.date %></p>
-    <p>At: <%= party.start_time %></p>
-    <p>With: </p>
-    <% party.find_friends.each do |friend| %>
-      <%= friend.username %>
+  <% if !current_user.movie_parties.empty? %>
+    <% current_user.movie_parties.each do |party| %>
+    <div class="viewing-parties">
+      <p style="font-weight:bold;">Hosting</p>
+      <p>Movie: <%= party[:movie_title] %></p>
+      <p>On: <%= party.date %></p>
+      <p>At: <%= party.start_time %></p>
+      <p>With: </p>
+      <% party.find_friends.each do |friend| %>
+          <%= friend.username %>
+        <%end %>
+        </div>
+      <%end %>
+    <% else %>
+    <p>You haven't created any viewing parties yet!</p>
     <%end %>
-    </div>
-  <%end %>
+    <% if current_user.has_been_invited? %>
+    <p style="font-weight:bold;">Invited</p>
+    <%end %>
 <%end %>
 
 </body>
