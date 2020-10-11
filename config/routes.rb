@@ -20,4 +20,6 @@ Rails.application.routes.draw do
   get '/movies', to: 'movies#search'
 
   post '/friendship/new', to: 'friendships#create'
+
+  get '/new_party/:user_id/:movie_title', to: 'parties#new'
 end
