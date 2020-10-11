@@ -1,0 +1,7 @@
+<%= form_with model: @party, local: true do |f|  %>
+
+  <%= f.label :movie_title %>
+  <%= f.text_field :movie_title, value: "#{@movie_title}" ,:readonly => true %>
+
+  <%= f.submit 'Create Party' %>
+<% end %>
