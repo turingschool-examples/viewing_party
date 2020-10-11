@@ -1,6 +1,5 @@
 class MoviesController < ApplicationController
   before_action :require_user
-
   def index
     if params[:search]
       api_key = ENV['MOVIE_API_KEY']
