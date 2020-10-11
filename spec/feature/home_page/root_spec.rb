@@ -5,7 +5,7 @@ RSpec.describe 'Home page' do
   it "When a user visit's the root page, they see a welcome message" do
 
     visit "/"
-    # save_and_open_page
+
     expect(page).to have_content("Let's")
     expect(page).to have_content("Make a")
     expect(page).to have_content("Party!")
@@ -30,5 +30,21 @@ RSpec.describe 'Home page' do
     visit "/"
 
     expect(page).to have_button("Register")
+  end
+
+  it "does not display a login or register button once a user is logged in" do
+    user = User.create!(username: "eDog", email: "elah@email.com", password: "password")
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+    visit '/login'
+
+    fill_in :email, with: 'eelah@email.com'
+    fill_in :password, with: user.password
+
+    click_button("Login")
+
+    visit '/'
+
+    expect(page).to_not have_button('Register')
+    expect(page).to_not have_button('Login')
   end
 end
