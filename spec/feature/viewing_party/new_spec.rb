@@ -42,19 +42,25 @@ RSpec.describe 'viewing party page' do
         expect(current_path).to eq("/movies/#{first_movie[:id]}")
         click_button("Create viewing party")
         expect(current_path).to eq("/movies/#{first_movie[:id]}/party/new")
-        save_and_open_page
-        expect(page).to have_content("#{first_movie[:title]}")
-        expect(page).to have_field("Duration: ")
-        expect(page).to have_content("#{hours} hour and #{minutes} minute")
-        expect(page).to have_field("Date: ")
-        expect(page).to have_field("Time: ")
-        expect(page).to have_field("Invite Friends: ")
-        expect(page).to have_field("#{@user2.username}")
-        expect(page).to have_button("Create Party")
-        click_button("Create Party")
+        # save_and_open_page
+        expect(page).to have_content("Movie")
+        expect(page).to have_field("Duration")
+        page.find('#date_2_1i')
+        expect(page).to have_content("Start time")
+        expect(page).to have_content("Invite Friends:")
+        expect(page).to have_content("#{@user2.username}")
+        expect(page).to have_field("friend_#{@user2.id}")
+        within("#friend-#{@user2.id}") do
+          check "friend_#{@user2.id}"
+        end
+        expect(page).to have_button("Create viewing party")
+        click_button("Create viewing party")
         expect(current_path).to eq("/dashboard")
         within(first(".viewing-parties")) do
-          expect(page).to have_content("Check Out Yo Viewing Parties")
+          expect(page).to have_content("Movie:")
+          expect(page).to have_content("On:")
+          expect(page).to have_content("At:")
+          expect(page).to have_content("With:")
         end
       end
     end

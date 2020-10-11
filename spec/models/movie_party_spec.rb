@@ -11,9 +11,5 @@ describe MovieParty, type: :model do
   describe 'relationships' do
     #host
     it {should belong_to :user}
-    #joins table
-    it {should have_many :party_users}
-    #attendees
-    it {should have_many(:users).through(:party_users)}
   end
 end

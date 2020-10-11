@@ -4,16 +4,25 @@
     <br>
     <br>
     <br>
-    <%= form_tag "/users", value: "Register", method: :create do %>
+    <%= form_tag "/party", value: "create", method: :create do %>
     <legend><span class="number"></span> Register User</legend>
-      <h1><%=@movie[:title]%></h1>
+      <%= label_tag :movie %>
+      <%= text_field_tag :movie, "#{@movie[:title]}", :readonly => true%>
       <%= label_tag :duration %>
-      <%= text_field_tag :duration, "#{@duration}" %>
+      <%= text_field_tag :duration, "#{@duration} minutes" %>
       <%= label_tag :date %>
-      <%= date_select("article", "written_on", use_two_digit_numbers: true) %>
+      <%= date_select("date", "2", order: [:day, :month, :year]) %>
       <%= label_tag :start_time %>
-      <%= time_select :name, 'method', {:default => {:hour => '10', :minute => '30'}} %>
-      <h2>Friends</h2>
+      <%= time_select :start_time, 'method', {:default => {:hour => '10', :minute => '30'}, :ignore_date => true} %>
+      <h2>Invite Friends: </h2>
+      <%current_user.friends.each do |friend| %>
+      <section class ="grid-item" id='friend-<%=friend[:id]%>'>
+        <%= friend[:username] %>
+      <%= check_box("friend", "#{friend[:id]}") %>
+      </section>
+    <%end %>
+    <br>
+    <br>
       <%= submit_tag 'Create viewing party' %>
     <% end %>
   </center>

@@ -4,9 +4,9 @@ class CreateMovieParties < ActiveRecord::Migration[5.2]
       t.string :movie_title
       t.integer :duration
       t.string :date
-      t.string :start_time
-
-      t.timestamps
+      t.integer :start_time
+      t.belongs_to :user, foreign_key: true
+      t.belongs_to :friend
     end
   end
 end

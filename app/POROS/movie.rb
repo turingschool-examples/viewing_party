@@ -39,4 +39,14 @@ class Movie
     response = conn.get("/3/movie/#{id}/reviews?api_key=#{api_key}&language=en-US&page=1")
     JSON.parse(response.body, symbolize_names: true)
   end
+
+  def convert_time(number)
+    hour = number.to_s.chars[0..1].join.to_i
+    minute = number.to_s.chars[-2..-1].join.to_i
+    "#{hour}:#{minute}"
+  end
+
+  def convert_date(number)
+    "#{number[0..1]}/#{number[2..3]}/#{number[4..5]}"
+  end
 end

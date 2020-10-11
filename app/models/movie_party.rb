@@ -4,6 +4,5 @@ class MovieParty < ApplicationRecord
   validates :date, presence: true
   validates :start_time, presence: true
   belongs_to :user
-  has_many :party_users, dependent: :destroy
-  has_many :users, through: :party_users
+  has_many :friends, class_name: 'User', dependent: :destroy
 end
