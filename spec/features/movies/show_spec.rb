@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'discover', type: :feature do
+RSpec.describe 'movie details page', type: :feature do
   describe 'page' do
     before :each do
       user = create :user
@@ -13,15 +13,23 @@ RSpec.describe 'discover', type: :feature do
       click_on 'Log in'
     end
 
-    it 'has form to search by movie title' do
-      movies = MovieService.new
-      @found_movies = movies.find('Hello')
+    it 'can show details' do
 
-      visit '/discover'
+      visit "/movies/5"
 
-      fill_in :title, with: 'Hello'
+     
+      expect(page).to have_button('Create Viewing Party!')
+      expect(page).to have_content("#{movie.title}")
+      expect(page).to have_content("#{movie.vote_average}")
+      expect(page).to have_content("#{movie.runtime}")
+      expect(page).to have_content("#{movie.genre}")
+      expect(page).to have_content("#{movie.summary}")
+      expect(page).to have_content("#{movie.cast}")
+      expect(page).to have_content("#{movie.review_count}")
+      expect(page).to have_content("#{movie.reviews}")
+# Details: This information should come from 3 different endpoints from The Movie DB API
 
-      click_button 'Search By Title'
+
 
       expect(current_path).to eq('/movies')
 
