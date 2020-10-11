@@ -68,3 +68,10 @@ RSpec.configure do |config|
     end
   end
 end
+
+VCR.configure do |config|
+  config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
+  config.hook_into :webmock
+  config.filter_sensitive_data('<THIS_IS_SECRET>') { ENV['TMDB_API_KEY'] }
+  config.configure_rspec_metadata!
+end
