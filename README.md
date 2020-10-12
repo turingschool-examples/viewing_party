@@ -11,7 +11,7 @@ To download this app onto your compter, follow the instructions labelled 'Local 
 In this project we were expected to build an app where a user can register and create viewing parties involving a movie of their choice. The app has the following features;
 
 -a user can register and subsequently login/logout of the app
--a user can search through a list of 40 movies (taken from [theMovieDb API](https://developers.themoviedb.org/)
+-a user can search through a list of 40 movies (taken from [theMovieDB API](https://developers.themoviedb.org/)
 -a user can then click on a movie, and see details such as; that movie's title, the cast, etc.
 
 ## Local Setup
