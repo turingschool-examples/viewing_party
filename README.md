@@ -4,26 +4,22 @@ This is the base repo for the [viewing party project](https://backend.turing.io/
 
 ### About this Project
 
-Viewing party is an application in which users can explore movie options and create a viewing party event for the user and friend's.
+This application is used to search for movies by title, or discover new movies by top-rated, then create "Viewing Parties" with friends who
+are also users of the application.
 
-## Deployment
+### Deployment
   - App is hosted on [Heroku](https://limitless-castle-72832.herokuapp.com/)
 
-## Authors
+### Authors
   - **Logan Riffell** - [GitHub](https://github.com/coreycartercodes)
   - **Corey Carter** - [GitHub](https://github.com/lkriffell)
   
-## Versions
+### Versions
 
 - Ruby 2.5.3
 - Rails 5.2.4.3
 
 Example wireframes to follow are found [here](https://backend.turing.io/module3/projects/viewing_party/wireframes)
-
-# Viewing Party
-
-This application is used to search for movies by title, or discover new movies by top-rated, then create "Viewing Parties" with friends who
-are also users of the application.
 
 ## Summary
 
