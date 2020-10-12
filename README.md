@@ -1,7 +1,7 @@
 # Viewing Party
 
-This is the base repo for the [viewing party project](https://backend.turing.io/module3/projects/viewing_party) used for Turing's Backend Module 3.
-This is our completed repo for Viewing Party - [GitHub Repo](https://github.com/lkriffell/viewing_party)
+  - This is the base repo for the [viewing party project](https://backend.turing.io/module3/projects/viewing_party) used for Turing's Backend Module 3.
+  - This is our completed repo for [Viewing Party](https://github.com/lkriffell/viewing_party)
 
 ### About this Project
 
