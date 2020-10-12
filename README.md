@@ -24,10 +24,8 @@ are also users of the application.
   - [Runing the tests](#running-the-tests)
   - [Deployment](#deployment)
   - [Built With](#built-with)
-  - [Contributing](#contributing)
   - [Versioning](#versioning)
   - [Authors](#authors)
-  - [License](#license)
   - [Acknowledgments](#acknowledgments)
 
 ## Getting Started
@@ -53,7 +51,7 @@ env running
   - factory_bot_rails'
   - faker
 
-3. Setup the database: 
+3. Setup the database:
 - `rails db:create`
 - `rails db:migrate`
 - `rails db:seed` (Will populate seeded users to show functionality of adding Friends, creating Viewing Parties)
@@ -103,10 +101,8 @@ To create a viewing party:
   - [GitHub Repo](https://github.com/lkriffell/viewing_party)
 
 ## Authors
-  - **Logan Riffell** - *Provided README Template* -
-    [GitHub](https://github.com/coreycartercodes)
-  - **Corey Carter** - *Provided README Template* -
-    [GitHub](https://github.com/lkriffell)
-    
+  - **Logan Riffell** - [GitHub](https://github.com/coreycartercodes)
+  - **Corey Carter** - [GitHub](https://github.com/lkriffell)
+
 ## Acknowledgments
   - Thank you to [The Movie Database API](https://developers.themoviedb.org/3) for allowing us to use their data collections
