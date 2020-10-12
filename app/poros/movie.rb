@@ -16,8 +16,12 @@ class Movie
     @runtime = movie_data[:runtime]
     @genres = movie_data[:genres]
     @summary = movie_data[:overview]
-    @cast = cast_data
-    @reviews = review_data
+    @cast = cast_data.map do |actor|
+      Actor.new(actor)
+    end
+    @reviews = review_data.map do |review|
+      Review.new(review)
+    end
   end
 
   def formatted_runtime
