@@ -7,18 +7,22 @@ class Movie
               :summary,
               :cast,
               :review_count,
-              :review
+              :reviews
 
-  def initialize(attributes)
-    @movie_id = attributes[:id]
-    @title = attributes[:title]
-    @vote_avg = attributes[:vote_average]
-    @runtime = attributes[:runtime]
-    @genres = attributes[:genres]
-    @summary = attributes[:overview]
-    # @cast
-    # @review_count
-    # @review
+  def initialize(movie_data, cast_data = nil, review_data = nil)
+    @movie_id = movie_data[:id]
+    @title = movie_data[:title]
+    @vote_avg = movie_data[:vote_average]
+    @runtime = movie_data[:runtime]
+    @genres = movie_data[:genres]
+    @summary = movie_data[:overview]
+    @cast = cast_data
+    @reviews = review_data
   end
 
+  def formatted_runtime
+    hours = @runtime / 60
+    minutes = @runtime % 60
+    "#{hours} hour(s) and #{minutes} minutes"
+  end
 end
