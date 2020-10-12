@@ -7,10 +7,9 @@
   <%= text_field_tag :search %>
   <%= submit_tag 'Search' %>
 <% end %>
-
-<% @results.each do |movie_info| %>
+<% @results.each do |movie| %>
   <div class="movie">
-    <%=link_to "#{x+=1}. #{movie_info[:title]}", "/movies/#{movie_info[:id]}" %>
-    <div class="vote">Vote average: <%=movie_info[:vote_average]%></div>
+    <%=link_to "#{x+=1}. #{movie.title}", "/movies/#{movie.id}" %>
+    <div class="vote">Vote average: <%=movie.vote_average%></div>
   </div>
 <%end %>

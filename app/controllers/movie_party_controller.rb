@@ -1,7 +1,7 @@
 class MoviePartyController < ApplicationController
   def new
-    @movie = Movie.new.get_specific_movie(params[:id].to_i)
-    @duration = Movie.new.calculate_time(@movie)
+    @movie = SearchFacade.get_specific_movie(params[:id].to_i, ENV['MOVIE_API_KEY'])
+    @runtime = MovieStats.calculate_time(@movie)
   end
   # date is in form of day, month, year
   # friends_ids comes in as string

@@ -38,12 +38,14 @@ RSpec.describe 'movie show page' do
           within(first(".movie")) do
             click_link
           end
+          # require "pry"; binding.pry
 
           expect(current_path).to eq("/movies/#{first_movie[:id]}")
           expect(page).to have_content("#{first_movie[:title]}")
           expect(page).to have_content("Vote average: #{first_movie[:vote_average]}")
           expect(page).to have_content("Run time: #{hours} hour and #{minutes} minutes")
-          expect(page).to have_content("Genres: #{first_movie[:genres][0][:name]}")
+          expect(page).to have_content("Genres:")
+          expect(page).to have_content("#{first_movie[:genres][0][:name]}")
           expect(page).to have_content("Overview: #{first_movie[:overview]}")
           first_movie_cast_list.each{ |per| expect(page).to have_content(per)}
         end
@@ -94,5 +96,25 @@ RSpec.describe 'movie show page' do
     visit("/movies/#{big_cast_movie[:id]}")
 
     big_cast.each{ |per| expect(page).to have_content(per)}
+  end
+  it "if a movie has reviews, I can see them" do
+    # first_movie = JSON.parse(File.read('spec/fixtures/first_movie_link.json'), symbolize_names: true)
+    first_movie_reviews = JSON.parse(File.read('spec/fixtures/movie_with_reviews_reviews.json'), symbolize_names: true)
+    movie_credits = JSON.parse(File.read('spec/fixtures/movie_with_reviews_credits.json'), symbolize_names: true)
+
+    json6 = File.read('spec/fixtures/movie_with_reviews_credits.json')
+    json7 = File.read('spec/fixtures/movie_with_reviews.json')
+    json8 = File.read('spec/fixtures/movie_with_reviews_reviews.json')
+
+
+    stub_request(:get, "https://api.themoviedb.org/3/movie/299534/credits?api_key=#{ENV['MOVIE_API_KEY']}").to_return(status: 200, body: json6)
+    stub_request(:get, "https://api.themoviedb.org/3/movie/299534/credits?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US").to_return(status: 200, body: json6)
+    stub_request(:get, "https://api.themoviedb.org/3/movie/299534?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US").to_return(status: 200, body: json7)
+    stub_request(:get, "https://api.themoviedb.org/3/movie/299534/reviews?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US&page=1").to_return(status: 200, body: json8)
+
+    visit("/movies/299534")
+
+    expect(page).to have_content("Reviews: #{first_movie_reviews[:results].length}")
+    expect(page).to have_button("Create viewing party")
   end
 end

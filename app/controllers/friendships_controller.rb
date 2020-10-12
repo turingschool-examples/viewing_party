@@ -11,5 +11,4 @@ class FriendshipsController < ApplicationController
     end
     redirect_to '/dashboard'
   end
-
 end
