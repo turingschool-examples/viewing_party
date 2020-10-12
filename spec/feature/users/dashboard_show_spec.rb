@@ -18,7 +18,7 @@ RSpec.describe 'user dashboard' do
     expect(page).to have_content("Welcome #{@user.username}")
     expect(page).to have_button('Discover Movies')
     expect(page).to have_content('Check Out Yo Friends')
-    expect(page).to have_content("You haven't created any viewing parties yet!")
+    expect(page).to have_content("You haven't created any viewing parties yet nor have been invited to any yet.")
   end
 
   it 'as a user, I see a text field to enter a friends email, and a button to Add Friend' do

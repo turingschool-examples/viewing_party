@@ -7,7 +7,17 @@ class MovieParty < ApplicationRecord
   has_many :party_users, dependent: :destroy # joins table
   has_many :users, through: :party_users, dependent: :destroy # attendees
 
-  def find_friends
-    User.where(id: PartyUser.where(movie_party_id: self[:id]).pluck(:user_id))
+  def find_friends(user)
+    friends = []
+    User.where(id: PartyUser.where(movie_party_id: id).pluck(:user_id)).find_each do |friend|
+      next if friend.username == user.username
+
+      friends << friend
+    end
+    friends
+  end
+
+  def find_host
+    User.find_by(id: user_id)
   end
 end
