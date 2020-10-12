@@ -1,6 +1,7 @@
 # Viewing Party
 
 This is the base repo for the [viewing party project](https://backend.turing.io/module3/projects/viewing_party) used for Turing's Backend Module 3.
+This is our completed repo for Viewing Party - [GitHub Repo](https://github.com/lkriffell/viewing_party)
 
 ### About this Project
 
@@ -28,7 +29,6 @@ Example wireframes to follow are found [here](https://backend.turing.io/module3/
   - [Authors](#authors)
   - [Runing the tests](#running-the-tests)
   - [Built With](#built-with)
-  - [Versioning](#versioning)
   - [Acknowledgments](#acknowledgments)
 
 ## Getting Started
@@ -96,9 +96,6 @@ To create a viewing party:
   - [The Movie Database API](https://developers.themoviedb.org/3)
   - We used Ruby version [2.5.3](https://ruby-doc.org/core-2.5.3/)
   - Ruby on Rails version [5.2.4.3](https://rubygems.org/gems/rails/versions/5.2.4.3)
-
-## Versioning
-  - [GitHub Repo](https://github.com/lkriffell/viewing_party)
-
+  
 ## Acknowledgments
   - Thank you to [The Movie Database API](https://developers.themoviedb.org/3) for allowing us to use their data collections
