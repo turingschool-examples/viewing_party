@@ -8,11 +8,11 @@ class User < ApplicationRecord
   has_many :movie_parties, dependent: :destroy
 
   def been_invited?
-    !PartyUser.where(user_id: self.id).empty?
+    !PartyUser.where(user_id: id).empty?
   end
 
   def find_parties
-    party_ids = PartyUser.where(user_id: self.id).map(&:movie_party_id)
+    party_ids = PartyUser.where(user_id: id).map(&:movie_party_id)
     MovieParty.where(id: party_ids)
   end
 end

@@ -9,17 +9,15 @@ class MovieParty < ApplicationRecord
 
   def find_friends(user)
     friends = []
-    User.where(id: PartyUser.where(movie_party_id: self[:id]).pluck(:user_id)).each do |friend|
-      if friend.username == user.username
-        next
-      else
-        friends << friend
-      end
+    User.where(id: PartyUser.where(movie_party_id: id).pluck(:user_id)).find_each do |friend|
+      next if friend.username == user.username
+
+      friends << friend
     end
     friends
   end
 
-  def find_host(user)
-    User.where(id: self.user_id).first
+  def find_host
+    User.find_by(id: user_id)
   end
 end

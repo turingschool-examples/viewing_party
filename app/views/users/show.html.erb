@@ -66,8 +66,8 @@
         <% party.find_friends(@user).each do |friend| %>
             <%= friend.username %>
           <%end %>
-          <%= party.find_host(@user)[:username] %>
-          <p style="font-weight:bold;"> Hosted by: <%= party.find_host(@user)[:username] %></p>
+          <%= party.find_host[:username] %>
+          <p style="font-weight:bold;"> Hosted by: <%= party.find_host[:username] %></p>
           <p>===================</p>
         </div>
       <%end %>
