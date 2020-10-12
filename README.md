@@ -1,6 +1,6 @@
 # Viewing Party
 
-This is a group project between Travis McKinstry, [Saryn Mooney](https://github.com/sarynm12) and [Norma Lopez](https://github.com/IamNorma).
+This is a group project between [me, Travis McKinstry](https://github.com/TravisGM92), [Saryn Mooney](https://github.com/sarynm12) and [Norma Lopez](https://github.com/IamNorma).
 
 The link to this app: [found here](https://gentle-brook-14232.herokuapp.com/)
 
