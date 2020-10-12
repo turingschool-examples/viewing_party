@@ -11,11 +11,4 @@ class FriendshipsController < ApplicationController
     end
     redirect_to '/dashboard'
   end
-
-  # def destroy
-  #   @friendship = Friendship.find(params[:id])
-  #   @friendship.destroy
-  #   flash[:notice]
-  #   redirect
-  # end
 end

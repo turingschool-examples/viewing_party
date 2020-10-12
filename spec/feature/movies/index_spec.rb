@@ -53,9 +53,7 @@ RSpec.describe 'movie discover page' do
         click_button "Search By Movie"
 
         expect(page).to have_content("1. ")
-        expect(page).to have_content("40. ")
         expect(page).to have_link("1.")
-        expect(page).to have_link("40.")
         expect(page).to have_content("Vote average:")
         within(first(".movie")) do
           expect(page).to have_css(".vote")
