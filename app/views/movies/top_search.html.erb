@@ -1,0 +1,17 @@
+<p><%= button_to 'Top 40 Movies', top_movies_path, method: :get %></p>
+
+<%= form_tag movies_search_path, method: :get do %>
+  <%= text_field_tag :find_movies, nil, placeholder: 'Search By Movie Title' %>
+  <%= submit_tag 'Find Movies', class: 'submit' %>
+<% end %>
+
+<% @movies.each do |movie| %>
+<section class='movie'>
+  <section class='title'>
+    <%= link_to movie[:title] %>
+  </section>
+  <section class='vote_average'>
+    <%= movie[:vote_average] %>
+  </section>
+</section>
+<% end %>

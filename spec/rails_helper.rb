@@ -1,5 +1,11 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
+require 'simplecov'
+SimpleCov.start 'rails' do
+  add_filter '/channels'
+  add_filter '/jobs'
+  add_filter '/mailers'
+end
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
 # Prevent database truncation if the environment is production
@@ -67,4 +73,11 @@ RSpec.configure do |config|
       with.library :rails
     end
   end
+end
+
+VCR.configure do |config|
+  config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
+  config.hook_into :webmock
+  config.filter_sensitive_data('<THIS_IS_SECRET>') { ENV['TMDB_API_KEY'] }
+  config.configure_rspec_metadata!
 end

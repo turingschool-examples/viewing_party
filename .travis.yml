@@ -9,5 +9,10 @@ script:
 deploy:
   provider: heroku
   api_key:
-  app:
+    secure: CpCabpM+KxtSijOAc5vc0g6bHBLURWh3oLp7HiyRGejF4OrrcCmrCqYk1vPkf1rRFttADzj2A5g9PQpJHzQu1/8HPnbCPwy+RFo1iiv700VNq0YBtzjJi3PdpZKqjC1UMdndxyZCN4UNRQuAnq+b5a9CXM9lbjwK2KKpSNcmFKrMpjECtVf4+h1GB/d4G1XKwIxY57HDC73Zm3oOiWjeBm7b0ilP3H8uvon+4NonTtXdvPmGKK59VVMLpCJtVG14q7px0B5bIRGpxZiDQE4ShThr4Rv1Iy5rLWKsjOwpcjCjs7AQcMSXdLOg0ZZB/U62KEZweRoez6buRZFRdMbtW3IPDzQ36mTVLeAHnBAv+pvvMBfS8b+igHNC8RMDYIXcbi7noXlYn+7s/9l/TzgrOiiMjHwarU/G/M9Xx1zewxWGiO6Vs8TuhBcRFKIFcVMKnTbyMi2So/DX6i7WTSNVOTLGuEeYq57D/vhd3OCZTzEzUyHWtWV9XHS09hBGSK2vl1SuZHuu9MPZD37F5A2p8xpPljkfCxFMWFYGiWhpcz0lj/lOfq4YVyVeuIizIKNjIj3Mv0kw1iGx84KjX6VRXcLmOLug23HiossWfqxrbocOPDI1BaYCigjq9DCYBGbTRgCaetjm2/6RzgRYbvzyPTwhbR7a26AIZPGMaeqynhQ=
+  app: warm-citadel-64777
+  on:
+    repo: EHale64/viewing_party
+    branch: main
+  skip_cleanup: 'true'
   run: rails db:migrate
