@@ -7,7 +7,7 @@
     <p>Runtime: <%= @movie.formatted_runtime %></p>
     <p>Genre(s): 
     <% @movie.genres.each do |genre| %>
-      <%= genre[:name] %>
+      <span>&#8226; </span><%= genre.name %>
     <% end %>
     </p>
     <hr>
