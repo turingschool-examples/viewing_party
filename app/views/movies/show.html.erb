@@ -4,13 +4,37 @@
   </div>
   <div id='movie_stats'>
     <p>Vote Average: <%= @movie.vote_avg %></p>
-    <p>Runtime: <%= @movie.runtime %></p>
+    <p>Runtime: <%= @movie.formatted_runtime %></p>
     <p>Genre(s): 
     <% @movie.genres.each do |genre| %>
-      <%= genre %>
+      <%= genre[:name] %>
     <% end %>
     </p>
     <hr>
   </div>
 
-  
+    <h2>Summary:</h2> 
+    <p><%= @movie.summary%></p>
+    <br>
+    <section class="cast">
+    <h2>Cast:</h2>
+    <ul>
+      <% @movie.cast.each do |actor| %>
+        <div id="actor-<%= actor[:id] %>">
+        <p><li><%= actor[:name] %> as <%= actor[:character] %></li></p>
+        <br>
+      <% end %>
+    </ul>
+    </section>
+<hr>
+<section class="reviews">
+    <h2><%= @movie.reviews.count %> Reviews</h2>
+    <% @movie.reviews.each do |review| %>
+      <div id="review-<%= review[:id] %>">
+        <h4><%= review[:author] %></h4>
+        <p><%= review[:content] %></p>
+      </div>
+    <% end %>
+</section>
+
+   
