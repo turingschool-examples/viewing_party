@@ -1,6 +1,5 @@
 class CreateMovie
-  attr_reader :popularity,
-              :vote_count,
+  attr_reader :vote_count,
               :id,
               :genres,
               :title,
@@ -10,7 +9,6 @@ class CreateMovie
               :runtime
 
   def initialize(attributes)
-    @popularity = attributes[:popularity]
     @vote_count = attributes[:vote_count]
     @id = attributes[:id]
     @genres = attributes[:genres].map { |numb| numb[:name] } if !attributes[:genres].nil?

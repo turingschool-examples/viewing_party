@@ -1,14 +1,15 @@
 class MovieInfo
   def self.search_movies(keyword, api)
-    # refactor to use a loop rather than 2 API calls
-    conn = Faraday.new(url: 'https://api.themoviedb.org')
-    response = conn.get("/3/search/movie?api_key=#{api}&language=en-US&query=#{keyword}&page=1&include_adult=false")
-    response2 = conn.get("/3/search/movie?api_key=#{api}&language=en-US&query=#{keyword}&page=2&include_adult=false")
-    json = JSON.parse(response.body, symbolize_names: true)
-    json2 = JSON.parse(response2.body, symbolize_names: true)
-    first20 = json[:results]
-    first20 << json2[:results]
-    first20.flatten
+    page = 1
+    movie_results = []
+    until page == 2
+      conn = Faraday.new(url: 'https://api.themoviedb.org')
+      response = conn.get("/3/search/movie?api_key=#{api}&language=en-US&query=#{keyword}&page=1&include_adult=false")
+      json = JSON.parse(response.body, symbolize_names: true)
+      movie_results << json[:results]
+      page += 1
+    end
+    movie_results.flatten
   end
 
   def self.get_40_movies(movie_count, api)
