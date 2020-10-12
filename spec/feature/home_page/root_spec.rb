@@ -37,7 +37,7 @@ RSpec.describe 'Home page' do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
     visit '/login'
 
-    fill_in :email, with: 'eelah@email.com'
+    fill_in :email, with: user.email
     fill_in :password, with: user.password
 
     click_button("Login")
