@@ -36,8 +36,7 @@ ActiveRecord::Schema.define(version: 2020_10_10_000458) do
     t.string "movie_title"
     t.integer "api_id"
     t.integer "duration"
-    t.date "date_of_party"
-    t.time "start_time"
+    t.datetime "datetime_of_party"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
