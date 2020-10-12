@@ -12,7 +12,7 @@ In this project we were expected to build an app where a user can register and c
 
 Note: think about putting a gif of each of the following pieces below the description<br>
 -a user can register and subsequently login/logout of the app<br>
-[Register gif](https://media.giphy.com/media/tWo2QfyjkNxd7W7QHO/source.mp4)
+![Register gif](https://media.giphy.com/media/tWo2QfyjkNxd7W7QHO/source.mp4)
 -a user can search through a list of 40 movies (taken from [theMovieDB API](https://developers.themoviedb.org/)<br>
 -a user can then click on a movie, and see details such as; that movie's title, the cast, etc.<br>
 
