@@ -6,6 +6,13 @@ This is the base repo for the [viewing party project](https://backend.turing.io/
 
 Viewing party is an application in which users can explore movie options and create a viewing party event for the user and friend's.
 
+## Deployment
+  - App is hosted on [Heroku](https://limitless-castle-72832.herokuapp.com/)
+
+## Authors
+  - **Logan Riffell** - [GitHub](https://github.com/coreycartercodes)
+  - **Corey Carter** - [GitHub](https://github.com/lkriffell)
+  
 ## Versions
 
 - Ruby 2.5.3
@@ -21,11 +28,11 @@ are also users of the application.
 ## Summary
 
   - [Getting Started](#getting-started)
-  - [Runing the tests](#running-the-tests)
   - [Deployment](#deployment)
+  - [Authors](#authors)
+  - [Runing the tests](#running-the-tests)
   - [Built With](#built-with)
   - [Versioning](#versioning)
-  - [Authors](#authors)
   - [Acknowledgments](#acknowledgments)
 
 ## Getting Started
@@ -89,9 +96,6 @@ To create a viewing party:
   - Simplecov
   - Capybara
 
-## Deployment
-  - App is hosted on [Heroku](https://limitless-castle-72832.herokuapp.com/)
-
 ## Built With
   - [The Movie Database API](https://developers.themoviedb.org/3)
   - We used Ruby version [2.5.3](https://ruby-doc.org/core-2.5.3/)
@@ -99,10 +103,6 @@ To create a viewing party:
 
 ## Versioning
   - [GitHub Repo](https://github.com/lkriffell/viewing_party)
-
-## Authors
-  - **Logan Riffell** - [GitHub](https://github.com/coreycartercodes)
-  - **Corey Carter** - [GitHub](https://github.com/lkriffell)
 
 ## Acknowledgments
   - Thank you to [The Movie Database API](https://developers.themoviedb.org/3) for allowing us to use their data collections
