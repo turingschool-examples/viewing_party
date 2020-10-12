@@ -17,37 +17,60 @@
 
   <h2>Check Out Yo Friends</h2>
   <% if @user.friends.empty? %>
-      <p>You currently have no friends.</p>
+    <p>You currently have no friends.</p>
   <% else %>
     <% @user.friends.each do |friend| %>
-      <%= friend.username %>
-    <% end %>
+        <%= friend.username %>
+      <% end %>
   <% end %>
   <br>
   <br>
-<% if current_user.movie_parties.empty? %>
-  <p>You haven't created any viewing parties yet!</p>
-<% elsif !current_user.movie_parties.empty? || current_user.been_invited? %>
-  <h2>Check Out Yo Viewing Parties: </h2>
-  <% if !current_user.movie_parties.empty? %>
-    <% current_user.movie_parties.each do |party| %>
-    <div class="viewing-parties">
-      <p style="font-weight:bold;">Hosting</p>
-      <p>Movie: <%= party[:movie_title] %></p>
-      <p>On: <%= party.date %></p>
-      <p>At: <%= party.start_time %></p>
-      <p>With: </p>
-      <% party.find_friends.each do |friend| %>
-          <%= friend.username %>
+  <% if current_user.movie_parties.empty?  && !current_user.been_invited?%>
+    <p>You haven't created any viewing parties yet nor have been invited to any yet.</p>
+  <% elsif !current_user.movie_parties.empty? && !current_user.been_invited? %>
+    <h2>Check Out Yo Viewing Parties: </h2>
+      <% current_user.movie_parties.each do |party| %>
+        <div class="viewing-parties">
+        <p style="font-weight:bold;">Hosting</p>
+        <p>Movie: <%= party[:movie_title] %></p>
+        <p>On: <%= party.date %></p>
+        <p>At: <%= party.start_time %></p>
+        <p>With: </p>
+          <% party.find_friends(@user).each do |friend| %>
+              <%= friend.username %>
+            <%end %>
+          </div>
         <%end %>
+  <% elsif !current_user.movie_parties.empty? && current_user.been_invited? %>
+    <h2>Check Out Yo Viewing Parties: </h2>
+    <% current_user.movie_parties.each do |party| %>
+      <div class="viewing-parties">
+        <p style="font-weight:bold;">Hosting</p>
+        <p>Movie: <%= party[:movie_title] %></p>
+        <p>On: <%= party.date %></p>
+        <p>At: <%= party.start_time %></p>
+        <p>With: </p>
+        <% party.find_friends(@user).each do |friend| %>
+            <%= friend.username %>
+          <%end %>
         </div>
       <%end %>
-    <% else %>
-    <p>You haven't created any viewing parties yet!</p>
-    <%end %>
-    <% if current_user.been_invited? %>
-    <p style="font-weight:bold;">Invited</p>
-    <%end %>
-<%end %>
+  <%else %>
+    <%current_user.find_parties.each do |party| %>
+      <div class="invited-parties-<%=party.id%>">
+        <p style="font-weight:bold;">Invited</p>
+        <p>Movie: <%= party[:movie_title] %></p>
+        <p>On: <%= party.date %></p>
+        <p>At: <%= party.start_time %></p>
+        <p>With: </p>
+        <% party.find_friends(@user).each do |friend| %>
+            <%= friend.username %>
+          <%end %>
+          <%= party.find_host(@user)[:username] %>
+          <p style="font-weight:bold;"> Hosted by: <%= party.find_host(@user)[:username] %></p>
+          <p>===================</p>
+        </div>
+      <%end %>
+  <%end %>
 
 </body>
