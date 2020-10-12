@@ -15,8 +15,18 @@ feature 'New viewing party' do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
 
     visit "/new_party/#{@user.id}/princess_mononoke/134"
-    expect(page).to have_xpath("//input[@value='Princess Mononoke']")
-    expect(page).to have_xpath("//input[@value=134]")
-    # expect(page).to have_selector('party_date')
+    expect(page).to have_field('movie_title', with: 'Princess Mononoke')
+    expect(page).to have_field('party_duration', with: '134')
+    expect(page).to have_field('party_date')
+    fill_in 'party_date', with: "10/31/2020"
+    expect(page).to have_field('start_time')
+    fill_in 'start_time', with: "05:00 PM"
+    expect(page).to have_css("#invitees_#{@user1.id}")
+    check("invitees_#{@user1.id}", allow_label_click: true)
+    check("invitees_#{@user2.id}", allow_label_click: true)
+    click_button 'Create Party'
+    expect(current_path).to eq('/user/dashboard')
+    # expect(page).to have_link('Princess Mononoke')
+    save_and_open_page
   end
 end
