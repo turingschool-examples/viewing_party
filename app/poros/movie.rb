@@ -14,8 +14,10 @@ class Movie
     @title = movie_data[:title]
     @vote_avg = movie_data[:vote_average]
     @runtime = movie_data[:runtime]
-    @genres = movie_data[:genres]
     @summary = movie_data[:overview]
+    @genres = movie_data[:genres].map do |genre|
+      Genre.new(genre)
+    end
     @cast = cast_data.map do |actor|
       Actor.new(actor)
     end
