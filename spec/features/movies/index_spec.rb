@@ -23,44 +23,37 @@ RSpec.describe 'discover', type: :feature do
         click_button 'Top 40 Movies'
 
         expect(current_path).to eq('/movies')
-
         expect(page).to have_content("Gabriel's Inferno Part II")
         expect(page).to have_content("8.9")
         expect(@movies.size).to eq(40)
       end
-    end
+        
       it 'has form to search by movie title' do
         VCR.use_cassette('happy_movie_search') do
           @movies = MovieFacade.find('Hello')
+     
+          visit '/discover'
 
+          fill_in :title, with: 'Hello'
 
-        visit '/discover'
+          click_button 'Search By Title'
 
-        fill_in :title, with: 'Hello'
-
-        click_button 'Search By Title'
-
-        expect(current_path).to eq('/movies')
-
-        expect(@movies.size).to eq(40)
+          expect(current_path).to eq('/movies')
+          expect(@movies.size).to eq(40)
       end
-    end
+
       it 'returns notice if no movies found' do
         VCR.use_cassette('sad_movie_search') do
           @movies = MovieFacade.find('sdsfgwe')
 
+          visit '/discover'
 
-        visit '/discover'
+          click_button 'Search By Title'
+          expect(current_path).to eq('/movies')
 
-        fill_in :title, with: 'sdsfgwe'
-
-        click_button 'Search By Title'
-
-        expect(current_path).to eq('/movies')
-
-        expect(page).to have_content('Sorry, no movies were found.')
-        expect(@movies.size).to eq(0)
+          expect(page).to have_content('Sorry, no movies were found.')
+          expect(@movies.size).to eq(0)
+        end
       end
-    end
   end
 end
