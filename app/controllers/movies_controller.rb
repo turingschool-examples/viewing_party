@@ -12,7 +12,7 @@ class MoviesController < ApplicationController
       first20 << json2[:results]
       @results = first20.flatten
     else
-      @results = Movie.new.get_movies(40)
+      @results = Movie.new.get_movies(40, ENV['MOVIE_API_KEY'])
     end
   end
 
