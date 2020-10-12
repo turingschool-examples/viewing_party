@@ -1,5 +1,17 @@
-class Movie
-  def get_movies(movie_count, api)
+class MovieInfo
+  def self.search_movies(keyword, api)
+    # refactor to use a loop rather than 2 API calls
+    conn = Faraday.new(url: 'https://api.themoviedb.org')
+    response = conn.get("/3/search/movie?api_key=#{api}&language=en-US&query=#{keyword}&page=1&include_adult=false")
+    response2 = conn.get("/3/search/movie?api_key=#{api}&language=en-US&query=#{keyword}&page=2&include_adult=false")
+    json = JSON.parse(response.body, symbolize_names: true)
+    json2 = JSON.parse(response2.body, symbolize_names: true)
+    first20 = json[:results]
+    first20 << json2[:results]
+    first20.flatten
+  end
+
+  def self.get_40_movies(movie_count, api)
     page = 1
     movie_results = []
     until movie_results.length >= movie_count
@@ -12,28 +24,19 @@ class Movie
     movie_results
   end
 
-  def get_specific_movie(id)
-    api_key = ENV['MOVIE_API_KEY']
+  def self.get_specific_movie(id, api_key)
     conn = Faraday.new(url: 'https://api.themoviedb.org')
     response = conn.get("/3/movie/#{id}?api_key=#{api_key}&language=en-US")
-    @json = JSON.parse(response.body, symbolize_names: true)
+    JSON.parse(response.body, symbolize_names: true)
   end
 
-  def calculate_time(movie)
-    hours = movie[:runtime] / 60
-    minutes = movie[:runtime] % 60
-    hours > 1 ? "#{hours} hours and #{minutes}" : "#{hours} hour and #{minutes}"
-  end
-
-  def find_cast(id)
-    api_key = ENV['MOVIE_API_KEY']
+  def self.find_cast(id, api_key)
     conn = Faraday.new(url: 'https://api.themoviedb.org')
     response = conn.get("/3/movie/#{id}/credits?api_key=#{api_key}")
     JSON.parse(response.body, symbolize_names: true)
   end
 
-  def find_reviews(id)
-    api_key = ENV['MOVIE_API_KEY']
+  def self.find_reviews(id, api_key)
     conn = Faraday.new(url: 'https://api.themoviedb.org')
     response = conn.get("/3/movie/#{id}/reviews?api_key=#{api_key}&language=en-US&page=1")
     JSON.parse(response.body, symbolize_names: true)
