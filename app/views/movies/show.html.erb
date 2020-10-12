@@ -1,4 +1,4 @@
-<p><%= button_to 'Create Viewing Party', "/party/new", method: :get %></p>
+<p><%= button_to 'Create Viewing Party', "/new_party/#{current_user.id}/#{@movie[:title]}/#{@movie[:runtime]}", method: :get %></p>
 
 <h1><%= @movie[:title] %></h1>
 
@@ -23,4 +23,6 @@
 <h4>Review Authors:</h4>
 <% @reviews.each do |review_detail| %>
 <p><%= review_detail[:author] %></p>
+
+
 <% end %>
