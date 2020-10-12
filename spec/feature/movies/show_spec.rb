@@ -78,4 +78,21 @@ RSpec.describe 'movie show page' do
       end
     end
   end
+  it "I can see only 10 members of the cast, when the cast is more than 10 people" do
+    big_cast_movie = JSON.parse(File.read('spec/fixtures/big_cast_movie.json'), symbolize_names: true)
+    big_cast_json = JSON.parse(File.read('spec/fixtures/big_cast.json'), symbolize_names: true)
+
+    json7 = File.read('spec/fixtures/first_movie_reviews.json')
+    json5 = File.read('spec/fixtures/big_cast_movie.json')
+    json6 = File.read('spec/fixtures/big_cast.json')
+
+    stub_request(:get, "https://api.themoviedb.org/3/movie/#{big_cast_movie[:id]}?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US").to_return(status: 200, body: json5)
+    stub_request(:get, "https://api.themoviedb.org/3/movie/#{big_cast_movie[:id]}/credits?api_key=#{ENV['MOVIE_API_KEY']}").to_return(status: 200, body: json6)
+    stub_request(:get, "https://api.themoviedb.org/3/movie/299534/reviews?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US&page=1").to_return(status: 200, body: json7)
+
+    big_cast = big_cast_json[:cast].map{ |per| per[:name]}[0...9]
+    visit("/movies/#{big_cast_movie[:id]}")
+
+    big_cast.each{ |per| expect(page).to have_content(per)}
+  end
 end

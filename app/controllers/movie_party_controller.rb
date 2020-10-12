@@ -12,14 +12,12 @@ class MoviePartyController < ApplicationController
     minute = params[:duration][-10..-9].to_i
     movie_party = MovieParty.new(user_id: current_user[:id], movie_title: movie_params[:movie], duration: hour + minute, date: params[:date].values.join('/'), start_time: params[:start_time].values.join(':'))
     friends_ids = params[:friend].keys.map(&:to_i)
-    if movie_party.save
-      friends_ids.each do |number|
-        movie_party.party_users.create!({ movie_party_id: movie_party.id, user_id: number })
-      end
-      redirect_to('/dashboard')
-    else
-      render :new
+    return unless movie_party.save
+
+    friends_ids.each do |number|
+      movie_party.party_users.create!({ movie_party_id: movie_party.id, user_id: number })
     end
+    redirect_to('/dashboard')
   end
 
   private
