@@ -153,33 +153,29 @@ RSpec.describe 'Dashboard Page' do
         expect(page).to have_content("Well that's your email address! We do like that you're trying to be your own friend though :)")
       end
 
-      # it "I can see the viewing parties I'm hosting" do
-      #   expect(page).to have_content("Parties I'm Hosting")
-      #   within "#party-#{@party_1.id}" do
-      #     expect(page).to have_content("The Exorcist III")
-      #     expect(page).to have_content("October 26th, 1997")
-      #     expect(page).to have_content("1:45pm")
-      #     expect(page).to have_content("Host: Jackie Chan")
-      #   end
-      # end
-      #
-      # it "I can see the viewing parties I'm invited to" do
-      #   expect(page).to have_content("Parties I'm Invited To")
-      #   within "#party-#{@party_4.id}" do
-      #     expect(page).to have_content("House II: The Second Story",)
-      #     expect(page).to have_content("April 22nd, 2000")
-      #     expect(page).to have_content("4:45pm")
-      #     expect(page).to have_content("declined")
-      #   end
-      #
-      #   within "#party-#{@party_5.id}" do
-      #     expect(page).to have_content("accepted")
-      #   end
-      #
-      #   within "#party-#{@party_7.id}" do
-      #     expect(page).to have_content("pending")
-      #   end
-      # end
+      it "I can see the viewing parties I'm hosting" do
+        hosting_parties = [@party_1, @party_2, @party_3]
+        hosting_parties.each do |party|
+          within "#party-#{party.id}" do
+            expect(page).to have_content("#{party.movie_title}")
+            expect(page).to have_content("Date: #{party.date}")
+            expect(page).to have_content("Time: #{party.time}")
+            expect(page).to have_content("Status: Host")
+          end
+        end
+      end
+
+      it "I can see the viewing parties I'm invited to" do
+        invited_to_parties = [@party_4, @party_5, @party_7]
+        invited_to_parties.each do |party|
+          within "#party-#{party.id}" do
+            expect(page).to have_content("#{party.movie_title}",)
+            expect(page).to have_content("Date: #{party.date}")
+            expect(page).to have_content("Time: #{party.time}")
+            expect(page).to have_content("Status: Invited")
+          end
+        end
+      end
     end
   end
 end

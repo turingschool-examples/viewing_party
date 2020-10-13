@@ -29,9 +29,11 @@ feature 'Searching by movie title' do
     expect(page).to have_content("Whatever it Takes")
     expect(page).to have_content("Vote Average: 6.5")
     expect(page).to have_css('ul', :count => 40)
+
+    click_link("Whatever Works")
+    expect(current_path).to eq('/movies/19265')
   end
 end
-
 
 feature 'Empty search results in top 40' do
   before :each do
