@@ -54,4 +54,19 @@ RSpec.describe 'Movie Facade' do
     expect(movie).to be_a(CreateMovie)
     expect(movie.title).to be_a(String)
   end
+
+  it 'returns a list of 40 current popular movies' do
+    json1 = File.read('spec/fixtures/popular_movies_1.json')
+    json2 = File.read('spec/fixtures/popular_movies_2.json')
+
+    stub_request(:get, "https://api.themoviedb.org/3/movie/popular?api_key=#{ENV['MOVIE_API_KEY']}&include_adult=false&language=en-US&page=1").to_return(status: 200, body: json1)
+    stub_request(:get, "https://api.themoviedb.org/3/movie/popular?api_key=#{ENV['MOVIE_API_KEY']}&include_adult=false&language=en-US&page=2").to_return(status: 200, body: json2)
+
+    movie_count = 40
+    movies = MoviesFacade.popular(movie_count)
+
+    expect(movies).to be_an(Array)
+    expect(movies.first).to be_a(CreateMovie)
+    expect(movies.first.title).to be_a(String)
+  end
 end
