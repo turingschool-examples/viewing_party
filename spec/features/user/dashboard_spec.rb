@@ -75,8 +75,13 @@ RSpec.describe 'Dashboard Page' do
 
     describe "If I'm logged in and have friends" do
       before :each do
-        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
-        visit 'user/dashboard'
+        visit root_path
+
+        fill_in 'Email', with: @user_1.email
+        fill_in 'Password', with: @user_1.password
+
+        click_button "Log In"
+        
       end
 
       it "I can see a personalized greeting if I navigate away, and navigate back" do
@@ -116,7 +121,8 @@ RSpec.describe 'Dashboard Page' do
         expect(page).to have_button("Add Friend")
       end
 
-      xit "I can add a new friend if they exist in the system" do
+      it "I can add a new friend if they exist in the system" do
+
         fill_in "New Friend's Email", with: 'wtf@wtf.com'
 
         click_button "Add Friend"
