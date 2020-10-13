@@ -31,34 +31,6 @@ RSpec.describe 'Discover Movies' do
   end
 end
 
-      #
-      #   it "I click on movie title" do
-      #
-      #     expect(page).to have_link("The Shawshank Redemption")
-      #   end
-      #
-      #   it "I click on movie title" do
-      #     click_link "The Shawshank Redemption"
-      #
-      #     expect(current_path).to eq("/movies/278")
-      #   end
-      # end
-
-#       describe "When I enter text in the search field" do
-#         describe "And click the Search By Movie Title button" do
-#           before :each do
-#             fill_in 'Keywords', with: 'the'
-#             click_button('Search By Movie Title')
-#           end
-#
-#           it "I am redirected to the movies page" do
-#             expect(current_path).to eq('/movies')
-#           end
-
-#
-#
-
-
 feature 'Results for top 40 movies' do
   before :each do
     @user_1 = User.create(name: 'Jackie Chan', email: 'a@a.com', password: 'a', password_confirmation: 'a')
