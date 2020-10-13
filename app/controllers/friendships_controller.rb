@@ -5,7 +5,7 @@ class FriendshipsController < ApplicationController
     check_friend(user, new_friend)
     redirect_to '/dashboard'
   end
-  
+
   def check_friend(user, new_friend)
     if user.friends.include?(new_friend)
       flash[:fail] = "You've already added #{new_friend.email} as a friend!"
