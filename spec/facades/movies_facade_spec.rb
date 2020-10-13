@@ -63,7 +63,7 @@ RSpec.describe 'Movie Facade' do
     stub_request(:get, "https://api.themoviedb.org/3/movie/popular?api_key=#{ENV['MOVIE_API_KEY']}&include_adult=false&language=en-US&page=2").to_return(status: 200, body: json2)
 
     movie_count = 40
-    movies = MoviesFacade.popular(movie_count)
+    movies = MoviesFacade.get_current_popular(movie_count)
 
     expect(movies).to be_an(Array)
     expect(movies.first).to be_a(CreateMovie)
