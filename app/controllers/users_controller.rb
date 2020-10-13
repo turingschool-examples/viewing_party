@@ -17,7 +17,7 @@ class UsersController < ApplicationController
       render :new
     end
   end
-  
+
   def show
     @user = User.find(current_user)
     @my_invites = Guest.where(user_id: @user.id)

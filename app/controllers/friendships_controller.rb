@@ -2,11 +2,11 @@ class FriendshipsController < ApplicationController
   def new
     user = User.find(session[:current_user])
     new_friend = User.find_by({ email: params['friend']['email'] })
-    verify_friend(new_friend, user)
+    check_friend(user, new_friend)
     redirect_to '/dashboard'
   end
 
-  def verify_friend(new_friend, user)
+  def check_friend(user, new_friend)
     if user.friends.include?(new_friend)
       flash[:fail] = "You've already added #{new_friend.email} as a friend!"
     elsif user == new_friend

@@ -27,11 +27,11 @@ RSpec.describe 'discover', type: :feature do
           expect(@movies.size).to eq(40)
         end
       end
-        
+
       it 'has form to search by movie title' do
         VCR.use_cassette('happy_movie_search') do
           @movies = MovieService.find_title('Hello')
-     
+
           visit '/discover'
 
           fill_in :title, with: 'Hello'
@@ -44,15 +44,16 @@ RSpec.describe 'discover', type: :feature do
       end
       it 'returns notice if no movies found' do
         VCR.use_cassette('sad_movie_search') do
-          
+
           visit '/discover'
           fill_in :title, with: ''
 
+          fill_in :title, with: ''
           click_button 'Search By Title'
           expect(current_path).to eq('/discover')
 
           expect(page).to have_content('Please enter a title')
-          
+
           fill_in :title, with: 'asdf'
           click_button 'Search By Title'
           expect(page).to have_content('Sorry, no movies were found.')

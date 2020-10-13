@@ -1,4 +1,5 @@
 class Guest < ApplicationRecord
+  validates :party_id, :user_id, :status, presence: true
   belongs_to :party
   belongs_to :user
 
