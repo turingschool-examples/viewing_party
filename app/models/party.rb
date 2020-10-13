@@ -12,9 +12,9 @@ class Party < ApplicationRecord
 
   def user_status(user_id)
     if self.user_id == user_id
-      "Host"
+      'Host'
     else
-      "Invited"
+      'Invited'
     end
   end
 end
