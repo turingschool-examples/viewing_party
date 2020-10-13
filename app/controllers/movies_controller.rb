@@ -1,5 +1,4 @@
 class MoviesController < ApplicationController
-
   def show
     if current_user.nil?
       flash[:notice] = 'Movies Show Page Only Accessible by Authenticated Users. Please Log In.'
@@ -14,7 +13,7 @@ class MoviesController < ApplicationController
       @movie = SearchFacade.find_movie(params[:id])
       @actors = SearchFacade.find_actors(params[:id])
       @reviews = SearchFacade.find_reviews(params[:id])
-      # @movie = Movie.new(movie_details)
+      @nyt_review = SearchFacade.find_nyt_review(@movie[:original_title])
 
       find_runtime(@movie[:runtime])
       #

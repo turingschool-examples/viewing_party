@@ -47,5 +47,11 @@ feature 'Details for a movie' do
       expect(page).to have_content("thommo_nz")
       expect(page).to have_content("Andrew Gentry")
       expect(page).to have_content("Matthew Dixon")
+
+      expect(page).to have_content("New York Times Review Link:")
+      expect(page).to have_content("Prison Tale by Stephen King Told Gently, Believe It or Not")
+      expect(page).to have_link("Prison Tale by Stephen King Told Gently, Believe It or Not")
   end
+
+  # We need a sad path test for if there is not nyt review.
 end

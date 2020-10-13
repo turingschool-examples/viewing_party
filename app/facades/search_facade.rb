@@ -10,4 +10,8 @@ class SearchFacade
   def self.find_reviews(movie_id)
     MovieDatabase.movie_reviews(movie_id)
   end
+
+  def self.find_nyt_review(movie_title)
+    MovieDatabase.nyt_movie_review(movie_title)
+  end
 end

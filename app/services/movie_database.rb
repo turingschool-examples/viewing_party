@@ -24,4 +24,18 @@ class MovieDatabase
     reviews = conn.get("/3/movie/#{movie_id}/reviews?api_key=#{ENV['MOVIEDB_API_KEY']}&language=en-US&page=1")
     JSON.parse(reviews.body, symbolize_names: true)[:results]
   end
+
+  def self.nyt_movie_review(movie_title)
+    title = movie_title.parameterize(separator: '_')
+    conn = Faraday.new(url: 'https://api.nytimes.com') do |faraday|
+      faraday.headers['X-API-Key'] = ENV['NYT_MOVIE_REVIEWS_API_KEY']
+    end
+    review = conn.get("/svc/movies/v2/reviews/search.json?api-key=#{ENV['NYT_MOVIE_REVIEWS_API_KEY']}&query=#{title}")
+
+    response = JSON.parse(review.body, symbolize_names: true)[:results]
+
+    response.map do |review_data|
+      NytReview.new(review_data)
+    end
+  end
 end
