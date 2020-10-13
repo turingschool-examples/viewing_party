@@ -15,3 +15,7 @@
   <p style="font-weight:bold;">Author: <%=rev.author %> </p>
   <p> Review: <%=rev.content %>
 <%end %>
+<h3>Recommendations</h3>
+<% @recommendations.each do |recommendation| %>
+  <p><%= recommendation.title %></p>
+<% end %>
