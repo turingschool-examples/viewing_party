@@ -14,9 +14,10 @@ class MovieFacade
   end
 
   def self.find(title)
-    json = MovieService.find_title(title)
-    @movies = json.map do |movie_data|
-      Movie.new(movie_data)
+    if json = MovieService.find_title(title)
+      @movies = json.map do |movie_data|
+        Movie.new(movie_data)
+      end
     end
   end
 end
