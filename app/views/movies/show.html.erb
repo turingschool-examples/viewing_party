@@ -1,0 +1,24 @@
+<h1><%= @movie.title %></h1>
+
+<%= button_to 'Create Viewing Party for Movie' %>
+
+<p>Vote Average: <%= @movie.vote_average %></p>
+<p>Runtime: <%= @movie.runtime / 60 %> hrs, <%= @movie.runtime % 60 %> mins</p>
+<p>Summary: <%= @movie.summary %></p>
+<p>Genres: <% @movie.genres.each do |genre| %>
+                <%= genre %>,
+           <% end %></p>
+  <% @cast.each do |cast_member| %>
+  <section class='cast'>
+    Character: <%= cast_member.character %>
+    Actor: <%= cast_member.name %>
+  </section>
+  <% end %>
+
+
+  <% @reviews.each do |review| %>
+  <section class='review'>
+    author: <%= review.author %>
+    review: <%= review.content %>
+  </section>
+  <% end %>
