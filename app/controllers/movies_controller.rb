@@ -3,7 +3,6 @@ class MoviesController < ApplicationController
 
   def show
     @movie = SearchFacade.find_movie(params[:id])
-    @nyt_review = SearchFacade.find_nyt_review(@movie.title)
   end
 
   def search

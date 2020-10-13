@@ -5,9 +5,11 @@ class Movie
               :genres,
               :overview,
               :cast,
-              :reviews
+              :reviews,
+              :similar_films,
+              :nyt_review
 
-  def initialize(attributes, cast, reviews)
+  def initialize(attributes, cast, reviews, similar_films, nyt_review)
     @title = attributes[:title]
     @vote_average = attributes[:vote_average]
     @runtime = attributes[:runtime]
@@ -15,6 +17,8 @@ class Movie
     @overview = attributes[:overview]
     @cast = cast
     @reviews = reviews
+    @similar_films = similar_films
+    @nyt_review = nyt_review
   end
 
   def translate_runtime
