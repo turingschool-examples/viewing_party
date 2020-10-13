@@ -15,4 +15,19 @@ RSpec.describe 'Movie Facade' do
     expect(movies.first).to be_a(CreateMovie)
     expect(movies.first.title).to be_a(String)
   end
+
+  it 'returns a list of top 40 rated movies' do
+    json1 = File.read('spec/fixtures/top_40_movies_1.json')
+    json2 = File.read('spec/fixtures/top_40_movies_2.json')
+
+    stub_request(:get, "https://api.themoviedb.org/3/movie/top_rated?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US&page=1").to_return(status: 200, body: json1)
+    stub_request(:get, "https://api.themoviedb.org/3/movie/top_rated?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US&page=2").to_return(status: 200, body: json2)
+
+    movie_count = 40
+    movies = MoviesFacade.get_40_movies(movie_count)
+
+    expect(movies).to be_an(Array)
+    expect(movies.first).to be_a(CreateMovie)
+    expect(movies.first.title).to be_a(String)
+  end
 end
