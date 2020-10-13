@@ -1,5 +1,6 @@
 class FriendshipsController < ApplicationController
   def create
+    binding.pry
     new_friend = User.where(email: params["New Friend's Email"])
     if new_friend == []
       flash[:notice] = 'Email Address not in our system.'
