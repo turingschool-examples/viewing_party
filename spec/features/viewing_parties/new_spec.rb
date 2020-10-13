@@ -12,6 +12,11 @@ feature 'New viewing party' do
     Friendship.create!(user_id: @user.id, friend_id: @user2.id)
     Friendship.create!(user_id: @user.id, friend_id: @user3.id)
 
+    party2 = @user1.parties.create!(movie_title: 'Spirited Away', date: '10/31/2020', time: '05:00 PM')
+    party2.party_users.create!(party_id: party2.id, user_id: @user.id)
+
+
+
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
 
     visit "/new_party/#{@user.id}/princess_mononoke/134"
@@ -27,6 +32,5 @@ feature 'New viewing party' do
     click_button 'Create Party'
     expect(current_path).to eq('/user/dashboard')
     # expect(page).to have_link('Princess Mononoke')
-    save_and_open_page
   end
 end
