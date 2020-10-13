@@ -1,4 +1,4 @@
-class SearchFacade
+class MoviesFacade
   def self.search_movies(keyword)
     results = MovieInfo.search_movies(keyword)
     results.map do |data|
