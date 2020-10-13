@@ -23,7 +23,7 @@ class MoviesController < ApplicationController
   def find_movies
     @movies = MovieFacade.find(params[:title])
     if @movies == []
-      flash[:alert] = 'Sorry, no movies were found.'
+      flash[:fail] = 'Sorry, no movies were found.'
       redirect_to '/discover'
     end
   end
