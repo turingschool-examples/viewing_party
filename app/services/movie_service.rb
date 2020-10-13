@@ -30,7 +30,7 @@ class MovieService
     page_num = 1
     movies_data = []
     2.times do
-      connection = conn.get("/3/search/movie?api_key=#{ENV['MOVIE_API_KEY']}&language=en&query=#{title}&page=#{page_num}")
+      connection = conn.get("/3/search/movie?api_key=#{ENV['MOVIE_API_KEY']}&language=en&query=#{title}&page=1")
       movies_data << JSON.parse(connection.body, symbolize_names: true)[:results]
       page_num += 1
     end
