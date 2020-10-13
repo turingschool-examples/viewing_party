@@ -14,10 +14,10 @@ class Movie
     @title = movie_data[:title]
     @vote_avg = movie_data[:vote_average]
     @runtime = movie_data[:runtime]
-    @genres = movie_data[:genres]
     @summary = movie_data[:overview]
-    @cast = cast_data
-    @reviews = review_data
+    @genres = movie_data[:genres].map { |genre| Genre.new(genre) } if movie_data[:genres]
+    @cast = cast_data.map { |actor| Actor.new(actor) } if cast_data
+    @reviews = review_data.map { |review| Review.new(review) } if review_data
   end
 
   def formatted_runtime

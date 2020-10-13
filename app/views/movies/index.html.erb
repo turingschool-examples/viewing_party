@@ -2,15 +2,19 @@
   <div class='movies'>
   <% if params[:title] %>
     <% @movies.each do |movie| %>
-      <h3><%= movie.title %></h3>
+      <div id="movie-<%= movie.movie_id %>">
+      <h3><%= link_to "#{movie.title}", "/movies/#{movie.movie_id}" %></h3>
       <p>Rating: <%= movie.vote_avg %></p>
+      </div>
     <% end %>
   <% else %>
   <h1>Top 40 Movies</h1>
     <ol>
       <% @movies.each do |movie| %>
-        <h3><li><%= movie.title %></li></h3>
+        <div id="movie-<%= movie.movie_id %>">
+        <h3><li><%= link_to "#{movie.title}", "/movies/#{movie.movie_id}" %></li></h3>
         <p>Rating: <%= movie.vote_avg %></p><br>
+        </div>
       <% end %>
     <ol>
   <% end %>

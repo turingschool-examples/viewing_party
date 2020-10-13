@@ -7,7 +7,7 @@
     <p>Runtime: <%= @movie.formatted_runtime %></p>
     <p>Genre(s): 
     <% @movie.genres.each do |genre| %>
-      <%= genre[:name] %>
+      <span>&#8226; </span><%= genre.name %>
     <% end %>
     </p>
     <hr>
@@ -20,8 +20,8 @@
     <h2>Cast:</h2>
     <ul>
       <% @movie.cast.each do |actor| %>
-        <div id="actor-<%= actor[:id] %>">
-        <p><li><%= actor[:name] %> as <%= actor[:character] %></li></p>
+        <div id="actor-<%= actor.id %>">
+        <p><li><%= actor.name %> as <%= actor.character %></li></p>
         <br>
       <% end %>
     </ul>
@@ -30,9 +30,9 @@
 <section class="reviews">
     <h2><%= @movie.reviews.count %> Reviews</h2>
     <% @movie.reviews.each do |review| %>
-      <div id="review-<%= review[:id] %>">
-        <h4><%= review[:author] %></h4>
-        <p><%= review[:content] %></p>
+      <div id="review-<%= review.id %>">
+        <h4><%= review.author %></h4>
+        <p><%= review.content %></p>
       </div>
     <% end %>
 </section>
