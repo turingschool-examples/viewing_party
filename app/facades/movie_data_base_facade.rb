@@ -13,7 +13,8 @@ class MovieDataBaseFacade
   end
 
   def self.movie_details(id)
-    Movie.new(MovieService.movie_details(id))
+    details = MovieService.movie_details(id)
+    Movie.new(details)
   end
 
   def self.movie_cast(id)
