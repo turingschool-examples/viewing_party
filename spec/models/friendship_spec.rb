@@ -6,10 +6,6 @@ describe Friendship, type: :model do
         it {should belong_to :friend}
     end
 
-    describe 'Validations' do
-        xit { should validate_uniqueness_of(:friend).scoped_to(:user).case_insensitive }
-    end
-
     describe 'check_user' do
         it 'keeps user from friending self' do
             user = create :user
