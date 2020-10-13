@@ -17,22 +17,23 @@ class MovieService
   # end
 
   def self.find_top_40
-    page_num = 1
+    page_n = 1
     movies_data = []
     2.times do
-      connection = conn.get("/3/movie/top_rated?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US&page=1")
+      connection = conn.get("/3/movie/top_rated?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US&page=#{page_n}")
       movies_data << JSON.parse(connection.body, symbolize_names: true)[:results]
+      page_n += 1
     end
     movies_data.flatten
   end
 
   def self.find_title(title)
-    page_num = 1
+    page_n = 1
     movies_data = []
     2.times do
-      connection = conn.get("/3/search/movie?api_key=#{ENV['MOVIE_API_KEY']}&language=en&query=#{title}&page=#{page_num}")
+      connection = conn.get("/3/search/movie?api_key=#{ENV['MOVIE_API_KEY']}&language=en&query=#{title}&page=#{page_n}")
       movies_data << JSON.parse(connection.body, symbolize_names: true)[:results]
-      page_num += 1
+      page_n += 1
     end
     movies_data.flatten
   end
@@ -43,12 +44,12 @@ class MovieService
   end
 
   def self.get_reviews(movie_id)
-    page_num = 1
+    page_n = 1
     reviews_data = []
-    until page_num > find_total_review_pages(movie_id)
-      connection = conn.get("3/movie/#{movie_id}/reviews?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US&page=#{page_num}")
+    until page_n > find_total_review_pages(movie_id)
+      connection = conn.get("3/movie/#{movie_id}/reviews?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US&page=#{page_n}")
       reviews_data << JSON.parse(connection.body, symbolize_names: true)[:results]
-      page_num += 1
+      page_n += 1
     end
     reviews_data.flatten
   end

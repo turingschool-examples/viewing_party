@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
   def index
     if params[:title]
-      @movies = MovieFacade.find(params[:title])
+      @movies = MovieFacade.find(params[:title]) unless params[:title] == ''
       redirect_to '/discover' if @movies == []
       flash[:alert] = 'Sorry, no movies were found.' if @movies == []
     else

@@ -1,11 +1,11 @@
 class User < ApplicationRecord
   has_secure_password
   validates :email, uniqueness: true, presence: true
-  validates_presence_of :password, require: true
+  validates :password, presence: true
 
-  has_many :friendships
+  has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships
-  has_many :parties
+  has_many :parties, dependent: :destroy
   has_many :guests, through: :parties
 
   def add_friend(new_friend)

@@ -8,12 +8,12 @@ class PartiesController < ApplicationController
     @party = Party.new(party_params)
     if @party.save
       params['party']['invited_ids'][1..-1].each do |id|
-        Guest.create(party_id: @party.id, user_id: id, status: "Undecided")
+        Guest.create(party_id: @party.id, user_id: id, status: 'Undecided')
       end
       redirect_to '/dashboard'
     else
       flash[:error] = @party.errors.full_messages.to_sentence
-      redirect_to "/parties/new"
+      redirect_to '/parties/new'
     end
   end
 
@@ -27,9 +27,7 @@ class PartiesController < ApplicationController
     redirect_to '/dashboard'
   end
 
-  def show
-
-  end
+  def show; end
 
   private
 
