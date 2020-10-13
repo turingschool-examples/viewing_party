@@ -14,10 +14,10 @@ Note: think about putting a gif of each of the following pieces below the descri
 <br>
 -a user can register and subsequently login/logout of the app<br>
 ![Register gif](https://media.giphy.com/media/3LKT2cHV2H1mXtB3I6/source.gif)
-<br><br>
+<br><br><br>
 -a user can search through a list of 40 movies (taken from [theMovieDB API](https://developers.themoviedb.org/)<br>
-![Top 40 Movies](https://media.giphy.com/media/3LKT2cHV2H1mXtB3I6/source.gif)
-<br><br>
+![Top 40 Movies](https://media.giphy.com/media/jdMRVnfg3RH4xu5dLq/source.gif)
+<br><br><br>
 -a user can then click on a movie, and see details such as; that movie's title, the cast, etc.<br>
 
 ### Learning Goals - Norma
