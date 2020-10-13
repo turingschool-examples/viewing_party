@@ -4,7 +4,7 @@ class MoviesController < ApplicationController
     @results = if params[:search]
                  MoviesFacade.search_movies(params[:search])
                elsif params[:popular]
-                 MoviesFacade.popular 
+                 MoviesFacade.popular(40)
                else
                  MoviesFacade.get_40_movies(40)
                end
