@@ -1,19 +1,5 @@
 require 'rails_helper'
 
-RSpec.describe 'Viewing Party' do
-  describe 'As a visitor' do
-    describe "When I visit the new viewing party page" do
-      it "I can see a message telling me to login to see this page" do
-        @user = User.create!(name: 'Phil', email: 'a@a.com', password: 'a', password_confirmation: 'a')
-        visit "/new_party/#{@user.id}/princess_mononoke/134"
-  
-        expect(page).to have_content("This Page Only Accessible by Authenticated Users. Please Log In.")
-        expect(current_path).to eq(root_path)
-      end
-    end
-  end
-end
-
 feature 'New viewing party' do
   scenario "User visits a new viewing party page", :vcr do
 
@@ -26,11 +12,25 @@ feature 'New viewing party' do
     Friendship.create!(user_id: @user.id, friend_id: @user2.id)
     Friendship.create!(user_id: @user.id, friend_id: @user3.id)
 
+    party2 = @user1.parties.create!(movie_title: 'Spirited Away', date: '10/31/2020', time: '05:00 PM')
+    party2.party_users.create!(party_id: party2.id, user_id: @user.id)
+
+
+
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
 
     visit "/new_party/#{@user.id}/princess_mononoke/134"
-    expect(page).to have_xpath("//input[@value='Princess Mononoke']")
-    expect(page).to have_xpath("//input[@value=134]")
-    # expect(page).to have_selector('party_date')
+    expect(page).to have_field('movie_title', with: 'Princess Mononoke')
+    expect(page).to have_field('party_duration', with: '134')
+    expect(page).to have_field('party_date')
+    fill_in 'party_date', with: "10/31/2020"
+    expect(page).to have_field('start_time')
+    fill_in 'start_time', with: "05:00 PM"
+    expect(page).to have_css("#invitees_#{@user1.id}")
+    check("invitees_#{@user1.id}", allow_label_click: true)
+    check("invitees_#{@user2.id}", allow_label_click: true)
+    click_button 'Create Party'
+    expect(current_path).to eq('/user/dashboard')
+    # expect(page).to have_link('Princess Mononoke')
   end
 end

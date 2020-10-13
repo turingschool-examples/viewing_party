@@ -5,7 +5,7 @@ RSpec.describe 'Discover Movies' do
     describe "When I visit the discover page" do
       it "I can see a message telling me to login to see this page" do
         visit '/discover'
-        expect(page).to have_content("Discover Page Only Accessible by Authenticated Users. Please Log In.")
+        expect(page).to have_content("This Page Only Accessible by Authenticated Users. Please Log In.")
         expect(current_path).to eq(root_path)
       end
     end

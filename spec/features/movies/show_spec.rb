@@ -4,9 +4,9 @@ include ActionView::Helpers::NumberHelper
 RSpec.describe 'Movies Show Page' do
   describe 'As a visitor' do
     describe "When I visit the movies show page" do
-      it "I can see a message telling me to login to see this page" do
+      it "I can see a message telling me to login to see this page", :vcr do
         visit '/movies/278'
-        expect(page).to have_content("Movies Show Page Only Accessible by Authenticated Users. Please Log In.")
+        expect(page).to have_content("This Page Only Accessible by Authenticated Users. Please Log In.")
         expect(current_path).to eq(root_path)
       end
     end

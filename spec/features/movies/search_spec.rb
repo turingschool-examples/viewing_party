@@ -2,9 +2,9 @@ require 'rails_helper'
 RSpec.describe 'Search Movies' do
   describe 'As a visitor' do
     describe "When I visit the search page" do
-      it "I can see a message telling me to login to see this page" do
+      it "I can see a message telling me to login to see this page", :vcr do
         visit '/movies'
-        expect(page).to have_content("Movies Page Only Accessible by Authenticated Users. Please Log In.")
+        expect(page).to have_content("This Page Only Accessible by Authenticated Users. Please Log In.")
         expect(current_path).to eq(root_path)
       end
     end
@@ -19,6 +19,7 @@ feature 'Searching by movie title' do
   end
 
   scenario "User searches using keywords", :vcr do
+
     fill_in 'Keywords', with: 'whatever'
     click_button('Search By Movie Title')
 
