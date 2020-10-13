@@ -1,6 +1,14 @@
-<%= button_to 'Top 40 Movies', '/movies', method: :get %><br>
+<center>
+  <br>
+  <br>
 
-<%= form_tag '/movies', method: :get do %>
-  <%= text_field_tag :title %><br>
+  <%= button_to 'Top 40 Movies', '/movies', method: :get %>
+
+  <br>
+  <br>
+
+  <%= form_tag '/movies', method: :get do %>
+  <%= text_field_tag :title, "Enter a Search" %><br><br>
   <%= submit_tag 'Search By Title' %>
-<% end %>
+  <% end %>
+</center>

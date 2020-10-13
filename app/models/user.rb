@@ -4,6 +4,9 @@ class User < ApplicationRecord
   validates :password, presence: true
   has_many :friendships, dependent: :restrict_with_exception
   has_many :friends, through: :friendships
+  has_many :parties
+  has_many :guests, through: :parties
+
   def add_friend(new_friend)
     friends << new_friend
     new_friend.friends << self

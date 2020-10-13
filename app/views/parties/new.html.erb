@@ -1,0 +1,24 @@
+<div class='form'>
+  <%= form_for :party, :as => :user, action: :create do |f| %>
+
+    <%= f.label :title %><br>
+    <h2><%= @movie.title %></h2>
+
+    <%= f.label :runtime %><br>
+    <%= f.text_field :runtime, value: "#{@movie.runtime} Minutes" %><br><br>
+
+    <%= f.label :date_and_time_of_party %><br>
+    <%= f.datetime_field :datetime_of_party %><br><br>
+
+    <%= f.hidden_field :title, value: "#{@movie.title}" %>
+    <%= f.hidden_field :api_id, value: @movie.movie_id %>
+    <%= f.hidden_field :user_id, value: @user.id %>
+
+    <p><%= "Please check which friends you'd like to invite" %></p>
+
+    <%= f.collection_check_boxes :invited_ids, @user.friends, :id, :email do |b| %>
+      <%= b.check_box + b.label %><br>
+    <% end %>
+    <br><br><%= f.submit 'Create Viewing Party' %><br>
+  <% end %><br>
+</div>
