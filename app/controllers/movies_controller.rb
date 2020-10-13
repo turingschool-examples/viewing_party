@@ -1,11 +1,11 @@
 class MoviesController < ApplicationController
   before_action :require_user
   def index
-    if params[:search]
-      @results = SearchFacade.search_movies(params[:search])
-    else
-      @results = SearchFacade.get_40_movies(40)
-    end
+    @results = if params[:search]
+                 SearchFacade.search_movies(params[:search])
+               else
+                 SearchFacade.get_40_movies(40)
+               end
   end
 
   def show
@@ -20,4 +20,3 @@ class MoviesController < ApplicationController
     @reviews = SearchFacade.find_reviews(params[:id].to_i)
   end
 end
-# remove api argument in methods, put in service layer

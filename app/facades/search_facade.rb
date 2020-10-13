@@ -12,7 +12,8 @@ class SearchFacade
       CreateMovie.new(data)
     end
   end
-# change above method, it's redundant to have 40, then movie count in argument
+
+  # change above method, it's redundant to have 40, then movie count in argument
   def self.get_specific_movie(id)
     movie = MovieInfo.get_specific_movie(id)
     CreateMovie.new(movie)
