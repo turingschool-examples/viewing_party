@@ -17,6 +17,7 @@ class MoviesController < ApplicationController
             else
               SearchFacade.find_cast(params[:id].to_i)
             end
+    @recommendations = SearchFacade.find_recommendations(params[:id].to_i, ENV['API_MOVIE_KEY'])
     @reviews = SearchFacade.find_reviews(params[:id].to_i)
   end
 end
