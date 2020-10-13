@@ -1,0 +1,413 @@
+{
+  "page": 1,
+  "results": [
+    {
+      "id": 299537,
+      "video": false,
+      "vote_count": 10178,
+      "vote_average": 7,
+      "title": "Captain Marvel",
+      "release_date": "2019-03-06",
+      "original_language": "en",
+      "original_title": "Captain Marvel",
+      "genre_ids": [
+        28,
+        12,
+        878
+      ],
+      "backdrop_path": "/nBS1vONGYrsL2C68C2oDQ3eKJR1.jpg",
+      "adult": false,
+      "overview": "The story follows Carol Danvers as she becomes one of the universe’s most powerful heroes when Earth is caught in the middle of a galactic war between two alien races. Set in the 1990s, Captain Marvel is an all-new adventure from a previously unseen period in the history of the Marvel Cinematic Universe.",
+      "poster_path": "/AtsgWhDnHTq68L0lLsUrCnM7TjG.jpg",
+      "popularity": 151.409
+    },
+    {
+      "id": 429617,
+      "video": false,
+      "vote_count": 8467,
+      "vote_average": 7.6,
+      "title": "Spider-Man: Far from Home",
+      "release_date": "2019-06-28",
+      "original_language": "en",
+      "original_title": "Spider-Man: Far from Home",
+      "genre_ids": [
+        28,
+        12,
+        878
+      ],
+      "backdrop_path": "/5myQbDzw3l8K9yofUXRJ4UTVgam.jpg",
+      "adult": false,
+      "overview": "Peter Parker and his friends go on a summer trip to Europe. However, they will hardly be able to rest - Peter will have to agree to help Nick Fury uncover the mystery of creatures that cause natural disasters and destruction throughout the continent.",
+      "poster_path": "/4q2NNj4S5dG2RLF9CpXsej7yXl.jpg",
+      "popularity": 198.889
+    },
+    {
+      "id": 299536,
+      "video": false,
+      "vote_count": 19881,
+      "vote_average": 8.3,
+      "title": "Avengers: Infinity War",
+      "release_date": "2018-04-25",
+      "original_language": "en",
+      "original_title": "Avengers: Infinity War",
+      "genre_ids": [
+        28,
+        12,
+        878
+      ],
+      "backdrop_path": "/lmZFxXgJE3vgrciwuDib0N8CfQo.jpg",
+      "adult": false,
+      "overview": "As the Avengers and their allies have continued to protect the world from threats too large for any one hero to handle, a new danger has emerged from the cosmic shadows: Thanos. A despot of intergalactic infamy, his goal is to collect all six Infinity Stones, artifacts of unimaginable power, and use them to inflict his twisted will on all of reality. Everything the Avengers have fought for has led up to this moment - the fate of Earth and existence itself has never been more uncertain.",
+      "poster_path": "/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg",
+      "popularity": 248.539
+    },
+    {
+      "id": 363088,
+      "video": false,
+      "vote_count": 8946,
+      "vote_average": 7,
+      "title": "Ant-Man and the Wasp",
+      "release_date": "2018-07-04",
+      "original_language": "en",
+      "original_title": "Ant-Man and the Wasp",
+      "genre_ids": [
+        28,
+        12,
+        35,
+        878
+      ],
+      "backdrop_path": "/6P3c80EOm7BodndGBUAJHHsHKrp.jpg",
+      "adult": false,
+      "overview": "Just when his time under house arrest is about to end, Scott Lang once again puts his freedom at risk to help Hope van Dyne and Dr. Hank Pym dive into the quantum realm and try to accomplish, against time and any chance of success, a very dangerous rescue mission.",
+      "poster_path": "/eivQmS3wqzqnQWILHLc4FsEfcXP.jpg",
+      "popularity": 70.609
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/qwgGtdlLMKYvT2tV8hLY22syRHN.jpg",
+      "genre_ids": [
+        28,
+        35,
+        14
+      ],
+      "id": 287947,
+      "original_language": "en",
+      "original_title": "Shazam!",
+      "overview": "A boy is given the ability to become an adult superhero in times of need with a single magic word.",
+      "poster_path": "/xnopI5Xtky18MPhK40cZAGAOVeV.jpg",
+      "release_date": "2019-03-29",
+      "title": "Shazam!",
+      "video": false,
+      "vote_average": 7,
+      "vote_count": 5618,
+      "popularity": 129.396
+    },
+    {
+      "id": 324857,
+      "video": false,
+      "vote_count": 8085,
+      "vote_average": 8.4,
+      "title": "Spider-Man: Into the Spider-Verse",
+      "release_date": "2018-12-06",
+      "original_language": "en",
+      "original_title": "Spider-Man: Into the Spider-Verse",
+      "genre_ids": [
+        28,
+        12,
+        16,
+        35,
+        878
+      ],
+      "backdrop_path": "/7d6EY00g1c39SGZOoCJ5Py9nNth.jpg",
+      "adult": false,
+      "overview": "Miles Morales is juggling his life between being a high school student and being a spider-man. When Wilson \"Kingpin\" Fisk uses a super collider, others from across the Spider-Verse are transported to this dimension.",
+      "poster_path": "/iiZZdoQBEYBv6id8su7ImL0oCbD.jpg",
+      "popularity": 138.504
+    },
+    {
+      "id": 284053,
+      "video": false,
+      "vote_count": 14712,
+      "vote_average": 7.6,
+      "title": "Thor: Ragnarok",
+      "release_date": "2017-10-25",
+      "original_language": "en",
+      "original_title": "Thor: Ragnarok",
+      "genre_ids": [
+        28,
+        12,
+        35,
+        14
+      ],
+      "backdrop_path": "/kaIfm5ryEOwYg8mLbq8HkPuM1Fo.jpg",
+      "adult": false,
+      "overview": "Thor is imprisoned on the other side of the universe and finds himself in a race against time to get back to Asgard to stop Ragnarok, the destruction of his home-world and the end of Asgardian civilization, at the hands of an all-powerful new threat, the ruthless Hela.",
+      "poster_path": "/rzRwTcFvttcN1ZpX2xv4j3tSdJu.jpg",
+      "popularity": 115.622
+    },
+    {
+      "id": 284054,
+      "video": false,
+      "vote_count": 16124,
+      "vote_average": 7.4,
+      "title": "Black Panther",
+      "release_date": "2018-02-13",
+      "original_language": "en",
+      "original_title": "Black Panther",
+      "genre_ids": [
+        28,
+        12,
+        14,
+        878
+      ],
+      "backdrop_path": "/6ELJEzQJ3Y45HczvreC3dg0GV5R.jpg",
+      "adult": false,
+      "overview": "King T'Challa returns home from America to the reclusive, technologically advanced African nation of Wakanda to serve as his country's new leader. However, T'Challa soon finds that he is challenged for the throne by factions within his own country as well as without. Using powers reserved to Wakandan kings, T'Challa assumes the Black Panther mantel to join with girlfriend Nakia, the queen-mother, his princess-kid sister, members of the Dora Milaje (the Wakandan 'special forces') and an American secret agent, to prevent Wakanda from being dragged into a world war.",
+      "poster_path": "/uxzzxijgPIY7slzFvMotPv8wjKA.jpg",
+      "popularity": 121.418
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/phxiKFDvPeQj4AbkvJLmuZEieDU.jpg",
+      "genre_ids": [
+        878,
+        28,
+        12
+      ],
+      "id": 320288,
+      "original_language": "en",
+      "original_title": "Dark Phoenix",
+      "overview": "The X-Men face their most formidable and powerful foe when one of their own, Jean Grey, starts to spiral out of control. During a rescue mission in outer space, Jean is nearly killed when she's hit by a mysterious cosmic force. Once she returns home, this force not only makes her infinitely more powerful, but far more unstable. The X-Men must now band together to save her soul and battle aliens that want to use Grey's new abilities to rule the galaxy.",
+      "poster_path": "/cCTJPelKGLhALq3r51A9uMonxKj.jpg",
+      "release_date": "2019-06-05",
+      "title": "Dark Phoenix",
+      "video": false,
+      "vote_average": 6.1,
+      "vote_count": 3974,
+      "popularity": 138.047
+    },
+    {
+      "id": 297802,
+      "video": false,
+      "vote_count": 9392,
+      "vote_average": 6.9,
+      "title": "Aquaman",
+      "release_date": "2018-12-07",
+      "original_language": "en",
+      "original_title": "Aquaman",
+      "genre_ids": [
+        28,
+        12,
+        14
+      ],
+      "backdrop_path": "/9QusGjxcYvfPD1THg6oW3RLeNn7.jpg",
+      "adult": false,
+      "overview": "Once home to the most advanced civilization on Earth, Atlantis is now an underwater kingdom ruled by the power-hungry King Orm. With a vast army at his disposal, Orm plans to conquer the remaining oceanic people and then the surface world. Standing in his way is Arthur Curry, Orm's half-human, half-Atlantean brother and true heir to the throne.",
+      "poster_path": "/5Kg76ldv7VxeX9YlcQXiowHgdX6.jpg",
+      "popularity": 112.374
+    },
+    {
+      "id": 315635,
+      "video": false,
+      "vote_count": 14978,
+      "vote_average": 7.4,
+      "title": "Spider-Man: Homecoming",
+      "release_date": "2017-07-05",
+      "original_language": "en",
+      "original_title": "Spider-Man: Homecoming",
+      "genre_ids": [
+        28,
+        12,
+        18,
+        878
+      ],
+      "backdrop_path": "/vc8bCGjdVp0UbMNLzHnHSLRbBWQ.jpg",
+      "adult": false,
+      "overview": "Following the events of Captain America: Civil War, Peter Parker, with the help of his mentor Tony Stark, tries to balance his life as an ordinary high school student in Queens, New York City, with fighting crime as his superhero alter ego Spider-Man as a new threat, the Vulture, emerges.",
+      "poster_path": "/c24sv2weTHPsmDa7jEMN0m2P3RT.jpg",
+      "popularity": 107.148
+    },
+    {
+      "id": 383498,
+      "video": false,
+      "vote_count": 12185,
+      "vote_average": 7.5,
+      "title": "Deadpool 2",
+      "release_date": "2018-05-10",
+      "original_language": "en",
+      "original_title": "Deadpool 2",
+      "genre_ids": [
+        28,
+        12,
+        35
+      ],
+      "backdrop_path": "/3P52oz9HPQWxcwHOwxtyrVV1LKi.jpg",
+      "adult": false,
+      "overview": "Wisecracking mercenary Deadpool battles the evil and powerful Cable and other bad guys to save a boy's life.",
+      "poster_path": "/to0spRl1CMDvyUbOnbb4fTk3VAd.jpg",
+      "popularity": 131.783
+    },
+    {
+      "id": 335983,
+      "video": false,
+      "vote_count": 9626,
+      "vote_average": 6.7,
+      "title": "Venom",
+      "release_date": "2018-09-28",
+      "original_language": "en",
+      "original_title": "Venom",
+      "genre_ids": [
+        28,
+        878
+      ],
+      "backdrop_path": "/VuukZLgaCrho2Ar8Scl9HtV3yD.jpg",
+      "adult": false,
+      "overview": "Investigative journalist Eddie Brock attempts a comeback following a scandal, but accidentally becomes the host of Venom, a violent, super powerful alien symbiote. Soon, he must rely on his newfound powers to protect the world from a shadowy organization looking for a symbiote of their own.",
+      "poster_path": "/2uNW4WbgBXL25BAbXGLnLqX71Sw.jpg",
+      "popularity": 156.249
+    },
+    {
+      "id": 447404,
+      "video": false,
+      "vote_count": 4304,
+      "vote_average": 7,
+      "title": "Pokémon Detective Pikachu",
+      "release_date": "2019-05-03",
+      "original_language": "en",
+      "original_title": "Pokémon Detective Pikachu",
+      "genre_ids": [
+        28,
+        12,
+        14
+      ],
+      "backdrop_path": "/nDP33LmQwNsnPv29GQazz59HjJI.jpg",
+      "adult": false,
+      "overview": "In a world where people collect pocket-size monsters (Pokémon) to do battle, a boy comes across an intelligent monster who seeks to be a detective.",
+      "poster_path": "/wgQ7APnFpf1TuviKHXeEe3KnsTV.jpg",
+      "popularity": 165.58
+    },
+    {
+      "id": 283995,
+      "video": false,
+      "vote_count": 15502,
+      "vote_average": 7.6,
+      "title": "Guardians of the Galaxy Vol. 2",
+      "release_date": "2017-04-19",
+      "original_language": "en",
+      "original_title": "Guardians of the Galaxy Vol. 2",
+      "genre_ids": [
+        28,
+        12,
+        35,
+        878
+      ],
+      "backdrop_path": "/aJn9XeesqsrSLKcHfHP4u5985hn.jpg",
+      "adult": false,
+      "overview": "The Guardians must fight to keep their newfound family together as they unravel the mysteries of Peter Quill's true parentage.",
+      "poster_path": "/y4MBh0EjBlMuOzv9axM4qJlmhzz.jpg",
+      "popularity": 73.956
+    },
+    {
+      "id": 338952,
+      "video": false,
+      "vote_count": 7305,
+      "vote_average": 6.9,
+      "title": "Fantastic Beasts: The Crimes of Grindelwald",
+      "release_date": "2018-11-14",
+      "original_language": "en",
+      "original_title": "Fantastic Beasts: The Crimes of Grindelwald",
+      "genre_ids": [
+        12,
+        18,
+        14
+      ],
+      "backdrop_path": "/qrtRKRzoNkf5vemO9tJ2Y4DrHxQ.jpg",
+      "adult": false,
+      "overview": "Gellert Grindelwald has escaped imprisonment and has begun gathering followers to his cause—elevating wizards above all non-magical beings. The only one capable of putting a stop to him is the wizard he once called his closest friend, Albus Dumbledore. However, Dumbledore will need to seek help from the wizard who had thwarted Grindelwald once before, his former student Newt Scamander, who agrees to help, unaware of the dangers that lie ahead. Lines are drawn as love and loyalty are tested, even among the truest friends and family, in an increasingly divided wizarding world.",
+      "poster_path": "/fMMrl8fD9gRCFJvsx0SuFwkEOop.jpg",
+      "popularity": 70.533
+    },
+    {
+      "id": 99861,
+      "video": false,
+      "vote_count": 16624,
+      "vote_average": 7.3,
+      "title": "Avengers: Age of Ultron",
+      "release_date": "2015-04-22",
+      "original_language": "en",
+      "original_title": "Avengers: Age of Ultron",
+      "genre_ids": [
+        28,
+        12,
+        878
+      ],
+      "backdrop_path": "/8i6ZDk97Vyh0jHohMG4vFeFuKJh.jpg",
+      "adult": false,
+      "overview": "When Tony Stark tries to jumpstart a dormant peacekeeping program, things go awry and Earth’s Mightiest Heroes are put to the ultimate test as the fate of the planet hangs in the balance. As the villainous Ultron emerges, it is up to The Avengers to stop him from enacting his terrible plans, and soon uneasy alliances and unexpected action pave the way for an epic and unique global adventure.",
+      "poster_path": "/4ssDuvEDkSArWEdyBl2X5EHvYKU.jpg",
+      "popularity": 84.22
+    },
+    {
+      "id": 348350,
+      "video": false,
+      "vote_count": 5672,
+      "vote_average": 6.6,
+      "title": "Solo: A Star Wars Story",
+      "release_date": "2018-05-15",
+      "original_language": "en",
+      "original_title": "Solo: A Star Wars Story",
+      "genre_ids": [
+        12,
+        878
+      ],
+      "backdrop_path": "/7LZ0K4FsALrt7OeNIGOVLNuKQRU.jpg",
+      "adult": false,
+      "overview": "Through a series of daring escapades deep within a dark and dangerous criminal underworld, Han Solo meets his mighty future copilot Chewbacca and encounters the notorious gambler Lando Calrissian.",
+      "poster_path": "/4oD6VEccFkorEBTEDXtpLAaz0Rl.jpg",
+      "popularity": 48.974
+    },
+    {
+      "id": 284052,
+      "video": false,
+      "vote_count": 15830,
+      "vote_average": 7.4,
+      "title": "Doctor Strange",
+      "release_date": "2016-10-25",
+      "original_language": "en",
+      "original_title": "Doctor Strange",
+      "genre_ids": [
+        28,
+        12,
+        14,
+        878
+      ],
+      "backdrop_path": "/aL53oMdZKZRJRH8txH07DLuleF9.jpg",
+      "adult": false,
+      "overview": "After his career is destroyed, a brilliant but arrogant surgeon gets a new lease on life when a sorcerer takes him under her wing and trains him to defend the world against evil.",
+      "poster_path": "/gwi5kL7HEWAOTffiA14e4SbOGra.jpg",
+      "popularity": 89.196
+    },
+    {
+      "id": 271110,
+      "video": false,
+      "vote_count": 16907,
+      "vote_average": 7.4,
+      "title": "Captain America: Civil War",
+      "release_date": "2016-04-27",
+      "original_language": "en",
+      "original_title": "Captain America: Civil War",
+      "genre_ids": [
+        28,
+        12,
+        878
+      ],
+      "backdrop_path": "/7FWlcZq3r6525LWOcvO9kNWurN1.jpg",
+      "adult": false,
+      "overview": "Following the events of Age of Ultron, the collective governments of the world pass an act designed to regulate all superhuman activity. This polarizes opinion amongst the Avengers, causing two factions to side with Iron Man or Captain America, which causes an epic battle between former allies.",
+      "poster_path": "/rAGiXaUfPzY7CDEyNKUofk3Kw2e.jpg",
+      "popularity": 67.524
+    }
+  ],
+  "total_pages": 2,
+  "total_results": 40
+}
