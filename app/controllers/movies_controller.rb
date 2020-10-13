@@ -15,5 +15,7 @@ class MoviesController < ApplicationController
 
   def show
     @movie = MovieDataBaseFacade.movie_details(params[:id])
+    @cast = MovieDataBaseFacade.movie_cast(params[:id])
+    @reviews = MovieDataBaseFacade.movie_reviews(params[:id])
   end
 end

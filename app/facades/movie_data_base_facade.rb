@@ -13,6 +13,18 @@ class MovieDataBaseFacade
   end
 
   def self.movie_details(id)
-    movie = Movie.new(MovieService.movie_details(id))
+    Movie.new(MovieService.movie_details(id))
+  end
+
+  def self.movie_cast(id)
+    MovieService.cast(id).map do |cast|
+      CastMember.new(cast)
+    end
+  end
+
+  def self.movie_reviews(id)
+    MovieService.reviews(id).map do |review|
+      Review.new(review)
+    end
   end
 end

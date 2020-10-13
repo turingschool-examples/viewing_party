@@ -9,19 +9,30 @@ RSpec.describe 'Movie Details page' do
   it "should have details for a movie", :vcr do
     visit top_movies_path
 
-    within(first('.movie')) do
-      click_link("Gabriel's Inferno Part II")
-    end
+    click_link("The Shawshank Redemption")
 
-    # expect(current_path).to eq(movies_show_path())
     expect(current_path).to_not eq(top_movies_path)
 
     expect(page).to have_button('Create Viewing Party for Movie')
 
-    expect(page).to have_content("Gabriel's Inferno Part II")
-    expect(page).to have_content('Vote Average: 8.9')
-    expect(page).to have_content('Runtime: 1 hrs, 45 mins')
-    expect(page).to have_content("Summary: Professor Gabriel Emerson finally learns the truth about Julia Mitchell's identity, but his realization comes a moment too late. Julia is done waiting for the well-respected Dante specialist to remember her and wants nothing more to do with him. Can Gabriel win back her heart before she finds love in another's arms?")
-    expect(page).to have_content("Genres: Romance")
+    expect(page).to have_content("The Shawshank Redemption")
+    expect(page).to have_content('Vote Average: 8.7')
+    expect(page).to have_content('Runtime: 2 hrs, 22 mins')
+    expect(page).to have_content("Summary: Framed in the 1940s for the double murder of his wife and her lover, upstanding banker Andy Dufresne begins a new life at the Shawshank prison, where he puts his accounting skills to work for an amoral warden. During his long stretch in prison, Dufresne comes to be admired by the other inmates -- including an older prisoner named Red -- for his integrity and unquenchable sense of hope.")
+    expect(page).to have_content("Genres: Drama, Crime")
+
+    expect(page).to have_css(".cast", count:10)
+
+    within(first('.cast')) do
+      expect(page).to have_content('Character: Andy Dufresne')
+      expect(page).to have_content('Actor: Tim Robbins')
+    end
+
+    expect(page).to have_css('.review', count:6)
+
+    within(first('.review')) do
+      expect(page).to have_content('author: elshaarawy')
+      expect(page).to have_content('review: very good movie 9.5/10 محمد الشعراوى')
+    end
   end
 end

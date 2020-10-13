@@ -37,6 +37,18 @@ class MovieService
     json = JSON.parse(response.body, symbolize_names: true)
   end
 
+  def self.cast(id)
+    response = conn.get("/3/movie/#{id}/credits")
+    json = JSON.parse(response.body, symbolize_names: true)
+    json[:cast].first(10)
+  end
+
+  def self.reviews(id)
+    response = conn.get("/3/movie/#{id}/reviews?language=en-US&page=1")
+    json = JSON.parse(response.body, symbolize_names: true)
+    json[:results]
+  end
+
   private
 
   def self.conn

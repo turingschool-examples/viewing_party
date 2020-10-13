@@ -34,7 +34,7 @@ http_interactions:
       - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
         Content-Length, Content-Range
       Date:
-      - Tue, 13 Oct 2020 00:08:11 GMT
+      - Tue, 13 Oct 2020 21:58:49 GMT
       Etag:
       - 8e6292c3d9056c0d08bd7f939021844e
       Cache-Control:
@@ -42,15 +42,15 @@ http_interactions:
       X-Cache:
       - RefreshHit from cloudfront
       Via:
-      - 1.1 a44b9db7a2d103360945ab52619e5016.cloudfront.net (CloudFront)
+      - 1.1 4b2d2d4c49521bf403522140b78283a1.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - wE3xnCOg8w0W2wQCsRCcCSLHX6xbQJSW03-M4_kkfYnogwjXUcILJg==
+      - S4rwcoKmnExYV9YPDAwiEEmfH5hq_OGtTZ02GfQNMII4rqqmlH-0bA==
     body:
       encoding: UTF-8
       string: '{"page":1,"total_results":0,"total_pages":0,"results":[]}'
-  recorded_at: Tue, 13 Oct 2020 00:08:11 GMT
+  recorded_at: Tue, 13 Oct 2020 21:58:49 GMT
 - request:
     method: get
     uri: https://api.themoviedb.org/3/search/movie?api_key=<THIS_IS_SECRET>&include_adult=false&language=en-US&page=2&query=ghty
@@ -85,7 +85,7 @@ http_interactions:
       - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
         Content-Length, Content-Range
       Date:
-      - Tue, 13 Oct 2020 00:08:11 GMT
+      - Tue, 13 Oct 2020 21:58:49 GMT
       Etag:
       - 847c9b2b23a1f3c816131f8d9cafb05d
       Cache-Control:
@@ -93,13 +93,13 @@ http_interactions:
       X-Cache:
       - RefreshHit from cloudfront
       Via:
-      - 1.1 29f1da35ce271d2cdc88184ed0c1f86d.cloudfront.net (CloudFront)
+      - 1.1 c55bfc9d9a95cdee8e23989feddaa4b3.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - X1LWkrxq30TtBrdTZfdm0sM69LFqg0mYQm0LQ64_BwMpzRelQ6aQ6Q==
+      - hT8TF46-XophmvPDf-gNmw2jsoiHzAkp3gRmu98eEpE75eV3pjo7UA==
     body:
       encoding: UTF-8
       string: '{"page":2,"total_results":0,"total_pages":0,"results":[]}'
-  recorded_at: Tue, 13 Oct 2020 00:08:11 GMT
+  recorded_at: Tue, 13 Oct 2020 21:58:49 GMT
 recorded_with: VCR 6.0.0
