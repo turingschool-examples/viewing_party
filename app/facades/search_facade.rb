@@ -33,4 +33,12 @@ class SearchFacade
       CreateReview.new(review)
     end
   end
+
+  def self.find_recommendations(id, api_key)
+    result = MovieInfo.recommendations(id, api_key)
+    recommended = result[:results].map do |movie|
+      CreateRecommendation.new(movie)
+    end
+    recommended[0..4]
+  end
 end
