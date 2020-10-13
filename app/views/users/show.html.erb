@@ -18,3 +18,47 @@
 <br>
 <%= button_to 'Discover Movies', '/discover', method: :get %>
 </center>
+<% if @user.parties != [] %>
+  <h2>Your Parties</h2>
+        <% @user.parties.each do |party| %>
+        <div class='parties'>
+          <h3><%= party.title %></h3>
+          <h3>When: <%= party.datetime_of_party %></h3>
+          <div class='guests'>
+            <h3>Guests:</h3>
+            <% party.guests.each do |guest| %>
+              <% user = User.find(guest.user_id) %>
+              <ul>
+                <li><%= user.email %>: <%= guest.status %></li>
+              </ul>
+            <% end %>
+          </div>
+          </div>
+        <% end %>
+      <% else %>
+        <h2>You have no hosted parties, start one!</h2>
+      <% end %>
+
+<% if @my_invites != [] %>
+  <h2>Your Party Invites</h2>
+      <% @my_invites.each do |guest| %>
+      <div class="parties"
+        <% party = Party.find(guest.party_id) %>
+        <% user = User.find(party.user_id) %>
+        <h2><%= party.title %></h2>
+        <h3>Host: <%= user.email %></h3>
+        <h3>When: <%= party.datetime_of_party %></h3>
+        <h3>Your Status: <%= guest.status %></h3><br>
+        <% if guest.status == 'Undecided' %>
+          <%= button_to "I'm in!", parties_accept_path, params: { invite: :accepted, guest: guest } %>
+          <%= button_to "Hard Pass", parties_decline_path, params: { invite: :declined, guest: guest } %>
+        <% elsif guest.status == "I'm in!" %>
+          <%= button_to "Hard Pass", parties_decline_path, params: { invite: :declined, guest: guest } %>
+        <% elsif guest.status == "Hard Pass" %>
+          <%= button_to "I'm in!", parties_accept_path, params: { invite: :accepted, guest: guest } %>
+        <% end %>
+      </div>
+      <% end %>
+  <% else %>
+    <h2>You have no party invites :(</h2>
+  <% end %>

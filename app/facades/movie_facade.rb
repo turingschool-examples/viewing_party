@@ -1,4 +1,10 @@
 class MovieFacade
+
+  def self.movie_details_for_party(movie_id)
+    details_json = MovieService.get_details(movie_id)
+    @movie = Movie.new(details_json)
+  end
+
   def self.movie_details(movie_id)
     details_json = MovieService.get_details(movie_id)
     cast_json = MovieService.get_cast(movie_id)

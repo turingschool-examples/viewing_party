@@ -6,4 +6,8 @@ class ApplicationController < ActionController::Base
       flash[validation] = "#{validation}: #{message}"
     end
   end
+
+  def current_user
+    session[:current_user]
+  end
 end
