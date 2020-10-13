@@ -3,6 +3,8 @@ include ActionView::Helpers::NumberHelper
 
 feature 'Details for a movie' do
   scenario "User visits a movie's page", :vcr do
+    @user = User.create!(name: 'Phil', email: 'a@a.com', password: 'a', password_confirmation: 'a')
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
       visit "/movies/278"
 
       expect(page).to have_content("The Shawshank Redemption")
