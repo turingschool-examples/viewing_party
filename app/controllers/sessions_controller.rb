@@ -11,6 +11,11 @@ class SessionsController < ApplicationController
     end
   end
 
+  def destroy
+    session.destroy
+    redirect_to '/'
+  end
+
   private
 
   def session_params

@@ -46,6 +46,7 @@ RSpec.describe 'discover', type: :feature do
         VCR.use_cassette('sad_movie_search') do
           
           visit '/discover'
+          fill_in :title, with: ''
 
           click_button 'Search By Title'
           expect(current_path).to eq('/discover')

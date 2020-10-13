@@ -57,6 +57,7 @@ RSpec.describe 'new viewing party', type: :feature do
         expect(page).to have_content("Undecided")
 
         # User sees their invited to parties
+        click_button 'Logout'
         visit '/'
         fill_in 'Email', with: @friend1.email
         fill_in 'Password', with: @friend1.password
@@ -88,6 +89,7 @@ RSpec.describe 'new viewing party', type: :feature do
         expect(page).to have_button('Hard Pass')
 
         #User sees guest statuses
+        click_button 'Logout'
         visit '/'
         fill_in 'Email', with: @user.email
         fill_in 'Password', with: @user.password

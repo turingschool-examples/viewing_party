@@ -12,6 +12,9 @@ class MoviesController < ApplicationController
     session[:movie_id] = @movie.movie_id
   end
 
+
+  private_methods
+  
   def search_by_title
     if params[:title] == ''
       flash[:alert] = 'Please enter a title'

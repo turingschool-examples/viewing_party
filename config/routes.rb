@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   #Sessions
   post '/login', to: 'sessions#new'
+  post '/logout', to: 'sessions#destroy'
 
   #Movies
   get '/discover', to: 'dashboard#index'
