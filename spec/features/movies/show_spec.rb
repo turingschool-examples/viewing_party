@@ -22,7 +22,6 @@ RSpec.describe 'Movie Details page' do
     expect(page).to have_content('Vote Average: 8.9')
     expect(page).to have_content('Runtime: 1 hrs, 45 mins')
     expect(page).to have_content("Summary: Professor Gabriel Emerson finally learns the truth about Julia Mitchell's identity, but his realization comes a moment too late. Julia is done waiting for the well-respected Dante specialist to remember her and wants nothing more to do with him. Can Gabriel win back her heart before she finds love in another's arms?")
-    save_and_open_page
     expect(page).to have_content("Genres: Romance")
   end
 end

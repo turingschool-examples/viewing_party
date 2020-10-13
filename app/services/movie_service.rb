@@ -37,6 +37,8 @@ class MovieService
     json = JSON.parse(response.body, symbolize_names: true)
   end
 
+  private
+
   def self.conn
     Faraday.new(url: 'https://api.themoviedb.org') do |f|
       f.params['api_key'] = ENV['TMDB_API_KEY']
