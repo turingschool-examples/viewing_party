@@ -24,57 +24,6 @@ http_interactions:
       - '57'
       Connection:
       - keep-alive
-      Date:
-      - Mon, 12 Oct 2020 22:47:28 GMT
-      Server:
-      - openresty
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Allow-Methods:
-      - GET, HEAD, POST, PUT, DELETE, OPTIONS
-      Access-Control-Expose-Headers:
-      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
-        Content-Length, Content-Range
-      Etag:
-      - 8e6292c3d9056c0d08bd7f939021844e
-      Cache-Control:
-      - public, max-age=120
-      X-Cache:
-      - Miss from cloudfront
-      Via:
-      - 1.1 824a5d9ed02451bcb68b15ae5991dce0.cloudfront.net (CloudFront)
-      X-Amz-Cf-Pop:
-      - DEN50-C2
-      X-Amz-Cf-Id:
-      - kyFp1b24tMLxsl2mwajWWrSLSFb5m83hmypWF03FZx82OEvcKA-w2Q==
-    body:
-      encoding: UTF-8
-      string: '{"page":1,"total_results":0,"total_pages":0,"results":[]}'
-  recorded_at: Mon, 12 Oct 2020 22:47:28 GMT
-- request:
-    method: get
-    uri: https://api.themoviedb.org/3/search/movie?api_key=<DONT_SHARE_MY_KEY>&language=en&page=1&query=sdsfgwe
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v1.0.1
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json;charset=utf-8
-      Content-Length:
-      - '57'
-      Connection:
-      - keep-alive
       Server:
       - openresty
       Access-Control-Allow-Origin:
@@ -85,7 +34,7 @@ http_interactions:
       - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
         Content-Length, Content-Range
       Date:
-      - Mon, 12 Oct 2020 23:04:27 GMT
+      - Tue, 13 Oct 2020 01:15:31 GMT
       Etag:
       - 8e6292c3d9056c0d08bd7f939021844e
       Cache-Control:
@@ -93,15 +42,15 @@ http_interactions:
       X-Cache:
       - RefreshHit from cloudfront
       Via:
-      - 1.1 d29afc70fc2fdadee440493854714224.cloudfront.net (CloudFront)
+      - 1.1 cddde15c11afac53ac9fe7978dcfecd7.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - 5k8tOb9jcuW8uw6NhSS-8Mku6ihdAOzVDnWBuxzT0K4VulcUlmbCLQ==
+      - tXcL-qm_qI7njG3V6jwXv32hz2FvFSKQfhwBb2Y4O05bpJ5BZnD6Wg==
     body:
       encoding: UTF-8
       string: '{"page":1,"total_results":0,"total_pages":0,"results":[]}'
-  recorded_at: Mon, 12 Oct 2020 23:04:27 GMT
+  recorded_at: Tue, 13 Oct 2020 01:15:31 GMT
 - request:
     method: get
     uri: https://api.themoviedb.org/3/search/movie?api_key=<DONT_SHARE_MY_KEY>&language=en&page=1&query=sdsfgwe
@@ -136,7 +85,7 @@ http_interactions:
       - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
         Content-Length, Content-Range
       Date:
-      - Mon, 12 Oct 2020 23:06:40 GMT
+      - Tue, 13 Oct 2020 01:22:11 GMT
       Etag:
       - 8e6292c3d9056c0d08bd7f939021844e
       Cache-Control:
@@ -144,15 +93,15 @@ http_interactions:
       X-Cache:
       - RefreshHit from cloudfront
       Via:
-      - 1.1 c55bfc9d9a95cdee8e23989feddaa4b3.cloudfront.net (CloudFront)
+      - 1.1 28d79637e27f11e3ab19a9515e273a5b.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - nf4Vum2-qj_mJ7yuF3z77b90Knk2RPAJ_EIEnmvEt2cI80qpnBS0xg==
+      - 0jSZLNgnjOwQBOsnxKjQyOEvMx2Cpx3KJzqxH2KYpgshZh6SFWCWDw==
     body:
       encoding: UTF-8
       string: '{"page":1,"total_results":0,"total_pages":0,"results":[]}'
-  recorded_at: Mon, 12 Oct 2020 23:06:41 GMT
+  recorded_at: Tue, 13 Oct 2020 01:22:12 GMT
 - request:
     method: get
     uri: https://api.themoviedb.org/3/search/movie?api_key=<DONT_SHARE_MY_KEY>&language=en&page=1&query=sdsfgwe
@@ -187,7 +136,7 @@ http_interactions:
       - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
         Content-Length, Content-Range
       Date:
-      - Mon, 12 Oct 2020 23:06:40 GMT
+      - Tue, 13 Oct 2020 01:22:11 GMT
       Etag:
       - 8e6292c3d9056c0d08bd7f939021844e
       Cache-Control:
@@ -195,17 +144,70 @@ http_interactions:
       X-Cache:
       - Hit from cloudfront
       Via:
-      - 1.1 9c7e5857d78c5dc89042979317de5843.cloudfront.net (CloudFront)
+      - 1.1 f0b290c4e2273a7586bc6f080031d9bc.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - PmOTJNSJqIlMJ1TsULqKXJgDdAWI78lRQ5YLIFehT1vcijmyttjHsg==
+      - _Jl_Nx3H9ddfmKq1fKd10-TwPaRmt8SNrBLvfgL6HvJrXInpaB0Ywg==
       Age:
-      - '43'
+      - '23'
     body:
       encoding: UTF-8
       string: '{"page":1,"total_results":0,"total_pages":0,"results":[]}'
-  recorded_at: Mon, 12 Oct 2020 23:07:23 GMT
+  recorded_at: Tue, 13 Oct 2020 01:22:34 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/search/movie?api_key=<DONT_SHARE_MY_KEY>&language=en&page=1&query=sdsfgwe
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.0.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '57'
+      Connection:
+      - keep-alive
+      Server:
+      - openresty
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
+        Content-Length, Content-Range
+      Date:
+      - Tue, 13 Oct 2020 01:22:11 GMT
+      Etag:
+      - 8e6292c3d9056c0d08bd7f939021844e
+      Cache-Control:
+      - public, max-age=120
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 a44b9db7a2d103360945ab52619e5016.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - DEN50-C2
+      X-Amz-Cf-Id:
+      - tlMXDnKjgM3GKk-lIMnbltWN1ScVC0IS3eQKEWyZRZ_8z_eCKNXuLQ==
+      Age:
+      - '97'
+    body:
+      encoding: UTF-8
+      string: '{"page":1,"total_results":0,"total_pages":0,"results":[]}'
+  recorded_at: Tue, 13 Oct 2020 01:23:48 GMT
 - request:
     method: get
     uri: https://api.themoviedb.org/3/search/movie?api_key=<DONT_SHARE_MY_KEY>&language=en&page=2&query=sdsfgwe
@@ -240,7 +242,7 @@ http_interactions:
       - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
         Content-Length, Content-Range
       Date:
-      - Mon, 12 Oct 2020 23:06:41 GMT
+      - Tue, 13 Oct 2020 01:22:12 GMT
       Etag:
       - 847c9b2b23a1f3c816131f8d9cafb05d
       Cache-Control:
@@ -248,17 +250,17 @@ http_interactions:
       X-Cache:
       - Hit from cloudfront
       Via:
-      - 1.1 9204cf44179493ed42c678800a26918b.cloudfront.net (CloudFront)
+      - 1.1 c55bfc9d9a95cdee8e23989feddaa4b3.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - XHAypvJNwX30d4r6IqpKlcab6a6z33UvTsawW8FvPnc8l_Qy6Kc-bA==
+      - HddjOb32ppNgUgc0j_J5XVxd3rdSVwuz04oeq14LGp8Fp2Ygl-9Peg==
       Age:
-      - '42'
+      - '96'
     body:
       encoding: UTF-8
       string: '{"page":2,"total_results":0,"total_pages":0,"results":[]}'
-  recorded_at: Mon, 12 Oct 2020 23:07:23 GMT
+  recorded_at: Tue, 13 Oct 2020 01:23:48 GMT
 - request:
     method: get
     uri: https://api.themoviedb.org/3/search/movie?api_key=<DONT_SHARE_MY_KEY>&language=en&page=1&query=
@@ -284,7 +286,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Mon, 12 Oct 2020 23:07:23 GMT
+      - Tue, 13 Oct 2020 01:23:48 GMT
       Server:
       - openresty
       Access-Control-Allow-Origin:
@@ -297,15 +299,15 @@ http_interactions:
       X-Cache:
       - Error from cloudfront
       Via:
-      - 1.1 6c02603f677dd5669f8ab3b41062340f.cloudfront.net (CloudFront)
+      - 1.1 29f1da35ce271d2cdc88184ed0c1f86d.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - iDPdLCWz6JGXC_SkgVsNPOV5cFskiRH1-npdn_ALkUrt_oU2GN8eCA==
+      - 7QikyrCSJ3cz2m6oZpiu_WuIICgLvurQfYO-v9PPk-5hfA5gbzM9JQ==
     body:
       encoding: UTF-8
       string: '{"errors":["query must be provided"]}'
-  recorded_at: Mon, 12 Oct 2020 23:07:23 GMT
+  recorded_at: Tue, 13 Oct 2020 01:23:48 GMT
 - request:
     method: get
     uri: https://api.themoviedb.org/3/search/movie?api_key=<DONT_SHARE_MY_KEY>&language=en&page=2&query=
@@ -331,7 +333,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Mon, 12 Oct 2020 23:07:23 GMT
+      - Tue, 13 Oct 2020 01:23:48 GMT
       Server:
       - openresty
       Access-Control-Allow-Origin:
@@ -344,13 +346,13 @@ http_interactions:
       X-Cache:
       - Error from cloudfront
       Via:
-      - 1.1 48a6ccbb0ddb052ab512a3422295bd39.cloudfront.net (CloudFront)
+      - 1.1 23d87d8c2ce38e34462e6c134d187eeb.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - KNOOdfaC9HukTWYClFMh2o-3uqp6UcsJZHjSzAryOx3qJmDlWWCzrw==
+      - Zq4VE423P-kKxuWhItfJkDH-HQw55uTW_Rx70j5XAG1frPub0Lzueg==
     body:
       encoding: UTF-8
       string: '{"errors":["query must be provided"]}'
-  recorded_at: Mon, 12 Oct 2020 23:07:23 GMT
+  recorded_at: Tue, 13 Oct 2020 01:23:49 GMT
 recorded_with: VCR 6.0.0
