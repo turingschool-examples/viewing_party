@@ -3,6 +3,8 @@ class MoviesController < ApplicationController
   def index
     @results = if params[:search]
                  SearchFacade.search_movies(params[:search])
+               elsif params[:popular]
+                 SearchFacade.popular 
                else
                  SearchFacade.get_40_movies(40)
                end
