@@ -9,12 +9,18 @@
   </head>
 
   <body>
-  <nav>
+  
+  <nav class = "topnav">
     <% flash.each do |name, msg| %>
         <div class= "<%=name%>-flash">
           <p><%= msg %></p>
         </div>
     <% end %>
+    <div id="logout" align="right">
+    <% if session[:current_user] %>
+      <%= button_to  "Logout", '/logout' %>
+    <%end%>
+    </div>
   </nav>
     <main>
       <%= yield %>
