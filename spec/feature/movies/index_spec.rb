@@ -68,8 +68,8 @@ RSpec.describe 'movie discover page' do
         json2 = File.read('spec/fixtures/popular_movies_2.json')
 
 
-        # stub_request(:get, "https://api.themoviedb.org/3/search/movie?api_key=#{ENV['MOVIE_API_KEY']}&include_adult=false&language=en-US&page=1&query=Pirates").to_return(status: 200, body: json1)
-        # stub_request(:get, "https://api.themoviedb.org/3/search/movie?api_key=#{ENV['MOVIE_API_KEY']}&include_adult=false&language=en-US&page=2&query=Pirates").to_return(status: 200, body: json2)
+        stub_request(:get, "https://api.themoviedb.org/3/movie/popular?api_key=#{ENV['MOVIE_API_KEY']}&include_adult=false&language=en-US&page=1").to_return(status: 200, body: json1)
+        stub_request(:get, "https://api.themoviedb.org/3/movie/popular?api_key=#{ENV['MOVIE_API_KEY']}&include_adult=false&language=en-US&page=2").to_return(status: 200, body: json2)
 
         visit "/discover"
 
