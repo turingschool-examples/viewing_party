@@ -1,0 +1,25 @@
+{
+    "status": "OK",
+    "copyright": "Copyright (c) 2020 The New York Times Company. All Rights Reserved.",
+    "has_more": false,
+    "num_results": 1,
+    "results": [
+        {
+            "display_title": "The Shawshank Redemption",
+            "mpaa_rating": "R",
+            "critics_pick": 0,
+            "byline": "Janet Maslin",
+            "headline": "Prison Tale by Stephen King Told Gently, Believe It or Not",
+            "summary_short": null,
+            "publication_date": "1994-09-23",
+            "opening_date": "1994-10-14",
+            "date_updated": "2017-11-02 04:17:47",
+            "link": {
+                "type": "article",
+                "url": "http://www.nytimes.com/1994/09/23/movies/film-review-prison-tale-by-stephen-king-told-gently-believe-it-or-not.html",
+                "suggested_link_text": "Read the New York Times Review of The Shawshank Redemption"
+            },
+            "multimedia": null
+        }
+    ]
+}

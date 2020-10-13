@@ -2,15 +2,14 @@ require 'rails_helper'
 include ActionView::Helpers::NumberHelper
 
 RSpec.describe 'Login' do
-  describe 'As an authenticated user' do
+  describe 'As an visitor user' do
     before :each do
       @user = User.create(name: 'Jackie Chan', email: 'a@a.com', password: 'a', password_confirmation: 'a')
 
       visit root_path
     end
 
-
-    it "I can fill in my information, click the Log In button, and be logged in" do
+    it "If I'm a user, I can fill in my information, click the Log In button, and be logged in as an authenticated user" do
       fill_in 'Email', with: @user.email
       fill_in 'Password', with: @user.password
 

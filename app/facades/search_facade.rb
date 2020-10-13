@@ -4,5 +4,9 @@ class SearchFacade
     cast = MovieDatabase.movie_actors(movie_id)
     reviews = MovieDatabase.movie_reviews(movie_id)
     Movie.new(attributes, cast, reviews)
+
+
+  def self.find_nyt_review(movie_title)
+    MovieDatabase.nyt_movie_review(movie_title)
   end
 end

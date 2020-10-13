@@ -1,48 +1,50 @@
 class MoviesController < ApplicationController
-  def index; end
-
   def show
+
     @movie = SearchFacade.find_movie(params[:id])
+    @nyt_review = SearchFacade.find_nyt_review(@movie[:original_title])
   end
 
   def search
-    if params[:keywords].nil? || params[:keywords] == ''
-      top_40
+    if current_user.nil?
+      flash[:notice] = 'Movies Page Only Accessible by Authenticated Users. Please Log In.'
+      redirect_to root_path
     else
       @movies_info = get_movies(2).flatten
     end
   end
 
   def top_40
-    page = 1
-    results = []
-    conn = Faraday.new(url: 'https://api.themoviedb.org') do |faraday|
-      faraday.headers['X-API-Key'] = ENV['MOVIEDB_API_KEY']
-    end
-    until results.length >= 2
-      res = conn.get("/3/movie/top_rated?api_key=#{ENV['MOVIEDB_API_KEY']}&language=en-US&page=#{page}") do |f|
-        f.params['page'] = page
-      end
-      json1 = JSON.parse(res.body, symbolize_names: true)
-      results << json1[:results]
-      page += 1
-    end
-    @movies_info = results.flatten
+    key = ENV['MOVIEDB_API_KEY']
+    uri ="/3/movie/top_rated?api_key=#{ENV['MOVIEDB_API_KEY']}&language=en-US"
+    url = 'https://api.themoviedb.org'
+    @movies_info = api_call(2, uri, url, key).flatten
   end
 
-  def get_movies(movie_count_limit)
+  def get_movies(pages)
     keywords = params[:keywords]
-    page = 1
-    results = []
-    conn = Faraday.new(url: 'https://api.themoviedb.org') do |faraday|
-      faraday.headers['X-API-Key'] = ENV['MOVIEDB_API_KEY']
+    key = ENV['MOVIEDB_API_KEY']
+    uri = "3/search/movie?api_key=#{key}&language=en-US&query=#{keywords}"
+    url = 'https://api.themoviedb.org'
+    @movies_info = api_call(pages, uri, url, key).flatten
+  end
+
+  def get_conn(url, key)
+    Faraday.new(url: url) do |faraday|
+      faraday.headers['X-API-Key'] = key
     end
-    until results.length >= movie_count_limit
-      res = conn.get("3/search/movie?api_key=#{ENV['MOVIEDB_API_KEY']}&language=en-US&query=#{keywords}&page=#{page}") do |f|
+  end
+
+  def api_call(length, uri, url, key)
+    results = []
+    conn = get_conn(url, key)
+    page = 1
+    until results.length >= length
+      uri_with_page = uri + "&page=#{page}"
+      res = conn.get(uri_with_page) do |f|
         f.params['page'] = page
       end
-      json1 = JSON.parse(res.body, symbolize_names: true)
-      results << json1[:results]
+      results << JSON.parse(res.body, symbolize_names: true)[:results]
       page += 1
     end
     results

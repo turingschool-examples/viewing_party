@@ -65,4 +65,23 @@ RSpec.describe 'User Registration' do
 
     end
   end
+
+  describe 'As an authenticated user' do
+    describe "When I visit the register page" do
+      before :each do
+        @user_1 = User.create(name: 'Jackie Chan', email: 'a@a.com', password: 'a', password_confirmation: 'a')
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
+        visit register_path
+      end
+
+      it "I can see a message telling me I'm already registered" do
+        expect(page).to have_content("You are already registerd.")
+        expect(page).to_not have_button('Register')
+        expect(page).to_not have_content("email: [\"can't be blank\"]")
+        expect(page).to_not have_content("password: [\"can't be blank\"")
+        expect(current_path).to eq('/user/dashboard')
+      end
+    end
+  end
+
 end

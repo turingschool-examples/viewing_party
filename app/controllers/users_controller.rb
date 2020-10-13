@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
   def new
-    @user = User.new
+    if !current_user.nil?
+      flash[:notice] = 'You are already registerd.'
+      redirect_to '/user/dashboard'
+    else
+      @user = User.new
+    end
   end
 
   def create
