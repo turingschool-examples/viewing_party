@@ -1,8 +1,6 @@
 class DiscoverController < ApplicationController
-  def index
-    return unless current_user.nil?
+  before_action :require_current_user
 
-    flash[:notice] = 'Discover Page Only Accessible by Authenticated Users. Please Log In.'
-    redirect_to root_path
+  def index
   end
 end

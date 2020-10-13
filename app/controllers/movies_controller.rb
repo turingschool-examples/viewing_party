@@ -1,16 +1,16 @@
 class MoviesController < ApplicationController
-  def show
+  before_action :require_current_user
 
+  def show
     @movie = SearchFacade.find_movie(params[:id])
-    @nyt_review = SearchFacade.find_nyt_review(@movie[:original_title])
+    @nyt_review = SearchFacade.find_nyt_review(@movie.title)
   end
 
   def search
-    if current_user.nil?
-      flash[:notice] = 'Movies Page Only Accessible by Authenticated Users. Please Log In.'
-      redirect_to root_path
+    if params[:keywords].nil? || params[:keywords] == ''
+        top_40
     else
-      @movies_info = get_movies(2).flatten
+      @movies_info = get_movies(2)
     end
   end
 
@@ -26,7 +26,7 @@ class MoviesController < ApplicationController
     key = ENV['MOVIEDB_API_KEY']
     uri = "3/search/movie?api_key=#{key}&language=en-US&query=#{keywords}"
     url = 'https://api.themoviedb.org'
-    @movies_info = api_call(pages, uri, url, key).flatten
+    api_call(pages, uri, url, key).flatten
   end
 
   def get_conn(url, key)

@@ -1,6 +1,10 @@
 class PartiesController < ApplicationController
+before_action :require_current_user
 
-  def new; end
+  def new
+      @movie_title = params[:movie_title].titleize
+      @movie_runtime = params[:movie_runtime]
+  end
 
   def create
     party = current_user.parties.create({
