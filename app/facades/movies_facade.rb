@@ -42,4 +42,11 @@ class MoviesFacade
     end
     recommended[0..4]
   end
+
+  def self.popular(movie_count)
+    movie_results = MovieInfo.popular(movie_count)
+    movie_results.map do |data|
+      CreateMovie.new(data)
+    end
+  end
 end
