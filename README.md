@@ -4,7 +4,9 @@
 This is the base repo for the [viewing party project](https://backend.turing.io/module3/projects/viewing_party) used for Turing's Backend Module 3.	Viewing party is an application in which users can explore movie options and create a viewing party event for the user and friend's.
 
 
-### About this Project	## Contributors
+# About this Project  
+
+## Contributors
 [Philip DeFraties](https://github.com/PhilipDeFraties)  
 [Luke Hunter James-Erickson](https://github.com/LHJE/)
 
@@ -65,7 +67,7 @@ We're using `travis` to ensure that new changes to the build merge successfully.
 And we added `nyan-cat-formatter` just for fun.
 
 
-## Local Setup	## Schema
+## Schema
 Below is our schema.
 
 [LETS PUT A DIAGRAM HERE]
@@ -85,7 +87,7 @@ For this project, we focused on learning:
 
 
 
-## Versions	## Versions
+## Versions
 
 
 - Ruby 2.5.3	- Ruby 2.5.3
