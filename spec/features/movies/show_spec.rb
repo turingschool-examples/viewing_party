@@ -17,9 +17,16 @@ RSpec.describe 'movie details page', type: :feature do
       VCR.use_cassette('movie_details') do
         @movie = MovieService.get_details('500')
         
-        visit "/movies/500"
+        visit "/discover"
 
-      
+        fill_in :title, with: 'Reservoir Dogs'
+
+        click_button 'Search By Title'
+        expect(current_path).to eq('/movies')
+        within '#movie-500' do
+          click_link 'Reservoir Dogs'
+        end
+        expect(current_path).to eq('/movies/500')
         expect(page).to have_button('Create Viewing Party!')
         expect(page).to have_content("Reservoir Dogs")
         expect(page).to have_content("8.2")
@@ -28,7 +35,6 @@ RSpec.describe 'movie details page', type: :feature do
         expect(page).to have_content("Thriller")
         expect(page).to have_content("A botched robbery indicates a police informant, and the pressure mounts")
         within '.cast' do
-          # expect(@movie.cast.count).to eq(10)
           expect(page).to have_content("Harvey Keitel as Mr. White / Larry Dimmick")
           expect(page).to have_content("Tim Roth as Mr. Orange / Freddy Newandyke")
           expect(page).to have_content("Michael Madsen as Mr. Blonde / Vic Vega")

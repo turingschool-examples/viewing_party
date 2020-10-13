@@ -29,5 +29,20 @@ RSpec.describe 'User welcome page', type: :feature do
           expect(page).to have_content("That email/password combination does not exist in our records")
           expect(current_path).to eq('/')
       end
+      it 'I am redirected if already logged in' do
+          user = create :user
+    
+          visit '/'
+    
+          fill_in 'Email', with: user.email
+          fill_in 'Password', with: user.password
+    
+          click_on 'Log in'
+    
+          expect(current_path).to eq('/dashboard')
+          
+          visit '/'
+          expect(current_path).to eq('/dashboard')
+      end
     end
   end
