@@ -15,7 +15,7 @@ RSpec.describe 'discover', type: :feature do
 
       it 'has button to discover top 40 movies' do
         VCR.use_cassette('top_40_movies') do
-          @movies = MovieFacade.top_40
+          @movies = MovieService.find_top_40
           visit '/discover'
           expect(page).to have_button('Top 40 Movies')
 
@@ -30,7 +30,7 @@ RSpec.describe 'discover', type: :feature do
         
       it 'has form to search by movie title' do
         VCR.use_cassette('happy_movie_search') do
-          @movies = MovieFacade.find('Hello')
+          @movies = MovieService.find_title('Hello')
      
           visit '/discover'
 
@@ -42,18 +42,19 @@ RSpec.describe 'discover', type: :feature do
           expect(@movies.size).to eq(40)
         end
       end
-
       it 'returns notice if no movies found' do
         VCR.use_cassette('sad_movie_search') do
-          @movies = MovieFacade.find('sdsfgwe')
-
+          
           visit '/discover'
 
           click_button 'Search By Title'
-          expect(current_path).to eq('/movies')
+          expect(current_path).to eq('/discover')
 
+          expect(page).to have_content('Please enter a title')
+          
+          fill_in :title, with: 'asdf'
+          click_button 'Search By Title'
           expect(page).to have_content('Sorry, no movies were found.')
-          expect(@movies.size).to eq(0)
         end
       end
   end
