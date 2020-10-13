@@ -11,4 +11,8 @@ class User < ApplicationRecord
   has_many :friends, through: :friendships, source: :friend
 
   has_many :parties
+
+  def all_parties
+    Party.where(user_id: id).or(Party.where(id: PartyUser.where(user_id: id).pluck(:party_id)))
+  end
 end
