@@ -3,11 +3,9 @@ require 'rails_helper'
 RSpec.describe MovieService do
   it 'fetches movie index data for search by title' do
     VCR.use_cassette('happy_movie_search') do
-      @movies = MovieService.find_title('Happy')
-
-      binding.pry
-      expect(@movies).to be_a(Hash)
-      expect(@movie.count).to eq(40)
+      @movies = MovieService.find_title('Hello')
+      expect(@movies).to be_a(Array)
+      expect(@movies.count).to eq(40)
     end
   end
 
