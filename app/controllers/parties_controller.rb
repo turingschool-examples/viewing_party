@@ -1,9 +1,9 @@
 class PartiesController < ApplicationController
-before_action :require_current_user
+  before_action :require_current_user
 
   def new
-      @movie_title = params[:movie_title].titleize
-      @movie_runtime = params[:movie_runtime]
+    @movie_title = params[:movie_title].titleize
+    @movie_runtime = params[:movie_runtime]
   end
 
   def create

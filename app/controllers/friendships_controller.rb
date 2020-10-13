@@ -1,6 +1,6 @@
 class FriendshipsController < ApplicationController
   before_action :require_current_user
-  
+
   def create
     new_friend = User.where(email: params["New Friend's Email"])
     if new_friend == []
