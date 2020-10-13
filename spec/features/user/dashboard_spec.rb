@@ -6,7 +6,7 @@ RSpec.describe 'Dashboard Page' do
     describe "When I visit the dashboard page" do
       it "I can see a message telling me to login to see this page" do
         visit 'user/dashboard'
-        expect(page).to have_content("User Dashboard Only Accessible by Authenticated Users. Please Log In.")
+        expect(page).to have_content("This Page Only Accessible by Authenticated Users. Please Log In.")
         expect(current_path).to eq(root_path)
       end
     end
@@ -116,7 +116,7 @@ RSpec.describe 'Dashboard Page' do
         expect(page).to have_button("Add Friend")
       end
 
-      it "I can add a new friend if they exist in the system" do
+      xit "I can add a new friend if they exist in the system" do
         fill_in "New Friend's Email", with: 'wtf@wtf.com'
 
         click_button "Add Friend"

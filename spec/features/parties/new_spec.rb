@@ -6,7 +6,8 @@ RSpec.describe 'Viewing Party' do
       it "I can see a message telling me to login to see this page" do
         @user = User.create!(name: 'Phil', email: 'a@a.com', password: 'a', password_confirmation: 'a')
         visit "/new_party/#{@user.id}/princess_mononoke/134"
-        expect(page).to have_content("New Viewing Party Page Only Accessible by Authenticated Users. Please Log In.")
+  
+        expect(page).to have_content("This Page Only Accessible by Authenticated Users. Please Log In.")
         expect(current_path).to eq(root_path)
       end
     end
