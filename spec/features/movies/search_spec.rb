@@ -1,9 +1,25 @@
 require 'rails_helper'
+RSpec.describe 'Search Movies' do
+  describe 'As a visitor' do
+    describe "When I visit the search page" do
+      it "I can see a message telling me to login to see this page" do
+        visit '/movies'
+        expect(page).to have_content("Movies Page Only Accessible by Authenticated Users. Please Log In.")
+        expect(current_path).to eq(root_path)
+      end
+    end
+  end
+end
 
 feature 'Searching by movie title' do
+  before :each do
+    @user_1 = User.create(name: 'Jackie Chan', email: 'a@a.com', password: 'a', password_confirmation: 'a')
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
+    visit '/discover'
+  end
+
   scenario "User searches using keywords", :vcr do
 
-    visit '/discover'
     fill_in 'Keywords', with: 'whatever'
     click_button('Search By Movie Title')
 
@@ -18,9 +34,13 @@ end
 
 
 feature 'Empty search results in top 40' do
-  scenario "User searches with empty field", :vcr do
+  before :each do
+    @user_1 = User.create(name: 'Jackie Chan', email: 'a@a.com', password: 'a', password_confirmation: 'a')
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
     visit '/discover'
+  end
 
+  scenario "User searches with empty field", :vcr do
     click_button('Search By Movie Title')
     expect(current_path).to eq('/movies')
 

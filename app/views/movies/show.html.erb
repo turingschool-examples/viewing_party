@@ -24,5 +24,9 @@
 <% @movie.reviews.each do |review_detail| %>
 <p><%= review_detail[:author] %></p>
 
-
+<h2>New York Times Review Link:</h2>
+<% if !@nyt_review[0].nil? %>
+  <p><%=  link_to @nyt_review[0].headline, "#{@nyt_review[0].url}" %></p>
+<% else %>
+  <p>The New York Times has not reviewed this film</p>
 <% end %>
