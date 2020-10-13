@@ -8,16 +8,13 @@ class MovieFacade
 
   def self.top_40
     json = MovieService.find_top_40
-    @movies = json.map do |movie_data|
-      Movie.new(movie_data)
-    end
+    @movies = json.map { |movie_data| Movie.new(movie_data) }
   end
 
   def self.find(title)
-    if json = MovieService.find_title(title)
-      @movies = json.map do |movie_data|
-        Movie.new(movie_data)
-      end
-    end
+    return unless MovieService.find_title(title)
+
+    json = MovieService.find_title(title)
+    @movies = json.map { |movie_data| Movie.new(movie_data) }
   end
 end

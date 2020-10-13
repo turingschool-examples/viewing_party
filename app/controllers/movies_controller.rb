@@ -12,8 +12,8 @@ class MoviesController < ApplicationController
   end
 
   def search_by_title
-    if params[:title] == ""
-      flash[:alert] = "Please enter a title"
+    if params[:title] == ''
+      flash[:alert] = 'Please enter a title'
       redirect_to '/discover'
     else
       find_movies
@@ -22,9 +22,9 @@ class MoviesController < ApplicationController
 
   def find_movies
     @movies = MovieFacade.find(params[:title])
-    if @movies == []
-      flash[:fail] = 'Sorry, no movies were found.'
-      redirect_to '/discover'
-    end
+    return unless @movies == []
+
+    flash[:fail] = 'Sorry, no movies were found.'
+    redirect_to '/discover'
   end
 end
