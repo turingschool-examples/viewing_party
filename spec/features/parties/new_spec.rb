@@ -100,7 +100,7 @@ RSpec.describe 'new viewing party', type: :feature do
       end
     end
     it 'cannot be created without filling all fields' do
-      VCR.use_cassette('viewing_party_new') do
+      VCR.use_cassette('viewing_party_new_2') do
         #Party can be created
         @movie = MovieFacade.movie_details(5)
 
