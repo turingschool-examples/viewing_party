@@ -2,6 +2,16 @@ require 'rails_helper'
 include ActionView::Helpers::NumberHelper
 
 RSpec.describe 'Dashboard Page' do
+  describe 'As a visitor' do
+    describe "When I visit the dashboard page" do
+      it "I can see a message telling me to login to see this page" do
+        visit 'user/dashboard'
+        expect(page).to have_content("User Dashboard Only Accessible by Authenticated Users. Please Log In.")
+        expect(current_path).to eq(root_path)
+      end
+    end
+  end
+
   describe 'As an authenticated  user' do
     before :each do
       @user_1 = User.create(name: 'Jackie Chan', email: 'a@a.com', password: 'a', password_confirmation: 'a')

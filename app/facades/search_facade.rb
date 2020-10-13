@@ -1,5 +1,4 @@
 class SearchFacade
-
   def self.find_movie(movie_id)
     MovieDatabase.movie_details(movie_id)
   end

@@ -1,27 +1,31 @@
 class MoviesController < ApplicationController
-  def index; end
 
   def show
-    # conn = Faraday.new(url: 'https://api.themoviedb.org') do |faraday|
-    #   faraday.headers['X-API-Key'] = ENV['MOVIEDB_API_KEY']
-    # end
-    #
-    # movie = conn.get("/3/movie/#{params[:id]}?api_key=#{ENV['MOVIEDB_API_KEY']}&language=en-US")
-    # movie_details = JSON.parse(movie.body, symbolize_names: true)
-    @movie = SearchFacade.find_movie(params[:id])
-    @actors = SearchFacade.find_actors(params[:id])
-    @reviews = SearchFacade.find_reviews(params[:id])
-    # @movie = Movie.new(movie_details)
+    if current_user.nil?
+      flash[:notice] = 'Movies Show Page Only Accessible by Authenticated Users. Please Log In.'
+      redirect_to root_path
+    else
+      # conn = Faraday.new(url: 'https://api.themoviedb.org') do |faraday|
+      #   faraday.headers['X-API-Key'] = ENV['MOVIEDB_API_KEY']
+      # end
+      #
+      # movie = conn.get("/3/movie/#{params[:id]}?api_key=#{ENV['MOVIEDB_API_KEY']}&language=en-US")
+      # movie_details = JSON.parse(movie.body, symbolize_names: true)
+      @movie = SearchFacade.find_movie(params[:id])
+      @actors = SearchFacade.find_actors(params[:id])
+      @reviews = SearchFacade.find_reviews(params[:id])
+      # @movie = Movie.new(movie_details)
 
-    find_runtime(@movie[:runtime])
-    #
-    # credits = conn.get("/3/movie/#{params[:id]}/credits?api_key=#{ENV['MOVIEDB_API_KEY']}")
-    # #maybe this instead of the next two lines: @actors = JSON.parse(credits.body, symbolize_names: true)[:cast].take(10)
-    # credits_details = JSON.parse(credits.body, symbolize_names: true)
-    # @actors = credits_details[:cast].take(10)
-    #
-    # reviews = conn.get("/3/movie/#{params[:id]}/reviews?api_key=#{ENV['MOVIEDB_API_KEY']}&language=en-US&page=1")
-    # @reviews_details = JSON.parse(reviews.body, symbolize_names: true)[:results]
+      find_runtime(@movie[:runtime])
+      #
+      # credits = conn.get("/3/movie/#{params[:id]}/credits?api_key=#{ENV['MOVIEDB_API_KEY']}")
+      # #maybe this instead of the next two lines: @actors = JSON.parse(credits.body, symbolize_names: true)[:cast].take(10)
+      # credits_details = JSON.parse(credits.body, symbolize_names: true)
+      # @actors = credits_details[:cast].take(10)
+      #
+      # reviews = conn.get("/3/movie/#{params[:id]}/reviews?api_key=#{ENV['MOVIEDB_API_KEY']}&language=en-US&page=1")
+      # @reviews_details = JSON.parse(reviews.body, symbolize_names: true)[:results]
+    end
   end
 
   def find_runtime(runtime)
@@ -31,11 +35,16 @@ class MoviesController < ApplicationController
   end
 
   def search
-    if params[:keywords].nil? || params[:keywords] == ''
-      top_40
+    if current_user.nil?
+      flash[:notice] = 'Movies Page Only Accessible by Authenticated Users. Please Log In.'
+      redirect_to root_path
     else
-      @movies_info = get_movies(2).flatten
-      # keywords
+      if params[:keywords].nil? || params[:keywords] == ''
+        top_40
+      else
+        @movies_info = get_movies(2).flatten
+        # keywords
+      end
     end
   end
 
@@ -77,5 +86,4 @@ class MoviesController < ApplicationController
     end
     results
   end
-
 end

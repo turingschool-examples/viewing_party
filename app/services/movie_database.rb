@@ -12,7 +12,7 @@ class MovieDatabase
       faraday.headers['X-API-Key'] = ENV['MOVIEDB_API_KEY']
     end
     credits = conn.get("/3/movie/#{movie_id}/credits?api_key=#{ENV['MOVIEDB_API_KEY']}")
-    #maybe this instead of the next two lines: @actors = JSON.parse(credits.body, symbolize_names: true)[:cast].take(10)
+    # maybe this instead of the next two lines: @actors = JSON.parse(credits.body, symbolize_names: true)[:cast].take(10)
     credits_details = JSON.parse(credits.body, symbolize_names: true)
     credits_details[:cast].take(10)
   end

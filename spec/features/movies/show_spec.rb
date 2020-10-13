@@ -1,7 +1,25 @@
 require 'rails_helper'
 include ActionView::Helpers::NumberHelper
 
+RSpec.describe 'Movies Show Page' do
+  describe 'As a visitor' do
+    describe "When I visit the movies show page" do
+      it "I can see a message telling me to login to see this page" do
+        visit '/movies/278'
+        expect(page).to have_content("Movies Show Page Only Accessible by Authenticated Users. Please Log In.")
+        expect(current_path).to eq(root_path)
+      end
+    end
+  end
+end
+
 feature 'Details for a movie' do
+  before :each do
+    @user_1 = User.create(name: 'Jackie Chan', email: 'a@a.com', password: 'a', password_confirmation: 'a')
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
+    visit register_path
+  end
+
   scenario "User visits a movie's page", :vcr do
       visit "/movies/278"
 
