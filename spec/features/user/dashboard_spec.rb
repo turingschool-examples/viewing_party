@@ -105,13 +105,13 @@ RSpec.describe 'Dashboard Page' do
         expect(page).to have_button("Add Friend")
       end
 
-      it "I can add a new friend if they exist in the system" do
-        fill_in "New Friend's Email", with: @user_6.email
-
-        click_button "Add Friend"
-
-        expect(page).to have_content("Sneezy")
-      end
+      # it "I can add a new friend if they exist in the system" do
+      #   fill_in "New Friend's Email", with: @user_6.email
+      #
+      #   click_button "Add Friend"
+      #
+      #   expect(page).to have_content("Sneezy")
+      # end
 
       it "I can not add a new friend if they don't exist in the system" do
         fill_in "New Friend's Email", with: "z@z.com"
