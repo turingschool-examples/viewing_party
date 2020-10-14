@@ -39,6 +39,12 @@ Note: think about putting a gif of each of the following pieces below the descri
 7. From the command line, run `bundle exec figaro install`. By running this command, rails will create an application.yml file under your config folder. Open up that file, and paste your API key in by following this format: MOVIE_API_KEY: 'your api key here'
 8. Once inside the project directory, run `bundle exec rspec`. You should have 800 passing tests
 
-## Features/Wishlist - Saryn 
-  - Future iterations 
+## Features/Wishlist
+  - A new user can register with a username, email, and password. We used 'bcrypt' for password security and encryption
+  - Once logged in, a user can discover the top 40 movies, as well as search for movies based on a keyword
+  - On the movies index page, each movie title is a link, where a user can click to find more information about that particular movie
+  - If a user navigates back to their dashboard, they can 'Add Friends'! Search for friends by typing in their email, and if that      email is associated with a registered user, then they will be added as a friend! Friendships are reciprocal, so once added by the user, that two-way friendship is created
+  - If a user has added friends, they have the ability to create a viewing party! They can select which friends they would like to invite, and select a movie to show!
+  - 'Recommended movies', and 'top rated movies' are both extra pieces of functionality that required additional API calls
+  - Future iterations: going forward, we would love to incorporate sending an email once a user has either created a viewing party, or been invited to one. This email would serve as a notification, because currently, a user needs to sign into our app to see whether or not they have any viewing parties. This email could also include an option to a 'accept' or 'decline' an invitiation
   
