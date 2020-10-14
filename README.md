@@ -6,7 +6,7 @@ The link to this app [can be found here.](https://gentle-brook-14232.herokuapp.c
 
 To download this app onto your compter, follow the instructions labelled 'Local Setup';
 
-### About this Project - Travis
+### About this Project 
 
 In this project we were expected to build an app where a user can register and create viewing parties involving a movie of their choice. The app has the following features;
 
@@ -22,9 +22,9 @@ Note: think about putting a gif of each of the following pieces below the descri
 ![Movie show page](https://media.giphy.com/media/V6zTK9oyVHeRSMQIXf/source.gif)
 <br><br>
 
-### Learning Goals - Norma
+### Learning Goals 
 
-
+The purpose of this project was to get first-time practice and implemenation of API exposure and consumption as well as utilization of Continuous Integration using Travis CI. Although not required for this project, we wanted to learn how to mock external HTTP requests, which we were able to achieve with Webmock. We had a goal to implement mocking with VCR, but were unable to reach this goal within our deadline. Refactoring using Facade Design Patter was strongly encouraged for this project, which we decided as a team would be a goal for us. We achieved implementation of this design pattern and in doing so it allowed for better abstraction, encapsulation, single-responsibility. 
 
 ## Local Setup
 
