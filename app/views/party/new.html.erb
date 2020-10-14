@@ -1,0 +1,27 @@
+<h2>Viewing Party Details</h2>
+
+<h3>Movie: <%= @movie.title %></h3>
+<%= form_tag party_create_path, method: :post do %>
+  <%= hidden_field_tag :movie_id, @movie.id %>
+  <%= hidden_field_tag :title, @movie.title %>
+
+  <%= label_tag :duration, "Party duration (in minutes):" %>
+  <%= number_field_tag :duration, @movie.runtime %> <br>
+
+  <%= label_tag :date %>
+  <%= date_field_tag :date %> <br>
+
+  <%= label_tag :time %>
+  <%= time_field_tag :time %> <br><br>
+
+  <%= label_tag :friends, "Invite friends to your viewing party:" %> <br>
+  <div class='friends'>
+  <% if current_user.friends.empty? %>
+  <p>No friends to invite to your viewing party.</p>
+  <% else %>
+    <%= collection_check_boxes(:users, :id, current_user.friends, :id, :email, include_hidden: false) %>
+  </div>
+  <% end %> <br>
+
+  <%= submit_tag "Create Party" unless current_user.friends.empty? %>
+<% end %>
