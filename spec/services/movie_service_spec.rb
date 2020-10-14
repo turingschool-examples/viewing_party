@@ -144,4 +144,35 @@ RSpec.describe MovieService do
     total_results = search_results[:total_results]
     expect(total_results).to be_an(Integer)
   end
+
+  it 'fetch list of recoomendations for a specific movie' do
+    movie_recommendations = JSON.parse(File.read('spec/fixtures/movie_recommendations.json'), symbolize_names: true)
+
+    json9 = File.read('spec/fixtures/movie_recommendations.json')
+    json10 = File.read('spec/fixtures/movie_with_reviews.json')
+    json6 = File.read('spec/fixtures/movie_with_reviews_credits.json')
+    json8 = File.read('spec/fixtures/movie_with_reviews_reviews.json')
+
+    stub_request(:get, "https://api.themoviedb.org/3/movie/299534?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US").to_return(status: 200, body: json10)
+    stub_request(:get, "https://api.themoviedb.org/3/movie/299534/credits?api_key=#{ENV['MOVIE_API_KEY']}").to_return(status: 200, body: json6)
+    stub_request(:get, "https://api.themoviedb.org/3/movie/299534/reviews?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US&page=1").to_return(status: 200, body: json8)
+    stub_request(:get, "https://api.themoviedb.org/3/movie/299534/recommendations?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US&page=1").to_return(status: 200, body: json9)
+    stub_request(:get, "https://api.themoviedb.org/3/movie/299534/recommendations?api_key=&language=en-US&page=1").to_return(status: 200, body: json9)
+
+    search_results = MovieService.recommendations(299534, ENV['MOVIE_API_KEY'])
+
+    expect(search_results).to be_a(Hash)
+    expect(search_results).to have_key :results
+
+    results = search_results[:results]
+
+    next_result = results.first
+
+    expect(results).to be_an(Array)
+
+    expect(next_result).to have_key :id
+    expect(next_result[:id]).to be_a(Integer)
+    expect(next_result).to have_key :title
+    expect(next_result[:title]).to be_a(String)
+  end
 end
