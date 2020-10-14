@@ -1,5 +1,5 @@
 class PartyUser < ApplicationRecord
-  validates_presence_of :user_id, :party_id
+  validates :user_id, :party_id, presence: true
 
   belongs_to :user
   belongs_to :party
