@@ -33,7 +33,11 @@ RSpec.describe 'New viewing party page' do
     expect(page).to have_button('Create Party')
   end
 
+<<<<<<< HEAD
   it "Cannot create a new viewing party with no friends", :vcr do
+=======
+  it "Should have a form to create a new viewing party; no friends", :vcr do
+>>>>>>> 3bd2c739c94aa87b9050c7a82ac5a29f8d320062
 
     visit top_movies_path
 
@@ -50,10 +54,17 @@ RSpec.describe 'New viewing party page' do
     within '.friends' do
       expect(page).to have_content('No friends to invite to your viewing party.')
     end
+<<<<<<< HEAD
     expect(page).to_not have_button('Create Party')
   end
 
   it "I can create a new viewing party with invited freinds", :vcr do
+=======
+    expect(page).to have_button('Create Party')
+  end
+
+  it "I can create a new viewing party", :vcr do
+>>>>>>> 3bd2c739c94aa87b9050c7a82ac5a29f8d320062
     Friendship.create_reciprocal_for_ids(@user.id, @friend1.id)
     Friendship.create_reciprocal_for_ids(@user.id, @friend2.id)
 
