@@ -8,9 +8,9 @@ class ApplicationController < ActionController::Base
   end
 
   def require_current_user
-   unless current_user
-     flash[:notice] = 'This Page Only Accessible by Authenticated Users. Please Log In.'
-     redirect_to root_path
+    unless current_user
+      flash[:notice] = 'This Page Only Accessible by Authenticated Users. Please Log In.'
+      redirect_to root_path
     end
   end
 
