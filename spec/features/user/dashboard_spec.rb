@@ -81,7 +81,7 @@ RSpec.describe 'Dashboard Page' do
         fill_in 'Password', with: @user_1.password
 
         click_button "Log In"
-        
+
       end
 
       it "I can see a personalized greeting if I navigate away, and navigate back" do

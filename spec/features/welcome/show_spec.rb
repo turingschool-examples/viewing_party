@@ -3,26 +3,21 @@ include ActionView::Helpers::NumberHelper
 
 RSpec.describe 'Welcome Page' do
   describe 'As a visitor' do
-    describe "When I visit the welcome page" do
-      before :each do
-        visit root_path
-      end
 
-      it "I can see a welcome message" do
-        expect(page).to have_content("Welcome to Viewing Party!")
-      end
+    before :each do
+      visit root_path
+    end
 
-      it "I can see a brief description of the application" do
-        expect(page).to have_content("This is the premier website for planning your next movie night!")
-      end
+    it "I can see a brief description of the application" do
+      expect(page).to have_content("This is the premier website for planning your next movie night!")
+    end
 
-      it "I can see a button to log in" do
-        expect(page).to have_button("Log In")
-      end
+    it "I can see a button to log in" do
+      expect(page).to have_button("Log In")
+    end
 
-      it "I can see a link to register" do
-        expect(page).to have_link("Register")
-      end
+    it "I can see a link to register" do
+      expect(page).to have_link("Register")
     end
   end
 
