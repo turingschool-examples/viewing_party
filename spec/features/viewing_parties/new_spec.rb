@@ -33,11 +33,7 @@ RSpec.describe 'New viewing party page' do
     expect(page).to have_button('Create Party')
   end
 
-<<<<<<< HEAD
   it "Cannot create a new viewing party with no friends", :vcr do
-=======
-  it "Should have a form to create a new viewing party; no friends", :vcr do
->>>>>>> 3bd2c739c94aa87b9050c7a82ac5a29f8d320062
 
     visit top_movies_path
 
@@ -54,17 +50,10 @@ RSpec.describe 'New viewing party page' do
     within '.friends' do
       expect(page).to have_content('No friends to invite to your viewing party.')
     end
-<<<<<<< HEAD
     expect(page).to_not have_button('Create Party')
   end
 
-  it "I can create a new viewing party with invited freinds", :vcr do
-=======
-    expect(page).to have_button('Create Party')
-  end
-
-  it "I can create a new viewing party", :vcr do
->>>>>>> 3bd2c739c94aa87b9050c7a82ac5a29f8d320062
+  it "I can create a new viewing party with invited friends", :vcr do
     Friendship.create_reciprocal_for_ids(@user.id, @friend1.id)
     Friendship.create_reciprocal_for_ids(@user.id, @friend2.id)
 
@@ -83,11 +72,32 @@ RSpec.describe 'New viewing party page' do
     fill_in :time, with: '06:00 PM'
     within('.friends') do
       page.check(@friend1.email)
-      # page.check(@friend2.email)
     end
     click_button("Create Party")
     new_party = Party.all.last
     expect(new_party.title).to eq("The Shawshank Redemption")
     expect(current_path).to eq(user_dashboard_path)
+  end
+
+  it "I cannot create a new viewing party without inviting friends", :vcr do
+    Friendship.create_reciprocal_for_ids(@user.id, @friend1.id)
+    Friendship.create_reciprocal_for_ids(@user.id, @friend2.id)
+
+    visit top_movies_path
+
+    click_link("The Shawshank Redemption")
+
+    click_button "Create Viewing Party for Movie"
+    movie_id = current_path.split('/')[2].to_i
+    expect(current_path).to eq(movie_party_path(movie_id))
+
+    expect(page).to have_content("Movie: The Shawshank Redemption")
+    expect(find_field("Party duration (in minutes):").value).to eq('142')
+    fill_in :duration, with: 200
+    fill_in :date, with: '2020/10/14'
+    fill_in :time, with: '06:00 PM'
+    click_button('Create Party')
+    expect(page).to have_content("Friends must be selected to start a party")
+    expect(current_path).to eq(movie_party_path(movie_id))
   end
 end
