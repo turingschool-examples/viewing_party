@@ -38,7 +38,7 @@ RSpec.describe 'movie show page' do
           visit "/discover"
           click_button "Discover Top 40 Movies"
 
-          within(first(".movie")) do
+          within(first(".cards")) do
             click_link
           end
 
@@ -72,8 +72,8 @@ RSpec.describe 'movie show page' do
 
           visit "/discover"
           click_button "Discover Top 40 Movies"
-
-          within(first(".movie")) do
+          # save_and_open_page
+          within(first(".cards")) do
             click_link
           end
 
