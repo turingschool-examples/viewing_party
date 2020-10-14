@@ -2,14 +2,18 @@
 <h2><%= @movie.title %></h2>
 <%= button_to "Create viewing party", "/movies/#{@movie.id}/party/new", method: :get %>
 <h3>Vote average: <%= @movie.vote_average %></h3>
-<h3>Run time: <%= @runtime%> minutes</h3>
+<h3>Run time: <%= @runtime%></h3>
 <h3>Genres: </h3><% @movie.genres.each do |genre| %>
   <%= genre %>
   <%end %>
 <h3>Overview: <%= @movie.overview %></h3>
 <p style="font-weight:bold;">Cast:</p>
 <%@cast.each do |per| %>
-  <%=per.name %>,
+  <% if per.character == "" %>
+    <p><%= per.name %></p>
+  <% else %>
+    <p><%= per.name %> as <%= per.character %></p>
+  <% end %>
 <%end %>
 <h3>Reviews: <%=@reviews.length %></h3>
 <%@reviews.each do |rev| %>

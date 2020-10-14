@@ -6,7 +6,7 @@
   <div class="search-movies">
     <%= form_tag "/movies", value: "Search", method: :get do %>
       <h3><%= label_tag :search %></h3>
-      <%= text_field_tag :search %>
+      <%= text_field_tag :search, nil, required: true %>
       <%= submit_tag 'Search By Movie' %>
     <% end %>
   </div>

@@ -27,7 +27,7 @@ RSpec.describe 'viewing party page' do
         stub_request(:get, "https://api.themoviedb.org/3/movie/#{first_movie[:id]}?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US").to_return(status: 200, body: json3)
         stub_request(:get, "https://api.themoviedb.org/3/movie/#{first_movie[:id]}/credits?api_key=#{ENV['MOVIE_API_KEY']}").to_return(status: 200, body: json4)
         stub_request(:get, "https://api.themoviedb.org/3/movie/#{first_movie[:id]}/reviews?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US&page=1").to_return(status: 200, body: json5)
-        stub_request(:get, "https://api.themoviedb.org/3/movie/724089/recommendations?api_key=&language=en-US&page=1").to_return(status: 200, body: json9)
+        stub_request(:get, "https://api.themoviedb.org/3/movie/724089/recommendations?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US&page=1").to_return(status: 200, body: json9)
         hours = first_movie[:runtime]/60
         minutes = first_movie[:runtime] % 60
         @user1 = User.create!(username: "eDog2", email: "elah1@email.com", password: "password")

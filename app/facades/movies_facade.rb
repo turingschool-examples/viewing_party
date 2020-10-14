@@ -35,8 +35,8 @@ class MoviesFacade
     end
   end
 
-  def self.find_recommendations(id, api_key)
-    result = MovieService.recommendations(id, api_key)
+  def self.find_recommendations(id)
+    result = MovieService.recommendations(id)
     recommended = result[:results].map do |movie|
       CreateRecommendation.new(movie)
     end
