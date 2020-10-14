@@ -7,7 +7,7 @@ class CreateMovie
               :overview,
               :release_date,
               :runtime
-
+# move iteration into a new method 'format_genre'
   def initialize(attributes)
     @vote_count = attributes[:vote_count]
     @id = attributes[:id]

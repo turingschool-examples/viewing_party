@@ -8,7 +8,8 @@ class MoviesController < ApplicationController
                end
   end
 
-  def show
+  def show # put method in SearchFacade, can call 'search.method' for cast, movie, etc. NOT REQUIRED, Dione suggested
+    # search = SearhFacade.new
     @movie = SearchFacade.get_specific_movie(params[:id].to_i)
     @runtime = MovieStats.calculate_time(@movie)
     cast = SearchFacade.find_cast(params[:id].to_i)
