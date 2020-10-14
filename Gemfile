@@ -18,8 +18,6 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt'
 gem 'figaro'
 gem 'faraday'
-gem 'bootstrap'
-gem 'jquery-rails'
 
 group :development, :test do
   gem 'pry'
