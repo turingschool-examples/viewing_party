@@ -54,6 +54,25 @@ RSpec.describe 'movie discover page' do
           expect(page).to have_content("Vote average:")
         end
       end
+      it "after clicking 'Discover Current Popular Movies', I should see 40 results," do
+        json1 = File.read('spec/fixtures/popular_movies_1.json')
+        json2 = File.read('spec/fixtures/popular_movies_2.json')
+
+        stub_request(:get, "https://api.themoviedb.org/3/movie/popular?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US&page=1").to_return(status: 200, body: json1)
+        stub_request(:get, "https://api.themoviedb.org/3/movie/popular?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US&page=2").to_return(status: 200, body: json2)
+
+        visit "/discover"
+
+        click_button "Discover Current Popular Movies"
+
+        within(first('.cards'))
+        within('.card-front')
+        within('.card-inner')
+          expect(page).to have_link()
+        within(first(".card-back")) do
+          expect(page).to have_content("Vote average:")
+        end
+      end
     end
   end
 end
