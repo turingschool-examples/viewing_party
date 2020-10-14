@@ -51,7 +51,7 @@ RSpec.describe 'user dashboard' do
     visit '/dashboard'
     fill_in :email, with: "#{@user2.email}"
     click_button 'Add Friend'
-    
+
     expect(page).to have_content("#{@user2.username}")
   end
 
@@ -65,5 +65,17 @@ RSpec.describe 'user dashboard' do
     click_button 'Add Friend'
 
     expect(page).to have_content("Sorry, friend cannot be found")
+  end
+
+  it 'displays an error message when a user tries to add themself as a friend' do
+    @user1 = User.create!(username: "Dog", email: "dlah@email.com", password: "password")
+    @user2 = User.create!(username: "Cat", email: "cat@email.com", password: "cats")
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user1)
+
+    visit '/dashboard'
+    fill_in :email, with: "dlah@email.com"
+    click_button 'Add Friend'
+
+    expect(page).to have_content("Sorry, you cannot add yourself as a friend")
   end
 end
