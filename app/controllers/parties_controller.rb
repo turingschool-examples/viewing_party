@@ -8,7 +8,7 @@ before_action :require_current_user
 
   def create
     party = current_user.parties.create({
-                                          movie_title: params[:movie_title],
+                                          movie_title: params[:movie_title].titleize,
                                           date: params[:party_date],
                                           time: params[:start_time]
                                         })
