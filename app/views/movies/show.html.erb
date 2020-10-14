@@ -9,7 +9,11 @@
 <h3>Overview: <%= @movie.overview %></h3>
 <p style="font-weight:bold;">Cast:</p>
 <%@cast.each do |per| %>
-  <p><%= per.name %> as <%= per.character %></p>
+  <% if per.character == "" %>
+    <p><%= per.name %></p>
+  <% else %>
+    <p><%= per.name %> as <%= per.character %></p>
+  <% end %>
 <%end %>
 <h3>Reviews: <%=@reviews.length %></h3>
 <%@reviews.each do |rev| %>
