@@ -115,4 +115,33 @@ RSpec.describe MovieService do
     expect(next_result).to have_key :name
     expect(next_result[:name]).to be_a(String)
   end
+
+  it 'fetch list of reviews for a specific movie' do
+    first_movie = JSON.parse(File.read('spec/fixtures/first_movie_link.json'), symbolize_names: true)
+    first_movie_reviews = JSON.parse(File.read('spec/fixtures/first_movie_reviews.json'), symbolize_names: true)
+
+    json5 = File.read('spec/fixtures/first_movie_reviews.json')
+    json1 = File.read('spec/fixtures/top_40_movies_1.json')
+    json2 = File.read('spec/fixtures/top_40_movies_2.json')
+    json3 = File.read('spec/fixtures/first_movie_link.json')
+    json4 = File.read('spec/fixtures/first_movie_cast.json')
+    json9 = File.read('spec/fixtures/movie_recommendations.json')
+
+
+    stub_request(:get, "https://api.themoviedb.org/3/movie/top_rated?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US&page=1").to_return(status: 200, body: json1)
+    stub_request(:get, "https://api.themoviedb.org/3/movie/top_rated?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US&page=2").to_return(status: 200, body: json2)
+    stub_request(:get, "https://api.themoviedb.org/3/movie/#{first_movie[:id]}?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US").to_return(status: 200, body: json3)
+    stub_request(:get, "https://api.themoviedb.org/3/movie/#{first_movie[:id]}/credits?api_key=#{ENV['MOVIE_API_KEY']}").to_return(status: 200, body: json4)
+    stub_request(:get, "https://api.themoviedb.org/3/movie/#{first_movie[:id]}/reviews?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US&page=1").to_return(status: 200, body: json5)
+    stub_request(:get, "https://api.themoviedb.org/3/movie/724089/recommendations?api_key=&language=en-US&page=1").to_return(status: 200, body: json9)
+
+
+    search_results = MovieService.find_reviews(first_movie[:id])
+
+    expect(search_results).to be_a(Hash)
+    expect(search_results).to have_key :total_results
+
+    total_results = search_results[:total_results]
+    expect(total_results).to be_an(Integer)
+  end
 end
