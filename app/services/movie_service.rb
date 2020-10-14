@@ -1,4 +1,8 @@
 class MovieService
+  def self.faraday
+    Faraday.new(url: movie_db)
+  end
+
   def self.movie_db
     'https://api.themoviedb.org'
   end
@@ -19,23 +23,19 @@ class MovieService
     page = 1
     movie_results = []
     until page == 2
-      conn = Faraday.new(url: movie_db)
-      response = conn.get("#{suffix}#{ENV['MOVIE_API_KEY']}#{language_and_country}&query=#{keyword}#{page_and_adult}")
+      response = faraday.get("#{suffix}#{ENV['MOVIE_API_KEY']}#{language_and_country}&query=#{keyword}#{page_and_adult}")
       json = JSON.parse(response.body, symbolize_names: true)
       movie_results << json[:results]
       page += 1
     end
     movie_results.flatten
   end
-  # API calls and parsing the response, the only two things that should live in service
-  # can pull out Faraday call
-  # can put the longer lines into a block to make it more readable, could possibly include it into connection method
+
   def self.get_40_movies(movie_count)
     page = 1
     movie_results = []
     until movie_results.length >= movie_count
-      conn = Faraday.new(url: movie_db)
-      response = conn.get("/3/movie/top_rated?api_key=#{ENV['MOVIE_API_KEY']}#{language_and_country}&page=#{page}")
+      response = faraday.get("/3/movie/top_rated?api_key=#{ENV['MOVIE_API_KEY']}#{language_and_country}&page=#{page}")
       json = JSON.parse(response.body, symbolize_names: true)
       json[:results].each { |f| movie_results << f }
       page += 1
@@ -44,26 +44,22 @@ class MovieService
   end
 
   def self.get_specific_movie(id)
-    conn = Faraday.new(url: movie_db)
-    response = conn.get("/3/movie/#{id}?api_key=#{ENV['MOVIE_API_KEY']}#{language_and_country}")
+    response = faraday.get("/3/movie/#{id}?api_key=#{ENV['MOVIE_API_KEY']}#{language_and_country}")
     JSON.parse(response.body, symbolize_names: true)
   end
 
   def self.find_cast(id)
-    conn = Faraday.new(url: movie_db)
-    response = conn.get("/3/movie/#{id}/credits?api_key=#{ENV['MOVIE_API_KEY']}")
+    response = faraday.get("/3/movie/#{id}/credits?api_key=#{ENV['MOVIE_API_KEY']}")
     JSON.parse(response.body, symbolize_names: true)
   end
 
   def self.find_reviews(id)
-    conn = Faraday.new(url: movie_db)
-    response = conn.get("/3/movie/#{id}/reviews?api_key=#{ENV['MOVIE_API_KEY']}#{language_and_country}&page=1")
+    response = faraday.get("/3/movie/#{id}/reviews?api_key=#{ENV['MOVIE_API_KEY']}#{language_and_country}&page=1")
     JSON.parse(response.body, symbolize_names: true)
   end
 
   def self.recommendations(id)
-    conn = Faraday.new(url: 'https://api.themoviedb.org')
-    response = conn.get("/3/movie/#{id}/recommendations?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US&page=1")
+    response = faraday.get("/3/movie/#{id}/recommendations?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US&page=1")
     JSON.parse(response.body, symbolize_names: true)
   end
 
@@ -71,8 +67,7 @@ class MovieService
     page = 1
     movie_results = []
     until movie_results.length >= movie_count
-      conn = Faraday.new(url: movie_db)
-      response = conn.get("/3/movie/popular?api_key=#{ENV['MOVIE_API_KEY']}#{language_and_country}&page=#{page}")
+      response = faraday.get("/3/movie/popular?api_key=#{ENV['MOVIE_API_KEY']}#{language_and_country}&page=#{page}")
       json = JSON.parse(response.body, symbolize_names: true)
       json[:results].each { |f| movie_results << f }
       page += 1
