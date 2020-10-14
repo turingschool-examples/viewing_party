@@ -1,4 +1,4 @@
-class MovieInfo
+class MovieService
   def self.movie_db
     'https://api.themoviedb.org'
   end
