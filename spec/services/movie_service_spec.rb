@@ -23,4 +23,27 @@ RSpec.describe MovieService do
     expect(next_result).to have_key :overview
     expect(next_result[:overview]).to be_an(String)
   end
+
+  it 'fetch list of top rated movies' do
+    json1 = File.read('spec/fixtures/top_40_movies_1.json')
+    json2 = File.read('spec/fixtures/top_40_movies_2.json')
+
+    stub_request(:get, "https://api.themoviedb.org/3/movie/top_rated?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US&page=1").to_return(status: 200, body: json1)
+    stub_request(:get, "https://api.themoviedb.org/3/movie/top_rated?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US&page=2").to_return(status: 200, body: json2)
+
+    search_results = MovieService.get_40_movies(40)
+
+    expect(search_results).to be_an(Array)
+
+    next_result = search_results.first
+
+    expect(next_result).to have_key :title
+    expect(next_result[:title]).to be_a(String)
+    expect(next_result).to have_key :vote_average
+    expect(next_result[:vote_average]).to be_a(Float)
+    expect(next_result).to have_key :id
+    expect(next_result[:id]).to be_a(Integer)
+    expect(next_result).to have_key :overview
+    expect(next_result[:overview]).to be_an(String)
+  end
 end
