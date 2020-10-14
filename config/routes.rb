@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get '/movies/top_40', to: 'movies#top_movies', as: :top_movies
   get '/movies/search', to: 'movies#top_search', as: :movies_search
   get '/movies/:id', to: 'movies#show', as: :movies_show
+  get '/movies/:id/parties/new', to: 'party#new', as: :movie_party
+  post '/movies/:id/parties', to: 'party#create', as: :party_create
 
   namespace :user do
     get '/dashboard', to: 'dashboard#index'
