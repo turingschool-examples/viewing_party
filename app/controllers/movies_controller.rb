@@ -19,7 +19,7 @@ class MoviesController < ApplicationController
             else
               MoviesFacade.find_cast(params[:id].to_i)
             end
-    @recommendations = MoviesFacade.find_recommendations(params[:id].to_i, ENV['API_MOVIE_KEY'])
+    @recommendations = MoviesFacade.find_recommendations(params[:id].to_i)
     @reviews = MoviesFacade.find_reviews(params[:id].to_i)
   end
 end

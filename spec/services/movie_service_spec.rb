@@ -159,7 +159,7 @@ RSpec.describe MovieService do
     stub_request(:get, "https://api.themoviedb.org/3/movie/299534/recommendations?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US&page=1").to_return(status: 200, body: json9)
     stub_request(:get, "https://api.themoviedb.org/3/movie/299534/recommendations?api_key=&language=en-US&page=1").to_return(status: 200, body: json9)
 
-    search_results = MovieService.recommendations(299534, ENV['MOVIE_API_KEY'])
+    search_results = MovieService.recommendations(299534)
 
     expect(search_results).to be_a(Hash)
     expect(search_results).to have_key :results

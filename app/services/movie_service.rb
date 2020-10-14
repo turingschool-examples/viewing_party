@@ -61,9 +61,9 @@ class MovieService
     JSON.parse(response.body, symbolize_names: true)
   end
 
-  def self.recommendations(id, api_key)
+  def self.recommendations(id)
     conn = Faraday.new(url: 'https://api.themoviedb.org')
-    response = conn.get("/3/movie/#{id}/recommendations?api_key=#{api_key}&language=en-US&page=1")
+    response = conn.get("/3/movie/#{id}/recommendations?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US&page=1")
     JSON.parse(response.body, symbolize_names: true)
   end
 
