@@ -19,7 +19,7 @@ Note: think about putting a gif of each of the following pieces below the descri
 ![Top 40 Movies](https://media.giphy.com/media/jdMRVnfg3RH4xu5dLq/source.gif)
 <br><br><br>
 #### -a user can then click on a movie, and see details such as; that movie's title, the cast, etc.<br><br>
-![Movie show page](https://media.giphy.com/media/V6zTK9oyVHeRSMQIXf/source.gif)
+![Movie show page](https://media.giphy.com/media/MNKkY7wQ9FAbsYTHGM/source.gif)
 <br><br>
 
 ### Learning Goals 
