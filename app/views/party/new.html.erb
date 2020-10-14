@@ -22,6 +22,5 @@
     <%= collection_check_boxes(:users, :id, current_user.friends, :id, :email, include_hidden: false) %>
   </div>
   <% end %> <br>
-
-  <%= submit_tag "Create Party" %>
+  <%= submit_tag "Create Party" unless current_user.friends.empty?  %>
 <% end %>
