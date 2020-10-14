@@ -78,4 +78,41 @@ RSpec.describe MovieService do
     expect(search_results).to have_key :overview
     expect(search_results[:overview]).to be_an(String)
   end
+
+  it 'fetch list of 10 cast members for a specific movie' do
+    big_cast_movie = JSON.parse(File.read('spec/fixtures/big_cast_movie.json'), symbolize_names: true)
+    big_cast_json = JSON.parse(File.read('spec/fixtures/big_cast.json'), symbolize_names: true)
+
+    json7 = File.read('spec/fixtures/first_movie_reviews.json')
+    json5 = File.read('spec/fixtures/big_cast_movie.json')
+    json6 = File.read('spec/fixtures/big_cast.json')
+    json10 = File.read('spec/fixtures/movie_with_reviews.json')
+    json6 = File.read('spec/fixtures/movie_with_reviews_credits.json')
+    json9 = File.read('spec/fixtures/movie_recommendations.json')
+
+    stub_request(:get, "https://api.themoviedb.org/3/movie/299534?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US").to_return(status: 200, body: json10)
+    stub_request(:get, "https://api.themoviedb.org/3/movie/#{big_cast_movie[:id]}?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US").to_return(status: 200, body: json5)
+    stub_request(:get, "https://api.themoviedb.org/3/movie/#{big_cast_movie[:id]}/credits?api_key=#{ENV['MOVIE_API_KEY']}").to_return(status: 200, body: json6)
+    stub_request(:get, "https://api.themoviedb.org/3/movie/299534/reviews?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US&page=1").to_return(status: 200, body: json7)
+    stub_request(:get, "https://api.themoviedb.org/3/movie/299534/reviews?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US&page=1").to_return(status: 200, body: json7)
+    stub_request(:get, "https://api.themoviedb.org/3/movie/299534/credits?api_key=#{ENV['MOVIE_API_KEY']}").to_return(status: 200, body: json6)
+    stub_request(:get, "https://api.themoviedb.org/3/movie/299534?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US").to_return(status: 200, body: json10)
+    stub_request(:get, "https://api.themoviedb.org/3/movie/299534/recommendations?api_key=&language=en-US&page=1").to_return(status: 200, body: json9)
+
+    search_results = MovieService.find_cast(big_cast_movie[:id])
+
+    expect(search_results).to be_a(Hash)
+    expect(search_results).to have_key :cast
+
+    cast = search_results[:cast]
+
+    expect(cast).to be_an(Array)
+
+    next_result = cast.first
+
+    expect(next_result).to have_key :character
+    expect(next_result[:character]).to be_a(String)
+    expect(next_result).to have_key :name
+    expect(next_result[:name]).to be_a(String)
+  end
 end
