@@ -1,6 +1,6 @@
 class MovieService
   def self.top_rated_movies
-    page=1
+    page = 1
     movies = []
     until movies.flatten.length >= 40
       response = conn.get('/3/movie/top_rated') do |f|
@@ -15,7 +15,7 @@ class MovieService
   end
 
   def self.movies_search(keyword)
-    page=1
+    page = 1
     movies = []
     until movies.flatten.length >= 40
       response = conn.get('/3/search/movie') do |f|
@@ -34,7 +34,7 @@ class MovieService
 
   def self.movie_details(id)
     response = conn.get("/3/movie/#{id}&language=en-US")
-    json = JSON.parse(response.body, symbolize_names: true)
+    JSON.parse(response.body, symbolize_names: true)
   end
 
   def self.cast(id)
@@ -54,8 +54,6 @@ class MovieService
     json = JSON.parse(response.body, symbolize_names: true)
     json[:results].first
   end
-
-  private
 
   def self.conn
     Faraday.new(url: 'https://api.themoviedb.org') do |f|

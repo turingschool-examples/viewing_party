@@ -1,5 +1,4 @@
 class MovieDataBaseFacade
-
   def self.top_rated_movies
     MovieService.top_rated_movies.map do |movie|
       Movie.new(movie)
