@@ -10,6 +10,7 @@ RSpec.describe "User Dashboard" do
     expect(page).to have_content("Welcome #{@user.email}!")
     expect(page).to have_button("Discover Movies")
     expect(page).to have_css('.friends')
-    expect(page).to have_css('.viewing_parties')
+    expect(page).to have_css('.invited_parties')
+    expect(page).to have_css('.hosting_parties')
   end
 end

@@ -10,6 +10,7 @@ class PartyController < ApplicationController
       invited_friends[:id].each do |friend_id|
         UserParty.create(party_id: party.id, attendee_id: friend_id )
       end
+      UserParty.create(party_id: party.id, attendee_id: current_user.id, is_host: true)
       redirect_to user_dashboard_path
     else
       flash[:notice] = "Friends must be selected to start a party"
