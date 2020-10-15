@@ -49,6 +49,12 @@ class MovieService
     json[:results]
   end
 
+  def self.movie_trailer(id)
+    response = conn.get("/3/movie/#{id}/videos?language=en-US")
+    json = JSON.parse(response.body, symbolize_names: true)
+    json[:results].first
+  end
+
   private
 
   def self.conn

@@ -28,4 +28,8 @@ class MovieDataBaseFacade
       Review.new(review)
     end
   end
+
+  def self.movie_trailer(id)
+    Trailer.new(MovieService.movie_trailer(id))
+  end
 end
