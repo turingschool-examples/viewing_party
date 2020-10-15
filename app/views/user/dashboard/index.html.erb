@@ -20,6 +20,24 @@
   <% end %>
 </section>
 
-<section class='viewing_parties'>
-  <h3>Viewing Parties</h3>
+<h3>Viewing Parties</h3>
+<section class='invited_parties'>
+  <% @invited_parties.each do |party| %>
+    <div id="party-<%= party.id %>">
+    <%= party.title %><br>
+    <%= party.date %><br>
+    <%= party.time %><br>
+    <p>Invited</p>
+    </div>
+  <% end %>
+</section>
+<section class='hosting_parties'>
+  <% @host_parties.each do |party| %>
+  <div id="party-<%= party.id %>">
+    <%= party.title %><br>
+    <%= party.date %><br>
+    <%= party.time %><br>
+    <p>Hosting</p>
+  </div>
+  <% end %>
 </section>
