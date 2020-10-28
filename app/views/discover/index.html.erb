@@ -3,21 +3,25 @@
   <br>
   <br>
   <br>
-  
+
   <h1 style="font-size:60px;">Discover a Movie</h1>
 
   <img src="https://media.giphy.com/media/6nCOC4R1ssBXy/source.gif" alt="Tom Cruise You complete me" class="home-page" id="tom-cruise">
 
   <div class="search-movies">
     <%= form_tag "/movies", value: "Search", method: :get do %>
-      <h3><%= label_tag :search %></h3>
+      <h3>Search for a specific movie</h3>
       <%= text_field_tag :search, nil, required: true %>
-      <%= submit_tag 'Search By Movie' %>
+      <%= submit_tag 'Search' %>
     <% end %>
   </div>
   <div class="discover-movies2">
-    <%= button_to "Discover Top 40 Movies", "/movies", method: :get %>
-    <%= button_to "Discover Current Popular Movies", "/movies", name: "popular", method: :get %>
+    <div class="button1">
+      <%= button_to "Discover Top 40 Movies", "/movies", method: :get %>
+    </div>
+    <div class="button2">
+      <%= button_to "Discover Current Popular Movies", "/movies", name: "popular", method: :get %>
+    </div>
   </div>
   <br>
   <br>
