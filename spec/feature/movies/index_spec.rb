@@ -48,7 +48,7 @@ RSpec.describe 'movie discover page' do
         visit "/discover"
 
         fill_in :search, with: 'Pirates'
-        click_button "Search By Movie"
+        click_button 'Search'
 
         within(first(".card-back")) do
           expect(page).to have_content("Vote average:")

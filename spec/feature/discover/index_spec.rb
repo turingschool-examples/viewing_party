@@ -29,10 +29,4 @@ RSpec.describe 'movie discover page' do
     click_button 'Discover Top 40 Movies'
     expect(current_path). to eq('/movies')
   end
-
-  it 'displays search bar for movies' do
-    visit '/discover'
-
-    expect(page).to have_field('Search')
-  end
 end
