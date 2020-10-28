@@ -52,5 +52,7 @@ The purpose of this project was to get first-time practice and implemenation of 
   - 'Recommended movies', and 'top rated movies' are both extra pieces of functionality that required additional API calls
   
   ## Wishlist
-  - Future iterations: going forward, we would love to incorporate sending an email once a user has either created a viewing party, or been invited to one. This email would serve as a notification, because currently, a user needs to sign into our app to see whether or not they have any viewing parties. This email could also include an option to a 'accept' or 'decline' an invitiation
+  - Going forward we would love to incorporate sending an email once a user has either created a viewing party, or been invited to one. This email would serve as a notification, because currently, a user needs to sign into our app to see whether or not they have any viewing parties. This email could also include an option to 'accept' or 'decline' an invitiation
+  
+  - Incorporaing more JavaScript, especially for the index page to see all the movies. Currently, the styling is basic CSS/HTML cards. Eventually we'd like to be able to have nice styling effects for each movie (hover and the movie info appears, etc.).
   
