@@ -59,6 +59,15 @@ footer {
   margin: 0 auto;
   float: left;
 }
+.login-button {
+  margin: 0 auto;
+  float: left;
+}
+
+.register-button {
+  margin: 0 auto;
+  float: right;
+}
 .profile {
   margin: 0 auto;
   float:right;
@@ -84,10 +93,63 @@ footer {
   margin-bottom: 10px;
 }
 
+.friends-box input[type="text"] {
+  padding: 10px 20px 10px 20px;
+  color: #FFF;
+  background-color: #c9c9c9;
+  font-size: 15px;
+  text-align: center;
+  height: 40px;
+  font-style: normal;
+  border-radius: 5px;
+  border: 1px solid #000000;
+  border-width: 1px 1px 3px;
+  margin-bottom: 10px;
+}
+
+.friends-box{
+  float: left;
+  margin-left: 20px;
+  margin-bottom: 200px;
+  width: 20%;
+  background-color: white;
+  box-shadow: 0 0 8px #a9a9a9;
+  border-radius: 8px;
+}
+
+.viewing-parties{
+  float: right;
+  margin-right: 20px;
+  width: 20%;
+  background-color: white;
+  box-shadow: 0 0 8px #a9a9a9;
+  border-radius: 8px;
+}
+
+.viewing-parties p{
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.viewing-parties h2{
+  text-align: center;
+}
+
+.friends-box p{
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.friends-box h2{
+  text-align: center;
+}
+
 *{
   padding: 0;
   margin: 0;
 }
+
 
 .center{
   position: absolute;
@@ -249,7 +311,7 @@ form {
 
 
 .search-movies{
-  background-color: rgb(255, 208, 244);
+  background-color: rgb(255, 168, 235);
   width: 50%;
   margin: auto;
   margin-left: 20px;
@@ -272,8 +334,8 @@ input[type="text"]
   margin: 0;
   outline: 0;
   padding: 15px;
-  width: 90%;
-  background-color: #f186fa;
+  width: 88%;
+  background-color: #ffffff;
   color: #000000;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
   margin-bottom: 30px;
@@ -297,14 +359,16 @@ select {
   margin: 0;
   outline: 0;
   padding: 15px;
-  width: 100%;
-  background-color: #e8eeef;
+  width: 88%;
+  background-color: #ffffff;
   color: #8a97a0;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
   margin-bottom: 30px;
 }
 
-.form-page input[type=submit] {
+.form-page
+input[type=submit]
+{
   padding: 19px 39px 18px 39px;
   color: #FFF;
   background-color: #e96ca5;
@@ -330,10 +394,11 @@ select {
 .discover-movies2 {
   font-size: 18px;
   text-align: center;
-  width: 190px;
+  width: 100%;
   margin: auto;
   margin-top: 300px;
 }
+
 
 .dashboard-page h1{
   margin-top: 20px;
