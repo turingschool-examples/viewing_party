@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   post "/users", to: 'users#create'
   get "/dashboard", to: 'users#show'
   post '/dashboard', to: 'friendships#create'
+  get '/about', to: 'welcome#about'
 
   #login
   get '/login', to: 'sessions#new'
