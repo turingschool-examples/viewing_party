@@ -13,7 +13,7 @@ To download this app onto your compter, follow the instructions labelled 'Local 
 ### About this Project 
 
 In this project we were expected to build an app where a user can register and create viewing parties involving a movie of their choice. The app has the following features;
-
+<br>
 <br>
 #### -a user can register and subsequently login/logout of the app<br><br>
 ![Register gif](https://media.giphy.com/media/3LKT2cHV2H1mXtB3I6/source.gif)
