@@ -13,8 +13,7 @@ To download this app onto your compter, follow the instructions labelled 'Local 
 ### About this Project 
 
 In this project we were expected to build an app where a user can register and create viewing parties involving a movie of their choice. The app has the following features;
-
-Note: think about putting a gif of each of the following pieces below the description<br>
+<br>
 <br>
 #### -a user can register and subsequently login/logout of the app<br><br>
 ![Register gif](https://media.giphy.com/media/3LKT2cHV2H1mXtB3I6/source.gif)
@@ -29,6 +28,8 @@ Note: think about putting a gif of each of the following pieces below the descri
 ### Learning Goals 
 
 The purpose of this project was to get first-time practice and implemenation of API exposure and consumption as well as utilization of Continuous Integration using Travis CI. Although not required for this project, we wanted to learn how to mock external HTTP requests, which we were able to achieve with Webmock. We had a goal to implement mocking with VCR, but were unable to reach this goal within our deadline. Refactoring using Facade Design Patter was strongly encouraged for this project, which we decided as a team would be a goal for us. We achieved implementation of this design pattern and in doing so it allowed for better abstraction, encapsulation, single-responsibility. 
+
+We also used knowledge built on previous projects, such as; flash messages, CRUD functionality, MVP design patterns, and more. 
 
 ## Local Setup
 
