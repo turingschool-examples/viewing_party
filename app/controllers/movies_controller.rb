@@ -11,15 +11,6 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @movie = MoviesFacade.get_specific_movie(params[:id].to_i)
-    @runtime = MovieStats.calculate_time(@movie)
-    cast = MoviesFacade.find_cast(params[:id].to_i)
-    @cast = if cast.length >= 10
-              MoviesFacade.find_cast(params[:id].to_i)[0..9]
-            else
-              MoviesFacade.find_cast(params[:id].to_i)
-            end
-    @recommendations = MoviesFacade.find_recommendations(params[:id].to_i)
-    @reviews = MoviesFacade.find_reviews(params[:id].to_i)
+    @movie_info = MoviesFacade.get_info(params[:id].to_i)
   end
 end

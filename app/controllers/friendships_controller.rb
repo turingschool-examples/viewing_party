@@ -1,10 +1,10 @@
 class FriendshipsController < ApplicationController
   def create
-    user = self.find_a_user_by_id(current_user.id)
+    user = find_a_user_by_id(current_user.id)
     friend = find_a_user_by_email(params[:email])
     friendship1 = Friendship.new(user: user, friend: friend)
     friendship2 = Friendship.new(user: friend, friend: user)
-    self.flash_messages(friendship1, friendship2, user)
+    flash_messages(friendship1, friendship2, user)
     redirect_to '/dashboard'
   end
 
@@ -18,11 +18,11 @@ class FriendshipsController < ApplicationController
 
   def flash_messages(friendship1, friendship2, user)
     if friendship1.user == user && friendship1.friend == user
-      self.add_self_as_friend_flash_error
+      add_self_as_friend_flash_error
     elsif friendship1.save && friendship2.save
-      self.add_friend_flash_success
+      add_friend_flash_success
     else
-      self.friend_not_found_flash
+      friend_not_found_flash
     end
   end
 
