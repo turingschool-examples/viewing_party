@@ -57,3 +57,5 @@ We also used knowledge built on previous projects, such as; flash messages, CRUD
   
   - Incorporaing more JavaScript, especially for the index page to see all the movies. Currently, the styling is basic CSS/HTML cards. Eventually we'd like to be able to have nice styling effects for each movie (hover and the movie info appears, etc.).
   
+  - I (Travis) have also made it a long term goal to continue adding and refactoring this project as I learn more. 
+  
