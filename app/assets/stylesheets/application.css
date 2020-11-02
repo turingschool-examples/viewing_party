@@ -194,6 +194,26 @@ table.about h2{
   text-align: center;
 }
 
+.invited-parties{
+  float: right;
+  margin-right: 20px;
+  width: 20%;
+  background-color: white;
+  box-shadow: 0 0 8px #a9a9a9;
+  border-radius: 8px;
+}
+
+.invited-parties p{
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.invited-parties h2{
+  margin-top: 10px;
+  text-align: center;
+}
+
 .friends-box p{
   margin-top: 10px;
   margin-left: 10px;

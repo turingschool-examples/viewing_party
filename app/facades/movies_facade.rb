@@ -1,22 +1,30 @@
 class MoviesFacade
   def self.search_movies(keyword)
     results = MovieService.search_movies(keyword)
+    create_movie_objs(results)
+  end
+
+
+  def self.create_movie_objs(results)
+    array = []
     results.map do |data|
-      CreateMovie.new(data)
+      array << CreateMovie.new(data)
     end
+    array
   end
 
-  def self.get_40_movies(movie_count)
+  def self.create_one_movie_obj(data)
+    CreateMovie.new(data)
+  end
+
+  def self.get_list_movies(movie_count)
     movie_results = MovieService.get_40_movies(movie_count)
-    movie_results.map do |data|
-      CreateMovie.new(data)
-    end
+    create_movie_objs(movie_results)
   end
 
-  # change above method, it's redundant to have 40, then movie count in argument
   def self.get_specific_movie(id)
     movie = MovieService.get_specific_movie(id)
-    CreateMovie.new(movie)
+    create_one_movie_obj(movie)
   end
 
   def self.find_cast(id)
@@ -45,8 +53,6 @@ class MoviesFacade
 
   def self.get_current_popular(movie_count)
     movie_results = MovieService.popular(movie_count)
-    movie_results.map do |data|
-      CreateMovie.new(data)
-    end
+    create_movie_objs(movie_results)
   end
 end
