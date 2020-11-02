@@ -89,6 +89,38 @@ RSpec.describe 'Movie Facade' do
       expect(movie.title).to be_a(String)
       expect(movie.vote_count).to be_an(Integer)
     end
+  end
 
+  it "can get a movie's info and turn it into a hash" do
+    @user = User.create!(username: "eDog", email: "elah@email.com", password: "password")
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+    first_movie = JSON.parse(File.read('spec/fixtures/first_movie_link.json'), symbolize_names: true)
+    first_movie_reviews = JSON.parse(File.read('spec/fixtures/first_movie_reviews.json'), symbolize_names: true)
+
+    json5 = File.read('spec/fixtures/first_movie_reviews.json')
+    json1 = File.read('spec/fixtures/top_40_movies_1.json')
+    json2 = File.read('spec/fixtures/top_40_movies_2.json')
+    json3 = File.read('spec/fixtures/first_movie_link.json')
+    json4 = File.read('spec/fixtures/first_movie_cast.json')
+    json9 = File.read('spec/fixtures/movie_recommendations.json')
+
+
+    stub_request(:get, "https://api.themoviedb.org/3/movie/top_rated?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US&page=1").to_return(status: 200, body: json1)
+    stub_request(:get, "https://api.themoviedb.org/3/movie/top_rated?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US&page=2").to_return(status: 200, body: json2)
+    stub_request(:get, "https://api.themoviedb.org/3/movie/#{first_movie[:id]}?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US").to_return(status: 200, body: json3)
+    stub_request(:get, "https://api.themoviedb.org/3/movie/#{first_movie[:id]}/credits?api_key=#{ENV['MOVIE_API_KEY']}").to_return(status: 200, body: json4)
+    stub_request(:get, "https://api.themoviedb.org/3/movie/#{first_movie[:id]}/reviews?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US&page=1").to_return(status: 200, body: json5)
+    stub_request(:get, "https://api.themoviedb.org/3/movie/724089/recommendations?api_key=#{ENV['MOVIE_API_KEY']}&language=en-US&page=1").to_return(status: 200, body: json9)
+
+    movie_info = MoviesFacade.get_info(first_movie[:id])
+    expect(movie_info).to have_key :movie
+    expect(movie_info).to have_key :runtime
+    expect(movie_info).to have_key :cast
+    expect(movie_info).to have_key :recommendations
+    expect(movie_info).to have_key :reviews
+    expect(movie_info[:movie]).to be_a(CreateMovie)
+    expect(movie_info[:runtime]).to be_a(String)
+    expect(movie_info[:cast][0]).to be_a(CreateActor)
+    expect(movie_info[:runtime]).to be_a(String)
   end
 end

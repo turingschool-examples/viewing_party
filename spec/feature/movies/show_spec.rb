@@ -72,11 +72,10 @@ RSpec.describe 'movie show page' do
 
           visit "/discover"
           click_button "Discover Top 40 Movies"
-          # save_and_open_page
+
           within(first(".cards")) do
             click_link
           end
-
           expect(page).to have_content("Reviews: #{first_movie_reviews[:total_results]}")
           expect(page).to have_button("Create viewing party")
         end
