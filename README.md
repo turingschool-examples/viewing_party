@@ -42,7 +42,7 @@ We also used knowledge built on previous projects, such as; flash messages, CRUD
 5. Setup the database: `rails db:create`
 6. You will need to sign up for an API key through [theMovieDB API](https://developers.themoviedb.org/)
 7. From the command line, run `bundle exec figaro install`. By running this command, rails will create an application.yml file under your config folder. Open up that file, and paste your API key in by following this format: MOVIE_API_KEY: 'your api key here'
-8. Once inside the project directory, run `bundle exec rspec`. You should have 800 passing tests
+8. Once inside the project directory, run `bundle exec rspec`. You should have several passing tests
 
 ## Features
   - A new user can register with a username, email, and password. We used 'bcrypt' for password security and encryption
