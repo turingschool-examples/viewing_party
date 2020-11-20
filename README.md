@@ -42,7 +42,7 @@ We also used knowledge built on previous projects, such as; flash messages, CRUD
 5. Setup the database: `rails db:create`
 6. You will need to sign up for an API key through [theMovieDB API](https://developers.themoviedb.org/)
 7. From the command line, run `bundle exec figaro install`. By running this command, rails will create an application.yml file under your config folder. Open up that file, and paste your API key in by following this format: MOVIE_API_KEY: 'your api key here'
-8. Once inside the project directory, run `bundle exec rspec`. You should have 800 passing tests
+8. Once inside the project directory, run `bundle exec rspec`. You should have several passing tests
 
 ## Features
   - A new user can register with a username, email, and password. We used 'bcrypt' for password security and encryption
@@ -56,4 +56,6 @@ We also used knowledge built on previous projects, such as; flash messages, CRUD
   - Going forward we would love to incorporate sending an email once a user has either created a viewing party, or been invited to one. This email would serve as a notification, because currently, a user needs to sign into our app to see whether or not they have any viewing parties. This email could also include an option to 'accept' or 'decline' an invitiation
   
   - Incorporaing more JavaScript, especially for the index page to see all the movies. Currently, the styling is basic CSS/HTML cards. Eventually we'd like to be able to have nice styling effects for each movie (hover and the movie info appears, etc.).
+  
+  - I (Travis) have also made it a long term goal to continue adding and refactoring this project as I learn more. 
   
