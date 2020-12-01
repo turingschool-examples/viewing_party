@@ -43,6 +43,7 @@ describe "As a visitor" do
       click_button 'Sign In'
 
       expect(current_path).to eq('/dashboard')
+      expect(page).to have_content('Login Successful!')
     end
   end
 end
