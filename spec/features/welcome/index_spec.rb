@@ -15,7 +15,7 @@ RSpec.describe 'Welcome Page' do
       expect(page).to have_field("Email")
       expect(page).to have_field("Password")
       expect(page).to have_button("Log In")
-      expect(page).to have_link("First Time? Register Here")
+      expect(page).to have_link("First Time User? Register Here")
     end
   end
 end
