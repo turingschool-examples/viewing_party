@@ -6,11 +6,43 @@ describe "As a visitor" do
       visit root_path
 
       expect(page).to have_content('Welcome to Viewing Party!')
-
-      within '#description' do
-        expect(page).to have_content('')
-      end
     end
     
+    it "I see fields to login" do
+      visit root_path
+
+      within '#description' do
+        expect(page).to have_content('Finally, a place where you can enjoy all your favorite movies with all your best friends!')
+      end
+
+      expect(page).to  have_field('Email')
+      expect(page).to  have_field('Password')
+      expect(page).to  have_button('Sign In')
+    end
+    
+    it "I see a link to register as a new user" do
+      visit root_path
+
+      expect(page).to  have_link('New to Viewing Party? Register Here!')
+    end
+
+    it "When I click the register new user link, I am taken to the register new user page" do
+      visit root_path
+      
+      click_link('New to Viewing Party? Register Here!')
+      expect(current_path).to eq("/registration")
+    end
+
+    xit "When I enter valid login information and submit, I am redirected to the user dashboard" do
+
+
+      visit root_path
+
+      fill_in "Email",	with: "sometext" 
+      fill_in "Password",	with: "sometext"
+      click_button 'Sign In'
+
+      expect(current_path).to eq('/dashboard')
+    end
   end
 end
