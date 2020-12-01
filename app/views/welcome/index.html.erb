@@ -1,0 +1,11 @@
+<h1>Welcome to Viewing Party!</h1>
+
+<h3 id="description">Finally, a place where you can enjoy all your favorite movies with all your best friends!</h3>
+
+<%= form_with url: login_path, local: true do |f| %>
+  <%= f.text_field :email, placeholder: 'Enter Email' %>
+  <%= f.text_field :password, placeholder: 'Enter Password' %>
+  <%= f.submit "Sign In" %>
+<% end %>
+
+<%= link_to 'New to Viewing Party? Register Here!', '/registration' %>
