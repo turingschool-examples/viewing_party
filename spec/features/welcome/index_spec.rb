@@ -15,8 +15,8 @@ describe "As a visitor" do
         expect(page).to have_content('Finally, a place where you can enjoy all your favorite movies with all your best friends!')
       end
 
-      expect(page).to  have_field('Email')
-      expect(page).to  have_field('Password')
+      expect(page).to  have_field(:email)
+      expect(page).to  have_field(:password)
       expect(page).to  have_button('Sign In')
     end
     
@@ -26,7 +26,7 @@ describe "As a visitor" do
       expect(page).to  have_link('New to Viewing Party? Register Here!')
     end
 
-    it "When I click the register new user link, I am taken to the register new user page" do
+    xit "When I click the register new user link, I am taken to the register new user page" do
       visit root_path
       
       click_link('New to Viewing Party? Register Here!')
@@ -34,12 +34,10 @@ describe "As a visitor" do
     end
 
     xit "When I enter valid login information and submit, I am redirected to the user dashboard" do
-
-
       visit root_path
 
-      fill_in "Email",	with: "sometext" 
-      fill_in "Password",	with: "sometext"
+      fill_in :email,	with: "sometext" 
+      fill_in :password,	with: "sometext"
       click_button 'Sign In'
 
       expect(current_path).to eq('/dashboard')
