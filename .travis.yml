@@ -9,11 +9,9 @@ script:
 deploy:
   provider: heroku
   api_key:
-    secure: UmHfau/p73lX/OtywYrxpglPMZK0o3+3LLtC+ly2NOUd21gzhJJqcFrAG4ElQCPP3zFAE+tuXHKfvvRQ7COJu4CQXTrZlSUAzsfMHVLsSEbok/AbN4warUdfX5WZ0UnO5x67+6vGAy3GSShD6ZzcEdjWGCRT3/x8iCCwof8XPCVdyWPIRpyB9pR6ukY1cuClixxcyw0qz1/t+WLkd+DKo8i4q8baEgZpMPSjXzPdPcCt1wvNV9zXO4lpU6nimumG5WKbV9O5x/0lozHSx3UcjQpC/JBWEujQc5uq5jwylmjDT8Wu3hrAtklzeD749PirUOuLTEE4UaKklEx0Cz+ZnuOZwd+eeXFy7MReqQkDLroneab76JF5Ziedm5ksI8KDfQS6VcVq/28EXiKoHZi4oT1B9ijOywn1FMvj0y/ZJS3u4d23AyEYImobU+AY4GcQjh0jsSHwzynWkjdLIKfv2rb3va7Eno4b5u5rxN9dz4B2AcC1gbSe8lK69AimD0ecPHWAt41PqMZWBTS+O8NAxI/D+s5rM0h6tUdwJ7xiBZxN6fkbjOUcZ2BdN0gCm1alIsuq7jw6UQdi2VLiTwOTc/9Td2xVr6qXQwU4WdHfc7HdAasb8lS0UqPuvMhXamc9kL1hmM1rEoX6HEi/OoeD69YvNVGlyxlmFU6TQ+QMDh0=
-  app: fierce-brushlands-18298
-    on:
-      repo: jakeheft/viewing_party
-      branch: main
-    skip_cleanup: 'true'
-  run: rails db:{migrate, seed}
-# remove later
+    secure: o2NKsfnL992msiv53aOSkZH0rPQ40f8z9zXbyBgNiBm3BgJ1Y/U7Ob1jKoac8YTAjkpgOaVK+HPhDo6zA7sC+xqjwXp5ECyULAa0iimY4A0++SVrZ5ckuJyEgkbXclMPGWEsQOw9KSi216VPq41O6CB3nAz2jPt8PGIQwWjOA0s5L3jgWLr+SlwIkhb/AlSeOpLIPsHAjGxSo6ouDbsPCC9ZXPVZsGpoEyjX9ptyyDkaDcMzEMlWf34r1eXSy2u8UChunh0voqYK3zKyMtIkRcYxOPj/AjIheXDOua4m+Z5M+ymLOWxgFaq9Nwf6nRAKKLC3f01A4TEsWFhAgfAjrVgRSODW6qpxA16oL3czn/S7X6uOZbLDTjzg8+MRbiqwf/P/XiXmlNkloSzFVKxDCU7BesSD72CvbCDU0lfl741dl5WhAiQw7mX+LBU3+IJzYd07VvyeCiEtouKEEGj62eEIvOYpepjRrkyeS2nj3KxC9JPG2f+ZFjrCZtNaIJmuKCGpfJlTgdTfw5ftDU/5JM6cslQ7CLzzZuGk6O4gs1oTc+wQvfSiY2fZDQp8vfvtzltzsgHhEUB/hg8AxlwqYt0lmvnmFAp4aavnwmhVcuIvth70vZUPwU4ahGsOg2GmxlKS4/lGzu4CVSqZe+o2P5L2j1ntybhMny1XuYfznV0=
+  app: viewing-party-jake
+  on:
+    repo: jakeheft/viewing_party
+    branch: main
+  skip_cleanup: 'true'
