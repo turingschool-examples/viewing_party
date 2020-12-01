@@ -16,3 +16,4 @@ deploy:
       branch: main
     skip_cleanup: 'true'
   run: rails db:{migrate, seed}
+# remove later
