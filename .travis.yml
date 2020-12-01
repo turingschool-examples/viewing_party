@@ -11,6 +11,7 @@ deploy:
   provider: heroku
   api_key:
     secure: Z1oPuuQmhjxUJwLEuixN9+Nhu/WQsUaZFAEWiqRpGx4Bt97/XfkoStNvijfDd5Qcpw/hogmwYto98AK7DR/1P3BTPAYXxR+PEEQiJjVmMvR/LsLtV1DL2Ff3kP5CGCFJnWry5uSCQqf7p4rWx/wg85znLbCBiiJXM0JHiDIFRIK6lc+B5KnFtj4bR8LWlU1WUhSp9hitc38Gj8miCBIUE7/85kyM0DjQlknxq1pzU/jp/xRdiwXdBPSGVRT/rFEkMFOuRjK41JtRTsvph3UkMKGg/Aq6fOcmZMvd9YDWOGt6IeYjstCJNNvHD9iu5Vn5WuZdD9PtcUZ/Yu2CexTVjTdhJkVmwxmwyQgQwa/7xYEIJlPKP7Skwb3frXYvk22artUty5V1oYCHvXiEcat8mQxDzj0QQ1EVwzH2o/rOJD25fwoEfR5hGvjdaUtMbjpCfHVppgzGYm0zug9w3axUAX0Q/jUQJR4w8iXibxhNz+Zeq4xJkSQZRb9hGMqQMs8BWhI8aczicazLnNTW3UpZwFmTtvK6jZ48AFNMynhRTCm+LyNDI2Ry7gK2SEvY7JkCa7eWxI9iytS4LV2COBIwtq6zROMb0zGd7mSpwCLtIbEBHKeeSxd0WlFC3faqN9g4b/ZBz/94ZSXQhEGUn6/8f/Z4gqRRZj9aA0bNoy5Q1Oo=
+  app: agile-retreat-25350
   run: rails db:migrate
   on:
     repo: cpfergus1/viewing_party
