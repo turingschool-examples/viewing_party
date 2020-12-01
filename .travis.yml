@@ -8,6 +8,6 @@ script:
 - bundle exec rspec
 deploy:
   provider: heroku
-  api_key: 
-  app:
+  api_key: sxIYEBUNCBkVqXOWZMaQCQ
+  app: viewing-party-2008-be
   run: rails db:migrate
