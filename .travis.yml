@@ -15,5 +15,5 @@ deploy:
   run: rails db:migrate
   on:
     repo: cpfergus1/viewing_party
-    branch: project-initialize
+    branch: main
   skip_cleanup: 'true'
