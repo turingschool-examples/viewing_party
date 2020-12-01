@@ -9,5 +9,8 @@ script:
 deploy:
   provider: heroku
   api_key:
-  app:
+    secure: "J2GtEv00Jph5VRPJg7TTctc98jqT+oz4wSpEho9HAYq7kZSA+lgNNFo1dL88IeuVl8EfRKBhO+6LyZrmdbR6x8c5zIY3gnO5e5he/xS9s1eexTQTiUrzx94rDPO5OzmZ1DbxRaDweYtLqobHHaURA3Y+BJCLKo8cFRKsvrZw79UIE4shw7+xzP8nYAWC79/0SYBHR9ehlZ9HBeYJ7FLPYQoUeR1BJPyrSU8zN36ayVURGuB5cJs7bTFaZi4i/NdF2D8Qj1cr6UvDlJXw8mBvsZZVA42TSeOI38vtvxr4N+ftVpIdVBj6+8K01JeSA4ookw3xx2IKDir5adbaWJ0Sij+OgaIdwW7OfIyxf70SieMKpB82gDqE+pAeUuG+Rivq5Z7StGWHpOe2p87m/W56eHKM5TnhYGT7iEq/hi+RTtyDOdVPyhf+T8hSXMq4w/OYQ1Xemp2550sOdlTn0hS71wl1u2ZVCjffkIn0+GRppecaa4WJ2u4W4rDfH80hvpdX8tsd+xcCicvNdNqvId02yG2R9DprFy6VdRn8Xw287J2WZJmkCAUmQbpyfCjc1bklgF21mnNh8saSM2S5HC33NBl8VMeIWSVforl5+vJz727uQvBQ7lBdo6mEKD+2IG1BWoHzNT0idL+EHXLwPedZheE2T+JznoOa23GoBt4cGpc="
+  app: guarded-refuge-05465
+  on:
+    repo: todd-estes/viewing_party
   run: rails db:migrate
