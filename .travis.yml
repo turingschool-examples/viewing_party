@@ -6,9 +6,14 @@ addons:
 script:
 - bundle exec rails db:{create,migrate} RAILS_ENV=test
 - bundle exec rspec
+cache: bundler
 deploy:
   provider: heroku
-  api_key: 
+  api_key:
     secure: "NWNzMIcxO9MHT/21OIOqbMuLNYbTX50Pw6v5+ybHag094Lo0RvnGfGEddbjC5lPpDzJtOjq2rX+c8a74uGD5xNFpxXU+iFpe8fVdKxy24fsY8DvMrDFMSUE6AVy8z/z7G5PkTij3vBTogo6UJ3oP8tTwInk4nSc1q8jY8SqtX0eCKnm2Qcxh5xGMzqg+A6wXjrIjnQZ0LU0cZIqWOatUCM6QR6i2MjpmUFJU0WJ0MiEfxnUu0WlfvByyTBrS2RYJAUENHYF67Zt+96CIG7UnCoGZUfntaVtiM4MHgJ6JwVboVVvv4OO3gSshdcAbYroTNtU7xEJrMFR9wAnD4N9uXrteJ5FpAYYoxIelr270iSzfZPMbyWbum64Cq31XmUHGRflKfeW7mxts4sSyyqsucutdSVl8YHjuElebRq8f9K1p1IHhXDv6rkJks4VeA73hz/yx14ymkgz1ay2HBZajsrTm8uCmETFqsi/AZGCWssbMICu68AbCqWjFVYuRZLSZbqvQlh1YAjhKc0YQZLmVMnpClswp2lNBSkgKXZq1Gg0+09xC9hQSZoRm06yDxwe7WJyyWrxobNW16zGEJ8m96DbgBXa4UuXZA0OmPb3MNKGZuVKw84k9j0txzfbQPVaeV8U4Kj5H9Hb8yHCZzlqSkvMF1JtcBdmgTWDgyq2taj4="
+  on:
+    branch: main
+    repo: cpfergus1/viewing_party
   app: agile-retreat-25350
   run: rails db:migrate
+  skip_cleanup: 'true'
