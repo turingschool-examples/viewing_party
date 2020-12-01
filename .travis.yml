@@ -8,6 +8,11 @@ script:
 - bundle exec rspec
 deploy:
   provider: heroku
-  api_key: 22ed356c229b8e088a9c696bdb54d165
+  api_key:
+    secure: UmHfau/p73lX/OtywYrxpglPMZK0o3+3LLtC+ly2NOUd21gzhJJqcFrAG4ElQCPP3zFAE+tuXHKfvvRQ7COJu4CQXTrZlSUAzsfMHVLsSEbok/AbN4warUdfX5WZ0UnO5x67+6vGAy3GSShD6ZzcEdjWGCRT3/x8iCCwof8XPCVdyWPIRpyB9pR6ukY1cuClixxcyw0qz1/t+WLkd+DKo8i4q8baEgZpMPSjXzPdPcCt1wvNV9zXO4lpU6nimumG5WKbV9O5x/0lozHSx3UcjQpC/JBWEujQc5uq5jwylmjDT8Wu3hrAtklzeD749PirUOuLTEE4UaKklEx0Cz+ZnuOZwd+eeXFy7MReqQkDLroneab76JF5Ziedm5ksI8KDfQS6VcVq/28EXiKoHZi4oT1B9ijOywn1FMvj0y/ZJS3u4d23AyEYImobU+AY4GcQjh0jsSHwzynWkjdLIKfv2rb3va7Eno4b5u5rxN9dz4B2AcC1gbSe8lK69AimD0ecPHWAt41PqMZWBTS+O8NAxI/D+s5rM0h6tUdwJ7xiBZxN6fkbjOUcZ2BdN0gCm1alIsuq7jw6UQdi2VLiTwOTc/9Td2xVr6qXQwU4WdHfc7HdAasb8lS0UqPuvMhXamc9kL1hmM1rEoX6HEi/OoeD69YvNVGlyxlmFU6TQ+QMDh0=
   app: fierce-brushlands-18298
+    on:
+      repo: jakeheft/viewing_party
+      branch: main
+    skip_cleanup: 'true'
   run: rails db:{migrate, seed}
