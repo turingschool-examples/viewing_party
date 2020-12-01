@@ -10,4 +10,4 @@ deploy:
   provider: heroku
   api_key: 22ed356c229b8e088a9c696bdb54d165
   app: fierce-brushlands-18298
-  run: rails db:migrate
+  run: rails db:{migrate, seed}
