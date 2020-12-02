@@ -1,0 +1,8 @@
+<h1>Welcome <%= @user.first_name %> <%= @user.last_name %></h1>
+
+<h2><%= button_to 'Find Top Rated Movies', '/movies' %></h2>
+<h2>Or</h2>
+<%= form_with url: '/movies', method: 'get' do %>
+  <%= text_field_tag :movie_title, nil , placeholder: "Search by movie title"%>
+  <%= submit_tag "Find Movies" %>
+<% end %>
