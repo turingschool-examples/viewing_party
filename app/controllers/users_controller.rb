@@ -4,8 +4,19 @@ class UsersController < ApplicationController
   end
 
   def create
-    require "pry"; binding.pry
     user = User.new(user_params)
+    if user.save
+      session[:user_id] = user.id
+      redirect_to '/dashboard'
+    else
+      flash.now[:error] = user.errors.full_messages.to_sentence
+      user.email = nil if User.find_by(email: user.email)
+      render :new
+    end
+  end
+
+  def show
+    @user = User.find(session[:user_id])
   end
 
   private
