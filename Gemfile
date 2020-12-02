@@ -20,6 +20,7 @@ gem 'bcrypt', '~> 3.1.7'
 group :development, :test do
   gem 'pry'
   gem 'travis'
+  gem 'rspec_pacman_formatter'
   gem 'shoulda-matchers'
 end
 
