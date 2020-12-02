@@ -14,7 +14,7 @@ describe 'User Registration' do
       click_button 'Register'
 
       expect(current_path).to eq('/dashboard')
-      expect(page).to have_content('Welcome, Sam!')
+      expect(page).to have_content('Your account has successfully been created, Sam.')
     end
 
     it 'displays an error if any required field is left blank' do
@@ -41,7 +41,7 @@ describe 'User Registration' do
       fill_in 'Password confirmation', with: 'password'
 
       click_button 'Register'
-
+save_and_open_page
       expect(page).to have_content("Email has already been taken")
     end
 
