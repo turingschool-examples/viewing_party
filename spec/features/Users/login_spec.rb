@@ -13,7 +13,7 @@ RSpec.describe "Logging In" do
     expect(current_path).to eq('/dashboard')
 
     expect(page).to have_content("Welcome, #{user.name}")
-    expect(page).to have_button("Log out")
+    expect(page).to have_button("Logout")
   end
 
   it "cannot log in with bad credentials" do
@@ -32,7 +32,7 @@ RSpec.describe "Logging In" do
 
     click_on "Log In"
 
-    expect(current_path).to eq('/')
+    expect(current_path).to eq(root_path)
 
     expect(page).to have_content("Sorry, your credentials are bad.")
 
@@ -41,9 +41,17 @@ RSpec.describe "Logging In" do
 
     click_on "Log In"
 
-    expect(current_path).to eq('/')
+    expect(current_path).to eq(root_path)
 
     expect(page).to have_content("Sorry, your credentials are bad.")
+  end
+
+  it "I can't visit the dashboard without being logged in" do
+    visit dashboard_path
+
+    expect(current_path).to eq(dashboard_path)
+    expect(page).to have_content('401')
+    expect(page).to have_content('You are not authorized to access this page')
   end
 
 
