@@ -29,3 +29,8 @@ footer {
   align-self: baseline;
   flex-direction: row;
 }
+
+.topnav a {
+  float: right;
+  text-align: center;
+}
