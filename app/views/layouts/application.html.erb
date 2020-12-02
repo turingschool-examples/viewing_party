@@ -8,16 +8,16 @@
     <%= javascript_include_tag 'application' %>
   </head>
 
+  <nav class="topnav">
+    <% if current_user %>
+      <%= link_to "Logout", "/logout" %>
+    <% end %>
+  </nav>
+
   <body>
     <main>
       <%= yield %>
     </main>
-
-    <nav class="topnav">
-      <% if current_user %>
-        <%= link_to "Logout", "/logout" %>
-      <% end %>
-    </nav>
 
     <% flash.each do |name, msg| %>
     <div class= "<%=name%>-flash">
