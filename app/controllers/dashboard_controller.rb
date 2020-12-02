@@ -4,6 +4,6 @@ class DashboardController < ApplicationController
   end
 
   def discover
-    @user = current_user
+    
   end
 end
