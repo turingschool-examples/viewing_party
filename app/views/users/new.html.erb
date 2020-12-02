@@ -1,0 +1,14 @@
+<h1>Register for Viewing Party</h1>
+<p>Password length should be 8-70 characters and include: 1 uppercase, 1 lowercase, 1 digit and 1 special character.</p>
+<%= form_with model: @user do |f| %>
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
+
+  <%= f.submit 'Register' %>
+<% end %>
