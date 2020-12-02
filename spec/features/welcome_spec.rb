@@ -13,4 +13,12 @@ describe "Welcome Page:" do
 
     expect(page).to have_link("New to Viewing Party? Register Here.")
   end
+
+  it "A user can log in" do
+    visit '/'
+
+    expect(page).to have_field(:email)
+    expect(page).to have_field(:password)
+    expect(page).to have_button('Login')
+  end
 end
