@@ -3,6 +3,10 @@
 <h2>Please Register for an Account</h2>
 
 <%= form_tag '/users', method: :post do %>
+  <%= label_tag :first_name %><br>
+  <%= text_field_tag :first_name %><br><br>
+  <%= label_tag :last_name %><br>
+  <%= text_field_tag :last_name %><br><br>
   <%= label_tag :email %><br>
   <%= text_field_tag :email %><br><br>
   <%= label_tag :password %><br>
