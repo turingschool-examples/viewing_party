@@ -59,7 +59,18 @@ describe "As a visitor" do
       click_button 'Sign In'
 
       expect(current_path).to eq(root_path)
-      expect(page).to have_content('There is no account associated with this email address.')
+      expect(page).to have_content('Please enter a valid email address.')
+    end
+
+    it "When I attempt to log in with an invalid password I get an error" do
+      visit root_path
+
+      fill_in :email, with: "zach@email.com"
+      fill_in :password, with: "multipass"
+      click_button 'Sign In'
+
+      expect(current_path).to eq(root_path)
+      expect(page).to have_content('Incorrect password, please try again.')
     end
   end
 end
