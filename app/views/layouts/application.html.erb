@@ -9,6 +9,9 @@
   </head>
 
   <body>
+    <nav>
+      <div align = 'right'> <%= link_to 'Logout',logout_path, method: :delete if current_user %></div>
+    </nav>
     <main>
       <% flash.each do |type, message| %>
         <p><%= message %></p><br>

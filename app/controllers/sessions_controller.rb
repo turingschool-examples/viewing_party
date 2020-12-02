@@ -1,20 +1,13 @@
 class SessionsController < ApplicationController
-  def new
-    return unless current_user
-
-    flash[:notice] = 'You are already logged in.'
-    redirect_to user_dashboard_path
-  end
-
   def login
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      flash[:notice] = "Welcome, #{user.username}"
+      flash[:notice] = 'You have successfully logged in!'
       redirect_to user_dashboard_path
     else
       flash[:failure] = 'Your e-mail or password was incorrect!'
-      render :new
+      redirect_to root_path
     end
   end
 
