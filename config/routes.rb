@@ -3,5 +3,6 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-  get '/registration', to: 'users#new'
+  get '/registration', to: 'users#new', as: 'users'
+  post '/registration', to: 'users#create'
 end

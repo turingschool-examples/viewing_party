@@ -1,6 +1,6 @@
 <h1>Register for Viewing Party</h1>
 
-<%= form_with @user |f| do %>
+<%= form_with model: @user do |f| %>
   <%= f.label :email %>
   <%= f.text_field :email %>
 
