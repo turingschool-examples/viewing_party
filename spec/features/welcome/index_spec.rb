@@ -26,18 +26,23 @@ describe "As a visitor" do
       expect(page).to  have_link('New to Viewing Party? Register Here!')
     end
 
-    xit "When I click the register new user link, I am taken to the register new user page" do
+    it "When I click the register new user link, I am taken to the register new user page" do
       visit root_path
       
       click_link('New to Viewing Party? Register Here!')
       expect(current_path).to eq("/registration")
     end
 
-    xit "When I enter valid login information and submit, I am redirected to the user dashboard" do
+    it "When I enter valid login information and submit, I am redirected to the user dashboard" do
+      user = User.create!(first_name: 'Zach',
+        last_name: 'Stearns',
+        email: 'zach@email.com', 
+        password: 'password')
+      
       visit root_path
 
-      fill_in :email,	with: "sometext" 
-      fill_in :password,	with: "sometext"
+      fill_in :email,	with: "zach@email.com" 
+      fill_in :password,	with: "password"
       click_button 'Sign In'
 
       expect(current_path).to eq('/dashboard')
