@@ -11,7 +11,7 @@ RSpec.describe 'Registration Page' do
       expect(page).to have_content("Please Register an Account")
       expect(page).to have_field("Email")
       expect(page).to have_field("Password")
-      expect(page).to have_field("Password Confirmation")
+      expect(page).to have_field("Password confirmation")
       expect(page).to have_button("Register")
 
       email = "John@example.com"
