@@ -10,10 +10,15 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to "/dashboard"
     else
-      flash.now[:notice] = 'Your email or password was incorrect!'
+      flash.now[:error] = 'Your email or password was incorrect!'
       render :new
     end
   end
 
+  def destroy
+    session.clear
+    flash[:success] = "You have successfully logged out!" 
+    redirect_to "/"
+  end
 
 end
