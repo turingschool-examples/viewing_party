@@ -10,7 +10,7 @@ describe 'As a user' do
     click_button 'Sign In'
   end
 
-  it 'when I visit /discover' do
+  it 'when I visit /discover I expect to see 2 buttons and a text field' do
     visit '/discover'
     user = User.last
     expect(page).to have_content("Welcome #{user.first_name} #{user.last_name}")
