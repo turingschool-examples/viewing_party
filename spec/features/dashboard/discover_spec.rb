@@ -28,5 +28,4 @@ describe 'As a user' do
     click_button 'Find Movies'
     expect(current_path).to eq('/movies')
   end
-  
 end
