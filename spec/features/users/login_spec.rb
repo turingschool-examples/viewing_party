@@ -8,11 +8,14 @@ describe "As a visitor" do
                           email: 'zach@email.com', 
                           password: 'password')
 
+      visit root_path
+
       fill_in :email,	with: "#{user.email}"
       fill_in :password,	with: "#{user.password}"
       click_button 'Sign In'
 
       expect(current_path).to eq('/dashboard')
+      expect(page).to have_content('Login Successful!')
     end
   end
 end
