@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'welcome#index'
-
+  get '/login', to: 'sessions#login', as: :login
+  get '/logout', to: 'sessions#logout', as: :logout
   get '/registration', to: 'users#new', as: :registration
 
   # resources :users, only: [:new, :create], path_names: {new: "registration"}
@@ -10,4 +11,5 @@ Rails.application.routes.draw do
   namespace 'user' do
     resource :dashboard, only: [:show], controller: :dashboard
   end
+
 end
