@@ -4,13 +4,19 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by(email: params[:email])
-    if !user
-      flash[:error] = "Incorrect login information"
-      render :new
-    else
+    if user.authenticate(params[:password])
       session[:user_id] = user.id
       flash[:success] = "Welcome, #{user.email}!"
       redirect_to "/dashboard"
-    end 
+    else
+      flash[:error] = "Incorrect login information"
+      redirect_to root_path
+    end
+  end
+
+  def logout
+    session.delete(:user_id)
+    flash[:notice] = 'You have been logged out!'
+    redirect_to root_path
   end
 end
