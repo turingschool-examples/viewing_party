@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   post "/registration", to: "users#create"
   get '/dashboard', to: 'users#show'
 
-  post '/login', to: 'sessions#create'
+  post '/login', to: 'sessions#login'
   get '/logout', to: 'sessions#logout'
 end
