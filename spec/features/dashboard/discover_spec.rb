@@ -27,5 +27,13 @@ describe 'As a user' do
     fill_in :movie_title,	with: "star"
     click_button 'Find Movies'
     expect(current_path).to eq('/movies')
+
+    within all('.movie-results')[0] do
+      expect(page).to have_content(/star/i)
+    end
+
+    within all('.movie-results')[39] do
+      expect(page).to have_content(/star/i)
+    end
   end
 end
