@@ -1,14 +1,44 @@
 class MovieService
-  attr_reader :uuid, :title
+  attr_reader :uuid, :data, :reviews, :cast
   def initialize(uuid)
     @uuid = uuid
-    @title = movie_data(uuid)[:original_title]
+    @data = parse_data(movie_data)
+    @reviews = parse_data(review_data)
+    @cast = parse_data(cast_data)
   end
 
-  def movie_data(uuid)
-    conn = Faraday.new("https://api.themoviedb.org")
-    response = conn.get("/3/movie/#{uuid}?api_key=#{ENV['MDB_API_KEY']}")
+  private
+  def movie_data
+    connection.get("/3/movie/#{@uuid}?api_key=#{ENV['MDB_API_KEY']}")
+  end
+
+  def review_data
+    connection.get("/3/movie/#{@uuid}/reviews?api_key=#{ENV['MDB_API_KEY']}")
+  end
+
+  def cast_data
+    connection.get("/3/movie/#{@uuid}/credits?api_key=#{ENV['MDB_API_KEY']}")
+  end
+
+  def connection
+    Faraday.new("https://api.themoviedb.org")
+  end
+
+  def parse_data(response)
     JSON.parse(response.body, symbolize_names: true)
   end
-
+  # def self.movie_details(uuid)
+  #   response = conn.get("/3/movie/#{uuid}?api_key=#{ENV['MDB_API_KEY']}")
+  #   JSON.parse(response.body, symbolize_names: true)
+  # end
+  #
+  # def self.reviews(uuid)
+  #   response = conn.get("/3/movie/#{uuid}?api_key=#{ENV['MDB_API_KEY']}")
+  #   JSON.parse(response.body, symbolize_names: true)
+  # end
+  #
+  # def self.movie_credits(uuid)
+  #   response = conn.get("/3/movie/#{uuid}?api_key=#{ENV['MDB_API_KEY']}")
+  #   JSON.parse(response.body, symbolize_names: true)
+  # end
 end
