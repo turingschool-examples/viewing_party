@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#login', as: :login
   delete '/logout', to: 'sessions#logout', as: :logout
   get '/registration', to: 'users#new', as: :registration
-
+  resources :discover, only: [:index]
   # resources :users, only: [:new, :create], path_names: {new: "registration"}
   resources :users, only: [:create]
 
