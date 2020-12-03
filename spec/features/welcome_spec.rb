@@ -2,10 +2,11 @@ require 'rails_helper'
 
 describe "Welcome Page:" do
   it 'it has a welcome message and description' do
+    description = 'Invite all your friends and setup a viewing party to watch some exciting movies! Remember, if you are watching a movie alone, Samara will find you and get you.'
     visit '/'
 
     expect(page).to have_content("Welcome to Viewing Party!")
-    expect(page).to have_content("Description")
+    expect(page).to have_content(description)
   end
 
   it 'it has a link to register a new user' do
