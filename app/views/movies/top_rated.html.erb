@@ -5,7 +5,7 @@
   <%= f.submit "Find Movies" %>
 <% end %>
 <ol>
-  <% @array.each do |movie| %>
+  <% @top_movies.each do |movie| %>
   <section id='movie-<%= movie[:id] %>' class="movie-column">
       <li><%= link_to movie[:title], "/movies/#{movie[:id]}" %></li>
   </section>
