@@ -1,7 +1,7 @@
 class MovieApiService
   def self.conn
     Faraday.new(url: "https://api.themoviedb.org") do |faraday|
-      faraday.params[:api_key] = '7764c558db179fb3d04a49c710fe500c'
+      faraday.params[:api_key] = ENV['MOVIE_DB_API_KEY']
     end
   end
 
@@ -24,5 +24,23 @@ class MovieApiService
       page+=1
     end
     top_movies
+  end
+
+  def self.movie_search(query)
+    titles = []
+    page_number = 0
+
+    2.times do
+      page_number += 1
+      response = conn.get("/3/search/movie?&page=#{page_number}") do |req|
+        req.params[:query] = query
+      end
+
+      title_data = JSON.parse(response.body, symbolize_names: true)
+
+      titles << title_data[:results]
+    end
+
+    titles.flatten
   end
 end
