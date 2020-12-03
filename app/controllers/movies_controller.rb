@@ -2,7 +2,7 @@ class MoviesController < ApplicationController
   def index
     query = params[:movie_title]
     conn = Faraday.new('https://api.themoviedb.org') do |f|
-      f.params['api_key'] = '<< API KEY >>'
+      f.params['api_key'] = ENV['MOVIE_DB_API_KEY']
     end
 
     @titles = []
