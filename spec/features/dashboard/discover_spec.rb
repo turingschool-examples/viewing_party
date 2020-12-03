@@ -18,22 +18,4 @@ describe 'As a user' do
     expect(page).to have_button('Find Top Rated Movies')
     expect(page).to have_button('Find Movies')
   end
-
-  it "When I make an entry in the search bar, I see my results listed on the movies
-      index page" do
-    visit '/discover'
-    user = User.last
-    
-    fill_in :movie_title,	with: "star"
-    click_button 'Find Movies'
-    expect(current_path).to eq('/movies')
-
-    within all('.movie-results')[0] do
-      expect(page).to have_content(/star/i)
-    end
-
-    within all('.movie-results')[39] do
-      expect(page).to have_content(/star/i)
-    end
-  end
 end
