@@ -1,0 +1,9 @@
+<% @titles.each do |title| %>
+  <div class="column">
+    <ul class="movie-results"><%= title[:original_title] %></ul>
+  </div>
+
+  <div class="column">
+    <ul>Vote Average: <%= title[:vote_average] %></ul>
+  </div>
+<% end %>
