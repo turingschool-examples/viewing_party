@@ -15,6 +15,7 @@ describe 'movies_show' do
       VCR.use_cassette('movie_detail_550') do
         movie_service = MovieService.new(550)
         visit "/movies/#{movie_service.uuid}"
+        expect(page).to have_button 'Create Viewing Party'
       end
     end
 
@@ -22,22 +23,19 @@ describe 'movies_show' do
       VCR.use_cassette('movie_detail_550') do
         movie_service = MovieService.new(550)
         visit "/movies/#{movie_service.uuid}"
-        expect(page).to have_content(movie_service.title)
+        expect(page).to have_content(movie_service.data[:title])
+        expect(page).to have_content(movie_service.data[:vote_average])
+        expect(page).to have_content(movie_service.data[:runtime])
+        expect(page).to have_content(movie_service.data[:genres].first[:name])
+        expect(page).to have_content(movie_service.data[:overview])
+        expect(page).to have_content(movie_service.cast[:cast].first[:name])
+        expect(page).to have_content(movie_service.cast[:cast].first[:character])
+        expect(page).to have_content(movie_service.reviews[:total_results])
+        expect(page).to have_content(movie_service.reviews[:results].first[:author_details][:rating])
+        expect(page).to have_content(movie_service.reviews[:results].first[:author])
+        expect(page).to have_content(movie_service.reviews[:results].first['content'])
       end
     end
-
-    #   class MovieService
-    #     def initialize(uuid)
-    #       @id = uuid
-
-    #       @title = data[:original]
-    #     end
-
-    #     def title
-    #       @data.original_title
-    #     end
-    #   end
-
       #single movie endpoint (movie_data):
         #movie title: movie_data[:original_title]
         #vote average: movie_data[:vote_average]
