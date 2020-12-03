@@ -7,8 +7,7 @@ class MovieService
 
   def movie_data(uuid)
     conn = Faraday.new("https://api.themoviedb.org")
-    
-    response = conn.get("/3/movie/#{uuid}?api_key=b01584c01dccf4323b39564e5363856b")
+    response = conn.get("/3/movie/#{uuid}?api_key=#{ENV['MDB_API_KEY']}")
     JSON.parse(response.body, symbolize_names: true)
   end
 
