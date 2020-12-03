@@ -34,3 +34,13 @@ footer {
   float: right;
   text-align: center;
 }
+
+.movie-column {
+  width: 50%;
+  float: left;
+}
+
+.vote-column {
+  width: 50%;
+  float: left;
+}
