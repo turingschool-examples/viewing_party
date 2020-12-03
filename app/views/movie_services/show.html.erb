@@ -3,19 +3,17 @@
 <%= button_to 'Create Viewing Party', '/viewing-party/new'%>
 <%= @movie.data[:vote_average] %>
 
-<%= @movie.data[:runtime] %>
+<%= film_length(@movie.data[:runtime]) %>
 <% @movie.data[:genres].each do |genre| %>
   <%= genre[:name] %>
 <% end %>
 <%= @movie.data[:overview] %>
-<% @movie.cast[:cast].each do |actor| %>
-  <%= actor[:name] %>
-  <%= actor[:character]%>
-  <br>
-  <br>
-<% end %>
-<br>
-<br>
+  <% @movie.cast[:cast].first(10).each do |actor| %>
+    <div class="actor">
+      <%= actor[:name] %>
+      <%= actor[:character]%>
+    </div>
+  <% end %>
 <p>Total Reviews:</p>
 <%= @movie.reviews[:total_results] %>
 <p>Review Results:</p>
@@ -25,8 +23,6 @@
   <%= result[:author]%>
   <br>
   <%= result[:content]%>
-<%= binding.pry%>
-
   <br>
   <br>
 <% end %>
