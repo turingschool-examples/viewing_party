@@ -5,10 +5,12 @@ feature 'As a user' do
   describe 'when i visit my dashboard, I will see' do
     before(:each) do
       @viewing1 = create(:viewing)
+      @viewing1.guests.create!(user_id: @user.id, hosting: true)
       @viewing2 = create(:viewing)
+      @viewing2.guests.create!(user_id: @user.id, hosting: true)
       @viewing3 = create(:viewing)
+      @viewing3.guests.create!(user_id: @user.id, hosting: false)
       @viewing4 = create(:viewing)
-      @user.viewings << [@viewing1, @viewing2, @viewing3]
       @friend_1 = create(:user)
       @friend_2 = create(:user)
       @friend_3 = create(:user)
@@ -52,11 +54,31 @@ feature 'As a user' do
     end
 
     it 'I should see a section with all my viewings' do
-      
+      expect(page).to have_css('.viewing-parties')
+      within('.viewing-parties') do
+        expect(page).to have_content(@viewing1.movie.title)
+        expect(page).to have_content(@viewing1.date)
+        expect(page).to have_content(@viewing1.start_time)
+        expect(page).to have_content('Host')
+
+        expect(page).to have_content(@viewing2.movie.title)
+        expect(page).to have_content(@viewing2.date)
+        expect(page).to have_content(@viewing2.start_time)
+        expect(page).to have_content('Host')
+
+        expect(page).to have_content(@viewing3.movie.title)
+        expect(page).to have_content(@viewing3.date)
+        expect(page).to have_content(@viewing3.start_time)
+        expect(page).to have_content('Guest')
+
+        expect(page).to_not have_content(@viewing4.movie.title)
+      end
     end
 
     it 'I see a link to discover movies' do
-
+      expect(page).to have_button('Discover Movies')
+      click_button('Discover Movies')
+      expect(current_path).to eq(discover_index_path)
     end
   end
 end
