@@ -2,14 +2,15 @@
 
 <h3>Here you can schedule to watch movies with all of your friends!</h3>
 
-<%= form_tag "/login", method: :post do %>
-  <%= label_tag :email %>
-  <%= text_field_tag :email %>
+<% if !current_user %>
+  <%= form_tag "/login", method: :post do %>
+    <%= label_tag :email %>
+    <%= text_field_tag :email %>
 
-  <%= label_tag :password %>
-  <%= password_field_tag :password %>
+    <%= label_tag :password %>
+    <%= password_field_tag :password %>
 
-  <%= submit_tag "Log In" %>
+    <%= submit_tag "Log In" %>
+  <% end %>
+  <%= link_to "First Time User? Register Here", "/registration" %>
 <% end %>
-
-<%= link_to "First Time User? Register Here", "/registration" %>

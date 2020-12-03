@@ -1,0 +1,12 @@
+<h1>Welcome, <%= @user.email %>!</h1>
+<%= button_to "Discover Movies", '/discover', method: :get %>
+
+<section id="friends">
+  <h3>Friends:</h3>
+  <%= search_field_tag "Friend's Email" %>
+  <%= button_to "Add Friend" %>
+</section>
+
+<section id="viewing-parties">
+  <h3>Viewing Parties:</h3>
+</section>
