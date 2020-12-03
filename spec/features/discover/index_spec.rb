@@ -20,5 +20,14 @@ RSpec.describe 'Movie Discover Page' do
       expect(page).to have_field("Search by movie title")
       expect(page).to have_button("Find Movies")
     end
+
+    it "I can search by movie title and be taken to the page" do
+      visit '/discover'
+
+      fill_in "Search by movie title", with: "Gabriel's Inferno Part III"
+      click_button("Find Movies")
+
+      expect(current_path).to eq(search_index_path)
+    end
   end
 end

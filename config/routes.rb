@@ -12,4 +12,5 @@ Rails.application.routes.draw do
 
   resources :discover, only: %i[index]
 
+  resources :search, only: %i[index]
 end

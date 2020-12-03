@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-
-=======
 <h1>Welcome, <%= @user.email %>!</h1>
 
 <%= button_to "Find Top Rated Movies" %>
 
 <%= search_field_tag "Search by movie title" %>
-<%= button_to "Find Movies" %>
->>>>>>> c79de1d654acb4326d303f88c67267c66b0227ec
+<%= button_to "Find Movies", '/search', method: :get %>
