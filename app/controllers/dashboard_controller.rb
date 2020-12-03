@@ -1,7 +1,5 @@
 class DashboardController < ApplicationController
-  def index
-  end
+  def index; end
 
-  def discover  
-  end
+  def discover; end
 end

@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   post '/users', to: 'users#create'
 
   get '/discover', to: 'dashboard#discover'
+
+  get '/movies', to: 'movies#index'
 end

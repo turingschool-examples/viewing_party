@@ -17,5 +17,27 @@ describe "As a visitor" do
       expect(current_path).to eq('/dashboard')
       expect(page).to have_content('Login Successful!')
     end
+
+    it "When I attempt to log in with an email address that is not registered, I get an error" do
+      visit root_path
+
+      fill_in :email,	with: "bob@email.com"
+      fill_in :password, with: "password"
+      click_button 'Sign In'
+
+      expect(current_path).to eq(root_path)
+      expect(page).to have_content('Invalid email or password.')
+    end
+
+    it "When I attempt to log in with an invalid password I get an error" do
+      visit root_path
+
+      fill_in :email, with: "zach@email.com"
+      fill_in :password, with: "multipass"
+      click_button 'Sign In'
+
+      expect(current_path).to eq(root_path)
+      expect(page).to have_content('Invalid email or password.')
+    end
   end
 end
