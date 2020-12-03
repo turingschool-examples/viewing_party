@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   namespace 'user' do
     resource :dashboard, only: [:show], controller: :dashboard
+    resource :friendships, only: [:create]
   end
 
 end

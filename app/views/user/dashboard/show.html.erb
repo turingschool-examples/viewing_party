@@ -1,1 +1,11 @@
 <h1><%= "Welcome #{current_user.username}!" %></h1>
+
+<section class="friends">
+  <%= form_with model: @friend, url: user_friendships_path, local: true, method: :post do |f| %>
+    <%= f.text_field(:friends_email, :value => "Friend's Email") %>
+    <%= f.button 'Add Friend' %>
+  <% end %>
+  <% current_user.friends.each do |friend| %>
+    <%= friend.username %>
+  <% end %>
+</section>
