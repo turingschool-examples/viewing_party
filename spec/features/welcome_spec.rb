@@ -32,7 +32,6 @@ describe "Welcome Page:" do
     expect(current_path).to eq('/user/dashboard')
     expect(page).to have_content("Welcome #{user.username}!")
     expect(page).to have_content("You have successfully logged in!")
-    save_and_open_page
 
   end
 
@@ -53,5 +52,25 @@ describe "Welcome Page:" do
     click_on 'Login'
 
     expect(page).to have_content('Your e-mail or password was incorrect!')
+  end
+
+  it 'will let me logout when i click the logout link when I am logged in' do
+    user = User.create!(
+      username: "JonathonDoe",
+      email: "jonathon@doe.com",
+      password: "1234"
+    )
+    visit '/'
+    expect(page).to_not have_link('Logout')
+
+    fill_in :email, with: user.email
+    fill_in :password, with: user.password
+    click_on 'Login'
+
+    expect(page).to have_link('Logout')
+    click_link 'Logout'
+    expect(current_path).to eq(root_path)
+    expect(page).to_not have_link('Logout')
+
   end
 end
