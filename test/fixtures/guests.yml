@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ViewingPartie: one
+  User: one
+  hosting: false
+  rsvp: false
+
+two:
+  ViewingPartie: two
+  User: two
+  hosting: false
+  rsvp: false
