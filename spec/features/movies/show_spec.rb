@@ -33,7 +33,9 @@ describe 'movies_show' do
         expect(page).to have_content(movie_service.reviews[:total_results])
         expect(page).to have_content(movie_service.reviews[:results].first[:author_details][:rating])
         expect(page).to have_content(movie_service.reviews[:results].first[:author])
-        expect(page).to have_content(movie_service.reviews[:results].first['content'])
+        results = movie_service.reviews[:results].first[:content]
+        expect(page).to have_content(results)
+
       end
     end
       #single movie endpoint (movie_data):
