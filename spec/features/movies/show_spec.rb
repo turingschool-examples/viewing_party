@@ -25,7 +25,7 @@ describe 'movies_show' do
         visit "/movies/#{movie_service.uuid}"
         expect(page).to have_content(movie_service.data[:title])
         expect(page).to have_content(movie_service.data[:vote_average])
-        expect(page).to have_content(movie_service.data[:runtime])
+        expect(page).to have_content('2:19')
         expect(page).to have_content(movie_service.data[:genres].first[:name])
         expect(page).to have_content(movie_service.data[:overview])
         expect(page).to have_content(movie_service.cast[:cast].first[:name])
@@ -33,9 +33,9 @@ describe 'movies_show' do
         expect(page).to have_content(movie_service.reviews[:total_results])
         expect(page).to have_content(movie_service.reviews[:results].first[:author_details][:rating])
         expect(page).to have_content(movie_service.reviews[:results].first[:author])
-        results = movie_service.reviews[:results].first[:content]
-        expect(page).to have_content(results)
-
+        # class_type = movie_service.reviews[:results].first[:content].class
+        expect(page).to have_text('Pretty awesome movie. I')
+        expect(page).to have_css('.actor', count:10)
       end
     end
       #single movie endpoint (movie_data):
