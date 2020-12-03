@@ -9,4 +9,7 @@ Rails.application.routes.draw do
 
   post '/login', to: 'sessions#login'
   get '/logout', to: 'sessions#logout'
+
+  resources :discover, only: %i[index]
+
 end
