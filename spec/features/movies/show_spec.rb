@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'movies_show' do
   describe 'as a logged in user' do
     before :each do
-      @movie_service = MovieService.new(550)
+
 
       @user = User.create(
         email: 'testing@example.com',
@@ -17,11 +17,17 @@ describe 'movies_show' do
       click_on "Login"
     end
     it "I see a button to 'create viewing party'" do
-      visit "/movies/#{@movie_service.uuid}"
+      VCR.use_cassette('movie_detail') do
+        movie_service = MovieService.new(550)
+        visit "/movies/#{movie_service.uuid}"
+      end
     end
     it "shows movie details" do
-      visit "/movies/#{@movie_service.uuid}"
-      expect(page).to have_content(@movie_service.title)
+      VCR.use_cassette('movie_detail') do
+        movie_service = MovieService.new(550)
+        visit "/movies/#{movie_service.uuid}"
+        expect(page).to have_content(movie_service.title)
+      end
     end
 
     #   class MovieService
