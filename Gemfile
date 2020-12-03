@@ -35,6 +35,7 @@ group :test do
   gem 'simplecov'
   gem 'rack_session_access'
   gem 'shoulda-matchers'
+  gem 'factory_bot_rails'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
