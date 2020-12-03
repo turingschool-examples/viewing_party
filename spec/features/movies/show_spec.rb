@@ -10,7 +10,7 @@ describe 'movies_show' do
         password: '1234**USAusa',
         password_confirmation: '1234**USAusa'
       )
-      
+
       visit "/login"
       fill_in 'email', with: 'testing@example.com'
       fill_in 'password', with: '1234**USAusa'
@@ -27,7 +27,7 @@ describe 'movies_show' do
     #   class MovieService
     #     def initialize(uuid)
     #       @id = uuid
-      
+
     #       @title = data[:original]
     #     end
 
@@ -35,7 +35,7 @@ describe 'movies_show' do
     #       @data.original_title
     #     end
     #   end
-    
+
       #single movie endpoint (movie_data):
         #movie title: movie_data[:original_title]
         #vote average: movie_data[:vote_average]
@@ -43,13 +43,13 @@ describe 'movies_show' do
         #assoc genres: movie_data[:genres]
         #summary description: movie_data[:overview]
 
-      #credits endpoint - top 10 actors (cast_data): 
+      #credits endpoint - top 10 actors (cast_data):
         #cast_data[:cast].each do |actor|
           #actor_name: actor[:name]
           #actor_character: actor[:character]
         #end
-        
-      #reviews endpoint (review_data): 
+
+      #reviews endpoint (review_data):
         #total reviews: review_data[:total_results]
         #review_data[:results].each do |review|
           #rating: review[:author_details][:rating]
