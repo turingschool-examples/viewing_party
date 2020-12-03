@@ -8,11 +8,11 @@ class SessionsController < ApplicationController
         flash[:success] = 'Login Successful!'
         redirect_to '/dashboard'
       else
-        flash[:error] = 'Incorrect password, please try again.'
+        flash[:error] = 'Invalid email or password.'
         redirect_to root_path
       end
     else
-      flash[:error] = 'Please enter a valid email address.'
+      flash[:error] = 'Invalid email or password.'
       redirect_to root_path
     end
   end
