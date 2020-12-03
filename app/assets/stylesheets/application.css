@@ -34,3 +34,8 @@ footer {
   float: right;
   text-align: center;
 }
+
+.column {
+  width: 50%;
+  float: left;
+}
