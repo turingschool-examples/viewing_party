@@ -3,27 +3,23 @@ require 'rails_helper'
 describe 'movies_show' do
   describe 'as a logged in user' do
     before :each do
-
-
       @user = User.create(
         email: 'testing@example.com',
         password: '1234**USAusa',
         password_confirmation: '1234**USAusa'
       )
-
-      visit "/login"
-      fill_in 'email', with: 'testing@example.com'
-      fill_in 'password', with: '1234**USAusa'
-      click_on "Login"
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
     end
+
     it "I see a button to 'create viewing party'" do
-      VCR.use_cassette('movie_detail') do
+      VCR.use_cassette('movie_detail_550') do
         movie_service = MovieService.new(550)
         visit "/movies/#{movie_service.uuid}"
       end
     end
+
     it "shows movie details" do
-      VCR.use_cassette('movie_detail') do
+      VCR.use_cassette('movie_detail_550') do
         movie_service = MovieService.new(550)
         visit "/movies/#{movie_service.uuid}"
         expect(page).to have_content(movie_service.title)
