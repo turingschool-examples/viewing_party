@@ -36,7 +36,7 @@ class MovieApiService
         req.params[:query] = query
       end
 
-      title_data = JSON.parse(response.body, symbolize_names: true)
+      title_data = parse_data(response)
 
       titles << title_data[:results]
     end
