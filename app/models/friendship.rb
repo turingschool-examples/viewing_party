@@ -14,7 +14,4 @@ class Friendship < ApplicationRecord
   #     friendship1.destroy
   #     friendship2.destroy
   # end
-
-  private
-
 end
