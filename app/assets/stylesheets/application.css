@@ -35,7 +35,12 @@ footer {
   text-align: center;
 }
 
-.column {
+.movie-column {
   width: 50%;
   float: left;
+}
+
+.vote-column {
+  width: 50%;
+  float: right;
 }
