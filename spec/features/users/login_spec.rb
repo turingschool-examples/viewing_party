@@ -26,7 +26,7 @@ describe "As a visitor" do
       click_button 'Sign In'
 
       expect(current_path).to eq(root_path)
-      expect(page).to have_content('Please enter a valid email address.')
+      expect(page).to have_content('Invalid email or password.')
     end
 
     it "When I attempt to log in with an invalid password I get an error" do
@@ -37,7 +37,7 @@ describe "As a visitor" do
       click_button 'Sign In'
 
       expect(current_path).to eq(root_path)
-      expect(page).to have_content('Incorrect password, please try again.')
+      expect(page).to have_content('Invalid email or password.')
     end
   end
 end
