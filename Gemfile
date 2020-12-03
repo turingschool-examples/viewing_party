@@ -35,8 +35,8 @@ group :test do
   gem 'simplecov'
   gem 'shoulda-matchers'
   gem 'nyan-cat-formatter'
-  gem 'vcr'
-  gem 'webmock'
+  #gem 'vcr'
+  #gem 'webmock'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
