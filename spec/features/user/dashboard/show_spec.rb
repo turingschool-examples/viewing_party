@@ -53,6 +53,10 @@ feature 'As a user' do
       expect(page).to have_content('Sorry, I cannot find your friend.')
     end
 
+    it 'If I have no friends, I see a message' do
+      expect(page).to have_content('You currently have no friends. 🥺')
+    end
+
     it 'I should see a section with all my viewings' do
       expect(page).to have_css('.viewing-parties')
       within('.viewing-parties') do
