@@ -1,0 +1,6 @@
+<% @movie_results.each do |result| %>
+  <div class="movie">
+    <p class="title"><%= result[:title] %></p>
+    <p class ="vote_average"><%= result[:vote_average] %></p>
+  </div>
+<% end %>

@@ -12,6 +12,5 @@ class SearchController < ApplicationController
     response = conn.get("#{suffix}&language=en-US&query=#{title}&page=1&include_adult=false")
 
     @movies = JSON.parse(response.body, symbolize_names: true)
-    require "pry"; binding.pry
   end
 end

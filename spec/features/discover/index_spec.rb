@@ -23,7 +23,6 @@ RSpec.describe 'Movie Discover Page' do
 
     it "I can search by movie title and be taken to the page" do
       visit '/discover'
-
       fill_in "Search by movie title", with: "Gabriel's Inferno Part III"
       click_button("Find Movies")
 
