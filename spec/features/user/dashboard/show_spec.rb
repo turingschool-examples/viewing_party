@@ -57,6 +57,21 @@ feature 'As a user' do
       expect(page).to have_content('You currently have no friends. 🥺')
     end
 
+    it 'If I try to add the same friend multiple times I get an error' do
+      within('.friends') do
+        fill_in :friends_email, with: @friend_1.email
+        click_button 'Add Friend'
+      end
+
+      within('.friends') do
+        fill_in :friends_email, with: @friend_1.email
+        click_button 'Add Friend'
+      end
+
+      expect(page).to have_content('You have already added that friend.')
+      expect(page).to_not have_content(@friend_1.username, count: 2)
+    end
+
     it 'I should see a section with all my viewings' do
       expect(page).to have_css('.viewing-parties')
       within('.viewing-parties') do
