@@ -16,7 +16,7 @@ FactoryBot.define do
     movie
     sequence(:duration) {|n| movie.duration + n}
     sequence(:date) {|n| Time.now.strftime('%m-%d-%Y')}
-    sequence(:start_time) {|n| Time.now + n}
+    sequence(:start_time) {|n| Time.now.strftime('%I:%M %P')}
   end
 
   factory :guest do
