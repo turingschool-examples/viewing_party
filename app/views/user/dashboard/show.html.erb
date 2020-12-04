@@ -8,6 +8,7 @@
     <%= f.text_field(:friends_email, :value => "Friend's Email") %>
     <%= f.button 'Add Friend' %>
   <% end %>
+  <%= "You currently have no friends. 🥺" if current_user.friends.empty? %>
   <% current_user.friends.each do |friend| %>
     <%= friend.username %>
   <% end %>
