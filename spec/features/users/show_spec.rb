@@ -20,5 +20,11 @@ RSpec.describe 'User Dashboard Page' do
       expect(page).to have_field("Friend's Email")
       expect(page).to have_content("Viewing Parties")
     end
+
+    it "I can click on the discover movies button and be taken to that page" do
+      click_button("Discover Movies")
+
+      expect(current_path).to eq('/discover')
+    end
   end
 end
