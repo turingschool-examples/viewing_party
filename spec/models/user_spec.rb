@@ -8,4 +8,11 @@ describe User, type: :model do
     it { should validate_uniqueness_of(:email) }
     it { should validate_presence_of(:password) }
   end
+
+  describe 'relationships' do
+    it {should have_many(:friendships)}
+    it {should have_many(:friends).through(:friendships)}
+    it {should have_many(:guests)}
+    it {should have_many(:viewings).through(:guests)}
+  end
 end
