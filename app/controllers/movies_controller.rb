@@ -1,15 +1,19 @@
 class MoviesController < ApplicationController
   def index
     conn = Faraday.new(url: 'https://api.themoviedb.org')
+    uri = params[:query].nil? ? 'movies/top_rated' : 'search/movie'
 
-    response = conn.get('/3/search/movie') do |rec|
-      rec.params[:api_key] = ENV['TMDB_API_KEY']
-      rec.params[:query] = params[:query]
-      rec.params[:language] = 'en-US'
-      rec.params[:page] = 1
-      rec.params[:include_adult] = false
+    @movies = []
+    2.times do |n|
+      response = conn.get("/3/#{uri}") do |rec|
+        rec.params[:api_key] = ENV['TMDB_API_KEY']
+        rec.params[:query] = params[:query] if params[:query]
+        rec.params[:language] = 'en-US'
+        rec.params[:page] = 1 + n
+        rec.params[:include_adult] = false
+      end.body
+      @movies << JSON.parse(response, symbolize_names: true)[:results]
     end
-
-    @movies = JSON.parse(response.body, symbolize_names: true)[:results]
+    @movies.flatten!
   end
 end
