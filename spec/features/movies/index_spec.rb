@@ -37,8 +37,28 @@ feature 'as a user' do
         expect(title).to_not be_empty
         expect(rating).to_not be_empty
       end
+    end
 
-      save_and_open_page
+    it 'can search for top 40 movies' do
+      page.set_rack_session(user_id: @user.id)
+
+      visit discover_index_path
+      click_on 'Top Rated Movies'
+      expect(page).to have_css('.movie', count: 40)
+
+      within(first('.movie')) do
+        title = find('.title').text
+        rating = find('.rating').text
+        expect(title).to_not be_empty
+        expect(rating).to_not be_empty
+      end
+
+      within(:xpath, '(//li[@class="movie"])[last()]') do
+        title = find('.title').text
+        rating = find('.rating').text
+        expect(title).to_not be_empty
+        expect(rating).to_not be_empty
+      end
     end
   end
 end
