@@ -8,7 +8,7 @@
 <ol>
 <% @movies.each do |movie| %>
   <li class='movie'>
-    <div class='title' align='left'><%= link_to movie[:title], 'movies_show_path(movie.id)' %></div>
+    <div class='title' align='left'><%= link_to movie[:title], movie_path(movie[:id]) %></div>
     <div class='rating' align='right'>Rating: <%= movie[:vote_average] %></div><br>
   </li>
 <% end %>
