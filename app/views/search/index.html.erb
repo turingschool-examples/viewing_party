@@ -1,4 +1,4 @@
 <% @movies[:results].each do |result| %>
- <%= result[:original_title] %>
+ <%= link_to result[:original_title], "/movies/#{result[:id]}", method: :get %>
  <%= result[:vote_average] %>
 <% end %>

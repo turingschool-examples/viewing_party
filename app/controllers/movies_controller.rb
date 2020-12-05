@@ -16,4 +16,8 @@ class MoviesController < ApplicationController
     end
     @movie_results
   end
+
+  def show
+  end
+  
 end

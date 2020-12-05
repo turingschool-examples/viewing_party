@@ -1,0 +1,58 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/search/movie?api_key=<replacement>&include_adult=false&language=en-US&page=1&query=Gabriel%27s%20Inferno%20Part%20III
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.1.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Sat, 05 Dec 2020 21:46:45 GMT
+      Server:
+      - openresty
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
+        Content-Length, Content-Range
+      Cache-Control:
+      - public, max-age=600
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 2ad801a60bd36fbeb6a62fab7eabe330.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - DEN50-C2
+      X-Amz-Cf-Id:
+      - cc59OZF-ggwHE2lF3niOv_XeZgsy45wYSBkh0qIwbsWQ888WexbTiA==
+    body:
+      encoding: UTF-8
+      string: '{"page":1,"results":[{"adult":false,"backdrop_path":"/fQq1FWp1rC89xDrRMuyFJdFUdMd.jpg","genre_ids":[],"id":761053,"original_language":"en","original_title":"Gabriel''s
+        Inferno Part III","overview":"The final part of the film adaption of the erotic
+        romance novel Gabriel''s Inferno written by an anonymous Canadian author under
+        the pen name Sylvain Reynard.","popularity":41.852,"poster_path":"/qtX2Fg9MTmrbgN1UUvGoCsImTM8.jpg","release_date":"2020-11-19","title":"Gabriel''s
+        Inferno Part III","video":false,"vote_average":9.2,"vote_count":459}],"total_pages":1,"total_results":1}'
+  recorded_at: Sat, 05 Dec 2020 21:46:45 GMT
+recorded_with: VCR 6.0.0
