@@ -14,7 +14,7 @@ feature 'as a user' do
       click_button 'Search'
 
       expect(current_path).to eq(movies_path)
-      expect(page).to have_css('.movie', count: 20)
+      expect(page).to have_css('.movie', count: 40)
 
       within(first('.movie')) do
         expect(page).to have_css('.title')
@@ -27,16 +27,18 @@ feature 'as a user' do
         expect(rating).to_not be_empty
       end
 
-      within(:xpath, '(//section[@class="movie"])[last()]') do
+      within(:xpath, '(//li[@class="movie"])[last()]') do
         expect(page).to have_css('.title')
         expect(page).to have_css('.rating')
-        expect(page).to have_link('Batman vs. Teenage Mutant Ninja Turtles')
-        expect(page).to have_content('7.1')
+        expect(page).to have_link('Batman Unlimited: Mechs vs. Mutants')
+        expect(page).to have_content('6.1')
         title = find('.title').text
         rating = find('.rating').text
         expect(title).to_not be_empty
         expect(rating).to_not be_empty
       end
+
+      save_and_open_page
     end
   end
 end
