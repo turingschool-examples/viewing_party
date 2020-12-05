@@ -8,14 +8,14 @@ describe "As a visitor" do
 
       expect(current_path).to eq('/registration')
 
-      fill_in "user[username]", with: "John Doe"
+      fill_in "user[username]", with: "JohnDoe"
       fill_in "user[email]", with: "john@doe.com"
       fill_in "user[password]", with: "password"
       fill_in "user[password_confirmation]", with: "password"
       click_on 'Create User'
-
-      expect(current_path).to eq('/user/dashboard')
-      expect(page).to have_content('Welcome John Doe!')
+      user = User.last
+      expect(current_path).to eq("/#{user.username}/dashboard")
+      expect(page).to have_content('Welcome JohnDoe!')
     end
   end
 

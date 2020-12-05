@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   # resources :users, only: [:new, :create], path_names: {new: "registration"}
   resources :users, only: [:create]
 
-  namespace 'user' do
+  namespace 'user', path: ':user_id' do
     resource :dashboard, only: [:show], controller: :dashboard
     resource :friendships, only: [:create]
   end

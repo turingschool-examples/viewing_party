@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = 'Registration successful, you are now logged in!'
-      redirect_to user_dashboard_path
+      redirect_to user_dashboard_path(@user.username)
     else
       generate_flash(@user)
       render :new

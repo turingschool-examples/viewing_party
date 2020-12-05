@@ -16,7 +16,7 @@ feature 'As a user' do
       @friend_3 = create(:user)
       @friend_4 = create(:user)
       page.set_rack_session(user_id: @user.id)
-      visit user_dashboard_path
+      visit user_dashboard_path(@user.username)
     end
 
     it 'I should see a section with all of my friends' do
@@ -28,7 +28,7 @@ feature 'As a user' do
         click_button 'Add Friend'
       end
 
-      expect(current_path).to eq(user_dashboard_path)
+      expect(current_path).to eq(user_dashboard_path(@user.username))
 
       within('.friends') do
         expect(page).to have_content(@friend_1.username)
