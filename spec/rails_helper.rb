@@ -1,6 +1,7 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
 require "rack_session_access/capybara"
+require 'webmock/rspec'
 
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
@@ -65,8 +66,15 @@ RSpec.configure do |config|
   Shoulda::Matchers.configure do |config|
     config.integrate do |with|
       with.test_framework :rspec
-
       with.library :rails
     end
   end
+end
+
+VCR.configure do |config|
+  config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
+  config.hook_into :webmock
+  config.configure_rspec_metadata!
+  config.filter_sensitive_data('Not an API Key') {ENV['TMDB_API_KEY']} #replacement then originial
+  config.default_cassette_options = { re_record_interval: 30.days }
 end

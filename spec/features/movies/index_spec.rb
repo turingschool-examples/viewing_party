@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'as a user' do
   given!(:user) {@user = create(:user)}
   describe 'when I visit the discover page' do
-    it 'I can search for movies' do
+    it 'I can search for movies', :vcr do
       page.set_rack_session(user_id: @user.id)
 
       visit discover_index_path
@@ -39,7 +39,7 @@ feature 'as a user' do
       end
     end
 
-    it 'can search for top 40 movies' do
+    it 'can search for top 40 movies', :vcr do
       page.set_rack_session(user_id: @user.id)
 
       visit discover_index_path
