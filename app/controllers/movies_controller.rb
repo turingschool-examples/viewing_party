@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
   def index
     conn = Faraday.new(url: 'https://api.themoviedb.org')
-    uri = params[:query].nil? ? 'movies/top_rated' : 'search/movie'
+    uri = params[:query].nil? ? 'movie/top_rated' : 'search/movie'
 
     @movies = []
     2.times do |n|
