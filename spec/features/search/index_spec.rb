@@ -13,7 +13,7 @@ RSpec.describe 'Movie Search Feature' do
     end
 
     describe 'User can search for movies' do
-      it 'I submit valid movie title' do
+      it 'I submit valid movie title', :vcr do
         visit discover_index_path
         fill_in "Search by movie title", with: "Gabriel's Inferno Part III"
         click_button("Find Movies")
