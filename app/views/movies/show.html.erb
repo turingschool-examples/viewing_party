@@ -1,12 +1,8 @@
 <h1 class = 'title_show_page'> <%= @movie[:title] %> </h1> <br>
 <div class = 'stats'>
   <div class = 'vote_average' align = 'left'> Vote Average: <%= @movie[:vote_average] %> </div>
-  <div class = 'runtime' align = 'center'> Runtime: <%= genres(@movie[:genres]) %> </div>
-  <div class = 'genre' align = 'right'> Genre(s):
-    <% @movie[:genres].each do |genre| %>
-      <%= genre[:name] %>,
-    <% end %>
-  </div>
+  <div class = 'runtime' align = 'center'> Runtime: <%= @movie[:runtime]/60 %> hrs <%= @movie[:runtime]%60 %> min </div>
+  <div class = 'genre' align = 'right'> Genre(s): <%= genres(@movie[:genres]) %> </div>
 </div><br>
 <h4> Summary </h4><br>
 <div class = 'summary'>
