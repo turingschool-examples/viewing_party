@@ -72,6 +72,5 @@ describe "Welcome Page:" do
     click_link 'Logout'
     expect(current_path).to eq(root_path)
     expect(page).to_not have_link('Logout')
-
   end
 end
