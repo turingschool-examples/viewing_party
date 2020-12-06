@@ -1,0 +1,28 @@
+<h1><%= @details[:original_title]%></h1>
+<%= button_to "Create Viewing Party for Movie"%>
+
+<h3>Vote Average: <%= @details[:vote_average]%></h3>
+
+<h3>Runtime:
+  <% hours = @details[:runtime] / 60%>
+  <% rest = @details[:runtime] % 60 %>
+  <%= "#{hours} hr #{rest} mins"%>
+</h3>
+<h3>Genre(s): </h3>
+<% @details[:genres].each do |genre|%>
+  <p><%= genre[:name] %></p>
+<% end %>
+
+<h3>Summary: </h3>
+  <%= @details[:overview] %>
+
+<h3>Cast: </h3>
+  <% @credits[:cast].take(10).each do |member| %>
+  <p><%= member[:name] %> as <%= member[:character] %></p>
+  <% end %>
+
+<h3> <%= @reviews[:total_results] %> Review(s)</h3>
+<% @reviews[:results].each do |review| %>
+  <h4>Author: <%= review[:author] %></h4>
+  <p><%=review[:content]%></p>
+<% end %>

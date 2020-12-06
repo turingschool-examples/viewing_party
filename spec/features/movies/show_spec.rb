@@ -22,12 +22,12 @@ RSpec.describe 'Movies Details Page' do
         expect(current_path).to eq("/movies/761053")
       end
 
-      # it 'can visit a movie details page and see a create movie viewing party and movie attributes' do
-      #   visit("/movies/761053")
-      #
-      #   expect(page).to have_content("Gabriel's Inferno Part III")
-      #   expect(page).to have_content("Vote Average: 9.2")
-      #   expect(page).to have_content("9.2")
-      # end
+      it 'can visit a movie details page and see a create movie viewing party and movie attributes', :vcr do
+        visit("/movies/238")
+        save_and_open_page
+        expect(page).to have_content("Gabriel's Inferno Part III")
+        expect(page).to have_content("Vote Average: 9.2")
+        expect(page).to have_content("9.2")
+      end
     end
    end
