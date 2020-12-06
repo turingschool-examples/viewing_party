@@ -40,13 +40,15 @@ http_interactions:
       Vary:
       - Accept-Encoding
       X-Cache:
-      - Miss from cloudfront
+      - Hit from cloudfront
       Via:
-      - 1.1 ed8294655bb258e13bfb027c25483ddb.cloudfront.net (CloudFront)
+      - 1.1 e158a5cd644f102abc630a9f56b59d78.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - AJcXFxW8dXkijlXSz7rtoL5drI6yPgQhVHbiJMJ_ITw5KxuayzexKA==
+      - G8bqIZK0G5RIDToecLM3FVkFVyuBHpkKN5GjWytORWIFMDbywsm4Ng==
+      Age:
+      - '10433'
     body:
       encoding: UTF-8
       string: '{"page":1,"results":[{"adult":false,"backdrop_path":"/fQq1FWp1rC89xDrRMuyFJdFUdMd.jpg","genre_ids":[],"id":761053,"original_language":"en","original_title":"Gabriel''s
@@ -158,7 +160,7 @@ http_interactions:
         to a reign of chaos unleashed by a rising criminal mastermind known to the
         terrified citizens of Gotham as the Joker.","popularity":60.207,"poster_path":"/qJ2tW6WMUDux911r6m7haRef0WH.jpg","release_date":"2008-07-16","title":"The
         Dark Knight","video":false,"vote_average":8.5,"vote_count":23815}],"total_pages":405,"total_results":8081}'
-  recorded_at: Sun, 06 Dec 2020 19:49:00 GMT
+  recorded_at: Sun, 06 Dec 2020 22:42:53 GMT
 - request:
     method: get
     uri: https://api.themoviedb.org/3/movie/top_rated?api_key=<replacement>&language=en-US&page=2
@@ -199,13 +201,15 @@ http_interactions:
       Vary:
       - Accept-Encoding
       X-Cache:
-      - Miss from cloudfront
+      - Hit from cloudfront
       Via:
-      - 1.1 824a5d9ed02451bcb68b15ae5991dce0.cloudfront.net (CloudFront)
+      - 1.1 a44b9db7a2d103360945ab52619e5016.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - c-65v7mSgjEmzgWu4hHVnfJ7ZlNhhjAPdnFvOdISAWDu43r7uQcL7w==
+      - ot2N7qENdZH-wXsAGApK8q1SDhtomHYy0UXnWIswyC9qKlcXRiz6Bg==
+      Age:
+      - '10433'
     body:
       encoding: UTF-8
       string: '{"page":2,"results":[{"adult":false,"backdrop_path":"/7c9UVPPiTPltouxRVY6N9uugaVA.jpg","genre_ids":[35,18,10749],"id":13,"original_language":"en","original_title":"Forrest
@@ -313,5 +317,5 @@ http_interactions:
         With no surviving relatives and their emergency rations depleted, Seita and
         Setsuko struggle to survive.","popularity":0.6,"poster_path":"/wcNkHDbyc290hcWk7KXbBZUuXpq.jpg","release_date":"1988-04-16","title":"Grave
         of the Fireflies","video":false,"vote_average":8.4,"vote_count":3169}],"total_pages":405,"total_results":8081}'
-  recorded_at: Sun, 06 Dec 2020 19:49:00 GMT
+  recorded_at: Sun, 06 Dec 2020 22:42:53 GMT
 recorded_with: VCR 6.0.0

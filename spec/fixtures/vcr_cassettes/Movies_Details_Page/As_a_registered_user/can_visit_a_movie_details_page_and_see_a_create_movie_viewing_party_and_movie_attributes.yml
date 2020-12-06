@@ -52,13 +52,15 @@ http_interactions:
       Vary:
       - Accept-Encoding
       X-Cache:
-      - Miss from cloudfront
+      - Hit from cloudfront
       Via:
-      - 1.1 91f1c114eac2b00f07286bc49dddd7e5.cloudfront.net (CloudFront)
+      - 1.1 3ec85dbaae49079b372b8a392a12e9bc.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - dD-O01EOzf8225W_Jwt0gbM2GLSGupm6Hw3AAC-E-F6oHWWHxU8ZoQ==
+      - Sf3DaMqjAuHCNVXj8bFm0VM_erTTMDi2wnfs0HhMC0Qamy8BBv-asA==
+      Age:
+      - '10433'
     body:
       encoding: UTF-8
       string: '{"id":238,"cast":[{"adult":false,"gender":2,"id":3084,"known_for_department":"Acting","name":"Marlon
@@ -243,7 +245,7 @@ http_interactions:
         Brandt","original_name":"Tony Brandt","popularity":0.6,"profile_path":null,"credit_id":"5e92510accb15f00156de8d4","department":"Directing","job":"Assistant
         Director"},{"adult":false,"gender":0,"id":1789636,"known_for_department":"Sound","name":"Carl
         Fortina","original_name":"Carl Fortina","popularity":0.6,"profile_path":null,"credit_id":"58e3cf17c3a3684aa40124b5","department":"Sound","job":"Musician"}]}'
-  recorded_at: Sun, 06 Dec 2020 19:49:02 GMT
+  recorded_at: Sun, 06 Dec 2020 22:42:54 GMT
 - request:
     method: get
     uri: https://api.themoviedb.org/3/movie/238?api_key=<replacement>
@@ -296,13 +298,15 @@ http_interactions:
       Vary:
       - Accept-Encoding
       X-Cache:
-      - Miss from cloudfront
+      - Hit from cloudfront
       Via:
-      - 1.1 29f1da35ce271d2cdc88184ed0c1f86d.cloudfront.net (CloudFront)
+      - 1.1 c29390732f5bc4b2c7832623ae6e492f.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - IMX69Vdcm_4t7L5XsoP102VLTLw_zBos7CGuO-1GQTyQzEC7Rnd2gw==
+      - f-f1D1xYmtl6uxqRxjIqc3RMaSKFky5W-Q_IOJOI5oVI-phstBflFA==
+      Age:
+      - '10432'
     body:
       encoding: UTF-8
       string: '{"adult":false,"backdrop_path":"/rSPw7tgCH9c6NqICZef4kZjFOQ5.jpg","belongs_to_collection":{"id":230,"name":"The
@@ -315,7 +319,7 @@ http_interactions:
         Productions","origin_country":"US"}],"production_countries":[{"iso_3166_1":"US","name":"United
         States of America"}],"release_date":"1972-03-14","revenue":245066411,"runtime":175,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"},{"english_name":"Italian","iso_639_1":"it","name":"Italiano"},{"english_name":"Latin","iso_639_1":"la","name":"Latin"}],"status":"Released","tagline":"An
         offer you can''t refuse.","title":"The Godfather","video":false,"vote_average":8.7,"vote_count":13352}'
-  recorded_at: Sun, 06 Dec 2020 19:49:02 GMT
+  recorded_at: Sun, 06 Dec 2020 22:42:54 GMT
 - request:
     method: get
     uri: https://api.themoviedb.org/3/movie/238/reviews?api_key=<replacement>
@@ -368,13 +372,15 @@ http_interactions:
       Vary:
       - Accept-Encoding
       X-Cache:
-      - RefreshHit from cloudfront
+      - Hit from cloudfront
       Via:
-      - 1.1 788f6ff13e09a712f5227945fa34a519.cloudfront.net (CloudFront)
+      - 1.1 23241b9c368643949e3bb1a1ba4e97c3.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - lc0lZ_tbYhyyoEYAGr7gFqQRHmVwkQp5-iVFzJFQ-mastU_cZpzFHQ==
+      - YLIlQo9v-CMnq8VnhSenYyxixhHAUGt0dfwCM8sPJRpZKx3X5U2XMA==
+      Age:
+      - '10432'
     body:
       encoding: UTF-8
       string: '{"id":238,"page":1,"results":[{"author":"futuretv","author_details":{"name":"","username":"futuretv","avatar_path":"/https://secure.gravatar.com/avatar/f44259356bf6110070ed799323d539d6.jpg","rating":10.0},"content":"The
@@ -417,5 +423,5 @@ http_interactions:
         only once, as it gets better after continual viewings. There is really nothing
         more to add other than if you haven’t seen this movie yet, it’s about time
         you did. The Godfather is a movie you can’t refuse.","created_at":"2014-04-10T20:09:40.500Z","id":"5346fa840e0a265ffa001e20","updated_at":"2017-02-02T16:12:56.166Z","url":"https://www.themoviedb.org/review/5346fa840e0a265ffa001e20"}],"total_pages":1,"total_results":1}'
-  recorded_at: Sun, 06 Dec 2020 19:49:02 GMT
+  recorded_at: Sun, 06 Dec 2020 22:42:54 GMT
 recorded_with: VCR 6.0.0
