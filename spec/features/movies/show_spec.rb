@@ -24,10 +24,33 @@ RSpec.describe 'Movies Details Page' do
 
       it 'can visit a movie details page and see a create movie viewing party and movie attributes', :vcr do
         visit("/movies/238")
-        save_and_open_page
-        expect(page).to have_content("Gabriel's Inferno Part III")
-        expect(page).to have_content("Vote Average: 9.2")
-        expect(page).to have_content("9.2")
+
+        expect(page).to have_button("Create Viewing Party for Movie")
+
+        expect(page).to have_content("The Godfather")
+        expect(page).to have_content("Vote Average: 8.7")
+        expect(page).to have_content("Runtime: 2 hr 55 mins")
+
+        within '.genre' do
+          expect(page).to have_content("Genre(s):")
+          expect(page).to have_content("Drama")
+          expect(page).to have_content("Crime")
+          expect(page).to_not have_content("Comedy")
+        end
+
+        within '.summary' do
+          expect(page).to have_content("Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family.")
+        end
+
+        within '.cast' do
+          expect(page).to have_content("Al Lettieri as Virgil 'The Turk' Sollozzo")
+        end
+
+        within '.reviews' do
+          expect(page).to have_content("Virtually everyone recognizes that iconic trumpet solo")
+          expect(page).to have_content("Author: futuretv")
+          expect(page).to have_content("1 Review(s)")
+        end
       end
     end
    end
