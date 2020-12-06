@@ -18,8 +18,6 @@ class MoviesController < ApplicationController
   end
 
   def show
-
-    # https://api.themoviedb.org/3/movie/230/credits?api_key=3f3f1b6bf5a188108490867c4c43f1e4&language=en-US
     id = params["id"].to_i
     conn = Faraday.new("https://api.themoviedb.org") do |f|
       f.params[:api_key] = ENV["MOVIE_SEARCH_API_KEY"]
