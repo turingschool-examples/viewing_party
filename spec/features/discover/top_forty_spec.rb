@@ -13,7 +13,7 @@ RSpec.describe 'Top Forty Search Feature' do
     end
 
     describe "User can click on 'Find Top Rated Movies' button" do
-      it 'I see the top forty highest rated movies' do
+      it 'I see the top forty highest rated movies', :vcr do
         visit discover_index_path
 
         click_button("Find Top Rated Movies")

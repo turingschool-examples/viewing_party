@@ -3,8 +3,7 @@ class SearchController < ApplicationController
     title = params["Search by movie title"]
 
     conn = Faraday.new("https://api.themoviedb.org") do |f|
-
-    f.params[:api_key] = ENV["MOVIE_SEARCH_API_KEY"]
+      f.params[:api_key] = ENV["MOVIE_SEARCH_API_KEY"]
     end
 
     suffix = "/3/search/movie?"
