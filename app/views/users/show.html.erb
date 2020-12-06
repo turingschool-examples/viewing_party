@@ -1,12 +1,23 @@
 <h1>Welcome, <%= @user.email %>!</h1>
 <%= button_to "Discover Movies", '/discover', method: :get %>
 
-<section id="friends">
+<section class="friends">
   <h3>Friends:</h3>
-  <%= search_field_tag "Friend's Email" %>
-  <%= button_to "Add Friend" %>
+  <%= form_tag dashboard_path, method: :post do %>
+    <%= label_tag :friend_email %>
+    <%= search_field_tag :friend_email %>
+    <%= submit_tag 'Add Friend' %>
+  <% end %>
+
+  <% if @user.friends.empty? %>
+    <p> You currently have no friends </p>
+  <% else %>
+    <% @user.friends.each do |friend| %>
+      <p> <%= friend.email %> </p>
+    <% end %>
+  <% end  %>
 </section>
 
-<section id="viewing-parties">
+<section class="viewing-parties">
   <h3>Viewing Parties:</h3>
 </section>
