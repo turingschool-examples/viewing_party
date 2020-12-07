@@ -1,0 +1,25 @@
+<h1 class = 'title_show_page'> <%= @movie[:title] %> </h1> <br>
+<div class = 'stats'>
+  <div class = 'vote_average' align = 'left'> Vote Average: <%= @movie[:vote_average] %> </div>
+  <div class = 'runtime' align = 'center'> Runtime: <%= @movie[:runtime]/60 %> hrs <%= @movie[:runtime]%60 %> min </div>
+  <div class = 'genre' align = 'right'> Genre(s): <%= genres(@movie[:genres]) %> </div>
+</div><br>
+<h4> Summary </h4><br>
+<div class = 'summary'>
+  <p> <%= @movie[:overview] %> </p>
+</div>
+<h4> Cast </h4><br>
+<div class = 'cast'>
+  <ul>
+    <% @cast.each do |member| %>
+    <li class = "member"> <%= member[:name] %> as <%= member[:character] %> </li>
+    <% end %>
+  </ul>
+</div><br>
+<h4> <%= @reviews.count %> Reviews </h4><br>
+<div class = 'reviews'>
+  <% @reviews.each do |review| %>
+  <p class = 'author'> Author: <%= review[:author] %> </p>
+  <p class = 'content'> <%= review[:content] %> </p>
+  <% end %>
+</div>

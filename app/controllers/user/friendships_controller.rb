@@ -7,6 +7,6 @@ class User::FriendshipsController < User::BaseController
     else
       flash[:error] = 'Sorry, I cannot find your friend.'
     end
-    redirect_to user_dashboard_path
+    redirect_to user_dashboard_path(current_user.username)
   end
 end
