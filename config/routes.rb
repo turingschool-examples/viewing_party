@@ -16,4 +16,7 @@ Rails.application.routes.draw do
   resources :search, only: %i[index]
 
   resources :movies, only: %i[index show]
+
+  resources :viewing_party, only: %i[new]
 end
+#namespace :user, path: "<session.id for user>" do
