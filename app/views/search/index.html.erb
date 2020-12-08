@@ -1,4 +1,4 @@
 <% @search.each do |result| %>
- <%= link_to result.title, "/movies/#{result.search_id}", method: :get %>
- <%= result.vote_avg %>
+  <%= link_to result.title, "/movies/#{result.search_id}", method: :get %>
+  <%= result.vote_avg %>
 <% end %>
