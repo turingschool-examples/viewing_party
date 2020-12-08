@@ -25,7 +25,7 @@ RSpec.describe 'New Viewing Party Page' do
       expect(current_path).to eq("/movies/240")
 
       click_on "Create Viewing Party for Movie"
-      expect(current_path).to eq('/movies/240/viewing_party/new')
+      expect(current_path).to eq('/movies/240/party/new')
     end
 
     it 'I can fill out a form to create a new viewing party' do
@@ -52,7 +52,7 @@ RSpec.describe 'New Viewing Party Page' do
       click_on 'Create Party'
       expect(current_path).to eq(dashboard_path)
 
-      within ".viewing_parties" do
+      within ".parties" do
         expect(page).to have_content("The Godfather: Part II")
         expect(page).to have_content("12/20/20")
         expect(page).to have_content("1:00")

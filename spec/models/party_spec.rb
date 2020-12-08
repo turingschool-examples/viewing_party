@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe ViewingParty, type: :model do
+describe Party, type: :model do
 
   describe 'relations' do
     it { should belong_to :user }

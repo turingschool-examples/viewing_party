@@ -1,4 +1,4 @@
-class ViewingPartyController < ApplicationController
+class PartiesController < ApplicationController
   def new
     @movie_id = params[:id].to_i
     suffix = "/3/movie/#{@movie_id}"
