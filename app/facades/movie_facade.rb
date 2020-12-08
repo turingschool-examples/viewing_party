@@ -1,5 +1,5 @@
 class MovieFacade
-  def self.search(query=optional)
+  def self.search(query = nil)
     uri = query.nil? ? 'movie/top_rated' : 'search/movie'
     films = []
     2.times do |n|

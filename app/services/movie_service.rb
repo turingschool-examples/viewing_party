@@ -3,7 +3,7 @@ class MovieService
     conn = Faraday.new(url: 'https://api.themoviedb.org')
   end
 
-  def self.movies_search(page_number, uri, query=optional)
+  def self.movies_search(page_number, uri, query = nil)
     response = conn.get("/3/#{uri}") do |rec|
       rec.params[:api_key] = ENV['TMDB_API_KEY']
       rec.params[:query] = query if query

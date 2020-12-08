@@ -2,10 +2,10 @@ class Film
   attr_reader :api_movie_id,
               :title,
               :rating,
-              :runtime,
               :cast,
               :reviews,
-              :overview
+              :overview,
+              :runtime_min
 
   def initialize(film_data)
     @api_movie_id = film_data[:id]
