@@ -1,8 +1,5 @@
 class MoviesController < ApplicationController
   def index
-    conn = Faraday.new("https://api.themoviedb.org") do |f|
-      f.params[:api_key] = ENV["MOVIE_SEARCH_API_KEY"]
-    end
 
     suffix = "/3/movie/top_rated?"
     @movie_results = []
@@ -19,9 +16,6 @@ class MoviesController < ApplicationController
 
   def show
     id = params["id"].to_i
-    conn = Faraday.new("https://api.themoviedb.org") do |f|
-      f.params[:api_key] = ENV["MOVIE_SEARCH_API_KEY"]
-    end
 
     suffix = "/3/movie/#{id}"
 
@@ -34,4 +28,11 @@ class MoviesController < ApplicationController
     reviews_response = conn.get("#{suffix}/reviews?")
     @reviews = JSON.parse(reviews_response.body, symbolize_names: true)
   end
+
+  private
+ def conn
+   Faraday.new("https://api.themoviedb.org") do |f|
+     f.params[:api_key] = ENV["MOVIE_SEARCH_API_KEY"]
+   end
+ end
 end
