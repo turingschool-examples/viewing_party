@@ -16,4 +16,8 @@ Rails.application.routes.draw do
   resources :search, only: %i[index]
 
   resources :movies, only: %i[index show]
+
+  get '/movies/:id/party/new', to: 'parties#new', as: 'new_party'
+  post '/movies/:id/party/new', to: 'parties#create'
 end
+#namespace :user, path: "<session.id for user>" do

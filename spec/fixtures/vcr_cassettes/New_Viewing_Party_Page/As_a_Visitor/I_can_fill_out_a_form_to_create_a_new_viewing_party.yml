@@ -1,0 +1,616 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/240/credits?api_key=<replacement>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.1.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 07 Dec 2020 21:55:08 GMT
+      Server:
+      - openresty
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
+        Content-Length, Content-Range
+      Cache-Control:
+      - public, max-age=21600
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - 60ee64252f11a8dadba52e56f0eca358d621e311
+      X-Memc-Age:
+      - '6535'
+      X-Memc-Expires:
+      - '15065'
+      Etag:
+      - W/"80dc0e948a677bf7b4ebdb765616c99b"
+      Last-Modified:
+      - Mon, 07 Dec 2020 21:55:08 GMT
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 dc50b0effd72a7b2c19bcb0909cfae82.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - DEN50-C2
+      X-Amz-Cf-Id:
+      - GWMRaZrux_v36pJZWXvyVuD7VPlf4-Y5DA23b2-5OwZXPwIaVYoTjg==
+      Age:
+      - '17174'
+    body:
+      encoding: UTF-8
+      string: '{"id":240,"cast":[{"adult":false,"gender":2,"id":1158,"known_for_department":"Acting","name":"Al
+        Pacino","original_name":"Al Pacino","popularity":7.903,"profile_path":"/fMDFeVf0pjopTJbyRSLFwNDm8Wr.jpg","cast_id":8,"character":"Don
+        Michael Corleone","credit_id":"52fe422bc3a36847f8009505","order":0},{"adult":false,"gender":2,"id":3087,"known_for_department":"Acting","name":"Robert
+        Duvall","original_name":"Robert Duvall","popularity":5.403,"profile_path":"/ybMmK25h4IVtfE7qrnlVp47RQlh.jpg","cast_id":9,"character":"Tom
+        Hagen","credit_id":"52fe422bc3a36847f8009509","order":1},{"adult":false,"gender":1,"id":3092,"known_for_department":"Acting","name":"Diane
+        Keaton","original_name":"Diane Keaton","popularity":4.155,"profile_path":"/7gEdH5vGwpUpogscTb2JivnoRBb.jpg","cast_id":10,"character":"Kay
+        Corleone","credit_id":"52fe422bc3a36847f800950d","order":2},{"adult":false,"gender":2,"id":380,"known_for_department":"Acting","name":"Robert
+        De Niro","original_name":"Robert De Niro","popularity":11.644,"profile_path":"/cT8htcckIuyI1Lqwt1CvD02ynTh.jpg","cast_id":11,"character":"Don
+        Vito Corleone","credit_id":"52fe422bc3a36847f8009511","order":3},{"adult":false,"gender":2,"id":3096,"known_for_department":"Acting","name":"John
+        Cazale","original_name":"John Cazale","popularity":1.22,"profile_path":"/tRBImYIYk9tuR4fjJc8gHXC8ENj.jpg","cast_id":12,"character":"Frederico
+        ''Fredo'' Corleone","credit_id":"52fe422bc3a36847f8009515","order":4},{"adult":false,"gender":1,"id":3094,"known_for_department":"Acting","name":"Talia
+        Shire","original_name":"Talia Shire","popularity":3.019,"profile_path":"/yOp69Un3ZiWMoCKZfq1vy7h5QyW.jpg","cast_id":13,"character":"Constanzia
+        ''Connie'' Corleone","credit_id":"52fe422bc3a36847f8009519","order":5},{"adult":false,"gender":2,"id":3171,"known_for_department":"Acting","name":"Lee
+        Strasberg","original_name":"Lee Strasberg","popularity":0.84,"profile_path":"/niSM7ejzddgaTcxjgJMYEFCr9Y2.jpg","cast_id":14,"character":"Hyman
+        Roth","credit_id":"52fe422bc3a36847f800951d","order":6},{"adult":false,"gender":2,"id":3172,"known_for_department":"Acting","name":"Michael
+        V. Gazzo","original_name":"Michael V. Gazzo","popularity":3.241,"profile_path":"/cTY2Hlf6sIR9xLI95bBir7eI0N.jpg","cast_id":15,"character":"Frank
+        Pentangeli","credit_id":"52fe422bc3a36847f8009521","order":7},{"adult":false,"gender":2,"id":3173,"known_for_department":"Acting","name":"G.
+        D. Spradlin","original_name":"G. D. Spradlin","popularity":2.019,"profile_path":"/jV6Tf9bxrsFT0GlNo1EAiNqYlB2.jpg","cast_id":16,"character":"Senator
+        Pat Geary","credit_id":"52fe422bc3a36847f8009525","order":8},{"adult":false,"gender":2,"id":3174,"known_for_department":"Acting","name":"Richard
+        Bright","original_name":"Richard Bright","popularity":2.471,"profile_path":"/potMaJ2u5PRjXZb7qF9lSW1ldNZ.jpg","cast_id":17,"character":"Al
+        Neri","credit_id":"52fe422bc3a36847f8009529","order":9},{"adult":false,"gender":1,"id":3279,"known_for_department":"Acting","name":"Francesca
+        De Sapio","original_name":"Francesca De Sapio","popularity":1.159,"profile_path":"/dVOxVZHk9PjdrBUUjfOkQtxa2m8.jpg","cast_id":32,"character":"Young
+        Carmela","credit_id":"52fe422bc3a36847f8009581","order":10},{"adult":false,"gender":2,"id":3280,"known_for_department":"Acting","name":"Oreste
+        Baldini","original_name":"Oreste Baldini","popularity":1.094,"profile_path":null,"cast_id":33,"character":"Young
+        Vito","credit_id":"52fe422bc3a36847f8009585","order":11},{"adult":false,"gender":2,"id":3281,"known_for_department":"Acting","name":"Gastone
+        Moschin","original_name":"Gastone Moschin","popularity":1.96,"profile_path":"/dU58seqJs1NDkNodjwCbGZg3nqT.jpg","cast_id":34,"character":"Don
+        Fanucci","credit_id":"52fe422bc3a36847f8009589","order":12},{"adult":false,"gender":2,"id":3333,"known_for_department":"Acting","name":"Giuseppe
+        Sillato","original_name":"Giuseppe Sillato","popularity":0.694,"profile_path":null,"cast_id":35,"character":"Don
+        Francesco Ciccio","credit_id":"52fe422bc3a36847f800958d","order":13},{"adult":false,"gender":2,"id":9257,"known_for_department":"Acting","name":"Bruno
+        Kirby","original_name":"Bruno Kirby","popularity":2.612,"profile_path":"/jhzDyVIXoccsSmhkNgrneLAeUYG.jpg","cast_id":37,"character":"Young
+        Clemenza","credit_id":"52fe422bc3a36847f8009597","order":14},{"adult":false,"gender":2,"id":11480,"known_for_department":"Acting","name":"Frank
+        Sivero","original_name":"Frank Sivero","popularity":2.509,"profile_path":"/eqvhj0iNtcsN6EJhd21Goqi1DSq.jpg","cast_id":38,"character":"Genco
+        Abbandando","credit_id":"52fe422bc3a36847f800959b","order":15},{"adult":false,"gender":1,"id":933716,"known_for_department":"Acting","name":"Morgana
+        King","original_name":"Morgana King","popularity":1.932,"profile_path":null,"cast_id":39,"character":"Carmela
+        ''Mama'' Corleone","credit_id":"52fe422bc3a36847f800959f","order":16},{"adult":false,"gender":1,"id":15659,"known_for_department":"Acting","name":"Marianna
+        Hill","original_name":"Marianna Hill","popularity":2.219,"profile_path":"/pZJzjYjGMIXN6qUbtWE5paUEzjP.jpg","cast_id":40,"character":"Deanna
+        Corleone","credit_id":"52fe422bc3a36847f80095a3","order":17},{"adult":false,"gender":2,"id":14151,"known_for_department":"Acting","name":"Leopoldo
+        Trieste","original_name":"Leopoldo Trieste","popularity":1.22,"profile_path":"/3DEbCzT2gL4ebP4zAYROH0QWeGA.jpg","cast_id":41,"character":"Signor
+        Roberto","credit_id":"52fe422bc3a36847f80095a7","order":18},{"adult":false,"gender":2,"id":68186,"known_for_department":"Acting","name":"Dominic
+        Chianese","original_name":"Dominic Chianese","popularity":0.957,"profile_path":"/wJIybLAbVv6VEPFpZtpxRW26aq2.jpg","cast_id":42,"character":"Johnny
+        Ola","credit_id":"52fe422bc3a36847f80095ab","order":19},{"adult":false,"gender":1,"id":116739,"known_for_department":"Acting","name":"Fay
+        Spain","original_name":"Fay Spain","popularity":1.166,"profile_path":"/2N7wQIdFd329AZZDDt8mZp4ouUh.jpg","cast_id":43,"character":"Mrs.
+        Marcia Roth","credit_id":"52fe422bc3a36847f80095af","order":20},{"adult":false,"gender":2,"id":5048,"known_for_department":"Acting","name":"Harry
+        Dean Stanton","original_name":"Harry Dean Stanton","popularity":2.521,"profile_path":"/197UiLVdxPOv8196sqmUpJzOQB5.jpg","cast_id":44,"character":"F.B.I.
+        Man #1","credit_id":"52fe422bc3a36847f80095b3","order":21},{"adult":false,"gender":2,"id":1004,"known_for_department":"Acting","name":"Danny
+        Aiello","original_name":"Danny Aiello","popularity":2.8,"profile_path":"/vl71InQaqL3khAPJrvUjsxtynVP.jpg","cast_id":45,"character":"Tony
+        Rosato","credit_id":"52fe422bc3a36847f80095b7","order":22},{"adult":false,"gender":2,"id":102429,"known_for_department":"Production","name":"Roger
+        Corman","original_name":"Roger Corman","popularity":1.445,"profile_path":"/kWvtdBp4AVSOwluWwZ1WhsKlAfk.jpg","cast_id":46,"character":"Senator
+        #2","credit_id":"52fe422bc3a36847f80095bb","order":23},{"adult":false,"gender":2,"id":69948,"known_for_department":"Writing","name":"William
+        Bowers","original_name":"William Bowers","popularity":0.656,"profile_path":null,"cast_id":47,"character":"Senate
+        Committee Chairman","credit_id":"52fe422bc3a36847f80095bf","order":24},{"adult":false,"gender":2,"id":3085,"known_for_department":"Acting","name":"James
+        Caan","original_name":"James Caan","popularity":5.456,"profile_path":"/lshBr4yhwKH01N2t9mlDgd5Hek3.jpg","cast_id":48,"character":"Santino
+        ''Sonny'' Corleone","credit_id":"52fe422bc3a36847f80095c3","order":25},{"adult":false,"gender":2,"id":1213795,"known_for_department":"Acting","name":"Tom
+        Rosqui","original_name":"Tom Rosqui","popularity":1.4,"profile_path":null,"cast_id":49,"character":"Rocco
+        Lampone","credit_id":"55c0e47a9251410f780020ba","order":26},{"adult":false,"gender":2,"id":99788,"known_for_department":"Acting","name":"Amerigo
+        Tot","original_name":"Amerigo Tot","popularity":0.652,"profile_path":null,"cast_id":50,"character":"Michael''s
+        Bodyguard","credit_id":"55c0e4d3c3a36823c9001c61","order":27},{"adult":false,"gender":2,"id":45363,"known_for_department":"Acting","name":"Troy
+        Donahue","original_name":"Troy Donahue","popularity":1.8,"profile_path":"/1K0HFJ48Z4EVW0XJtqd7fbWrX1S.jpg","cast_id":51,"character":"Merle
+        Johnson","credit_id":"55c0e511c3a36823f4001cdd","order":28},{"adult":false,"gender":2,"id":104504,"known_for_department":"Acting","name":"John
+        Aprea","original_name":"John Aprea","popularity":1.708,"profile_path":null,"cast_id":52,"character":"Young
+        Tessio","credit_id":"55c0e53d9251410ee7001da1","order":29},{"adult":false,"gender":2,"id":3093,"known_for_department":"Acting","name":"Abe
+        Vigoda","original_name":"Abe Vigoda","popularity":2.034,"profile_path":"/luWKPNb58IgJ2ovrtgPAzHGLLYL.jpg","cast_id":54,"character":"Tessio","credit_id":"55c0e5879251410ee7001dab","order":30},{"adult":false,"gender":1,"id":982089,"known_for_department":"Acting","name":"Tere
+        Livrano","original_name":"Tere Livrano","popularity":0.6,"profile_path":null,"cast_id":55,"character":"Theresa
+        Hagen","credit_id":"55c0e5ccc3a36823c9001c7c","order":31},{"adult":false,"gender":2,"id":3095,"known_for_department":"Acting","name":"Gianni
+        Russo","original_name":"Gianni Russo","popularity":1.4,"profile_path":"/JJusQAUkzWeqYGLSjhnZKvKHox.jpg","cast_id":56,"character":"Carlo","credit_id":"55c0e5ffc3a3682253001d4f","order":32},{"adult":false,"gender":1,"id":24697,"known_for_department":"Acting","name":"Maria
+        Carta","original_name":"Maria Carta","popularity":1.4,"profile_path":null,"cast_id":57,"character":"Vito''s
+        mother","credit_id":"55c0e6259251410f2a001d22","order":33},{"adult":false,"gender":2,"id":1343811,"known_for_department":"Production","name":"Mario
+        Cotone","original_name":"Mario Cotone","popularity":0.6,"profile_path":null,"cast_id":58,"character":"Don
+        Tommasino","credit_id":"55c0e6f5c3a36823c9001ca1","order":34},{"adult":false,"gender":2,"id":133853,"known_for_department":"Acting","name":"Carmine
+        Caridi","original_name":"Carmine Caridi","popularity":1.27,"profile_path":"/yCZV6meBOjZbkEooqc9BQntLynw.jpg","cast_id":59,"character":"Carmine
+        Rosato","credit_id":"55c0e7c79251410f58001e67","order":35},{"adult":false,"gender":2,"id":14553,"known_for_department":"Acting","name":"Carmine
+        Foresta","original_name":"Carmine Foresta","popularity":0.694,"profile_path":null,"cast_id":60,"character":"Policeman","credit_id":"55c0e80ac3a36823f7002165","order":36},{"adult":false,"gender":2,"id":16525,"known_for_department":"Acting","name":"Joe
+        Spinell","original_name":"Joe Spinell","popularity":1.4,"profile_path":"/aTDs8125mhLKlQSbUlFJC2LJ8tU.jpg","cast_id":53,"character":"Willi
+        Cicci","credit_id":"55c0e566c3a3682379001ffb","order":37},{"adult":false,"gender":1,"id":76064,"known_for_department":"Acting","name":"Kathleen
+        Beller","original_name":"Kathleen Beller","popularity":1.932,"profile_path":"/fp9zoBhCr6EKq783YhiUTCzCARj.jpg","cast_id":62,"character":"Girl
+        in ''Senza Mamma'' (uncredited)","credit_id":"55c0e921c3a36823f700217a","order":38},{"adult":false,"gender":1,"id":46929,"known_for_department":"Acting","name":"Ivonne
+        Coll","original_name":"Ivonne Coll","popularity":0.873,"profile_path":"/7cyzeWeX8zD4IwAUDfyE9BK8woY.jpg","cast_id":63,"character":"Yolanda
+        (uncredited)","credit_id":"55c0e94bc3a36823c9001cca","order":39},{"adult":false,"gender":2,"id":38803,"known_for_department":"Acting","name":"Roman
+        Coppola","original_name":"Roman Coppola","popularity":1.646,"profile_path":"/rKamKkx78qjZTfvqi2OWCo5p6x5.jpg","cast_id":64,"character":"Sonny
+        Corleone as a Boy (uncredited)","credit_id":"55c0e97bc3a3682253001db1","order":40},{"adult":false,"gender":1,"id":1769,"known_for_department":"Directing","name":"Sofia
+        Coppola","original_name":"Sofia Coppola","popularity":2.307,"profile_path":"/dzHC2LxmarkBxWLhjp2DRa5oCev.jpg","cast_id":65,"character":"Child
+        on Ship (uncredited)","credit_id":"55c0e9929251410f27002014","order":41},{"adult":false,"gender":2,"id":99846,"known_for_department":"Acting","name":"Sho
+        Kosugi","original_name":"Sho Kosugi","popularity":3.42,"profile_path":"/cdoP2qnJILJlWT4xvYDxg2doaf6.jpg","cast_id":66,"character":"Passerby
+        in Coat with Cap Pulled Down (uncredited)","credit_id":"55c0e9ab9251410f19001f2d","order":42},{"adult":false,"gender":2,"id":1503033,"known_for_department":"Acting","name":"James
+        Gounaris","original_name":"James Gounaris","popularity":0.6,"profile_path":null,"cast_id":68,"character":"Anthony
+        Corleone (uncredited)","credit_id":"55e52f7ec3a36813f80011d4","order":43},{"adult":false,"gender":2,"id":1503034,"known_for_department":"Acting","name":"Nick
+        Discenza","original_name":"Nick Discenza","popularity":0.728,"profile_path":null,"cast_id":69,"character":"Bartender
+        (uncredited)","credit_id":"55e52f7e92514137a000124d","order":44},{"adult":false,"gender":2,"id":1503035,"known_for_department":"Acting","name":"Joseph
+        Medaglia","original_name":"Joseph Medaglia","popularity":0.6,"profile_path":null,"cast_id":70,"character":"Father
+        Carmelo (uncredited)","credit_id":"55e52f7f925141379a001246","order":45},{"adult":false,"gender":2,"id":1581646,"known_for_department":"Acting","name":"Joseph
+        Della Sorte","original_name":"Joseph Della Sorte","popularity":0.608,"profile_path":null,"cast_id":111,"character":"Michael''s
+        Buttonman #1 (uncredited)","credit_id":"56cb9af5c3a36865ef0003ae","order":46},{"adult":false,"gender":2,"id":28413,"known_for_department":"Acting","name":"Carmen
+        Argenziano","original_name":"Carmen Argenziano","popularity":0.652,"profile_path":"/aiHWJmsVn7iWuohSg6lzF23XYVr.jpg","cast_id":112,"character":"Michael''s
+        Buttonman #2 (uncredited)","credit_id":"56cb9b0b9251412452000385","order":47},{"adult":false,"gender":2,"id":1503036,"known_for_department":"Acting","name":"Joe
+        Lo Grippo","original_name":"Joe Lo Grippo","popularity":1.96,"profile_path":null,"cast_id":71,"character":"Michael''s
+        Buttonman #3 (uncredited)","credit_id":"55e52f7fc3a3681408001327","order":48},{"adult":false,"gender":2,"id":1503037,"known_for_department":"Acting","name":"Ezio
+        Flagello","original_name":"Ezio Flagello","popularity":0.6,"profile_path":null,"cast_id":72,"character":"Impressario
+        (uncredited)","credit_id":"55e52f7f925141379d001174","order":49},{"adult":false,"gender":2,"id":1503038,"known_for_department":"Acting","name":"Livio
+        Giorgi","original_name":"Livio Giorgi","popularity":0.6,"profile_path":null,"cast_id":73,"character":"Tenor
+        in ''Senza Mamma'' (uncredited)","credit_id":"55e52f80c3a36813f6000f76","order":50},{"adult":false,"gender":1,"id":1503039,"known_for_department":"Acting","name":"Saveria
+        Mazzola","original_name":"Saveria Mazzola","popularity":0.656,"profile_path":null,"cast_id":74,"character":"Signora
+        Colombo (uncredited)","credit_id":"55e52f8092514137a20010b9","order":51},{"adult":false,"gender":2,"id":1503040,"known_for_department":"Acting","name":"Tito
+        Alba","original_name":"Tito Alba","popularity":0.6,"profile_path":null,"cast_id":75,"character":"Cuban
+        President (uncredited)","credit_id":"55e52f8092514137a600118b","order":52},{"adult":false,"gender":2,"id":1503041,"known_for_department":"Acting","name":"Johnny
+        Naranjo","original_name":"Johnny Naranjo","popularity":1.4,"profile_path":null,"cast_id":76,"character":"Cuban
+        Translator (uncredited)","credit_id":"55e52f8192514137a20010be","order":53},{"adult":false,"gender":1,"id":1503042,"known_for_department":"Acting","name":"Elda
+        Maida","original_name":"Elda Maida","popularity":0.6,"profile_path":null,"cast_id":77,"character":"Pentangeli''s
+        Wife (uncredited)","credit_id":"55e52f81c3a36813eb0011b4","order":54},{"adult":false,"gender":2,"id":1503043,"known_for_department":"Acting","name":"Salvatore
+        Po","original_name":"Salvatore Po","popularity":0.828,"profile_path":null,"cast_id":78,"character":"Pentangeli''s
+        Brother (uncredited)","credit_id":"55e52f81925141379d001179","order":55},{"adult":false,"gender":0,"id":1503044,"known_for_department":"Acting","name":"Ignazio
+        Pappalardo","original_name":"Ignazio Pappalardo","popularity":0.6,"profile_path":null,"cast_id":79,"character":"Mosca
+        (uncredited)","credit_id":"55e52f82c3a368140800132c","order":56},{"adult":false,"gender":0,"id":1503045,"known_for_department":"Acting","name":"Andrea
+        Maugeri","original_name":"Andrea Maugeri","popularity":0.6,"profile_path":null,"cast_id":80,"character":"Strollo
+        (uncredited)","credit_id":"55e52f8292514137a0001252","order":57},{"adult":false,"gender":0,"id":1503046,"known_for_department":"Acting","name":"Peter
+        LaCorte","original_name":"Peter LaCorte","popularity":0.6,"profile_path":null,"cast_id":81,"character":"Signor
+        Abbandando (uncredited)","credit_id":"55e52f82925141379a00124c","order":58},{"adult":false,"gender":0,"id":1503047,"known_for_department":"Acting","name":"Vincent
+        Coppola","original_name":"Vincent Coppola","popularity":0.6,"profile_path":null,"cast_id":82,"character":"Street
+        Vendor (uncredited)","credit_id":"55e52f82c3a3681402001036","order":59},{"adult":false,"gender":2,"id":14849,"known_for_department":"Acting","name":"Peter
+        Donat","original_name":"Peter Donat","popularity":2.066,"profile_path":"/9oxRUlGgSZCx58I8GKRKDbOIKyC.jpg","cast_id":83,"character":"Questadt
+        (uncredited)","credit_id":"55e52f83925141379d00117e","order":60},{"adult":false,"gender":2,"id":1212995,"known_for_department":"Acting","name":"Tom
+        Dahlgren","original_name":"Tom Dahlgren","popularity":0.6,"profile_path":null,"cast_id":84,"character":"Fred
+        Corngold (uncredited)","credit_id":"55e52f8392514137a0001257","order":61},{"adult":false,"gender":2,"id":7768,"known_for_department":"Production","name":"Phil
+        Feldman","original_name":"Phil Feldman","popularity":1.214,"profile_path":null,"cast_id":85,"character":"Senator
+        #1 (uncredited)","credit_id":"55e52f8392514137a80011ad","order":62},{"adult":false,"gender":0,"id":1205819,"known_for_department":"Acting","name":"Joe
+        De Nicola","original_name":"Joe De Nicola","popularity":0.6,"profile_path":null,"cast_id":86,"character":"Attendant
+        at Brothel (uncredited)","credit_id":"55e52f84c3a36813eb0011b9","order":63},{"adult":false,"gender":0,"id":1503048,"known_for_department":"Acting","name":"Edward
+        Van Sickle","original_name":"Edward Van Sickle","popularity":0.6,"profile_path":null,"cast_id":87,"character":"Ellis
+        Island Doctor (uncredited)","credit_id":"55e52f84c3a36813eb0011bc","order":64},{"adult":false,"gender":0,"id":1503049,"known_for_department":"Acting","name":"Gabriella
+        Belloni","original_name":"Gabriella Belloni","popularity":0.6,"profile_path":null,"cast_id":88,"character":"Ellis
+        Island Nurse (uncredited)","credit_id":"55e52f84c3a3681408001332","order":65},{"adult":false,"gender":0,"id":1503050,"known_for_department":"Acting","name":"Venancia
+        Grangerard","original_name":"Venancia Grangerard","popularity":0.6,"profile_path":null,"cast_id":89,"character":"Cuban
+        Nurse (uncredited)","credit_id":"55e52f8592514137940010a7","order":66},{"adult":false,"gender":1,"id":40349,"known_for_department":"Acting","name":"Erica
+        Yohn","original_name":"Erica Yohn","popularity":0.98,"profile_path":"/ArpkNzcdaYQTjg6VdYtDFxAygIX.jpg","cast_id":90,"character":"Governess
+        (uncredited)","credit_id":"55f2143e9251416707002d4c","order":67},{"adult":false,"gender":2,"id":12401,"known_for_department":"Acting","name":"Gary
+        Kurtz","original_name":"Gary Kurtz","popularity":0.648,"profile_path":"/q6tgPiNqzEOIYmHxMrpWoUirmmu.jpg","cast_id":95,"character":"Photographer
+        in Court (uncredited)","credit_id":"55f21857c3a3683bec002ece","order":68},{"adult":false,"gender":1,"id":99949,"known_for_department":"Acting","name":"Connie
+        Mason","original_name":"Connie Mason","popularity":1.4,"profile_path":"/icUrW3u0EdGa526urqVGdiE8hi1.jpg","cast_id":96,"character":"(uncredited)","credit_id":"55f218adc3a3682307002ffa","order":69},{"adult":false,"gender":2,"id":101615,"known_for_department":"Acting","name":"Frank
+        Pesce","original_name":"Frank Pesce","popularity":1.158,"profile_path":null,"cast_id":99,"character":"Extra
+        (uncredited)","credit_id":"55f2193bc3a3682303002e35","order":70},{"adult":false,"gender":0,"id":1403118,"known_for_department":"Acting","name":"Victor
+        Pujols Faneyte","original_name":"Victor Pujols Faneyte","popularity":1.094,"profile_path":null,"cast_id":91,"character":"Cuban
+        Guerilla with Grenade (uncredited)","credit_id":"55f21765c3a36822f500305c","order":71},{"adult":false,"gender":1,"id":160728,"known_for_department":"Acting","name":"Julie
+        Gregg","original_name":"Julie Gregg","popularity":1.565,"profile_path":null,"cast_id":92,"character":"Sandra
+        Corleone (uncredited)","credit_id":"55f217aa925141670d002fbb","order":72},{"adult":false,"gender":0,"id":1494522,"known_for_department":"Acting","name":"Larry
+        Guardino","original_name":"Larry Guardino","popularity":0.84,"profile_path":null,"cast_id":93,"character":"Vito''s
+        Uncle (uncredited)","credit_id":"55f217dbc3a36822fe002e85","order":73},{"adult":false,"gender":0,"id":47756,"known_for_department":"Production","name":"Buck
+        Houghton","original_name":"Buck Houghton","popularity":0.6,"profile_path":null,"cast_id":94,"character":"Senator
+        with mustache (uncredited)","credit_id":"55f218199251410d6d001698","order":74},{"adult":false,"gender":2,"id":12415,"known_for_department":"Writing","name":"Richard
+        Matheson","original_name":"Richard Matheson","popularity":0.98,"profile_path":"/fTsTj0EMqH5GfVN0Kj252jsYZnB.jpg","cast_id":97,"character":"Senator
+        #3 (uncredited)","credit_id":"55f218e99251416711002e7a","order":75},{"adult":false,"gender":2,"id":8490,"known_for_department":"Acting","name":"John
+        Megna","original_name":"John Megna","popularity":1.96,"profile_path":"/kReLwlEfN7c5Aer1TSdaL6Y4qG1.jpg","cast_id":98,"character":"Young
+        Hyman Roth (uncredited)","credit_id":"55f219119251416701002cf5","order":76},{"adult":false,"gender":2,"id":160627,"known_for_department":"Acting","name":"Jay
+        Rasumny","original_name":"Jay Rasumny","popularity":0.84,"profile_path":"/nLUXyuLzK6bx2hZSj99hr2w7zaW.jpg","cast_id":100,"character":"Street
+        Vendor (uncredited)","credit_id":"55f219629251416705002daa","order":77},{"adult":false,"gender":0,"id":1209678,"known_for_department":"Acting","name":"Filomena
+        Spagnuolo","original_name":"Filomena Spagnuolo","popularity":0.84,"profile_path":null,"cast_id":101,"character":"Extra
+        in Little Italy (uncredited)","credit_id":"55f219a2c3a3683bec002ee7","order":78},{"adult":false,"gender":0,"id":59364,"known_for_department":"Acting","name":"Julian
+        Voloshin","original_name":"Julian Voloshin","popularity":0.694,"profile_path":"/zvydabJwp6vRLGn3uGqL9VxPVB4.jpg","cast_id":102,"character":"Sam
+        Roth (uncredited)","credit_id":"55f219ee9251414530001826","order":79},{"adult":false,"gender":1,"id":126072,"known_for_department":"Acting","name":"Italia
+        Coppola","original_name":"Italia Coppola","popularity":0.6,"profile_path":null,"cast_id":116,"character":"Mama
+        Corleone''s Body (uncredited)","credit_id":"56cc78a4c3a36865ef002937","order":80}],"crew":[{"adult":false,"gender":2,"id":154,"known_for_department":"Editing","name":"Walter
+        Murch","original_name":"Walter Murch","popularity":1.013,"profile_path":"/7ZUPk0aT7IBm4xPeILzm8dUrl48.jpg","credit_id":"5a773d1f9251417763000e61","department":"Sound","job":"Sound
+        Re-Recording Mixer"},{"adult":false,"gender":2,"id":154,"known_for_department":"Editing","name":"Walter
+        Murch","original_name":"Walter Murch","popularity":1.013,"profile_path":"/7ZUPk0aT7IBm4xPeILzm8dUrl48.jpg","credit_id":"5a773d0e0e0a26598b001060","department":"Sound","job":"Sound
+        Montage Associate"},{"adult":false,"gender":2,"id":1776,"known_for_department":"Directing","name":"Francis
+        Ford Coppola","original_name":"Francis Ford Coppola","popularity":3.097,"profile_path":"/mGKkVp3l9cipPt10AqoQnwaPrfI.jpg","credit_id":"5e9251c384448e00128f09b1","department":"Writing","job":"Screenplay"},{"adult":false,"gender":2,"id":1776,"known_for_department":"Directing","name":"Francis
+        Ford Coppola","original_name":"Francis Ford Coppola","popularity":3.097,"profile_path":"/mGKkVp3l9cipPt10AqoQnwaPrfI.jpg","credit_id":"5e92517a8e87020016cb1d0e","department":"Directing","job":"Director"},{"adult":false,"gender":2,"id":1776,"known_for_department":"Directing","name":"Francis
+        Ford Coppola","original_name":"Francis Ford Coppola","popularity":3.097,"profile_path":"/mGKkVp3l9cipPt10AqoQnwaPrfI.jpg","credit_id":"52fe422bc3a36847f80094e3","department":"Production","job":"Producer"},{"adult":false,"gender":2,"id":2870,"known_for_department":"Production","name":"Gray
+        Frederickson","original_name":"Gray Frederickson","popularity":1.4,"profile_path":null,"credit_id":"52fe422bc3a36847f80094e9","department":"Production","job":"Producer"},{"adult":false,"gender":2,"id":2871,"known_for_department":"Production","name":"Fred
+        Roos","original_name":"Fred Roos","popularity":0.98,"profile_path":"/qfXLY5E589l0TQnoayWmUrBDsgo.jpg","credit_id":"52fe422bc3a36847f80094ef","department":"Production","job":"Producer"},{"adult":false,"gender":0,"id":3170,"known_for_department":"Production","name":"Mona
+        Skager","original_name":"Mona Skager","popularity":0.6,"profile_path":null,"credit_id":"52fe422bc3a36847f80094f5","department":"Production","job":"Producer"},{"adult":false,"gender":2,"id":2872,"known_for_department":"Sound","name":"Carmine
+        Coppola","original_name":"Carmine Coppola","popularity":0.648,"profile_path":null,"credit_id":"52fe422bc3a36847f8009535","department":"Sound","job":"Original
+        Music Composer"},{"adult":false,"gender":2,"id":3176,"known_for_department":"Production","name":"Vic
+        Ramos","original_name":"Vic Ramos","popularity":0.6,"profile_path":null,"credit_id":"52fe422bc3a36847f8009565","department":"Production","job":"Casting"},{"adult":false,"gender":2,"id":2875,"known_for_department":"Art","name":"Dean
+        Tavoularis","original_name":"Dean Tavoularis","popularity":0.828,"profile_path":"/hrRBaXUn2k29qd1MvAxuag5L32c.jpg","credit_id":"52fe422bc3a36847f8009541","department":"Art","job":"Production
+        Design"},{"adult":false,"gender":2,"id":794,"known_for_department":"Art","name":"Angelo
+        P. Graham","original_name":"Angelo P. Graham","popularity":0.98,"profile_path":null,"credit_id":"57471cb39251415f60002932","department":"Art","job":"Art
+        Direction"},{"adult":false,"gender":2,"id":8339,"known_for_department":"Art","name":"George
+        R. Nelson","original_name":"George R. Nelson","popularity":1.4,"profile_path":null,"credit_id":"57471d159251415e5d002c69","department":"Art","job":"Set
+        Decoration"},{"adult":false,"gender":1,"id":597,"known_for_department":"Production","name":"Jane
+        Feinberg","original_name":"Jane Feinberg","popularity":0.6,"profile_path":null,"credit_id":"52fe422bc3a36847f8009559","department":"Production","job":"Casting"},{"adult":false,"gender":2,"id":598,"known_for_department":"Production","name":"Mike
+        Fenton","original_name":"Mike Fenton","popularity":0.6,"profile_path":null,"credit_id":"52fe422bc3a36847f800955f","department":"Production","job":"Casting"},{"adult":false,"gender":2,"id":2988,"known_for_department":"Editing","name":"Barry
+        Malkin","original_name":"Barry Malkin","popularity":0.98,"profile_path":null,"credit_id":"52fe422bc3a36847f8009547","department":"Editing","job":"Editor"},{"adult":false,"gender":2,"id":3083,"known_for_department":"Writing","name":"Mario
+        Puzo","original_name":"Mario Puzo","popularity":1.312,"profile_path":null,"credit_id":"52fe422bc3a36847f80094fb","department":"Writing","job":"Novel"},{"adult":false,"gender":2,"id":3085,"known_for_department":"Acting","name":"James
+        Caan","original_name":"James Caan","popularity":5.456,"profile_path":"/lshBr4yhwKH01N2t9mlDgd5Hek3.jpg","credit_id":"57472235c3a36839df000077","department":"Crew","job":"Thanks"},{"adult":false,"gender":2,"id":3097,"known_for_department":"Camera","name":"Gordon
+        Willis","original_name":"Gordon Willis","popularity":1.96,"profile_path":"/6gOmfatlF7UdhaHi2tPsZMb5vmz.jpg","credit_id":"52fe422bc3a36847f800952f","department":"Camera","job":"Director
+        of Photography"},{"adult":false,"gender":2,"id":3098,"known_for_department":"Sound","name":"Nino
+        Rota","original_name":"Nino Rota","popularity":1.673,"profile_path":"/v42v3uM7jqwoZxDJ8MlEtT6Ol7a.jpg","credit_id":"52fe422bc3a36847f800953b","department":"Sound","job":"Original
+        Music Composer"},{"adult":false,"gender":2,"id":3100,"known_for_department":"Editing","name":"Peter
+        Zinner","original_name":"Peter Zinner","popularity":0.84,"profile_path":null,"credit_id":"52fe422bc3a36847f8009553","department":"Editing","job":"Editor"},{"adult":false,"gender":0,"id":3102,"known_for_department":"Sound","name":"Howard
+        Beals","original_name":"Howard Beals","popularity":0.6,"profile_path":null,"credit_id":"52fe422bc3a36847f800956b","department":"Sound","job":"Sound
+        Effects Editor"},{"adult":false,"gender":2,"id":3175,"known_for_department":"Editing","name":"Richard
+        Marks","original_name":"Richard Marks","popularity":1.4,"profile_path":null,"credit_id":"52fe422bc3a36847f800954d","department":"Editing","job":"Editor"},{"adult":false,"gender":0,"id":3177,"known_for_department":"Sound","name":"Mark
+        Berger","original_name":"Mark Berger","popularity":0.98,"profile_path":null,"credit_id":"52fe422bc3a36847f8009571","department":"Sound","job":"Sound
+        Montage Associate"},{"adult":false,"gender":2,"id":3178,"known_for_department":"Sound","name":"Nathan
+        Boxer","original_name":"Nathan Boxer","popularity":0.98,"profile_path":null,"credit_id":"52fe422bc3a36847f8009577","department":"Sound","job":"Production
+        Sound Mixer"},{"adult":false,"gender":0,"id":3179,"known_for_department":"Sound","name":"George
+        Brand","original_name":"George Brand","popularity":0.6,"profile_path":null,"credit_id":"52fe422bc3a36847f800957d","department":"Sound","job":"Music
+        Editor"},{"adult":false,"gender":2,"id":4506,"known_for_department":"Production","name":"James
+        D. Brubaker","original_name":"James D. Brubaker","popularity":0.98,"profile_path":null,"credit_id":"574720c79251412b3e000059","department":"Crew","job":"Transportation
+        Captain"},{"adult":false,"gender":2,"id":18373,"known_for_department":"Camera","name":"Ralph
+        Gerling","original_name":"Ralph Gerling","popularity":0.6,"profile_path":null,"credit_id":"56cf3dda9251413e62003001","department":"Camera","job":"Camera
+        Operator"},{"adult":false,"gender":0,"id":6099,"known_for_department":"Production","name":"Valerio
+        De Paolis","original_name":"Valerio De Paolis","popularity":0.84,"profile_path":null,"credit_id":"563e3d519251416cd8003e2d","department":"Production","job":"Production
+        Supervisor"},{"adult":false,"gender":1,"id":6455,"known_for_department":"Costume
+        \u0026 Make-Up","name":"Theadora Van Runkle","original_name":"Theadora Van
+        Runkle","popularity":0.828,"profile_path":null,"credit_id":"5a773cdec3a368224e000e64","department":"Costume
+        \u0026 Make-Up","job":"Costume Design"},{"adult":false,"gender":0,"id":8591,"known_for_department":"Acting","name":"Ted
+        Grossman","original_name":"Ted Grossman","popularity":0.98,"profile_path":"/2L7S57LmXg1EFwVOkI06JS5oAhM.jpg","credit_id":"57471f4c9251412b47000019","department":"Crew","job":"Stunts"},{"adult":false,"gender":2,"id":12288,"known_for_department":"Acting","name":"Robert
+        Evans","original_name":"Robert Evans","popularity":0.75,"profile_path":"/rCiTT2VrBKeHWdnHAyfGtMXs9go.jpg","credit_id":"57471c6ac3a36801a3000463","department":"Production","job":"Executive
+        Producer"},{"adult":false,"gender":2,"id":16654,"known_for_department":"Production","name":"Michael
+        S. Glick","original_name":"Michael S. Glick","popularity":0.6,"profile_path":null,"credit_id":"57471dc39251417694000543","department":"Production","job":"Production
+        Manager"},{"adult":false,"gender":0,"id":19254,"known_for_department":"Art","name":"John
+        Dapper","original_name":"John Dapper","popularity":0.98,"profile_path":null,"credit_id":"57471ce29251415f8c002a7d","department":"Art","job":"Art
+        Direction"},{"adult":false,"gender":2,"id":29654,"known_for_department":"Costume
+        \u0026 Make-Up","name":"Dick Smith","original_name":"Dick Smith","popularity":0.84,"profile_path":"/kKCenlQ8iQCTLGfX8ZPpJFpxvwS.jpg","credit_id":"56a77044c3a36819da0030a1","department":"Costume
+        \u0026 Make-Up","job":"Makeup Artist"},{"adult":false,"gender":0,"id":81538,"known_for_department":"Crew","name":"Wayne
+        Fitzgerald","original_name":"Wayne Fitzgerald","popularity":0.6,"profile_path":null,"credit_id":"5695a8719251413f76000483","department":"Crew","job":"Title
+        Graphics"},{"adult":false,"gender":2,"id":70250,"known_for_department":"Directing","name":"Newt
+        Arnold","original_name":"Newt Arnold","popularity":0.6,"profile_path":null,"credit_id":"56cf3a4bc3a3681e57002da7","department":"Directing","job":"Assistant
+        Director"},{"adult":false,"gender":2,"id":91246,"known_for_department":"Crew","name":"Chris
+        Haynes","original_name":"Chris Haynes","popularity":0.6,"profile_path":null,"credit_id":"574721399251412b4d000068","department":"Crew","job":"Driver"},{"adult":false,"gender":2,"id":96912,"known_for_department":"Crew","name":"Joe
+        Lombardi","original_name":"Joe Lombardi","popularity":0.84,"profile_path":null,"credit_id":"574485d8c3a36807640008d1","department":"Crew","job":"Special
+        Effects"},{"adult":false,"gender":0,"id":557873,"known_for_department":"Camera","name":"Bob
+        Rose","original_name":"Bob Rose","popularity":0.6,"profile_path":null,"credit_id":"5678ab96925141118300100d","department":"Camera","job":"Grip"},{"adult":false,"gender":0,"id":1318751,"known_for_department":"Sound","name":"Jerry
+        Bock","original_name":"Jerry Bock","popularity":0.6,"profile_path":null,"credit_id":"5705427092514176010005c0","department":"Sound","job":"Additional
+        Soundtrack"},{"adult":false,"gender":2,"id":1343811,"known_for_department":"Production","name":"Mario
+        Cotone","original_name":"Mario Cotone","popularity":0.6,"profile_path":null,"credit_id":"57471d8c92514177b00013f1","department":"Production","job":"Unit
+        Manager"},{"adult":false,"gender":0,"id":1359894,"known_for_department":"Production","name":"Burt
+        Bluestein","original_name":"Burt Bluestein","popularity":0.828,"profile_path":null,"credit_id":"57471e0d9251417f4b0003e9","department":"Directing","job":"Assistant
+        Director"},{"adult":false,"gender":2,"id":1409008,"known_for_department":"Costume
+        \u0026 Make-Up","name":"Charles H. Schram","original_name":"Charles H. Schram","popularity":0.6,"profile_path":"/fdY09ub1rX0yYh8qcPrWtQurpfi.jpg","credit_id":"56985c419251412546001488","department":"Costume
+        \u0026 Make-Up","job":"Makeup Artist"},{"adult":false,"gender":0,"id":1419935,"known_for_department":"Costume
+        \u0026 Make-Up","name":"Naomi Cavin","original_name":"Naomi Cavin","popularity":0.6,"profile_path":null,"credit_id":"56a7705a92514129f5002fed","department":"Costume
+        \u0026 Make-Up","job":"Hairstylist"},{"adult":false,"gender":0,"id":1427699,"known_for_department":"Directing","name":"John
+        Franco","original_name":"John Franco","popularity":0.6,"profile_path":null,"credit_id":"566b7a09c3a3682e98005c33","department":"Directing","job":"Script
+        Supervisor"},{"adult":false,"gender":0,"id":1469560,"known_for_department":"Crew","name":"Eileen
+        Peterson","original_name":"Eileen Peterson","popularity":0.6,"profile_path":null,"credit_id":"574dc0d7c3a36858bd0000a0","department":"Crew","job":"Unit
+        Publicist"},{"adult":false,"gender":0,"id":1511706,"known_for_department":"Sound","name":"Charles
+        M. Wilborn","original_name":"Charles M. Wilborn","popularity":0.6,"profile_path":null,"credit_id":"58e3cd81925141281902066f","department":"Sound","job":"Sound
+        Recordist"},{"adult":false,"gender":0,"id":1511713,"known_for_department":"Production","name":"Jack
+        English","original_name":"Jack English","popularity":0.6,"profile_path":null,"credit_id":"5e7be9864350113e61257d0f","department":"Production","job":"Location
+        Coordinator"},{"adult":false,"gender":0,"id":1518593,"known_for_department":"Directing","name":"B.J.
+        Bjorkman","original_name":"B.J. Bjorkman","popularity":0.6,"profile_path":null,"credit_id":"5751b60cc3a3683040000219","department":"Directing","job":"Script
+        Supervisor"},{"adult":false,"gender":0,"id":1535121,"known_for_department":"Lighting","name":"George
+        Holmes","original_name":"George Holmes","popularity":0.6,"profile_path":null,"credit_id":"5c6dd75992514120d504f307","department":"Lighting","job":"Gaffer"},{"adult":false,"gender":2,"id":1625347,"known_for_department":"Directing","name":"Tony
+        Brandt","original_name":"Tony Brandt","popularity":0.6,"profile_path":null,"credit_id":"57447c8192514110fb00068e","department":"Directing","job":"Assistant
+        Director"},{"adult":false,"gender":0,"id":1626342,"known_for_department":"Crew","name":"Hugh
+        Kelly","original_name":"Hugh Kelly","popularity":0.6,"profile_path":null,"credit_id":"574721f49251412b43000095","department":"Crew","job":"Driver"},{"adult":false,"gender":0,"id":1630221,"known_for_department":"Directing","name":"Alan
+        Hopkins","original_name":"Alan Hopkins","popularity":0.6,"profile_path":null,"credit_id":"5751b2cd9251412b0f0029a2","department":"Directing","job":"Assistant
+        Director"}]}'
+  recorded_at: Tue, 08 Dec 2020 02:41:22 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/240?api_key=<replacement>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.1.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 07 Dec 2020 21:55:08 GMT
+      Server:
+      - openresty
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
+        Content-Length, Content-Range
+      Cache-Control:
+      - public, max-age=21600
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - 4b717705dba87c74ee43f0f4d0a4e2fb10eb1630
+      X-Memc-Age:
+      - '11506'
+      X-Memc-Expires:
+      - '10094'
+      Etag:
+      - W/"024f548af3bc5cc7e271a9dcf68f1885"
+      Last-Modified:
+      - Mon, 07 Dec 2020 21:55:08 GMT
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 28d79637e27f11e3ab19a9515e273a5b.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - DEN50-C2
+      X-Amz-Cf-Id:
+      - CpoG1RNn-fJQ1fm3DYk5F-WcfWJHpw_UY-5N3XBz_YkEcenC1rLc7g==
+      Age:
+      - '17174'
+    body:
+      encoding: UTF-8
+      string: '{"adult":false,"backdrop_path":"/poec6RqOKY9iSiIUmfyfPfiLtvB.jpg","belongs_to_collection":{"id":230,"name":"The
+        Godfather Collection","poster_path":"/9Baumh5J9N1nJUYzNkm0xsgjpwY.jpg","backdrop_path":"/3WZTxpgscsmoUk81TuECXdFOD0R.jpg"},"budget":13000000,"genres":[{"id":18,"name":"Drama"},{"id":80,"name":"Crime"}],"homepage":"","id":240,"imdb_id":"tt0071562","original_language":"en","original_title":"The
+        Godfather: Part II","overview":"In the continuing saga of the Corleone crime
+        family, a young Vito Corleone grows up in Sicily and in 1910s New York. In
+        the 1950s, Michael Corleone attempts to expand the family business into Las
+        Vegas, Hollywood and Cuba.","popularity":41.037,"poster_path":"/hek3koDUyRQk7FIhPXsa6mT2Zc3.jpg","production_companies":[{"id":4,"logo_path":"/fycMZt242LVjagMByZOLUGbCvv3.png","name":"Paramount","origin_country":"US"},{"id":536,"logo_path":null,"name":"The
+        Coppola Company","origin_country":"US"}],"production_countries":[{"iso_3166_1":"US","name":"United
+        States of America"}],"release_date":"1974-12-20","revenue":102600000,"runtime":202,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"},{"english_name":"Italian","iso_639_1":"it","name":"Italiano"},{"english_name":"Latin","iso_639_1":"la","name":"Latin"},{"english_name":"Spanish","iso_639_1":"es","name":"Español"}],"status":"Released","tagline":"I
+        don''t feel I have to wipe everybody out, Tom. Just my enemies.","title":"The
+        Godfather: Part II","video":false,"vote_average":8.6,"vote_count":7945}'
+  recorded_at: Tue, 08 Dec 2020 02:41:22 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/240/reviews?api_key=<replacement>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.1.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 07 Dec 2020 21:55:08 GMT
+      Server:
+      - openresty
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
+        Content-Length, Content-Range
+      Cache-Control:
+      - public, max-age=21600
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - 202155e2e03eaee3304d48f44d06151b18b69f38
+      X-Memc-Age:
+      - '12780'
+      X-Memc-Expires:
+      - '8820'
+      Etag:
+      - W/"7833938b0a11fb0c4b486b758ac5dcc1"
+      Last-Modified:
+      - Mon, 07 Dec 2020 21:55:08 GMT
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 23d87d8c2ce38e34462e6c134d187eeb.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - DEN50-C2
+      X-Amz-Cf-Id:
+      - jlFvgGrM9iK0xBNtifs1yJrfQe5R6x4qWhhXQs1teMQ5HV7S26x4HQ==
+      Age:
+      - '17174'
+    body:
+      encoding: UTF-8
+      string: '{"id":240,"page":1,"results":[{"author":"jkbbr549","author_details":{"name":"","username":"jkbbr549","avatar_path":null,"rating":null},"content":"This
+        is by far the greatest movie of all time!  Even better than the first Godfather!","created_at":"2015-04-21T11:41:26.541Z","id":"553637669251416518002602","updated_at":"2015-04-21T13:57:15.391Z","url":"https://www.themoviedb.org/review/553637669251416518002602"},{"author":"Matthew
+        Dixon","author_details":{"name":"Matthew Dixon","username":"matthewdixon","avatar_path":"/Af7sJr2dLx38npWMIaDzVmdzwd4.jpg","rating":10.0},"content":"Worthy
+        sequel to the first movie. In something more meditative and unhurried, in
+        something more philosophically meaningful than its legendary predecessor.
+        Backstage games and backstage talks replaced the dramatic mood swings of the
+        main characters and the exchange of fire.\r\n\r\nThe second film continues
+        the story of Michael Carleone in the role of the Godfather, and also complements
+        the family story with scenes of the formation of the young Vito Andolini and
+        his escape to America. The difficult choice of being young Don, his sphere
+        of expansion of influence opens up new heights and horizons, but also acquires
+        new enemies. Big money and power always keep pace with great temptation, and
+        therefore you should always keep your ears open. After all, the knife in the
+        back can insert exactly the one from whom you do not expect ...","created_at":"2019-07-30T08:28:10.884Z","id":"5d3fff9ab87aec6aa339e228","updated_at":"2019-07-31T22:33:04.159Z","url":"https://www.themoviedb.org/review/5d3fff9ab87aec6aa339e228"}],"total_pages":1,"total_results":2}'
+  recorded_at: Tue, 08 Dec 2020 02:41:22 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/240?api_key=<replacement>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.1.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 07 Dec 2020 21:55:08 GMT
+      Server:
+      - openresty
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
+        Content-Length, Content-Range
+      Cache-Control:
+      - public, max-age=21600
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - 4b717705dba87c74ee43f0f4d0a4e2fb10eb1630
+      X-Memc-Age:
+      - '11506'
+      X-Memc-Expires:
+      - '10094'
+      Etag:
+      - W/"024f548af3bc5cc7e271a9dcf68f1885"
+      Last-Modified:
+      - Mon, 07 Dec 2020 21:55:08 GMT
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 1e5c934b70471a41d2b61ae8c4abeb79.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - DEN50-C2
+      X-Amz-Cf-Id:
+      - Msero7oPl9xKUBAfbjBglw7HwaOOCvjeI0VBsdgQd2JXXifLr-Do5w==
+      Age:
+      - '17174'
+    body:
+      encoding: UTF-8
+      string: '{"adult":false,"backdrop_path":"/poec6RqOKY9iSiIUmfyfPfiLtvB.jpg","belongs_to_collection":{"id":230,"name":"The
+        Godfather Collection","poster_path":"/9Baumh5J9N1nJUYzNkm0xsgjpwY.jpg","backdrop_path":"/3WZTxpgscsmoUk81TuECXdFOD0R.jpg"},"budget":13000000,"genres":[{"id":18,"name":"Drama"},{"id":80,"name":"Crime"}],"homepage":"","id":240,"imdb_id":"tt0071562","original_language":"en","original_title":"The
+        Godfather: Part II","overview":"In the continuing saga of the Corleone crime
+        family, a young Vito Corleone grows up in Sicily and in 1910s New York. In
+        the 1950s, Michael Corleone attempts to expand the family business into Las
+        Vegas, Hollywood and Cuba.","popularity":41.037,"poster_path":"/hek3koDUyRQk7FIhPXsa6mT2Zc3.jpg","production_companies":[{"id":4,"logo_path":"/fycMZt242LVjagMByZOLUGbCvv3.png","name":"Paramount","origin_country":"US"},{"id":536,"logo_path":null,"name":"The
+        Coppola Company","origin_country":"US"}],"production_countries":[{"iso_3166_1":"US","name":"United
+        States of America"}],"release_date":"1974-12-20","revenue":102600000,"runtime":202,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"},{"english_name":"Italian","iso_639_1":"it","name":"Italiano"},{"english_name":"Latin","iso_639_1":"la","name":"Latin"},{"english_name":"Spanish","iso_639_1":"es","name":"Español"}],"status":"Released","tagline":"I
+        don''t feel I have to wipe everybody out, Tom. Just my enemies.","title":"The
+        Godfather: Part II","video":false,"vote_average":8.6,"vote_count":7945}'
+  recorded_at: Tue, 08 Dec 2020 02:41:22 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/240?api_key=<replacement>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.1.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 07 Dec 2020 21:55:08 GMT
+      Server:
+      - openresty
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
+        Content-Length, Content-Range
+      Cache-Control:
+      - public, max-age=21600
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - 4b717705dba87c74ee43f0f4d0a4e2fb10eb1630
+      X-Memc-Age:
+      - '11506'
+      X-Memc-Expires:
+      - '10094'
+      Etag:
+      - W/"024f548af3bc5cc7e271a9dcf68f1885"
+      Last-Modified:
+      - Mon, 07 Dec 2020 21:55:08 GMT
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 dcee1124728af441beff75c95d9d9d74.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - DEN50-C2
+      X-Amz-Cf-Id:
+      - h9QS5jyS9qMBazhyPVQ2wTaaBsoBcn0l7nzHShhcqzVgbkCUH4Pswg==
+      Age:
+      - '17174'
+    body:
+      encoding: UTF-8
+      string: '{"adult":false,"backdrop_path":"/poec6RqOKY9iSiIUmfyfPfiLtvB.jpg","belongs_to_collection":{"id":230,"name":"The
+        Godfather Collection","poster_path":"/9Baumh5J9N1nJUYzNkm0xsgjpwY.jpg","backdrop_path":"/3WZTxpgscsmoUk81TuECXdFOD0R.jpg"},"budget":13000000,"genres":[{"id":18,"name":"Drama"},{"id":80,"name":"Crime"}],"homepage":"","id":240,"imdb_id":"tt0071562","original_language":"en","original_title":"The
+        Godfather: Part II","overview":"In the continuing saga of the Corleone crime
+        family, a young Vito Corleone grows up in Sicily and in 1910s New York. In
+        the 1950s, Michael Corleone attempts to expand the family business into Las
+        Vegas, Hollywood and Cuba.","popularity":41.037,"poster_path":"/hek3koDUyRQk7FIhPXsa6mT2Zc3.jpg","production_companies":[{"id":4,"logo_path":"/fycMZt242LVjagMByZOLUGbCvv3.png","name":"Paramount","origin_country":"US"},{"id":536,"logo_path":null,"name":"The
+        Coppola Company","origin_country":"US"}],"production_countries":[{"iso_3166_1":"US","name":"United
+        States of America"}],"release_date":"1974-12-20","revenue":102600000,"runtime":202,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"},{"english_name":"Italian","iso_639_1":"it","name":"Italiano"},{"english_name":"Latin","iso_639_1":"la","name":"Latin"},{"english_name":"Spanish","iso_639_1":"es","name":"Español"}],"status":"Released","tagline":"I
+        don''t feel I have to wipe everybody out, Tom. Just my enemies.","title":"The
+        Godfather: Part II","video":false,"vote_average":8.6,"vote_count":7945}'
+  recorded_at: Tue, 08 Dec 2020 02:41:22 GMT
+recorded_with: VCR 6.0.0

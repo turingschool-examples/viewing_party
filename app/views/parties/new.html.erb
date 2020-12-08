@@ -1,0 +1,23 @@
+<h2>Viewing Party Details</h2>
+
+<%= form_tag new_party_path do %>
+  <p>Movie Title <%= @details[:title] %></p>
+  <br>
+  <%= label_tag :duration, 'Duration of Party' %>
+  <%= text_field_tag :duration, "#{@details[:runtime]}"%>
+  <br>
+  <%= label_tag :day, 'Day' %>
+  <%= date_field_tag :day%>
+  <br>
+  <%= label_tag :start_time, 'Start Time' %>
+  <%= time_field_tag :start_time %>
+  <br>
+
+  <% current_user.friends.each do |friend| %>
+  <section id= "friend-<%= friend.id %>">
+    <%= friend[:email] %>
+    <%= check_box_tag "friend", "#{friend[:id]}"  %>
+  </section>
+  <% end %>
+  <%= submit_tag "Create Party" %>
+<% end %>
