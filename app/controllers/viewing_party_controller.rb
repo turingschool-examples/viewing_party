@@ -1,19 +1,19 @@
 class ViewingPartyController < ApplicationController
   def new
-    id = params["id"].to_i
-    suffix = "/3/movie/#{id}"
+    @movie_id = params[:id].to_i
+    suffix = "/3/movie/#{@movie_id}"
 
     details_response = conn.get("#{suffix}?")
     @details = JSON.parse(details_response.body, symbolize_names: true)
   end
 
   def create
-    id = params["id"].to_i
-    suffix = "/3/movie/#{id}"
+    @movie_id = params[:id].to_i
+    suffix = "/3/movie/#{@movie_id}"
 
     details_response = conn.get("#{suffix}?")
     @details = JSON.parse(details_response.body, symbolize_names: true)
-    require "pry"; binding.pry
+    redirect_to dashboard_path
   end
 
   private

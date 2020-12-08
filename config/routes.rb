@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   resources :movies, only: %i[index show]
 
-  resources :viewing_party, only: %i[new]
+  get '/movies/:id/viewing_party/new', to: 'viewing_party#new', as: 'new_viewing_party'
+  post '/movies/:id/viewing_party/new', to: 'viewing_party#create'
 end
 #namespace :user, path: "<session.id for user>" do

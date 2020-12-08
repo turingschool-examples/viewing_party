@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'New Viewing Party Page' do
-  describe 'As a Visitor' do
+  describe 'As a Visitor', :vcr do
       before :each do
       @user = User.create!(email: "John@example.com", password: "password")
       @friend_1 = @user.friends.create!(email: "Todd@example.com", password: "password")
@@ -16,7 +16,7 @@ RSpec.describe 'New Viewing Party Page' do
       click_button("Log In")
     end
 
-    it 'I can click a button to go to create a new viewing party', :vcr do
+    it 'I can click a button to go to create a new viewing party' do
       visit discover_index_path
 
       fill_in "Search by movie title", with: "The Godfather: Part II"
@@ -25,7 +25,7 @@ RSpec.describe 'New Viewing Party Page' do
       expect(current_path).to eq("/movies/240")
 
       click_on "Create Viewing Party for Movie"
-      expect(current_path).to eq(new_viewing_party_path)
+      expect(current_path).to eq('/movies/240/viewing_party/new')
     end
 
     it 'I can fill out a form to create a new viewing party' do
@@ -35,14 +35,19 @@ RSpec.describe 'New Viewing Party Page' do
       click_on "Create Viewing Party for Movie"
 
       expect(page).to have_content("The Godfather: Part II")
-      expect(page).to have_content("202")
-      save_and_open_page 
+      expect(page).to have_selector("input[value='202']")
+
       fill_in :duration, with: "230"
       fill_in "Day", with: "12/20/20"
       fill_in "Start Time", with: "1:00"
 
-      check("Todd@example.com")
-      check("Carson@example.com")
+      within "#friend-#{@friend_1.id}" do
+        check("friend")
+      end
+
+      within "#friend-#{@friend_2.id}" do
+        check("friend")
+      end
 
       click_on 'Create Party'
       expect(current_path).to eq(dashboard_path)

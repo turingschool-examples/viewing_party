@@ -14,9 +14,10 @@
   <br>
 
   <% current_user.friends.each do |friend| %>
-  <%= friend[:email] %>
-  <%= check_box("friend", "#{friend[:id]}")  %>
-
+  <section id= "friend-<%= friend.id %>">
+    <%= friend[:email] %>
+    <%= check_box_tag "friend", "#{friend[:id]}"  %>
+  </section>
+  <% end %>
   <%= submit_tag "Create Party" %>
-<% end %>
 <% end %>
