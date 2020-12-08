@@ -20,7 +20,7 @@ feature 'as a user' do
         expect(page).to have_css('.title')
         expect(page).to have_css('.rating')
         expect(page).to have_link('Batman: Death in the Family')
-        expect(page).to have_content('7.3')
+        expect(page).to have_content('7.2')
         title = find('.title').text
         rating = find('.rating').text
         expect(title).to_not be_empty
@@ -30,8 +30,8 @@ feature 'as a user' do
       within(:xpath, '(//li[@class="movie"])[last()]') do
         expect(page).to have_css('.title')
         expect(page).to have_css('.rating')
-        expect(page).to have_link('Batman Unlimited: Mechs vs. Mutants')
-        expect(page).to have_content('6.1')
+        expect(page).to have_link('Batman', exact: false)
+        expect(page).to have_content('7.1')
         title = find('.title').text
         rating = find('.rating').text
         expect(title).to_not be_empty
