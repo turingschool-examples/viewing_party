@@ -4,7 +4,6 @@ describe 'Search Facade' do
   it 'returns search results' do
     title = "The Godfather: Part II"
     result = SearchFacade.results(title)
-    require "pry"; binding.pry
 
     expect(result).to be_an(Array)
     expect(result.size).to eq(2)
