@@ -19,13 +19,15 @@ class Film
   end
 
   def runtime_display
-    "#{@runtime_min/60} hrs #{@runtime_min%60} min" unless @runtime_min.nil?
+    "#{@runtime_min / 60} hrs #{@runtime_min % 60} min" unless @runtime_min.nil?
   end
 
   def genres
+    return if @genres_array.nil?
+
     @genres_array.map do |genre|
       genre[:name]
-    end.join(', ') unless @genres_array.nil?
+    end.join(', ')
   end
 
   def cast_parse(film_data)
@@ -45,10 +47,10 @@ class Film
   end
 
   def film_info(attribute_data, object)
-    unless attribute_data.nil?
-      attribute_data.map do |data|
-        object.new(data)
-      end
+    return if attribute_data.nil?
+
+    attribute_data.map do |data|
+      object.new(data)
     end
   end
 end
