@@ -5,7 +5,6 @@ class MoviesController < ApplicationController
 
   def show
     @movie = MovieFacade.details(params[:id])
-    # WTF should we do about this???
     @cast = @movie.cast[0..9]
     @reviews = @movie.reviews
   end
