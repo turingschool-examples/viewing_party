@@ -8,11 +8,8 @@ class PartiesController < ApplicationController
   end
 
   def create
-
     user = User.find(current_user.id)
     @party = user.parties.create!(user_id: user.id, movie_title: params[:movie_title], duration: params[:duration], day: params[:day], start_time: params[:start_time])
-    require "pry"; binding.pry
-    # @party = Party.create!(params[:user_id] = current_user[:id], params[:duration], params[:day], params[:start_time])
     redirect_to dashboard_path
   end
 

@@ -21,6 +21,9 @@
 <section class="parties">
   <h3>Viewing Parties:</h3>
   <% @user.parties.each do |party|  %>
-  <%= require "pry"; binding.pry %>
+    <%= party.movie_title %><br>
+    <p>Date: <%= party.day %></p>
+    <p>Start time: <%= party.convert_time %></p>
+    <p>Status: <%= party.party_status %></p>
   <% end %>
 </section>
