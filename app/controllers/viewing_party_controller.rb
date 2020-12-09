@@ -5,7 +5,12 @@ class ViewingPartyController < ApplicationController
 
   def create
     @movie = Movie.create(movie_params)
-    binding.pry
+    @viewing = @movie.viewings.create(viewing_params)
+    redirect_to user_dashboard_path(current_user.username)
+    @viewing.guests.create(user_id: current_user.id, hosting: true)
+    guest_params.each do |id, invite|
+      @viewing.guests.create(user_id: id, hosting: false) if invite == '1'
+    end
   end
 
   private
@@ -15,19 +20,16 @@ class ViewingPartyController < ApplicationController
   end
 
   def viewing_params
-    # params.require(:viewing).permit(:duration_of_party, date, :start_time)
+    viewing = params.require(:viewing).permit(:duration_of_party)
+    viewing[:start_time] = date_params
+    viewing
   end
 
-  # def string_from_date_select_params(params, key) 
-  #
-  #   date_parts = params.select do |k,v|
-  #     k.to_s =~ /\A#{key}\([1-6]{1}i\)/
-  #   end.values 
-  #   binding.pry
-  #   date_parts[0..2].join('-') + ' ' + date_parts[3..-1].join(':') 
-  # end
+  def date_params
+    DateTime.new(params[:viewing]['date(1i)'].to_i, params[:viewing]['date(2i)'].to_i, params[:viewing]['date(3i)'].to_i, params[:viewing]['start_time(4i)'].to_i, params[:viewing]['start_time(5i)'].to_i, 0, '+24:00')
+  end
 
-  # def date_params
-  #   Date.new(params['date(2i)'], params['date(3i)'], params['date(li)'])
-  # end
+  def guest_params
+    params.require(:viewing).require(:friends)
+  end
 end
