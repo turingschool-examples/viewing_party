@@ -17,6 +17,7 @@ class PartiesController < ApplicationController
     party_friends = params[:friend_ids]
 
     party_friends.each do |friend_id|
+      # require "pry"; binding.pry
       @party.guests.create!({party_id: @party.id, user_id: friend_id.to_i})
     end
     redirect_to dashboard_path
