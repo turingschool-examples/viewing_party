@@ -8,7 +8,6 @@ class PartiesController < ApplicationController
   end
 
   def create
-
     user = User.find(current_user.id)
     day = params[:day].values.join("/")
     start_time = params[:start_time].values.join(":")
@@ -20,13 +19,9 @@ class PartiesController < ApplicationController
       start_time: start_time,
       user_id: user.id
     )
-    # @party = user.parties.create!(user_id: user.id, movie_title: params[:movie_title], duration: params[:duration], day: day, start_time: start_time)
+
     create_guests(@party)
-    # party_friends = params[:friend_ids]
-    #
-    # party_friends.each do |friend_id|
-    #   @party.guests.create!({party_id: @party.id, user_id: friend_id.to_i})
-    # end
+
     redirect_to dashboard_path
   end
 
@@ -42,7 +37,6 @@ class PartiesController < ApplicationController
       party_guests = params[:friend_ids]
       party_guests.each do |guest_id|
         Guest.create!({party_id: party.id, user_id: guest_id.to_i})
-        guest = User.find(guest_id.to_i)
       end
     end
   end
