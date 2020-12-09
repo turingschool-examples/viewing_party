@@ -8,8 +8,17 @@ class PartiesController < ApplicationController
   end
 
   def create
+
     user = User.find(current_user.id)
-    @party = user.parties.create!(user_id: user.id, movie_title: params[:movie_title], duration: params[:duration], day: params[:day], start_time: params[:start_time])
+    day = params[:day].values.join("/")
+    start_time = params[:start_time].values.join(":")
+
+    @party = user.parties.create!(user_id: user.id, movie_title: params[:movie_title], duration: params[:duration], day: day, start_time: start_time)
+    party_friends = params[:friend_ids]
+
+    party_friends.each do |friend_id|
+      @party.guests.create!({party_id: @party.id, user_id: friend_id.to_i})
+    end
     redirect_to dashboard_path
   end
 
@@ -19,4 +28,5 @@ class PartiesController < ApplicationController
       f.params[:api_key] = ENV["MOVIE_SEARCH_API_KEY"]
     end
   end
+
 end

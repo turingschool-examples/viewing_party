@@ -1,4 +1,5 @@
 class Guest < ApplicationRecord
   belongs_to :party
-  has_many :users
+  belongs_to :friend, class_name: "User"
+  # has_many :users
 end
