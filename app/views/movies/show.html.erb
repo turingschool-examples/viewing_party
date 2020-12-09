@@ -26,3 +26,19 @@
   <p class = 'content'> <%= review.content %> </p>
   <% end %>
 </div>
+<h2>Recommendations</h2>
+<div>
+  <ol class="recommendations">
+    <% @movie.recommendations[0..9].each do |film| %>
+      <li class="recommendation-link"><%= link_to film.title, movie_path(film.api_movie_id) %></li>
+    <% end %>
+  </ol>
+</div>
+<h2>Similar</h2>
+<div>
+  <ol class="similar">
+    <% @movie.similar[0..9].each do |film| %>
+      <li class="similar-link"><%= link_to film.title, movie_path(film.api_movie_id) %></li>
+    <% end %>
+  </ol>
+</div>
