@@ -8,6 +8,9 @@ RSpec.describe 'New Viewing Party Page' do
       @friend_2 = @user.friends.create!(email: "Carson@example.com", password: "password")
       @friend_3 = @user.friends.create!(email: "Charlie@example.com", password: "password")
 
+      @friend_2.friends << @user
+      @friend_2.friends << @friend_1
+
       visit root_path
 
       fill_in :email, with: @user.email
@@ -58,11 +61,54 @@ RSpec.describe 'New Viewing Party Page' do
       expect(current_path).to eq(dashboard_path)
 
       party = Party.last
-
       within "#party-#{party.id}" do
         expect(page).to have_content("The Godfather: Part II")
         expect(page).to have_content("2/24/2022")
         expect(page).to have_content("2:35 PM")
+        expect(page).to have_content("Hosting")
+      end
+
+      click_on "Log Out"
+
+      fill_in :email, with: @friend_2.email
+      fill_in :password, with: @friend_2.password
+
+      click_button("Log In")
+
+      visit "/movies/239"
+      click_on "Create Viewing Party for Movie"
+
+      fill_in :duration, with: "230"
+
+      within ".date-time-select" do
+        select "2022", from: "day_event_1i"
+        select "February", from: "day_event_2i"
+        select "28", from: "day_event_3i"
+        select "12 PM", from: "start_time_method_4i"
+        select "37", from: "start_time_method_5i"
+      end
+
+      within "#friend-#{@friend_1.id}" do
+        check("friend_ids[]")
+      end
+
+      within "#friend-#{@user.id}" do
+        check("friend_ids[]")
+      end
+      click_on 'Create Party'
+
+      party_1 = Party.last
+      within "#party-#{party.id}" do
+        expect(page).to have_content("The Godfather: Part II")
+        expect(page).to have_content("2/24/2022")
+        expect(page).to have_content("2:35 PM")
+        expect(page).to have_content("Invited")
+      end
+
+      within "#party-#{party_1.id}" do
+        expect(page).to have_content("Some Like It Hot")
+        expect(page).to have_content("2/28/2022")
+        expect(page).to have_content("12:37 PM")
         expect(page).to have_content("Hosting")
       end
     end
