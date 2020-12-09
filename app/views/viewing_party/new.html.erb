@@ -1,0 +1,18 @@
+<%= form_with model: @viewing_party, url: viewing_party_index_path, local: true, method: :post do |f| %>
+  <%= f.label :title_name, 'Movie Title: ' %>
+  <%= f.label :title, params[:title] %>
+  <%= f.hidden_field :title, value: params[:title] %>
+  <%= f.hidden_field :api_id, :value => params[:movie_id] %><br>
+  <%= f.label :duration_of_party, 'Duration of Party' %>
+  <%= f.text_field :duration_of_party, value: params[:runtime] %><br>
+  <%= f.hidden_field :duration_of_movie, value: params[:runtime] %>
+  <%= f.label :date, 'Day' %>
+  <%= f.date_select :date, order: [:month, :day, :year] %><br>
+  <%= f.label :start_time, 'Start Time' %>
+  <%= f.time_select :start_time %><br>
+  <% current_user.friends.each do |friend|  %>
+    <%= f.label friend.username %>
+    <%= f.check_box "friends[#{friend.id}]" %>
+  <% end %><br>
+  <%= f.submit 'Create Viewing Party' %>
+<% end %>
