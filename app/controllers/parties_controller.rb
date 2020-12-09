@@ -8,11 +8,8 @@ class PartiesController < ApplicationController
   end
 
   def create
-    @movie_id = params[:id].to_i
-    suffix = "/3/movie/#{@movie_id}"
-
-    details_response = conn.get("#{suffix}?")
-    @details = JSON.parse(details_response.body, symbolize_names: true)
+    user = User.find(current_user.id)
+    @party = user.parties.create!(user_id: user.id, movie_title: params[:movie_title], duration: params[:duration], day: params[:day], start_time: params[:start_time])
     redirect_to dashboard_path
   end
 

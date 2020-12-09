@@ -61,5 +61,24 @@ RSpec.describe 'User Dashboard Page' do
         end
       end
     end
+
+    describe "I see a section with my viewing parties" do
+      before :each do
+        @friend_2 = @user.friends.create!(email: "Carson@example.com", password: "password")
+        @friend_3 = @user.friends.create!(email: "Charlie@example.com", password: "password")
+        @friend.friends << @friend_2
+        @friend.friends << @friend_3
+
+        @party = @user.parties.create!(movie_title: "The Godfather", duration: "155", day: "2020-12-17", start_time: "13:00")
+      
+      end
+      it "I see viewing parties I am hosting" do
+        # require "pry"; binding.pry
+      end
+
+      it "I see viewing parties I was invited to" do
+
+      end
+    end
   end
 end
