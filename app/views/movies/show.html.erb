@@ -1,32 +1,31 @@
-<h1 class='title'><%= @details[:original_title]%></h1>
-
-<%= button_to "Create Viewing Party for Movie", new_party_path("#{@details[:id]}"), method: :get%>
-<h3 class='vote_average'>Vote Average: <%= @details[:vote_average]%></h3>
+<h1 class='title'><%= @details.title %></h1>
+<%= button_to "Create Viewing Party for Movie", new_party_path("#{@details.details_id}"), method: :get%>
+<h3 class='vote_average'>Vote Average: <%= @details.vote_avg %></h3>
 
 <div class="runtime">
   <h3>Runtime:
-    <% hours = @details[:runtime] / 60%>
-    <% rest = @details[:runtime] % 60 %>
+    <% hours = @details.runtime / 60%>
+    <% rest = @details.runtime % 60 %>
     <%= "#{hours} hr #{rest} mins"%>
   </h3>
 </div>
 
 <div class="genre">
   <h3>Genre(s): </h3>
-  <% @details[:genres].each do |genre|%>
-    <p><%= genre[:name] %></p>
+  <% @details.genres.each do |genre|%>
+    <p><%= genre.values.last %></p>
   <% end %>
 </div>
 
 <div class="summary">
   <h3>Summary: </h3>
-  <%= @details[:overview] %>
+  <%= @details.summary %>
 </div>
 
 <div class="cast">
   <h3>Cast: </h3>
-  <% @credits[:cast].take(10).each do |member| %>
-    <p><%= member[:name] %> as <%= member[:character] %></p>
+  <% @cast.take(10).each do |member| %>
+    <p><%= member.name %> as <%= member.character %> </p>
   <% end %>
 </div>
 

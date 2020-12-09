@@ -9,4 +9,12 @@ describe 'Search Facade' do
     expect(result.size).to eq(2)
     expect(result.first).to be_an_instance_of(Search)
   end
+
+  it "returns cast members" do
+    id = 240
+    result = SearchFacade.credits(id)
+    expect(result).to be_an(Array)
+
+
+  end
 end

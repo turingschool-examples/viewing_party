@@ -19,11 +19,11 @@ class MoviesController < ApplicationController
 
     suffix = "/3/movie/#{id}"
 
-    credits_response = conn.get("#{suffix}/credits?")
-    @credits = JSON.parse(credits_response.body, symbolize_names: true)
+    @cast = SearchFacade.credits(id)
+    @details = SearchFacade.details(id)
 
-    details_response = conn.get("#{suffix}?")
-    @details = JSON.parse(details_response.body, symbolize_names: true)
+    # details_response = conn.get("#{suffix}?")
+    # @details = JSON.parse(details_response.body, symbolize_names: true)
 
     reviews_response = conn.get("#{suffix}/reviews?")
     @reviews = JSON.parse(reviews_response.body, symbolize_names: true)
