@@ -76,18 +76,18 @@ feature 'As a user' do
       expect(page).to have_css('.viewing-parties')
       within('.viewing-parties') do
         expect(page).to have_content(@viewing1.movie.title)
-        expect(page).to have_content(@viewing1.date)
-        expect(page).to have_content(@viewing1.start_time)
+        expect(page).to have_content(@viewing1.start_time.strftime('%m-%d-%Y'))
+        expect(page).to have_content(@viewing1.start_time.strftime('%I:%M'))
         expect(page).to have_content('Host')
 
         expect(page).to have_content(@viewing2.movie.title)
-        expect(page).to have_content(@viewing2.date)
-        expect(page).to have_content(@viewing2.start_time)
+        expect(page).to have_content(@viewing2.start_time.strftime('%m-%d-%Y'))
+        expect(page).to have_content(@viewing2.start_time.strftime('%I:%M'))
         expect(page).to have_content('Host')
 
         expect(page).to have_content(@viewing3.movie.title)
-        expect(page).to have_content(@viewing3.date)
-        expect(page).to have_content(@viewing3.start_time)
+        expect(page).to have_content(@viewing3.start_time.strftime('%m-%d-%Y'))
+        expect(page).to have_content(@viewing3.start_time.strftime('%I:%M'))
         expect(page).to have_content('Guest')
 
         expect(page).to_not have_content(@viewing4.movie.title)

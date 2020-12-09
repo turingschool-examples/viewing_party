@@ -3,7 +3,7 @@ class Viewing < ApplicationRecord
   has_many :guests, dependent: :destroy
   has_many :users, through: :guests
 
-  validates :date, :start_time, presence: true
+  validates :start_time, presence: true
   validates :duration_of_party, numericality: { greater_than: 0 }
 
   def user_hosting?(user_id)

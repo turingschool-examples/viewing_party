@@ -15,7 +15,6 @@ FactoryBot.define do
   factory :viewing do
     movie
     sequence(:duration_of_party) {|n| movie.duration_of_movie + n}
-    sequence(:date) {|n| Time.now.strftime('%m-%d-%Y')}
     sequence(:start_time) {|n| Time.now.strftime('%I:%M %P')}
   end
 
