@@ -31,7 +31,7 @@ describe "Welcome Page:" do
     fill_in :password, with: user.password
     click_on 'Login'
     expect(current_path).to eq("/#{user.username}/dashboard")
-    expect(page).to have_content("Welcome #{user.username}!")
+    expect(page).to have_content("😃 Welcome JonathonDoe!")
     expect(page).to have_content("You have successfully logged in!")
 
   end
