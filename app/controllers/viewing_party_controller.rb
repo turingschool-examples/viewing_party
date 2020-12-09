@@ -10,8 +10,9 @@ class ViewingPartyController < ApplicationController
       render :new
     else
       @movie = Movie.create(movie_params) unless Movie.find_by(api_id: params[:api_id])
-      @viewing = @movie.viewings.new(viewing_params)
-      create_helper
+      @viewing = @movie.viewings.create(viewing_params)
+      @viewing.add_guests(current_user, guest_params)
+      redirect_to user_dashboard_path(current_user.username)
     end
   end
 
@@ -38,16 +39,6 @@ class ViewingPartyController < ApplicationController
 
   def guest_params
     params.require(:viewing).require(:friends)
-  end
-
-  def create_helper
-    if @viewing.save
-      @viewing.add_guests(current_user, guest_params)
-      redirect_to user_dashboard_path(current_user.username)
-    else
-      flash[:errors] = @viewing.errors.full_messages.to_sentence
-      render :new
-    end
   end
 
   def error_return

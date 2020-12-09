@@ -20,6 +20,7 @@ given!(:user) {@user = create(:user)}
       expect(page).to have_button('Create Viewing Party for Movie')
       click_on 'Create Viewing Party for Movie'
       expect(current_path).to eq(new_viewing_party_path)
+      save_and_open_page
       expect(page).to have_content('The Dark Knight')
       expect(page).to have_field('viewing[duration_of_party]')
       expect(page).to have_field('viewing[date(2i)]')
