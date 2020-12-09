@@ -21,12 +21,10 @@ class MoviesController < ApplicationController
 
     @cast = SearchFacade.credits(id)
     @details = SearchFacade.details(id)
+    @reviews = SearchFacade.reviews(id)
 
-    # details_response = conn.get("#{suffix}?")
-    # @details = JSON.parse(details_response.body, symbolize_names: true)
-
-    reviews_response = conn.get("#{suffix}/reviews?")
-    @reviews = JSON.parse(reviews_response.body, symbolize_names: true)
+    # reviews_response = conn.get("#{suffix}/reviews?")
+    # @reviews = JSON.parse(reviews_response.body, symbolize_names: true)
   end
 
   private

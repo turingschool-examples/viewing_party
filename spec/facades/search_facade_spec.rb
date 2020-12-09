@@ -14,7 +14,6 @@ describe 'Search Facade' do
     id = 240
     result = SearchFacade.credits(id)
     expect(result).to be_an(Array)
-
-
+    expect(result.size).to eq(10)
   end
 end

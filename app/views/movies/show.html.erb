@@ -30,10 +30,7 @@
 </div>
 
 <div class="reviews">
-  <h3> <%= @reviews[:total_results] %> Review(s)</h3>
-
-  <% @reviews[:results].each do |review| %>
-    <h4>Author: <%= review[:author] %></h4>
-    <%=review[:content]%>
-  <% end %>
+  <h3> <%= @reviews.total_results %> Review(s)</h3>
+  <h4>Author: <%= @reviews.author %></h4>
+  <%= @reviews.content %>
 </div>

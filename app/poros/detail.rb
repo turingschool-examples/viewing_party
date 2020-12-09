@@ -8,6 +8,5 @@ class Detail
     @genres = attributes[:genres] ? attributes[:genres] : "Unknown"
     @summary = attributes[:overview] ? attributes[:overview] : "Unknown"
     @details_id = attributes[:id]
-
   end
 end
