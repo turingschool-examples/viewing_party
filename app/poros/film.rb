@@ -5,7 +5,9 @@ class Film
               :cast,
               :reviews,
               :overview,
-              :runtime_min
+              :runtime_min,
+              :similar,
+              :recommendations
 
   def initialize(film_data)
     @api_movie_id = film_data[:id]
@@ -16,6 +18,8 @@ class Film
     @genres_array = film_data[:genres]
     @cast = cast_parse(film_data)
     @reviews = reviews_parse(film_data)
+    @similar = similar_parse(film_data)
+    @recommendations = recommendations_parse(film_data)
   end
 
   def runtime_display
@@ -31,25 +35,25 @@ class Film
   end
 
   def cast_parse(film_data)
-    if film_data[:credits]
-      film_info(film_data[:credits][:cast], Actor)
-    else
-      []
-    end
+    film_info(film_data[:credits], Actor, :cast)
   end
 
   def reviews_parse(film_data)
-    if film_data[:reviews]
-      film_info(film_data[:reviews][:results], Review)
-    else
-      []
-    end
+    film_info(film_data[:reviews], Review, :results)
   end
 
-  def film_info(attribute_data, object)
-    return if attribute_data.nil?
+  def similar_parse(film_data)
+    film_info(film_data[:similar], Film, :results)
+  end
 
-    attribute_data.map do |data|
+  def recommendations_parse(film_data)
+    film_info(film_data[:recommendations], Film, :results)
+  end
+
+  def film_info(attribute_data, object, key)
+    return [] if attribute_data.nil?
+
+    attribute_data[key].map do |data|
       object.new(data)
     end
   end

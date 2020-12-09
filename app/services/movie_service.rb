@@ -19,7 +19,7 @@ class MovieService
     uri = "movie/#{movie_id}"
     response = conn.get("/3/#{uri}") do |rec|
       rec.params[:movie_id] = movie_id
-      rec.params[:append_to_response] = 'credits,reviews'
+      rec.params[:append_to_response] = 'credits,reviews,recommendations,similar'
     end
     JSON.parse(response.body, symbolize_names: true)
   end
