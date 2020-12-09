@@ -70,10 +70,9 @@ RSpec.describe 'User Dashboard Page' do
         @friend.friends << @friend_3
 
         @party = @user.parties.create!(movie_title: "The Godfather", duration: "155", day: "2020-12-17", start_time: "13:00")
-      
+
       end
       it "I see viewing parties I am hosting" do
-        # require "pry"; binding.pry
       end
 
       it "I see viewing parties I was invited to" do
