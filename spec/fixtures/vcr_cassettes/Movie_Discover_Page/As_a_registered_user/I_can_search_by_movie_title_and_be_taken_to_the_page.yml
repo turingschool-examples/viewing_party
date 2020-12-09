@@ -25,7 +25,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 09 Dec 2020 03:34:42 GMT
+      - Wed, 09 Dec 2020 23:16:45 GMT
       Server:
       - openresty
       Access-Control-Allow-Origin:
@@ -42,19 +42,19 @@ http_interactions:
       X-Cache:
       - Hit from cloudfront
       Via:
-      - 1.1 ee9de9e6182ae0c8e8f119177e905245.cloudfront.net (CloudFront)
+      - 1.1 6c02603f677dd5669f8ab3b41062340f.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - IIY8lpv76FHH0nAXEMv6t0Gl75ZpO8f00fz1X1EO75Q9-Mha2Xk8bQ==
+      - bXRCpTPQayb7UbT3AbgdlKmdS-0iJRtYHGUCDxhqDqn2GX4JEvmQrg==
       Age:
-      - '17'
+      - '390'
     body:
       encoding: UTF-8
       string: '{"page":1,"results":[{"adult":false,"backdrop_path":"/fQq1FWp1rC89xDrRMuyFJdFUdMd.jpg","genre_ids":[],"id":761053,"original_language":"en","original_title":"Gabriel''s
         Inferno Part III","overview":"The final part of the film adaption of the erotic
         romance novel Gabriel''s Inferno written by an anonymous Canadian author under
-        the pen name Sylvain Reynard.","popularity":39.347,"poster_path":"/qtX2Fg9MTmrbgN1UUvGoCsImTM8.jpg","release_date":"2020-11-19","title":"Gabriel''s
+        the pen name Sylvain Reynard.","popularity":39.347,"poster_path":"/fYtHxTxlhzD4QWfEbrC1rypysSD.jpg","release_date":"2020-11-19","title":"Gabriel''s
         Inferno Part III","video":false,"vote_average":9.2,"vote_count":469}],"total_pages":1,"total_results":1}'
-  recorded_at: Wed, 09 Dec 2020 03:34:59 GMT
+  recorded_at: Wed, 09 Dec 2020 23:23:15 GMT
 recorded_with: VCR 6.0.0
