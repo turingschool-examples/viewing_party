@@ -47,6 +47,25 @@ feature 'as a user' do
         expect(author).to_not be_empty
         expect(content).to_not be_empty
       end
+
+      it 'I can get movie recommendations', :vcr do
+        visit movie_path(155)
+
+        expect(page).to have_css('.recommendations')
+        within ('.recommendations') do
+          expect(page).to have_css('.recommendation-link', count: 10)
+        end
+      end
+
+      it 'I can get similar movies', :vcr do
+        visit movie_path(155)
+
+        expect(page).to have_css('.similar')
+        within ('.similar') do
+          expect(page).to have_css('.similar-link', count: 10)
+        end
+      end
+
     end
   end
 end

@@ -20,7 +20,6 @@ given!(:user) {@user = create(:user)}
       expect(page).to have_button('Create Viewing Party for Movie')
       click_on 'Create Viewing Party for Movie'
       expect(current_path).to eq(new_viewing_party_path)
-      save_and_open_page
       expect(page).to have_content('The Dark Knight')
       expect(page).to have_field('viewing[duration_of_party]')
       expect(page).to have_field('viewing[date(2i)]')
@@ -31,8 +30,6 @@ given!(:user) {@user = create(:user)}
         expect(page).to have_field("viewing[friends[#{friend.id}]]", checked: true)
       end
       expect(page).to have_button('Create Viewing Party')
-
-      # expect(current_path).to eq(user_dashboard_path(@user.id))
     end
 
     it 'I fill out the form and create a viewing party', :vcr do
