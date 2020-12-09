@@ -4,15 +4,18 @@
   <%= f.hidden_field :title, value: params[:title] %>
   <%= f.hidden_field :api_id, :value => params[:movie_id] %><br>
   <%= f.label :duration_of_party, 'Duration of Party' %>
-  <%= f.text_field :duration_of_party, value: params[:runtime] %><br>
+  <%= f.text_field :duration_of_party, value: params[:runtime], min: params[:runtime] %><br>
   <%= f.hidden_field :duration_of_movie, value: params[:runtime] %>
-  <%= f.label :date, 'Day' %>
-  <%= f.date_select :date, order: [:month, :day, :year] %><br>
-  <%= f.label :start_time, 'Start Time' %>
+  <%= f.label :viewing_date, 'Day' %>
+  <%= f.date_select :date,
+                    :default => Date.today,
+                    :order => [:day, :month, :year], :start_year => Date.today.year,
+                    :end_year => (Date.today.year + 3) %><br>
+  <%= f.label :viewing_start_time, 'Start Time' %>
   <%= f.time_select :start_time %><br>
   <% current_user.friends.each do |friend|  %>
     <%= f.label friend.username %>
-    <%= f.check_box "friends[#{friend.id}]" %>
+    <%= f.check_box("friends[#{friend.id}]", id: "Friend_#{friend.id}") %>
   <% end %><br>
   <%= f.submit 'Create Viewing Party' %>
 <% end %>

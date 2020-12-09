@@ -4,12 +4,14 @@ class ViewingPartyController < ApplicationController
   end
 
   def create
-    @movie = Movie.create(movie_params)
-    @viewing = @movie.viewings.create(viewing_params)
-    redirect_to user_dashboard_path(current_user.username)
-    @viewing.guests.create(user_id: current_user.id, hosting: true)
-    guest_params.each do |id, invite|
-      @viewing.guests.create(user_id: id, hosting: false) if invite == '1'
+    if guest_params.values.all?('0') ||
+       params[:viewing][:duration_of_movie].to_i > params[:viewing][:duration_of_party].to_i
+      error_return
+      render :new
+    else
+      @movie = Movie.create(movie_params) unless Movie.find_by(api_id: params[:api_id])
+      @viewing = @movie.viewings.new(viewing_params)
+      create_helper
     end
   end
 
@@ -26,10 +28,35 @@ class ViewingPartyController < ApplicationController
   end
 
   def date_params
-    DateTime.new(params[:viewing]['date(1i)'].to_i, params[:viewing]['date(2i)'].to_i, params[:viewing]['date(3i)'].to_i, params[:viewing]['start_time(4i)'].to_i, params[:viewing]['start_time(5i)'].to_i, 0, '+24:00')
+    DateTime.new(params[:viewing]['date(1i)'].to_i,
+                 params[:viewing]['date(2i)'].to_i, params[:viewing]['date(3i)'].to_i,
+                 params[:viewing]['start_time(4i)'].to_i,
+                 params[:viewing]['start_time(5i)'].to_i,
+                 0,
+                 '+24:00')
   end
 
   def guest_params
     params.require(:viewing).require(:friends)
+  end
+
+  def create_helper
+    if @viewing.save
+      @viewing.add_guests(current_user, guest_params)
+      redirect_to user_dashboard_path(current_user.username)
+    else
+      flash[:errors] = @viewing.errors.full_messages.to_sentence
+      render :new
+    end
+  end
+
+  def error_return
+    if guest_params.values.all?('0')
+      flash.now[:errors] = "You don't want to have a viewing party with
+                        only yourself do you?"
+    elsif params[:viewing][:duration_of_movie].to_i > params[:viewing][:duration_of_party].to_i
+      flash.now[:errors] = "Your party is not long enough to see the whole
+                        movie! Please change your time to accomidate the full viewing."
+    end
   end
 end
