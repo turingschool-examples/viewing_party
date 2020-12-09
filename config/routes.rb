@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   end
 
   resources :movies, only: [:index, :show]
+
+  resources :viewing_party, :path => '/viewing-party', only: [:new, :create]
 end

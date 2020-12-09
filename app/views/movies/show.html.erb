@@ -1,4 +1,7 @@
-<h1 class = 'title_show_page'> <%= @movie.title %> </h1> <br>
+<div>
+<h1 class = 'title_show_page'> <%= @movie.title %> </h1>
+<%= button_to 'Create Viewing Party for Movie', new_viewing_party_path, method: :get, params: {title: @movie.title, runtime: @movie.runtime_min, movie_id: @movie.api_movie_id} %>
+</div><br>
 <div class = 'stats'>
   <div class = 'vote_average' align = 'left'> Vote Average: <%= @movie.rating %> </div>
   <div class = 'runtime' align = 'center'> Runtime: <%= @movie.runtime_display %></div>

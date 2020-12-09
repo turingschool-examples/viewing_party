@@ -8,14 +8,13 @@ FactoryBot.define do
 
   factory :movie do
     sequence(:title) {|n| "The Great Beyond #{n}"}
-    sequence(:duration) {|n| 120}
+    sequence(:duration_of_movie) {|n| 120}
     sequence(:api_id) {|n| 112 + n}
   end
 
   factory :viewing do
     movie
-    sequence(:duration) {|n| movie.duration + n}
-    sequence(:date) {|n| Time.now.strftime('%m-%d-%Y')}
+    sequence(:duration_of_party) {|n| movie.duration_of_movie + n}
     sequence(:start_time) {|n| Time.now.strftime('%I:%M %P')}
   end
 

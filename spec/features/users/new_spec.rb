@@ -15,7 +15,7 @@ describe "As a visitor" do
       click_on 'Create User'
       user = User.last
       expect(current_path).to eq("/#{user.username}/dashboard")
-      expect(page).to have_content('Welcome JohnDoe!')
+      expect(page).to have_content('😃 Welcome JohnDoe!')
     end
   end
 

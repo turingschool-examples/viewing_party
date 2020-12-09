@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_03_041228) do
+ActiveRecord::Schema.define(version: 2020_12_09_011323) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2020_12_03_041228) do
   create_table "movies", force: :cascade do |t|
     t.string "title"
     t.integer "api_id"
-    t.integer "duration"
+    t.integer "duration_of_movie"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -53,8 +53,7 @@ ActiveRecord::Schema.define(version: 2020_12_03_041228) do
 
   create_table "viewings", force: :cascade do |t|
     t.bigint "movie_id"
-    t.integer "duration"
-    t.date "date"
+    t.integer "duration_of_party"
     t.time "start_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
