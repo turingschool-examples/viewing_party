@@ -5,6 +5,7 @@ class FriendshipsController < ApplicationController
 
     if !friend.nil?
       Friendship.create!(user_id: user.id, friend_id: friend.id )
+      Friendship.create!(user_id: friend.id, friend_id: user.id )
     else
       flash[:error] = "I'm sorry your friend cannot be found"
     end
