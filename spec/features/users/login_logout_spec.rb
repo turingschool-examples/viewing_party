@@ -9,7 +9,9 @@ RSpec.describe 'User Log In and Log Out' do
     it "I can login with correct credentials" do
       visit root_path
 
-      expect(page).to_not have_content("Log Out")
+      expect(page).to_not have_link("Log Out")
+      expect(page).to_not have_link("Dashboard")
+
       fill_in :email, with: @user.email
       fill_in :password, with: @user.password
 
@@ -17,7 +19,8 @@ RSpec.describe 'User Log In and Log Out' do
 
       expect(current_path).to eq(dashboard_path)
       expect(page).to have_content("Welcome, #{@user.email}!")
-      expect(page).to have_content("Log Out")
+      expect(page).to have_link("Log Out")
+      expect(page).to have_link("Dashboard")
     end
 
     it "I cannot log in with bad credentials" do
