@@ -18,12 +18,12 @@
   <% end  %>
 </section>
 
-<section class="parties">
   <h3>Viewing Parties:</h3>
   <% @user.parties.each do |party|  %>
-    <%= party.movie_title %><br>
-    <p>Date: <%= party.day %></p>
-    <p>Start time: <%= party.convert_time %></p>
-    <p>Status: <%= party.party_status %></p>
+    <section id="party-<%= party.id %>">
+      <%= party.movie_title %><br>
+      <p>Date: <%= party.day %></p>
+      <p>Start time: <%= party.convert_time %></p>
+      <p>Status: <%= party.party_status %></p>
+    </section>
   <% end %>
-</section>
