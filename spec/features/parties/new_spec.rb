@@ -34,8 +34,6 @@ RSpec.describe 'New Viewing Party Page' do
       expect(page).to have_content("The Godfather: Part II")
       click_on "Create Viewing Party for Movie"
 
-      # expect(page).to have_selector(:field, 'The Godfather: Part II', readonly: true)
-      # expect(page).to have_content("The Godfather: Part II")
       expect(find_field("movie_title").value).to eq("The Godfather: Part II")
       expect(page).to have_selector("input[value='202']")
 
@@ -53,9 +51,10 @@ RSpec.describe 'New Viewing Party Page' do
 
       click_on 'Create Party'
       expect(current_path).to eq(dashboard_path)
-      save_and_open_page
 
-      within ".parties" do
+      party = Party.last
+
+      within "#party-#{party.id}" do
         expect(page).to have_content("The Godfather: Part II")
         expect(page).to have_content("2020-12-20")
         expect(page).to have_content("1:00 pm")
