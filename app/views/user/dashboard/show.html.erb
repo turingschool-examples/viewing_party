@@ -18,8 +18,8 @@
 <section class="viewing-parties">
   <% current_user.viewings.each do |viewing| %>
     <%= viewing.movie.title %><br>
-    <%= viewing.date %><br>
-    <%= viewing.start_time %><br>
+    <%= viewing.start_time.strftime('%m-%d-%Y') %><br>
+    <%= viewing.start_time.strftime('%I:%M') %><br>
     <%= viewing.user_hosting?(current_user.id) ? 'Host' : 'Guest' %><br><br>
   <% end %>
 </section>
