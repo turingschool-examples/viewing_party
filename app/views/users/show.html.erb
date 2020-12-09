@@ -19,7 +19,7 @@
 </section>
 
   <h3>Viewing Parties:</h3>
-  <% @user.parties.each do |party|  %>
+  <% @user.all_parties.each do |party|  %>
     <section id="party-<%= party.id %>">
       <%= party.movie_title %><br>
       <p>Date: <%= party.convert_date %></p>
