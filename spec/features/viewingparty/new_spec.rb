@@ -27,6 +27,8 @@ given!(:user) {@user = create(:user)}
       expect(page).to have_field('viewing[start_time(4i)]')
       @user.friends.each do |friend|
         expect(page).to have_field("viewing[friends[#{friend.id}]]", checked: false)
+        check "viewing[friends[#{friend.id}]]"
+        expect(page).to have_field("viewing[friends[#{friend.id}]]", checked: true)
       end
       expect(page).to have_button('Create Viewing Party')
       click_on 'Create Viewing Party'
