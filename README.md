@@ -37,6 +37,8 @@ https://github.com/Todd-Estes
 
 -Called and rendered data from multiple API endpoints
 
+-Utitlized and followed basic HTML and CSS conventions to render view templates
+
 **Authentication**
 
 -Used Sessions for login/logout functionality
@@ -44,15 +46,6 @@ https://github.com/Todd-Estes
 -Limited functionality to authorized users
 
 -Used BCrypt to hash user passwords
-
-**Rails**
-
--Used filters in Rails controller (before_action)
-
--Followed MVC principles
-
--Utitlized and followed basic HTML and CSS conventions to render view templates
-
 
 ## Screenshots
 
