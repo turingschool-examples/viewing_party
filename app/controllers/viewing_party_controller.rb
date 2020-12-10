@@ -12,6 +12,7 @@ class ViewingPartyController < ApplicationController
       @movie = Movie.create(movie_params) unless Movie.find_by(api_id: params[:api_id])
       @viewing = @movie.viewings.create(viewing_params)
       @viewing.add_guests(current_user, guest_params)
+      mailing_inviter_helper(@viewing)
       redirect_to user_dashboard_path(current_user.username)
     end
   end
@@ -49,5 +50,16 @@ class ViewingPartyController < ApplicationController
       flash.now[:errors] = "Your party is not long enough to see the whole
                         movie! Please change your time to accomidate the full viewing."
     end
+  end
+
+  def mailing_inviter_helper(viewing)
+    email_info = {}
+    email_info[:viewing] = viewing
+    email_info[:guests] = []
+    viewing.guests.each do |guest|
+      user = guest.user
+      email_info[:guests] << { user: user, hosting: guest.hosting }
+    end
+    FriendNotifierMailer.send_invites(email_info).deliver_now
   end
 end
