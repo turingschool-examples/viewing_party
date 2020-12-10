@@ -28,5 +28,12 @@ RSpec.describe 'Movie Discover Page' do
 
       expect(current_path).to eq(search_index_path)
     end
+
+    it "I can see upcoming movies", :vcr do
+      visit '/discover'
+
+      expect(page).to have_content("Roald Dahl's The Witches")
+      expect(page).to have_content("2020-10-26")
+    end
   end
 end

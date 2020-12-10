@@ -1,34 +1,46 @@
 class SearchService
   def self.search_results(title)
-    suffix = "/3/search/movie?"
 
-    response = conn.get("#{suffix}&language=en-US&query=#{title}&page=1&include_adult=false")
-
-    movies = JSON.parse(response.body, symbolize_names: true)
+    response = conn.get("/3/search/movie?") do |req|
+      req.params[:query] = title
+      req.params[:page] = 1
+    end
+    JSON.parse(response.body, symbolize_names: true)
   end
 
   def self.find_cast(id)
-    suffix = "/3/movie/#{id}"
 
-    response = conn.get("#{suffix}/credits?")
+    response = conn.get("/3/movie/#{id}/credits?")
 
-    credits = JSON.parse(response.body, symbolize_names: true)
+    JSON.parse(response.body, symbolize_names: true)
   end
 
   def self.find_details(id)
-    suffix = "/3/movie/#{id}"
 
-    response = conn.get("#{suffix}?")
+    response = conn.get("/3/movie/#{id}?")
 
-    details = JSON.parse(response.body, symbolize_names: true)
+    JSON.parse(response.body, symbolize_names: true)
   end
 
   def self.find_reviews(id)
-    suffix = "/3/movie/#{id}"
 
-    response = conn.get("#{suffix}/reviews?")
+    response = conn.get("/3/movie/#{id}/reviews?")
 
-    details = JSON.parse(response.body, symbolize_names: true)
+    JSON.parse(response.body, symbolize_names: true)
+  end
+
+  def self.find_similar(id)
+
+    response = conn.get("/3/movie/#{id}/similar?")
+
+    JSON.parse(response.body, symbolize_names: true)
+  end
+
+  def self.get_upcoming
+
+    response = conn.get("/3/movie/upcoming?")
+
+    JSON.parse(response.body, symbolize_names: true)
   end
 
   def self.conn

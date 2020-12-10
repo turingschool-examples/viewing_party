@@ -25,7 +25,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Thu, 10 Dec 2020 04:27:38 GMT
+      - Thu, 10 Dec 2020 04:27:39 GMT
       Server:
       - openresty
       Access-Control-Allow-Origin:
@@ -40,11 +40,11 @@ http_interactions:
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 23d87d8c2ce38e34462e6c134d187eeb.cloudfront.net (CloudFront)
+      - 1.1 2ad801a60bd36fbeb6a62fab7eabe330.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - NPOD5GnI8i0FIlTbeRQk_2FmbNpH2TZTUo4CPRY12Yp2GFc0O5M3ow==
+      - 0bI4xJJjy5cxKyMOcb9SycZH4CCzd1AGis4qRCxtPFT-uUv1GOeGvQ==
     body:
       encoding: UTF-8
       string: '{"dates":{"maximum":"2021-01-06","minimum":"2020-12-16"},"page":1,"results":[{"adult":false,"backdrop_path":"/8rIoyM6zYXJNjzGseT3MRusMPWl.jpg","genre_ids":[14,10751,12,35,27],"id":531219,"original_language":"en","original_title":"Roald
@@ -139,60 +139,5 @@ http_interactions:
         perfect to be human.","popularity":31.896,"poster_path":"/yQC63xosCxGsMw2gVbSxvRNY018.jpg","release_date":"2020-12-17","title":"What
         Lies Below","video":false,"vote_average":0,"vote_count":0},{"adult":false,"backdrop_path":"/xXS8kRiierndO1Cbm18FcOEFPlc.jpg","genre_ids":[53],"id":549514,"original_language":"en","original_title":"Fatale","overview":"A
         married man is tricked into a murder scheme by a female police detective.","popularity":30.445,"poster_path":"/yJK5otnFkbNn6oHV1APSoXUiDSH.jpg","release_date":"2020-12-18","title":"Fatale","video":false,"vote_average":0,"vote_count":0}],"total_pages":16,"total_results":305}'
-  recorded_at: Thu, 10 Dec 2020 04:27:38 GMT
-- request:
-    method: get
-    uri: https://api.themoviedb.org/3/search/movie?api_key=<replacement>&page=1&query=Gabriel%27s%20Inferno%20Part%20III
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v1.1.0
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json;charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Date:
-      - Thu, 10 Dec 2020 04:27:38 GMT
-      Server:
-      - openresty
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Allow-Methods:
-      - GET, HEAD, POST, PUT, DELETE, OPTIONS
-      Access-Control-Expose-Headers:
-      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
-        Content-Length, Content-Range
-      Cache-Control:
-      - public, max-age=600
-      Vary:
-      - Accept-Encoding
-      X-Cache:
-      - Miss from cloudfront
-      Via:
-      - 1.1 c29390732f5bc4b2c7832623ae6e492f.cloudfront.net (CloudFront)
-      X-Amz-Cf-Pop:
-      - DEN50-C2
-      X-Amz-Cf-Id:
-      - iHaRMvXK_xPQPptL5LR8jSxXt1-5p1d7MkA0MjkRFFxTHtXwAplCcw==
-    body:
-      encoding: UTF-8
-      string: '{"page":1,"results":[{"adult":false,"backdrop_path":"/fQq1FWp1rC89xDrRMuyFJdFUdMd.jpg","genre_ids":[],"id":761053,"original_language":"en","original_title":"Gabriel''s
-        Inferno Part III","overview":"The final part of the film adaption of the erotic
-        romance novel Gabriel''s Inferno written by an anonymous Canadian author under
-        the pen name Sylvain Reynard.","popularity":37.734,"poster_path":"/fYtHxTxlhzD4QWfEbrC1rypysSD.jpg","release_date":"2020-11-19","title":"Gabriel''s
-        Inferno Part III","video":false,"vote_average":9.2,"vote_count":470}],"total_pages":1,"total_results":1}'
-  recorded_at: Thu, 10 Dec 2020 04:27:38 GMT
+  recorded_at: Thu, 10 Dec 2020 04:27:39 GMT
 recorded_with: VCR 6.0.0

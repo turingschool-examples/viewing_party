@@ -34,3 +34,15 @@
   <h4>Author: <%= @reviews.author %></h4>
   <%= @reviews.content %>
 </div>
+<br>
+<br>
+<h3>Similar Movies:</h3>
+<div class="similar">
+  <ul>
+  <h4> <% @similar_movies.each do |similar_movie| %> </h4>
+    <li><%= link_to similar_movie.title, "/movies/#{similar_movie.search_id}" %></li>
+    <%= similar_movie.release_date %>
+  <% end %>
+</ul>
+
+</div>
