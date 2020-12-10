@@ -15,7 +15,7 @@ https://github.com/Todd-Estes
 
 1. Fork and Clone the repo
 2. Install gem packages: `bundle install`
-3. Setup the database: `rails db:create`
+3. Setup the database: `rails db:{create, migrate}`
 
 ## Schema
 
