@@ -8,18 +8,20 @@ class PartiesController < ApplicationController
   end
 
   def create
-
     user = User.find(current_user.id)
     day = params[:day].values.join("/")
     start_time = params[:start_time].values.join(":")
 
-    @party = user.parties.create!(user_id: user.id, movie_title: params[:movie_title], duration: params[:duration], day: day, start_time: start_time)
-    party_friends = params[:friend_ids]
+    @party = Party.create!(
+      movie_title: params[:movie_title],
+      duration: params[:duration],
+      day: day,
+      start_time: start_time,
+      user_id: user.id
+    )
 
-    party_friends.each do |friend_id|
-      # require "pry"; binding.pry
-      @party.guests.create!({party_id: @party.id, user_id: friend_id.to_i})
-    end
+    create_guests(@party)
+
     redirect_to dashboard_path
   end
 
@@ -30,4 +32,12 @@ class PartiesController < ApplicationController
     end
   end
 
+  def create_guests(party)
+    if !params[:friend_ids].nil?
+      party_guests = params[:friend_ids]
+      party_guests.each do |guest_id|
+        Guest.create!({party_id: party.id, user_id: guest_id.to_i})
+      end
+    end
+  end
 end
