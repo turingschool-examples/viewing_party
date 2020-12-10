@@ -25,7 +25,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Thu, 10 Dec 2020 03:59:05 GMT
+      - Thu, 10 Dec 2020 04:27:41 GMT
       Server:
       - openresty
       Access-Control-Allow-Origin:
@@ -40,11 +40,11 @@ http_interactions:
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 8bd27032f0d38908fbe32b696e45c288.cloudfront.net (CloudFront)
+      - 1.1 4d0ecb5905192435c3fd204705c9fc24.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - c0bhusYCVFg2TG_juxW64Dqne8cBKxhsX9NfJmTjeUkmdm0s6EydYQ==
+      - oNSLLOja-G-3-3LSdSlFK-5KMJFTzSz_sS-xjaLuzDyDc-ScjPY_Bw==
     body:
       encoding: UTF-8
       string: '{"dates":{"maximum":"2021-01-06","minimum":"2020-12-16"},"page":1,"results":[{"adult":false,"backdrop_path":"/8rIoyM6zYXJNjzGseT3MRusMPWl.jpg","genre_ids":[14,10751,12,35,27],"id":531219,"original_language":"en","original_title":"Roald
@@ -138,11 +138,11 @@ http_interactions:
         Smith, whose charm, intelligence, and beauty paint the picture of a man too
         perfect to be human.","popularity":31.896,"poster_path":"/yQC63xosCxGsMw2gVbSxvRNY018.jpg","release_date":"2020-12-17","title":"What
         Lies Below","video":false,"vote_average":0,"vote_count":0},{"adult":false,"backdrop_path":"/xXS8kRiierndO1Cbm18FcOEFPlc.jpg","genre_ids":[53],"id":549514,"original_language":"en","original_title":"Fatale","overview":"A
-        married man is tricked into a murder scheme by a female police detective.","popularity":30.445,"poster_path":"/yJK5otnFkbNn6oHV1APSoXUiDSH.jpg","release_date":"2020-12-18","title":"Fatale","video":false,"vote_average":0,"vote_count":0}],"total_pages":16,"total_results":304}'
-  recorded_at: Thu, 10 Dec 2020 03:59:05 GMT
+        married man is tricked into a murder scheme by a female police detective.","popularity":30.445,"poster_path":"/yJK5otnFkbNn6oHV1APSoXUiDSH.jpg","release_date":"2020-12-18","title":"Fatale","video":false,"vote_average":0,"vote_count":0}],"total_pages":16,"total_results":305}'
+  recorded_at: Thu, 10 Dec 2020 04:27:41 GMT
 - request:
     method: get
-    uri: https://api.themoviedb.org/3/search/movie?api_key=<replacement>&include_adult=false&language=en-US&page=1&query=The%20Godfather:%20Part%20II
+    uri: https://api.themoviedb.org/3/search/movie?api_key=<replacement>&page=1&query=The%20Godfather:%20Part%20II
     body:
       encoding: US-ASCII
       string: ''
@@ -165,7 +165,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Thu, 10 Dec 2020 03:58:39 GMT
+      - Thu, 10 Dec 2020 04:27:16 GMT
       Server:
       - openresty
       Access-Control-Allow-Origin:
@@ -182,13 +182,13 @@ http_interactions:
       X-Cache:
       - Hit from cloudfront
       Via:
-      - 1.1 c4fb40b7909e4dd897bba2e297b284e7.cloudfront.net (CloudFront)
+      - 1.1 a44b9db7a2d103360945ab52619e5016.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - 49iKQ0DjYHJyOkLCtYq1BA3lClPojXutaDL79nZ0-uFphKOMOzIREg==
+      - JTwQ4f9KSNZ7rqWlQMITCkGpLZfky0w9kze7Szq-XDlNtJgQUbHXOQ==
       Age:
-      - '26'
+      - '25'
     body:
       encoding: UTF-8
       string: '{"page":1,"results":[{"adult":false,"backdrop_path":"/poec6RqOKY9iSiIUmfyfPfiLtvB.jpg","genre_ids":[18,80],"id":240,"original_language":"en","original_title":"The
@@ -201,7 +201,7 @@ http_interactions:
         business dealings in 1979 New York and Italy, aging mafia don, Michael Corleone
         seeks forgiveness for his sins while taking a young protege under his wing.","popularity":71.961,"poster_path":"/1hdm3Axw9LjITbApvAXBbqO58zE.jpg","release_date":"1990-12-25","title":"The
         Godfather: Part III","video":false,"vote_average":7.4,"vote_count":4002}],"total_pages":1,"total_results":2}'
-  recorded_at: Thu, 10 Dec 2020 03:59:05 GMT
+  recorded_at: Thu, 10 Dec 2020 04:27:41 GMT
 - request:
     method: get
     uri: https://api.themoviedb.org/3/movie/240/credits?api_key=<replacement>
@@ -256,13 +256,13 @@ http_interactions:
       X-Cache:
       - Hit from cloudfront
       Via:
-      - 1.1 6c02603f677dd5669f8ab3b41062340f.cloudfront.net (CloudFront)
+      - 1.1 7d885ba806a1846198f8b666005bec93.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - r2CnMiz094WO9mPAK2DGvjnWjSX-Lcc28sZiWeEaf4M4Z2jXrAb3fw==
+      - G5WczgXnCxXgpjWxK4Key2Fu1Xgmn0-NKIZOKULdqamFMlPMXdakjg==
       Age:
-      - '12567'
+      - '14283'
     body:
       encoding: UTF-8
       string: '{"id":240,"cast":[{"adult":false,"gender":2,"id":1158,"known_for_department":"Acting","name":"Al
@@ -514,7 +514,7 @@ http_interactions:
         Kelly","original_name":"Hugh Kelly","popularity":0.6,"profile_path":null,"credit_id":"574721f49251412b43000095","department":"Crew","job":"Driver"},{"adult":false,"gender":0,"id":1630221,"known_for_department":"Directing","name":"Alan
         Hopkins","original_name":"Alan Hopkins","popularity":0.6,"profile_path":null,"credit_id":"5751b2cd9251412b0f0029a2","department":"Directing","job":"Assistant
         Director"}]}'
-  recorded_at: Thu, 10 Dec 2020 03:59:05 GMT
+  recorded_at: Thu, 10 Dec 2020 04:27:41 GMT
 - request:
     method: get
     uri: https://api.themoviedb.org/3/movie/240?api_key=<replacement>
@@ -569,13 +569,13 @@ http_interactions:
       X-Cache:
       - Hit from cloudfront
       Via:
-      - 1.1 f0b290c4e2273a7586bc6f080031d9bc.cloudfront.net (CloudFront)
+      - 1.1 ee9de9e6182ae0c8e8f119177e905245.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - rZgYs4gxVwi6pdcmSpYJe641silxtPWK1tchoeHTjkhRkzO48TfPuA==
+      - 06_2uiIL6wIGPRAifvkniiZ_HUzFpFMOEnVd4lvNvSiecXRcSqIc6w==
       Age:
-      - '4057'
+      - '5774'
     body:
       encoding: UTF-8
       string: '{"adult":false,"backdrop_path":"/poec6RqOKY9iSiIUmfyfPfiLtvB.jpg","belongs_to_collection":{"id":230,"name":"The
@@ -588,7 +588,7 @@ http_interactions:
         States of America"}],"release_date":"1974-12-20","revenue":102600000,"runtime":202,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"},{"english_name":"Italian","iso_639_1":"it","name":"Italiano"},{"english_name":"Latin","iso_639_1":"la","name":"Latin"},{"english_name":"Spanish","iso_639_1":"es","name":"Español"}],"status":"Released","tagline":"I
         don''t feel I have to wipe everybody out, Tom. Just my enemies.","title":"The
         Godfather: Part II","video":false,"vote_average":8.6,"vote_count":7951}'
-  recorded_at: Thu, 10 Dec 2020 03:59:05 GMT
+  recorded_at: Thu, 10 Dec 2020 04:27:41 GMT
 - request:
     method: get
     uri: https://api.themoviedb.org/3/movie/240/reviews?api_key=<replacement>
@@ -643,13 +643,13 @@ http_interactions:
       X-Cache:
       - Hit from cloudfront
       Via:
-      - 1.1 e158a5cd644f102abc630a9f56b59d78.cloudfront.net (CloudFront)
+      - 1.1 a44b9db7a2d103360945ab52619e5016.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - b4HbX-niUKX58pcnTtc1JofzMNH3DU4cFa4SkG8-jhIc3Lq7ity9Kg==
+      - J39PgBEmSpl4c__O7uBG6iCRfWEvYIsTp8ltLNE3wtytKDKmvO0Vhw==
       Age:
-      - '16937'
+      - '18654'
     body:
       encoding: UTF-8
       string: '{"id":240,"page":1,"results":[{"author":"jkbbr549","author_details":{"name":"","username":"jkbbr549","avatar_path":null,"rating":null},"content":"This
@@ -666,7 +666,7 @@ http_interactions:
         new enemies. Big money and power always keep pace with great temptation, and
         therefore you should always keep your ears open. After all, the knife in the
         back can insert exactly the one from whom you do not expect ...","created_at":"2019-07-30T08:28:10.884Z","id":"5d3fff9ab87aec6aa339e228","updated_at":"2019-07-31T22:33:04.159Z","url":"https://www.themoviedb.org/review/5d3fff9ab87aec6aa339e228"}],"total_pages":1,"total_results":2}'
-  recorded_at: Thu, 10 Dec 2020 03:59:05 GMT
+  recorded_at: Thu, 10 Dec 2020 04:27:42 GMT
 - request:
     method: get
     uri: https://api.themoviedb.org/3/movie/240/similar?api_key=<replacement>
@@ -721,13 +721,13 @@ http_interactions:
       X-Cache:
       - Hit from cloudfront
       Via:
-      - 1.1 91f1c114eac2b00f07286bc49dddd7e5.cloudfront.net (CloudFront)
+      - 1.1 e1b5abb53c407f0a057625c46693461d.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - aWf5UHDLmaghas_0P2vfK1KFmkyDx_BGpomcId0M7Sb5JjuqXPSueA==
+      - S5M8p8ZAyiJiZ7z-JiXIpa4jZpA9gTu6Jmo3HFjrZWv6r-WdUlfsHg==
       Age:
-      - '4057'
+      - '5774'
     body:
       encoding: UTF-8
       string: '{"page":1,"results":[{"adult":false,"backdrop_path":"/3naOwcmYNZfd80kC1OXmembjc8j.jpg","genre_ids":[53,28,18],"id":445954,"original_language":"en","original_title":"Acts
@@ -824,7 +824,7 @@ http_interactions:
         Lizewski is an unnoticed high school student and comic book fan who one day
         decides to become a super-hero, even though he has no powers, training or
         meaningful reason to do so.","poster_path":"/GPiMXaDC2NdDIldLgtijHFTeKH.jpg","popularity":23.825}],"total_pages":53,"total_results":1048}'
-  recorded_at: Thu, 10 Dec 2020 03:59:05 GMT
+  recorded_at: Thu, 10 Dec 2020 04:27:42 GMT
 - request:
     method: get
     uri: https://api.themoviedb.org/3/movie/upcoming?api_key=<replacement>
@@ -850,7 +850,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Thu, 10 Dec 2020 03:59:06 GMT
+      - Thu, 10 Dec 2020 04:27:42 GMT
       Server:
       - openresty
       Access-Control-Allow-Origin:
@@ -869,7 +869,7 @@ http_interactions:
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - USVmZGcAHYQ9gZSy6lwbCKn3CUgjT6xGoAoDzpvqgLRXQMjW6481mA==
+      - 7rwb8M-FKQ-bzSgbWBrLlPswdNCpO7FmVOGAiDFoZ-_-qfEhFIixtA==
     body:
       encoding: UTF-8
       string: '{"dates":{"maximum":"2021-01-06","minimum":"2020-12-16"},"page":1,"results":[{"adult":false,"backdrop_path":"/8rIoyM6zYXJNjzGseT3MRusMPWl.jpg","genre_ids":[14,10751,12,35,27],"id":531219,"original_language":"en","original_title":"Roald
@@ -963,8 +963,8 @@ http_interactions:
         Smith, whose charm, intelligence, and beauty paint the picture of a man too
         perfect to be human.","popularity":31.896,"poster_path":"/yQC63xosCxGsMw2gVbSxvRNY018.jpg","release_date":"2020-12-17","title":"What
         Lies Below","video":false,"vote_average":0,"vote_count":0},{"adult":false,"backdrop_path":"/xXS8kRiierndO1Cbm18FcOEFPlc.jpg","genre_ids":[53],"id":549514,"original_language":"en","original_title":"Fatale","overview":"A
-        married man is tricked into a murder scheme by a female police detective.","popularity":30.445,"poster_path":"/yJK5otnFkbNn6oHV1APSoXUiDSH.jpg","release_date":"2020-12-18","title":"Fatale","video":false,"vote_average":0,"vote_count":0}],"total_pages":16,"total_results":304}'
-  recorded_at: Thu, 10 Dec 2020 03:59:06 GMT
+        married man is tricked into a murder scheme by a female police detective.","popularity":30.445,"poster_path":"/yJK5otnFkbNn6oHV1APSoXUiDSH.jpg","release_date":"2020-12-18","title":"Fatale","video":false,"vote_average":0,"vote_count":0}],"total_pages":16,"total_results":305}'
+  recorded_at: Thu, 10 Dec 2020 04:27:42 GMT
 - request:
     method: get
     uri: https://api.themoviedb.org/3/movie/240?api_key=<replacement>
@@ -1019,13 +1019,13 @@ http_interactions:
       X-Cache:
       - Hit from cloudfront
       Via:
-      - 1.1 dcee1124728af441beff75c95d9d9d74.cloudfront.net (CloudFront)
+      - 1.1 4d0ecb5905192435c3fd204705c9fc24.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - 7odoRTYoFsSxfC6XNUqTKY31r1hJhiV4O6AR76lSP5xKKBWIdVKQRA==
+      - Gc_gogWPrBGqAvuKQ-CnhIY-myPyiIYOFiSSLY_cg5WuOw4Vz_TWBQ==
       Age:
-      - '4058'
+      - '5774'
     body:
       encoding: UTF-8
       string: '{"adult":false,"backdrop_path":"/poec6RqOKY9iSiIUmfyfPfiLtvB.jpg","belongs_to_collection":{"id":230,"name":"The
@@ -1038,5 +1038,5 @@ http_interactions:
         States of America"}],"release_date":"1974-12-20","revenue":102600000,"runtime":202,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"},{"english_name":"Italian","iso_639_1":"it","name":"Italiano"},{"english_name":"Latin","iso_639_1":"la","name":"Latin"},{"english_name":"Spanish","iso_639_1":"es","name":"Español"}],"status":"Released","tagline":"I
         don''t feel I have to wipe everybody out, Tom. Just my enemies.","title":"The
         Godfather: Part II","video":false,"vote_average":8.6,"vote_count":7951}'
-  recorded_at: Thu, 10 Dec 2020 03:59:06 GMT
+  recorded_at: Thu, 10 Dec 2020 04:27:42 GMT
 recorded_with: VCR 6.0.0

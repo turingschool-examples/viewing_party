@@ -25,7 +25,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Thu, 10 Dec 2020 03:59:03 GMT
+      - Thu, 10 Dec 2020 04:27:39 GMT
       Server:
       - openresty
       Access-Control-Allow-Origin:
@@ -40,11 +40,11 @@ http_interactions:
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 0e018abb74f4918cb6e427c3e0a7ee33.cloudfront.net (CloudFront)
+      - 1.1 29f1da35ce271d2cdc88184ed0c1f86d.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - Zk6t06jl6NKL4ixcd8yI6VwYzMJvFRNt9Una16xzOks3Bfd118B37g==
+      - x0dLk4CUKi2doBXrfpYBF1VBxRUR_CH18wUDqE_FoRf0Lm1p4JXxRg==
     body:
       encoding: UTF-8
       string: '{"dates":{"maximum":"2021-01-06","minimum":"2020-12-16"},"page":1,"results":[{"adult":false,"backdrop_path":"/8rIoyM6zYXJNjzGseT3MRusMPWl.jpg","genre_ids":[14,10751,12,35,27],"id":531219,"original_language":"en","original_title":"Roald
@@ -138,8 +138,8 @@ http_interactions:
         Smith, whose charm, intelligence, and beauty paint the picture of a man too
         perfect to be human.","popularity":31.896,"poster_path":"/yQC63xosCxGsMw2gVbSxvRNY018.jpg","release_date":"2020-12-17","title":"What
         Lies Below","video":false,"vote_average":0,"vote_count":0},{"adult":false,"backdrop_path":"/xXS8kRiierndO1Cbm18FcOEFPlc.jpg","genre_ids":[53],"id":549514,"original_language":"en","original_title":"Fatale","overview":"A
-        married man is tricked into a murder scheme by a female police detective.","popularity":30.445,"poster_path":"/yJK5otnFkbNn6oHV1APSoXUiDSH.jpg","release_date":"2020-12-18","title":"Fatale","video":false,"vote_average":0,"vote_count":0}],"total_pages":16,"total_results":304}'
-  recorded_at: Thu, 10 Dec 2020 03:59:03 GMT
+        married man is tricked into a murder scheme by a female police detective.","popularity":30.445,"poster_path":"/yJK5otnFkbNn6oHV1APSoXUiDSH.jpg","release_date":"2020-12-18","title":"Fatale","video":false,"vote_average":0,"vote_count":0}],"total_pages":16,"total_results":305}'
+  recorded_at: Thu, 10 Dec 2020 04:27:39 GMT
 - request:
     method: get
     uri: https://api.themoviedb.org/3/movie/top_rated?api_key=<replacement>&language=en-US&page=1
@@ -182,13 +182,13 @@ http_interactions:
       X-Cache:
       - Hit from cloudfront
       Via:
-      - 1.1 1e5c934b70471a41d2b61ae8c4abeb79.cloudfront.net (CloudFront)
+      - 1.1 ec4d04f2befcd6652834fd368a8b671e.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - L6ambB2eOinZgUrXogo4w10UTcDr6OZ54EEsJNtvuTFzuaqvkb5MMQ==
+      - YC9JL2xfgqisaGV9iYJJvoI1jF0WPEM7lyJk7snE-GcZbLujrOyCEw==
       Age:
-      - '17309'
+      - '19025'
     body:
       encoding: UTF-8
       string: '{"page":1,"results":[{"adult":false,"backdrop_path":"/fQq1FWp1rC89xDrRMuyFJdFUdMd.jpg","genre_ids":[],"id":761053,"original_language":"en","original_title":"Gabriel''s
@@ -298,7 +298,7 @@ http_interactions:
         exceeding what anyone imagined he could do. But despite all he has achieved,
         his one true love eludes him.","popularity":40.423,"poster_path":"/h5J4W4veyxMXDMjeNxZI46TsHOb.jpg","release_date":"1994-07-06","title":"Forrest
         Gump","video":false,"vote_average":8.5,"vote_count":19382}],"total_pages":405,"total_results":8093}'
-  recorded_at: Thu, 10 Dec 2020 03:59:03 GMT
+  recorded_at: Thu, 10 Dec 2020 04:27:39 GMT
 - request:
     method: get
     uri: https://api.themoviedb.org/3/movie/top_rated?api_key=<replacement>&language=en-US&page=2
@@ -341,13 +341,13 @@ http_interactions:
       X-Cache:
       - Hit from cloudfront
       Via:
-      - 1.1 b7f0c5734a286f56595c1e1b456020a2.cloudfront.net (CloudFront)
+      - 1.1 0f653303bc95b26f01daff2926667902.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - COX0zVkQQwJS3mjq9XmjH_-kKeYJRxEUFnQfXtTpBs3AM8WhDxF8gw==
+      - 0rlWwOK9bs_ixTS2O8WfxJA9PaDSw9BZWJVBOzztV04C-WBg3VpA0w==
       Age:
-      - '17309'
+      - '19025'
     body:
       encoding: UTF-8
       string: '{"page":2,"results":[{"adult":false,"backdrop_path":"/hkBaDkMWbLaf8B1lsWsKX7Ew3Xq.jpg","genre_ids":[18,28,80,53],"id":155,"original_language":"en","original_title":"The
@@ -457,5 +457,5 @@ http_interactions:
         With no surviving relatives and their emergency rations depleted, Seita and
         Setsuko struggle to survive.","popularity":0.6,"poster_path":"/wcNkHDbyc290hcWk7KXbBZUuXpq.jpg","release_date":"1988-04-16","title":"Grave
         of the Fireflies","video":false,"vote_average":8.4,"vote_count":3177}],"total_pages":405,"total_results":8093}'
-  recorded_at: Thu, 10 Dec 2020 03:59:03 GMT
+  recorded_at: Thu, 10 Dec 2020 04:27:39 GMT
 recorded_with: VCR 6.0.0
