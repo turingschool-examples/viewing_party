@@ -11,9 +11,24 @@ https://github.com/abcdefghijohn
 
 https://github.com/Todd-Estes
 
+## Versions
+
+Ruby 2.5.3
+
+Rails 5.2.4.3
+
+
+
 ## Local Setup
 
+
+
 1. Fork and Clone the repo
+
+  git clone https://github.com/turingschool-examples/friendly-advice.git friendly-advice
+
+  cd friendly-advice
+
 2. Install gem packages: `bundle install`
 3. Setup the database: `rails db:{create, migrate}`
 
