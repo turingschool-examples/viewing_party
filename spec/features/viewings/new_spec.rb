@@ -74,5 +74,26 @@ given!(:user) {@user = create(:user)}
       expect(current_path).to_not eq(user_dashboard_path(@user.username))
       expect(page).to have_content("Your party is not long enough to see the whole movie! Please change your time to accomidate the full viewing.")
     end
+
+    it 'when I create a viewing party, an invitation with details about the viewing party is emailed to each invited user', :vcr do
+      click_on 'Create Viewing Party for Movie'
+      find(:css, "#Friend_#{@friend_1.id}").set(true)
+      find(:css, "#Friend_#{@friend_2.id}").set(true)
+      find(:css, "#Friend_#{@friend_3.id}").set(true)
+      click_on 'Create Viewing Party'
+      viewing = Viewing.last
+      email = ActionMailer::Base.deliveries.last
+      recipients = [@friend_1.email, @friend_2.email, @friend_3.email]
+      subject = "#{@user.username} has invited you to watch #{viewing.movie.title}"
+      expect(email.reply_to).to eq([@user.email])
+      expect(email.to).to eq(recipients)
+      expect(email.subject).to eq(subject)
+      expect(email.text_part.body.to_s).to include("#{viewing.movie.title} watch party:")
+      expect(email.text_part.body.to_s).to include("Starts: #{viewing.start_time}")
+      expect(email.text_part.body.to_s).to include("See you then!")
+      expect(email.html_part.body.to_s).to include("#{viewing.movie.title} watch party:")
+      expect(email.html_part.body.to_s).to include("Starts: #{viewing.start_time}")
+      expect(email.html_part.body.to_s).to include("See you then!")
+    end
   end
 end
