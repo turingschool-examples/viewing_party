@@ -4,7 +4,7 @@ class SearchService
 
     response = conn.get("#{suffix}&language=en-US&query=#{title}&page=1&include_adult=false")
 
-    movies = JSON.parse(response.body, symbolize_names: true)
+    JSON.parse(response.body, symbolize_names: true)
   end
 
   def self.find_cast(id)
@@ -12,7 +12,7 @@ class SearchService
 
     response = conn.get("#{suffix}/credits?")
 
-    credits = JSON.parse(response.body, symbolize_names: true)
+    JSON.parse(response.body, symbolize_names: true)
   end
 
   def self.find_details(id)
@@ -20,7 +20,7 @@ class SearchService
 
     response = conn.get("#{suffix}?")
 
-    details = JSON.parse(response.body, symbolize_names: true)
+    JSON.parse(response.body, symbolize_names: true)
   end
 
   def self.find_reviews(id)
@@ -28,7 +28,23 @@ class SearchService
 
     response = conn.get("#{suffix}/reviews?")
 
-    details = JSON.parse(response.body, symbolize_names: true)
+    JSON.parse(response.body, symbolize_names: true)
+  end
+
+  def self.find_similar(id)
+    suffix = "/3/movie/#{id}"
+
+    response = conn.get("#{suffix}/similar?")
+
+    JSON.parse(response.body, symbolize_names: true)
+  end
+
+  def self.get_upcoming
+    suffix = "/3/movie"
+
+    response = conn.get("#{suffix}/upcoming?")
+
+    JSON.parse(response.body, symbolize_names: true)
   end
 
   def self.conn

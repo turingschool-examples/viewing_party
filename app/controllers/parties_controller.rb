@@ -1,10 +1,8 @@
 class PartiesController < ApplicationController
   def new
     @movie_id = params[:id].to_i
-    suffix = "/3/movie/#{@movie_id}"
 
-    details_response = conn.get("#{suffix}?")
-    @details = JSON.parse(details_response.body, symbolize_names: true)
+    @details = SearchFacade.details(@movie_id)
   end
 
   def create
@@ -20,24 +18,10 @@ class PartiesController < ApplicationController
       user_id: user.id
     )
 
-    create_guests(@party)
-
+    party_guests = params[:friend_ids]
+    party_guests.each do |guest_id|
+      @party.guests.create!(user_id: guest_id.to_i)
+    end
     redirect_to dashboard_path
-  end
-
-  private
-  def conn
-    Faraday.new("https://api.themoviedb.org") do |f|
-      f.params[:api_key] = ENV["MOVIE_SEARCH_API_KEY"]
-    end
-  end
-
-  def create_guests(party)
-    if !params[:friend_ids].nil?
-      party_guests = params[:friend_ids]
-      party_guests.each do |guest_id|
-        Guest.create!({party_id: party.id, user_id: guest_id.to_i})
-      end
-    end
   end
 end

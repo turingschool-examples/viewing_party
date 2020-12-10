@@ -21,6 +21,15 @@ RSpec.describe 'Movie Search Feature' do
         expect(current_path).to eq(search_index_path)
         expect(page).to have_content("Gabriel's Inferno Part III")
       end
+
+      it 'I submit an invalid movie title', :vcr do
+        visit discover_index_path
+        fill_in "Search by movie title", with: ""
+        click_button("Find Movies")
+
+        expect(current_path).to eq(discover_index_path)
+        expect(page).to have_content("Please enter a valid movie title")
+      end
     end
   end
 end

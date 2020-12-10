@@ -1,10 +1,10 @@
 <h2>Viewing Party Details</h2>
 
 <%= form_tag new_party_path do %>
-  <%= text_field_tag :movie_title, @details[:title], readonly: true  %>
+  <%= text_field_tag :movie_title, @details.title, readonly: true  %>
   <br>
   <%= label_tag :duration, 'Duration of Party' %>
-  <%= text_field_tag :duration, "#{@details[:runtime]}" %>
+  <%= text_field_tag :duration, "#{@details.runtime}" %>
   <br>
   <section class="date-time-select">
     <%= label_tag :day %>

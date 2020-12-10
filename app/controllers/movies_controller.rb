@@ -17,14 +17,12 @@ class MoviesController < ApplicationController
   def show
     id = params["id"].to_i
 
-    suffix = "/3/movie/#{id}"
-
     @cast = SearchFacade.credits(id)
     @details = SearchFacade.details(id)
     @reviews = SearchFacade.reviews(id)
 
-    # reviews_response = conn.get("#{suffix}/reviews?")
-    # @reviews = JSON.parse(reviews_response.body, symbolize_names: true)
+    @similar_movies = SearchFacade.similar_movies(id)
+    @upcoming_movies = SearchFacade.upcoming_movies
   end
 
   private

@@ -22,4 +22,18 @@ class SearchFacade
     @reviews = SearchService.find_reviews(id)
       Review.new(@reviews)
   end
+
+  def self.similar_movies(id)
+    movies = SearchService.find_similar(id)
+    @similar_movies = movies[:results].map do |similar|
+      Similar.new(similar)
+    end
+  end
+
+  def self.upcoming_movies
+    movies = SearchService.get_upcoming
+    @upcoming_movies = movies[:results].map do |upcoming|
+      Upcoming.new(upcoming)
+    end 
+  end
 end

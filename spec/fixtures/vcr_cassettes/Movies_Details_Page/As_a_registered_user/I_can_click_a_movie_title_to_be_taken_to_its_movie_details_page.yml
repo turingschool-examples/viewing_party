@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.themoviedb.org/3/search/movie?api_key=<replacement>&include_adult=false&language=en-US&page=1&query=Gabriel%27s%20Inferno%20Part%20III
+    uri: https://api.themoviedb.org/3/movie/upcoming?api_key=<replacement>
     body:
       encoding: US-ASCII
       string: ''
@@ -25,7 +25,147 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 09 Dec 2020 23:16:45 GMT
+      - Thu, 10 Dec 2020 03:59:03 GMT
+      Server:
+      - openresty
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
+        Content-Length, Content-Range
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 29f1da35ce271d2cdc88184ed0c1f86d.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - DEN50-C2
+      X-Amz-Cf-Id:
+      - FPriifdJhUY5tWIZNOZA3ufifO6x_VGDfpEXdXzPF4XGhAmaFWR4wA==
+    body:
+      encoding: UTF-8
+      string: '{"dates":{"maximum":"2021-01-06","minimum":"2020-12-16"},"page":1,"results":[{"adult":false,"backdrop_path":"/8rIoyM6zYXJNjzGseT3MRusMPWl.jpg","genre_ids":[14,10751,12,35,27],"id":531219,"original_language":"en","original_title":"Roald
+        Dahl''s The Witches","overview":"In late 1967, a young orphaned boy goes to
+        live with his loving grandma in the rural Alabama town of Demopolis. As the
+        boy and his grandmother encounter some deceptively glamorous but thoroughly
+        diabolical witches, she wisely whisks him away to a seaside resort. Regrettably,
+        they arrive at precisely the same time that the world''s Grand High Witch
+        has gathered.","popularity":748.242,"poster_path":"/betExZlgK0l7CZ9CsCBVcwO1OjL.jpg","release_date":"2020-10-26","title":"Roald
+        Dahl''s The Witches","video":false,"vote_average":6.9,"vote_count":884},{"adult":false,"backdrop_path":"/eShw0LB5CkoEfYtpUcXPD85oz5Q.jpg","genre_ids":[27,53,35],"id":551804,"original_language":"en","original_title":"Freaky","overview":"A
+        mystical, ancient dagger causes a notorious serial killer to magically switch
+        bodies with a 17-year-old girl.","popularity":661.044,"poster_path":"/8xC6QSyxrpm0D5A6iyHNemEWBVe.jpg","release_date":"2020-11-12","title":"Freaky","video":false,"vote_average":7.5,"vote_count":105},{"adult":false,"backdrop_path":"/cjaOSjsjV6cl3uXdJqimktT880L.jpg","genre_ids":[12,14,10751,16],"id":529203,"original_language":"en","original_title":"The
+        Croods: A New Age","overview":"After leaving their cave, the Croods encounter
+        their biggest threat since leaving: another family called the Bettermans,
+        who claim and show to be better and evolved. Grug grows suspicious of the
+        Betterman parents, Phil and Hope,  as they secretly plan to break up his daughter
+        Eep with her loving boyfriend Guy to ensure that their daughter Dawn has a
+        loving and smart partner to protect her.","popularity":287.196,"poster_path":"/tK1zy5BsCt1J4OzoDicXmr0UTFH.jpg","release_date":"2020-11-25","title":"The
+        Croods: A New Age","video":false,"vote_average":7.2,"vote_count":57},{"adult":false,"backdrop_path":"/gkvOmVXdukAwpG8LjTaHo2l2cWU.jpg","genre_ids":[27],"id":571384,"original_language":"en","original_title":"Come
+        Play","overview":"A lonely young boy feels different from everyone else. Desperate
+        for a friend, he seeks solace and refuge in his ever-present cell phone and
+        tablet. When a mysterious creature uses the boy’s devices against him to break
+        into our world, his parents must fight to save their son from the monster
+        beyond the screen.","popularity":263.517,"poster_path":"/e98dJUitAoKLwmzjQ0Yxp1VQrnU.jpg","release_date":"2020-10-28","title":"Come
+        Play","video":false,"vote_average":6.7,"vote_count":120},{"adult":false,"backdrop_path":"/35PMyh6kydJWEL1MbMNVkJgeTyI.jpg","genre_ids":[10749,35],"id":520172,"original_language":"en","original_title":"Happiest
+        Season","overview":"A young woman''s plans to propose to her girlfriend while
+        at her family''s annual holiday party are upended when she discovers her partner
+        hasn''t yet come out to her conservative parents.","popularity":242.633,"poster_path":"/vzec9kkOSE93tygyfOktedkeOQ.jpg","release_date":"2020-11-26","title":"Happiest
+        Season","video":false,"vote_average":7.7,"vote_count":150},{"adult":false,"backdrop_path":"/a9jZrU7LJk6mAUjmkbEmTiC52l0.jpg","genre_ids":[35,10751,18],"id":425001,"original_language":"en","original_title":"The
+        War with Grandpa","overview":"Peter is thrilled that his Grandpa is coming
+        to live with his family. That is, until Grandpa moves into Peter''s room,
+        forcing him upstairs into the creepy attic. And though he loves his Grandpa,
+        he wants his room back - so he has no choice but to declare war.","popularity":160.853,"poster_path":"/yUFbPtWeDbVR3zmqshOaL5lScyo.jpg","release_date":"2020-08-27","title":"The
+        War with Grandpa","video":false,"vote_average":6,"vote_count":156},{"adult":false,"backdrop_path":"/AdqOBPw4PdtzOcfEuQuZ8MNeTKb.jpg","genre_ids":[14,10751,12,18],"id":413518,"original_language":"it","original_title":"Pinocchio","overview":"In
+        this live-action adaptation of the beloved fairytale, old woodcarver Geppetto
+        fashions a wooden puppet, Pinocchio, who magically comes to life. Pinocchio
+        longs for adventure and is easily led astray, encountering magical beasts,
+        fantastical spectacles, while making friends and foes along his journey. However,
+        his dream is to become a real boy, which can only come true if he finally
+        changes his ways.","popularity":165.333,"poster_path":"/4w1ItwCJCTtSi9nPfJC1vU6NIVg.jpg","release_date":"2019-12-19","title":"Pinocchio","video":false,"vote_average":6.7,"vote_count":804},{"adult":false,"backdrop_path":"/egg7KFi18TSQc1s24RMmR9i2zO6.jpg","genre_ids":[14,28,12],"id":464052,"original_language":"en","original_title":"Wonder
+        Woman 1984","overview":"Wonder Woman comes into conflict with the Soviet Union
+        during the Cold War in the 1980s and finds a formidable foe by the name of
+        the Cheetah.","popularity":176.932,"poster_path":"/di1bCAfGoJ0BzNEavLsPyxQ2AaB.jpg","release_date":"2020-12-16","title":"Wonder
+        Woman 1984","video":false,"vote_average":0,"vote_count":0},{"adult":false,"backdrop_path":"/jGVQ3HdSTdv6OidEhX88Z5Lpiru.jpg","genre_ids":[35],"id":676838,"original_language":"es","original_title":"El
+        Testamento de la Abuela","overview":"When the grandmother decides that it
+        is time to put the family affairs in order, the fights begin to inherit the
+        house. A sequel to ''Grandma''s Wedding''.","popularity":178.994,"poster_path":"/h1BZHYQl3pGOgaGDK6zwrOsYIop.jpg","release_date":"2020-10-09","title":"El
+        Testamento de la Abuela","video":false,"vote_average":7.2,"vote_count":16},{"adult":false,"backdrop_path":"/cSpwQ1BekQ6SL8JpUDmfsCBxJDz.jpg","genre_ids":[18,53,80],"id":596161,"original_language":"en","original_title":"Let
+        Him Go","overview":"Following the loss of their son, a retired sheriff and
+        his wife leave their Montana ranch to rescue their young grandson from the
+        clutches of a dangerous family living off the grid in the Dakotas.","popularity":129.683,"poster_path":"/EsLZoT8oHhQlGd1QpdbnvnwTzO.jpg","release_date":"2020-11-05","title":"Let
+        Him Go","video":false,"vote_average":7.1,"vote_count":47},{"adult":false,"backdrop_path":"/z8TvnEVRenMSTemxYZwLGqFofgF.jpg","genre_ids":[14,28,12],"id":458576,"original_language":"en","original_title":"Monster
+        Hunter","overview":"A portal transports Lt. Artemis and an elite unit of soldiers
+        to a strange world where powerful monsters rule with deadly ferocity. Faced
+        with relentless danger, the team encounters a mysterious hunter who may be
+        their only hope to find a way home.","popularity":94.386,"poster_path":"/zO9R7Z6DRDgRO9QVz4lAJg3L15o.jpg","release_date":"2020-12-03","title":"Monster
+        Hunter","video":false,"vote_average":6.1,"vote_count":11},{"adult":false,"backdrop_path":"/5TbtcmRySXPAEXBzwhiOYYDQmgv.jpg","genre_ids":[27],"id":723072,"original_language":"en","original_title":"Host","overview":"Six
+        friends hire a medium to hold a séance via Zoom during lockdown — but they
+        get far more than they bargained for as things quickly go wrong. When an evil
+        spirit starts invading their homes, they begin to realize they might not survive
+        the night.","popularity":61.487,"poster_path":"/h7dZpJDORYs5c56dydbrLFkEXpE.jpg","release_date":"2020-11-27","title":"Host","video":false,"vote_average":8.3,"vote_count":23},{"adult":false,"backdrop_path":"/vooRKLGVvFRFmx9swcMh26uYZSf.jpg","genre_ids":[16,10749,35,18,14],"id":530079,"original_language":"ja","original_title":"きみと、波にのれたら","overview":"Hinako
+        is a surf-loving college student who has just moved to a small seaside town.
+        When a sudden fire breaks out at her apartment building, she is rescued by
+        Minato, a handsome firefighter, and the two soon fall in love. Just as they
+        become inseparable, Minato loses his life in an accident at sea. Hinako is
+        so distraught that she can no longer even look at the ocean, but one day she
+        sings a song that reminds her of their time together, and Minato appears in
+        the water. From then on, she can summon him in any watery surface as soon
+        as she sings their song, but can the two really remain together forever? And
+        what is the real reason for Minato’s sudden reappearance?","popularity":76.352,"poster_path":"/byoY2stdullEcVjlaWs1ENXyrDm.jpg","release_date":"2019-06-21","title":"Ride
+        Your Wave","video":false,"vote_average":7,"vote_count":41},{"adult":false,"backdrop_path":"/p9tdFuUe1Xc9YYMmPcqMczttnvG.jpg","genre_ids":[16,35,28,12,10751],"id":550738,"original_language":"fr","original_title":"Spycies","overview":"Vladimir
+        and Hector, two secret agents opposed in every way, are trying to recover
+        a top secret material stolen by unknown intruders.","popularity":72.759,"poster_path":"/jOY3dDCzjygXzumYeJ9UIyETzuj.jpg","release_date":"2020-01-11","title":"Spycies","video":false,"vote_average":7.9,"vote_count":147},{"adult":false,"backdrop_path":"/h2RJiV1X79nlP78LCCqNpgTEaVZ.jpg","genre_ids":[18,10402],"id":502033,"original_language":"en","original_title":"Sound
+        of Metal","overview":"A drummer begins to lose his hearing and has to come
+        to grips with a future that will be filled with silence. Watch on Prime Video.","popularity":77.101,"poster_path":"/pVHgv6leYDCKrW4bdzA77NlMXXM.jpg","release_date":"2020-11-20","title":"Sound
+        of Metal","video":false,"vote_average":8,"vote_count":44},{"adult":false,"backdrop_path":"/yY35sdVZtJXjeBONWH8HBXnxDgD.jpg","genre_ids":[16,35,12,10751,10402,14],"id":508442,"original_language":"en","original_title":"Soul","overview":"Joe
+        Gardner is a middle school teacher with a love for jazz music. After a successful
+        gig at the Half Note Club, he suddenly gets into an accident that separates
+        his soul from his body and is transported to the You Seminar, a center in
+        which souls develop and gain passions before being transported to a newborn
+        child. Joe must enlist help from the other souls-in-training, like 22, a soul
+        who has spent eons in the You Seminar, in order to get back to Earth.","popularity":48.799,"poster_path":"/hm58Jw4Lw8OIeECIq5qyPYhAeRJ.jpg","release_date":"2020-12-25","title":"Soul","video":false,"vote_average":0,"vote_count":0},{"adult":false,"backdrop_path":"/zDk9q66EpQoPQEVlcy3I4i41gFt.jpg","genre_ids":[18,878,14],"id":614911,"original_language":"en","original_title":"The
+        Midnight Sky","overview":"A lone scientist in the Arctic races to contact
+        a crew of astronauts returning home to a mysterious global catastrophe.","popularity":44.063,"poster_path":"/51JxCk77ZCqLzbLkrDl9Qho6KUh.jpg","release_date":"2020-12-09","title":"The
+        Midnight Sky","video":false,"vote_average":0,"vote_count":0},{"adult":false,"backdrop_path":"/i923BqvEsa3OR3GntqoJR763mbg.jpg","genre_ids":[53,10749,18],"id":721625,"original_language":"en","original_title":"Songbird","overview":"During
+        a pandemic lockdown, Nico, a young man with rare immunity, must overcome martial
+        law, murderous vigilantes and a powerful family to reunite with his love -
+        Sara.","popularity":61.229,"poster_path":"/41Goqxf3AnElzsEQnR9X8syZYFC.jpg","release_date":"2020-12-10","title":"Songbird","video":false,"vote_average":0,"vote_count":0},{"adult":false,"backdrop_path":"/h2BMwvsKXFjihRloFnOWeFds7u2.jpg","genre_ids":[53,9648,27],"id":716703,"original_language":"en","original_title":"What
+        Lies Below","overview":"Liberty, a socially awkward 16-year-old, returns from
+        two months at camp to a blindsided introduction of her mother’s fiancé, John
+        Smith, whose charm, intelligence, and beauty paint the picture of a man too
+        perfect to be human.","popularity":31.896,"poster_path":"/yQC63xosCxGsMw2gVbSxvRNY018.jpg","release_date":"2020-12-17","title":"What
+        Lies Below","video":false,"vote_average":0,"vote_count":0},{"adult":false,"backdrop_path":"/xXS8kRiierndO1Cbm18FcOEFPlc.jpg","genre_ids":[53],"id":549514,"original_language":"en","original_title":"Fatale","overview":"A
+        married man is tricked into a murder scheme by a female police detective.","popularity":30.445,"poster_path":"/yJK5otnFkbNn6oHV1APSoXUiDSH.jpg","release_date":"2020-12-18","title":"Fatale","video":false,"vote_average":0,"vote_count":0}],"total_pages":16,"total_results":304}'
+  recorded_at: Thu, 10 Dec 2020 03:59:03 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/search/movie?api_key=<replacement>&include_adult=false&language=en-US&page=1&query=The%20Godfather:%20Part%20II
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.1.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 10 Dec 2020 03:58:39 GMT
       Server:
       - openresty
       Access-Control-Allow-Origin:
@@ -42,24 +182,29 @@ http_interactions:
       X-Cache:
       - Hit from cloudfront
       Via:
-      - 1.1 38059ba65876500c040fb73e2cbaebf5.cloudfront.net (CloudFront)
+      - 1.1 0dfe6f02dbba7c39906cae47653ae6b3.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - IliMKJnijO_Dr4BlSCWPZDnD11yy2cvaAWYA5Me3jfJqtrMZYUrUpg==
+      - lVT68WW3Cbln5NH64UJ21YU3sc5uIHWvZC-ca1GxVFTUq92l5QItXg==
       Age:
-      - '391'
+      - '24'
     body:
       encoding: UTF-8
-      string: '{"page":1,"results":[{"adult":false,"backdrop_path":"/fQq1FWp1rC89xDrRMuyFJdFUdMd.jpg","genre_ids":[],"id":761053,"original_language":"en","original_title":"Gabriel''s
-        Inferno Part III","overview":"The final part of the film adaption of the erotic
-        romance novel Gabriel''s Inferno written by an anonymous Canadian author under
-        the pen name Sylvain Reynard.","popularity":39.347,"poster_path":"/fYtHxTxlhzD4QWfEbrC1rypysSD.jpg","release_date":"2020-11-19","title":"Gabriel''s
-        Inferno Part III","video":false,"vote_average":9.2,"vote_count":469}],"total_pages":1,"total_results":1}'
-  recorded_at: Wed, 09 Dec 2020 23:23:16 GMT
+      string: '{"page":1,"results":[{"adult":false,"backdrop_path":"/poec6RqOKY9iSiIUmfyfPfiLtvB.jpg","genre_ids":[18,80],"id":240,"original_language":"en","original_title":"The
+        Godfather: Part II","overview":"In the continuing saga of the Corleone crime
+        family, a young Vito Corleone grows up in Sicily and in 1910s New York. In
+        the 1950s, Michael Corleone attempts to expand the family business into Las
+        Vegas, Hollywood and Cuba.","popularity":34.126,"poster_path":"/hek3koDUyRQk7FIhPXsa6mT2Zc3.jpg","release_date":"1974-12-20","title":"The
+        Godfather: Part II","video":false,"vote_average":8.6,"vote_count":7951},{"adult":false,"backdrop_path":"/mm6ex61CAcRCgd4ua0IZ3wAx0qW.jpg","genre_ids":[80,18,53],"id":242,"original_language":"en","original_title":"The
+        Godfather: Part III","overview":"In the midst of trying to legitimize his
+        business dealings in 1979 New York and Italy, aging mafia don, Michael Corleone
+        seeks forgiveness for his sins while taking a young protege under his wing.","popularity":71.961,"poster_path":"/1hdm3Axw9LjITbApvAXBbqO58zE.jpg","release_date":"1990-12-25","title":"The
+        Godfather: Part III","video":false,"vote_average":7.4,"vote_count":4002}],"total_pages":1,"total_results":2}'
+  recorded_at: Thu, 10 Dec 2020 03:59:03 GMT
 - request:
     method: get
-    uri: https://api.themoviedb.org/3/movie/761053/credits?api_key=<replacement>
+    uri: https://api.themoviedb.org/3/movie/240/credits?api_key=<replacement>
     body:
       encoding: US-ASCII
       string: ''
@@ -77,12 +222,10 @@ http_interactions:
     headers:
       Content-Type:
       - application/json;charset=utf-8
-      Content-Length:
-      - '33'
+      Transfer-Encoding:
+      - chunked
       Connection:
       - keep-alive
-      Date:
-      - Wed, 09 Dec 2020 23:16:06 GMT
       Server:
       - openresty
       Access-Control-Allow-Origin:
@@ -92,37 +235,289 @@ http_interactions:
       Access-Control-Expose-Headers:
       - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
         Content-Length, Content-Range
-      Cache-Control:
-      - public, max-age=21600
       X-Memc:
       - HIT
       X-Memc-Key:
-      - d605672bf5606f2859e952e631ef76fb72adf72d
+      - 60ee64252f11a8dadba52e56f0eca358d621e311
       X-Memc-Age:
-      - '16775'
+      - '15240'
       X-Memc-Expires:
-      - '4825'
-      Etag:
-      - W/"b16818495dc77dc7cc8d921f3105b2ff"
+      - '6360'
       Last-Modified:
-      - Wed, 09 Dec 2020 23:16:06 GMT
+      - Wed, 09 Dec 2020 18:29:18 GMT
+      Date:
+      - Thu, 10 Dec 2020 00:29:38 GMT
+      Cache-Control:
+      - public, max-age=21600
+      Etag:
+      - W/"23d55d3f66d69381f6ae75a82ab82eaa"
+      Vary:
+      - Accept-Encoding
       X-Cache:
       - Hit from cloudfront
       Via:
-      - 1.1 a44b9db7a2d103360945ab52619e5016.cloudfront.net (CloudFront)
+      - 1.1 e158a5cd644f102abc630a9f56b59d78.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - Cb37X_GOuD8FNMZ4nh6OIoXGSaMvo7rZdpfPtE632CcrldviN9wHJw==
+      - Lc60DYBb6CTY-jLT6Ild2Eyaj_8LyEOacHz3BNFIK-zQ56-rdT8_7w==
       Age:
-      - '430'
+      - '12565'
     body:
       encoding: UTF-8
-      string: '{"id":761053,"cast":[],"crew":[]}'
-  recorded_at: Wed, 09 Dec 2020 23:23:16 GMT
+      string: '{"id":240,"cast":[{"adult":false,"gender":2,"id":1158,"known_for_department":"Acting","name":"Al
+        Pacino","original_name":"Al Pacino","popularity":9.951,"profile_path":"/fMDFeVf0pjopTJbyRSLFwNDm8Wr.jpg","cast_id":8,"character":"Don
+        Michael Corleone","credit_id":"52fe422bc3a36847f8009505","order":0},{"adult":false,"gender":2,"id":3087,"known_for_department":"Acting","name":"Robert
+        Duvall","original_name":"Robert Duvall","popularity":5.566,"profile_path":"/ybMmK25h4IVtfE7qrnlVp47RQlh.jpg","cast_id":9,"character":"Tom
+        Hagen","credit_id":"52fe422bc3a36847f8009509","order":1},{"adult":false,"gender":1,"id":3092,"known_for_department":"Acting","name":"Diane
+        Keaton","original_name":"Diane Keaton","popularity":6.226,"profile_path":"/7gEdH5vGwpUpogscTb2JivnoRBb.jpg","cast_id":10,"character":"Kay
+        Corleone","credit_id":"52fe422bc3a36847f800950d","order":2},{"adult":false,"gender":2,"id":380,"known_for_department":"Acting","name":"Robert
+        De Niro","original_name":"Robert De Niro","popularity":10.168,"profile_path":"/cT8htcckIuyI1Lqwt1CvD02ynTh.jpg","cast_id":11,"character":"Don
+        Vito Corleone","credit_id":"52fe422bc3a36847f8009511","order":3},{"adult":false,"gender":2,"id":3096,"known_for_department":"Acting","name":"John
+        Cazale","original_name":"John Cazale","popularity":2.391,"profile_path":"/tRBImYIYk9tuR4fjJc8gHXC8ENj.jpg","cast_id":12,"character":"Frederico
+        ''Fredo'' Corleone","credit_id":"52fe422bc3a36847f8009515","order":4},{"adult":false,"gender":1,"id":3094,"known_for_department":"Acting","name":"Talia
+        Shire","original_name":"Talia Shire","popularity":3.672,"profile_path":"/yOp69Un3ZiWMoCKZfq1vy7h5QyW.jpg","cast_id":13,"character":"Constanzia
+        ''Connie'' Corleone","credit_id":"52fe422bc3a36847f8009519","order":5},{"adult":false,"gender":2,"id":3171,"known_for_department":"Acting","name":"Lee
+        Strasberg","original_name":"Lee Strasberg","popularity":1.96,"profile_path":"/niSM7ejzddgaTcxjgJMYEFCr9Y2.jpg","cast_id":14,"character":"Hyman
+        Roth","credit_id":"52fe422bc3a36847f800951d","order":6},{"adult":false,"gender":2,"id":3172,"known_for_department":"Acting","name":"Michael
+        V. Gazzo","original_name":"Michael V. Gazzo","popularity":2.184,"profile_path":"/cTY2Hlf6sIR9xLI95bBir7eI0N.jpg","cast_id":15,"character":"Frank
+        Pentangeli","credit_id":"52fe422bc3a36847f8009521","order":7},{"adult":false,"gender":2,"id":3173,"known_for_department":"Acting","name":"G.
+        D. Spradlin","original_name":"G. D. Spradlin","popularity":1.742,"profile_path":"/jV6Tf9bxrsFT0GlNo1EAiNqYlB2.jpg","cast_id":16,"character":"Senator
+        Pat Geary","credit_id":"52fe422bc3a36847f8009525","order":8},{"adult":false,"gender":2,"id":3174,"known_for_department":"Acting","name":"Richard
+        Bright","original_name":"Richard Bright","popularity":2.157,"profile_path":"/potMaJ2u5PRjXZb7qF9lSW1ldNZ.jpg","cast_id":17,"character":"Al
+        Neri","credit_id":"52fe422bc3a36847f8009529","order":9},{"adult":false,"gender":1,"id":3279,"known_for_department":"Acting","name":"Francesca
+        De Sapio","original_name":"Francesca De Sapio","popularity":0.6,"profile_path":"/dVOxVZHk9PjdrBUUjfOkQtxa2m8.jpg","cast_id":32,"character":"Young
+        Carmela","credit_id":"52fe422bc3a36847f8009581","order":10},{"adult":false,"gender":2,"id":3280,"known_for_department":"Acting","name":"Oreste
+        Baldini","original_name":"Oreste Baldini","popularity":0.677,"profile_path":null,"cast_id":33,"character":"Young
+        Vito","credit_id":"52fe422bc3a36847f8009585","order":11},{"adult":false,"gender":2,"id":3281,"known_for_department":"Acting","name":"Gastone
+        Moschin","original_name":"Gastone Moschin","popularity":1.553,"profile_path":"/dU58seqJs1NDkNodjwCbGZg3nqT.jpg","cast_id":34,"character":"Don
+        Fanucci","credit_id":"52fe422bc3a36847f8009589","order":12},{"adult":false,"gender":2,"id":3333,"known_for_department":"Acting","name":"Giuseppe
+        Sillato","original_name":"Giuseppe Sillato","popularity":0.84,"profile_path":null,"cast_id":35,"character":"Don
+        Francesco Ciccio","credit_id":"52fe422bc3a36847f800958d","order":13},{"adult":false,"gender":2,"id":9257,"known_for_department":"Acting","name":"Bruno
+        Kirby","original_name":"Bruno Kirby","popularity":1.19,"profile_path":"/jhzDyVIXoccsSmhkNgrneLAeUYG.jpg","cast_id":37,"character":"Young
+        Clemenza","credit_id":"52fe422bc3a36847f8009597","order":14},{"adult":false,"gender":2,"id":11480,"known_for_department":"Acting","name":"Frank
+        Sivero","original_name":"Frank Sivero","popularity":1.666,"profile_path":"/eqvhj0iNtcsN6EJhd21Goqi1DSq.jpg","cast_id":38,"character":"Genco
+        Abbandando","credit_id":"52fe422bc3a36847f800959b","order":15},{"adult":false,"gender":1,"id":933716,"known_for_department":"Acting","name":"Morgana
+        King","original_name":"Morgana King","popularity":0.828,"profile_path":null,"cast_id":39,"character":"Carmela
+        ''Mama'' Corleone","credit_id":"52fe422bc3a36847f800959f","order":16},{"adult":false,"gender":1,"id":15659,"known_for_department":"Acting","name":"Marianna
+        Hill","original_name":"Marianna Hill","popularity":1.84,"profile_path":"/pZJzjYjGMIXN6qUbtWE5paUEzjP.jpg","cast_id":40,"character":"Deanna
+        Corleone","credit_id":"52fe422bc3a36847f80095a3","order":17},{"adult":false,"gender":2,"id":14151,"known_for_department":"Acting","name":"Leopoldo
+        Trieste","original_name":"Leopoldo Trieste","popularity":0.94,"profile_path":"/3DEbCzT2gL4ebP4zAYROH0QWeGA.jpg","cast_id":41,"character":"Signor
+        Roberto","credit_id":"52fe422bc3a36847f80095a7","order":18},{"adult":false,"gender":2,"id":68186,"known_for_department":"Acting","name":"Dominic
+        Chianese","original_name":"Dominic Chianese","popularity":1.522,"profile_path":"/wJIybLAbVv6VEPFpZtpxRW26aq2.jpg","cast_id":42,"character":"Johnny
+        Ola","credit_id":"52fe422bc3a36847f80095ab","order":19},{"adult":false,"gender":1,"id":116739,"known_for_department":"Acting","name":"Fay
+        Spain","original_name":"Fay Spain","popularity":1.265,"profile_path":"/2N7wQIdFd329AZZDDt8mZp4ouUh.jpg","cast_id":43,"character":"Mrs.
+        Marcia Roth","credit_id":"52fe422bc3a36847f80095af","order":20},{"adult":false,"gender":2,"id":5048,"known_for_department":"Acting","name":"Harry
+        Dean Stanton","original_name":"Harry Dean Stanton","popularity":2.427,"profile_path":"/197UiLVdxPOv8196sqmUpJzOQB5.jpg","cast_id":44,"character":"F.B.I.
+        Man #1","credit_id":"52fe422bc3a36847f80095b3","order":21},{"adult":false,"gender":2,"id":1004,"known_for_department":"Acting","name":"Danny
+        Aiello","original_name":"Danny Aiello","popularity":1.532,"profile_path":"/vl71InQaqL3khAPJrvUjsxtynVP.jpg","cast_id":45,"character":"Tony
+        Rosato","credit_id":"52fe422bc3a36847f80095b7","order":22},{"adult":false,"gender":2,"id":102429,"known_for_department":"Production","name":"Roger
+        Corman","original_name":"Roger Corman","popularity":2.207,"profile_path":"/kWvtdBp4AVSOwluWwZ1WhsKlAfk.jpg","cast_id":46,"character":"Senator
+        #2","credit_id":"52fe422bc3a36847f80095bb","order":23},{"adult":false,"gender":2,"id":69948,"known_for_department":"Writing","name":"William
+        Bowers","original_name":"William Bowers","popularity":1.38,"profile_path":null,"cast_id":47,"character":"Senate
+        Committee Chairman","credit_id":"52fe422bc3a36847f80095bf","order":24},{"adult":false,"gender":2,"id":3085,"known_for_department":"Acting","name":"James
+        Caan","original_name":"James Caan","popularity":6.772,"profile_path":"/lshBr4yhwKH01N2t9mlDgd5Hek3.jpg","cast_id":48,"character":"Santino
+        ''Sonny'' Corleone","credit_id":"52fe422bc3a36847f80095c3","order":25},{"adult":false,"gender":2,"id":1213795,"known_for_department":"Acting","name":"Tom
+        Rosqui","original_name":"Tom Rosqui","popularity":0.972,"profile_path":null,"cast_id":49,"character":"Rocco
+        Lampone","credit_id":"55c0e47a9251410f780020ba","order":26},{"adult":false,"gender":2,"id":99788,"known_for_department":"Acting","name":"Amerigo
+        Tot","original_name":"Amerigo Tot","popularity":0.6,"profile_path":null,"cast_id":50,"character":"Michael''s
+        Bodyguard","credit_id":"55c0e4d3c3a36823c9001c61","order":27},{"adult":false,"gender":2,"id":45363,"known_for_department":"Acting","name":"Troy
+        Donahue","original_name":"Troy Donahue","popularity":1.876,"profile_path":"/1K0HFJ48Z4EVW0XJtqd7fbWrX1S.jpg","cast_id":51,"character":"Merle
+        Johnson","credit_id":"55c0e511c3a36823f4001cdd","order":28},{"adult":false,"gender":2,"id":104504,"known_for_department":"Acting","name":"John
+        Aprea","original_name":"John Aprea","popularity":1.837,"profile_path":null,"cast_id":52,"character":"Young
+        Tessio","credit_id":"55c0e53d9251410ee7001da1","order":29},{"adult":false,"gender":2,"id":3093,"known_for_department":"Acting","name":"Abe
+        Vigoda","original_name":"Abe Vigoda","popularity":1.974,"profile_path":"/luWKPNb58IgJ2ovrtgPAzHGLLYL.jpg","cast_id":54,"character":"Tessio","credit_id":"55c0e5879251410ee7001dab","order":30},{"adult":false,"gender":1,"id":982089,"known_for_department":"Acting","name":"Tere
+        Livrano","original_name":"Tere Livrano","popularity":0.6,"profile_path":null,"cast_id":55,"character":"Theresa
+        Hagen","credit_id":"55c0e5ccc3a36823c9001c7c","order":31},{"adult":false,"gender":2,"id":3095,"known_for_department":"Acting","name":"Gianni
+        Russo","original_name":"Gianni Russo","popularity":0.972,"profile_path":"/JJusQAUkzWeqYGLSjhnZKvKHox.jpg","cast_id":56,"character":"Carlo","credit_id":"55c0e5ffc3a3682253001d4f","order":32},{"adult":false,"gender":1,"id":24697,"known_for_department":"Acting","name":"Maria
+        Carta","original_name":"Maria Carta","popularity":1.4,"profile_path":null,"cast_id":57,"character":"Vito''s
+        mother","credit_id":"55c0e6259251410f2a001d22","order":33},{"adult":false,"gender":2,"id":1343811,"known_for_department":"Production","name":"Mario
+        Cotone","original_name":"Mario Cotone","popularity":0.6,"profile_path":null,"cast_id":58,"character":"Don
+        Tommasino","credit_id":"55c0e6f5c3a36823c9001ca1","order":34},{"adult":false,"gender":2,"id":133853,"known_for_department":"Acting","name":"Carmine
+        Caridi","original_name":"Carmine Caridi","popularity":1.554,"profile_path":"/yCZV6meBOjZbkEooqc9BQntLynw.jpg","cast_id":59,"character":"Carmine
+        Rosato","credit_id":"55c0e7c79251410f58001e67","order":35},{"adult":false,"gender":2,"id":14553,"known_for_department":"Acting","name":"Carmine
+        Foresta","original_name":"Carmine Foresta","popularity":0.6,"profile_path":null,"cast_id":60,"character":"Policeman","credit_id":"55c0e80ac3a36823f7002165","order":36},{"adult":false,"gender":2,"id":16525,"known_for_department":"Acting","name":"Joe
+        Spinell","original_name":"Joe Spinell","popularity":1.052,"profile_path":"/aTDs8125mhLKlQSbUlFJC2LJ8tU.jpg","cast_id":53,"character":"Willi
+        Cicci","credit_id":"55c0e566c3a3682379001ffb","order":37},{"adult":false,"gender":1,"id":76064,"known_for_department":"Acting","name":"Kathleen
+        Beller","original_name":"Kathleen Beller","popularity":1.454,"profile_path":"/fp9zoBhCr6EKq783YhiUTCzCARj.jpg","cast_id":62,"character":"Girl
+        in ''Senza Mamma'' (uncredited)","credit_id":"55c0e921c3a36823f700217a","order":38},{"adult":false,"gender":1,"id":46929,"known_for_department":"Acting","name":"Ivonne
+        Coll","original_name":"Ivonne Coll","popularity":1.4,"profile_path":"/7cyzeWeX8zD4IwAUDfyE9BK8woY.jpg","cast_id":63,"character":"Yolanda
+        (uncredited)","credit_id":"55c0e94bc3a36823c9001cca","order":39},{"adult":false,"gender":2,"id":38803,"known_for_department":"Acting","name":"Roman
+        Coppola","original_name":"Roman Coppola","popularity":1.096,"profile_path":"/rKamKkx78qjZTfvqi2OWCo5p6x5.jpg","cast_id":64,"character":"Sonny
+        Corleone as a Boy (uncredited)","credit_id":"55c0e97bc3a3682253001db1","order":40},{"adult":false,"gender":1,"id":1769,"known_for_department":"Directing","name":"Sofia
+        Coppola","original_name":"Sofia Coppola","popularity":3.088,"profile_path":"/dzHC2LxmarkBxWLhjp2DRa5oCev.jpg","cast_id":65,"character":"Child
+        on Ship (uncredited)","credit_id":"55c0e9929251410f27002014","order":41},{"adult":false,"gender":2,"id":99846,"known_for_department":"Acting","name":"Sho
+        Kosugi","original_name":"Sho Kosugi","popularity":2.056,"profile_path":"/cdoP2qnJILJlWT4xvYDxg2doaf6.jpg","cast_id":66,"character":"Passerby
+        in Coat with Cap Pulled Down (uncredited)","credit_id":"55c0e9ab9251410f19001f2d","order":42},{"adult":false,"gender":2,"id":1503033,"known_for_department":"Acting","name":"James
+        Gounaris","original_name":"James Gounaris","popularity":1.4,"profile_path":null,"cast_id":68,"character":"Anthony
+        Corleone (uncredited)","credit_id":"55e52f7ec3a36813f80011d4","order":43},{"adult":false,"gender":2,"id":1503034,"known_for_department":"Acting","name":"Nick
+        Discenza","original_name":"Nick Discenza","popularity":0.6,"profile_path":null,"cast_id":69,"character":"Bartender
+        (uncredited)","credit_id":"55e52f7e92514137a000124d","order":44},{"adult":false,"gender":2,"id":1503035,"known_for_department":"Acting","name":"Joseph
+        Medaglia","original_name":"Joseph Medaglia","popularity":0.84,"profile_path":null,"cast_id":70,"character":"Father
+        Carmelo (uncredited)","credit_id":"55e52f7f925141379a001246","order":45},{"adult":false,"gender":2,"id":1581646,"known_for_department":"Acting","name":"Joseph
+        Della Sorte","original_name":"Joseph Della Sorte","popularity":0.98,"profile_path":null,"cast_id":111,"character":"Michael''s
+        Buttonman #1 (uncredited)","credit_id":"56cb9af5c3a36865ef0003ae","order":46},{"adult":false,"gender":2,"id":28413,"known_for_department":"Acting","name":"Carmen
+        Argenziano","original_name":"Carmen Argenziano","popularity":0.6,"profile_path":"/aiHWJmsVn7iWuohSg6lzF23XYVr.jpg","cast_id":112,"character":"Michael''s
+        Buttonman #2 (uncredited)","credit_id":"56cb9b0b9251412452000385","order":47},{"adult":false,"gender":2,"id":1503036,"known_for_department":"Acting","name":"Joe
+        Lo Grippo","original_name":"Joe Lo Grippo","popularity":0.753,"profile_path":null,"cast_id":71,"character":"Michael''s
+        Buttonman #3 (uncredited)","credit_id":"55e52f7fc3a3681408001327","order":48},{"adult":false,"gender":2,"id":1503037,"known_for_department":"Acting","name":"Ezio
+        Flagello","original_name":"Ezio Flagello","popularity":0.6,"profile_path":null,"cast_id":72,"character":"Impressario
+        (uncredited)","credit_id":"55e52f7f925141379d001174","order":49},{"adult":false,"gender":2,"id":1503038,"known_for_department":"Acting","name":"Livio
+        Giorgi","original_name":"Livio Giorgi","popularity":0.6,"profile_path":null,"cast_id":73,"character":"Tenor
+        in ''Senza Mamma'' (uncredited)","credit_id":"55e52f80c3a36813f6000f76","order":50},{"adult":false,"gender":1,"id":1503039,"known_for_department":"Acting","name":"Saveria
+        Mazzola","original_name":"Saveria Mazzola","popularity":0.6,"profile_path":null,"cast_id":74,"character":"Signora
+        Colombo (uncredited)","credit_id":"55e52f8092514137a20010b9","order":51},{"adult":false,"gender":2,"id":1503040,"known_for_department":"Acting","name":"Tito
+        Alba","original_name":"Tito Alba","popularity":0.6,"profile_path":null,"cast_id":75,"character":"Cuban
+        President (uncredited)","credit_id":"55e52f8092514137a600118b","order":52},{"adult":false,"gender":2,"id":1503041,"known_for_department":"Acting","name":"Johnny
+        Naranjo","original_name":"Johnny Naranjo","popularity":0.6,"profile_path":null,"cast_id":76,"character":"Cuban
+        Translator (uncredited)","credit_id":"55e52f8192514137a20010be","order":53},{"adult":false,"gender":1,"id":1503042,"known_for_department":"Acting","name":"Elda
+        Maida","original_name":"Elda Maida","popularity":0.6,"profile_path":null,"cast_id":77,"character":"Pentangeli''s
+        Wife (uncredited)","credit_id":"55e52f81c3a36813eb0011b4","order":54},{"adult":false,"gender":2,"id":1503043,"known_for_department":"Acting","name":"Salvatore
+        Po","original_name":"Salvatore Po","popularity":0.6,"profile_path":null,"cast_id":78,"character":"Pentangeli''s
+        Brother (uncredited)","credit_id":"55e52f81925141379d001179","order":55},{"adult":false,"gender":0,"id":1503044,"known_for_department":"Acting","name":"Ignazio
+        Pappalardo","original_name":"Ignazio Pappalardo","popularity":0.6,"profile_path":null,"cast_id":79,"character":"Mosca
+        (uncredited)","credit_id":"55e52f82c3a368140800132c","order":56},{"adult":false,"gender":0,"id":1503045,"known_for_department":"Acting","name":"Andrea
+        Maugeri","original_name":"Andrea Maugeri","popularity":0.6,"profile_path":null,"cast_id":80,"character":"Strollo
+        (uncredited)","credit_id":"55e52f8292514137a0001252","order":57},{"adult":false,"gender":0,"id":1503046,"known_for_department":"Acting","name":"Peter
+        LaCorte","original_name":"Peter LaCorte","popularity":0.6,"profile_path":null,"cast_id":81,"character":"Signor
+        Abbandando (uncredited)","credit_id":"55e52f82925141379a00124c","order":58},{"adult":false,"gender":0,"id":1503047,"known_for_department":"Acting","name":"Vincent
+        Coppola","original_name":"Vincent Coppola","popularity":0.6,"profile_path":null,"cast_id":82,"character":"Street
+        Vendor (uncredited)","credit_id":"55e52f82c3a3681402001036","order":59},{"adult":false,"gender":2,"id":14849,"known_for_department":"Acting","name":"Peter
+        Donat","original_name":"Peter Donat","popularity":1.746,"profile_path":"/9oxRUlGgSZCx58I8GKRKDbOIKyC.jpg","cast_id":83,"character":"Questadt
+        (uncredited)","credit_id":"55e52f83925141379d00117e","order":60},{"adult":false,"gender":2,"id":1212995,"known_for_department":"Acting","name":"Tom
+        Dahlgren","original_name":"Tom Dahlgren","popularity":0.6,"profile_path":null,"cast_id":84,"character":"Fred
+        Corngold (uncredited)","credit_id":"55e52f8392514137a0001257","order":61},{"adult":false,"gender":2,"id":7768,"known_for_department":"Production","name":"Phil
+        Feldman","original_name":"Phil Feldman","popularity":0.6,"profile_path":null,"cast_id":85,"character":"Senator
+        #1 (uncredited)","credit_id":"55e52f8392514137a80011ad","order":62},{"adult":false,"gender":0,"id":1205819,"known_for_department":"Acting","name":"Joe
+        De Nicola","original_name":"Joe De Nicola","popularity":0.6,"profile_path":null,"cast_id":86,"character":"Attendant
+        at Brothel (uncredited)","credit_id":"55e52f84c3a36813eb0011b9","order":63},{"adult":false,"gender":0,"id":1503048,"known_for_department":"Acting","name":"Edward
+        Van Sickle","original_name":"Edward Van Sickle","popularity":0.6,"profile_path":null,"cast_id":87,"character":"Ellis
+        Island Doctor (uncredited)","credit_id":"55e52f84c3a36813eb0011bc","order":64},{"adult":false,"gender":0,"id":1503049,"known_for_department":"Acting","name":"Gabriella
+        Belloni","original_name":"Gabriella Belloni","popularity":0.6,"profile_path":null,"cast_id":88,"character":"Ellis
+        Island Nurse (uncredited)","credit_id":"55e52f84c3a3681408001332","order":65},{"adult":false,"gender":0,"id":1503050,"known_for_department":"Acting","name":"Venancia
+        Grangerard","original_name":"Venancia Grangerard","popularity":0.6,"profile_path":null,"cast_id":89,"character":"Cuban
+        Nurse (uncredited)","credit_id":"55e52f8592514137940010a7","order":66},{"adult":false,"gender":1,"id":40349,"known_for_department":"Acting","name":"Erica
+        Yohn","original_name":"Erica Yohn","popularity":1.62,"profile_path":"/ArpkNzcdaYQTjg6VdYtDFxAygIX.jpg","cast_id":90,"character":"Governess
+        (uncredited)","credit_id":"55f2143e9251416707002d4c","order":67},{"adult":false,"gender":2,"id":12401,"known_for_department":"Acting","name":"Gary
+        Kurtz","original_name":"Gary Kurtz","popularity":0.6,"profile_path":"/q6tgPiNqzEOIYmHxMrpWoUirmmu.jpg","cast_id":95,"character":"Photographer
+        in Court (uncredited)","credit_id":"55f21857c3a3683bec002ece","order":68},{"adult":false,"gender":1,"id":99949,"known_for_department":"Acting","name":"Connie
+        Mason","original_name":"Connie Mason","popularity":0.732,"profile_path":"/icUrW3u0EdGa526urqVGdiE8hi1.jpg","cast_id":96,"character":"(uncredited)","credit_id":"55f218adc3a3682307002ffa","order":69},{"adult":false,"gender":2,"id":101615,"known_for_department":"Acting","name":"Frank
+        Pesce","original_name":"Frank Pesce","popularity":1.009,"profile_path":null,"cast_id":99,"character":"Extra
+        (uncredited)","credit_id":"55f2193bc3a3682303002e35","order":70},{"adult":false,"gender":0,"id":1403118,"known_for_department":"Acting","name":"Victor
+        Pujols Faneyte","original_name":"Victor Pujols Faneyte","popularity":0.6,"profile_path":null,"cast_id":91,"character":"Cuban
+        Guerilla with Grenade (uncredited)","credit_id":"55f21765c3a36822f500305c","order":71},{"adult":false,"gender":1,"id":160728,"known_for_department":"Acting","name":"Julie
+        Gregg","original_name":"Julie Gregg","popularity":1.421,"profile_path":null,"cast_id":92,"character":"Sandra
+        Corleone (uncredited)","credit_id":"55f217aa925141670d002fbb","order":72},{"adult":false,"gender":0,"id":1494522,"known_for_department":"Acting","name":"Larry
+        Guardino","original_name":"Larry Guardino","popularity":0.6,"profile_path":null,"cast_id":93,"character":"Vito''s
+        Uncle (uncredited)","credit_id":"55f217dbc3a36822fe002e85","order":73},{"adult":false,"gender":0,"id":47756,"known_for_department":"Production","name":"Buck
+        Houghton","original_name":"Buck Houghton","popularity":0.6,"profile_path":null,"cast_id":94,"character":"Senator
+        with mustache (uncredited)","credit_id":"55f218199251410d6d001698","order":74},{"adult":false,"gender":2,"id":12415,"known_for_department":"Writing","name":"Richard
+        Matheson","original_name":"Richard Matheson","popularity":0.656,"profile_path":"/fTsTj0EMqH5GfVN0Kj252jsYZnB.jpg","cast_id":97,"character":"Senator
+        #3 (uncredited)","credit_id":"55f218e99251416711002e7a","order":75},{"adult":false,"gender":2,"id":8490,"known_for_department":"Acting","name":"John
+        Megna","original_name":"John Megna","popularity":0.833,"profile_path":"/kReLwlEfN7c5Aer1TSdaL6Y4qG1.jpg","cast_id":98,"character":"Young
+        Hyman Roth (uncredited)","credit_id":"55f219119251416701002cf5","order":76},{"adult":false,"gender":2,"id":160627,"known_for_department":"Acting","name":"Jay
+        Rasumny","original_name":"Jay Rasumny","popularity":0.6,"profile_path":"/nLUXyuLzK6bx2hZSj99hr2w7zaW.jpg","cast_id":100,"character":"Street
+        Vendor (uncredited)","credit_id":"55f219629251416705002daa","order":77},{"adult":false,"gender":0,"id":1209678,"known_for_department":"Acting","name":"Filomena
+        Spagnuolo","original_name":"Filomena Spagnuolo","popularity":0.631,"profile_path":null,"cast_id":101,"character":"Extra
+        in Little Italy (uncredited)","credit_id":"55f219a2c3a3683bec002ee7","order":78},{"adult":false,"gender":0,"id":59364,"known_for_department":"Acting","name":"Julian
+        Voloshin","original_name":"Julian Voloshin","popularity":0.6,"profile_path":"/zvydabJwp6vRLGn3uGqL9VxPVB4.jpg","cast_id":102,"character":"Sam
+        Roth (uncredited)","credit_id":"55f219ee9251414530001826","order":79},{"adult":false,"gender":1,"id":126072,"known_for_department":"Acting","name":"Italia
+        Coppola","original_name":"Italia Coppola","popularity":0.694,"profile_path":null,"cast_id":116,"character":"Mama
+        Corleone''s Body (uncredited)","credit_id":"56cc78a4c3a36865ef002937","order":80}],"crew":[{"adult":false,"gender":2,"id":154,"known_for_department":"Editing","name":"Walter
+        Murch","original_name":"Walter Murch","popularity":0.611,"profile_path":"/7ZUPk0aT7IBm4xPeILzm8dUrl48.jpg","credit_id":"5a773d1f9251417763000e61","department":"Sound","job":"Sound
+        Re-Recording Mixer"},{"adult":false,"gender":2,"id":154,"known_for_department":"Editing","name":"Walter
+        Murch","original_name":"Walter Murch","popularity":0.611,"profile_path":"/7ZUPk0aT7IBm4xPeILzm8dUrl48.jpg","credit_id":"5a773d0e0e0a26598b001060","department":"Sound","job":"Sound
+        Montage Associate"},{"adult":false,"gender":2,"id":1776,"known_for_department":"Directing","name":"Francis
+        Ford Coppola","original_name":"Francis Ford Coppola","popularity":3.279,"profile_path":"/mGKkVp3l9cipPt10AqoQnwaPrfI.jpg","credit_id":"5e9251c384448e00128f09b1","department":"Writing","job":"Screenplay"},{"adult":false,"gender":2,"id":1776,"known_for_department":"Directing","name":"Francis
+        Ford Coppola","original_name":"Francis Ford Coppola","popularity":3.279,"profile_path":"/mGKkVp3l9cipPt10AqoQnwaPrfI.jpg","credit_id":"5e92517a8e87020016cb1d0e","department":"Directing","job":"Director"},{"adult":false,"gender":2,"id":1776,"known_for_department":"Directing","name":"Francis
+        Ford Coppola","original_name":"Francis Ford Coppola","popularity":3.279,"profile_path":"/mGKkVp3l9cipPt10AqoQnwaPrfI.jpg","credit_id":"52fe422bc3a36847f80094e3","department":"Production","job":"Producer"},{"adult":false,"gender":2,"id":2870,"known_for_department":"Production","name":"Gray
+        Frederickson","original_name":"Gray Frederickson","popularity":0.6,"profile_path":null,"credit_id":"52fe422bc3a36847f80094e9","department":"Production","job":"Producer"},{"adult":false,"gender":2,"id":2871,"known_for_department":"Production","name":"Fred
+        Roos","original_name":"Fred Roos","popularity":0.6,"profile_path":"/qfXLY5E589l0TQnoayWmUrBDsgo.jpg","credit_id":"52fe422bc3a36847f80094ef","department":"Production","job":"Producer"},{"adult":false,"gender":0,"id":3170,"known_for_department":"Production","name":"Mona
+        Skager","original_name":"Mona Skager","popularity":0.6,"profile_path":null,"credit_id":"52fe422bc3a36847f80094f5","department":"Production","job":"Producer"},{"adult":false,"gender":2,"id":2872,"known_for_department":"Sound","name":"Carmine
+        Coppola","original_name":"Carmine Coppola","popularity":0.6,"profile_path":null,"credit_id":"52fe422bc3a36847f8009535","department":"Sound","job":"Original
+        Music Composer"},{"adult":false,"gender":2,"id":3176,"known_for_department":"Production","name":"Vic
+        Ramos","original_name":"Vic Ramos","popularity":0.6,"profile_path":null,"credit_id":"52fe422bc3a36847f8009565","department":"Production","job":"Casting"},{"adult":false,"gender":2,"id":2875,"known_for_department":"Art","name":"Dean
+        Tavoularis","original_name":"Dean Tavoularis","popularity":0.6,"profile_path":"/hrRBaXUn2k29qd1MvAxuag5L32c.jpg","credit_id":"52fe422bc3a36847f8009541","department":"Art","job":"Production
+        Design"},{"adult":false,"gender":2,"id":794,"known_for_department":"Art","name":"Angelo
+        P. Graham","original_name":"Angelo P. Graham","popularity":0.6,"profile_path":null,"credit_id":"57471cb39251415f60002932","department":"Art","job":"Art
+        Direction"},{"adult":false,"gender":2,"id":8339,"known_for_department":"Art","name":"George
+        R. Nelson","original_name":"George R. Nelson","popularity":0.6,"profile_path":null,"credit_id":"57471d159251415e5d002c69","department":"Art","job":"Set
+        Decoration"},{"adult":false,"gender":1,"id":597,"known_for_department":"Production","name":"Jane
+        Feinberg","original_name":"Jane Feinberg","popularity":0.694,"profile_path":null,"credit_id":"52fe422bc3a36847f8009559","department":"Production","job":"Casting"},{"adult":false,"gender":2,"id":598,"known_for_department":"Production","name":"Mike
+        Fenton","original_name":"Mike Fenton","popularity":0.828,"profile_path":null,"credit_id":"52fe422bc3a36847f800955f","department":"Production","job":"Casting"},{"adult":false,"gender":2,"id":2988,"known_for_department":"Editing","name":"Barry
+        Malkin","original_name":"Barry Malkin","popularity":0.608,"profile_path":null,"credit_id":"52fe422bc3a36847f8009547","department":"Editing","job":"Editor"},{"adult":false,"gender":2,"id":3083,"known_for_department":"Writing","name":"Mario
+        Puzo","original_name":"Mario Puzo","popularity":1.4,"profile_path":null,"credit_id":"52fe422bc3a36847f80094fb","department":"Writing","job":"Novel"},{"adult":false,"gender":2,"id":3085,"known_for_department":"Acting","name":"James
+        Caan","original_name":"James Caan","popularity":6.772,"profile_path":"/lshBr4yhwKH01N2t9mlDgd5Hek3.jpg","credit_id":"57472235c3a36839df000077","department":"Crew","job":"Thanks"},{"adult":false,"gender":2,"id":3097,"known_for_department":"Camera","name":"Gordon
+        Willis","original_name":"Gordon Willis","popularity":1.553,"profile_path":"/6gOmfatlF7UdhaHi2tPsZMb5vmz.jpg","credit_id":"52fe422bc3a36847f800952f","department":"Camera","job":"Director
+        of Photography"},{"adult":false,"gender":2,"id":3098,"known_for_department":"Sound","name":"Nino
+        Rota","original_name":"Nino Rota","popularity":1.711,"profile_path":"/v42v3uM7jqwoZxDJ8MlEtT6Ol7a.jpg","credit_id":"52fe422bc3a36847f800953b","department":"Sound","job":"Original
+        Music Composer"},{"adult":false,"gender":2,"id":3100,"known_for_department":"Editing","name":"Peter
+        Zinner","original_name":"Peter Zinner","popularity":0.716,"profile_path":null,"credit_id":"52fe422bc3a36847f8009553","department":"Editing","job":"Editor"},{"adult":false,"gender":0,"id":3102,"known_for_department":"Sound","name":"Howard
+        Beals","original_name":"Howard Beals","popularity":0.6,"profile_path":null,"credit_id":"52fe422bc3a36847f800956b","department":"Sound","job":"Sound
+        Effects Editor"},{"adult":false,"gender":2,"id":3175,"known_for_department":"Editing","name":"Richard
+        Marks","original_name":"Richard Marks","popularity":1.166,"profile_path":null,"credit_id":"52fe422bc3a36847f800954d","department":"Editing","job":"Editor"},{"adult":false,"gender":0,"id":3177,"known_for_department":"Sound","name":"Mark
+        Berger","original_name":"Mark Berger","popularity":0.6,"profile_path":null,"credit_id":"52fe422bc3a36847f8009571","department":"Sound","job":"Sound
+        Montage Associate"},{"adult":false,"gender":2,"id":3178,"known_for_department":"Sound","name":"Nathan
+        Boxer","original_name":"Nathan Boxer","popularity":0.6,"profile_path":null,"credit_id":"52fe422bc3a36847f8009577","department":"Sound","job":"Production
+        Sound Mixer"},{"adult":false,"gender":0,"id":3179,"known_for_department":"Sound","name":"George
+        Brand","original_name":"George Brand","popularity":0.6,"profile_path":null,"credit_id":"52fe422bc3a36847f800957d","department":"Sound","job":"Music
+        Editor"},{"adult":false,"gender":2,"id":4506,"known_for_department":"Production","name":"James
+        D. Brubaker","original_name":"James D. Brubaker","popularity":0.6,"profile_path":null,"credit_id":"574720c79251412b3e000059","department":"Crew","job":"Transportation
+        Captain"},{"adult":false,"gender":2,"id":18373,"known_for_department":"Camera","name":"Ralph
+        Gerling","original_name":"Ralph Gerling","popularity":0.6,"profile_path":null,"credit_id":"56cf3dda9251413e62003001","department":"Camera","job":"Camera
+        Operator"},{"adult":false,"gender":0,"id":6099,"known_for_department":"Production","name":"Valerio
+        De Paolis","original_name":"Valerio De Paolis","popularity":0.6,"profile_path":null,"credit_id":"563e3d519251416cd8003e2d","department":"Production","job":"Production
+        Supervisor"},{"adult":false,"gender":1,"id":6455,"known_for_department":"Costume
+        \u0026 Make-Up","name":"Theadora Van Runkle","original_name":"Theadora Van
+        Runkle","popularity":0.6,"profile_path":null,"credit_id":"5a773cdec3a368224e000e64","department":"Costume
+        \u0026 Make-Up","job":"Costume Design"},{"adult":false,"gender":0,"id":8591,"known_for_department":"Acting","name":"Ted
+        Grossman","original_name":"Ted Grossman","popularity":0.6,"profile_path":"/2L7S57LmXg1EFwVOkI06JS5oAhM.jpg","credit_id":"57471f4c9251412b47000019","department":"Crew","job":"Stunts"},{"adult":false,"gender":2,"id":12288,"known_for_department":"Acting","name":"Robert
+        Evans","original_name":"Robert Evans","popularity":1.388,"profile_path":"/rCiTT2VrBKeHWdnHAyfGtMXs9go.jpg","credit_id":"57471c6ac3a36801a3000463","department":"Production","job":"Executive
+        Producer"},{"adult":false,"gender":2,"id":16654,"known_for_department":"Production","name":"Michael
+        S. Glick","original_name":"Michael S. Glick","popularity":0.6,"profile_path":null,"credit_id":"57471dc39251417694000543","department":"Production","job":"Production
+        Manager"},{"adult":false,"gender":0,"id":19254,"known_for_department":"Art","name":"John
+        Dapper","original_name":"John Dapper","popularity":0.728,"profile_path":null,"credit_id":"57471ce29251415f8c002a7d","department":"Art","job":"Art
+        Direction"},{"adult":false,"gender":2,"id":29654,"known_for_department":"Costume
+        \u0026 Make-Up","name":"Dick Smith","original_name":"Dick Smith","popularity":0.6,"profile_path":"/kKCenlQ8iQCTLGfX8ZPpJFpxvwS.jpg","credit_id":"56a77044c3a36819da0030a1","department":"Costume
+        \u0026 Make-Up","job":"Makeup Artist"},{"adult":false,"gender":0,"id":81538,"known_for_department":"Crew","name":"Wayne
+        Fitzgerald","original_name":"Wayne Fitzgerald","popularity":0.6,"profile_path":null,"credit_id":"5695a8719251413f76000483","department":"Crew","job":"Title
+        Graphics"},{"adult":false,"gender":2,"id":70250,"known_for_department":"Directing","name":"Newt
+        Arnold","original_name":"Newt Arnold","popularity":0.6,"profile_path":null,"credit_id":"56cf3a4bc3a3681e57002da7","department":"Directing","job":"Assistant
+        Director"},{"adult":false,"gender":2,"id":91246,"known_for_department":"Crew","name":"Chris
+        Haynes","original_name":"Chris Haynes","popularity":0.6,"profile_path":null,"credit_id":"574721399251412b4d000068","department":"Crew","job":"Driver"},{"adult":false,"gender":2,"id":96912,"known_for_department":"Crew","name":"Joe
+        Lombardi","original_name":"Joe Lombardi","popularity":0.6,"profile_path":null,"credit_id":"574485d8c3a36807640008d1","department":"Crew","job":"Special
+        Effects"},{"adult":false,"gender":0,"id":557873,"known_for_department":"Camera","name":"Bob
+        Rose","original_name":"Bob Rose","popularity":0.6,"profile_path":null,"credit_id":"5678ab96925141118300100d","department":"Camera","job":"Grip"},{"adult":false,"gender":0,"id":1318751,"known_for_department":"Sound","name":"Jerry
+        Bock","original_name":"Jerry Bock","popularity":1.4,"profile_path":null,"credit_id":"5705427092514176010005c0","department":"Sound","job":"Additional
+        Soundtrack"},{"adult":false,"gender":2,"id":1343811,"known_for_department":"Production","name":"Mario
+        Cotone","original_name":"Mario Cotone","popularity":0.6,"profile_path":null,"credit_id":"57471d8c92514177b00013f1","department":"Production","job":"Unit
+        Manager"},{"adult":false,"gender":0,"id":1359894,"known_for_department":"Production","name":"Burt
+        Bluestein","original_name":"Burt Bluestein","popularity":0.6,"profile_path":null,"credit_id":"57471e0d9251417f4b0003e9","department":"Directing","job":"Assistant
+        Director"},{"adult":false,"gender":2,"id":1409008,"known_for_department":"Costume
+        \u0026 Make-Up","name":"Charles H. Schram","original_name":"Charles H. Schram","popularity":0.6,"profile_path":"/fdY09ub1rX0yYh8qcPrWtQurpfi.jpg","credit_id":"56985c419251412546001488","department":"Costume
+        \u0026 Make-Up","job":"Makeup Artist"},{"adult":false,"gender":0,"id":1419935,"known_for_department":"Costume
+        \u0026 Make-Up","name":"Naomi Cavin","original_name":"Naomi Cavin","popularity":0.84,"profile_path":null,"credit_id":"56a7705a92514129f5002fed","department":"Costume
+        \u0026 Make-Up","job":"Hairstylist"},{"adult":false,"gender":0,"id":1427699,"known_for_department":"Directing","name":"John
+        Franco","original_name":"John Franco","popularity":0.6,"profile_path":null,"credit_id":"566b7a09c3a3682e98005c33","department":"Directing","job":"Script
+        Supervisor"},{"adult":false,"gender":0,"id":1469560,"known_for_department":"Crew","name":"Eileen
+        Peterson","original_name":"Eileen Peterson","popularity":0.6,"profile_path":null,"credit_id":"574dc0d7c3a36858bd0000a0","department":"Crew","job":"Unit
+        Publicist"},{"adult":false,"gender":0,"id":1511706,"known_for_department":"Sound","name":"Charles
+        M. Wilborn","original_name":"Charles M. Wilborn","popularity":0.6,"profile_path":null,"credit_id":"58e3cd81925141281902066f","department":"Sound","job":"Sound
+        Recordist"},{"adult":false,"gender":0,"id":1511713,"known_for_department":"Production","name":"Jack
+        English","original_name":"Jack English","popularity":0.6,"profile_path":null,"credit_id":"5e7be9864350113e61257d0f","department":"Production","job":"Location
+        Coordinator"},{"adult":false,"gender":0,"id":1518593,"known_for_department":"Directing","name":"B.J.
+        Bjorkman","original_name":"B.J. Bjorkman","popularity":0.6,"profile_path":null,"credit_id":"5751b60cc3a3683040000219","department":"Directing","job":"Script
+        Supervisor"},{"adult":false,"gender":0,"id":1535121,"known_for_department":"Lighting","name":"George
+        Holmes","original_name":"George Holmes","popularity":0.6,"profile_path":null,"credit_id":"5c6dd75992514120d504f307","department":"Lighting","job":"Gaffer"},{"adult":false,"gender":2,"id":1625347,"known_for_department":"Directing","name":"Tony
+        Brandt","original_name":"Tony Brandt","popularity":0.6,"profile_path":null,"credit_id":"57447c8192514110fb00068e","department":"Directing","job":"Assistant
+        Director"},{"adult":false,"gender":0,"id":1626342,"known_for_department":"Crew","name":"Hugh
+        Kelly","original_name":"Hugh Kelly","popularity":0.6,"profile_path":null,"credit_id":"574721f49251412b43000095","department":"Crew","job":"Driver"},{"adult":false,"gender":0,"id":1630221,"known_for_department":"Directing","name":"Alan
+        Hopkins","original_name":"Alan Hopkins","popularity":0.6,"profile_path":null,"credit_id":"5751b2cd9251412b0f0029a2","department":"Directing","job":"Assistant
+        Director"}]}'
+  recorded_at: Thu, 10 Dec 2020 03:59:03 GMT
 - request:
     method: get
-    uri: https://api.themoviedb.org/3/movie/761053?api_key=<replacement>
+    uri: https://api.themoviedb.org/3/movie/240?api_key=<replacement>
     body:
       encoding: US-ASCII
       string: ''
@@ -145,7 +540,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 09 Dec 2020 23:16:06 GMT
+      - Thu, 10 Dec 2020 02:51:28 GMT
       Server:
       - openresty
       Access-Control-Allow-Origin:
@@ -160,40 +555,43 @@ http_interactions:
       X-Memc:
       - HIT
       X-Memc-Key:
-      - '0877582f46c0de061a03e2d907c74555bff7e218'
+      - 4b717705dba87c74ee43f0f4d0a4e2fb10eb1630
       X-Memc-Age:
-      - '18242'
+      - '6705'
       X-Memc-Expires:
-      - '3358'
+      - '14895'
       Etag:
-      - W/"4daab068cdd63daecbcd538c2f27fa52"
+      - W/"0c9b521e06dcd01ce7648d210c3c6eeb"
       Last-Modified:
-      - Wed, 09 Dec 2020 23:16:06 GMT
+      - Thu, 10 Dec 2020 02:51:28 GMT
       Vary:
       - Accept-Encoding
       X-Cache:
       - Hit from cloudfront
       Via:
-      - 1.1 9204cf44179493ed42c678800a26918b.cloudfront.net (CloudFront)
+      - 1.1 4d0ecb5905192435c3fd204705c9fc24.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - i6A095B5SJqbqN4e2vkEPtVOMXyjU-4vGq0OSqAMUTW9oDE26ozYHg==
+      - XM9BgOpf9EP2mfDW8lFsOxcR7xv-No8EIaCNMOrZ8F7t9GA9CjF_3w==
       Age:
-      - '430'
+      - '4056'
     body:
       encoding: UTF-8
-      string: '{"adult":false,"backdrop_path":"/fQq1FWp1rC89xDrRMuyFJdFUdMd.jpg","belongs_to_collection":{"id":729322,"name":"Gabriel''s
-        Inferno Collection","poster_path":"/LdSn17U6ybhtPJT3S6fTNRni5Y.jpg","backdrop_path":"/hXF55codODfnzTZDExbUbfFmA9y.jpg"},"budget":0,"genres":[],"homepage":"","id":761053,"imdb_id":null,"original_language":"en","original_title":"Gabriel''s
-        Inferno Part III","overview":"The final part of the film adaption of the erotic
-        romance novel Gabriel''s Inferno written by an anonymous Canadian author under
-        the pen name Sylvain Reynard.","popularity":39.347,"poster_path":"/fYtHxTxlhzD4QWfEbrC1rypysSD.jpg","production_companies":[{"id":92153,"logo_path":"/psjvYkjjgAPtS8utnFYDM8t8yi7.png","name":"PassionFlix","origin_country":"US"}],"production_countries":[{"iso_3166_1":"US","name":"United
-        States of America"}],"release_date":"2020-11-19","revenue":0,"runtime":0,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"}],"status":"Released","tagline":"","title":"Gabriel''s
-        Inferno Part III","video":false,"vote_average":9.2,"vote_count":470}'
-  recorded_at: Wed, 09 Dec 2020 23:23:16 GMT
+      string: '{"adult":false,"backdrop_path":"/poec6RqOKY9iSiIUmfyfPfiLtvB.jpg","belongs_to_collection":{"id":230,"name":"The
+        Godfather Collection","poster_path":"/9Baumh5J9N1nJUYzNkm0xsgjpwY.jpg","backdrop_path":"/3WZTxpgscsmoUk81TuECXdFOD0R.jpg"},"budget":13000000,"genres":[{"id":18,"name":"Drama"},{"id":80,"name":"Crime"}],"homepage":"","id":240,"imdb_id":"tt0071562","original_language":"en","original_title":"The
+        Godfather: Part II","overview":"In the continuing saga of the Corleone crime
+        family, a young Vito Corleone grows up in Sicily and in 1910s New York. In
+        the 1950s, Michael Corleone attempts to expand the family business into Las
+        Vegas, Hollywood and Cuba.","popularity":34.126,"poster_path":"/hek3koDUyRQk7FIhPXsa6mT2Zc3.jpg","production_companies":[{"id":4,"logo_path":"/fycMZt242LVjagMByZOLUGbCvv3.png","name":"Paramount","origin_country":"US"},{"id":536,"logo_path":null,"name":"The
+        Coppola Company","origin_country":"US"}],"production_countries":[{"iso_3166_1":"US","name":"United
+        States of America"}],"release_date":"1974-12-20","revenue":102600000,"runtime":202,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"},{"english_name":"Italian","iso_639_1":"it","name":"Italiano"},{"english_name":"Latin","iso_639_1":"la","name":"Latin"},{"english_name":"Spanish","iso_639_1":"es","name":"Español"}],"status":"Released","tagline":"I
+        don''t feel I have to wipe everybody out, Tom. Just my enemies.","title":"The
+        Godfather: Part II","video":false,"vote_average":8.6,"vote_count":7951}'
+  recorded_at: Thu, 10 Dec 2020 03:59:03 GMT
 - request:
     method: get
-    uri: https://api.themoviedb.org/3/movie/761053/reviews?api_key=<replacement>
+    uri: https://api.themoviedb.org/3/movie/240/reviews?api_key=<replacement>
     body:
       encoding: US-ASCII
       string: ''
@@ -211,10 +609,12 @@ http_interactions:
     headers:
       Content-Type:
       - application/json;charset=utf-8
-      Content-Length:
-      - '69'
+      Transfer-Encoding:
+      - chunked
       Connection:
       - keep-alive
+      Date:
+      - Wed, 09 Dec 2020 23:16:47 GMT
       Server:
       - openresty
       Access-Control-Allow-Origin:
@@ -224,22 +624,100 @@ http_interactions:
       Access-Control-Expose-Headers:
       - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
         Content-Length, Content-Range
+      Cache-Control:
+      - public, max-age=21600
       X-Memc:
       - HIT
       X-Memc-Key:
-      - 8d30d1f91aa7c19e4661eaefe75fe52b04cd603d
+      - 202155e2e03eaee3304d48f44d06151b18b69f38
       X-Memc-Age:
-      - '8440'
+      - '7653'
       X-Memc-Expires:
-      - '13160'
+      - '13947'
+      Etag:
+      - W/"7833938b0a11fb0c4b486b758ac5dcc1"
       Last-Modified:
-      - Wed, 09 Dec 2020 03:27:23 GMT
+      - Wed, 09 Dec 2020 23:16:47 GMT
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 264cccdb967e804907074b11d3a83242.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - DEN50-C2
+      X-Amz-Cf-Id:
+      - 5_Z2yDrve7rSK4GUD-WpvBIrWqTCVcPtdcaVW7FAxnZdo7P7X_rCug==
+      Age:
+      - '16936'
+    body:
+      encoding: UTF-8
+      string: '{"id":240,"page":1,"results":[{"author":"jkbbr549","author_details":{"name":"","username":"jkbbr549","avatar_path":null,"rating":null},"content":"This
+        is by far the greatest movie of all time!  Even better than the first Godfather!","created_at":"2015-04-21T11:41:26.541Z","id":"553637669251416518002602","updated_at":"2015-04-21T13:57:15.391Z","url":"https://www.themoviedb.org/review/553637669251416518002602"},{"author":"Matthew
+        Dixon","author_details":{"name":"Matthew Dixon","username":"matthewdixon","avatar_path":"/Af7sJr2dLx38npWMIaDzVmdzwd4.jpg","rating":10.0},"content":"Worthy
+        sequel to the first movie. In something more meditative and unhurried, in
+        something more philosophically meaningful than its legendary predecessor.
+        Backstage games and backstage talks replaced the dramatic mood swings of the
+        main characters and the exchange of fire.\r\n\r\nThe second film continues
+        the story of Michael Carleone in the role of the Godfather, and also complements
+        the family story with scenes of the formation of the young Vito Andolini and
+        his escape to America. The difficult choice of being young Don, his sphere
+        of expansion of influence opens up new heights and horizons, but also acquires
+        new enemies. Big money and power always keep pace with great temptation, and
+        therefore you should always keep your ears open. After all, the knife in the
+        back can insert exactly the one from whom you do not expect ...","created_at":"2019-07-30T08:28:10.884Z","id":"5d3fff9ab87aec6aa339e228","updated_at":"2019-07-31T22:33:04.159Z","url":"https://www.themoviedb.org/review/5d3fff9ab87aec6aa339e228"}],"total_pages":1,"total_results":2}'
+  recorded_at: Thu, 10 Dec 2020 03:59:03 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/240/similar?api_key=<replacement>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.1.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
       Date:
-      - Wed, 09 Dec 2020 23:16:06 GMT
+      - Thu, 10 Dec 2020 02:51:28 GMT
+      Server:
+      - openresty
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
+        Content-Length, Content-Range
       Cache-Control:
       - public, max-age=21600
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - b1ad33f15c1eadd966f0251859519759d4b0d6df
+      X-Memc-Age:
+      - '20225'
+      X-Memc-Expires:
+      - '1375'
       Etag:
-      - W/"8d1eafc5ae7d5fbd9a2740ec98020aeb"
+      - W/"d83d66b64132d59112666ea12d8a799d"
+      Last-Modified:
+      - Thu, 10 Dec 2020 02:51:28 GMT
+      Vary:
+      - Accept-Encoding
       X-Cache:
       - Hit from cloudfront
       Via:
@@ -247,11 +725,244 @@ http_interactions:
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - o36fkQyBm-neXRgnLE5UhEKxKxTmWyGd7GNIQIiorGWn6m7qeCrbhw==
+      - Mfo6yY_mlf2C0ZNaasDkIwWZLAIzuR8HC7J-ZsTqY143fzUY6gN5ZA==
       Age:
-      - '430'
+      - '4056'
     body:
       encoding: UTF-8
-      string: '{"id":761053,"page":1,"results":[],"total_pages":0,"total_results":0}'
-  recorded_at: Wed, 09 Dec 2020 23:23:16 GMT
+      string: '{"page":1,"results":[{"adult":false,"backdrop_path":"/3naOwcmYNZfd80kC1OXmembjc8j.jpg","genre_ids":[53,28,18],"id":445954,"original_language":"en","original_title":"Acts
+        of Vengeance","overview":"A fast-talking lawyer transforms his body and takes
+        a vow of silence, not to be broken until he finds out who killed his wife
+        and daughter and has his revenge.","poster_path":"/r5o6vWPYOQs6bv91gQ8kQs2zQYl.jpg","release_date":"2017-10-27","title":"Acts
+        of Vengeance","video":false,"vote_average":5.9,"vote_count":336,"popularity":18.611},{"adult":false,"backdrop_path":"/dLQHyr2elJf2vuayUPUNlOYQJ1g.jpg","genre_ids":[18,80,53],"id":37645,"original_language":"fr","original_title":"L''Immortel","overview":"Charly
+        Matteï has turned his back on his life as an outlaw. For the last three years,
+        he''s led a peaceful life devoting himself to his wife and two children. Then,
+        one winter morning, he''s left for dead in the parking garage in Marseille''s
+        Old Port, with 22 bullets in his body. Against all the odds, he doesn''t die...","poster_path":"/pwG0LLr00EonphwCmIQrpb6aiVV.jpg","release_date":"2010-03-23","title":"22
+        Bullets","video":false,"vote_average":6.6,"vote_count":767,"popularity":15.593},{"poster_path":"/3bhkrj58Vtu7enYsRolD1fZdja1.jpg","video":false,"vote_average":8.7,"overview":"Spanning
+        the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone
+        crime family. When organized crime family patriarch, Vito Corleone barely
+        survives an attempt on his life, his youngest son, Michael steps in to take
+        care of the would-be killers, launching a campaign of bloody revenge.","release_date":"1972-03-14","vote_count":13367,"adult":false,"backdrop_path":"/rSPw7tgCH9c6NqICZef4kZjFOQ5.jpg","id":238,"genre_ids":[18,80],"title":"The
+        Godfather","original_language":"en","original_title":"The Godfather","popularity":51.318},{"adult":false,"backdrop_path":"/2OQ3YEx5F47gsdMtrXEZdSiTZbz.jpg","genre_ids":[80,18,10749,53],"id":3134,"original_language":"fr","original_title":"Baise-moi","overview":"Manu
+        has lived a difficult life. Abused and violently raped, she sets off to find
+        herself only to meet Nadine, a prostitute who has encountered one too many
+        injustices in the world. Angry at the world, they embark on a twisted, rage-filled
+        road trip. They choose to have sex when they please and kill when they need.
+        Leaving a trail of mischief and dead bodies in their wake. Generating a media
+        blitz and manhunt, soon everyone is out to capture the young fugitives.","poster_path":"/r07olKMs2bMksjDIhq6LLbKkE8Y.jpg","release_date":"2000-06-28","title":"Baise-moi","video":false,"vote_average":4.3,"vote_count":213,"popularity":8.387},{"adult":false,"backdrop_path":"/68mccObDNsllWgGKcQtiYwgapj9.jpg","genre_ids":[35,53,80],"id":8012,"original_language":"en","original_title":"Get
+        Shorty","overview":"Chili Palmer is a Miami mobster who gets sent by his boss,
+        the psychopathic \"Bones\" Barboni, to collect a bad debt from Harry Zimm,
+        a Hollywood producer who specializes in cheesy horror films. When Chili meets
+        Harry''s leading lady, the romantic sparks fly. After pitching his own life
+        story as a movie idea, Chili learns that being a mobster and being a Hollywood
+        producer really aren''t all that different.","poster_path":"/5XSVAyHmTCFOWaqEQ0LUHh3yssB.jpg","release_date":"1995-10-20","title":"Get
+        Shorty","video":false,"vote_average":6.5,"vote_count":635,"popularity":14.287},{"adult":false,"backdrop_path":"/hMo3Hp1CFVJNnGcyO2EuXMOhRXz.jpg","genre_ids":[18,80],"id":400,"original_language":"en","original_title":"Things
+        to Do in Denver When You''re Dead","overview":"Five different criminals face
+        imminent death after botching a job quite badly.","poster_path":"/kATmorfxsxbS0GSKOVJe4qvPLh5.jpg","release_date":"1995-12-01","title":"Things
+        to Do in Denver When You''re Dead","video":false,"vote_average":6.5,"vote_count":226,"popularity":9.576},{"adult":false,"backdrop_path":"/mTvlEAtSkwXW30SkxhFm8pKNU8q.jpg","genre_ids":[28,80],"id":8292,"original_language":"en","original_title":"Four
+        Brothers","overview":"Four adopted brothers return to their Detroit hometown
+        when their mother is murdered and vow to exact revenge on the killers.","poster_path":"/8cO39cnWSZQi2ncPG5TxL3YRzKc.jpg","release_date":"2005-08-11","title":"Four
+        Brothers","video":false,"vote_average":6.7,"vote_count":1375,"popularity":14.994},{"adult":false,"backdrop_path":"/buhzGe9AqpB8da99iEEK7GxOhAU.jpg","genre_ids":[28,80,53],"id":10651,"original_language":"en","original_title":"The
+        Dead Pool","overview":"Dirty Harry Callahan returns for his final film adventure.
+        Together with his partner Al Quan, he must investigate the systematic murder
+        of actors and musicians. By the time Harry learns that the murders are a part
+        of a sick game to predict the deaths of celebrities before they happen, it
+        may be too late...","poster_path":"/7DLbjh9uTyR7X5qplH1OcfCpNFh.jpg","release_date":"1988-04-14","title":"The
+        Dead Pool","video":false,"vote_average":6.4,"vote_count":479,"popularity":11.623},{"id":291356,"video":false,"vote_count":331,"vote_average":5.9,"title":"In
+        a Valley of Violence","release_date":"2016-10-21","original_language":"en","original_title":"In
+        a Valley of Violence","genre_ids":[28,80,53,37],"backdrop_path":"/miniLNDoy2LFWAjPG2xLZ00ctX4.jpg","adult":false,"overview":"The
+        story of a drifter named Paul who arrives in a small town seeking revenge
+        on the thugs who murdered his friend. Sisters Mary Anne and Ellen, who run
+        the town''s hotel, help Paul in his quest for vengeance.","poster_path":"/otuBE30CGhmIUznkX0AwkAQerMF.jpg","popularity":17.716},{"adult":false,"backdrop_path":"/lPLTLCBn39Wiy1RPQLB9xOKyF2v.jpg","genre_ids":[28,18,53],"id":9798,"original_language":"en","original_title":"Enemy
+        of the State","overview":"A hotshot Washington criminal lawyer becomes the
+        target of a rogue security executive videotaped in the act of murdering a
+        congressman when the incriminating tape is surreptitiously slipped into his
+        shopping bag by the videographer, who is fleeing the executive''s assassins.","poster_path":"/x9pXrMKLsBGGOFyyZ0Gwt9YpVub.jpg","release_date":"1998-11-20","title":"Enemy
+        of the State","video":false,"vote_average":6.9,"vote_count":2551,"popularity":16.754},{"adult":false,"backdrop_path":"/iiWUqHA6RyrYkzF3l5o2deumtOv.jpg","genre_ids":[18,28],"id":8456,"original_language":"en","original_title":"Never
+        Back Down","overview":"Rebellious Jake Tyler is lured into an ultimate underground
+        fight Scene at his new high school, after receiving threats to the safety
+        of his friends and family Jake decides to seek the mentoring of a veteran
+        fighter who trains him for one final no-holds-barred elimination fight with
+        his nemesis and local martial arts champion Ryan McCarthy.","poster_path":"/mYkTq569KOtjdq5zo9mrEY6ecip.jpg","release_date":"2008-03-04","title":"Never
+        Back Down","video":false,"vote_average":6.7,"vote_count":1613,"popularity":33.785},{"id":538831,"video":false,"vote_count":3,"vote_average":4.0,"title":"Unbound","release_date":"2018-06-15","original_language":"en","original_title":"Unbound","genre_ids":[28,80,18,53],"backdrop_path":null,"adult":false,"overview":"Julius
+        Fonteneau has decided to take the law into his own hands after his daughter
+        has gone missing. His only friend supports him while his wife resents him
+        and the police are growing suspicious of his intentions. He must determine
+        right from wrong and make the ultimate decision to kill the man he believes
+        to have taken his daughter","poster_path":"/arpocKRbENtPc3ywxlzG7XVTPeG.jpg","popularity":14.288},{"adult":false,"backdrop_path":"/l2QlhHlggJEaPdgkfpTt0IA2mHT.jpg","genre_ids":[80,18,53],"id":26390,"original_language":"en","original_title":"Brooklyn''s
+        Finest","overview":"Enforcing the law within the notoriously rough Brownsville
+        section of the city and especially within the Van Dyke housing projects is
+        the NYPD''s sixty-fifth precinct. Three police officers struggle with the
+        sometimes fine line between right and wrong.","poster_path":"/9ZyJJpMsc3bF8gduDaxo0zo1gwK.jpg","release_date":"2009-01-16","title":"Brooklyn''s
+        Finest","video":false,"vote_average":6.3,"vote_count":601,"popularity":11.919},{"overview":"The
+        true story of Henry Hill, a half-Irish, half-Sicilian Brooklyn kid who is
+        adopted by neighbourhood gangsters at an early age and climbs the ranks of
+        a Mafia family under the guidance of Jimmy Conway.","release_date":"1990-09-12","adult":false,"backdrop_path":"/chrngg9mjM6tSU3BF9VHITgn1Ke.jpg","vote_count":8239,"genre_ids":[18,80],"id":769,"original_language":"en","original_title":"GoodFellas","poster_path":"/6QMSLvU5ziIL2T6VrkaKzN2YkxK.jpg","title":"GoodFellas","video":false,"vote_average":8.4,"popularity":27.319},{"adult":false,"backdrop_path":"/jRLquZKTbFwCv43HUZ3iffJTYBR.jpg","genre_ids":[28,80,18,53],"id":11835,"original_language":"en","original_title":"Death
+        Sentence","overview":"Nick Hume is a mild-mannered executive with a perfect
+        life, until one gruesome night he witnesses something that changes him forever.
+        Transformed by grief, Hume eventually comes to the disturbing conclusion that
+        no length is too great when protecting his family.","poster_path":"/xadVdhlkfrjqqSQWWmCVF8lEVIT.jpg","release_date":"2007-08-31","title":"Death
+        Sentence","video":false,"vote_average":6.5,"vote_count":688,"popularity":17.386},{"adult":false,"backdrop_path":"/uqa4ObNa5Qb38HzIeWi6tyF5aRx.jpg","genre_ids":[18,27,9648,53],"id":9913,"original_language":"en","original_title":"The
+        Skeleton Key","overview":"A hospice nurse working at a spooky New Orleans
+        plantation home finds herself entangled in a mystery involving the house''s
+        dark past.","poster_path":"/sH7mDPlWwFTqVUg6yKRvToCMH3B.jpg","release_date":"2005-07-29","title":"The
+        Skeleton Key","video":false,"vote_average":6.6,"vote_count":1393,"popularity":14.211},{"id":1598,"video":false,"vote_count":2062,"vote_average":7.3,"title":"Cape
+        Fear","release_date":"1991-11-15","original_language":"en","original_title":"Cape
+        Fear","genre_ids":[53,80],"backdrop_path":"/ntgpger7OwFNlEldxuvvFHDKzjW.jpg","adult":false,"overview":"Sam
+        Bowden is a small-town corporate attorney. Max Cady is a tattooed, cigar-smoking,
+        bible-quoting, psychotic rapist. What do they have in common? Fourteen years
+        ago, Sam was a public defender assigned to Max Cady''s rape trial, and he
+        made a serious error: he hid a document from his illiterate client that could
+        have gotten him acquitted. Now, the cagey, bibliophile Cady has been released,
+        and he intends to teach Sam Bowden and his family a thing or two about loss.","poster_path":"/meJZAAuVcjic2ipvbOPz5UlE4P9.jpg","popularity":14.595},{"adult":false,"backdrop_path":"/nMfH0LMMFk2ovyURkYvyTI99nSo.jpg","genre_ids":[37,18,12],"id":281957,"original_language":"en","original_title":"The
+        Revenant","overview":"In the 1820s, a frontiersman, Hugh Glass, sets out on
+        a path of vengeance against those who left him for dead after a bear mauling.","poster_path":"/ji3ecJphATlVgWNY0B0RVXZizdf.jpg","release_date":"2015-12-25","title":"The
+        Revenant","video":false,"vote_average":7.5,"vote_count":13880,"popularity":30.259},{"adult":false,"backdrop_path":"/mzsA1VtT8btOyHiv1nKDKB4Rma1.jpg","genre_ids":[80,28,53],"id":55846,"original_language":"en","original_title":"Blitz","overview":"A
+        tough cop is dispatched to take down a serial killer who has been targeting
+        police officers.","poster_path":"/qjqmhhc7uLub22mhu4V6DjOBwXM.jpg","release_date":"2011-05-20","title":"Blitz","video":false,"vote_average":6.0,"vote_count":995,"popularity":23.244},{"id":23483,"video":false,"vote_count":8995,"vote_average":7.1,"title":"Kick-Ass","release_date":"2010-03-22","original_language":"en","original_title":"Kick-Ass","genre_ids":[28,80],"backdrop_path":"/P4bGyJQF0shAcRku3I2perNUQR.jpg","adult":false,"overview":"Dave
+        Lizewski is an unnoticed high school student and comic book fan who one day
+        decides to become a super-hero, even though he has no powers, training or
+        meaningful reason to do so.","poster_path":"/GPiMXaDC2NdDIldLgtijHFTeKH.jpg","popularity":23.825}],"total_pages":53,"total_results":1048}'
+  recorded_at: Thu, 10 Dec 2020 03:59:04 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/upcoming?api_key=<replacement>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.1.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 10 Dec 2020 03:59:04 GMT
+      Server:
+      - openresty
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
+        Content-Length, Content-Range
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 d29afc70fc2fdadee440493854714224.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - DEN50-C2
+      X-Amz-Cf-Id:
+      - nU6dWCiZA_m5_Wzx5TJesldhy3VdzFhG-XrkTTipUGrgsvl5tQwGBQ==
+    body:
+      encoding: UTF-8
+      string: '{"dates":{"maximum":"2021-01-06","minimum":"2020-12-16"},"page":1,"results":[{"adult":false,"backdrop_path":"/8rIoyM6zYXJNjzGseT3MRusMPWl.jpg","genre_ids":[14,10751,12,35,27],"id":531219,"original_language":"en","original_title":"Roald
+        Dahl''s The Witches","overview":"In late 1967, a young orphaned boy goes to
+        live with his loving grandma in the rural Alabama town of Demopolis. As the
+        boy and his grandmother encounter some deceptively glamorous but thoroughly
+        diabolical witches, she wisely whisks him away to a seaside resort. Regrettably,
+        they arrive at precisely the same time that the world''s Grand High Witch
+        has gathered.","popularity":748.242,"poster_path":"/betExZlgK0l7CZ9CsCBVcwO1OjL.jpg","release_date":"2020-10-26","title":"Roald
+        Dahl''s The Witches","video":false,"vote_average":6.9,"vote_count":884},{"adult":false,"backdrop_path":"/eShw0LB5CkoEfYtpUcXPD85oz5Q.jpg","genre_ids":[27,53,35],"id":551804,"original_language":"en","original_title":"Freaky","overview":"A
+        mystical, ancient dagger causes a notorious serial killer to magically switch
+        bodies with a 17-year-old girl.","popularity":661.044,"poster_path":"/8xC6QSyxrpm0D5A6iyHNemEWBVe.jpg","release_date":"2020-11-12","title":"Freaky","video":false,"vote_average":7.5,"vote_count":105},{"adult":false,"backdrop_path":"/cjaOSjsjV6cl3uXdJqimktT880L.jpg","genre_ids":[12,14,10751,16],"id":529203,"original_language":"en","original_title":"The
+        Croods: A New Age","overview":"After leaving their cave, the Croods encounter
+        their biggest threat since leaving: another family called the Bettermans,
+        who claim and show to be better and evolved. Grug grows suspicious of the
+        Betterman parents, Phil and Hope,  as they secretly plan to break up his daughter
+        Eep with her loving boyfriend Guy to ensure that their daughter Dawn has a
+        loving and smart partner to protect her.","popularity":287.196,"poster_path":"/tK1zy5BsCt1J4OzoDicXmr0UTFH.jpg","release_date":"2020-11-25","title":"The
+        Croods: A New Age","video":false,"vote_average":7.2,"vote_count":57},{"adult":false,"backdrop_path":"/gkvOmVXdukAwpG8LjTaHo2l2cWU.jpg","genre_ids":[27],"id":571384,"original_language":"en","original_title":"Come
+        Play","overview":"A lonely young boy feels different from everyone else. Desperate
+        for a friend, he seeks solace and refuge in his ever-present cell phone and
+        tablet. When a mysterious creature uses the boy’s devices against him to break
+        into our world, his parents must fight to save their son from the monster
+        beyond the screen.","popularity":263.517,"poster_path":"/e98dJUitAoKLwmzjQ0Yxp1VQrnU.jpg","release_date":"2020-10-28","title":"Come
+        Play","video":false,"vote_average":6.7,"vote_count":120},{"adult":false,"backdrop_path":"/35PMyh6kydJWEL1MbMNVkJgeTyI.jpg","genre_ids":[10749,35],"id":520172,"original_language":"en","original_title":"Happiest
+        Season","overview":"A young woman''s plans to propose to her girlfriend while
+        at her family''s annual holiday party are upended when she discovers her partner
+        hasn''t yet come out to her conservative parents.","popularity":242.633,"poster_path":"/vzec9kkOSE93tygyfOktedkeOQ.jpg","release_date":"2020-11-26","title":"Happiest
+        Season","video":false,"vote_average":7.7,"vote_count":150},{"adult":false,"backdrop_path":"/a9jZrU7LJk6mAUjmkbEmTiC52l0.jpg","genre_ids":[35,10751,18],"id":425001,"original_language":"en","original_title":"The
+        War with Grandpa","overview":"Peter is thrilled that his Grandpa is coming
+        to live with his family. That is, until Grandpa moves into Peter''s room,
+        forcing him upstairs into the creepy attic. And though he loves his Grandpa,
+        he wants his room back - so he has no choice but to declare war.","popularity":160.853,"poster_path":"/yUFbPtWeDbVR3zmqshOaL5lScyo.jpg","release_date":"2020-08-27","title":"The
+        War with Grandpa","video":false,"vote_average":6,"vote_count":156},{"adult":false,"backdrop_path":"/AdqOBPw4PdtzOcfEuQuZ8MNeTKb.jpg","genre_ids":[14,10751,12,18],"id":413518,"original_language":"it","original_title":"Pinocchio","overview":"In
+        this live-action adaptation of the beloved fairytale, old woodcarver Geppetto
+        fashions a wooden puppet, Pinocchio, who magically comes to life. Pinocchio
+        longs for adventure and is easily led astray, encountering magical beasts,
+        fantastical spectacles, while making friends and foes along his journey. However,
+        his dream is to become a real boy, which can only come true if he finally
+        changes his ways.","popularity":165.333,"poster_path":"/4w1ItwCJCTtSi9nPfJC1vU6NIVg.jpg","release_date":"2019-12-19","title":"Pinocchio","video":false,"vote_average":6.7,"vote_count":804},{"adult":false,"backdrop_path":"/egg7KFi18TSQc1s24RMmR9i2zO6.jpg","genre_ids":[14,28,12],"id":464052,"original_language":"en","original_title":"Wonder
+        Woman 1984","overview":"Wonder Woman comes into conflict with the Soviet Union
+        during the Cold War in the 1980s and finds a formidable foe by the name of
+        the Cheetah.","popularity":176.932,"poster_path":"/di1bCAfGoJ0BzNEavLsPyxQ2AaB.jpg","release_date":"2020-12-16","title":"Wonder
+        Woman 1984","video":false,"vote_average":0,"vote_count":0},{"adult":false,"backdrop_path":"/jGVQ3HdSTdv6OidEhX88Z5Lpiru.jpg","genre_ids":[35],"id":676838,"original_language":"es","original_title":"El
+        Testamento de la Abuela","overview":"When the grandmother decides that it
+        is time to put the family affairs in order, the fights begin to inherit the
+        house. A sequel to ''Grandma''s Wedding''.","popularity":178.994,"poster_path":"/h1BZHYQl3pGOgaGDK6zwrOsYIop.jpg","release_date":"2020-10-09","title":"El
+        Testamento de la Abuela","video":false,"vote_average":7.2,"vote_count":16},{"adult":false,"backdrop_path":"/cSpwQ1BekQ6SL8JpUDmfsCBxJDz.jpg","genre_ids":[18,53,80],"id":596161,"original_language":"en","original_title":"Let
+        Him Go","overview":"Following the loss of their son, a retired sheriff and
+        his wife leave their Montana ranch to rescue their young grandson from the
+        clutches of a dangerous family living off the grid in the Dakotas.","popularity":129.683,"poster_path":"/EsLZoT8oHhQlGd1QpdbnvnwTzO.jpg","release_date":"2020-11-05","title":"Let
+        Him Go","video":false,"vote_average":7.1,"vote_count":47},{"adult":false,"backdrop_path":"/z8TvnEVRenMSTemxYZwLGqFofgF.jpg","genre_ids":[14,28,12],"id":458576,"original_language":"en","original_title":"Monster
+        Hunter","overview":"A portal transports Lt. Artemis and an elite unit of soldiers
+        to a strange world where powerful monsters rule with deadly ferocity. Faced
+        with relentless danger, the team encounters a mysterious hunter who may be
+        their only hope to find a way home.","popularity":94.386,"poster_path":"/zO9R7Z6DRDgRO9QVz4lAJg3L15o.jpg","release_date":"2020-12-03","title":"Monster
+        Hunter","video":false,"vote_average":6.1,"vote_count":11},{"adult":false,"backdrop_path":"/5TbtcmRySXPAEXBzwhiOYYDQmgv.jpg","genre_ids":[27],"id":723072,"original_language":"en","original_title":"Host","overview":"Six
+        friends hire a medium to hold a séance via Zoom during lockdown — but they
+        get far more than they bargained for as things quickly go wrong. When an evil
+        spirit starts invading their homes, they begin to realize they might not survive
+        the night.","popularity":61.487,"poster_path":"/h7dZpJDORYs5c56dydbrLFkEXpE.jpg","release_date":"2020-11-27","title":"Host","video":false,"vote_average":8.3,"vote_count":23},{"adult":false,"backdrop_path":"/vooRKLGVvFRFmx9swcMh26uYZSf.jpg","genre_ids":[16,10749,35,18,14],"id":530079,"original_language":"ja","original_title":"きみと、波にのれたら","overview":"Hinako
+        is a surf-loving college student who has just moved to a small seaside town.
+        When a sudden fire breaks out at her apartment building, she is rescued by
+        Minato, a handsome firefighter, and the two soon fall in love. Just as they
+        become inseparable, Minato loses his life in an accident at sea. Hinako is
+        so distraught that she can no longer even look at the ocean, but one day she
+        sings a song that reminds her of their time together, and Minato appears in
+        the water. From then on, she can summon him in any watery surface as soon
+        as she sings their song, but can the two really remain together forever? And
+        what is the real reason for Minato’s sudden reappearance?","popularity":76.352,"poster_path":"/byoY2stdullEcVjlaWs1ENXyrDm.jpg","release_date":"2019-06-21","title":"Ride
+        Your Wave","video":false,"vote_average":7,"vote_count":41},{"adult":false,"backdrop_path":"/p9tdFuUe1Xc9YYMmPcqMczttnvG.jpg","genre_ids":[16,35,28,12,10751],"id":550738,"original_language":"fr","original_title":"Spycies","overview":"Vladimir
+        and Hector, two secret agents opposed in every way, are trying to recover
+        a top secret material stolen by unknown intruders.","popularity":72.759,"poster_path":"/jOY3dDCzjygXzumYeJ9UIyETzuj.jpg","release_date":"2020-01-11","title":"Spycies","video":false,"vote_average":7.9,"vote_count":147},{"adult":false,"backdrop_path":"/h2RJiV1X79nlP78LCCqNpgTEaVZ.jpg","genre_ids":[18,10402],"id":502033,"original_language":"en","original_title":"Sound
+        of Metal","overview":"A drummer begins to lose his hearing and has to come
+        to grips with a future that will be filled with silence. Watch on Prime Video.","popularity":77.101,"poster_path":"/pVHgv6leYDCKrW4bdzA77NlMXXM.jpg","release_date":"2020-11-20","title":"Sound
+        of Metal","video":false,"vote_average":8,"vote_count":44},{"adult":false,"backdrop_path":"/yY35sdVZtJXjeBONWH8HBXnxDgD.jpg","genre_ids":[16,35,12,10751,10402,14],"id":508442,"original_language":"en","original_title":"Soul","overview":"Joe
+        Gardner is a middle school teacher with a love for jazz music. After a successful
+        gig at the Half Note Club, he suddenly gets into an accident that separates
+        his soul from his body and is transported to the You Seminar, a center in
+        which souls develop and gain passions before being transported to a newborn
+        child. Joe must enlist help from the other souls-in-training, like 22, a soul
+        who has spent eons in the You Seminar, in order to get back to Earth.","popularity":48.799,"poster_path":"/hm58Jw4Lw8OIeECIq5qyPYhAeRJ.jpg","release_date":"2020-12-25","title":"Soul","video":false,"vote_average":0,"vote_count":0},{"adult":false,"backdrop_path":"/zDk9q66EpQoPQEVlcy3I4i41gFt.jpg","genre_ids":[18,878,14],"id":614911,"original_language":"en","original_title":"The
+        Midnight Sky","overview":"A lone scientist in the Arctic races to contact
+        a crew of astronauts returning home to a mysterious global catastrophe.","popularity":44.063,"poster_path":"/51JxCk77ZCqLzbLkrDl9Qho6KUh.jpg","release_date":"2020-12-09","title":"The
+        Midnight Sky","video":false,"vote_average":0,"vote_count":0},{"adult":false,"backdrop_path":"/i923BqvEsa3OR3GntqoJR763mbg.jpg","genre_ids":[53,10749,18],"id":721625,"original_language":"en","original_title":"Songbird","overview":"During
+        a pandemic lockdown, Nico, a young man with rare immunity, must overcome martial
+        law, murderous vigilantes and a powerful family to reunite with his love -
+        Sara.","popularity":61.229,"poster_path":"/41Goqxf3AnElzsEQnR9X8syZYFC.jpg","release_date":"2020-12-10","title":"Songbird","video":false,"vote_average":0,"vote_count":0},{"adult":false,"backdrop_path":"/h2BMwvsKXFjihRloFnOWeFds7u2.jpg","genre_ids":[53,9648,27],"id":716703,"original_language":"en","original_title":"What
+        Lies Below","overview":"Liberty, a socially awkward 16-year-old, returns from
+        two months at camp to a blindsided introduction of her mother’s fiancé, John
+        Smith, whose charm, intelligence, and beauty paint the picture of a man too
+        perfect to be human.","popularity":31.896,"poster_path":"/yQC63xosCxGsMw2gVbSxvRNY018.jpg","release_date":"2020-12-17","title":"What
+        Lies Below","video":false,"vote_average":0,"vote_count":0},{"adult":false,"backdrop_path":"/xXS8kRiierndO1Cbm18FcOEFPlc.jpg","genre_ids":[53],"id":549514,"original_language":"en","original_title":"Fatale","overview":"A
+        married man is tricked into a murder scheme by a female police detective.","popularity":30.445,"poster_path":"/yJK5otnFkbNn6oHV1APSoXUiDSH.jpg","release_date":"2020-12-18","title":"Fatale","video":false,"vote_average":0,"vote_count":0}],"total_pages":16,"total_results":304}'
+  recorded_at: Thu, 10 Dec 2020 03:59:04 GMT
 recorded_with: VCR 6.0.0
