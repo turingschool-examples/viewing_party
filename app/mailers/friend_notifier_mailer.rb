@@ -5,9 +5,9 @@ class FriendNotifierMailer < ApplicationMailer
     @viewing = info[:viewing]
     @host = @users.select { |u| u[:hosting] }.first[:user]
     mail(
-      reply_to: @host.email,
-      to: @recipients.join(', '),
-      subject: "#{@host.username} is sending you viewing party details"
+        reply_to: @host.email,
+        to: @recipients.join(', '),
+        subject: "#{@host.username} has invited you to watch #{@viewing.movie.title}"
     )
   end
 
