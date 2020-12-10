@@ -60,8 +60,11 @@ Rails 5.2.4.3
 ## Screenshots
 
 ![image](https://user-images.githubusercontent.com/66448493/101707913-72eb9f00-3a49-11eb-9cec-ca1effb2a7d0.png)
+===
 ![image](https://user-images.githubusercontent.com/66448493/101708358-500dba80-3a4a-11eb-9eac-e47814ef06e0.png)
+===
 ![image](https://user-images.githubusercontent.com/66448493/101708212-08872e80-3a4a-11eb-81b5-d7babcd4de84.png)
+===
 ![image](https://user-images.githubusercontent.com/66448493/101708437-77fd1e00-3a4a-11eb-969f-affe6b13ff7f.png)
 
 
