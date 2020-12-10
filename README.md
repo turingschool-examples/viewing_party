@@ -14,29 +14,31 @@ Viewing Party is a Ruby on Rails application that allows users to explore movie 
 
 *Screenshot placeholder*
 
+## Heroku
+
+https://agile-retreat-25350.herokuapp.com/
+
+## Requirements
+ ### Testing Dependencies
+  * This app utilizes `gem mailcatcher` to test functionality of mailing system
+  * This app utilizes `gem rack_session_access ` to emulate user sessions
+  * This app utilizes `gem webmock` and `gem vcr` to handle and reduce API calls - VCR casettes should be deleted prior to running rspec for the first       time.
+  * capybara, rspec-rails, launchy, simplecov, should-matchers, factory_bot_rails
+  
+ ### Development Dependencies
+  * rubocop-rails
+
 ## How to Install Viewing Party
-<h3>Prerequisites:</h3>
-  <ul>
-    <li>Ruby 2.5.3</li>
-    <li>Rails 5.2.4.3</li>
-  </ul>
-<h3>Instructions</h3>
-<ol>
-  <li>Fork the repository
-  <li>Clone your fork
-  <li>Install gem packages and setup the database from the command line:
-      <ul>
-        <li>
-         
-`bundle install`
-        <li>
-  
-`rails db:{create,migrate}`
-      </ul>
-  <li>
-  
-  `bundle exec rspec` to run the test suite
-</ol>
+1. Fork and Clone the repo
+2. Install gem packages: `bundle install`
+3. Setup the database: `rails db:{drop,create,merge}`
+4. Delete root/spec/fixtures/vcr_cassettes
+5. obtain and API key from https://www.themoviedb.org/
+6. In CLI run `figaro install`
+7. navigate to config/application.yml and open in your preferred editor.
+8. create a variable at the end of the document called TMDB_API_KEY: <Your API Key Here>
+9. Run Test suite with `bundle exec rspec`. There should be 61 passing tests
+10. Run your development server with `rails s`. Visit [localhost:3000/merchants](http://localhost:3000/merchants) to see the app in action.
 
 <h3>Dev Environment</h3>
 
@@ -54,3 +56,6 @@ The development environment is run with `rails s` and can be viewed at **localho
 ## Statistics
    ![](https://img.shields.io/badge/Rails-5.2.4-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a) ![](https://img.shields.io/badge/Code-Ruby-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)   ![](https://img.shields.io/badge/Code-HTML-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a) ![](https://img.shields.io/badge/Code-CSS-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)
 
+## Schema Design
+
+![image](https://user-images.githubusercontent.com/68167430/101729315-32a21600-3a75-11eb-86c2-55c246d448c7.png)
