@@ -81,19 +81,11 @@ given!(:user) {@user = create(:user)}
       find(:css, "#Friend_#{@friend_2.id}").set(true)
       find(:css, "#Friend_#{@friend_3.id}").set(true)
       click_on 'Create Viewing Party'
-      viewing = Viewing.last
+      expect(ActionMailer::Base.deliveries.count).to eq(1)
       email = ActionMailer::Base.deliveries.last
-      recipients = [@friend_1.email, @friend_2.email, @friend_3.email]
+      viewing = Viewing.last
       subject = "#{@user.username} has invited you to watch #{viewing.movie.title}"
-      expect(email.reply_to).to eq([@user.email])
-      expect(email.to).to eq(recipients)
-      expect(email.subject).to eq(subject)
-      expect(email.text_part.body.to_s).to include("#{viewing.movie.title} watch party:")
-      expect(email.text_part.body.to_s).to include("Starts: #{viewing.start_time}")
-      expect(email.text_part.body.to_s).to include("See you then!")
-      expect(email.html_part.body.to_s).to include("#{viewing.movie.title} watch party:")
-      expect(email.html_part.body.to_s).to include("Starts: #{viewing.start_time}")
-      expect(email.html_part.body.to_s).to include("See you then!")
+      expect(email.to.count).to eq(3)
     end
   end
 end
