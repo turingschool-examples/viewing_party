@@ -4,7 +4,7 @@ class Viewing < ApplicationRecord
   has_many :users, through: :guests
 
   validates :start_time, presence: true
-  validates :duration_of_party, numericality: { greater_than: 0 }
+  validates :duration_of_party, numericality: true
 
   def user_hosting?(user_id)
     guests.find_by(user_id: user_id).hosting
