@@ -66,17 +66,50 @@ RSpec.describe 'User Dashboard Page' do
       before :each do
         @friend_2 = @user.friends.create!(email: "Carson@example.com", password: "password")
         @friend_3 = @user.friends.create!(email: "Charlie@example.com", password: "password")
-        @friend.friends << @friend_2
-        @friend.friends << @friend_3
+        @friend_2.friends << @user
+        @friend_2.friends << @friend_3
 
-        @party = @user.parties.create!(movie_title: "The Godfather", duration: "155", day: "2020-12-17", start_time: "13:00")
-
+        @party_1 = @user.parties.create!(movie_title: "Some Like It Hot", duration: "189", day: "2022-2-28", start_time: "12:37")
+        Guest.create!(party_id: @party_1.id, user_id: @friend_2.id)
+        Guest.create!(party_id: @party_1.id, user_id: @friend_3.id)
       end
+
       it "I see viewing parties I am hosting" do
+        visit dashboard_path
+        within "#party-#{@party_1.id}" do
+          expect(page).to have_content("Some Like It Hot")
+          expect(page).to have_content("2/28/2022")
+          expect(page).to have_content("12:37 PM")
+          expect(page).to have_content("Hosting")
+        end
       end
 
       it "I see viewing parties I was invited to" do
+        click_on "Log Out"
 
+        fill_in :email, with: @friend_2.email
+        fill_in :password, with: @friend_2.password
+        click_button("Log In")
+
+        party_2 = @friend_2.parties.create!(movie_title: "The Godfather: Part II", duration: "300", day: "2025-7-2", start_time: "21:47")
+        Guest.create!(party_id: party_2.id, user_id: @user.id)
+        Guest.create!(party_id: party_2.id, user_id: @friend_3.id)
+
+        visit dashboard_path
+
+        within "#party-#{@party_1.id}" do
+          expect(page).to have_content("Some Like It Hot")
+          expect(page).to have_content("2/28/2022")
+          expect(page).to have_content("12:37 PM")
+          expect(page).to have_content("Invited")
+        end
+
+        within "#party-#{party_2.id}" do
+          expect(page).to have_content("The Godfather: Part II")
+          expect(page).to have_content("7/2/2025")
+          expect(page).to have_content("9:47 PM")
+          expect(page).to have_content("Hosting")
+        end
       end
     end
   end
