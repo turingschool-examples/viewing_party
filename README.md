@@ -65,8 +65,8 @@ https://github.com/Todd-Estes
 ## Screenshots
 
 ![image](https://user-images.githubusercontent.com/66448493/101707913-72eb9f00-3a49-11eb-9cec-ca1effb2a7d0.png)
-![image](https://user-images.githubusercontent.com/66448493/101707913-72eb9f00-3a49-11eb-9cec-ca1effb2a7d0.png)
-![image](https://user-images.githubusercontent.com/66448493/101707913-72eb9f00-3a49-11eb-9cec-ca1effb2a7d0.png))
+![image](https://user-images.githubusercontent.com/66448493/101708166-f4dbc800-3a49-11eb-9287-6b6bc3e3a468.png)
+![image](https://user-images.githubusercontent.com/66448493/101708212-08872e80-3a4a-11eb-81b5-d7babcd4de84.png)
 
 
 
