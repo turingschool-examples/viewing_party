@@ -1,25 +1,36 @@
 require "rails_helper"
 
-RSpec.describe Detail do
+RSpec.describe Review do
   it "exists" do
     attributes = {
-      original_title: "The Godfather: Part II",
-      runtime: 243,
-      vote_average: 10,
-      genres: ["Drama"],
-      overview: "DRAMMAAAHHH",
-      id: 240
+      total_results: 1,
+      results: [{
+        author: "John Author",
+        content: "Just watch it"
+      }]
     }
 
-    detail = Detail.new(attributes)
+    review = Review.new(attributes)
 
-    expect(detail).to be_a Detail
-    expect(detail.title).to eq("The Godfather: Part II")
-    expect(detail.runtime).to eq(243)
-    expect(detail.vote_avg).to eq(10)
-    expect(detail.genres).to eq(["Drama"])
-    expect(detail.summary).to eq("DRAMMAAAHHH")
-    expect(detail.details_id).to eq(240)
-    expect(detail.details_id).to_not eq(241)
+    expect(review).to be_a Review
+    expect(review.total_results).to eq(1)
+    expect(review.author).to eq("John Author")
+    expect(review.content).to eq("Just watch it")
+  end
+
+  it "doesn't exist" do
+    attributes = {
+      total_results: 0,
+      results: [{
+        author: "John Author"
+      }]
+    }
+
+    review = Review.new(attributes)
+
+    expect(review).to be_a Review
+    expect(review.total_results).to eq(0)
+    expect(review.author).to eq("John Author")
+    expect(review.content).to eq("Unknown")
   end
 end
