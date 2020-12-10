@@ -23,7 +23,7 @@ https://github.com/Todd-Estes
 
 ## User Roles
 
-**Visitor** A visitor has the ability to keyword search for any film located on TheMovieDB.org, and they can also see the top 40 highest reviewed films located on the database, as well. Users can select an information page for any available film which includes the film's title, genre info, cast, average review, number of reviews, and indivual reviewer information.
+**Visitor** - A visitor has the ability to keyword search for any film located on TheMovieDB.org, and they can also see the top 40 highest reviewed films located on the database, as well. Users can select an information page for any available film which includes the film's title, genre info, cast, average review, number of reviews, and indivual reviewer information.
 
 **Registered User** - A registerd user has all of the capabilities of a regular visitor, with the additional abilities of searching and befriending other registered users and inviting them to scheduled viewing parties for any film on the database.
 
