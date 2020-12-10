@@ -4,14 +4,14 @@ class Party < ApplicationRecord
   has_many :users, through: :guests
 
   def convert_time
-    start_time.strftime("%l:%M %P")
-  end
-
-  def party_status
-      if user_id == user.id
-        "Hosting"
-      else
-        "Invited"
-      end
+    if !start_time.nil?
+      start_time.to_time.strftime("%l:%M %p")
     end
   end
+
+  def convert_date
+    if !day.nil?
+      day.strftime("%-m/%-d/%Y")
+    end
+  end
+end

@@ -4,19 +4,20 @@
   <%= text_field_tag :movie_title, @details[:title], readonly: true  %>
   <br>
   <%= label_tag :duration, 'Duration of Party' %>
-  <%= text_field_tag :duration, "#{@details[:runtime]}"%>
+  <%= text_field_tag :duration, "#{@details[:runtime]}" %>
   <br>
-  <%= label_tag :day, 'Day' %>
-  <%= date_field_tag :day %>
+  <section class="date-time-select">
+    <%= label_tag :day %>
+    <%= date_select("day", "event", order: [:day, :month, :year]) %>
   <br>
-  <%= label_tag :start_time, 'Start Time' %>
-  <%= time_field_tag :start_time %>
+    <%= label_tag :start_time, 'Start Time' %>
+    <%= time_select :start_time, 'method', {:default => {:hour => '10', minute: '30'}, ignore_date: true, ampm: true} %>
+  </section>
   <br>
-
   <% current_user.friends.each do |friend| %>
   <section id= "friend-<%= friend.id %>">
     <%= friend[:email] %>
-    <%= check_box_tag "friend", "#{friend[:id]}"  %>
+    <%= check_box_tag "friend_ids[]", "#{friend[:id]}"  %>
   </section>
   <% end %>
   <%= submit_tag "Create Party" %>

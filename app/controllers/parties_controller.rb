@@ -9,7 +9,19 @@ class PartiesController < ApplicationController
 
   def create
     user = User.find(current_user.id)
-    @party = user.parties.create!(user_id: user.id, movie_title: params[:movie_title], duration: params[:duration], day: params[:day], start_time: params[:start_time])
+    day = params[:day].values.join("/")
+    start_time = params[:start_time].values.join(":")
+
+    @party = Party.create!(
+      movie_title: params[:movie_title],
+      duration: params[:duration],
+      day: day,
+      start_time: start_time,
+      user_id: user.id
+    )
+
+    create_guests(@party)
+
     redirect_to dashboard_path
   end
 
@@ -17,6 +29,15 @@ class PartiesController < ApplicationController
   def conn
     Faraday.new("https://api.themoviedb.org") do |f|
       f.params[:api_key] = ENV["MOVIE_SEARCH_API_KEY"]
+    end
+  end
+
+  def create_guests(party)
+    if !params[:friend_ids].nil?
+      party_guests = params[:friend_ids]
+      party_guests.each do |guest_id|
+        Guest.create!({party_id: party.id, user_id: guest_id.to_i})
+      end
     end
   end
 end

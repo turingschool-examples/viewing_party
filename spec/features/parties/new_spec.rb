@@ -8,6 +8,9 @@ RSpec.describe 'New Viewing Party Page' do
       @friend_2 = @user.friends.create!(email: "Carson@example.com", password: "password")
       @friend_3 = @user.friends.create!(email: "Charlie@example.com", password: "password")
 
+      @friend_2.friends << @user
+      @friend_2.friends << @friend_1
+
       visit root_path
 
       fill_in :email, with: @user.email
@@ -28,7 +31,7 @@ RSpec.describe 'New Viewing Party Page' do
       expect(current_path).to eq('/movies/240/party/new')
     end
 
-    xit 'I can fill out a form to create a new viewing party' do
+    it 'I can fill out a form to create a new viewing party' do
       visit "/movies/240"
 
       expect(page).to have_content("The Godfather: Part II")
@@ -38,26 +41,30 @@ RSpec.describe 'New Viewing Party Page' do
       expect(page).to have_selector("input[value='202']")
 
       fill_in :duration, with: "230"
-      # fill_in  :day, with: "2020-12-20"
-      # fill_in "Start Time", with: "13:00"
+      within ".date-time-select" do
+        select "2022", from: "day_event_1i"
+        select "February", from: "day_event_2i"
+        select "24", from: "day_event_3i"
+        select "02 PM", from: "start_time_method_4i"
+        select "35", from: "start_time_method_5i"
+      end
 
       within "#friend-#{@friend_1.id}" do
-        check("friend")
+        check("friend_ids[]")
       end
 
       within "#friend-#{@friend_2.id}" do
-        check("friend")
+        check("friend_ids[]")
       end
 
       click_on 'Create Party'
       expect(current_path).to eq(dashboard_path)
 
       party = Party.last
-
       within "#party-#{party.id}" do
         expect(page).to have_content("The Godfather: Part II")
-        # expect(page).to have_content("2020-12-20")
-        # expect(page).to have_content("1:00 pm")
+        expect(page).to have_content("2/24/2022")
+        expect(page).to have_content("2:35 PM")
         expect(page).to have_content("Hosting")
       end
     end
