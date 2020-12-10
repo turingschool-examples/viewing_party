@@ -29,25 +29,17 @@ https://github.com/Todd-Estes
 
 ## Learning Goals
 
-**Database**
+**Abstraction and Encapsulation**
 
--Created Schema
+-Created and utilized POROs, Facades, and Service Objects
 
--Designed One-to-Many, Many-to-Many Relationships
+**API Consumption** 
 
-**Active Record** 
+-Called and rendered data from multiple API endpoints
 
--Joined multiple tables of data
-
--Utilized queries to calulate and group data based on mulitple attributes
-
-**Authentication and Authorization**
-
--Namespaced Routes
+**Authentication**
 
 -Used Sessions for login/logout functionality
-
--Used Sessions for storing information
 
 -Limited functionality to authorized users
 
