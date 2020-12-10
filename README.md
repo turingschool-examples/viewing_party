@@ -1,32 +1,15 @@
+## Viewing Party
 
+Viewing Party in an application in which a user can access information about motion pictures from the database of TheMovieDB.org. By way of consuming various free API endpoints available on the TheMovieDB.org, Viewing Party can search for and render specific film information to users. Registered users can find other registered users and add them as friends. Registered users also have the ability to schedule and create a viewing party for any movie found on the database, and any friends of that user can be invited to the viewing party.
 
+Viewing Party is live and running @ https://guarded-refuge-05465.herokuapp.com
 
+## Group Members
+https://github.com/carson-jardine
 
+https://github.com/abcdefghijohn
 
-
-
-
-
-
-![alt text](https://user-images.githubusercontent.com/66448493/101704525-30729400-3a42-11eb-9614-2a2db85f750e.png)
-
-
-
-
-
-
-
-
-
-
-
-# Viewing Party
-
-This is the base repo for the [viewing party project](https://backend.turing.io/module3/projects/viewing_party) used for Turing's Backend Module 3.
-
-### About this Project
-
-Viewing party is an application in which users can explore movie options and create a viewing party event for the user and friend's.
+https://github.com/Todd-Estes
 
 ## Local Setup
 
@@ -34,11 +17,63 @@ Viewing party is an application in which users can explore movie options and cre
 2. Install gem packages: `bundle install`
 3. Setup the database: `rails db:create`
 
+## Schema
 
-## Versions
+![alt text](https://user-images.githubusercontent.com/66448493/101704525-30729400-3a42-11eb-9614-2a2db85f750e.png)
 
-- Ruby 2.5.3
+## User Roles
 
-- Rails 5.2.4.3
+**Visitor** A visitor has the ability to keyword search for any film located on TheMovieDB.org, and they can also see the top 40 highest reviewed films located on the database, as well. Users can select an information page for any available film which includes the film's title, genre info, cast, average review, number of reviews, and indivual reviewer information.
 
-Example wireframes to follow are found [here](https://backend.turing.io/module3/projects/viewing_party/wireframes)
+**Registered User** - A registerd user has all of the capabilities of a regular visitor, with the additional abilities of searching and befriending other registered users and inviting them to scheduled viewing parties for any film on the database.
+
+## Learning Goals
+
+**Database**
+
+-Created Schema
+
+-Designed One-to-Many, Many-to-Many Relationships
+
+**Active Record** 
+
+-Joined multiple tables of data
+
+-Utilized queries to calulate and group data based on mulitple attributes
+
+**Authentication and Authorization**
+
+-Namespaced Routes
+
+-Used Sessions for login/logout functionality
+
+-Used Sessions for storing information
+
+-Limited functionality to authorized users
+
+-Used BCrypt to hash user passwords
+
+**Rails**
+
+-Used filters in Rails controller (before_action)
+
+-Followed MVC principles
+
+-Utitlized and followed basic HTML and CSS conventions to render view templates
+
+
+## Screenshots
+
+![image](https://user-images.githubusercontent.com/66448493/98321252-d80f2900-1fa1-11eb-9117-f06573eb9ad0.png)
+
+
+
+
+
+
+
+
+
+
+
+
