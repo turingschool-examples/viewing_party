@@ -10,6 +10,27 @@ describe User, type: :model do
   describe 'relationships' do
     it { should have_many :friendships }
     it { should have_many(:friends).through(:friendships) }
+
+    it { should have_many :parties }
+    it { should have_many(:guests).through(:parties) }
+  end
+
+  describe 'instance methods' do
+    before :each do
+      @user = User.create!(email: "John@example.com", password: "password")
+      @friend_1 = @user.friends.create!(email: "Todd@example.com", password: "password")
+      @friend_2 = @user.friends.create!(email: "Carson@example.com", password: "password")
+      @friend_3 = @user.friends.create!(email: "Charlie@example.com", password: "password")
+      @party_1 = @user.parties.create!(user_id: @user.id, movie_title: "I am Movie", duration: "1hr 3mins", day: "2020-12-17", start_time: "13:00")
+      @party_2 = @user.parties.create!(user_id: @user.id, movie_title: "I am Movie: part II", duration: "1hr 3mins", day: "2020-12-18", start_time: "10:00")
+      @guest_1 = Guest.create(party_id: @party_1.id, user_id: @friend_1.id)
+    end
+    it '#invited_to' do
+      expect(@friend_1.invited_to).to eq([@party_1])
+    end
+    it '#all_parties' do
+      expect(@user.all_parties.count).to eq(2)
+    end
   end
 
   describe 'instance methods' do
