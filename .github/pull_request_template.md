@@ -1,9 +1,10 @@
-____ Wrote Tests ____ Implemented ____ Reviewed
+____ Wrote Tests 
+____ Implemented 
+____ Reviewed
 
 Neccesary checkmarks:
 
     [] All Tests are Passing
-
     [] The code will run locally
 
 Type of change
@@ -33,7 +34,3 @@ Checklist:
     [] I have reviewed my code
     [] I have commented my code, particularly in hard-to-understand areas
     [] I have fully tested my code
-
-(For Fun!)Please Include a link to a gif of your feelings about this branch
-
-Link:
