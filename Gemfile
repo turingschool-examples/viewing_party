@@ -17,6 +17,7 @@ gem 'bootsnap'
 gem 'jbuilder', '~> 2.5'
 gem 'rubocop', require: false
 gem 'bcrypt'
+gem 'faraday'
 
 group :development, :test do
   gem 'pry'
@@ -28,6 +29,7 @@ group :development, :test do
   gem 'launchy'
   gem 'orderly'
   gem "awesome_print", :require => "ap"
+  gem 'figaro'
 end
 
 group :development do
