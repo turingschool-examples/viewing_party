@@ -13,4 +13,5 @@ deploy:
   app: movie-viewing-party
   on:
     repo: RyanDBarnett/viewing_party
+    branch: main
   cleanup: 'true'
