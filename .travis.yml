@@ -8,6 +8,9 @@ script:
 - bundle exec rspec
 deploy:
   provider: heroku
-  api_key: 97516fcf-c0e1-4a50-bdb6-6cc8502ebb7c
-  app: https://movie-viewing-party.herokuapp.com/
-  run: rails db:migrate
+  api_key:
+    secure: byFpxUECwsJdtdVwhuy7sX554fzDOFQ9tFDgomA0DQwHpO7klD/uVStyy/hfUKAsiIRJ6gjq8Es/h5bD8hlC0lhkGH0iCmOluXfQM/XFuTqQ2tE/55iXdnZJWIr6ns1XMVObEJTArwqFjftMjTC36/6zMFCips37llvFp4MwiwuNm6tnZ7emXNLAF/no42gWYFhDuCr7XAvQO3w1g4zyW+IR7Z+26C0nSE8S/745Hca8qxK/Fc9RHWtuMlGhiTabQSZ+Ut3i2KXWFC343f8KhDeDX0A5DoKMlKTCIyelpu1rcRrr7fN8dvdhtVHX0CdmUvCNoe/hRQ0Cm+Woic6oYWamigBsChcAi8SaahSFLiICLXUEeEVUzlhW+1phhQWtlGcBG2ZLfz+YPIUNs7zIH9RBhsoC3MTTuwGvZtM2rdYE0ZvI5qT1TmsF3kb/8sTSZ5lMVElQ8gBLlv4HOGZlcGIbaf1bvfUYbdilaQRHggpNXHBAkyyBRq9eMY223xWA6NlaP0voPtJYPnodFlJXskyoz+NA+JluyeU3beNpNdajTcNHnQpwXUtF0cZDkcwD1tNo9Ge+VLwXGPbs3kS17M/3Q9+TkeCznYlmSlvTSOdGmKBW+nUFVYMsNCdpRi/t1MXTP96AhIrf4nKDOcldANndF7VrbpulVXslT/k60cg=
+  app: movie-viewing-party
+  on:
+    repo: RyanDBarnett/viewing_party
+  skip_cleanup: 'true'
