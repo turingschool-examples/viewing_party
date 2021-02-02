@@ -21,22 +21,19 @@ gem 'bcrypt'
 group :development, :test do
   gem 'pry'
   gem 'travis'
+  gem 'shoulda-matchers'
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'simplecov'
+  gem 'launchy'
+  gem 'orderly'
+  gem "awesome_print", :require => "ap"
 end
 
 group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'rubocop-rails'
-end
-
-group :test do
-  gem 'rspec-rails'
-  gem 'capybara'
-  gem 'simplecov'
-  gem 'launchy'
-  gem 'shoulda-matchers'
-  gem 'orderly'
-  gem "awesome_print", :require => "ap"
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
