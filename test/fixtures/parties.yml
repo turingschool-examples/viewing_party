@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  User: one
+  Movie: one
+  scheduled_date: 2021-02-02
+  start_time: 2021-02-02 14:13:47
+  duration: 1
+
+two:
+  User: two
+  Movie: two
+  scheduled_date: 2021-02-02
+  start_time: 2021-02-02 14:13:47
+  duration: 1
