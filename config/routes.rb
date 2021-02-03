@@ -9,5 +9,6 @@ Rails.application.routes.draw do
 
    get '/logout', to: 'sessions#destroy'
 
+   get '/dashboard', to: 'dashboard#index'
   #  post '/movies', to: 'moviedb#search'
 end
