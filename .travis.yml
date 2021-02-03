@@ -1,0 +1,18 @@
+language: ruby
+rbenv:
+- 2.5.3
+addons:
+  postgresql: 9.6
+script:
+- bundle exec rails db:{create,migrate} RAILS_ENV=test
+- bundle exec rspec
+deploy:
+  provider: heroku
+  api_key:
+    secure:
+      7fe81d3fdd1ac8de41052b96dae1614569455ee2
+  app: viuwu-ing-party
+  run: rails db:migrate
+  branch: main
+  notifications:
+  slack: newworkspace-wef9934:TQtIyKVZptjO3WGhvVWa2kVb
