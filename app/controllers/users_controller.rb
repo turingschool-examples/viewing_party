@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     user = user_params
     user[:email] = user[:email].downcase
     user[:name] = user[:name].downcase
-    new_user = User.create(user)
+    new_user = User.create!(user)
     flash[:success] = "Welcome, #{new_user.name}"
     redirect_to dashboard_path
   end

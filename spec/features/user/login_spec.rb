@@ -19,7 +19,7 @@ RSpec.describe 'User login' do
 
             #should go to dashboard
             expect(current_path).to eq(dashboard_path)
-            expect(page).to have_content("Welcome, #{user.email}")
+            expect(page).to have_content("Welcome, #{user.name}")
             expect(page).to have_link("Log out")
             expect(page).to_not have_link("Register Here")
             expect(page).to_not have_link("Log In")
@@ -27,8 +27,10 @@ RSpec.describe 'User login' do
             click_link 'Log out'
 
             expect(current_path).to eq(root_path)
-            expect(page).to have_link("Register as a User")
-            expect(page).to have_link("I have an account")
+
+            expect(page).to have_content('Log Out Successful')
+            expect(page).to have_link("Register Here")
+            expect(page).to have_link("Log In")
 
 
         end
