@@ -18,17 +18,20 @@ RSpec.describe 'welcome index page' do
       visit root_path
 
       expect(page).to have_button('Login')
-      ###need to add that it allows users to login
+
+      click_button 'Login'
+
+      expect(current_path).to eq(login_path)
     end
 
     it 'has a link to register' do
       visit root_path
 
-      expect(page).to have_link('Register Here')
+      expect(page).to have_link('Register')
 
-      click_link 'Register Here'
+      click_link 'Register'
 
-      expect(current_path).to eq(register_path)
+      expect(current_path).to eq(new_user_path)
     end
   end
 end
