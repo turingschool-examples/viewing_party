@@ -1,9 +1,9 @@
-class FriendshipController < ApplicationController
+class FriendshipsController < ApplicationController
 	before_action :find_friend, only: [:create]
 
 	def create
 		if @friend
-			Current.user.add_friend(friend)
+			Current.user.add_friend(@friend)
 			flash[:notice] = "Friend added successfully."
 		else
 			flash[:alert] = "Friend not found."
