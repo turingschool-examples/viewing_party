@@ -1,9 +1,10 @@
 <%= form_with model: @user, local: true do |form| %>
+  <%# binding.pry %>
   <%= form.label :email, 'Email:' %>
   <%= form.email_field :email %>
 
   <%= form.label :name, 'Name:' %>
-  <%= form.email_field :name %>
+  <%= form.text_field :name %>
 
   <%= form.label :password, 'Password:' %>
   <%= form.password_field :password %>

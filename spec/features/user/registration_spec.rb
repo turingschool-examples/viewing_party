@@ -13,6 +13,8 @@ RSpec.describe 'User Registration' do
             name = 'Buffy'
             password = 'turing123'
 
+            save_and_open_page
+
             fill_in :user_email, with: email
             fill_in :user_name, with: name
             fill_in :user_password, with: password

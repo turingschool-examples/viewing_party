@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'User login' do
     describe 'happy path' do
         it 'allows users to login' do
-            user = User.create(email: "buffyslayer@example.com", password: "test")
+            user = User.create(name: 'Buffy', email: "buffyslayer@example.com", password: "test")
 
             visit root_path
 
@@ -36,15 +36,16 @@ RSpec.describe 'User login' do
 
     describe 'sad path' do
         it 'block login if bad credentials' do
-            user = User.create(email: "funbucket13@example.com", password: "test")
+            user = User.create(name: 'Buffy', email: "buffyslayer@example.com", password: "test")
 
             visit root_path
 
-            click_link 'I have an account'
+            click_link 'Log In'
 
             expect(current_path).to eq(login_path)
 
             fill_in :email, with: user.email
+            fill_in :name, with: user.name
             fill_in :password, with: 'bad password'
 
             click_button 'Log In'
