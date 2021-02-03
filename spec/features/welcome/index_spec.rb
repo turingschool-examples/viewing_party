@@ -13,20 +13,12 @@ RSpec.describe('Welcome Page') do
       visit root_path
 
       expect(page).to have_button('Log In')
-
-      click_button 'Log In'
-
-      expect(current_path).to eq(login_path)
     end
 
     it 'should have a registration link that takes us to the registration page' do
       visit root_path
 
       expect(page).to have_link('Register Here')
-
-      click_link 'Register Here'
-
-      expect(current_path).to eq(new_user_path)
     end
   end
 end
