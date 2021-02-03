@@ -7,10 +7,10 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       # MISSING CODE?
       session[:user_id] = user.id
-      flash[:success]= "Welcome, #{user.name}"
+      flash[:success] = "Welcome, #{user.name}"
       redirect_to dashboard_path
     else
-      flash[:error] = "Your credentials are bad, and you should feel bad"
+      flash[:error] = 'Your credentials are bad, and you should feel bad'
       render :new
     end
   end
