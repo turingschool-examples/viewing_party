@@ -1,0 +1,10 @@
+<%= form_with model: @user, local: true do |form| %>
+    <% @user.errors.full_messages.each do |error| %>
+        <%= error %>
+    <% end %>
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+    <%= form.submit %>
+<% end %>
