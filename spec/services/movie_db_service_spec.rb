@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe MovieDbService do
   describe 'class methods' do
     it 'returns top 40 movies' do
+      
       search = MovieDbService.top_40_movies
 
       expect(search).to be_a Hash
