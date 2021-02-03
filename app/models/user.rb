@@ -11,4 +11,10 @@ class User < ApplicationRecord
 	before_save do
 		email.downcase!
 	end
+
+	def add_friend(friend)
+		Friendship.create(user_id: self.id, friend_id: friend.id)
+		Friendship.create(user_id: friend.id, friend_id: self.id)
+	end
+
 end
