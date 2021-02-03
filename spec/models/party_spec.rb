@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Party, type: :model do
+RSpec.describe Party do
   it {should validate_presence_of :movie}
   it {should validate_presence_of :start_time}
 
