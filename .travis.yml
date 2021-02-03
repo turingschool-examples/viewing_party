@@ -8,6 +8,9 @@ script:
 - bundle exec rspec
 deploy:
   provider: heroku
-  api_key: fdd93bce-1270-4388-a479-77831a64c123
-  app:
+  api_key:
+    secure: Z1PLdUi5N2T0MFw9jgs9me6Caa5xSwgWA1QhQ0ctHOrBwqNOpVDpss13IV8LFPR15CSUc+KH4Lcq3IlV0lXYHuLv6a9WLRYYBGjBPVKapwRi/zfI+w2dYbejDnKiYPAoWJ8c15QK4l85Bx74oYo53obGysw/bOSaPAVW0lNSc9iI0iVAxyrjic8SL67M6PFAQVrOmwznDxZU81pIXku1KRsQevdFXxK4Sap7gZLiTUtKvkYo3+4M1jS7sRO+RMLJsg9hTMsIGMJwBw+Yaiwj1ozKpHBBJaSmG47VlqzchOa64II78xUM0s4bj0y2OR6Mgzf3CkfkKrzPd0r/btPK7eehRJk8AWyyASMMq4eZS4LGfNzIp88UmsIb7Aek8eJnZeVep6ByqldRsQaFn4G8HCqsuNjq0+7Q3kxw4Jbc34rjzxhJDkphsa6/CxkS3y/ygvNusQzkHYkG+pNRML17JQKAp8P7bEe5CkMN0ttyFLFoghCB24eabll4mYZGSQ6pcKMEh3EI0BTnnnm1iJAztDTzg4QimmEc891V6VkE6dQo6aRNlx5SYaif1stXDKLX3elxeSISnCXdiFXntv4Kg9rD9q9sfRQzUAkMrGEVED4VKfz4q6CXZKFiSeKWEZE85HW51qEi1rpRKkmrgc8HmIqOM42bjVWA2rHsnKOEvbQ=
+  app: bloque-party
   run: rails db:migrate
+  on:
+    branch: main
