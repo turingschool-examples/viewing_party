@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 
    resources :users, only: [:new]
 
-   get '/login', to: 'users#login_form'
-   post '/login', to: 'users#login'
+   get '/login', to: 'sessions#new'
+   post '/login', to: 'sessions#create'
+
+   get '/logout', to: 'sessions#destroy'
+
+  #  post '/movies', to: 'moviedb#search'
 end
