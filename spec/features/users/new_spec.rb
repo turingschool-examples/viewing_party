@@ -22,6 +22,7 @@ RSpec.describe 'registration page' do
 
         fill_in 'user[email]', with: '1a'
         fill_in 'user[password]', with: 'password'
+        fill_in 'user[password_confirmation]', with: 'password'
 
         click_on 'Create User'
 
@@ -36,6 +37,18 @@ RSpec.describe 'registration page' do
         click_on 'Create User'
 
         expect(page).to have_content("Password can't be blank")
+      end
+
+      it 'requires matching passwords' do
+        visit new_user_path
+
+        fill_in 'user[email]', with: 'rob@me.com'
+        fill_in 'user[password]', with: 'password'
+        fill_in 'user[password_confirmation]', with: 'password confirmation'
+
+        click_on 'Create User'
+
+        expect(page).to have_content("Password confirmation doesn't match Password")
       end
     end
   end
