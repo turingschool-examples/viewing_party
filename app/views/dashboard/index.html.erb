@@ -1,1 +1,17 @@
 <h1>Welcome, <%= @user.email %></h1>
+
+<%= form_with(url: friendships_path, local: true) do |f| %>
+  <p>
+    <%= f.text_field :email, placeholder: "example@email.com" %>
+  </p>
+  <p>
+    <%= f.submit "Add Friend"%>
+  </p>
+<% end %>
+
+<%= link_to "Discover Movies", discover_path %>
+
+<h2>Friends</h2>
+<% @friends.each do |friend| %>
+  <%= friend.email %>
+<% end %>

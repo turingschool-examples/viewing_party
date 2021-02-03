@@ -1,6 +1,9 @@
 class DashboardController < ApplicationController
 
   def index
-    @user = User.find(session[:user_id])
+    @user = Current.user
+    @friends = Current.user.friends
+    @viewing_parties = Current.user.parties
   end
+
 end
