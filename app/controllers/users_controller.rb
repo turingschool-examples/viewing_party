@@ -9,7 +9,6 @@ class UsersController < ApplicationController
     user[:name] = user[:name].downcase
     new_user = User.create(user)
     flash[:success] = "Welcome, #{new_user.name}"
-    # require 'pry'; binding.pry
     redirect_to dashboard_path
   end
 

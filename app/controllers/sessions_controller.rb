@@ -3,7 +3,6 @@ class SessionsController < ApplicationController
   end
 
   def create
-    require 'pry'; binding.pry
     user = User.find_by(email: params[:email].downcase)
     if user && user.authenticate(params[:password])
       # MISSING CODE?
