@@ -35,7 +35,7 @@ describe "As a visitor" do
 				fill_in :password, with: "wrongpassword"
 
 				click_button "Log In"
-				save_and_open_page
+
 				expect(page).to have_content("Incorrect email or password.")
 			end
 		end
