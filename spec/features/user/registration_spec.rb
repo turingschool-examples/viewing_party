@@ -17,7 +17,7 @@ describe "Registration page" do
   end
 
   describe "sad path" do
-    describe "it keeps user on same page and displays error message when" do
+    describe "keeps user on same page and displays error message when" do
       before :each do
         @email = "me@example.com"
         @password = "Ilikedogs123"
