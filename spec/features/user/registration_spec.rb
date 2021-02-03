@@ -21,7 +21,7 @@ describe "Registration page" do
       before :each do
         @email = "me@example.com"
         @password = "Ilikedogs123"
-        visit "new_user_path"
+        visit new_user_path
       end
 
       it "there is no email" do
