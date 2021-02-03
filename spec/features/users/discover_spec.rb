@@ -5,8 +5,7 @@ RSpec.describe 'user can discover movies', type: :feature do
     it 'i see 40 movies on the discover page' do
       visit discover_path
 
-
-
+      expect(page).to have_content("20 Movies")
     end
   end
 end
