@@ -3,8 +3,6 @@ require 'rails_helper'
 RSpec.describe 'User Registration' do
     describe 'happy path' do
         it 'allows a user to register' do
-            user = User.create(name: 'Buffy', email: "buffyslayer@example.com", password: "test")
-
             visit root_path
 
             click_link 'Register Here'
