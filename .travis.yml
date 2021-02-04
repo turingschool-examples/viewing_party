@@ -13,7 +13,7 @@ deploy:
   app: viuwu-ing-party
   run: rails db:migrate
   branch: main
-  notifications:
-  slack: newworkspace-wef9934:TQtIyKVZptjO3WGhvVWa2kVb
-  on_success: always
-  on_failure: always
+notifications:
+  slack:
+    rooms:
+      secure: xEu69wgTLGVfaqqpZ7TZMcjoooQCr8agrTf4o+jbpMZcHhPQ5tbWp/WHOTwBeZWWy6CuydTIwZIj0cQxW1HsTTS9as9wZtfNbL1BemZLFieEnAMlQLNV8QPHHY5PZKRtlzkWyy+Fgyg55MZWHaCiUNpBA2LLk+HaRX5S44hlz5ZVqa2bW0zL+ibOPya4//LyDTuZ10KDrKgquxddcRDDf72HL0roTy6KTZKO6sILruNrzRXHjmiQs0NGn6/IjI2fUSOz1Y7BbaKB7wbBS4FdYS5ERr7+VGOJZcLKJaD54sOuW1ieYdrdW6Kp+/LgSPFbtfSC2TBoHvhgOkOIVMungT2CLeGrMhn2ECjOebMYXnVEpoK0/MtvMPWD2LBe6NwF3u3w/Uv+IVjXydY5GVFF5d672eY6HfyepXM3eqhJa1uxvS44rSKTjRP4QZoLUe213tS8CeHz0SCP8Zw9gbGlErKguksP44PJp8Vu5N5caz+bxvwnBO7tf6naLNy2NdzMv/jR5tGuBYr+cAB2JjwexrHnso2ZBZZN9s4np1n/A/QL9IfmmZki4ygEX4UfX+xZ17rShrEL8dzttZclVw3w/EslTo1McXjDeUGzKtFrIWiaG7MKWajXN1VP5dcBHEJWeT6DJE8QJyh6RwYs+whSWPaluVTC0FSel4rxUrGk1Mo=
