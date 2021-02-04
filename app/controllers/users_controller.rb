@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def create
     user = user_params
     user[:email] = user[:email].downcase
-    user[:name] = user[:name].downcase
+    user[:name] = user[:name]
     new_user = User.create!(user)
     session[:user_id] = new_user.id
     flash[:success] = "Welcome, #{new_user.name}"
