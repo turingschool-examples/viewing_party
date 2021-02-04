@@ -8,6 +8,9 @@
 
   <%= form.label :password, 'Password:' %>
   <%= form.password_field :password, id: :password %>
+  
+  <%= form.label :password_confirmation, 'Confirm Password:' %>
+  <%= form.password_field :password_confirmation, id: :password_confirmation %>
 
   <%= form.submit 'Create User' %>
 <% end %>
