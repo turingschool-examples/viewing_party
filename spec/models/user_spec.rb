@@ -9,5 +9,7 @@ RSpec.describe User do
 
     it {should have_many(:friendships)}
     it {should have_many(:friends).through(:friendships)}
+    it {should have_many(:viewers)}
+    it {should have_many(:parties).through(:viewers)}
   end
 end
