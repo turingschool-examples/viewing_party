@@ -1,13 +1,20 @@
 class UsersController < ApplicationController
   def new
-    # blank
+    @user = User.new
   end
 
-  def login_form
-    # blank
+  def create
+    user = user_params
+    user[:email] = user[:email].downcase
+    user[:name] = user[:name].downcase
+    new_user = User.create(user)
+    flash[:success] = "Welcome, #{new_user.name}"
+    redirect_to dashboard_path
   end
 
-  def login
-    # blank
+  private
+
+  def user_params
+      params.require(:user).permit(:email, :name, :password)
   end
 end

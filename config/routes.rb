@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
-  resources :users, only: [:new]
-  resources :movies, only: [:index]
-  
   root 'welcome#index'
-  get '/login', to: 'users#login_form'
-  post '/login', to: 'users#login'
+  
+  resources :movies, only: [:index]
+
+  resources :users, only: [:new, :create]
+
+  get '/dashboard', to: 'dashboard#index'
   get '/discover', to: 'discover#index'
+
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+
+  get '/logout', to: 'sessions#destroy'
 end
