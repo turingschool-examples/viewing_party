@@ -12,12 +12,10 @@ RSpec.describe 'User login' do
             expect(current_path).to eq(login_path)
 
             fill_in :email, with: user.email.upcase
-            fill_in :name, with: user.name.upcase
             fill_in :password, with: user.password
 
             click_button 'Log In'
 
-            #should go to dashboard
             expect(current_path).to eq(dashboard_path)
             expect(page).to have_content("Welcome, #{user.name}")
             expect(page).to have_link("Log out")
@@ -31,8 +29,6 @@ RSpec.describe 'User login' do
             expect(page).to have_content('Log Out Successful')
             expect(page).to have_link("Register Here")
             expect(page).to have_link("Log In")
-
-
         end
     end
 
