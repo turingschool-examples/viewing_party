@@ -2,7 +2,6 @@ class MovieDbService
   class << self
     def call_top_40_films
       response = get("&sort_by=popularity.desc&page=1")
-      require 'pry'; binding.pry
       parse_data(response)
     end
 
