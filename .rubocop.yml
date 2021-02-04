@@ -27,6 +27,9 @@ Style/ClassAndModuleChildren:
 Style/SafeNavigation:
   Enabled: false
 
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+
 Metrics/AbcSize:
   Enabled: false
 
