@@ -4,8 +4,8 @@ RSpec.describe "welcome page" do
   describe "happy path" do
     describe "as a user" do
       before do
-        @existing_user = User.create!({:email => "adam_smith@example.com", :password_digest => "supertopsecret1"})
-        @new_user = {:email => "johnny_doe@example.com", :password_digest => "supersecret123"}
+        @existing_user = User.create!({:email => "adam_smith@example.com", :password => "supertopsecret1"})
+        @new_user = {:email => "johnny_doe@example.com", :password => "supersecret123"}
         visit root_path
       end
       
@@ -34,7 +34,7 @@ RSpec.describe "welcome page" do
         end
 
         expect(current_path).to eq(root_path)
-
+save_and_open_page
         # add testing for post-login welcome page
       end
 
