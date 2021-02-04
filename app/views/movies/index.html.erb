@@ -1,1 +1,9 @@
-<h1><%= @movie.title %><h1>
+<h1>Movies</h1> <%= @movies.count %>
+<% @movies.each do |movie| %>
+  <li><%= movie.title %></li>
+<% end %>
+
+<h1>Top movies</h1> <%= @top_movies.count %>
+<% @top_movies.each do |movie| %>
+  <li><%= movie.title %></li>
+<% end %>
