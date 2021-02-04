@@ -8,7 +8,7 @@ script:
 - bundle exec rspec
 deploy:
   provider: heroku
-  api_key: TMD_api_key
+  api_key:
   app:
   run: rails db:migrate
   on:
