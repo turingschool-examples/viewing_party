@@ -3,11 +3,3 @@
 <p>
   For this project, you will be building an application to explore movies and create a viewing party event for you and your friends to watch a movie together. The application will require basic authentication.
 </p>
-
-<% if current_user %>
-  <%= link_to 'Log out', logout_path %>
-  <%= link_to 'Dashboard', dashboard_path%>
-<% else %>
-  <%= link_to 'Register Here', new_user_path %>
-  <%= link_to 'Log In', login_path %>
-<% end %>

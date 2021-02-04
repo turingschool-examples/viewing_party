@@ -1,5 +1,7 @@
 class WelcomeController < ApplicationController
   def index
-    # Empty
+    if current_user
+      redirect_to dashboard_path
+    end
   end
 end

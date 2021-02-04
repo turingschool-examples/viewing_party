@@ -1,13 +1,13 @@
 <%= form_with model: @user, local: true do |form| %>
 
   <%= form.label :email, 'Email:' %>
-  <%= form.email_field :email %>
+  <%= form.email_field :email, id: :email %>
 
   <%= form.label :name, 'Name:' %>
-  <%= form.text_field :name %>
+  <%= form.text_field :name, id: :name %>
 
   <%= form.label :password, 'Password:' %>
-  <%= form.password_field :password %>
+  <%= form.password_field :password, id: :password %>
 
   <%= form.submit 'Create User' %>
 <% end %>

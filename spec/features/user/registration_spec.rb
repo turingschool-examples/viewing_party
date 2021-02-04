@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'User Registration' do 
+RSpec.describe 'User Registration' do
     describe 'happy path' do
         it 'allows a user to register' do
             visit root_path
@@ -11,13 +11,11 @@ RSpec.describe 'User Registration' do
 
             email = 'buffyslayer@example.com'
             name = 'Buffy'
-            password = 'turing123'
+            password = 'test'
 
-            save_and_open_page
-
-            fill_in :user_email, with: email
-            fill_in :user_name, with: name
-            fill_in :user_password, with: password
+            fill_in :email, with: email
+            fill_in :name, with: name
+            fill_in :password, with: password
 
             click_button 'Create User'
 

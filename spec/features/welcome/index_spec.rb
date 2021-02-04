@@ -12,7 +12,7 @@ RSpec.describe('Welcome Page') do
     it 'should have a Log In button that takes us to the login form' do
       visit root_path
 
-      expect(page).to have_button('Log In')
+      expect(page).to have_link('Log In')
     end
 
     it 'should have a registration link that takes us to the registration page' do
