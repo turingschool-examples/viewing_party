@@ -26,6 +26,7 @@ describe "as a logged in user" do
 			visit dashboard_path
 
 			expect(page).to have_link("Discover Movies")
+
 			click_link "Discover Movies"
 			expect(current_path).to eq(discover_path)
 		end
