@@ -17,6 +17,8 @@ gem 'bootsnap'
 gem 'jbuilder', '~> 2.5'
 gem 'rubocop', require: false
 gem 'bcrypt'
+gem 'faraday'
+gem 'figaro'
 
 group :development, :test do
   gem 'pry'

@@ -1,0 +1,9 @@
+<h1><%= @films.count %> Movies</h1>
+
+<section class="section">
+  <% @films.each do |film| %>
+    <div>
+      <%= film.title %>
+    </div>
+  <% end %>
+</section>
