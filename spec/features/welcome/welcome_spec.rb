@@ -10,7 +10,6 @@ RSpec.describe "welcome page" do
       end
       
       it "has a welcome message and a brief description of the application" do
-        require 'pry'; binding.pry
         within('#welcome-banner-section') do
           expect(page).to have_content("Welcome to Viewing Party")
         end
