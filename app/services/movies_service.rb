@@ -1,8 +1,12 @@
 class MoviesService
+
   class << self
     def search_by_movie(movie)
-      response = conn.get("/3/search/movie?=&query=#{movie}")
-      parse_data(response)
+      prepare_json("/3/search/movie?=&query=#{movie}")
+    end
+
+    def top_rated_movies
+      prepare_json("/3/movie/top_rated")
     end
 
     private
@@ -16,6 +20,19 @@ class MoviesService
 
     def parse_data(response)
       JSON.parse(response.body, symbolize_names: true)
+    end
+
+    def prepare_json(path)
+      page = 1
+      array = []
+      2.times do
+        response = conn.get(path) do |req|
+          req.params[:page] = page
+          page += 1
+        end
+        array << parse_data(response)[:results]
+      end
+      array.flatten!
     end
   end
 end
