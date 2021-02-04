@@ -26,7 +26,9 @@ gem 'hirb', '~> 0.7.3'
 group :development, :test do
   gem 'pry'
   gem 'travis'
+
   gem 'shoulda-matchers', '~> 4.0'
+
 end
 
 group :development do
