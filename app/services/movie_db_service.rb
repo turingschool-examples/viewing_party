@@ -6,7 +6,7 @@ class MovieDbService
     end
 
     private
-    
+
     def get(query)
       conn.get("discover/movie?api_key=#{ENV['TMDB_API_KEY']}#{query}")
     end
