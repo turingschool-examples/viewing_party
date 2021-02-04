@@ -1,7 +1,9 @@
-<%= form_with model: @user do |f| %>
-  <%= f.label :email, "Email" %>
+<%= form_with url: login_path, local: true do |f| %>
+  <%= f.label :email, "Email:" %>
   <%= f.email_field :email %> <br/>
-  <%= f.label :password, "Password" %>
+  <%= f.label :password, "Password:" %>
   <%= f.password_field :password %> <br/>
   <%= f.submit "Log In" %>
 <% end %>
+
+<p><%= link_to "New to Viewing Party? Register Here", new_user_path %>
