@@ -23,6 +23,8 @@ gem 'mocha', '~> 1.12'
 gem 'mocha-on-bacon', '~> 0.2.3'
 gem 'hirb', '~> 0.7.3'
 
+gem 'figaro'
+
 group :development, :test do
   gem 'pry'
   gem 'travis'
