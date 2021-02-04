@@ -6,4 +6,5 @@ class MoviesController < ApplicationController
     @movies = MoviesFacade.get_movies(movie)
     @top_movies = MoviesFacade.get_top_movies
   end
+  
 end
