@@ -8,7 +8,6 @@ RSpec.describe('Dashboard') do
 
     it "should display 'Welcome <username>!' at the top of page" do
       skip
-
       expect(page).to have_content('Welcome Ryan!')
     end
 
