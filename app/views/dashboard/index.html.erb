@@ -1,5 +1,9 @@
 <h1>Hello again, <%= @user.email %></h1>
 
+<% if @friends == [] %>
+  <h3>You ain't got no friends.</h3>
+<% end %>
+
 <%= form_with(url: friendships_path, local: true) do |f| %>
 
   <div class="pt-5">
