@@ -5,13 +5,13 @@ RSpec.describe 'welcome index page' do
     it 'has a welcome message' do
       visit root_path
 
-      expect(page).to have_content("Welcome to the Viewing Party! Sign in or register!")
+      expect(page).to have_content("Welcome to Viewing Party")
     end
 
     it 'has a brief description of the application' do
       visit root_path
 
-      expect(page).to have_content("Find info about gnarly movies and create your own viewing parties!")
+      expect(page).to have_content("Search for Movie by Title or Movie ID")
     end
 
     it 'has a button to log in' do

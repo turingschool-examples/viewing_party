@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
 	post '/friendships', to: "friendships#create"
 
-	get '/discover', to: "movies#index"
+	get '/discover', to: "discover#index"
 
 	resources :users, only: [:new, :create]
 	resources :movies, only: [:index]
