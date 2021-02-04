@@ -1,12 +1,22 @@
 class MovieDbService
   class << self
-    def top_40_movies
-      response = conn.get("discover/movie?api_key=#{ENV["TMDB_API_KEY"]}&sort_by=popularity.desc&page=1")
-      json = JSON.parse(response.body, symbolize_names: true)
+    def call_top_40_films
+      response = get("&sort_by=popularity.desc&page=1")
+      require 'pry'; binding.pry
+      parse_data(response)
+    end
+
+    private
+    def get(query)
+      conn.get("discover/movie?api_key=#{ENV["TMDB_API_KEY"]}#{query}")
     end
 
     def conn
-      Faraday.new(url: 'https://api.themoviedb.org/3')
+      Faraday.new('https://api.themoviedb.org/3/')
+    end
+
+    def parse_data(response)
+      JSON.parse(response.body, symbolize_names: true)
     end
   end
 end

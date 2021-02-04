@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
   def index
-    @movies = MoviesFacade.movies
+    @films = MovieDbFacade.get_films
   end
 end
