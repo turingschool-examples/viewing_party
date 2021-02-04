@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe MovieDbFacade do
   it 'processes movie data and returns Movie objects' do
-    films = MovieDbFacade.discover_films
+    films = MovieDbFacade.discover_films(1)
 
     expect(films.count).to eq(20)
     films.each do |film|
