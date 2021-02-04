@@ -4,7 +4,7 @@ RSpec.describe MovieDbService do
   describe 'class methods' do
     it 'returns top 40 movies' do
       
-      search = MovieDbService.call_top_40_films
+      search = MovieDbService.call_top_films(1)
 
       expect(search).to be_a Hash
       expect(search[:results]).to be_an Array
