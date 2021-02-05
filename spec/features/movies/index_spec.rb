@@ -15,7 +15,7 @@ RSpec.describe 'movies index', type: :feature do
       it 'i see 40 movies' do
         visit movies_path
 
-        top_movies = MovieDbFacade.discover_films(1)
+        top_movies = MovieDbFacade.discover_films
         top_movie = top_movies.first
         last_movie = top_movies.last
 
@@ -65,7 +65,17 @@ RSpec.describe 'movies index', type: :feature do
         expect(current_path).to eq(movies_path)
         expect(page).to have_content('0 Movies')
       end
-    end
 
+      it 'redirects a user that is not signed in to the root path and gives a flash message' do
+        visit root_path
+        click_link 'Log out'
+        
+        visit movies_path
+        
+        expect(current_path).to eq(root_path)
+        expect(page).to have_content('Only users may see movies!')
+        save_and_open_page
+      end
+    end
   end
 end
