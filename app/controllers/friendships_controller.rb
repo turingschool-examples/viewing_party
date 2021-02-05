@@ -2,21 +2,22 @@ class FriendshipsController < ApplicationController
 	before_action :find_friend, only: [:create]
 
 	def create
-		if @friend && Friendship.find_by(friend_id: @friend.id)
-			flash[:notice] = "You're already friends."
-		elsif @friend
-			Current.user.add_friend(@friend)
-			flash[:notice] = "Friend added successfully."
+		if @friend
+			@friendship = Friendship.new(user_id: Current.user.id, friend_id: @friend.id)
+			if @friendship.save
+				redirect_to dashboard_path, notice: "Friend added successfully."
+			else
+				redirect_to dashboard_path, alert: "You're already friends with this person."
+			end
 		else
-			flash[:alert] = "Friend not found."
+			redirect_to dashboard_path, alert: "Invalid email."
 		end
-		redirect_to dashboard_path
 	end
 
 	private
 
 	def find_friend
-		@friend = User.find_by(email: params[:email])
+		@friend = User.find_by(email: params[:friendship][:email])
 	end
 
 end

@@ -2,5 +2,5 @@ class Friendship < ApplicationRecord
 	belongs_to :user
 	belongs_to :friend, class_name: 'User'
 
-	validates :friend_id, uniqueness: true, presence: true
+	validates_uniqueness_of :friend
 end

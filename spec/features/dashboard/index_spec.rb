@@ -20,15 +20,9 @@ describe "as a logged in user" do
 				 expect(page).to have_content("You ain't got no friends.")
 			end
 
-			it 'allows me to add friends' do
-				@user2 = User.create(email: "friend@me.com", password: "password")
-				@user3 = User.create(email: "otherfriend@me.com", password: "password")
-
-				fill_in :email, with: @user2.email
-				click_button 'Add Friend'
-
-				fill_in :email, with: @user3.email
-				click_button 'Add Friend'
+			it 'I can see my friends' do
+				@user2 = @user.friends.create(email: "friend@me.com", password: "password")
+			  @user3 = @user.friends.create(email: "otherfriend@me.com", password: "password")
 
 				expect(page).to have_content("Friends")
 				expect(page).to have_content(@user2.email)
