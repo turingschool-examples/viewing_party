@@ -16,7 +16,7 @@ class MovieDbService
         req.params['sort_by'] = 'popularity.desc'
         req.params['page'] = page
       end
-      JSON.parse(response.body, symbolize_names: true)
+      parse_data(response)
     end
     
     def search(query)
@@ -24,11 +24,15 @@ class MovieDbService
         req.params['api_key'] = ENV['TMDB_API_KEY']
         req.params['query'] = query
       end
-      JSON.parse(response.body, symbolize_names: true)
+      parse_data(response)
     end
 
     def conn
       Faraday.new('https://api.themoviedb.org/3/')
+    end
+
+    def parse_data(response)
+      JSON.parse(response.body, symbolize_names: true)
     end
   end
 end
