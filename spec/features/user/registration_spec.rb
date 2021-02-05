@@ -13,6 +13,9 @@ describe "Registration page" do
 
       expect(current_path).to eq(dashboard_path)
       expect(page).to have_content("Welcome, #{email}")
+      click_link "Log out"
+      expect(page).to have_content("You are now logged out.")
+      expect(current_path).to eq(root_path)
     end
   end
 
