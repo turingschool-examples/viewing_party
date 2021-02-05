@@ -1,11 +1,26 @@
 <%= button_to 'Discover Movies', discover_path, method: "get" %>
 
 <section class='friends'>
-  <h2>My Friends:</h2>
+  <h2>Add a Friend:</h2>
+  <%= form_with url: friendships_path, local: true do |form| %>
+    <%= form.label :email %>
+    <%= form.email_field :email %>
 
+    <%= form.submit 'Add Friend' %>
+  <% end %>
+
+  <h2>My Friends:</h2>
+  <% unless @current_user.friends.empty? %>
+    <ul>
+      <% @current_user.friends.each do |friend| %>
+        <li><%= friend.name %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>You currently have no friends</p>
+  <% end %>
 </section>
 
 <section class='viewing-parties'>
   <h2>My Viewing Parties:</h2>
-
 </section>
