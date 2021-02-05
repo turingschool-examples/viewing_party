@@ -1,8 +1,10 @@
 class Film
-  attr_reader :title,
+  attr_reader :id,
+              :title,
               :vote_average
 
   def initialize(attributes)
+    @id = attributes[:id]
     @title = attributes[:title]
     @vote_average = attributes[:vote_average]
   end
