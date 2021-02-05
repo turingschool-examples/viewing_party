@@ -12,6 +12,11 @@ class MovieDbFacade
 
     private
 
+    def get_movie_info(mdb_id)
+      json = MovieDbService.call_movie_info(mdb_id)
+      @film = Film.new(json)
+    end
+
     def create_films(json)
       json[:results].map do |film_data|
         Film.new(film_data)
