@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "welcome page" do
-  describe "happy path" do
+  describe "(happy path)" do
     describe "as a user" do
       before do
         @existing_user = User.create!({:email => "adam_smith@example.com", :password => "supertopsecret1", password_confirmation: "supertopsecret1"})
@@ -32,9 +32,6 @@ RSpec.describe "welcome page" do
         end
 
         expect(current_path).to eq(dashboard_path)
-
-        expect(page).to have_content("Discover Movies")
-        # add testing for post-login welcome page
       end
 
       it "has a link to the registration page" do
@@ -48,6 +45,6 @@ RSpec.describe "welcome page" do
   end
 
   describe "sad path" do
-
+    
   end
 end
