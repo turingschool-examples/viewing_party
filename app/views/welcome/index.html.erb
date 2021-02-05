@@ -1,9 +1,13 @@
-<h1>Welcome to Viewing Party</h1>
+<% if @user %>
+  <h1>Welcome to Viewing Party, User <%= "#{@user.id}" %>! </h1>
+  <%= link_to "Go to my dashboard", dashboard_path %>
+<% else %>
+  <h1>Welcome to Viewing Party</h1>
+  <section id="welcome-blurb-section">
+  <p>Hello there! Welcome to Viewing Party, a place friends to plan watch parties for all your favorite movies. We believe you're the customer, not the product! All of your data is stored securely and will never be sold. Let's get the show on the road!</p>
+  </section>
 
-<section id="welcome-blurb-section">
-<p>Hello there! Welcome to Viewing Party, a place friends to plan watch parties for all your favorite movies. We believe you're the customer, not the product! All of your data is stored securely and will never be sold. Let's get the show on the road!</p>
-</section>
-
-<section id="log-in-section">
-<%= render partial: "shared/login_form" %>
-</section>
+  <section id="log-in-section">
+  <%= render partial: "shared/login_form" %>
+  </section>
+<% end %>
