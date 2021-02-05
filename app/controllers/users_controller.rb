@@ -4,11 +4,15 @@ class UsersController < ApplicationController
   end
 
   def create
-    user_params[:email] = user_params[:email].downcase
-    if user_params[:password] != '' && user_params[:password] == user_params[:password_confirmation]
-      new_user = User.create(user_params)
+    user = user_params
+    user[:email] = user[:email].downcase
+    new_user = User.new(user)
+    # if User.exists?(email: user[:email])
+    #   flash[:error] = "User already exists."
+    #   render :new and return
+    # end
+    if new_user.save
       session[:user_id] = new_user.id
-      flash[:success] = "Welcome, #{new_user.name}"
       redirect_to dashboard_path
     else
       flash[:error] = 'Your credentials need soem work bruh'

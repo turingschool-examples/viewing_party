@@ -43,7 +43,6 @@ RSpec.describe 'User login' do
             expect(current_path).to eq(login_path)
 
             fill_in :email, with: user.email
-            fill_in :name, with: user.name
             fill_in :password, with: 'bad password'
 
             click_button 'Log In'

@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(email: params[:email].downcase)
     if user && user.authenticate(params[:password])
-      # MISSING CODE?
+      reset_session
       session[:user_id] = user.id
       flash[:success] = "Welcome, #{user.name}"
       redirect_to dashboard_path

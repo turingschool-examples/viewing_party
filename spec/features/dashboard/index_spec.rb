@@ -9,7 +9,6 @@ RSpec.describe('Dashboard') do
         visit login_path
 
         fill_in :email, with: @user.email.upcase
-        fill_in :name, with: @user.name.upcase
         fill_in :password, with: @user.password
 
         click_button 'Log In'
@@ -78,8 +77,18 @@ RSpec.describe('Dashboard') do
       end
 
       it 'should have a viewing parties section' do
+        movie1 = Movie.create(mdb_id: 'A123')
+        party1 = Party.create(movie: movie1, start_time: '2021-03-01 01:00:00 UTC')
+        viewer = Viewer.create(status: 'host', party: party1, user: @user)
+
+        visit dashboard_path
+
         expect(page).to have_content('My Viewing Parties:')
         expect(page).to have_selector("section[class='viewing-parties']")
+
+        # expect(page).to have_content("movie name from API")
+        expect(page).to have_content(party1.start_time)
+        expect(page).to have_content(viewer.status)
       end
 
       describe "when a user clicks the 'Discover Movies' button" do
