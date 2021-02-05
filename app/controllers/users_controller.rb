@@ -12,7 +12,6 @@ class UsersController < ApplicationController
     else
       flash[:error] = new_user.errors.full_messages * ",\n"
       render :new
-
     end
   end
 
