@@ -8,7 +8,13 @@ class MovieDbFacade
     json = MovieDbService.call_search_films(query)
     @films = create_films(json)
   end
-  
+
+  def self.get_movie_info(mdb_id)
+    json = MovieDbService.call_movie_info(mdb_id)
+    @film = Film.new(json)
+  end
+
+  #rubocop says private is 'useles' ... harsh
   private
 
   def self.create_films(json)

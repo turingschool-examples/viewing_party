@@ -24,6 +24,32 @@ RSpec.describe('Dashboard') do
         expect(page).to have_button('Discover Movies')
       end
 
+      it 'should display all of the users parties' do
+        movie1 = Movie.create(mdb_id: '10719')
+        party1 = Party.create(movie: movie1, start_time: '2021-03-01 01:00:00 UTC')
+        viewer1 = Viewer.create(status: 'host', party: party1, user: @user)
+        movie2 = Movie.create(mdb_id: '143569')
+        party2 = Party.create(movie: movie2, start_time: '2021-03-02 01:00:00 UTC')
+        viewer2 = Viewer.create(status: 'guest', party: party2, user: @user)
+
+        visit dashboard_path
+
+        expect(page).to have_content('My Viewing Parties:')
+        expect(page).to have_selector("section[class='viewing-parties']")
+        
+        within("#party-#{party1.id}") do
+          expect(page).to have_content("Elf")
+          expect(page).to have_content(party1.start_time)
+          expect(page).to have_content(viewer1.status)
+        end
+
+        within("#party-#{party2.id}") do
+          expect(page).to have_content("Elf-Man")
+          expect(page).to have_content(party2.start_time)
+          expect(page).to have_content(viewer2.status)
+        end
+      end
+
       it 'should have a friends section' do
         expect(page).to have_content('My Friends:')
         expect(page).to have_selector("section[class='friends']")
@@ -122,21 +148,6 @@ RSpec.describe('Dashboard') do
             end
           end
         end
-      end
-
-      it 'should have a viewing parties section' do
-        movie1 = Movie.create(mdb_id: 'A123')
-        party1 = Party.create(movie: movie1, start_time: '2021-03-01 01:00:00 UTC')
-        viewer = Viewer.create(status: 'host', party: party1, user: @user)
-
-        visit dashboard_path
-
-        expect(page).to have_content('My Viewing Parties:')
-        expect(page).to have_selector("section[class='viewing-parties']")
-
-        # expect(page).to have_content("movie name from API")
-        expect(page).to have_content(party1.start_time)
-        expect(page).to have_content(viewer.status)
       end
 
       describe "when a user clicks the 'Discover Movies' button" do
