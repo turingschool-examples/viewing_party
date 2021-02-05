@@ -7,3 +7,9 @@
 <% @top_movies.each do |movie| %>
   <li><%= movie.title %></li>
 <% end %>
+
+<h1>Reviews</h1>
+<% @reviews.each do |review| %>
+  <li><%= review.author %></li>
+  <li><%= review.content %></li>
+<% end %>
