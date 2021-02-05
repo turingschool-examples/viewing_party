@@ -1,8 +1,13 @@
 <h1>Hello again, <%= Current.user.email %></h1>
 
+
 <%= form_with(model: @friendship, local: true) do |f| %>
 
   <%= render partial: "shared/form_errors", locals: {f: f} %>
+
+<% if @friends == [] %>
+  <h3>You ain't got no friends.</h3>
+<% end %>
 
   <div class="pt-5">
     <h2>Add Friend</h2>

@@ -7,5 +7,4 @@ class DashboardController < ApplicationController
     @friends = Current.user.friends
     @viewing_parties = Current.user.parties
   end
-
 end
