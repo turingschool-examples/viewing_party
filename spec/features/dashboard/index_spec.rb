@@ -17,11 +17,8 @@ describe "as a logged in user" do
 			end
 
 			it 'I can see my friends' do
-				@user2 = User.create(email: "friend@me.com", password: "password")
-				@user3 = User.create(email: "otherfriend@me.com", password: "password")
-
-				@user.add_friend(@user2)
-				@user.add_friend(@user3)
+				@user2 = @user.friends.create(email: "friend@me.com", password: "password")
+			  @user3 = @user.friends.create(email: "otherfriend@me.com", password: "password")
 
 				visit dashboard_path
 

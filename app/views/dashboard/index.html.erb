@@ -1,10 +1,13 @@
-<h1>Hello again, <%= @user.email %></h1>
+<h1>Hello again, <%= Current.user.email %></h1>
+
+
+<%= form_with(model: @friendship, local: true) do |f| %>
+
+  <%= render partial: "shared/form_errors", locals: {f: f} %>
 
 <% if @friends == [] %>
   <h3>You ain't got no friends.</h3>
 <% end %>
-
-<%= form_with(url: friendships_path, local: true) do |f| %>
 
   <div class="pt-5">
     <h2>Add Friend</h2>
@@ -27,4 +30,4 @@
   <h2>Your Friends</h2>
 </div>
 
-<%= render @friends %>
+<%= render Current.user.friends %>
