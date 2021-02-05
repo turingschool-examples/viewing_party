@@ -1,6 +1,6 @@
 <h1><%= @films.count %> Movies</h1>
 
-<%= button_to 'Find Top Rated Movies', movies_path %>
+<%= button_to 'Find Top Rated Movies', movies_path, method: :get %>
 
 <section class="section" id="movie_search">
   <%= form_with url: movies_path, method: :get, local: true do |form| %>
