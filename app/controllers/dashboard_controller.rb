@@ -3,6 +3,7 @@ class DashboardController < ApplicationController
     return not_logged_in_notice unless current_user
 
     flash.now[:success] = "Welcome, #{current_user.name}"
+    current_user
   end
 
   private
