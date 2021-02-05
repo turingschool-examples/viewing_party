@@ -72,7 +72,7 @@ RSpec.describe 'movies index', type: :feature do
         visit movies_path
         
         expect(current_path).to eq(root_path)
-        expect(page).to have_content('Only users may see movies!')
+        expect(page).to have_content('Members only! Sign up or login to access that page.')
       end
     end
   end

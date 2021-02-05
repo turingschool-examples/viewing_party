@@ -33,5 +33,14 @@ RSpec.describe 'user can discover movies', type: :feature do
         expect(page).to_not have_content("Wonder Woman: 1984")
       end
     end
+
+    describe 'sad path' do
+      it 'non-users are redirected to rooth path and shown a flash message when they attempt to access discover page' do
+        visit discover_path
+
+        expect(current_path).to eq(root_path)
+        expect(page).to have_content("Members only! Sign up or login to access that page.")
+      end
+    end
   end
 end
