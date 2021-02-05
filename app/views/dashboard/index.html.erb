@@ -7,11 +7,15 @@
 
 <section class='viewing-parties'>
   <h2>My Viewing Parties:</h2>
-
-  <% current_user.parties.each do |party|%>
-    <%= party.start_time %>
-    <%# may be easier to add host_field to party, then do below%>
-    <%= party.viewers.find_by(user_id: current_user.id).status %>
+  <% unless current_user.parties.empty? %>
+  <ul>
+    <% current_user.parties.each do |party|%>
+      <%= party.start_time %>
+      <%# may be easier to add host_field to party, then do below%>
+      <%= party.viewers.find_by(user_id: current_user.id).status %>
+    <% end %>
+  </ul>
+  <% else %>
+    <p> You have no parties - host one! </p>
   <% end %>
-
 </section>
