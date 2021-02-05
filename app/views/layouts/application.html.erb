@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ViewingParty</title>
+    <title>Viewing Party</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -15,7 +15,7 @@
         <%= link_to "Log out", logout_path %><br>
         <p>Currently logged in as <%= current_user.email %></p>
       <% else %>
-        <%= link_to "Log in", login_path %>
+        <%= link_to "Log in", root_path %>
       <% end %>
       <% flash.each do |type, message| %>
         <li class="<%= type %>"><%= message %></li>
