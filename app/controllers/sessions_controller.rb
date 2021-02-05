@@ -6,8 +6,8 @@ class SessionsController < ApplicationController
       flash[:success] = "You are now logged in"
       redirect_to dashboard_path
     else
-      flash[:notice] = "Incorrect login"
-      render :new
+      flash[:error] = "Incorrect login"
+      redirect_to root_path
     end
   end
 
