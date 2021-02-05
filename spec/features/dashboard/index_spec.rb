@@ -67,6 +67,54 @@ RSpec.describe('Dashboard') do
           end
         end
 
+        describe 'friendship sad path' do
+          describe 'when I fill in the add friend form with an email that does not correspond to a user' do
+            it "I should see a notice that says 'Unable to find user with email: <email>'" do
+              wrong_email = 'wrong@email.com'
+
+              within '.friends' do
+                fill_in 'email', with: wrong_email
+
+                click_button 'Add Friend'
+              end
+
+              expect(page).to have_content("Failed Friend Request. Unable to find user with email: #{wrong_email}'")
+            end
+          end
+
+          describe 'when I fill in the add friend form with my own email' do
+            it "I should see a notice that says 'Failed Friend Request. Cannot Friend Yourself.'" do
+              within '.friends' do
+                fill_in 'email', with: @user.email
+
+                click_button 'Add Friend'
+              end
+
+              expect(page).to have_content("Failed Friend Request. Cannot Friend Yourself!")
+            end
+          end
+
+          describe "when I fill in the add friend form with a previously friended user's email" do
+            before :each do
+              @other_user = User.create(name: 'other', email: "otheruser@example.com", password: "otherpassword")
+
+              within '.friends' do
+                fill_in 'email', with: @other_user.email
+
+                click_button 'Add Friend'
+                
+                fill_in 'email', with: @other_user.email
+
+                click_button 'Add Friend'
+              end
+            end
+
+            it "I should see a notice that says 'Failed Friend Request. Already Friended User: <user name>'" do
+              expect(page).to have_content("Failed Friend Request. Already Friended User: #{@other_user.name}")
+            end
+          end
+        end
+
         describe 'if I have not added any friends' do
           it 'there should be a message "You currently have no friends"' do
             within '.friends' do
