@@ -1,6 +1,6 @@
 class MoviesController < ApplicationController
   def index
-    return redirect_to root_path, notice: 'Only users may see movies!' unless current_user
+    block_public_access
     if params[:search].present?
       @films = MovieDbFacade.search_films(params[:search])
     else
