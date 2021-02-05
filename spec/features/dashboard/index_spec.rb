@@ -30,6 +30,53 @@ RSpec.describe('Dashboard') do
         expect(page).to have_selector("section[class='friends']")
       end
 
+      describe 'inside the friends section' do
+        it "should have a text field to enter a friend's email" do
+          within '.friends' do
+            expect(page).to have_field("email")
+          end
+        end
+
+        it "should have a button to 'Add Friend'" do
+          within '.friends' do
+            expect(page).to have_button('Add Friend')
+          end
+        end
+
+
+        describe 'friendship happy path' do
+          describe "when I fill in the add friend form with a user's email and click 'Add Friend'" do
+            before :each do
+              @other_user = User.create(name: 'other', email: "otheruser@example.com", password: "otherpassword")
+
+              within '.friends' do
+                fill_in 'email', with: @other_user.email
+
+                click_button 'Add Friend'
+              end
+            end
+
+            it 'I should be redirected to my dashboard' do
+              expect(current_path).to eq(dashboard_path)
+            end
+
+            it "I should see my friend's name in my list of friends" do
+              within '.friends' do
+                expect(page).to have_content(@other_user.name)
+              end
+            end
+          end
+        end
+
+        describe 'if I have not added any friends' do
+          it 'there should be a message "You currently have no friends"' do
+            within '.friends' do
+              expect(page).to have_content('You currently have no friends')
+            end
+          end
+        end
+      end
+
       it 'should have a viewing parties section' do
         expect(page).to have_content('My Viewing Parties:')
         expect(page).to have_selector("section[class='viewing-parties']")
