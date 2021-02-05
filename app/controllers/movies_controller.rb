@@ -8,4 +8,8 @@ class MoviesController < ApplicationController
       @films << MovieDbFacade.discover_films(2)
     end.flatten!
   end
+
+  def show
+  end
+  
 end
