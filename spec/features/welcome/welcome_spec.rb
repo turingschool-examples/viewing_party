@@ -31,7 +31,7 @@ RSpec.describe "welcome page" do
           click_on "Log In"
         end
 
-        expect(current_path).to eq(root_path)
+        expect(current_path).to eq(dashboard_path)
 
         expect(page).to have_content("Discover Movies")
         # add testing for post-login welcome page
@@ -44,8 +44,10 @@ RSpec.describe "welcome page" do
 
         expect(current_path).to eq(new_user_path)
       end
-
-      it "logged in users see "
     end
+  end
+
+  describe "sad path" do
+
   end
 end
