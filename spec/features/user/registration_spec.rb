@@ -6,9 +6,9 @@ describe "Registration page" do
       email = "me@example.com"
       password = "Ilikedogs123"
       visit new_user_path
-      fill_in :user_email, with: email
-      fill_in :user_password, with: password
-      fill_in :user_password_confirmation, with: password
+      fill_in :"user[email]", with: email
+      fill_in :"user[password]", with: password
+      fill_in :"user[password_confirmation]", with: password
       click_button "Create Account"
 
       expect(current_path).to eq(dashboard_path)
@@ -25,30 +25,30 @@ describe "Registration page" do
       end
 
       it "there is no email" do
-        fill_in :user_email, with: ""
-        fill_in :user_password, with: @password
-        fill_in :user_password_confirmation, with: @password
+        fill_in :"user[email]", with: ""
+        fill_in :"user[password]", with: @password
+        fill_in :"user[password_confirmation]", with: @password
         click_button "Create Account"
 
-        expect(current_path).to eq(new_user_path)
+        expect(current_path).to eq(users_path)
       end
-
+      :"user[name]"
       it "there is no password" do
-        fill_in :user_email, with: @email
-        fill_in :user_password, with: ""
-        fill_in :user_password_confirmation, with: ""
+        fill_in :"user[email]", with: @email
+        fill_in :"user[password]", with: ""
+        fill_in :"user[password_confirmation]", with: ""
         click_button "Create Account"
 
-        expect(current_path).to eq(new_user_path)
+        expect(current_path).to eq(users_path)
       end
 
       it "passwords do not match" do
-        fill_in :user_email, with: @email
-        fill_in :user_password, with: @password
-        fill_in :user_password_confirmation, with: "Ilikecats123"
+        fill_in :"user[email]", with: @email
+        fill_in :"user[password]", with: @password
+        fill_in :"user[password_confirmation]", with: "Ilikecats123"
         click_button "Create Account"
 
-        expect(current_path).to eq(new_user_paths)
+        expect(current_path).to eq(users_path)
       end
     end
   end
