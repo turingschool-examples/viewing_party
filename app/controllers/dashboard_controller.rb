@@ -2,7 +2,7 @@ class DashboardController < ApplicationController
   def index
     return not_logged_in_notice unless current_user
 
-    flash[:success] = "Welcome, #{current_user.name}"
+    flash.now[:success] = "Welcome, #{current_user.name}"
   end
 
   private
