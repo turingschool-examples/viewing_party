@@ -26,6 +26,7 @@
   <% unless current_user.parties.empty? %>
   <ul>
     <% current_user.parties.each do |party|%>
+      <%= MovieDbFacade.get_movie_info(party.movie.mdb_id).title%>
       <%= party.start_time %>
       <%# may be easier to add host_field to party, then do below%>
       <%= party.viewers.find_by(user_id: current_user.id).status %>
