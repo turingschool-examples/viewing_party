@@ -17,7 +17,7 @@ describe "As a visitor" do
 
 				click_button "Log In"
 
-				expect(current_path).to eq(root_path)
+				expect(current_path).to eq(dashboard_path)
 				expect(page).to have_content("Welcome #{@user.email}")
 			end
 		end

@@ -3,7 +3,7 @@
 <% if @friends == [] %>
   <h3>You ain't got no friends.</h3>
 <% end %>
-
+<% #binding.pry %>
 <%= form_with(url: friendships_path, local: true) do |f| %>
 
   <div class="pt-5">

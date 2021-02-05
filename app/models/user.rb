@@ -16,5 +16,4 @@ class User < ApplicationRecord
 		Friendship.create(user_id: self.id, friend_id: friend.id)
 		Friendship.create(user_id: friend.id, friend_id: self.id)
 	end
-
 end
