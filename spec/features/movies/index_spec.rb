@@ -56,6 +56,15 @@ RSpec.describe 'movies index', type: :feature do
         expect(current_path).to eq(movies_path)
         expect(page).to have_content('40 Movies')
       end
+
+      it 'returns 0 movies when no matches exist' do
+        visit movies_path
+
+        fill_in :search, with: 'sdkfjaksdjf'
+
+        expect(current_path).to eq(movies_path)
+        expect(page).to have_content('0 Movies')
+      end
     end
 
   end
