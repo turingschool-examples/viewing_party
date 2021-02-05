@@ -10,6 +10,17 @@
 
   <body>
     <main>
+      <ul>
+      <% if current_user %>
+        <%= link_to "Log out", logout_path %><br>
+        <p>Currently logged in as <%= current_user.email %></p>
+      <% else %>
+        <%= link_to "Log in", login_path %>
+      <% end %>
+      <% flash.each do |type, message| %>
+        <li class="<%= type %>"><%= message %></li>
+      <% end %>
+      </ul>
       <%= yield %>
     </main>
     <footer>
