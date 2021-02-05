@@ -10,9 +10,7 @@ RSpec.describe "welcome page" do
       end
       
       it "has a welcome message and a brief description of the application" do
-        within('#welcome-banner-section') do
-          expect(page).to have_content("Welcome to Viewing Party")
-        end
+        expect(page).to have_content("Welcome to Viewing Party")
   
         within('#welcome-blurb-section') do
           expect(page).to have_content("Hello there! Welcome to Viewing Party, a place friends to plan watch parties for all your favorite movies. We believe you're the customer, not the product! All of your data is stored securely and will never be sold. Let's get the show on the road!")
@@ -34,7 +32,8 @@ RSpec.describe "welcome page" do
         end
 
         expect(current_path).to eq(root_path)
-save_and_open_page
+
+        expect(page).to have_content("Discover Movies")
         # add testing for post-login welcome page
       end
 
@@ -45,6 +44,8 @@ save_and_open_page
 
         expect(current_path).to eq(new_user_path)
       end
+
+      it "logged in users see "
     end
   end
 end
