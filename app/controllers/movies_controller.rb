@@ -1,6 +1,6 @@
 class MoviesController < ApplicationController
   def index
-    if params[:search]
+    if params[:search].present?
       @films = MovieDbFacade.search_films(params[:search])
     else
       @films = []
