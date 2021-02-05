@@ -9,6 +9,11 @@ class MoviesService
       prepare_json("/3/movie/top_rated")
     end
 
+    def retrieve_review(movie_id)
+      response = conn.get("/3/movie/#{movie_id}/reviews")
+      parse_data(response)
+    end
+
     private
     
     def conn
