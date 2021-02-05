@@ -4,16 +4,14 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = user_params
-    user[:email] = user[:email].downcase
-    # @new_user = User.new(user)
-    if user[:password] != "" && user[:password] == user[:password_confirmation]
-      new_user = User.create(user)
+    user_params[:email] = user_params[:email].downcase
+    if user_params[:password] != '' && user_params[:password] == user_params[:password_confirmation]
+      new_user = User.create(user_params)
       session[:user_id] = new_user.id
       flash[:success] = "Welcome, #{new_user.name}"
       redirect_to dashboard_path
     else
-      flash[:error] = "Your credentials need soem work bruh"
+      flash[:error] = 'Your credentials need soem work bruh'
       redirect_to new_user_path
     end
   end
