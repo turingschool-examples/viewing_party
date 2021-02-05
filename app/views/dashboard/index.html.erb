@@ -27,10 +27,9 @@
   <ul>
     <% current_user.parties.each do |party|%>
       <div id="party-<%= party.id %>">
-        <%= MovieDbFacade.get_movie_info(party.movie.mdb_id).title%>
+        <%= party.movie_title %>
         <%= party.start_time %>
-        <%# may be easier to add host_field to party, then do below%>
-        <%= party.viewers.find_by(user_id: current_user.id).status %>
+        <%= party.viewer_status(current_user.id) %>
       </div>
     <% end %>
   </ul>

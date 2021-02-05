@@ -22,14 +22,14 @@ class MovieDbService
     end
 
     def discover(page)
-      response = conn.get("discover/movie") do |req|
+      response = conn.get('discover/movie') do |req|
         req.params['api_key'] = ENV['TMDB_API_KEY']
         req.params['sort_by'] = 'popularity.desc'
         req.params['page'] = page
       end
       JSON.parse(response.body, symbolize_names: true)
     end
-    
+
     def search(query)
       response = conn.get('search/movie') do |req|
         req.params['api_key'] = ENV['TMDB_API_KEY']
