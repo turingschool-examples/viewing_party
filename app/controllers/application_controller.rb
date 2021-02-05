@@ -8,6 +8,6 @@ class ApplicationController < ActionController::Base
   end
 
   def block_public_access
-    return redirect_to root_path, notice: 'Only users may see that!' unless current_user
+    return redirect_to root_path, notice: 'Members only! Sign up or login to access that page.' unless current_user
   end
 end
