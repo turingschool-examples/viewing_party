@@ -14,5 +14,4 @@ class User < ApplicationRecord
 	before_save do
 		email.downcase!
 	end
-
 end
