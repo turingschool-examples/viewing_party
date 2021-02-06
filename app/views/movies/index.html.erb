@@ -1,15 +1,30 @@
-<h1>Movies</h1> <%= @movies.count %>
-<% @movies.each do |movie| %>
-  <li><%= movie.title %></li>
+<% if params[:top_movies] %>
+  <h1>Movies - Top 40</h1>
+<% else %>
+  <h1>Movies - <%= params[:movie_name] %> </h1>
 <% end %>
 
-<h1>Top movies</h1> <%= @top_movies.count %>
-<% @top_movies.each do |movie| %>
-  <li><%= movie.title %></li>
-<% end %>
+<%= render partial: "shared/search" %>
 
-<h1>Reviews</h1>
-<% @reviews.each do |review| %>
-  <li><%= review.author %></li>
-  <li><%= review.content %></li>
-<% end %>
+<h2>Total Results: <%= @movies.count %></h2>
+
+<div class="row row-cols-1 row-cols-md-3 mb-5">
+  <% @movies.each do |movie| %>
+    <div class="mb-4 col-md-4">
+      <div class="card h-100">
+        <% unless movie.poster.nil? %>
+          <%= image_tag movie.render_image, class: 'card-img-top', width: "412" %>
+        <% end %>
+        <div class="card-body">
+          <h3 class="card-title"><%= movie.title %></h3>
+          <p class="card-text"><%= movie.overview %></p>
+        </div>
+        <div class="card-footer d-grid gap-2">
+          <%= link_to "View", movie_path(movie.id), class: 'btn btn-outline-primary stretched-link' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%= render partial: "shared/back" %>
