@@ -19,5 +19,11 @@ describe MoviesFacade do
 
     expect(lion_king).to be_an_instance_of(Film)
   end
-end
 
+  it 'can return multiple results from one movie query search', :vcr do
+    movies_facade = MoviesFacade.get_movies("Pulp Fiction")
+
+    expect(movies_facade.count).to eq(6)
+    expect(movies_facade.first).to be_an_instance_of(Film)
+  end
+end
