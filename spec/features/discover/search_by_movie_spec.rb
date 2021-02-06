@@ -8,16 +8,6 @@ describe "as a logged in user" do
 		end
 
     it 'I can search for mvies by title', :vcr do
-      # json_response = File.open("./spec/fixtures/pulp_fiction_movie_search_query.json")
-      # stub_request(:get, "https://api.themoviedb.org/3/search/movie?api_key=f54bbd3f0b8d80da437d651c3c2f00b1&page=1&query=Pulp%20Fiction").
-      #    with(
-      #     headers: {
-      #  	  'Accept'=>'*/*',
-      #  	  'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-      #  	  'User-Agent'=>'Faraday v1.0.1'
-      #      }).
-      #    to_return(status: 200, body: json_response)
-
       visit discover_path
 
       fill_in :movie_name, with: "Pulp Fiction"
@@ -32,6 +22,40 @@ describe "as a logged in user" do
       expect(page).to have_content("Pulp fiction art")
       expect(page).to have_content("Pulp fiction: the golden age of storytelling")
       expect(page).to have_content("fotv presents: pulp fiction: the golden age of storytelling")
+    end
+
+    it 'I can see top rated movies by vote average', :vcr do
+
+      visit discover_path
+
+      click_button "Top Rated Movies"
+
+      expect(current_path).to eq(movies_path)
+
+      expect(page).to have_content("Total Results: 40")
+      
+      expect(page).to have_content("Gabriel's inferno part iii")
+      expect(page).to have_content("Gabriel's inferno part ii")
+      expect(page).to have_content("Wolfwalkers")
+      expect(page).to have_content("Dilwale dulhania le jayenge")
+      expect(page).to have_content("Gabriel's inferno")
+      expect(page).to have_content("The shawshank redemption")
+      expect(page).to have_content("The godfather")
+      expect(page).to have_content("Schindler's list")
+      expect(page).to have_content("Your name.")
+      expect(page).to have_content("Miraculous world: new york, united heroez")
+      expect(page).to have_content("The godfather: part ii")
+
+      # expect("Gabriel's inferno part iii").to appear_before("Gabriel's inferno part ii")
+      # expect("Gabriel's inferno part ii").to appear_before("Wolfwalkers")
+      # expect("Wolfwalkers").to appear_before("Dilwale dulhania le jayenge")
+      # expect("Dilwale dulhania le jayenge").to appear_before("Gabriel's inferno")
+      # expect("Gabriel's inferno").to appear_before("The shawshank redemption")
+      # expect("The shawshank redemption").to appear_before("The godfather")
+      # expect("The godfather").to appear_before("Schindler's list")
+      # expect("Schindler's list").to appear_before("Your name.")
+      # expect("Your name.").to appear_before("Miraculous world: new york, united heroez")
+      # expect("Miraculous world: new york, united heroez").to appear_before("The godfather: part ii")
     end
   end
 end
