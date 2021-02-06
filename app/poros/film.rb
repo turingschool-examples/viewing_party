@@ -11,6 +11,7 @@ class Film
 	            :reviews
 
 	def initialize(data, cast = nil, reviews = nil)
+		# require 'pry'; binding.pry
 		@id           = data[:id]
 		@title        = data[:title].capitalize
 		@vote_average = data[:vote_average]
