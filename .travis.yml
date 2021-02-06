@@ -8,7 +8,8 @@ script:
 - bundle exec rspec
 deploy:
   provider: heroku
-  api_key: f54bbd3f0b8d80da437d651c3c2f00b1
+  api_key:
+    secure: HQXH/fd3R6v95Y2FSVAkEmlQ7rjnwMH5ysfC3ysJM8Cnpkj2hJhKZGXm/Of7HFuClhfdu4uTmm6sSm9vzrHsmoqZGozVOgyneP6F3TAxXoIu9LwElpcgFaCHtb2oXp66FGc9yHQf7fMN1DWm3lTr2dEIRHy+de5wHoWbgmrMnBxVovNbnEP0gl/ksFQDwZqC5GIfHhlPXGhLaM1fdjIj/nr0H/gBnZvQBDW2PJTO8hXieJlih8ZEQq1pxpK64kCJ4TSFIV27IXtTyRHS6NQ8yMxJx1UWWUbOPvzfm+35VD/PUuewcdztLrkR4Czk5wEdp4GFt4xU3KUnclYwMW2VvELbcd1w90MC/5+GDX0C7cgpd0GcTgpAuzk0JXFwUxN03le7/vY7j0V+F+hrgVrN5NgrQ7D7+6KCOJLRYj3NfT2Zkwtgl992FQ0V8KqXJtVNQjxVHx1A3JJiUtEpfCsgSt1r5aO2uBKNouxQ/JoFVJ7l4QBdxJG0lX1wGrPEyz12Pdf/C7ahq2a4pD7pEJxcNcx+n+urSIG18CcB09TUDduTDP3Y/22a7N/ew3zwVBJcSVKuKHRNvDPPLRMSIkb7VJATbnJIaPdCiQyrLpL2uZbj4/0sQjOaGPw5bsn8K/aZ3kkE1QFQGdXr5wxtMuyxYmDkcEl4mKHCtJAJ1tSaJp8=
   app: viewing_party
   on:
     repo: foymikek/viewing_party
