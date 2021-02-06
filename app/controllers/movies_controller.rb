@@ -2,14 +2,18 @@ class MoviesController < ApplicationController
   before_action :require_user_logged_in!
 
   def index
-    movie = params[:movie]
-    @movies = MoviesFacade.get_movies(movie)
-    @top_movies = MoviesFacade.get_top_movies
-    @reviews = ReviewsFacade.get_reviews(movie)
+    if params[:movie_name].present?
+      @movies = MoviesFacade.get_movies(params[:movie_name])
+    elsif params[:top_movies]
+      @movies = MoviesFacade.get_top_movies
+    else
+      redirect_to discover_path
+      flash[:alert] = "Please enter a movie title"
+    end
   end
 
-# movie show, movie_id passed as argument via params
   def show
+    @movie = MoviesFacade.get_movie(params[:id])
   end
 
 end
