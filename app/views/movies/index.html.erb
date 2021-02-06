@@ -8,23 +8,23 @@
 
 <h2>Total Results: <%= @movies.count %></h2>
 
-<%# <div class="row row-cols-1 row-cols-md-3 mb-5"> %>
+<div class="row row-cols-1 row-cols-md-3 mb-5">
   <% @movies.each do |movie| %>
-    <%# <div class="mb-4 col-md-4"> %>
-      <%# <div class="card h-100"> %>
+    <div class="mb-4 col-md-4">
+      <div class="card h-100">
         <% unless movie.poster.nil? %>
           <%= image_tag movie.render_image, class: 'card-img-top', width: "412" %>
         <% end %>
-        <%# <div class="card-body"> %>
+        <div class="card-body">
           <h3 class="card-title"><%= movie.title %></h3>
           <p class="card-text"><%= movie.overview %></p>
-        <%# </div> %>
-        <%# <div class="card-footer d-grid gap-2"> %>
+        </div>
+        <div class="card-footer d-grid gap-2">
           <%= link_to "View", movie_path(movie.id), class: 'btn btn-outline-primary stretched-link' %>
-        <%# </div> %>
-      <%# </div> %>
-    <%# </div> %>
+        </div>
+      </div>
+    </div>
   <% end %>
-<%# </div> %>
+</div>
 
 <%= render partial: "shared/back" %>
