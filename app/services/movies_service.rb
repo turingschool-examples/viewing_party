@@ -1,5 +1,4 @@
 class MoviesService
-
   class << self
     def search_by_movie(movie)
       prepare_json("/3/search/movie?=&query=#{movie}")
@@ -9,8 +8,18 @@ class MoviesService
       prepare_json("/3/movie/top_rated")
     end
 
-    def retrieve_review(movie_id)
+    def find_movie(movie_id)
+      response = conn.get("/3/movie/#{movie_id}")
+      parse_data(response)
+    end
+
+    def retrieve_reviews(movie_id)
       response = conn.get("/3/movie/#{movie_id}/reviews")
+      parse_data(response)
+    end
+
+    def retrieve_cast(movie_id)
+      response = conn.get("/3/movie/#{movie_id}/credits")
       parse_data(response)
     end
 
@@ -19,7 +28,6 @@ class MoviesService
     def conn
       Faraday.new(url: "https://api.themoviedb.org") do |faraday|
           faraday.params['api_key'] = ENV["TMD_api_key"]
-          faraday.adapter Faraday.default_adapter
       end
     end
 
