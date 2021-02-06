@@ -6,11 +6,12 @@ addons:
 script:
 - RAILS_ENV=test bundle exec rake db:test:prepare --trace
 - bundle exec rspec
-deploy: 
+deploy:
   provider: heroku
-  api_key: TMD_api_key
+  api_key:
+    secure: ai3Hm4H8EkW5sGACxA6WvKmZhcrav84ZV6YRcv42a5LBfIWgXJ+N83DzSFcPjnkd6WvGKpoE1o4zMYO4046yoo5st46gUJ+zRkIQLhlEYsAqhEXpNb27gu5b4Ae0nTBVRhtfOTlLb+Tfnm8T1LTnPNkbqbGdrGjhFwky92qyFQgksoRahpQE+GUsYTiff7PUCENWMHl3qxpCmAbEKkWMAUNSxaY/L8VPWIixplNdIBlXjO5ZBXPNJXeKRqsLgvQCcLq8C4bGsmw8SSigT0rPd3vnZB60t6iMhNo2MSpTO8onP7RVQdsqGaabpx0jde+sEvqY3FfhypZi2EoPFmtiPTrk0oIdRApdtwpMPxvoOzn6DsoqUYAjH6QQQjtDYQ2nOakUoK7d8u7EOTXVPBHUHeXhR0srQg0k7QwNUe/WbXj4rnFBaMUIz/5gL8V4rjFRWhV5YQEYbr8GetH+rGg6WMqEdLIzIyL5VkCAudnfLg+i/Kif2o10SddyBb0lc0G+xpSX5PH5uIaa8l0g0uafTk9u4not+rdZJV4Bnx+Na/w0PX2p621tXJtRQOPBJCHtv+ZmWUJH4+LGwIlbQc9TcgF+hLyUGEZR3Q4WNSx8zq1CG7wdm83IFlBEoej9JhIFBMfceTX9qCOG70GF5Jqn9HOTCZZqlTO0C3F73KGpuNg=
   app: bloque-party
-  run: rails db:migrate
   on:
+    repo: foymikek/viewing_party
     branch: main
-  skip_cleanup: true 
+  skip_cleanup: 'true'
