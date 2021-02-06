@@ -4,11 +4,11 @@ RSpec.describe MovieDbService do
   describe 'class methods' do
     it 'returns top 40 movies' do
       
-      search = MovieDbService.call_top_films(1)
+      search = MovieDbService.call_top_films
 
       expect(search).to be_a Hash
       expect(search[:results]).to be_an Array
-      expect(search[:results].size).to eq(20) # Update to 40 when API call is edited
+      expect(search[:results].size).to eq(40)
 
       movie_data = search[:results].first
       

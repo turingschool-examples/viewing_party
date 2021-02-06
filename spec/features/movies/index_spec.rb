@@ -2,20 +2,16 @@ require 'rails_helper'
 
 RSpec.describe 'movies index', type: :feature do
   describe 'as a user' do
-    before(:each) do
-      @user = create(:user, email: 'test@email.com')
-      visit root_path
-      click_link('Log In')
-      fill_in :email, with: @user.email.upcase
-      fill_in :password, with: @user.password
-      click_button 'Log In'
-    end
-
     describe 'happy path' do
+      before(:each) do
+        @user = create(:user, email: 'test@email.com')
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+      end
+
       it 'i see 40 movies' do
         visit movies_path
 
-        top_movies = MovieDbFacade.discover_films(1)
+        top_movies = MovieDbFacade.discover_films
         top_movie = top_movies.first
         last_movie = top_movies.last
 
@@ -42,13 +38,16 @@ RSpec.describe 'movies index', type: :feature do
         end
 
         expect(page).to have_content("Elf")
-        expect(page).to have_content("Vote Average: 1")
+        expect(page).to have_content("Vote Average: 6.6")
         expect(page).to_not have_content("Wonder Woman: 1984")
       end
     end
 
     describe 'sad path' do
       it 'returns top movies if search field is submitted blank' do
+        @user = create(:user, email: 'test@email.com')
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+        
         visit movies_path
 
         fill_in :search, with: ''
@@ -58,6 +57,9 @@ RSpec.describe 'movies index', type: :feature do
       end
 
       it 'returns 0 movies when no matches exist' do
+        @user = create(:user, email: 'test@email.com')
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+        
         visit movies_path
 
         fill_in :search, with: 'sdkfjaksdjf'
@@ -65,7 +67,13 @@ RSpec.describe 'movies index', type: :feature do
         expect(current_path).to eq(movies_path)
         expect(page).to have_content('0 Movies')
       end
-    end
 
+      it 'redirects a user that is not signed in to the root path and gives a flash message', :skip_before do
+        visit movies_path
+        
+        expect(current_path).to eq(root_path)
+        expect(page).to have_content('Members only! Sign up or login to access that page.')
+      end
+    end
   end
 end
