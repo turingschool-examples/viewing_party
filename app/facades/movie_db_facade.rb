@@ -14,7 +14,8 @@ class MovieDbFacade
     @film = Film.new(json)
   end
 
-  #rubocop says private is 'useles' ... harsh
+  # rubocop:  private is 'useles' ... does not make singleton methods private. 
+  # Use private_class_method or private inside a class << self block instead.
   private
 
   def self.create_films(json)
