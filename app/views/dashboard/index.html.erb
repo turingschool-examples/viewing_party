@@ -1,4 +1,4 @@
-<h1>Hello again, <%= Current.user.email %></h1>
+<h1>Hello again, <%= @user.email %></h1>
 
 <%= form_with(model: @friendship, local: true) do |f| %>
 
@@ -25,4 +25,4 @@
   <h2>Your Friends</h2>
 </div>
 
-<%= render Current.user.friends %>
+<%= render @user.friends %>
