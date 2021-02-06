@@ -10,6 +10,8 @@ class MoviesController < ApplicationController
   end
 
   def show
+    movie_id = Movie.find_by_id(params[:id]).mdb_id
+    @movie = MovieDbFacade.get_movie_info(movie_id)
   end
-  
+
 end
