@@ -2,21 +2,8 @@
   <h1>Welcome to Viewing Party</h1>
 </div>
 
-<body>
-  <div align'"center class="search-box">
-    <div align="center" class="movie_title">
-      <h1>Search for Movie by Title or Movie ID</h1>
-    </div align="center">
+<div class="d-flex align-items-center justify-content-center">
+  <h1><%= link_to "Search", discover_path %> for Movie by Title or Movie ID</h1>
+</div>
 
-    <div align="center" class="movie-form">
-      <p>Search for a Movie by name or number:</p>
-      <%= form_tag movies_path, method: :get do %>
-        <div align="center" class="movie-search">
-          <%= text_field_tag :movie %>
-          <%= submit_tag "Search" %>
-        </div align="center">
-      <% end %>
-    </div align="center">
-  </div>
-</body>
 
