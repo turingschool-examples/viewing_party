@@ -11,6 +11,7 @@ deploy:
   api_key:
     secure: 0k3MDMbZWUAk8ZVclNevsY0Nhm1njiBMn6QxjynkH3u6RQDoWHdNnSaTG1fB1hqg4NRskF0NBhTrTg362rGp1FfaqC3KwRKa7tvEGs6hZWt9sHeWW+Vdvs4arHLuVMmACI97Yn/AXlp9bn6xIXpbhHjceDoRiWbuQ0YdTFYZMoi0C5mzu0S3QEfVo/dcTZCPeG64Vhm/AAVi3k8DIxLSETpcRBwssNsorZAw7n2qHkofm9VdLUvsrKRAuGH8e/h/c4wfJez+j5MWz+verdjkJ+qvQU54uagZRrZkeg3uRvL6LRfucC6AoyB+HP9Q0O5MdkhssPgqbzN3POmsO+L8zNvN+p/pHVF2go6imR9G6fF2JEq127EA1+g40sGRxvOzWP6kNIuREmWpOWLjmhU9XIqtt+/Lsk8D5wuixHE7N3wEufzWpVvjbH+UH6V698u/1ey01l+oNl5g1p4J8SGGqY0k+JjqWw0H2ehH7q0JH5Q+LkfJbtNx8pOGmxzfIF1MuZLuqQOWIWzJl9q63Uz0GBRT6DkeQhQc6L9g5Ggo0aApd984fZmYFpe8JSe9ZZ8+Qp/5hk4jPx3NSzbA+arnHYRuIH9OXQI285TD4Qh3eowfOcGFx2Dub7/vA1y0yEAh4l8aiY+9Fcn+Jih7575NCDXmXlAkSkX/Ry5R0FcGoV0=
   app: bloque-party
+  run: rails db:migrate
   on:
     repo: foymikek/viewing_party
     branch: main
