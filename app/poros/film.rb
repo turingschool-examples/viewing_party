@@ -12,13 +12,16 @@ class Film
     @title = attributes[:title]
     @vote_average = attributes[:vote_average]
     @runtime = attributes[:runtime]
-    @genres = attributes[:genres].map { |genre| genre[:name] }.join(', ')
+    @genres = attributes[:genres]
     @overview = attributes[:overview]
     @credits = attributes[:credits]
   end
-
+  # RYAN NEEDED TO MAKE SEPARATE METHODS TO AVOID NIL ERRORS. Dream Drive!
   def cast
-    require 'pry'; binding.pry
     credits[:cast].map { |member| [member[:name], member[:character]] }
+  end
+
+  def list_genres
+    genres.map { |genre| genre[:name] }.join(', ')
   end
 end

@@ -6,11 +6,10 @@
   <li>
     <p>Vote Average: <%= @movie.vote_average %></p>
     <p>Runtime: <%= @movie.runtime %></p>
-    <p>Genres: <%= @movie.genres %></p>
+    <p>Genres: <%= @movie.list_genres %></p>
     <p>Summary: <%= @movie.overview %></p>
     <p>Cast: </p>
-    <%# binding.pry %>
-    <% @movie.credits.cast.each do |member| %>
+    <% @movie.cast.each do |member| %>
         <p><%= member[0]%> as <%= member[1]%></p>
     <% end %>
   </li>
