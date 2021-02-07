@@ -5,9 +5,9 @@
 
 <section class="section">
   <% @films.each do |film| %>
-    <div id="movie-<%= film.id %>">
-      <%= film.title %>
-      <p>Vote Average: <%= film.vote_average %></p>
-    </div>
+    <ul class="movie">
+      <li class="title"><%= film.title %></li>
+      <li class="vote_avg">Vote Average: <%= film.vote_average %></li>
+    </ul>
   <% end %>
 </section>
