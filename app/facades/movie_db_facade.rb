@@ -15,7 +15,9 @@ class MovieDbFacade
       @film = Film.new(json)
     end
 
-    private
+  # rubocop:  private is 'useles' ... does not make singleton methods private. 
+  # Use private_class_method or private inside a class << self block instead.
+  private
 
     def create_films(json)
       json[:results].map do |film_data|
