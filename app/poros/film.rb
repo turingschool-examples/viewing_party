@@ -19,8 +19,8 @@ class Film
 		@genres       = data[:genres]
 		@overview     = data[:overview]
 		@poster       = data[:poster_path]
-		@cast         = cast[:cast]
-		@reviews      = reviews[:results]
+		@cast         = cast
+		@reviews      = reviews
 	end
 
 	def render_image

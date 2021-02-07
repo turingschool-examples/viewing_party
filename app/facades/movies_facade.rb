@@ -10,8 +10,8 @@ class MoviesFacade
 
     def get_movie(movie)
       movie_data = MoviesService.find_movie(movie)
-      movie_cast = MoviesService.retrieve_cast(movie)
-      movie_reviews = MoviesService.retrieve_reviews(movie)
+      movie_cast = MoviesService.retrieve_cast(movie)[:cast]
+      movie_reviews = MoviesService.retrieve_reviews(movie)[:reviews]
       Film.new(movie_data, movie_cast, movie_reviews)
     end
 

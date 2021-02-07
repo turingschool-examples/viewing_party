@@ -25,7 +25,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Sun, 07 Feb 2021 19:57:38 GMT
+      - Sun, 07 Feb 2021 19:24:03 GMT
       Server:
       - openresty
       Access-Control-Allow-Origin:
@@ -40,13 +40,15 @@ http_interactions:
       Vary:
       - Accept-Encoding
       X-Cache:
-      - Miss from cloudfront
+      - Hit from cloudfront
       Via:
-      - 1.1 9e8d1ff1eee770054f1561535ab320b2.cloudfront.net (CloudFront)
+      - 1.1 5c872a96e880c64a2293daae45f1f6ae.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
-      - DFW55-C3
+      - DFW53-C1
       X-Amz-Cf-Id:
-      - cgy7YcMKlfRLFmh4u5Gl6oHm3MrrMkaYn-49KPCllLcjg0LQbZxPwA==
+      - xVA3aZIsv2NPojmKDgLSNiV4CkMS6r1p6elE1MfihPA_ccJ0ZbLmDQ==
+      Age:
+      - '211'
     body:
       encoding: ASCII-8BIT
       string: '{"page":1,"results":[{"adult":false,"backdrop_path":"/w7RDIgQM6bLT7JXtH4iUQd3Iwxm.jpg","genre_ids":[53,80],"id":680,"original_language":"en","original_title":"Pulp
@@ -87,7 +89,7 @@ http_interactions:
         is given to the original cover art that defined pulp, featuring beautiful
         women, space creatures and blazing weapons.","popularity":0.6,"poster_path":null,"release_date":"2010-01-01","title":"UFOTV
         Presents: Pulp Fiction: The Golden Age of Storytelling","video":false,"vote_average":4,"vote_count":1}],"total_pages":1,"total_results":6}'
-  recorded_at: Sun, 07 Feb 2021 19:57:38 GMT
+  recorded_at: Sun, 07 Feb 2021 19:27:34 GMT
 - request:
     method: get
     uri: https://api.themoviedb.org/3/search/movie?api_key=<TMB_movie_api_key>&page=2&query=Pulp%20Fiction
@@ -122,21 +124,21 @@ http_interactions:
       - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
         Content-Length, Content-Range
       Date:
-      - Sun, 07 Feb 2021 19:57:38 GMT
+      - Sun, 07 Feb 2021 19:27:34 GMT
       Cache-Control:
       - public, max-age=600
       Etag:
       - b75f2cef671cfa5b8207141fbbd28988
       X-Cache:
-      - RefreshHit from cloudfront
+      - Hit from cloudfront
       Via:
-      - 1.1 1f165b81caaee857bd427f840ce94c4c.cloudfront.net (CloudFront)
+      - 1.1 5c872a96e880c64a2293daae45f1f6ae.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
-      - DFW55-C3
+      - DFW53-C1
       X-Amz-Cf-Id:
-      - whwUyLwGLaSiZELpITmg2OVGS1bas2_p0gMIrujrJ24HALw6RAKoeQ==
+      - x3B5DSxlfWTdAmcjCnVgH9PCph6YXJNQwetCwdk6vDrEvlVitM8JxQ==
     body:
       encoding: UTF-8
       string: '{"page":2,"results":[],"total_pages":1,"total_results":6}'
-  recorded_at: Sun, 07 Feb 2021 19:57:38 GMT
+  recorded_at: Sun, 07 Feb 2021 19:27:34 GMT
 recorded_with: VCR 6.0.0
