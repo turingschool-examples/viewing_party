@@ -11,7 +11,6 @@ class Film
 	            :reviews
 
 	def initialize(data, cast = nil, reviews = nil)
-		# require 'pry'; binding.pry
 		@id           = data[:id]
 		@title        = data[:title].capitalize
 		@vote_average = data[:vote_average]
@@ -20,8 +19,8 @@ class Film
 		@genres       = data[:genres]
 		@overview     = data[:overview]
 		@poster       = data[:poster_path]
-		@cast         = cast
-		@reviews      = reviews
+		@cast         = cast[:cast]
+		@reviews      = reviews[:results]
 	end
 
 	def render_image
