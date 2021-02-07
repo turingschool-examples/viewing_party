@@ -10,7 +10,7 @@
     <p>Summary: <%= @movie.overview %></p>
     <p>Cast: </p>
     <%# binding.pry %>
-    <% @movie.credits.each do |member| %>
+    <% @movie.credits.cast.each do |member| %>
         <p><%= member[0]%> as <%= member[1]%></p>
     <% end %>
   </li>

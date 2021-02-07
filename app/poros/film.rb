@@ -14,6 +14,11 @@ class Film
     @runtime = attributes[:runtime]
     @genres = attributes[:genres].map { |genre| genre[:name] }.join(', ')
     @overview = attributes[:overview]
-    @credits = attributes[:credits][:cast].map { |member| [member[:name], member[:character]] }
+    @credits = attributes[:credits]
+  end
+
+  def cast
+    require 'pry'; binding.pry
+    credits[:cast].map { |member| [member[:name], member[:character]] }
   end
 end
