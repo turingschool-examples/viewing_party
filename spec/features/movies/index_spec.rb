@@ -6,12 +6,7 @@ RSpec.describe 'movies index', type: :feature do
       @user = create(:user, email: 'test@email.com')
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
     end
-    describe 'happy path' do
-      before(:each) do
-        @user = create(:user, email: 'test@email.com')
-        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
-      end
-  
+    describe 'happy path' do  
       it 'lists 40 most highest rated movies', :vcr do
         visit movies_path
 
@@ -62,7 +57,9 @@ RSpec.describe 'movies index', type: :feature do
         expect(page).to have_css(".movie", count: 40)
       end
 
-      it 'redirects a user that is not signed in to the root path and gives a flash message', :skip_before, :vcr do
+      it 'redirects a user that is not signed in to the root path and gives a flash message', :vcr do
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(nil)
+        require 'pry'; binding.pry
         visit movies_path
         
         expect(current_path).to eq(root_path)
