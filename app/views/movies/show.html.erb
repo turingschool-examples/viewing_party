@@ -1,10 +1,18 @@
-<%= @movie.title %>
-<%= @movie.cast %>
-<%= @movie.genres %>
-<%= @movie.overview %>
-<%= @movie.popularity %>
-<%= @movie.reviews %>
-<%= @movie.runtime %>
-<%= @movie.vote_average %>
+Title: <%= @movie.title %><br/>
+Cast: <% @movie.cast.each do |member| %>
+        <%= member[:name] %> as <%= member[:character] %><br/>
+      <% end %>
+Genres: <% @movie.genres.each do |genre| %>
+          <%= genre[:name] %>
+        <% end %></br>
+
+Overview: <%= @movie.overview %><br/>
+Popularity: <%= @movie.popularity %><br/>
+Reviews: </br><% @movie.reviews.each do |review| %>
+            Author: <%= review[:author] %><br/>
+            Review: <%= review[:content] %><br/>
+         <% end %>
+Runtime: <%= @movie.runtime %> minutes<br/>
+Vote Average: <%= @movie.vote_average %>/10<br/>
 
 <%= link_to "Back", :back, class: "btn btn-warning" %>
