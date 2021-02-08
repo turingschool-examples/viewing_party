@@ -21,12 +21,16 @@
 
   <% end %>
 
-
-
-
   <div class="pt-5">
     <h2>Your Friends</h2>
   </div>
 
   <%= render @user.friends %>
+
+  <div class="pt-5">
+    <h2>Your Movie Parties</h2>
+  </div>
+
+  <%= render partial: "users/party", collection: @user.parties %>
+
 </div>

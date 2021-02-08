@@ -5,6 +5,11 @@
 <div class="jumbotron pt-4">
   <div class="mb-3">
     <%= render partial: "shared/search" %>
+    <%= button_to "Create Movie Party", new_party_path, method: :get, params: {
+                                                                title: @movie.title,
+                                                                runtime: @movie.runtime,
+                                                                api_id: @movie.id
+                                                              } %>
   </div>
 
 <div class="row pt-5">

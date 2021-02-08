@@ -1,0 +1,24 @@
+<%= form_with model: @party, local: true do |form| %>
+
+  <%= render partial: "shared/form_errors", locals: {f: form} %>
+
+  <div class="mb-3">
+    <%= form.label :duration %><br/>
+    <%= form.text_field :duration, class: "form-control", value: @movie[:runtime] %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :datetime %><br/>
+    <%= form.datetime_field :datetime, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :invite_friends %><br/>
+    <%= form.collection_check_boxes :party_guests, Current.user.friends, :id, :email, { include_hidden: false } %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.submit class: "btn btn-primary"%>
+  </div>
+
+<% end %>
