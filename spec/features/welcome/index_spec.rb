@@ -11,7 +11,7 @@ RSpec.describe 'welcome index page' do
     it 'has a brief description of the application' do
       visit root_path
 
-      expect(page).to have_content("Search for Movie by Title or Movie ID")
+      expect(page).to have_content("To get started, search for a movie and create a viewing party")
     end
 
     it 'has a button to log in' do
