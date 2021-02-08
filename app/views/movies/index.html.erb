@@ -1,12 +1,18 @@
-<% if params[:top_movies] %>
-  <h1>Movies - Top 40</h1>
-<% else %>
-  <h1>Movies - <%= params[:movie_name] %> </h1>
-<% end %>
+<div class="border-bottom">
+  <% if params[:top_movies] %>
+    <h1>Movies - Top 40</h1>
+  <% else %>
+    <h1>Movies - <%= params[:movie_name] %> </h1>
+  <% end %>
+</div>
 
-<%= render partial: "shared/search" %>
+<div class="pt-5">
+  <%= render partial: "shared/search" %>
+</div>
 
-<h2>Total Results: <%= @movies.count %></h2>
+<div class="pt-5">
+  <h2>Total Results: <%= @movies.count %></h2>
+</div>
 
 <div class="row row-cols-1 row-cols-md-3 mb-5">
   <% @movies.each do |movie| %>
