@@ -1,28 +1,32 @@
-<h1>Hello again, <%= @user.email %></h1>
-
-<%= form_with(model: @friendship, local: true) do |f| %>
-
-  <%= render partial: "shared/form_errors", locals: {f: f} %>
-
-  <div class="pt-5">
-    <h2>Add Friend</h2>
-  </div>
-
-  <div class="mb-3">
-    <%= f.text_field :email, class: "form-control", placeholder: "example@email.com" %>
-  </div>
-
-  <div class="d-grid gap-2">
-    <%= f.submit "Add Friend", class: "btn btn-primary"%>
-  </div>
-
-<% end %>
-
-
-
-
-<div class="pt-5">
-  <h2>Your Friends</h2>
+<div class="border-bottom">
+  <h1>Hello again, <%= @user.email %></h1>
 </div>
 
-<%= render @user.friends %>
+<div class="jumbotron pt-4">
+  <%= form_with(model: @friendship, local: true) do |f| %>
+
+    <%= render partial: "shared/form_errors", locals: {f: f} %>
+
+    <div class="mb-3">
+      <h2>Add Friend</h2>
+    </div>
+
+    <div class="mb-3">
+      <%= f.text_field :email, class: "form-control", placeholder: "example@email.com" %>
+    </div>
+
+    <div class="d-grid gap-2">
+      <%= f.submit "Add Friend", class: "btn btn-primary"%>
+    </div>
+
+  <% end %>
+
+
+
+
+  <div class="pt-5">
+    <h2>Your Friends</h2>
+  </div>
+
+  <%= render @user.friends %>
+</div>

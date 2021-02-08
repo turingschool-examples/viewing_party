@@ -1,4 +1,5 @@
 class FriendshipsController < ApplicationController
+	before_action :require_user_logged_in!
 	before_action :find_friend, only: [:create]
 
 	def create

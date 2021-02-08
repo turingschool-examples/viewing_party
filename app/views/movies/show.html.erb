@@ -1,18 +1,65 @@
-Title: <%= @movie.title %><br/>
-Cast: <% @movie.cast.each do |member| %>
-        <%= member[:name] %> as <%= member[:character] %><br/>
-      <% end %>
-Genres: <% @movie.genres.each do |genre| %>
-          <%= genre[:name] %>
-        <% end %></br>
+<div class="border-bottom">
+  <h1><%= @movie.title %></h1>
+</div>
 
-Overview: <%= @movie.overview %><br/>
-Popularity: <%= @movie.popularity %><br/>
-Reviews: </br><% @movie.reviews.each do |review| %>
-            Author: <%= review[:author] %><br/>
-            Review: <%= review[:content] %><br/>
-         <% end %>
-Runtime: <%= @movie.runtime %> minutes<br/>
-Vote Average: <%= @movie.vote_average %>/10<br/>
+<div class="jumbotron pt-4">
+  <div class="mb-3">
+    <%= render partial: "shared/search" %>
+  </div>
 
-<%= link_to "Back", :back, class: "btn btn-warning" %>
+<div class="row pt-5">
+  <div class="col-md-6">
+    <h3>Title: <%= @movie.title %></h3>
+    <h4>Genre(s): <%= render partial: "genre", collection: @movie.genres %></h4>
+    <h4>Length: <%= @movie.format_runtime %> hours</h4>
+    <h4>TMDB Score: <%= @movie.popularity.round(1) %></h4>
+    <h4>Vote Average: <%= @movie.vote_average %> / 10</h4>
+    <div class="accordion-flush pt-3" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Overview
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <%= @movie.overview %>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Cast
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <%= render partial: "cast_member", collection: @movie.cast %>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            Reviews
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <%= render partial: "review", collection: @movie.reviews %><br/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <% unless @movie.poster.nil? %>
+      <%= image_tag @movie.render_image, class: 'card-img-top', width: "412" %>
+    <% end %><br/>
+  </div>
+</div>
+
+</div>
+<%= render partial: "shared/back" %>
