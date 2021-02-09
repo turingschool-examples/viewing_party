@@ -51,4 +51,22 @@ describe MoviesService do
       end
     end
   end
+
+  describe "(sad path)" do
+    it "returns top 40 movies if no search criteria are present" do
+      VCR.use_cassette('movies_service_sp_search_empty_query') do
+        response = MoviesService.find_movies_by_name("")
+        first_result = response[0]
+
+        expect(response).to be_a(Array)
+        expect(first_result).to be_a(Hash)
+        expect(response.count).to eq(40)
+
+        expect(first_result[:title]).to be_a(String)
+        expect(first_result[:vote_average]).to be_a(Float)
+        expect(first_result[:id]).to be_a(Integer)
+
+      end
+    end
+  end
 end
