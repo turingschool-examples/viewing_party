@@ -1,10 +1,11 @@
+<h3> <%= @movie.title %> </h3>
 <%= form_with model: @party, local: true do |form| %>
 
   <%= render partial: "shared/form_errors", locals: {f: form} %>
 
   <div class="mb-3">
     <%= form.label :party_name %><br/>
-    <%= form.text_field :name, class: "form-control" %>
+    <%= form.text_field :name, class: "form-control", value: @movie.title %>
   </div>
 
   <div class="mb-3">
