@@ -15,7 +15,7 @@
 ![](https://img.shields.io/badge/Ruby-2.5.3-orange)
 
 
-![Little Esty Shop](/public/navbar.png)
+![Little Esty Shop](https://github.com/foymikek/viewing_party/blob/main/header.png)
 <!-- TABLE OF CONTENTS -->
 <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
 <ol>
