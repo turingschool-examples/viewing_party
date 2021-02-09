@@ -19,6 +19,8 @@ class MoviesService
   end
 
   def self.find_movies_by_name(search)
+    if search == "" or search == nil then return self.get_top_movies end
+
     response_1 = conn.get("search/movie?api_key=#{ENV["TMDB_KEY"]}&language=en-US&page=1&query=#{name_search(search)}&page=1&include_adult=false")
     response_2 = conn.get("search/movie?api_key=#{ENV["TMDB_KEY"]}&language=en-US&page=2&query=#{name_search(search)}&page=1&include_adult=false")
 
@@ -29,6 +31,8 @@ class MoviesService
   end
 
   def self.find_vote_average_by_name(search)
+    if search == "" or search == nil then return self.find_top_movie_vote_average end
+
     response = conn.get("search/movie?api_key=#{ENV["TMDB_KEY"]}&language=en-US&query=#{name_search(search)}&page=1&include_adult=false")
     json_parse(response)
   end
