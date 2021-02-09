@@ -3,8 +3,13 @@
   <%= render partial: "shared/form_errors", locals: {f: form} %>
 
   <div class="mb-3">
+    <%= form.label :party_name %><br/>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
     <%= form.label :duration %><br/>
-    <%= form.text_field :duration, class: "form-control", value: @movie[:runtime] %>
+    <%= form.text_field :duration, class: "form-control", value: @movie.runtime %>
   </div>
 
   <div class="mb-3">
