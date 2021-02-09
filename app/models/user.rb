@@ -15,4 +15,5 @@ class User < ApplicationRecord
 		email.downcase!
 	end
 
+
 end
