@@ -7,20 +7,48 @@ describe MoviesService do
   end
 
   it 'retrieves reviews', :vcr do
-    @reviews = MoviesService.retrieve_reviews(8587)
+    respsonse = MoviesService.retrieve_reviews(8587)
 
-    expect(@reviews.count).to eq(5)
+    expect(respsonse).to be_a(Hash)
+    expect(respsonse).to have_key(:results)
   end
-
+  
   it 'retrieves cast', :vcr do
-    @cast = MoviesService.retrieve_cast(8587)
+    response = MoviesService.retrieve_cast(8587)
 
-    expect(@cast.count).to eq(3)
+    expect(response).to be_a(Hash)
+    expect(response).to have_key(:cast)
   end
-
+  
   it 'finds movie', :vcr do
-    @movie = MoviesService.find_movie(8587)
+    response = MoviesService.find_movie(8587)
 
-    expect(@movie.count).to eq(25)
+    expect(response).to be_a(Hash)
+
+    expect(response).to have_key(:id)
+    expect(response[:id]).to be_a(Integer)
+
+    expect(response).to have_key(:title)
+    expect(response[:id]).to be_a(Integer)
+
+    expect(response).to have_key(:vote_average)
+    expect(response[:vote_average]).to be_a(Float)
+    
+    expect(response).to have_key(:runtime)
+    expect(response[:runtime]).to be_a(Integer)
+    
+    expect(response).to have_key(:popularity)
+    expect(response[:popularity]).to be_a(Float)
+    
+    expect(response).to have_key(:genres)
+    expect(response[:genres]).to be_an(Array)
+    expect(response[:genres][0]).to be_a(Hash)
+    expect(response[:genres][0][:name]).to be_a(String)
+
+    expect(response).to have_key(:overview)
+    expect(response[:overview]).to be_a(String)
+    
+    expect(response).to have_key(:poster_path)
+    expect(response[:poster_path]).to be_a(String)
   end
 end
