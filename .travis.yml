@@ -2,7 +2,7 @@ language: ruby
 rbenv:
 - 2.5.3
 addons:
-  postgresql: 13.1
+  postgresql: 9.6
 script:
 - bundle exec rails db:{create,migrate} RAILS_ENV=test
 - bundle exec rspec
@@ -12,13 +12,13 @@ deploy:
     secure: PeWzV61tdclp92rwoFCDvXVgQCUdEahZyEtOq4dMNfom1eu3gCjTHpMCc03CFeLnAJKoGoDIv8zBEGUlmINC544voOnJl3gmoZQaIAE6fGX2cHPBd8uKEZIunN2LWNvnftw6q0mo/aA2HiGQ0mHospFVNBWkJSdW4MHXixa0L99IrqrT3pAPzSWTAj6UsCnNEk3i1XQGxv7qq2+wmUmpeHDjQ0Hi+vv6SqrL9FzW96tCDv4ylkOXHT+hgsN+5fSti4PGFz9AKxfgFyfEzCuuG8q+ooJsXM8vGe+3tvNV3TOYOniZ6Oz6+2F+Hf74zOCLTEnWQ761VbgGuU4syrBQ8XEBLZ6coF2KFLS8hitAj1GCRO7ZhbjNeNI3Xc3QwS8p9DswKb7M+QGKnUCNvi8Bv+wx6KdoU3JUqCGjKLnH9ZOjDIfEkwnieFgYjdp5W93+tIhc8Mm497BI0z5LMRzz09vyM+QCKZ865IVvTU1i9HL3Nuqj5GKlQyWXIv2JhKOq2O2ODHXoUI373mDSFlRzdbEY8zoAha66oqYyBldLfKSrZIeKptxBmwo6rEpqvpnsBBiPbTJJcSe7Es2ISWNp20lRG0yAI24RG4h31AX1OFd45RTD1XsFS65+mOKc4wOqEIc2W3HRSBVYN9Sndk/kI1pBDdONcGpBiULArpJLPug=
   app: viuwu-ing-party
   run: rails db:migrate
-  on:
+  on: 
     branch: main
-notifications:
-  slack:
-    secure: Mqrm+rgpotvFLAqxT/F/0EbN3yad/+n5UH7j23NNmQSqUUGVQlrZjgHCLGyisrV0pNGSt2A/cOKGS/PPzaxxHt975hy1G8eVV8bSElxPEAVZpStvGSJcQ8+/w37l38JpMacY/2OVFjeNKNlFUT0+GO04WmU8UwlKN25aC5daIgH4pu5RQLsFTjVRWIUS5jddFGbaTTR5UPJ1WKMsNTlIYlGV5EEj42s2FNaLLXGphEuH6+pNShh3bIN2YNhy/vV8fxtudKuJwvCxCG5bN7fKrVQCtc7CVMnQwSFx42m8TyueZZY5wlgJ0bYHA4DJgO76xjCikjRcC8ZnjRw8G7KwagkTeqomO5wLzElcCz36WDNGUz3Z1PywhW9T5luo/dPbuN7WpC8i5WlRKraHc0+2hQxihFatiZn93FthDEuPJUJ12ATkPdHNsIwYoR0RESwX+/Cz6Gu42Vyg6ZshOo9XoyYCrp13gqxz374I8b5dkxWd0ZiQJaRjvM4u316TTjzYpqZaBSQAD93B/0hFsXOi3bB+kGvixJSydjnv9YCvr9FO0xsmM+18Pf26WZ3/pkCTKoLbdo0Vbe/MKqCCnDWhxvf8buBkR9AegZT3TcYaXmVskbN/rdBOhQ0/6lmCWDrNnkJME9sZvx/spwXZjzVPDe3SiDcfE3tGk2x/ydQfYHw=
-    on_success: always
-    on_failure: always
-    on_start: always
-    on_cancel: always
-    on_error: always
+# notifications:
+#   slack:
+#     secure: Mqrm+rgpotvFLAqxT/F/0EbN3yad/+n5UH7j23NNmQSqUUGVQlrZjgHCLGyisrV0pNGSt2A/cOKGS/PPzaxxHt975hy1G8eVV8bSElxPEAVZpStvGSJcQ8+/w37l38JpMacY/2OVFjeNKNlFUT0+GO04WmU8UwlKN25aC5daIgH4pu5RQLsFTjVRWIUS5jddFGbaTTR5UPJ1WKMsNTlIYlGV5EEj42s2FNaLLXGphEuH6+pNShh3bIN2YNhy/vV8fxtudKuJwvCxCG5bN7fKrVQCtc7CVMnQwSFx42m8TyueZZY5wlgJ0bYHA4DJgO76xjCikjRcC8ZnjRw8G7KwagkTeqomO5wLzElcCz36WDNGUz3Z1PywhW9T5luo/dPbuN7WpC8i5WlRKraHc0+2hQxihFatiZn93FthDEuPJUJ12ATkPdHNsIwYoR0RESwX+/Cz6Gu42Vyg6ZshOo9XoyYCrp13gqxz374I8b5dkxWd0ZiQJaRjvM4u316TTjzYpqZaBSQAD93B/0hFsXOi3bB+kGvixJSydjnv9YCvr9FO0xsmM+18Pf26WZ3/pkCTKoLbdo0Vbe/MKqCCnDWhxvf8buBkR9AegZT3TcYaXmVskbN/rdBOhQ0/6lmCWDrNnkJME9sZvx/spwXZjzVPDe3SiDcfE3tGk2x/ydQfYHw=
+#     on_success: always
+#     on_failure: always
+#     on_start: always
+#     on_cancel: always
+#     on_error: always
