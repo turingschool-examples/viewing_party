@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_04_185045) do
+ActiveRecord::Schema.define(version: 2021_02_09_013023) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,23 +23,16 @@ ActiveRecord::Schema.define(version: 2021_02_04_185045) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "movies", force: :cascade do |t|
-    t.string "title"
-    t.string "genre"
-    t.integer "length"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "parties", force: :cascade do |t|
     t.bigint "user_id"
-    t.bigint "movie_id"
     t.date "scheduled_date"
     t.time "start_time"
     t.integer "duration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["movie_id"], name: "index_parties_on_movie_id"
+    t.string "movie_title"
+    t.bigint "movie_id"
+    t.integer "movie_length"
     t.index ["user_id"], name: "index_parties_on_user_id"
   end
 
@@ -62,7 +55,6 @@ ActiveRecord::Schema.define(version: 2021_02_04_185045) do
 
   add_foreign_key "friends", "users", column: "receiver_id"
   add_foreign_key "friends", "users", column: "sender_id"
-  add_foreign_key "parties", "movies"
   add_foreign_key "parties", "users"
   add_foreign_key "user_parties", "parties"
   add_foreign_key "user_parties", "users"
