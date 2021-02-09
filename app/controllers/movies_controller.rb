@@ -16,4 +16,15 @@ class MoviesController < ApplicationController
     @movie = MoviesFacade.get_movie(params[:id])
   end
 
+  def create
+    if (@movie = Movie.find_by(api_id: params[:api_id]))
+      session[:movie_api_id] = params[:api_id]
+      redirect_to new_party_path
+    else
+      @movie = Movie.create(api_id: params[:api_id], runtime: params[:runtime], title: params[:title])
+      session[:movie_api_id] = params[:api_id]
+      redirect_to new_party_path
+    end
+  end
+
 end
