@@ -3,7 +3,7 @@ require "rails_helper"
 describe "Discover page" do
   describe "displays" do
     it "a button to discover top 40 movies" do
-      visit discover path
+      visit discover_path
       expect(page).to have_button("Find Popular Movies")
     end
 
