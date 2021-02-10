@@ -48,7 +48,7 @@ describe "As a logged in user" do
       visit movie_path(109445)
 
       click_button "Create Movie Party"
-      save_and_open_page
+
       expect(page).to have_field('party[name]', with: 'Frozen')
       expect(page).to have_field('party[duration]', with: 102)
       expect(page).to have_field('party[datetime]')
