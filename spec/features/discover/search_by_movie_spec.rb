@@ -33,18 +33,15 @@ describe "as a logged in user" do
         expect(current_path).to eq(movies_path)
   
         expect(page).to have_content("Total Results: 40")
-  
+
         expect(page).to have_content("Gabriel's inferno part iii")
+        expect(page).to have_content("Vote Average: 9")
+
         expect(page).to have_content("Gabriel's inferno part ii")
+        expect(page).to have_content("Vote Average: 8.8")
+
         expect(page).to have_content("Wolfwalkers")
-        expect(page).to have_content("Dilwale dulhania le jayenge")
-        expect(page).to have_content("Gabriel's inferno")
-        expect(page).to have_content("The shawshank redemption")
-        expect(page).to have_content("The godfather")
-        expect(page).to have_content("Schindler's list")
-        expect(page).to have_content("Your name.")
-        expect(page).to have_content("Miraculous world: new york, united heroez")
-        expect(page).to have_content("The godfather: part ii")
+        expect(page).to have_content("Vote Average: 8.7")
       end
     end
 

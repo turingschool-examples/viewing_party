@@ -1,17 +1,14 @@
 class FriendshipsController < ApplicationController
 	before_action :require_user_logged_in!
 	before_action :find_friend, only: [:create]
+	before_action :find_user, only: [:create]
 
 	def create
-		if @friend
-			@friendship = Friendship.new(user_id: Current.user.id, friend_id: @friend.id)
-			if @friendship.save
-				redirect_to dashboard_path, notice: "Friend added successfully."
-			else
-				redirect_to dashboard_path, alert: "You're already friends with this person."
-			end
+		@friendship = Friendship.new(user_id: Current.user.id, friend_id: @friend.id)
+		if @friendship.save
+			redirect_to dashboard_path, notice:  "Friend added successfully."
 		else
-			redirect_to dashboard_path, alert: "Invalid email."
+			render template: "dashboard/index"
 		end
 	end
 
@@ -19,6 +16,13 @@ class FriendshipsController < ApplicationController
 
 	def find_friend
 		@friend = User.find_by(email: params[:friendship][:email])
+		unless @friend.present?
+			redirect_to dashboard_path, alert: "Invalid email."
+		end
+	end
+
+	def find_user
+		@user = Current.user
 	end
 
 end
