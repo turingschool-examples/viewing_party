@@ -12,7 +12,8 @@ describe MoviesService do
         expect(response.count).to eq(40)
 
        expect(first_result[:title]).to be_a(String)
-       expect(first_result[:vote_average]).to be_a(Float)
+
+       expect(first_result[:vote_average]).to be_a(Numeric)
        expect(first_result[:id]).to be_a(Integer)
 
       end
@@ -28,7 +29,7 @@ describe MoviesService do
         expect(response.count).to eq(40)
 
         expect(first_result[:title]).to be_a(String)
-        expect(first_result[:vote_average]).to be_a(Float)
+        expect(first_result[:vote_average]).to be_a(Numeric)
         expect(first_result[:id]).to be_a(Integer)
 
       end
@@ -63,7 +64,7 @@ describe MoviesService do
         expect(response.count).to eq(40)
 
         expect(first_result[:title]).to be_a(String)
-        expect(first_result[:vote_average]).to be_a(Float)
+        expect(first_result[:vote_average]).to be_a(Numeric)
         expect(first_result[:id]).to be_a(Integer)
 
       end
