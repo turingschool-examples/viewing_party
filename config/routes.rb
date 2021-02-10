@@ -12,6 +12,6 @@ Rails.application.routes.draw do
   get "/dashboard", to: 'dashboard#index'
 
   get "/discover", to: 'discover#index'
-  
-  get "/movies", to: 'movie#index'
+
+  resources :movies, only: [:index, :show]
 end
