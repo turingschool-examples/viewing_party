@@ -22,6 +22,13 @@ RSpec.describe "welcome page" do
           expect(page).to have_field("email")
           expect(page).to have_field("password")
         end
+
+        within("#log-in-section") do
+          expect(page).to have_content("Register")
+          click_link("Register")
+        end
+
+        expect(current_path).to eq(new_user_path)
       end
 
       it "allows existing users to login" do
@@ -32,14 +39,6 @@ RSpec.describe "welcome page" do
         end
 
         expect(current_path).to eq(dashboard_path)
-      end
-
-      it "has a link to the registration page" do
-        within("#log-in-section") do
-          click_link("New to Viewing Party? Register Here")
-        end
-
-        expect(current_path).to eq(new_user_path)
       end
 
       it "login page shows link to dashboard if signed in" do
