@@ -1,0 +1,10 @@
+<h1>Welcome to Viuwu-ing Party</h1>
+<%= button_to "Find Popular Movies", movies_path, method: :get %>
+
+<h3>OR</h3>
+
+<%= form_with url: movies_path, method: :get, local: true do |form| %>
+  <%= form.label :query, "Search for movie by title" %>
+  <%= form.text_field :query %>
+  <%= form.submit "Find Movies" %>
+<% end %>

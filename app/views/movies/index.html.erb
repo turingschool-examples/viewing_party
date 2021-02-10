@@ -1,10 +1,7 @@
-<h1>Welcome to Viuwu-ing Party</h1>
-<button type="button" name="button">Find Top Rated Movies</button>
-
-<h3>OR</h3>
-
-<%= form_with url: "/movies", method: :get do |form| %>
-  <%= form.label :query, "Search for movie by title" %>
-  <%= form.text_field :query %>
-  <%= form.submit "Find Movies" %>
+<%= render partial: "shared/search_form" %>
+<p>
+<% @movies.each do |movie| %>
+  Title: <%= movie.title %>
+  Vote Average Score: <%= movie.vote_average %> <br>
 <% end %>
+</p>
