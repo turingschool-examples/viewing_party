@@ -12,12 +12,12 @@ describe 'movies', :vcr do
     
     it 'when creating a new party' do
       visit movie_path(330457)
-      
-      expect(Movie.all.count).to eq(2)
+
+      expect(Movie.all.count).to eq(1)
       
       click_button('Create Movie Party')
       expect(current_path).to eq(new_party_path)
-      expect(Movie.all.count).to eq(2)
+      expect(Movie.all.count).to eq(1)
     end
   end
 end
