@@ -6,10 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-@user = User.create(email: "test@gmail.com", password: "something", password_confirmation: "something")
+@user = User.create(email: "1@x.com", password: "1", password_confirmation: "1")
 
-@user2 = User.create(email: "something@x.com", password: "strongpassword", password_confirmation: "strongpassword")
-@user3 = User.create(email: "friend@x.com", password: "strongpassword", password_confirmation: "strongpassword")
+@user2 = User.create(email: "2@x.com", password: "1", password_confirmation: "1")
+@user3 = User.create(email: "3@x.com", password: "1", password_confirmation: "1")
 
 # @friendship = Friendship.create(user: @user, friend: @user2)
 # @friendship2 = Friendship.create(user: @user2, friend: @user)

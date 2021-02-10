@@ -15,5 +15,16 @@ class User < ApplicationRecord
 		email.downcase!
 	end
 
+	def all_friends
+		friends + inverse_friends
+	end
+
+	def no_friends?
+		friends.none? && inverse_friends.none?
+	end
+
+	def party_invites
+		Party.joins(:party_guests).where("party_guests.user_id = ?", Current.user.id)
+	end
 
 end

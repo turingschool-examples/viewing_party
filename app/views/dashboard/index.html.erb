@@ -24,18 +24,31 @@
   <div class="pt-5">
     <h2>Your Friends</h2>
   </div>
-    <%= render partial: "users/friend", collection: @user.inverse_friends%>
 
-
-  <%= render @user.friends %>
+  <% if @user.no_friends? %>
+    <p>You have no friends, add some to get started!</p>
+  <% else %>
+    <%= render @user.all_friends %>
+  <% end %>
 
   <div class="pt-5">
     <h2>Your Movie Parties</h2>
   </div>
 
+  <% if @user.parties.any? %>
+    <%= render partial: "users/party", collection: @user.parties %>
+  <% else %>
+    <p>You have no viewing parties, <%= link_to "search", discover_path %> a movie to create one!</p>
+  <% end %>
 
-   <%= render partial: "users/party", collection: @user.parties %>
+  <div class="pt-5">
+    <h2>Parties You've Been Invited To</h2>
+  </div>
 
-
+  <% if @user.party_invites.any? %>
+    <%= render partial: "users/party", collection: @user.party_invites %>
+  <% else %>
+    <p>You have no party invites. Go make some friends.</p>
+  <% end %>
 
 </div>
