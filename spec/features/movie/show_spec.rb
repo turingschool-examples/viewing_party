@@ -55,5 +55,11 @@ describe "Movie show page", :vcr do
       expect(page).to have_content("Author: Sheldon Nylander")
       expect(page).to have_content("Having never played the")
     end
+
+    it "has a button to create a new viewing party" do
+      expect(page).to have_button("Create New Viewing Party")
+      click_button("Create New Viewing Party")
+      expect(current_path).to eq(new_viewing_party_path(447404))
+    end
   end
 end
