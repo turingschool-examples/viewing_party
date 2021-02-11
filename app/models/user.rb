@@ -2,6 +2,8 @@ class User < ApplicationRecord
   attr_accessor :password_confirmation
   has_secure_password
 
+  has_many :parties
+
   validates :email, uniqueness: true, presence:true
   validates :password, presence: true
 
