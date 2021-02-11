@@ -3,6 +3,7 @@ class ViewingPartiesController < ApplicationController
     if current_user
       @party = Party.new
       @movie_info = MoviesFacade.get_movie_info(params[:id])
+      @followees = current_user.followees
     else
       flash[:error] = "You must be logged in to view this content!"
       redirect_to root_path
@@ -11,11 +12,11 @@ class ViewingPartiesController < ApplicationController
 
   def create
     @movie_info = MoviesFacade.get_movie_info(params[:id])
-    party = Party.new(party_params(@movie_info.id,@movie_info.title,current_user.id))
+    party = Party.new(party_params(@movie_info.id, @movie_info.title, current_user.id))
     if party.save
       flash[:success] = "Successfully created party!"
 
-      current_user.following.each do |friend|
+      current_user.followees.each do |friend|
         if params[:party]["friend-#{friend.id}".to_sym]
           UserParty.create(party: party, user: friend)
         end
@@ -25,7 +26,8 @@ class ViewingPartiesController < ApplicationController
     else
       flash[:error] = party.errors.full_messages * ",\n"
       @party = party
-      render :new
+
+      redirect_to dashboard_path
     end
   end
 
