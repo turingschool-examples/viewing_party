@@ -41,7 +41,7 @@ class MoviesService
   # end
 
   def self.get_movie_info(id)
-    response = conn.get("discover/movie/#{id}")
+    response = conn.get("movie/#{id}")
     json_parse(response)
   end
 
