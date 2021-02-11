@@ -27,6 +27,10 @@ class MoviesFacade
     response = MoviesService.get_cast(id) #parse in service
   end
 
+  # def self.get_genre(id)
+  #   response = MoviesService.get_genre(id)
+  # end
+
   private
 
   def self.movie_params
@@ -34,7 +38,10 @@ class MoviesFacade
   end
 
   def self.get_movie_info(id)
-    MoviesService.get_movie_info(id)
+    movie = MoviesService.get_movie_info(id)
+    cast = MoviesService.get_cast(id)
+    reviews = MoviesService.get_reviews(id)
+    LocalMovie.new(movie, cast, reviews)
   end
 
   def self.get_movies(results)

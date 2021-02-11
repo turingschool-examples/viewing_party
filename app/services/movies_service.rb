@@ -43,7 +43,7 @@ class MoviesService
   # end
 
   def self.get_movie_info(id)
-    response = conn.get("discover/movie/#{id}")
+    response = conn.get("movie/#{id}")
     json_parse(response)
   end
 
@@ -53,9 +53,15 @@ class MoviesService
     json[:cast][0..9]
   end
 
+  def self.get_reviews(id)
+    response = conn.get("movie/#{id}/reviews")
+    json = json_parse(response)
+    json[:results]
+  end
+
   private
 
-  def self.json_parse (response)
+  def self.json_parse(response)
     JSON.parse(response.body, symbolize_names: true)
   end
 
