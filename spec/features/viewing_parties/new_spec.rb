@@ -7,8 +7,8 @@ describe "new viewing party page" do
       @friend1 = User.create(email: "friend1@email.com", password: "password123", password_confirmation: "password123")
       @friend2 = User.create(email: "friend2@email.com", password: "password123", password_confirmation: "password123")
 
-      Friend.create(sender: @user, receiver: @friend1) # Make the status accepted
-      Friend.create(sender: @user, receiver: @friend2)
+      Follow.create(follower_id: @user.id, followee_id: @friend1.id)
+      Follow.create(follower_id: @user.id, followee_id: @friend2.id)
 
       allow_any_instance_of(ViewingPartiesController).to receive(:current_user).and_return(@user) #stubbing method to simulate being logged in.
 
@@ -30,10 +30,10 @@ describe "new viewing party page" do
     end
 
     it "has a list of friends to invite" do
-      expect(page).to have_xpath("//input[@name='#{@movie_info[:runtime]}']")
-
-      expect(page).to have_xpath("//input[@value='friend-#{@friend1.id}']")
-      expect(page).to have_xpath("//input[@value='friend-#{@friend2.id}']")
+      within("#friends") do
+        expect(page).to have_content(@friend1.email)
+        expect(page).to have_content(@friend1.email)
+      end
     end
 
     it "allows the user to create a viewing party via a form" do
@@ -56,8 +56,8 @@ describe "new viewing party page" do
       @friend1 = User.create(email: "friend1@email.com", password: "password123", password_confirmation: "password123")
       @friend2 = User.create(email: "friend2@email.com", password: "password123", password_confirmation: "password123")
 
-      Friend.create(sender: @user, receiver: @friend1) # Make the status accepted
-      Friend.create(sender: @user, receiver: @friend2)
+      Follow.create(follower_id: @user.id, followee_id: @friend1.id)
+      Follow.create(follower_id: @user.id, followee_id: @friend2.id)
 
       allow_any_instance_of(ViewingPartiesController).to receive(:current_user).and_return(@user) #stubbing method to simulate being logged in.
 
