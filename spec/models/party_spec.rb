@@ -10,6 +10,8 @@ RSpec.describe Party do
   end
 
   describe "associations" do
+
     it {should have_many :users}
+
   end
 end
