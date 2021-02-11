@@ -1,7 +1,28 @@
-<h3>Friends</h3>
+<h1>Welcome <%= current_user.email %>!</h1>
 
-<section id="friends-panel">
-  <%= @friends.each do |friend| %>
-    <%= @friend.email %>
+<section id="followers-panel">
+  <h2>Followers</h2>
+  <%= render partial: "shared/user_search_form" %>
+  <% if @followers.empty? %>
+    <p>You have no followers</p>
+  <% else %>
+    <ul>
+      <% @followers.each do |follower| %>
+        <li><%= follower.email %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</section>
+
+<section id="followees-panel">
+  <h2>Following</h2>
+  <% if @followees.empty? %>
+    <p>You aren't following anyone</p>
+  <% else %>
+    <ul>
+      <% @followees.each do |followee| %>
+        <li><%= followee.email %></li>
+      <% end %>
+    </ul>
   <% end %>
 </section>
