@@ -14,8 +14,14 @@ class ViewingPartiesController < ApplicationController
     party = Party.new(party_params(@movie_info[:id],@movie_info[:title],current_user.id))
     if party.save
       flash[:success] = "Successfully created party!"
+
+      current_user.accepted_friends.each do |friend|
+        if params[:party]["friend-#{friend.id}".to_sym]
+          UserParty.create(party: party, user: friend)
+        end
+      end
+
       redirect_to dashboard_path
-      #add associations here
     else
       flash[:error] = party.errors.full_messages * ",\n"
       @party = party
