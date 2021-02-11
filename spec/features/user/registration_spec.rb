@@ -33,7 +33,7 @@ describe "Registration page" do
         fill_in :"user[password_confirmation]", with: @password
         click_button "Create Account"
 
-        expect(current_path).to eq(users_path)
+        expect(current_path).to eq(new_user_path)
       end
       :"user[name]"
       it "there is no password" do
@@ -42,7 +42,7 @@ describe "Registration page" do
         fill_in :"user[password_confirmation]", with: ""
         click_button "Create Account"
 
-        expect(current_path).to eq(users_path)
+        expect(current_path).to eq(new_user_path)
       end
 
       it "passwords do not match" do
@@ -51,7 +51,7 @@ describe "Registration page" do
         fill_in :"user[password_confirmation]", with: "Ilikecats123"
         click_button "Create Account"
 
-        expect(current_path).to eq(users_path)
+        expect(current_path).to eq(new_user_path)
       end
     end
   end

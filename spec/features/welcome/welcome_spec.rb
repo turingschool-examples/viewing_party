@@ -48,10 +48,6 @@ RSpec.describe "welcome page" do
           click_on "Log In"
         end
 
-        visit root_path
-
-        expect(page).to have_content("Welcome to Viewing Party, User #{@existing_user.email}!")
-        click_link("Go to my dashboard")
         expect(current_path).to eq(dashboard_path)
       end
     end
