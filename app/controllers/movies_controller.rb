@@ -3,6 +3,10 @@ class MoviesController < ApplicationController
       @movies = MoviesFacade.find_movies_by_name(params[:query])
   end
 
+  def show
+    @movie = MoviesFacade.get_movie_info(params[:id])
+  end
+
   # def find_top_movie_titles
   #   MoviesFacade.get_top_movies
   # end
