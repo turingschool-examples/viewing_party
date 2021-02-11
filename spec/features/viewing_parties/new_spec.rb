@@ -27,11 +27,13 @@ describe "new viewing party page" do
 
     it "has proper fields prepopulated" do
       expect(page).to have_content(@movie.title)
-      expect(page).to have_xpath("//input[@value='#{@movie_info[:runtime]}']")
     end
 
     it "has a list of friends to invite" do
+      expect(page).to have_xpath("//input[@name='#{@movie_info[:runtime]}']")
 
+      expect(page).to have_xpath("//input[@value='friend-#{@friend1.id}']")
+      expect(page).to have_xpath("//input[@value='friend-#{@friend2.id}']")
     end
 
     it "allows the user to create a viewing party via a form" do
