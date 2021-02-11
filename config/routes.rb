@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
+  resources :follows
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'welcome#index'
   resources :friends
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :index]
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
