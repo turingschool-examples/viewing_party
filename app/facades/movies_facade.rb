@@ -4,10 +4,6 @@ class MoviesFacade
     get_movies(response)
   end
 
-  def self.get_cast(id)
-    response = MoviesService.get_cast(id) #parse in service
-  end
-
   private
 
   def self.movie_params
