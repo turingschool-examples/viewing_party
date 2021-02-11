@@ -1,4 +1,9 @@
+
 <h1>Welcome <%= current_user.email %>!</h1>
+
+<% if current_user %>
+  <%= button_to "Discover Some Movies!", discover_path, method: :get %>
+<% end %>
 
 <section id="followers-panel">
   <h2>Followers</h2>
@@ -26,3 +31,23 @@
     </ul>
   <% end %>
 </section>
+
+<section id="parties">
+  <% @parties[:hosting].each do |party| %>
+    <p id="party-<%= party.id %>">
+      Movie: <%= party.movie_title %><br>
+      Date: <%= party.scheduled_date %><br>
+      Time: <%= party.start_time %><br>
+      Status: Hosting<br><br>
+    </p>
+  <% end %>
+  <% @parties[:invited].each do |party| %>
+    <p id="party-<%= party.id %>">
+      Movie: <%= party.movie_title %><br>
+      Date: <%= party.scheduled_date %><br>
+      Time: <%= party.start_time %><br>
+      Status: Invited<br><br>
+    </p>
+  <% end %>
+</section>
+

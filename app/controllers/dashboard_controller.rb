@@ -6,5 +6,7 @@ class DashboardController < ApplicationController
     else
       redirect_to new_user_path
     end
+
+    @parties = !!current_user ? current_user.get_parties : {invited: [], hosting: []}
   end
 end
