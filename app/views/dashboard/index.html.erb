@@ -1,3 +1,6 @@
+<% if current_user %>
+  <%= button_to "Discover Some Movies!", discover_path, method: :get %>
+<% end %>
 <section id="parties">
   <% @parties[:hosting].each do |party| %>
     <p id="party-<%= party.id %>">

@@ -43,4 +43,11 @@ describe "user dashboard" do
       end
     end
   end
+  it "has a button for authenticated users to go to the discover page" do
+    expect(page).to have_button("Discover Some Movies!")
+
+    click_button("Discover Some Movies!")
+
+    expect(current_path).to eq(discover_path)
+  end
 end
