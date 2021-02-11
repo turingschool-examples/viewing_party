@@ -15,7 +15,7 @@ class ViewingPartiesController < ApplicationController
     if party.save
       flash[:success] = "Successfully created party!"
 
-      current_user.accepted_friends.each do |friend|
+      current_user.following.each do |friend|
         if params[:party]["friend-#{friend.id}".to_sym]
           UserParty.create(party: party, user: friend)
         end

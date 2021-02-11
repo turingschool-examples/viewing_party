@@ -7,7 +7,7 @@
   <%= f.label :start_time, "Start Time:" %>
   <%= f.time_field :start_time %><br><br>
   <section id="friends">
-    <% current_user.accepted_friends.each do |friend| %>
+    <% current_user.following.each do |friend| %>
       <%= f.checkbox_tag "friend-#{friend.id}".to_sym %>
       <%= f.label :friend, friend.name %><br>
     <% end %>
