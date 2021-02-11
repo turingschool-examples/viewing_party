@@ -36,11 +36,6 @@ describe "user dashboard" do
         expect(page).to have_content(@my_party.movie_title)
         expect(page).to have_content("Hosting")
       end
-
-      within("#party-#{@my_friends_party.id}") do
-        expect(page).to have_content(@my_friends_party.movie_title)
-        expect(page).to have_content("Invited")
-      end
     end
   end
   it "has a button for authenticated users to go to the discover page" do
