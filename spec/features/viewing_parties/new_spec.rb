@@ -12,6 +12,12 @@ describe "new viewing party page" do
 
       allow_any_instance_of(ViewingPartiesController).to receive(:current_user).and_return(@user) #stubbing method to simulate being logged in.
 
+      visit root_path
+
+      fill_in "email", with: "user1@example.com"
+      fill_in "password", with: "password123"
+      click_on "Log In"
+
       VCR.use_cassette("movie_service_hp_top") do
         @movie = MoviesFacade.find_movies_by_name(nil)[0]
       end
@@ -72,14 +78,6 @@ describe "new viewing party page" do
       VCR.use_cassette("movie_service_hp_info_2") do
         visit new_viewing_party_path(@movie.id)
       end
-    end
-
-    it "renders page with flash message when given invalid input" do
-      VCR.use_cassette("movie_service_hp_info_2") do
-        click_button "Create Party"
-      end
-      expect(page).to have_content("Scheduled date can't be blank")
-      expect(page).to have_button("Create Party") #check if it is on the same page because current_path will not be the same
     end
 
     it "redirects user to root page when user is not logged in" do

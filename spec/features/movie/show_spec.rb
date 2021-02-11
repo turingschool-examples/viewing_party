@@ -3,6 +3,13 @@ require "rails_helper"
 describe "Movie show page", :vcr do
   describe "displays" do
     before :each do
+      @jamie = User.create!(email: "jamie@email.org", password: "password1", password_confirmation: "password1")
+      visit root_path
+
+      fill_in "email", with: "jamie@email.org"
+      fill_in "password", with: "password1"
+      click_on "Log In"
+
       visit movie_path(447404)
     end
 
@@ -58,7 +65,9 @@ describe "Movie show page", :vcr do
 
     it "has a button to create a new viewing party" do
       expect(page).to have_button("Create New Viewing Party")
+     
       click_button("Create New Viewing Party")
+
       expect(current_path).to eq("/movies/447404/new_viewing_party")
     end
   end
