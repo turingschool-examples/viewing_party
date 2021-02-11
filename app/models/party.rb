@@ -1,5 +1,6 @@
 class Party < ApplicationRecord
-  belongs_to :user
+  has_many :user_parties
+  has_many :parties, through: :user_parties
 
   validates :duration, presence: true
   validates :scheduled_date, presence: true
