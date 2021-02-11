@@ -11,7 +11,7 @@ class ViewingPartiesController < ApplicationController
 
   def create
     @movie_info = MoviesFacade.get_movie_info(params[:id])
-    party = Party.new(party_params(@movie_info[:id],@movie_info[:title],current_user.id))
+    party = Party.new(party_params(@movie_info.id,@movie_info.title,current_user.id))
     if party.save
       flash[:success] = "Successfully created party!"
 

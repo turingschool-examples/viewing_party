@@ -30,7 +30,7 @@ describe "new viewing party page" do
     end
 
     it "has a list of friends to invite" do
-      expect(page).to have_xpath("//input[@name='#{@movie_info[:runtime]}']")
+      expect(page).to have_xpath("//input[@name='#{@movie_info.runtime}']")
 
       expect(page).to have_xpath("//input[@value='friend-#{@friend1.id}']")
       expect(page).to have_xpath("//input[@value='friend-#{@friend2.id}']")
