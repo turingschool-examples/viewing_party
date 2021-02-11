@@ -22,13 +22,12 @@ gem 'bacon-bits', '~> 0.1.0'
 gem 'mocha', '~> 1.12'
 gem 'mocha-on-bacon', '~> 0.2.3'
 gem 'hirb', '~> 0.7.3'
-
+gem 'faraday'
 gem 'figaro'
 
 group :development, :test do
   gem 'pry'
   gem 'travis'
-
   gem 'shoulda-matchers', '~> 4.0'
 
 end
