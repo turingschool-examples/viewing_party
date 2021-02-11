@@ -34,14 +34,7 @@ class MoviesService
       json1[:results]
     end
   end
-
-  # def self.find_vote_average_by_name(search)
-  #   # if search == "" or search == nil then return self.find_top_movie_vote_average end
-  #
-  #   response = conn.get("search/movie?language=en-US&query=#{name_search(search)}&page=1&include_adult=false")
-  #   json_parse(response)
-  # end
-
+  
   def self.get_movie_info(id)
     response = conn.get("movie/#{id}")
     json_parse(response)

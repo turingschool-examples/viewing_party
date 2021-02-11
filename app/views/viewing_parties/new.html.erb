@@ -1,7 +1,7 @@
-<h2>Create a Viewing Party for <%= @movie_info[:title] %></h2>
+<h2>Create a Viewing Party for <%= @movie_info.title %></h2>
 <%= form_with model: @party, local: true do |f| %>
   <%= f.label :duration, "Duration of Party:" %>
-  <%= f.number_field :duration, value: @movie_info[:runtime] %> <br>
+  <%= f.number_field :duration, value: @movie_info.runtime %> <br>
   <%= f.label :scheduled_date, "Day:" %>
   <%= f.date_field :scheduled_date %> <br>
   <%= f.label :start_time, "Start Time:" %>
