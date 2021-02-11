@@ -1,15 +1,15 @@
 require "rails_helper"
 
-describe "Discover page", :vcr do
+describe "Movie index page", :vcr do
   describe "displays" do
     it "a button to discover top 40 movies and a button to search movies" do
-      visit discover_path
+      visit movies_path
       expect(page).to have_button("Find Popular Movies")
       expect(page).to have_button("Find Movies")
     end
 
     it "Find popular movies button links you to movie index and displays top movies" do
-      visit discover_path
+      visit movies_path
 
       click_button("Find Popular Movies")
 
@@ -26,9 +26,11 @@ describe "Discover page", :vcr do
       expect(page).to have_content("Finding 'Ohana")
     end
 
-    it "Has a button to search for movie by title then returns the results" do
-      visit discover_path
+    it "Has a button to search for movie by title then returns the results even after searching for movies already" do
+      visit movies_path
+      click_button("Find Popular Movies")
 
+      expect(current_path).to eq(movies_path)
       fill_in :query, with: "wonder woman"
       click_button("Find Movies")
 

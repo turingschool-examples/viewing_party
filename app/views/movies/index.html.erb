@@ -1,7 +1,7 @@
 <%= render partial: "shared/search_form" %>
 <p>
 <% @movies.each do |movie| %>
-  Title: <%= movie.title %>
+  Title: <%= link_to "#{movie.title}", movies_path(movie.id) %>
   Vote Average Score: <%= movie.vote_average %> <br>
 <% end %>
 </p>
