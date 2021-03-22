@@ -15,10 +15,19 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'bootsnap'
 gem 'jbuilder', '~> 2.5'
+gem 'bcrypt', '~> 3.1.7'
 
 group :development, :test do
+  gem 'rspec-rails'
   gem 'pry'
-  gem 'travis'
+  gem 'shoulda-matchers', '~> 3.1'
+  gem 'orderly'
+  gem 'active_designer'
+  gem 'faraday'
+  gem 'figaro'
+  gem 'rubocop'
+  gem 'factory_bot_rails'
+  gem 'faker'
 end
 
 group :development do
