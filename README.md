@@ -1,3 +1,6 @@
+# DTR
+https://gist.github.com/klatour324/e4b8e3181a80421ab633654dc64134b7
+
 # Viewing Party
 
 This is the base repo for the [viewing party project](https://backend.turing.io/module3/projects/viewing_party) used for Turing's Backend Module 3.
