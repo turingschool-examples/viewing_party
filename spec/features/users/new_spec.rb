@@ -12,7 +12,7 @@ RSpec.describe "user new page" do
       fill_in :password, with: "password"
       fill_in :password_confirmation, with: "password"
       click_on "Submit"
-      expect(page).to have_content("Kyle schulz's dashboard")
+      expect(page).to have_content("Welcome Kyle schulz")
     end
 
     it "validates that the email is valid" do

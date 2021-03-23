@@ -2,4 +2,6 @@
 
 <h3>A place to plan movie nights with your friends!</h3>
 
-<h4>not already registered? <%= link_to "Register", new_user_path %></h4>
+<h4>Not already registered? <%= link_to "Register", new_user_path %></h4>
+
+<h4>Already a user? <%= button_to "Login", login_path, method: :get %></h4>

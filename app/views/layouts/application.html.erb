@@ -9,6 +9,9 @@
   </head>
 
   <body>
+    <% if logged_in? %>
+      <%= button_to "Logout", logout_path, method: :get %>
+    <% end %>
     <main>
       <%= flash[:alert] %>
       <%= flash[:notice] %>

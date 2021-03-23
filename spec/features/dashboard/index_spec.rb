@@ -1,12 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe "User Dashboard" do
+RSpec.describe "User Dashboard Index" do
   before(:each) do
-    @host = create(:user)
+    @host = create(:user, password: 'password')
 
-    @friend_1 = create(:user)
-    @friend_2 = create(:user)
-    @friend_3 = create(:user)
+    @friend_1 = create(:user, password: 'password2')
+    @friend_2 = create(:user, password: 'password3')
+    @friend_3 = create(:user, password: 'password4')
 
     @follow_1 = create(:follow, followee: @host, follower: @friend_1)
     @follow_2 = create(:follow, followee: @host, follower: @friend_2)
@@ -19,9 +19,14 @@ RSpec.describe "User Dashboard" do
     @invitee_1 = create(:invitee, party: @party, user: @friend_1)
     @invitee_3 = create(:invitee, party: @party, user: @friend_3)
   end
+
   describe "As an authenticated user" do
     it "Displays a greeting, 'Discover Movies' button, parties section, friends section" do
-      visit user_dashboard_index_path(@host)
+      visit login_path
+
+      fill_in :email, with: @host.email
+      fill_in :password, with: 'password'
+      click_button 'Log In'
 
       within("#greeting") do
         expect(page).to have_content("Welcome #{@host.full_name}")
@@ -60,6 +65,25 @@ RSpec.describe "User Dashboard" do
         expect(page).to have_content(@party.host.full_name)
       end
     end
+
+    it 'doesnt display user info if the user is not logged in' do
+      visit user_dashboard_index_path(@host)
+
+      expect(current_path).to eq(login_path)
+      expect(page).to have_content("You must be logged in to perform that action")
+    end
+
+    it 'cant view another users dashboard' do
+      visit login_path
+
+      fill_in :email, with: @host.email
+      fill_in :password, with: 'password'
+      click_button 'Log In'
+
+      visit user_dashboard_index_path(@friend_1)
+
+      expect(current_path).to eq(user_dashboard_index_path(@host))
+      expect(page).to have_content("You can only access your own dashboard")
+    end
   end
 end
-
