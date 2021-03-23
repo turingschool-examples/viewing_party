@@ -8,14 +8,16 @@ RSpec.describe "User registration form" do
 
     expect(current_path).to eq(new_user_path)
 
-    username = "movielover"
+    email = "mOVielOvEr@example.com"
     password = "test"
 
-    fill_in :username, with: username
-    fill_in :password, with: password
+    test_email = email.downcase
+
+    fill_in "user[email]", with: email
+    fill_in "user[password]", with: password
 
     click_on "Create User"
 
-    expect(page).to have_content("Welcome, #{username}!")
+    expect(page).to have_content("Welcome, #{test_email}!")
   end
 end
