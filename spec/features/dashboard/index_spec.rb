@@ -85,5 +85,66 @@ RSpec.describe "User Dashboard Index" do
       expect(current_path).to eq(user_dashboard_index_path(@host))
       expect(page).to have_content("You can only access your own dashboard")
     end
+
+    it "Can search for and add friends" do
+      friend_4 = create(:user, email: 'email@email.com', password: 'password4')
+
+      visit login_path
+
+      fill_in :email, with: @host.email
+      fill_in :password, with: 'password'
+      click_button 'Log In'
+
+      visit user_dashboard_index_path(@host)
+
+      within(".friends") do
+        expect(page).to have_field(:search)
+        fill_in :search, with: "email@email.com"
+        expect(page).to have_button("Add Friend")
+        click_on("Add Friend")
+      end
+
+      within(".friends") do
+        expect(page).to have_css("#friend-#{friend_4.id}")
+      end
+    end
+
+    it "can't add a friend whose email does not exist" do
+      visit login_path
+
+      fill_in :email, with: @host.email
+      fill_in :password, with: 'password'
+      click_button 'Log In'
+
+      visit user_dashboard_index_path(@host)
+
+      within(".friends") do
+        expect(page).to have_field(:search)
+        fill_in :search, with: "email@email.com"
+        expect(page).to have_button("Add Friend")
+        click_on("Add Friend")
+      end
+
+      expect(page).to have_content("This User Does Not Exist")
+    end
+
+    it "can not add self" do
+      visit login_path
+  
+      fill_in :email, with: @host.email
+      fill_in :password, with: 'password'
+      click_button 'Log In'
+  
+      visit user_dashboard_index_path(@host)
+
+      within(".friends") do
+        expect(page).to have_field(:search)
+        fill_in :search, with: @host.email
+        expect(page).to have_button("Add Friend")
+        click_on("Add Friend")
+      end
+
+      expect(page).to have_content("You Can Not Add Yourself")
+    end
   end
 end

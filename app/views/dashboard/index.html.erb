@@ -10,6 +10,11 @@
   <section class="friends">
     <h2>Friends</h2>
     <hr>
+    <%= form_with url: user_followers_path, method: :post, local: true do |f| %>
+      <%= f.label :email %>
+      <%= f.text_field :search %>
+      <%= f.submit "Add Friend" %>
+    <% end %>
     <% @host.followers.each do |follower| %>
       <div id="friend-<%= follower.id %>">
         <%= follower.full_name %>
@@ -18,6 +23,8 @@
   </section>
 
   <section class="parties">
+    <h2>Parties</h2>
+    <hr>
     <% @parties.each do |party| %>
       <div id="party-<%= party.id %>">
         <h4><%= party.movie.title %></h4>
