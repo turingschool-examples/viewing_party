@@ -2,6 +2,7 @@
 require 'spec_helper'
 require 'simplecov'
 require 'factory_bot_rails'
+require 'shoulda/matchers'
 SimpleCov.start
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
@@ -69,5 +70,9 @@ RSpec.configure do |config|
       with.test_framework :rspec
       with.library :rails
     end
+  end
+
+  RSpec.configure do |config|
+    config.include FactoryBot::Syntax::Methods
   end
 end

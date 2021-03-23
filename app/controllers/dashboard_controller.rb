@@ -1,6 +1,7 @@
 class DashboardController < ApplicationController
   def index
-    @user = User.find(params[:user_id])
-
+    @host = User.find(params[:user_id])
+    @parties = Party.where(user_id: params[:user_id])
   end
 end
+
