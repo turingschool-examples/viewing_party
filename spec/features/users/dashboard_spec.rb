@@ -41,4 +41,43 @@ RSpec.describe "Dashboard" do
       end
     end
   end
+
+  it "you can add friends to the friends section" do
+    user2 = User.create!(name: "Jeremiah", email: "jeremiah@gmail.com", password: "password")
+    user3 = User.create!(name: "Jeremiahhh", email: "jeremiah2@gmail.com", password: "password")
+    user4 = User.create!(name: "Jeremiahh", email: "jeremiah3@gmail.com", password: "password")
+    within "#friends-#{@user.id}" do
+      fill_in :email, with: user2.email
+      click_button("Add Friend")
+      expect(current_path).to eq(dashboard_path())
+      expect(page).to have_content(user2.name)
+    end
+  end
+
+  it "holds multiple friends when added" do
+    user2 = User.create!(name: "Jeremiah", email: "jeremiah@gmail.com", password: "password")
+    user3 = User.create!(name: "Jeremiahhh", email: "jeremiah2@gmail.com", password: "password")
+    user4 = User.create!(name: "Jeremiahh", email: "jeremiah3@gmail.com", password: "password")
+    friend1 = Friend.create!(user_id:@user.id, friend_id: user2.id)
+    within "#friends-#{@user.id}" do
+      fill_in :email, with: user3.email
+      click_button("Add Friend")
+      expect(current_path).to eq(dashboard_path())
+      expect(page).to have_content(user2.name)
+      expect(page).to have_content(user3.name)
+    end
+  end
+
+  it "returns a sad path if the email does not exist" do
+    user2 = User.create!(name: "Jeremiah", email: "jeremiah@gmail.com", password: "password")
+    user3 = User.create!(name: "Jeremiahhh", email: "jeremiah2@gmail.com", password: "password")
+    user4 = User.create!(name: "Jeremiahh", email: "jeremiah3@gmail.com", password: "password")
+    friend1 = Friend.create!(user_id:@user.id, friend_id: user2.id)
+    within "#friends-#{@user.id}" do
+        fill_in :email, with: 'Dominic@gmail.com'
+        click_button("Add Friend")
+        expect(current_path).to eq(dashboard_path())
+    end
+    expect(page).to have_content("That User Does Not Exist")
+  end
 end
