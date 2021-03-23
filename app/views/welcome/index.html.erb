@@ -1,6 +1,22 @@
+<style>
+  body {
+    background-image:url('./images/movie_theater.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    color: #000080;
+  }
+</style>
+
+
 <h1> This is Viewing Party!</h1>
 
 <h3> "This app allows you to add friends and have events to view movies!"</h3>
 
 <%= link_to "Log In", "/login" %>
-<%= button_to "Register", "/registration", method: :get %>
+
+<%= button_to "Register", "/registration", method: :get, class: "btn btn-primary btn-lg" %>
