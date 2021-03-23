@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :movie do
-    title { "MyString" }
+    title { Faker::Movie.title }
   end
 end

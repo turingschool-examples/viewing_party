@@ -1,0 +1,33 @@
+<body>
+  <section id="greeting">
+    <h1>Welcome <%= @host.full_name %></h1>
+  </section>
+
+  <section class="movies">
+    <%= button_to "Discover Movies" %>
+  </section>
+
+  <section class="friends">
+    <h2>Friends</h2>
+    <hr>
+    <% @host.followers.each do |follower| %>
+      <div id="friend-<%= follower.id %>">
+        <%= follower.full_name %>
+      </div>
+    <% end %>
+  </section>
+
+  <section class="parties">
+    <% @parties.each do |party| %>
+      <div id="party-<%= party.id %>">
+        <h4><%= party.movie.title %></h4>
+          <p>
+            At: <%= party.time %>
+            Lasting: <%= party.duration %>
+            Hosted by: <%= party.host.full_name %>
+          </p>
+      </div>
+    <% end %>
+  </section>
+  
+</body>
