@@ -24,6 +24,7 @@ group :development, :test do
   gem 'orderly'
   gem 'factory_bot_rails'
   gem 'faker'
+  gem 'shoulda-matchers'
 end
 
 group :development do
