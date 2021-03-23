@@ -11,7 +11,7 @@
   <% end %>
   <% if !current_user.friends.empty? %>
     <% current_user.friends.each do |friend| %>
-      <% friend.name %>
+      <%= User.find_by(id: friend.friend_id).name%>
     <% end %>
   <% else %>
     You have no one on your friends list yet
