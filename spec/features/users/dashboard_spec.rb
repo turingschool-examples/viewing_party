@@ -33,11 +33,11 @@ RSpec.describe "Dashboard" do
         expect(page).to have_field(:email)
         expect(page).to have_button("Add Friend")
       end
+    end
 
-      it "has a viewing party section" do
-        within "#viewing_party#{@user.id}" do
-          expect(page).to have_content("Viewing Party")
-        end
+    it "has a viewing party section" do
+      within "#viewing_party#{@user.id}" do
+        expect(page).to have_content("Viewing Parties")
       end
     end
   end
