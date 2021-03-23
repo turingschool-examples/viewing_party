@@ -18,6 +18,9 @@ gem 'jbuilder', '~> 2.5'
 
 group :development, :test do
   gem 'pry'
+  gem 'shoulda-matchers', '~> 3.1'
+  gem 'orderly'
+  gem 'active_designer'
   gem 'travis'
 end
 
