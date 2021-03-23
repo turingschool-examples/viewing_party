@@ -17,12 +17,12 @@ RSpec.describe "welcome index page" do
       expect(current_path).to eq(new_user_path)
     end
 
-    xit "has button for logging in" do
+    it "has button for logging in" do
       visit root_path
 
       expect(page).to have_button("Login")
       click_button("Login")
-      expect(current_path)
+      expect(current_path).to eq(login_path)
     end
   end
 end
