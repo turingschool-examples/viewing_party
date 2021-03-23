@@ -5,8 +5,15 @@
 <section id="friends-<%=current_user.id%>">
   <h3>Friends</h3>
   <%= form_with url: friends_path, local: true do |f| %>
-    <%= f.label "Friend's Email: " %>
+    <%= f.label "Friend's Email:" %>
     <%= f.text_field :email %>
     <%= f.submit "Add Friend" %>
+  <% end %>
+  <% if !current_user.friends.empty? %>
+    <% current_user.friends.each do |friend| %>
+      <% friend.name %>
+    <% end %>
+  <% else %>
+    You have no one on your friends list yet
   <% end %>
 </section>

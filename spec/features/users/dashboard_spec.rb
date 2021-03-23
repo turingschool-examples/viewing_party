@@ -30,7 +30,7 @@ RSpec.describe "Dashboard" do
       within "#friends-#{@user.id}" do
         expect(page).to have_content("Friends")
         expect(page).to have_content("You have no one on your friends list yet")
-        expect(page).to have_field("Friend's Email:")
+        expect(page).to have_field(:email)
         expect(page).to have_button("Add Friend")
       end
 
