@@ -14,9 +14,9 @@ RSpec.describe 'Welcome' do
 
   it "has a button to log in" do
     visit root_path()
-    expect(page).to have_link("Log In")
-    click_link("Log In")
-    expect(current_path).to eq("/login")
+    expect(page).to have_content("Email:")
+    expect(page).to have_content("Password:")
+    expect(page).to have_button("Log In")
   end
 
   it "has a button to register as a user" do
