@@ -1,0 +1,13 @@
+
+
+<%= form_with url: users_path, local: true do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :full_name, :value => @user.full_name %>
+  <%= f.label :email %>
+  <%= f.text_field :email, :value => @user.email %>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <%= f.label :confirm_password %>
+  <%= f.password_field :password_confirmation %>
+  <%= f.submit "Submit" %>
+<% end  %>
