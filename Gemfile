@@ -17,17 +17,18 @@ gem 'bootstrap', '~> 5.0.0.beta2'
 gem 'jquery-rails'
 gem 'bootsnap'
 gem 'jbuilder', '~> 2.5'
+gem 'bcrypt'
 
 group :development, :test do
   gem 'pry'
   gem 'travis'
+  gem 'shoulda-matchers'
 end
 
 group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'rubocop-rails'
-  gem 'travis'
 end
 
 group :test do

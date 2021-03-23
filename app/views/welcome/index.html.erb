@@ -17,6 +17,13 @@
 
 <h3> "This app allows you to add friends and have events to view movies!"</h3>
 
-<%= link_to "Log In", "/login" %>
-
-<%= button_to "Register", "/registration", method: :get, class: "btn btn-primary btn-lg" %>
+<div class="login">
+  <%= form_with url: login_path, method: :post, local: true do |f| %>
+    <%= f.label "Email: " %>
+    <%= f.text_field :email %>
+    <%= f.label "Password: "%>
+    <%= f.password_field :password %>
+    <%= f.submit "Log In" %>
+  <% end %>
+</div>
+<%= button_to "Register", "/registration", method: :get %>
