@@ -1,0 +1,2 @@
+class ViewingEventsController < ApplicationController
+end
