@@ -16,7 +16,7 @@ RSpec.describe 'MovieService' do
     it "returns the top 40 movie title/tmdb_ids" do
       movie_service_data = MovieService.new
       results = movie_service_data.movies_by_vote_average
-      
+
       expect(results.first[0]).to eq("Gabriel's Inferno Part II")
       expect(results.first[1]).to eq(8.8)
       expect(results.count).to eq(40)
@@ -44,6 +44,21 @@ RSpec.describe 'MovieService' do
 
       expect(movie_service.results_page_count(url)).to eq(500)
       expect(movie_service.results_page_count(url_2)).to eq(8)
+    end
+  end
+
+  describe "#movie_information" do
+    it "returns a hash of movie_information" do
+      movie_service = MovieService.new
+      movie_info = movie_service.movie_information(550)
+
+      expect(movie_info.class).to eq(Hash)
+      expect(movie_info.keys).to eq([:tmdb_id, :title, :vote_average, :runtime, :genres, :summary, :cast, :reviews])
+      expect(movie_info[:title]).to eq("Fight Club")
+      expect(movie_info[:vote_average]).to eq(8.4)
+      expect(movie_info[:runtime]).to eq(139)
+      expect(movie_info[:genres]).to eq("")
+      expect(movie_info[:summary]).to eq( "A ticking-time-bomb insomniac and a slippery soap salesman channel primal male aggression into a shocking new form of therapy. Their concept catches on, with underground \"fight clubs\" forming in every town, until an eccentric gets in the way and ignites an out-of-control spiral toward oblivion.")
     end
   end
 end
