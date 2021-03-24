@@ -5,4 +5,6 @@ Rails.application.routes.draw do
    get '/registration', to: 'users#new'
    post '/login', to: 'users#login'
    get '/dashboard', to: 'users#dashboard'
+
+   resources :movies, only: [:index, :show]
 end
