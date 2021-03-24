@@ -15,7 +15,7 @@ describe "User registration form" do
     fill_in 'user[password]', with: password
     fill_in 'user[password_confirmation]', with: password
 
-    click_on "Create User"
+    click_button "Register"
 
     expect(current_path).to eq(dashboard_path)
     expect(page).to have_content("Welcome, #{email}!")
@@ -35,7 +35,7 @@ describe "User registration form" do
     fill_in 'user[password]', with: password
     fill_in 'user[password_confirmation]', with: 'fdafdsa'
 
-    click_on "Create User"
+    click_button "Register"
 
     expect(page).to have_content("Wrong email/password")
   end
