@@ -3,10 +3,10 @@
 
 <%= form_with model: @user, local: true do |f| %>
   <%= f.label :email %>
-  <%= f.text_field :email %>
+  <%= f.text_field :email %><br>
   <%= f.label :password %>
-  <%= f.password_field :password %>
-  <%= f.submit "Sign In" %>
+  <%= f.password_field :password %><br>
+  <%= f.submit "Sign In" %><br><br>
 <% end %>
 
 <%= link_to 'New to Viewing Party? Register Here', '/registration' %>
