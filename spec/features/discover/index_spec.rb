@@ -9,8 +9,6 @@ RSpec.describe "As a user after I click the link from my dashboard to visit the 
       expect(current_path).to eq(discover_path)
       # expect(page).to have_content("Welcome #{user_1.email}!")
       expect(page).to have_button("Find Top Rated Movies")
-
-      expect(page).to have_content("Search by movie title")
       expect(page).to have_button("Find Movies")
     end
   end
@@ -24,14 +22,14 @@ RSpec.describe "As a user after I click the link from my dashboard to visit the 
       expect(page).to have_content("Vote Average: 8.8")
       expect(page).to_not have_content("Vote Average: 1.5")
       expect(page).to have_content("David Attenborough: A Life on Our Planet")
-      expect(page).to have_content("The Great Dictator")
+      expect(page).to have_content("Mortal Kombat Legends")
     end
   end
 
   describe "search for a movie by title" do
     it "should return movies that match the user query" do
       visit(discover_path)
-      fill_in :movie_search, with: "phoenix"
+      fill_in :movie_query, with: "phoenix"
       click_on("Find Movies")
 
       expect(page).to have_content("Dark Phoenix")
