@@ -10,11 +10,26 @@ RSpec.describe "Dashboard Index Page" do
         fill_in :email, with: user.email
         fill_in :password, with: user.password
         click_on "Log In"
-        visit '/dashboard'
-          save_and_open_page
+        visit dashboard_path
           within "#userInfo" do
             expect(page).to have_content("Welcome #{user.email}!")
           end
+      end
+    end
+    describe "it has button to discover movies page" do
+      it "clicking discover button takes me to the page" do
+        user = User.create(password: "hello", email: "sample@email.com")
+        visit root_path
+        click_on "Log In!"
+        fill_in :email, with: user.email
+        fill_in :password, with: user.password
+        click_on "Log In"
+        visit dashboard_path
+          within "#discover-movies-link" do
+            expect(page).to have_link("Discover Movies")
+            click_link("Discover Movies")
+          end
+        expect(current_path).to eq(discover_path)
       end
     end
   end
