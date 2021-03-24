@@ -5,11 +5,11 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
 
   get '/login', to: 'users#login_form'
+  post '/login', to: 'users#login'
 
-
-  # resource :dashboard, controller: 'user', only: :show do
-  #   resources :parties, only: [:new, :create]
-  # end
+  resource :dashboard, controller: 'users', only: :show do
+    resources :parties, only: [:new, :create]
+  end
 
   # resources :movies, only: [:index, :show]
   # get '/discover', to: 'movies#search'
