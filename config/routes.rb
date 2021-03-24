@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'users#dashboard'
   get '/discover', to: 'discover#index'
   post '/users/new', to: 'users#create'
+  
   resources :friends, only: [:create]
 end
