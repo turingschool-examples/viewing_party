@@ -4,7 +4,7 @@
   </section>
 
   <section class="movies">
-    <%= button_to "Discover Movies" %>
+    <%= link_to "Discover Movies", discover_index_path %>
   </section>
 
   <section class="friends">
@@ -22,17 +22,43 @@
     <% end %>
   </section>
 
-  <section class="parties">
-    <h2>Parties</h2>
+  <section class="hosted-parties">
+    <h2>Hosted Parties</h2>
     <hr>
-    <% @parties.each do |party| %>
+    <% @hosted_parties.each do |party| %>
       <div id="party-<%= party.id %>">
-        <h4><%= party.movie.title %></h4>
+        <h4><%= link_to "#{party.movie.title}" %></h4>
           <p>
             At: <%= party.time %>
             Lasting: <%= party.duration %>
             Hosted by: <%= party.host.full_name %>
           </p>
+          <h4>Guests:</h4>
+          <ul class="invitees">
+            <%party.invitees.each do |invitee| %>
+              <li><%= invitee.full_name %></li>
+            <% end %>
+          </ul>
+      </div>
+    <% end %>
+  </section>
+  <section class="invited-parties">
+    <h2>Parties im invited to:</h2>
+    <hr>
+    <% @invited_parties.each do |party| %>
+      <div id="party-<%= party.id %>">
+        <h4><%= link_to "#{party.movie.title}" %></h4>
+          <p>
+            At: <%= party.time %>
+            Lasting: <%= party.duration %>
+            Hosted by: <%= party.host.full_name %>
+          </p>
+          <h4>Friends invited:</h4>
+          <ul>
+            <%party.invitees.each do |invitee| %>
+              <li id="friends-invited-<%= invitee.id %>" style=<%= invitee.user?(@host.id) %>><%= invitee.full_name %></li>
+            <% end %>
+          </ul>
       </div>
     <% end %>
   </section>

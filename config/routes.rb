@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     resources :followers, only: [:create]
   end
 
+  resources :discover, only: [:index]
+
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
