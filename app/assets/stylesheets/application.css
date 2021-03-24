@@ -29,3 +29,11 @@ footer {
   align-self: baseline;
   flex-direction: row;
 }
+
+li.normal {
+  font-weight: normal;
+}
+
+li.bold {
+  font-weight: bold;
+}
