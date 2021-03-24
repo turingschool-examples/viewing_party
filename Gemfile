@@ -17,6 +17,7 @@ gem 'bootsnap'
 gem 'jbuilder', '~> 2.5'
 gem 'faraday'
 gem 'bcrypt', '~> 3.1.7'
+gem 'mimemagic', '~> 0.3.6'
 
 
 group :development, :test do
