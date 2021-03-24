@@ -17,7 +17,7 @@ RSpec.describe 'MovieService' do
       movie_service_data = MovieService.new
       results = movie_service_data.movies_by_vote_average
 
-      expect(results.first[0]).to eq("Gabriel's Inferno Part II")
+      expect(results.first[0]).to eq("Gabriel's Inferno Part III")
       expect(results.first[1]).to eq(8.8)
       expect(results.count).to eq(40)
     end
