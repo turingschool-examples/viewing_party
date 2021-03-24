@@ -8,8 +8,6 @@ class UsersController < ApplicationController
     user[:email] = user[:email].downcase
     new_user = User.new(user)
 
-    # require "pry"; binding.pry
-
     if new_user.save
       flash[:message] = "Welcome to Viewing Party, #{new_user.email}"
       redirect_to dashboard_index_path
@@ -17,7 +15,6 @@ class UsersController < ApplicationController
       flash[:error] = "Please enter valid information to create an acccount"
       render :new
     end
-
   end
 
   private

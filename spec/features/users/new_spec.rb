@@ -35,7 +35,7 @@ describe "When a user visits the registration path" do
       expect(page).to have_content("Please enter valid information to create an acccount")
     end
 
-    it "and I cannot create user without a accurate password confirmation" do
+    it "and I cannot create user without an accurate password confirmation" do
       visit registration_path
 
       fill_in "user[email]", with: "some@stuff.com"
