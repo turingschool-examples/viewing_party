@@ -1,7 +1,7 @@
 <h1>Welcome to Viewing Party</h1>
 <h3>An app to view movies with your friends!</h3>
 
-<%= form_with model: @user, local: true do |f| %>
+<%= form_with url: login_path, local: true do |f| %>
   <%= f.label :email %>
   <%= f.text_field :email %><br>
   <%= f.label :password %>
