@@ -16,6 +16,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'bootsnap'
 gem 'jbuilder', '~> 2.5'
 gem 'bcrypt'
+gem 'mimemagic', '~> 0.3.6'
 
 group :development, :test do
   gem 'pry'
