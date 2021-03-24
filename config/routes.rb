@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :parties, only: [:new, :create]
   end
 
-  # resources :movies, only: [:index, :show]
-  # get '/discover', to: 'movies#search'
+  resources :movies, only: :show
+  get '/discover', to: 'movies#index'
+  post '/discover', to: 'movies#index'
 end
