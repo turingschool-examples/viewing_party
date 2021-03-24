@@ -73,9 +73,9 @@ class MovieService
     movie_information
   end
 
-  def movie_info_genres(movie_id)
-    binding.pry
-    url = "https://api.themoviedb.org/3/movie/#{movie_id}?api_key=cc1b7a1d937de5062ee5336bdb03e44d&language=en-US"
-    info = get_data(url)
+  def movie_info_genres(genres)
+    genres.map do |genre|
+      genre[:name]
+    end
   end
 end
