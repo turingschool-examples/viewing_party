@@ -1,7 +1,7 @@
 <h1>Discover</h1>
 <h2>Welcome <%= @user %></h2>
 
-<section>
+<section id="top_forty">
   <%= button_to "Find Top Rated Movies", method: :get, remote: true, form: "top_forty" %>
   <% if params[:form] == "top_forty" %>
     <% @top_movies.each do |top_movie_and_rating| %>
@@ -9,7 +9,17 @@
     <% end %>
   <% end %>
 </section>
+<br><br>
 
-<section>
+<section id="movie_query">
+  <%= form_with url: discover_path, method: :get, local: true do |form| %>
+    <%= form.text_field :movie_query, value: "Search by movie title" %>
+    <%= form.submit "Find Movies" %>
+  <% end %>
 
+  <% if params[:movie_query] != nil %>
+    <% @query_results.each do |query| %>
+      <%= query[0] %><br>
+    <% end %>
+  <% end %>
 </section>
