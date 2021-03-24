@@ -13,6 +13,11 @@
  *= require_tree .
  *= require_self
  */
+ body {
+  background-color: rgb(91, 87, 119);
+  font-family: "courier", sans-serif;
+}
+
  .topnav {
   background-color: #333;
   overflow: hidden;

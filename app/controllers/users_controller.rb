@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.new
   end
 
   def create
@@ -13,6 +14,7 @@ class UsersController < ApplicationController
     if new_user.save
       new_user = User.create(user)
       flash[:success] = "Welcome, #{new_user.email}!"
+      session[:user_id] = new_user.id
       redirect_to dashboard_path
     else
       # find way to notify error for p.w. and email seperately 
