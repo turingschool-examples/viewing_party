@@ -4,8 +4,11 @@ class UsersController < ApplicationController
   end
 
   def create
+    user = user_params
+    user[:email] = user[:email].downcase
     @user = User.create(user_params)
     if @user.save
+      session[:user_id] = @user.id
       redirect_to user_dashboard_index_path(@user)
     else
       flash[:error] = @user.errors.full_messages.to_sentence
