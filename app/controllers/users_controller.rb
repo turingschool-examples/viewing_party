@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   def create
     @user = User.create(user_params)
     if @user.save
+      session[:user_id] = @user.id
       redirect_to user_dashboard_index_path(@user)
     else
       flash[:error] = @user.errors.full_messages.to_sentence
