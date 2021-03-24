@@ -18,27 +18,27 @@ describe 'Logging in' do
 
     click_button 'Login'
 
-    expect(current_path).to eq(root_path)
-    expect(page).to have_content("Welcome, #{user.email}")
+    expect(current_path).to eq(dashboard_path)
+    # expect(page).to have_content("Welcome, #{user.email}")
   end
 
-  # describe 'sad path' do
-  #   it 'block login if bad credentials' do
-  #     user = User.create(email: "funbucket13@example.com", password: "test")
+  describe 'sad path' do
+    it 'block login if bad credentials' do
+      user = User.create(email: "funbucket13@example.com", password: "test")
 
-  #     visit root_path
+      visit root_path
 
-  #     click_link 'Register'
+      click_link 'Login'
 
-  #     expect(current_path).to eq(login_path)
+      expect(current_path).to eq(login_path)
 
-  #     fill_in :email, with: user.email
-  #     fill_in :password, with: 'bad password'
+      fill_in :email, with: user.email
+      fill_in :password, with: 'bad password'
 
-  #     click_button 'Login'
+      click_button 'Login'
 
-  #     expect(current_path).to eq(login_path)
-  #     expect(page).to have_content("Wrong email/password")
-  #   end
-  # end
+      expect(current_path).to eq(login_path)
+      expect(page).to have_content("Wrong email/password")
+    end
+  end
 end
