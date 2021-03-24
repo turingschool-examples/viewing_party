@@ -2,4 +2,8 @@
   <section id="userInfo">
     <h1>Welcome <%= current_user.email %>!</h1>
   </section>
+
+  <section id="discover-movies-link">
+    <%= link_to "Discover Movies", discover_path %>
+  </section>
 <% end %>
