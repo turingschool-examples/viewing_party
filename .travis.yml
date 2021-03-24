@@ -9,5 +9,9 @@ script:
 deploy:
   provider: heroku
   api_key:
-  app:
-  run: rails db:migrate
+    secure: Fsahca7Hb8Ar2/eUdbrHZIFfRa2khwKOFzbtx/hFMnU3FArAflkoAz25dglwnvWfYI9vNPlKa5V0GC/+xwVmMZDqngFm98qX5oYfb6ZgQQhLayh4nnCi4q3VFf4gEia8tWWKcX6FJv8XNuFz789Wm5qQgOrEyclMt8peW71YFy4yuJtJ40tjCbzQ+RA19I8SivsFVSpd5X+YBIuEgArgNSbpeidikI1OrhLaPNF5u1JEmXhqWHSmOkHNUtL3cWFztjueq+FdmkrV31MdkpKGcGHFeZHbgH4ZyIbe4BKbOsMIP6NHkE7QYw7p7pmsk+2/MOWgTdTvYYuXokg1q9FXZhP23mdg+b/US8mPooLR5eD4HGkP4IAG/ehVAy3nd6QXFFYp8xe+UQxD4e8oI1YkxH7YFp0+dBBV1kHgKtKzApvlnx8uYScX6isFqwQuRPMXt3IQ+b9NfEhUOV1XcbJhqOglTyJ3yTvRpJuhn/r+1M9VHdk4fqG/ZQpYy8lNUjiyydkezfhdCafJXCaHjjzGoKPTGPOk35JXM+D4ql6e7wlsvn4VZuQLKM5dnmCnpokPHK6s4yuBwkfhs4e/RlGdPxhcx+9v+GQ/9MpUqYd49MJzctTJq8XDdPV7QTgmMH+YNHHvDLjyZUH3651FHebIPYu/p78X+RGEuJ4zokBVAtk=
+  app: vast-mountain-66778
+  on:
+    repo: javolpe/viewing_party
+    branch: main
+  skip_cleanup: 'true'
