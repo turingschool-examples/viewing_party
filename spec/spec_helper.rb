@@ -17,6 +17,15 @@ SimpleCov.start 'rails'
 SimpleCov.add_filter ['spec', 'config']
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+
+  def login(user)
+    visit login_path
+
+    fill_in :email, with: user.email
+    fill_in :password, with: 'password'
+    click_button 'Log In'
+
+  end
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
