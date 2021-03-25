@@ -14,7 +14,7 @@ describe User, type: :model do
       expect(user.email).to eq('harrison@email.com')
     end
 
-    it "should not craete a user with a invalid email format" do
+    it "should not create a user with a invalid email format" do
       user = User.new(email: 'harrison', password: 'password')
 
       expect(user.save).to eq(false)
