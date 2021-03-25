@@ -18,7 +18,7 @@ RSpec.describe 'MovieService' do
       results = movie_service_data.top_forty_movies
 
       expect(results.first[0]).to eq("Gabriel's Inferno Part III")
-      expect(results.first[1]).to eq(8.8)
+      expect(results.first[1]).to eq([761053, 8.8])
       expect(results.count).to eq(40)
     end
   end
