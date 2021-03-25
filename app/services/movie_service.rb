@@ -63,4 +63,14 @@ class MovieService
       genre[:name]
     end
   end
+
+  def movie_info_cast(movie_id)
+    url = "https://api.themoviedb.org/3/movie/550/credits?api_key=cc1b7a1d937de5062ee5336bdb03e44d&language=en-US"
+    cast_info = get_data(url)
+    movie_cast = {}
+    cast_info[:cast].each_with_index do |cast_member, index|
+      movie_cast[(cast_member[:name])] = cast_member[:character] if index < 10
+    end
+    movie_cast
+  end
 end
