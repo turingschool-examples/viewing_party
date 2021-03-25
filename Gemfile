@@ -13,14 +13,14 @@ gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
-gem 'mimemagic', '~> 0.3.6' 
+gem 'mimemagic', '~> 0.3.6'
 # gem 'bootstrap', '~> 5.0.0.beta2'
 # gem 'jquery-rails'
 # gem 'mini_racer', '~> 0.1.14'
 gem 'bootsnap'
 gem 'jbuilder', '~> 2.5'
 gem 'bcrypt'
-gem 'mimemagic', '~> 0.3.6'
+
 
 group :development, :test do
   gem 'pry'
@@ -39,6 +39,8 @@ group :test do
   gem 'capybara'
   gem 'launchy'
   gem 'simplecov'
+  gem 'webmock'
+  gem 'vcr'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

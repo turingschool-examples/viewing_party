@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-  before_action :initialize_movie_prosessing, only: [:index]
+  before_action :initialize_movie_prosessing, only: [:index, :show]
 
   def index
     if params[:search] == "Top Rated"
@@ -7,6 +7,10 @@ class MoviesController < ApplicationController
     elsif params[:search]
       @results = @movie.search(params[:search])
     end
+  end
+
+  def show
+    @results = @movie.movie_info(550)
   end
 
   private

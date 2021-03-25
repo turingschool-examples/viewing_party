@@ -1,0 +1,27 @@
+<section id="viewing_party">
+  <%= button_to "Create Viewing Party for Movie", "/viewing-party/new" %>
+</section>
+<section id="movie_info">
+  <h1>Movie title:<%= @results[:title]%></h1>
+  <% @results[:genres].each do |gen|%>
+    <p> Genres: <%= gen[:name] %> </p>
+  <% end %>
+  <p>This Movie is <%=@results[:runtime_hours] %> hours and <%= @results[:runtime_mins] %> minutes</p>
+  <p> Average_Rating: <%= @results[:vote_average]%></p>
+  <p> Summary: <%= @results[:overview]%></p>
+</section>
+
+<section id="movie_cast">
+  <p>Actors and Actresses</p>
+  <% @results[:cast].each do |name|%>
+  <p><%= name[:name]%> as <%= name[:character]%></p>
+  <% end%>
+</section>
+
+<section id="movie_reviews">
+  <p> <%= @results[:reviews].count %> Reviews</p>
+  <p><%@results[:reviews].each do |review| %>  </p>
+    <p> Author:<%= review[:author] %></p>
+    <p> Review: <%= review[:content] %></p>
+  <% end %>
+</section>
