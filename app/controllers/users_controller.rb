@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       flash[:message] = "Welcome to Viewing Party, #{new_user.email}"
       redirect_to dashboard_index_path
     else
-      flash[:error] = "Please enter valid information to create an acccount"
+      flash[:error] = 'Please enter valid information to create an acccount'
       render :new
     end
   end

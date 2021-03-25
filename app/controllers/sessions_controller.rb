@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
       flash[:message] = "Welcome, #{user.email}!"
       redirect_to dashboard_index_path
     else
-      flash[:message] = "email or password is incorrect"
+      flash[:message] = 'The email or password you entered is incorrect'
       redirect_to root_path
     end
   end
