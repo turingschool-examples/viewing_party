@@ -1,6 +1,6 @@
 class Movie < ApplicationRecord
   has_many :parties
 
-  validates_presence_of :name
-  validates_presence_of :duration
+  validates :name, presence: true
+  validates :duration, presence: true
 end

@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-  before_action :initialize_movie_prosessing, only: [:index]
+  before_action :initialize_movie_prosessing, only: [:index, :show]
 
   def index
     if current_user
@@ -15,7 +15,7 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @info = @movie.movie_info(movie_id)
+    @results = @movie.movie_info(550)
   end
 
   private
