@@ -46,7 +46,6 @@ RSpec.describe 'Movie Show Page' do
   it "shows movie review authors and review" do
   VCR.use_cassette('all_movie_info') do
     visit("/movies/550")
-    save_and_open_page
       within "#movie_reviews" do
         expect(page).to have_content("Goddard")
         expect(page).to have_content("Brett Pascoe")
