@@ -6,27 +6,21 @@ class MovieService
   end
 
   def movies_by_vote_average
-    url = 'https://api.themoviedb.org/3/discover/movie?api_key=cc1b7a1d937de5062ee5336bdb03e44d&language=en-US&sort_by=vote_average.desc&include_adult=false&include_video=false&page=1&vote_count.gte=100&with_original_language=en'
-    url_2 = 'https://api.themoviedb.org/3/discover/movie?api_key=cc1b7a1d937de5062ee5336bdb03e44d&language=en-US&sort_by=vote_average.desc&include_adult=false&include_video=false&page=2&vote_count.gte=100&with_original_language=en'
-    movie_data = get_data(url)
-    movie_data_2 = get_data(url_2)
-    total_results = movie_data[:results].concat(movie_data_2[:results])
     result = {}
-    total_results.each do |movie|
-      result[movie[:title]] = movie[:id]
-      result[movie[:title]] = movie[:vote_average]
+    2.times do |n|
+      movie_data = get_data(url_storage(num: n)[:movie_top_forty])
+      movie_data[:results].each do |movie|
+        result[movie[:title]] = movie[:vote_average]
+      end
     end
     result
   end
 
   def movie_search(search)
     search_results = {}
-    url = url_storage(query: search)[:movie_search]
-
     results_page_count((url_storage(num: 0, query: search)[:movie_search])).times do |n|
-      if n < 2
         search_data = get_data((url_storage(num: n, query: search)[:movie_search]))
-        search_data[:results].each do |query_match|
+        search_data[:results].each do |query_match| if n < 2
           search_results[query_match[:title]] = query_match[:id]
         end
       end
@@ -78,6 +72,7 @@ class MovieService
 
   def url_storage(movie_id: 1, num: 0, query: "")
     url_storage = {}
+    url_storage[:movie_top_forty] = "https://api.themoviedb.org/3/discover/movie?api_key=cc1b7a1d937de5062ee5336bdb03e44d&language=en-US&sort_by=vote_average.desc&include_adult=false&include_video=false&page=#{num + 1}&vote_count.gte=100&with_original_language=en"
     url_storage[:movie_info] = "https://api.themoviedb.org/3/movie/#{movie_id}?api_key=cc1b7a1d937de5062ee5336bdb03e44d&language=en-US"
     url_storage[:movie_reviews] = "https://api.themoviedb.org/3/movie/#{movie_id}/reviews?api_key=cc1b7a1d937de5062ee5336bdb03e44d&language=en-US&page=#{num + 1}"
     url_storage[:movie_cast] = "https://api.themoviedb.org/3/movie/#{movie_id}/credits?api_key=cc1b7a1d937de5062ee5336bdb03e44d&language=en-US"
