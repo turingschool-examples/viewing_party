@@ -21,18 +21,13 @@ class MovieService
 
   def movie_search(query)
     url = "https://api.themoviedb.org/3/search/movie?api_key=cc1b7a1d937de5062ee5336bdb03e44d&language=en-US&query=#{query}&page=1&include_adult=false"
-    search_data = get_data(url)
     search_results = {}
-    if results_page_count(url) == 1
-      search_data[:results].each do |query_match|
-        search_results[query_match[:title]] = query_match[:id]
-      end
-    else
-      url_2 = "https://api.themoviedb.org/3/search/movie?api_key=cc1b7a1d937de5062ee5336bdb03e44d&language=en-US&query=#{query}&page=2&include_adult=false"
-      search_data_2 = get_data(url_2)
-      total_search_results = search_data[:results].concat(search_data_2[:results])
-      total_search_results.each do |query_match|
-        search_results[query_match[:title]] = query_match[:id]
+    results_page_count(url).times do |n|
+      if n < 2
+        search_data = get_data("https://api.themoviedb.org/3/search/movie?api_key=cc1b7a1d937de5062ee5336bdb03e44d&language=en-US&query=#{query}&page=#{n + 1}&include_adult=false")
+        search_data[:results].each do |query_match|
+          search_results[query_match[:title]] = query_match[:id]
+        end
       end
     end
     search_results
@@ -78,11 +73,6 @@ class MovieService
     url = "https://api.themoviedb.org/3/movie/#{movie_id}/reviews?api_key=cc1b7a1d937de5062ee5336bdb03e44d&language=en-US&page=1"
     review_info = get_data(url)
     movie_reviews_info = {:total_reviews => review_info[:total_results]}
-    # if results_page_count(url) == 1
-    #   review_info[:results].each do |review|
-    #     movie_reviews_info[(review[:author_details][:username])] = review[:content]
-    #   end
-    # else
       results_page_count(url).times do |n|
         url = "https://api.themoviedb.org/3/movie/#{movie_id}/reviews?api_key=cc1b7a1d937de5062ee5336bdb03e44d&language=en-US&page=#{n + 1}"
         review_info = get_data(url)
@@ -90,7 +80,6 @@ class MovieService
           movie_reviews_info[(review[:author_details][:username])] = review[:content]
         end
       end
-    # end
     movie_reviews_info
   end
 end
