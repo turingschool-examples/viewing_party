@@ -61,4 +61,15 @@ RSpec.describe 'MovieService' do
       expect(movie_info[:summary]).to eq( "A ticking-time-bomb insomniac and a slippery soap salesman channel primal male aggression into a shocking new form of therapy. Their concept catches on, with underground \"fight clubs\" forming in every town, until an eccentric gets in the way and ignites an out-of-control spiral toward oblivion.")
     end
   end
+
+  describe "#movie_info_cast" do
+    it "returns an the actor and role they played in the movie" do
+      movie_service = MovieService.new
+      movie_cast_info = movie_service.movie_info_cast(550)
+
+      expect(movie_cast_info.keys.first).to eq("Edward Norton")
+      expect(movie_cast_info.keys[-1]).to eq("David Andrews")
+      expect(movie_cast_info.count).to eq(10)
+    end
+  end
 end
