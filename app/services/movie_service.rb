@@ -21,11 +21,15 @@ class MovieService
     results_page_count((url_storage(num: 0, query: search)[:movie_search])).times do |n|
         search_data = get_data((url_storage(num: n, query: search)[:movie_search]))
         search_data[:results].each do |query_match| if n < 2
-          search_results[query_match[:title]] = query_match[:id]
+          search_results[query_match[:title]] = movie_search_id_and_vote_average(query_match)
         end
       end
     end
     search_results
+  end
+
+  def movie_search_id_and_vote_average(query_match)
+    [query_match[:id], query_match[:vote_average]]
   end
 
 
