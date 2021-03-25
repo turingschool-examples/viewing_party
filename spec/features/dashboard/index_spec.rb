@@ -31,11 +31,9 @@ describe "As an authenticated user, when I visit '/dashboard'" do
     end
 
     it "I see a search box to add friends, if my friend is found they are added to my list" do
-
     end
 
     it "If I search for someone not registered, I receive a message 'Friend cannot be found'" do
-
     end
   end
 
