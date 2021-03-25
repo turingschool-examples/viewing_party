@@ -1,0 +1,15 @@
+<h1>Welcome "User name and Email"</h1>
+
+<section id="movie_info_basics">
+  <h2><%= @movie[:title]  %></h2>
+  <p>Vote Average: <%= @movie[:vote_average] %> | Runtime: <%= @movie[:runtime] %> minutes |
+    Genre(s): <% @movie[:genres].each do |genre| %>
+      <%= genre %>
+    <% end %>
+    <br>
+  <h4>Summary:</h4>
+  <p><%= @movie[:summary] %></p>
+</section>
+
+
+<h3></h3>

@@ -9,4 +9,9 @@ class MoviesController < ApplicationController
       @query_results = movie_service.movie_search(query)
     end
   end
+
+  def show
+    movie_service = MovieService.new
+    @movie = movie_service.movie_information(params[:id])
+  end
 end
