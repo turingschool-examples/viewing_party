@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe 'Movie Show Page' do
-  describe '' do
-    it '' do
+  describe 'can return api movie content' do
+    it 'shows a button to create a viewing party and movie info' do
 
       json_response = File.read('spec/fixtures/movie_details.json')
       json_cast_response = File.read('spec/fixtures/cast_details.json')
@@ -18,19 +18,40 @@ RSpec.describe 'Movie Show Page' do
          to_return(status: 200, body: json_review_response, headers: {})
 
       visit("/movies/550")
+        within "#viewing_party" do
+          expect(page).to have_button("Create Viewing Party for Movie")
+        end
+        within "#movie_info" do
+          expect(page).to have_content(body["title"])
+          expect(page).to have_content(body["genres"][0]["name"])
+          expect(page).to have_content(body["runtime"])
+          expect(page).to have_content(body["vote_average"])
+          expect(page).to have_content(body["overview"])
+      end
+    end
+  end
 
-      expect(page).to have_button("Create Viewing Party for Movie")
-      expect(page).to have_content(body["title"])
-      expect(page).to have_content(body["genres"][0]["name"])
-      expect(page).to have_content(body["runtime"])
-      expect(page).to have_content(body["vote_average"])
-      expect(page).to have_content(body["overview"])
-       expect(page).to have_content("Edward Norton")
-       expect(page).to have_content("Brad Pitt")
-       expect(page).to have_content("Goddard")
-       expect(page).to have_content("Brett Pascoe")
-       expect(page).to have_content("msbreviews")
-       expect(page).to have_content(review_body["results"].count)
+  it "vcr data reveals movie cast info" do
+    VCR.use_cassette('all_movie_info') do
+      visit("/movies/550")
+        within "#movie_cast" do
+        expect(page).to have_content("Edward Norton as The Narrator")
+        expect(page).to have_content("Brad Pitt as Tyler Durden")
+        expect(page).to have_content("Holt McCallany as The Mechanic")
+        expect(page).to have_content("Richmond Arquette as Intern")
+      end
+    end
+  end
+
+  it "shows movie review authors and review" do
+  VCR.use_cassette('all_movie_info') do
+    visit("/movies/550")
+      within "#movie_reviews" do
+        expect(page).to have_content("Goddard")
+        expect(page).to have_content("Brett Pascoe")
+        expect(page).to have_content("msbreviews")
+        expect(page).to have_content("r96sk")
+      end
     end
   end
 end
