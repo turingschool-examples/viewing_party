@@ -28,7 +28,6 @@ describe "when a user visits the welcome page" do
 
   describe "I see a form to log in" do
     it "when a user signs in with valid credentials it takes user to their dashboard" do
-
       user = User.create(email: 'harrison@email.com', password: 'harrison')
 
       visit root_path
@@ -43,7 +42,6 @@ describe "when a user visits the welcome page" do
     end
 
     it "when a user signs in with an incorrect password it returns the user to the welcome page" do
-
       user = User.create(email: 'harrison@email.com', password: 'harrison')
 
       visit root_path
@@ -54,11 +52,10 @@ describe "when a user visits the welcome page" do
       click_button "Sign In"
 
       expect(current_path).to eq(root_path)
-      expect(page).to have_content("email or password is incorrect")
+      expect(page).to have_content("The email or password you entered is incorrect")
     end
 
     it "when a user signs in with an incorrect email it returns the user to the welcome page" do
-
       user = User.create(email: 'harrison@email.com', password: 'harrison')
 
       visit root_path
@@ -69,7 +66,25 @@ describe "when a user visits the welcome page" do
       click_button "Sign In"
 
       expect(current_path).to eq(root_path)
-      expect(page).to have_content("email or password is incorrect")
+      expect(page).to have_content("The email or password you entered is incorrect")
+    end
+  end
+
+  describe "I do not see a login form" do
+    it "if I am already logged in, instead I see a link to Dashboard" do
+      user = User.create(email: 'harrison@email.com', password: 'harrison')
+
+      visit root_path
+
+      fill_in "email", with: 'haRrison@eMail.cOm'
+      fill_in "password", with: 'harrison'
+
+      click_button "Sign In"
+
+      visit root_path
+
+      expect(page).to_not have_button("Sign In")
+      expect(page).to have_link("Dashboard")
     end
   end
 end
