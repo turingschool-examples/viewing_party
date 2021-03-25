@@ -74,4 +74,19 @@ RSpec.describe 'MovieService' do
       expect(movie_cast_info.count).to eq(10)
     end
   end
+
+  describe "#movie_info_reviews" do
+    it "should return a hash with the review count and review and authors when there are more than 1 pages of reviews" do
+      movie_service = MovieService.new
+      movie_review_info = movie_service.movie_info_reviews(558)
+
+      expect(movie_review_info.count).to eq(31)
+    end
+    it "should return a hash with the review count and review and authors when there is only 1 page of reviews" do
+      movie_service = MovieService.new
+      movie_review_info = movie_service.movie_info_reviews(550)
+
+      expect(movie_review_info.count).to eq(5)
+    end
+  end
 end
