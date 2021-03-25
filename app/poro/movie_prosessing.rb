@@ -12,7 +12,7 @@ class MovieProsessing
     keywords = keywords.gsub(/ /, '%20')
     @results = clean(@service.search(keywords)[:results])
   end
- 
+
   def movie_info(api_movie_id)
     details = @service.details(api_movie_id)
     cast = @service.cast(api_movie_id)
@@ -22,7 +22,8 @@ class MovieProsessing
               id: details[:id],
               title: details[:title],
               genres: details[:genres],
-              runtime: details[:runtime],
+              runtime_hours: details[:runtime] / 60,
+              runtime_mins: details[:runtime] % 60,
               vote_average: details[:vote_average],
               overview: details[:overview],
               cast: cast_info(cast)[0..9],
