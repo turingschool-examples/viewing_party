@@ -8,8 +8,8 @@
     flex-direction: column;
     justify-content: space-between;
     text-align: center;
-    color: #000080;
-  }
+    color: #000080
+;  }
 </style> -->
 
 
@@ -26,4 +26,4 @@
     <%= f.submit "Log In" %>
   <% end %>
 </div>
-<%= button_to "Register", new_user_path() %>
+<%= button_to "Register", registration_path(), method: :get %>
