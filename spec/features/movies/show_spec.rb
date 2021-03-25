@@ -24,7 +24,7 @@ RSpec.describe 'Movie Show Page' do
         within "#movie_info" do
           expect(page).to have_content(body["title"])
           expect(page).to have_content(body["genres"][0]["name"])
-          expect(page).to have_content(body["runtime"])
+          expect(page).to have_content("2 hours and 19 minutes")
           expect(page).to have_content(body["vote_average"])
           expect(page).to have_content(body["overview"])
       end
@@ -46,12 +46,13 @@ RSpec.describe 'Movie Show Page' do
   it "shows movie review authors and review" do
   VCR.use_cassette('all_movie_info') do
     visit("/movies/550")
+    save_and_open_page
       within "#movie_reviews" do
         expect(page).to have_content("Goddard")
         expect(page).to have_content("Brett Pascoe")
         expect(page).to have_content("msbreviews")
         expect(page).to have_content("r96sk")
-        #expect(page).to have_content("4 Reviews")
+        expect(page).to have_content("4 Reviews")
       end
     end
   end
