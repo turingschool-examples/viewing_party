@@ -59,6 +59,8 @@ RSpec.describe 'MovieService' do
       expect(movie_info[:runtime]).to eq(139)
       expect(movie_info[:genres]).to eq(["Drama"])
       expect(movie_info[:summary]).to eq( "A ticking-time-bomb insomniac and a slippery soap salesman channel primal male aggression into a shocking new form of therapy. Their concept catches on, with underground \"fight clubs\" forming in every town, until an eccentric gets in the way and ignites an out-of-control spiral toward oblivion.")
+      expect(movie_info[:cast].count).to eq(10)
+      expect(movie_info[:cast].class).to eq(Hash)
     end
   end
 

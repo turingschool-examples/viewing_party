@@ -53,7 +53,7 @@ class MovieService
     movie_information[:runtime] = info[:runtime]
     movie_information[:genres] = movie_info_genres(info[:genres]) # [{:id=>18, :name=>"Drama"}]
     movie_information[:summary] = info[:overview]
-    movie_information[:cast] = '' # movie_info_cast(movie_id)
+    movie_information[:cast] = movie_info_cast(movie_id)
     movie_information[:reviews] = '' # movie_info_reviews(movie_id)
     movie_information
   end
