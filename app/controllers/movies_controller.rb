@@ -9,6 +9,10 @@ class MoviesController < ApplicationController
     end
   end
 
+  def show
+    @info = @movie.movie_info(movie_id)
+  end
+
   private
   def initialize_movie_prosessing
     @movie = MovieProsessing.new

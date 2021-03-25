@@ -1,10 +1,6 @@
 class TmdbService
-  def top_rated
-    results = []
-    @top_movies1 = make_api_call("https://api.themoviedb.org/3/movie/top_rated?api_key=8fcfd8353e4732fe3783cb092cfaf65e&language=en-US&page=1")
-    @top_movies2 = make_api_call("https://api.themoviedb.org/3/movie/top_rated?api_key=8fcfd8353e4732fe3783cb092cfaf65e&language=en-US&page=2")
-    results += @top_movies1[:results]
-    results += @top_movies2[:results]
+  def top_rated(page_num)
+    @top_movies1 = make_api_call("https://api.themoviedb.org/3/movie/top_rated?api_key=8fcfd8353e4732fe3783cb092cfaf65e&language=en-US&page=#{page_num}")
   end
 
   def search(keywords)

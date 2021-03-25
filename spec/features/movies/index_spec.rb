@@ -16,6 +16,15 @@ RSpec.describe "Movies index page" do
 
         expect(page).to have_button('Find Top Rated Movies')
       end
+
+      it "returns the top 40 movies when 'Find Top Rated Movies' is clicked" do
+        visit movies_path
+
+        click_button("Find Top Rated Movies")
+
+        expect(page).to have_content("Gabriel's Inferno Part III")
+        expect(page).to have_content("Gabriel's Inferno Part II")
+      end
     end
   end
 end
