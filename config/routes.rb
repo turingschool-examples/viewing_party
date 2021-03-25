@@ -3,12 +3,13 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   resources :movies, only: [:index, :show]
-
-  resources :users, only: [:create, :new]
+  get '/registration', to: 'users#new'
+  post '/registration', to: 'users#create'
+  resources :users, only: [ :create]
   post '/login', to: 'users#login'
   get '/dashboard', to: 'users#dashboard'
   get '/discover', to: 'discover#index'
-  post '/users/new', to: 'users#create'
+
 
   resources :friends, only: [:create]
 end
