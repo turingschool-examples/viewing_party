@@ -16,8 +16,8 @@ class UsersController < ApplicationController
       session[:user_id] = new_user.id
       redirect_to dashboard_path
     else
-      # find way to notify error for p.w. and email seperately
-      flash[:error] = 'Wrong email/password'
+      flash[:error] = new_user.errors.full_messages.uniq.to_sentence 
+
       redirect_to new_user_path
     end
   end
