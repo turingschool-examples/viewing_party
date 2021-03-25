@@ -41,8 +41,6 @@ RSpec.describe "Movies index page" do
         end
       end
 
-      it "redirects me to the movie show page when a movie link is clicked"
-
       it "shows a search field to search movies" do
         visit movies_path
 
