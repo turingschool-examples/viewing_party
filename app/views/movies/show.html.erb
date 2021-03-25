@@ -1,14 +1,25 @@
-<%= button_to "Create Viewing Party for Movie", "/viewing-party/new" %>
-<h1>Movie title:<%= @results[:title]%></h1>
-<p> Genre: <%= @results[:genres][0][:name] %></p>
-<p> Runtime: <%= @results[:runtime] %></p>
-<p> Average_Rating: <%= @results[:vote_average]%></p>
-<p> Summary: <%= @results[:overview]%></p>
-<% @results[:cast].each do |name|%>
-<p><%= name[:name]%> as <%= name[:character]%></p>
-<% end%>
+<section id="viewing_party">
+  <%= button_to "Create Viewing Party for Movie", "/viewing-party/new" %>
+</section>
+<section id="movie_info">
+  <h1>Movie title:<%= @results[:title]%></h1>
+  <% @results[:genres].each do |gen|%>
+    <p> Genres: <%= gen[:name] %> </p>
+  <% end %>
+  <p> Runtime: <%= @results[:runtime] %></p>
+  <p> Average_Rating: <%= @results[:vote_average]%></p>
+  <p> Summary: <%= @results[:overview]%></p>
+</section>
 
-<p><%@results[:reviews].each do |review| %>  </p>
-<p> Author:<%= review[:author] %></p>
-<p> Review: <%= review[:content] %></p>
-<% end %>
+<section id="movie_cast">
+  <% @results[:cast].each do |name|%>
+  <p><%= name[:name]%> as <%= name[:character]%></p>
+  <% end%>
+</section>
+
+<section id="movie_reviews">
+  <p><%@results[:reviews].each do |review| %>  </p>
+    <p> Author:<%= review[:author] %></p>
+    <p> Review: <%= review[:content] %></p>
+  <% end %>
+</section>
