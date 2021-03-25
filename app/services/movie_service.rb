@@ -5,7 +5,7 @@ class MovieService
     JSON.parse(data, symbolize_names: true)
   end
 
-  def movies_by_vote_average
+  def top_forty_movies
     result = {}
     2.times do |n|
       movie_data = get_data(url_storage(num: n)[:movie_top_forty])

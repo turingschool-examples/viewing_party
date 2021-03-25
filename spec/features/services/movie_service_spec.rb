@@ -12,10 +12,10 @@ RSpec.describe 'MovieService' do
     end
   end
 
-  describe "#movies_by_vote_average" do
+  describe "#top_forty_movies" do
     it "returns the top 40 movie title/tmdb_ids" do
       movie_service_data = MovieService.new
-      results = movie_service_data.movies_by_vote_average
+      results = movie_service_data.top_forty_movies
 
       expect(results.first[0]).to eq("Gabriel's Inferno Part III")
       expect(results.first[1]).to eq(8.8)
