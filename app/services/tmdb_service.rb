@@ -1,31 +1,33 @@
 class TmdbService
-  def top_rated
-    results = []
-    @top_movies1 = make_api_call("https://api.themoviedb.org/3/movie/top_rated?api_key=8fcfd8353e4732fe3783cb092cfaf65e&language=en-US&page=1")
-    @top_movies2 = make_api_call("https://api.themoviedb.org/3/movie/top_rated?api_key=8fcfd8353e4732fe3783cb092cfaf65e&language=en-US&page=2")
-    results += @top_movies1[:results]
-    results += @top_movies2[:results]
+  def top_rated(page_num)
+    @top_movies1 = make_api_call("movie/top_rated?&language=en-US&page=#{page_num}")
   end
 
   def search(keywords)
-    make_api_call("https://api.themoviedb.org/3/search/movie?api_key=8fcfd8353e4732fe3783cb092cfaf65e&language=en-US&query=#{keywords}&page=1&include_adult=false")
+    make_api_call("search/movie?&language=en-US&query=#{keywords}&page=1&include_adult=false")
   end
 
   def details(api_movie_id)
-    make_api_call("https://api.themoviedb.org/3/movie/#{api_movie_id}?api_key=8fcfd8353e4732fe3783cb092cfaf65e&language=en-US")
+    make_api_call("movie/#{api_movie_id}?&language=en-US")
   end
 
   def cast(api_movie_id)
-    make_api_call("https://api.themoviedb.org/3/movie/#{api_movie_id}/credits?api_key=8fcfd8353e4732fe3783cb092cfaf65e&language=en-US")
+    make_api_call("movie/#{api_movie_id}/credits?&language=en-US")
   end
 
   def reviews(api_movie_id)
-    make_api_call("https://api.themoviedb.org/3/movie/#{api_movie_id}/reviews?api_key=8fcfd8353e4732fe3783cb092cfaf65e&language=en-US&page=1")
+    make_api_call("movie/#{api_movie_id}/reviews?&language=en-US&page=1")
   end
 
+  private
+
   def make_api_call(url)
-    response = Faraday.get(url)
+    response = connection.get(url)
     data = response.body
     JSON.parse(data, symbolize_names: true)
+  end
+
+  def connection
+    Faraday.new(url: 'https://api.themoviedb.org/3/', params: { api_key: ENV['movie_api_key'] })
   end
 end

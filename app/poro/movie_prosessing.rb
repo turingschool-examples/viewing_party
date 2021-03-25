@@ -5,7 +5,13 @@ class MovieProsessing
   end
 
   def top_rated_movies
-    @results ||= clean(@service.top_rated)
+    @results = []
+    page_num = 1
+    until @results.count >= 40
+      @results += @service.top_rated(page_num)[:results]
+      page_num += 1
+    end
+    clean(@results).first(40)
   end
 
   def search(keywords)

@@ -83,6 +83,12 @@ GEM
     faraday_middleware (1.0.0)
       faraday (~> 1.0)
     ffi (1.15.0)
+    ffi (1.15.0-java)
+    ffi (1.15.0-x64-mingw32)
+    ffi (1.15.0-x86-mingw32)
+    figaro (1.2.0)
+      thor (>= 0.14.0, < 2)
+
     gh (0.18.0)
       activesupport (~> 5.0)
       addressable (~> 2.4)
@@ -128,6 +134,16 @@ GEM
     nokogiri (1.11.2)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
+    nokogiri (1.11.2-java)
+      racc (~> 1.4)
+    nokogiri (1.11.2-x64-mingw32)
+      racc (~> 1.4)
+    nokogiri (1.11.2-x86-mingw32)
+      racc (~> 1.4)
+    orderly (0.1.1)
+      capybara (>= 1.1)
+      rspec (>= 2.14)
+
     parallel (1.20.1)
     parser (3.0.0.0)
       ast (~> 2.4.1)
@@ -175,6 +191,10 @@ GEM
       ffi (~> 1.0)
     regexp_parser (2.1.1)
     rexml (3.2.4)
+    rspec (3.10.0)
+      rspec-core (~> 3.10.0)
+      rspec-expectations (~> 3.10.0)
+      rspec-mocks (~> 3.10.0)
     rspec-core (3.10.1)
       rspec-support (~> 3.10.0)
     rspec-expectations (3.10.1)
@@ -277,10 +297,12 @@ DEPENDENCIES
   bootsnap
   capybara
   coffee-rails (~> 4.2)
+  figaro
   jbuilder (~> 2.5)
   launchy
   listen (>= 3.0.5, < 3.2)
   mimemagic (~> 0.3.6)
+  orderly
   pg (>= 0.18, < 2.0)
   pry
   puma (~> 3.7)
