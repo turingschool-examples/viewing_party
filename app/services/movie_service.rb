@@ -19,8 +19,9 @@ class MovieService
   def movie_search(search)
     search_results = {}
     results_page_count((url_storage(num: 0, query: search)[:movie_search])).times do |n|
-        search_data = get_data((url_storage(num: n, query: search)[:movie_search]))
-        search_data[:results].each do |query_match| if n < 2
+      search_data = get_data((url_storage(num: n, query: search)[:movie_search]))
+      if n < 2
+        search_data[:results].each do |query_match|
           search_results[query_match[:title]] = movie_id_and_vote_average(query_match)
         end
       end
@@ -31,7 +32,6 @@ class MovieService
   def movie_id_and_vote_average(query_match)
     [query_match[:id], query_match[:vote_average]]
   end
-
 
   def movie_information(api_movie_id)
     info = get_data((url_storage(movie_id: api_movie_id)[:movie_info]))
@@ -64,27 +64,27 @@ class MovieService
 
   def movie_info_reviews(api_movie_id)
     review_info = get_data((url_storage(movie_id: api_movie_id)[:movie_reviews]))
-    movie_reviews_info = {:total_reviews => review_info[:total_results]}
-      results_page_count((url_storage(movie_id: api_movie_id)[:movie_reviews])).times do |n|
-        review_info = get_data((url_storage(movie_id: api_movie_id, num: n)[:movie_reviews]))
-        review_info[:results].each do |review|
-          movie_reviews_info[(review[:author_details][:username])] = review[:content]
-        end
+    movie_reviews_info = { total_reviews: review_info[:total_results] }
+    results_page_count((url_storage(movie_id: api_movie_id)[:movie_reviews])).times do |n|
+      review_info = get_data((url_storage(movie_id: api_movie_id, num: n)[:movie_reviews]))
+      review_info[:results].each do |review|
+        movie_reviews_info[(review[:author_details][:username])] = review[:content]
       end
+    end
     movie_reviews_info
   end
 
-  def url_storage(movie_id: 1, num: 0, query: "")
+  def url_storage(movie_id: 1, num: 0, query: '', api_key: 'cc1b7a1d937de5062ee5336bdb03e44d')
     url_storage = {}
-    url_storage[:movie_top_forty] = "https://api.themoviedb.org/3/discover/movie?api_key=cc1b7a1d937de5062ee5336bdb03e44d&language=en-US&sort_by=vote_average.desc&include_adult=false&include_video=false&page=#{num + 1}&vote_count.gte=100&with_original_language=en"
-    url_storage[:movie_info] = "https://api.themoviedb.org/3/movie/#{movie_id}?api_key=cc1b7a1d937de5062ee5336bdb03e44d&language=en-US"
-    url_storage[:movie_reviews] = "https://api.themoviedb.org/3/movie/#{movie_id}/reviews?api_key=cc1b7a1d937de5062ee5336bdb03e44d&language=en-US&page=#{num + 1}"
-    url_storage[:movie_cast] = "https://api.themoviedb.org/3/movie/#{movie_id}/credits?api_key=cc1b7a1d937de5062ee5336bdb03e44d&language=en-US"
-    url_storage[:movie_search] = "https://api.themoviedb.org/3/search/movie?api_key=cc1b7a1d937de5062ee5336bdb03e44d&language=en-US&query=#{query}&page=#{num + 1}&include_adult=false"
+    url_storage[:movie_top_forty] = "https://api.themoviedb.org/3/discover/movie?api_key=#{api_key}&language=en-US&sort_by=vote_average.desc&include_adult=false&include_video=false&page=#{num + 1}&vote_count.gte=100&with_original_language=en"
+    url_storage[:movie_info] = "https://api.themoviedb.org/3/movie/#{movie_id}?api_key=#{api_key}&language=en-US"
+    url_storage[:movie_reviews] = "https://api.themoviedb.org/3/movie/#{movie_id}/reviews?api_key=#{api_key}&language=en-US&page=#{num + 1}"
+    url_storage[:movie_cast] = "https://api.themoviedb.org/3/movie/#{movie_id}/credits?api_key=#{api_key}&language=en-US"
+    url_storage[:movie_search] = "https://api.themoviedb.org/3/search/movie?api_key=#{api_key}&language=en-US&query=#{query}&page=#{num + 1}&include_adult=false"
     url_storage
   end
 
-  def results_page_count(url, movie_id = 1, n = 0, query = "")
+  def results_page_count(url)
     get_data(url)[:total_pages]
   end
 end
