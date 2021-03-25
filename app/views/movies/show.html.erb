@@ -21,7 +21,7 @@
   <h4><%= @movie[:reviews][:total_reviews]%> Reviews</h4>
   <% @movie[:reviews].each_with_index do |review, index| %>
     <% if index > 0 %>
-      <p>Author: <%= review[0] %></p> <br>
+      <p>Author: <%= review[0] %></p>
       <p><%= review[1] %></p><br>
     <% end %>
   <% end %>
