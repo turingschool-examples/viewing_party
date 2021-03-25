@@ -51,6 +51,7 @@ RSpec.describe 'Movie Show Page' do
         expect(page).to have_content("Brett Pascoe")
         expect(page).to have_content("msbreviews")
         expect(page).to have_content("r96sk")
+        #expect(page).to have_content("4 Reviews")
       end
     end
   end
