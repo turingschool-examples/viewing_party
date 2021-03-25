@@ -1,2 +1,14 @@
 <%= button_to "Create Viewing Party for Movie", "/viewing-party/new" %>
-<%= binding.pry %>
+<h1>Movie title:<%= @results[:title]%></h1>
+<p> Genre: <%= @results[:genres][0][:name] %></p>
+<p> Runtime: <%= @results[:runtime] %></p>
+<p> Average_Rating: <%= @results[:vote_average]%></p>
+<p> Summary: <%= @results[:overview]%></p>
+<% @results[:cast].each do |name|%>
+<p><%= name[:name]%> as <%= name[:character]%></p>
+<% end%>
+
+<p><%@results[:reviews].each do |review| %>  </p>
+<p> Author:<%= review[:author] %></p>
+<p> Review: <%= review[:content] %></p>
+<% end %>
