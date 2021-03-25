@@ -31,7 +31,7 @@ RSpec.describe 'MovieService' do
 
       expect(search_results.count).to eq(34)
       expect(search_results.first.class).to eq(Array)
-      expect(search_results.first).to eq( ["Dark Phoenix", 320288])
+      expect(search_results.first).to eq( ["Dark Phoenix", [320288, 6.1]])
       expect(search_results.class).to eq(Hash)
     end
   end

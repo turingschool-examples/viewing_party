@@ -27,12 +27,13 @@ RSpec.describe "As a user after I click the link from my dashboard to visit the 
   end
 
   describe "search for a movie by title" do
-    it "should return movies that match the user query" do
+    it "should return movies that match the user query and thier rating" do
       visit(discover_path)
       fill_in :movie_query, with: "phoenix"
       click_on("Find Movies")
 
       expect(page).to have_content("Dark Phoenix")
+      expect(page).to have_content("Vote Average: 6.1")
       expect(page).to have_content("Harry Potter and the Order of the Phoenix")
       expect(page).to have_content("Rising Phoenix")
       expect(page).to have_content("Griffin & Phoenix")
