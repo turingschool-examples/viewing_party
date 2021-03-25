@@ -2,12 +2,12 @@ require 'rails_helper'
 
 RSpec.describe 'user registration' do
   it 'has a welcome message' do
-    visit new_user_path()
+    visit registration_path()
     expect(page).to have_content('Registration Page')
   end
 
   it "creates a new user" do
-      visit new_user_path()
+    visit registration_path()
     fill_in 'name', with: "Dominic"
     fill_in 'email', with: "dominic@gmail.com"
     fill_in 'password', with: "secure"
@@ -18,7 +18,7 @@ RSpec.describe 'user registration' do
   end
 
   it "errors out if fields are missing" do
-    visit new_user_path()
+    visit registration_path()
   fill_in 'name', with: "Dominic"
   fill_in 'password', with: "secure"
   fill_in 'password_confirmation', with: "secure"
@@ -27,7 +27,7 @@ RSpec.describe 'user registration' do
   end
 
   it "errors out if passwords are different" do
-    visit new_user_path()
+    visit registration_path()
     fill_in 'name', with: "Dominic"
     fill_in 'email', with: "dominic@gmail.com"
     fill_in 'password', with: "secure"
@@ -37,7 +37,7 @@ RSpec.describe 'user registration' do
   end
 
   it "errors out if it does not look like an email" do
-    visit new_user_path()
+    visit registration_path()
     fill_in 'name', with: "Dominic"
     fill_in 'email', with: "dominic"
     fill_in 'password', with: "secure"

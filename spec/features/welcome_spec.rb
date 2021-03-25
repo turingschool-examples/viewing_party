@@ -23,6 +23,6 @@ RSpec.describe 'Welcome' do
     visit root_path()
     expect(page).to have_button("Register")
     click_button("Register")
-    expect(current_path).to eq(new_user_path)
+    expect(current_path).to eq(registration_path)
   end
 end
