@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   root 'welcome#index'
   resources :users, only: [:new, :create]
 
-  get '/login', to: 'users#login_form'
-  post '/login', to: 'users#login'
+  get '/login', to: 'session#new'
+  post '/login', to: 'session#create'
 
   resource :dashboard, controller: 'users', only: :show do
     resources :parties, only: [:new, :create]
