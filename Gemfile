@@ -20,6 +20,7 @@ gem 'bootsnap'
 gem 'jbuilder', '~> 2.5'
 gem 'bcrypt'
 gem 'mimemagic', '~> 0.3.6'
+gem "figaro"
 
 group :development, :test do
   gem 'pry'
@@ -38,6 +39,9 @@ group :test do
   gem 'capybara'
   gem 'launchy'
   gem 'simplecov'
+  gem "vcr"
+  gem 'webmock'
+  gem 'orderly'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
