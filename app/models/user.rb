@@ -4,4 +4,6 @@ class User < ApplicationRecord
   validates :email, uniqueness: true, presence: true
   validates :password, presence: true
   validates :password, confirmation: true
+
+  enum role: %w(regular admin)
 end
