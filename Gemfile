@@ -17,7 +17,9 @@ gem 'bootsnap'
 gem 'jbuilder', '~> 2.5'
 gem 'faraday'
 gem 'bcrypt', '~> 3.1.7'
+gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem 'mimemagic'
+
 
 
 group :development, :test do
@@ -41,6 +43,8 @@ group :test do
   gem 'capybara'
   gem 'launchy'
   gem 'simplecov'
+  gem 'vcr'
+  gem 'webmock'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
