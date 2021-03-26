@@ -1,1 +1,10 @@
 <h2>Welcome <%= @user.email %></h2>
+<%= button_to "Find Top Rated Movies", discover_index_path, params:{button_clicked: "top 40"}, method: :get %>
+
+</br>
+
+<% if @films %>
+  <% @films.each do |film|  %>
+  <%= film[1] %></br>
+  <% end %>
+<% end %>

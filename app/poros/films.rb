@@ -11,6 +11,3 @@ class FilmSearch
     MovieService.new
   end
 end
-
-new_movie = FilmSearch.new.top_40_films
-binding.pry
