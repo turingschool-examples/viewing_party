@@ -1,6 +1,6 @@
 class TmdbService
   def top_rated(page_num)
-    @top_movies1 = make_api_call("movie/top_rated?&language=en-US&page=#{page_num}")
+    make_api_call("movie/top_rated?&language=en-US&page=#{page_num}")
   end
 
   def search(keywords)
