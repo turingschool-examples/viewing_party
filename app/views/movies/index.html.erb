@@ -1,0 +1,17 @@
+<h1>Welcome <%= @current_user.full_name %>!</h1>
+
+<%= button_to "Top 40 Movies", movies_path, method: :get, params: {top_40: true} %>
+
+<%= form_with url: movies_path, params: {search: true}, method: :get, local: true do |f| %>
+  <%= f.text_field :search %>
+  <%= f.submit 'Search' %>
+<% end %>
+
+<h2>Movie Results:</h2>
+
+<% @movies.each do |movie| %>
+  <section id="movie-<%= movie.id %>">
+    * <%= link_to "#{movie.title}", movie_path(movie.id) %>: <%= movie.vote_average %><br><br>
+    <hr>
+  </section>
+<% end %>

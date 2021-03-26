@@ -16,6 +16,10 @@ gem 'coffee-rails', '~> 4.2'
 gem 'bootsnap'
 gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
+gem 'faraday', '~> 0.9.2'
+gem 'json', '~> 1.8', '>= 1.8.3'
+gem 'mimemagic', '~> 0.3.9'
+
 
 group :development, :test do
   gem 'rspec-rails'
@@ -23,7 +27,6 @@ group :development, :test do
   gem 'shoulda-matchers', '~> 3.1'
   gem 'orderly'
   gem 'active_designer'
-  gem 'faraday'
   gem 'figaro'
   gem 'rubocop'
   gem 'factory_bot_rails'
