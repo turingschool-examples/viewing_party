@@ -12,8 +12,7 @@ class UsersController < ApplicationController
 
   def dashboard; end
 
-  def new
-   end
+  def new; end
 
   def create
     @user = User.new(user_params)
