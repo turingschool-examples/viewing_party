@@ -3,8 +3,8 @@ RSpec.describe 'MovieService' do
   describe "#get_data(url)" do
     it "can return JSON from an API endpoint" do
       movie_service_data = MovieService.new
-      url = "https://api.themoviedb.org/3/discover/movie?api_key=#{ENV['API_KEY']}&language=en-US&sort_by=vote_average.desc&include_adult=false&include_video=false&page=1"
-      # movie_service_data.all_movies_page_count
+      url = ENV['API_TEST_COUNT_URL']
+      
       expect(movie_service_data.get_data(url).count).to eq(4)
       expect(movie_service_data.get_data(url).keys).to eq([:page, :results, :total_pages, :total_results])
       expect(movie_service_data.get_data(url).class).to eq(Hash)
@@ -37,12 +37,10 @@ RSpec.describe 'MovieService' do
   end
   describe "#results_page_count" do
     it "returns an integer from JSON data regarding number of pages of results" do
-        # movie_service = MovieService.new
-        # url = "https://api.themoviedb.org/3/discover/movie?api_key=#{ENV['API_KEY']}=en-US&sort_by=vote_average.desc&include_adult=false&include_video=false&page=1"
-        # url_2 = "https://api.themoviedb.org/3/search/movie?api_key=#{ENV['API_KEY']}=en-US&query=phoenix&include_adult=false"
-        # binding.pry
-        # expect(movie_service.results_page_count(url)).to eq(500)
-        # expect(movie_service.results_page_count(url_2)).to eq(8)
+        movie_service = MovieService.new
+        url = ENV['API_TEST_COUNT_URL']
+
+        expect(movie_service.results_page_count(url)).to eq(500)
     end
   end
   describe "#movie_information" do
