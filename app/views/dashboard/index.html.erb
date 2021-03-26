@@ -1,6 +1,12 @@
 <%= button_to "Discover Movies", discover_index_path, method: :get %>
 
-<h2>Friends</h2>
-<p>You currently have no friends.</p>
+<section>
+  <h2>Friends</h2>
+  <%= form_with url: new_friend_path, local: true do |f| %>
+    <%= f.text_field :email %>
+    <%= f.submit 'Add Friend' %>
+  <% end %>
+  <p>You currently have no friends.</p>
+</section>
 
 <h2>Viewing Parties</h2>

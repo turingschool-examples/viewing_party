@@ -20,17 +20,27 @@ describe "As an authenticated user, when I visit '/dashboard'" do
 
   describe "I see a friends section" do
     it "I see a message if I do not have any friends yet" do
-      visit root_path
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
 
-      fill_in "email", with: @user_2.email
-      fill_in "password", with: 'grumpyperson1'
-      click_button "Sign In"
+      visit dashboard_index_path
 
-      expect(current_path).to eq(dashboard_index_path)
       expect(page).to have_content("You currently have no friends")
     end
 
     it "I see a search box to add friends, if my friend is found they are added to my list" do
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
+
+      visit dashboard_index_path
+
+      fill_in :email, with: "#{@user_2.email}"
+      click_button 'Add Friend'
+
+      expect(current_path).to eq(dashboard_index_path)
+
+      within ".user-friends" do
+        expect(page).to have_content("#{@user_2.email}")
+        expect(page).to_not have_content("#{@user_3.email}")
+      end
     end
 
     it "If I search for someone not registered, I receive a message 'Friend cannot be found'" do
@@ -39,13 +49,9 @@ describe "As an authenticated user, when I visit '/dashboard'" do
 
   describe "I see a button to discover movies" do
     it "when I click this button I am taken to '/discover'" do
-      visit root_path
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
 
-      fill_in "email", with: @user_2.email
-      fill_in "password", with: 'grumpyperson1'
-      click_button "Sign In"
-
-      expect(current_path).to eq(dashboard_index_path)
+      visit dashboard_index_path
 
       click_button("Discover Movies")
 
@@ -55,13 +61,10 @@ describe "As an authenticated user, when I visit '/dashboard'" do
 
   describe "I see a viewing party section" do
     it "I see any viewing parties I am hosting" do
-      visit root_path
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
 
-      fill_in "email", with: @user_2.email
-      fill_in "password", with: 'grumpyperson1'
-      click_button "Sign In"
+      visit dashboard_index_path
 
-      expect(current_path).to eq(dashboard_index_path)
       expect(page).to have_content("Viewing Parties")
     end
 

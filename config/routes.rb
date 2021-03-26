@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
   resources :dashboard, only: :index
   resources :discover, only: [:index]
-
+  resources :friends, only: [:new, :create]
 
   get "/registration", to: "users#new"
 
