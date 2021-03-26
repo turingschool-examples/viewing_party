@@ -18,7 +18,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'travis'
 gem 'hirb', '~> 0.7.3'
 gem 'bcrypt', '~> 3.1.7'
-gem 'mimemagic', '~> 0.3.6' 
+gem 'mimemagic', '~> 0.3.6'
+gem 'faraday'
+gem 'json' 
 
 group :development, :test do
   gem 'pry'
