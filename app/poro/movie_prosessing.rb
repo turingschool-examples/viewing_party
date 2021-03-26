@@ -28,6 +28,7 @@ class MovieProsessing
               id: details[:id],
               title: details[:title],
               genres: details[:genres],
+              runtime: details[:runtime],
               runtime_hours: details[:runtime] / 60,
               runtime_mins: details[:runtime] % 60,
               vote_average: details[:vote_average],
