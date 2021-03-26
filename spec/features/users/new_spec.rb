@@ -12,6 +12,7 @@ describe "When a user visits the registration path" do
 
       expect(current_path).to eq(dashboard_index_path)
       expect(page).to have_content("Welcome to Viewing Party, some@stuff.com")
+      expect(page).to have_button('Discover Movies')
     end
 
     it "and I cannot create user without a valid email" do
@@ -23,7 +24,7 @@ describe "When a user visits the registration path" do
       click_button "Register"
 
       expect(current_path).to eq(users_path)
-      expect(page).to have_content("Please enter valid information to create an acccount")
+      expect(page).to have_content("Email is invalid")
     end
 
     it "and I cannot create user without an email or password" do
@@ -32,7 +33,7 @@ describe "When a user visits the registration path" do
       click_button "Register"
 
       expect(current_path).to eq(users_path)
-      expect(page).to have_content("Please enter valid information to create an acccount")
+      expect(page).to have_content("Password can't be blank, Email can't be blank, and Email is invalid")
     end
 
     it "and I cannot create user without an accurate password confirmation" do
@@ -44,7 +45,7 @@ describe "When a user visits the registration path" do
       click_button "Register"
 
       expect(current_path).to eq(users_path)
-      expect(page).to have_content("Please enter valid information to create an acccount")
+      expect(page).to have_content("Password confirmation doesn't match")
     end
   end
 end
