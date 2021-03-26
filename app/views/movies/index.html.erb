@@ -1,13 +1,15 @@
 <h1>Discover</h1>
-<h2>Welcome ></h2>
+<h2>Welcome!</h2>
 
 <section id="top_forty">
-  <%= button_to "Find Top Rated Movies", method: :get, remote: true, form: "top_forty" %>
-  <% if params[:form] == "top_forty" %>
-    <% @top_movies.each do |top_movie_and_rating| %>
-      <%=link_to top_movie_and_rating[0], movie_path(top_movie_and_rating[1][0]) %>- Vote Average: <%= top_movie_and_rating[1][1] %><br>
+  <div class="container p-3 my-3 border">
+    <%= button_to "Find Top Rated Movies", method: :get, remote: true, form: "top_forty" %>
+    <% if params[:form] == "top_forty" %>
+      <% @top_movies.each do |top_movie_and_rating| %>
+        <%=link_to top_movie_and_rating[0], movie_path(top_movie_and_rating[1][0]) %>- Vote Average: <%= top_movie_and_rating[1][1] %><br>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </section>
 <br><br>
 
