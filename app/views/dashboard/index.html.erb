@@ -6,4 +6,20 @@
   <section id="discover-movies-link">
     <%= link_to "Discover Movies", discover_path %>
   </section>
+
+  <section id="friends">
+    <%= form_with url: login_path, method: :post, local: true do |f| %>
+      <%= f.label :friend_email, "Friend's Email" %>
+      <%= f.text_field :friend_email %>
+      <%= f.submit "Add Friend" %>
+    <% end %>
+    <% if current_user.followers.length > 0 %>
+      <% current_user.followers.each do |user| %>
+        <p>My Followers: </p>
+        <p><%= user.email %></p>
+      <% end %>
+    <% else %>
+      <p>You currently have no friends.</p>
+    <% end %>
+  </section>
 <% end %>
