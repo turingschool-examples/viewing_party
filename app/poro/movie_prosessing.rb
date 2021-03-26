@@ -51,7 +51,7 @@ class MovieProsessing
 
   def clean(info)
     info.reduce({}) do |hash, movie|
-      hash[movie[:id]] = {title: movie[:title], vote_average: movie[:vote_average]}
+      hash[movie[:id]] = {title: movie[:title], vote_average: movie[:vote_average], poster_path: movie[:poster_path]}
       hash
     end
   end
