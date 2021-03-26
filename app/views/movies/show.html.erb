@@ -1,6 +1,6 @@
-<section id="viewing_party">
-  <%= button_to "Create Viewing Party for Movie", "/viewing-party/new" %>
-</section>
+
+  <%= button_to "Create Viewing Party for Movie", new_party_path(), method: :get, params: {:title=> @results[:title], :movie_id=> @results[:id], :duration=> @results[:runtime]}%>
+
 <section id="movie_info">
   <h1>Movie title:<%= @results[:title]%></h1>
   <% @results[:genres].each do |gen|%>
