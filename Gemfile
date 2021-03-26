@@ -20,6 +20,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'mimemagic', '~> 0.3.9'
 gem 'bootstrap', '~> 4.5.0'
 gem 'jquery-rails'
+gem 'figaro', '~> 1.1', '>= 1.1.1'
 
 group :development, :test do
   gem 'pry'
@@ -42,6 +43,8 @@ group :test do
   gem 'capybara'
   gem 'launchy'
   gem 'simplecov'
+  gem 'vcr'
+  gem 'webmock'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
