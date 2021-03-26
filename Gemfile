@@ -18,7 +18,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'faraday'
 gem 'bcrypt', '~> 3.1.7'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
-gem 'mimemagic'
+gem 'mimemagic', '~> 0.3.9'
 
 
 
