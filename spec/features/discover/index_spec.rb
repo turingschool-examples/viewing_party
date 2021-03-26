@@ -26,6 +26,42 @@ RSpec.describe "Discover index page" do
         visit discover_path
 
         expect(page).to have_button('Find Top Rated Movies')
+      save_and_open_page
+      end
+
+      it "redirects to the movies page and shows the top rated movies" do
+        VCR.use_cassette('top_40_movies') do
+          visit discover_path
+
+          click_button("Find Top Rated Movies")
+
+          expect(current_path).to eq(movies_path)
+
+          expect(page).to have_content("Gabriel's Inferno Part III")
+          expect(page).to have_content("Gabriel's Inferno Part II")
+        end
+      end
+
+      it "shows a field to search for movies" do
+        visit discover_path
+
+        expect(page).to have_field(:search)
+        expect(page).to have_button("Search")
+      end
+
+      it "redirects to the movies page and shows my searech results" do
+        VCR.use_cassette('search_movies') do
+          visit movies_path
+
+          fill_in :search, with: "fight club"
+          click_button "Search"
+
+          expect(current_path).to eq(movies_path)
+
+          expect(page).to have_link("Fight Club")
+          expect(page).to have_link("Insane Fight Club")
+          expect(page).to have_link("Insane Fight Club II - This Time It’s Personal")
+        end
       end
     end
   end
