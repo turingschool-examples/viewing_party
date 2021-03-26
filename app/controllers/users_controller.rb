@@ -10,9 +10,15 @@ class UsersController < ApplicationController
 
     if new_user.save
       flash[:message] = "Welcome to Viewing Party, #{new_user.email}"
+      session[:user_id] = new_user.id
       redirect_to dashboard_index_path
+    elsif new_user.errors[:email].empty?
+      flash[:error] = new_user.errors.full_messages.to_sentence
+      @user = User.new(email: new_user.email)
+      render :new
     else
-      flash[:error] = 'Please enter valid information to create an acccount'
+      flash[:error] = new_user.errors.full_messages.to_sentence
+      @user = User.new
       render :new
     end
   end
