@@ -11,8 +11,10 @@
   <body>
     <main>
       <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, class: name %>
-      <% end %>
+          <div class="container p-3 my-3 border">
+          <%= content_tag :div, msg, class: name %>
+          </div>
+        <% end %>
       <%= yield %>
     </main>
     <footer>
