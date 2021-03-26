@@ -5,7 +5,7 @@ class MoviesController < ApplicationController
     if current_user
       if params[:search] == "Top Rated"
         @results = @movie.top_rated_movies
-      elsif params[:search]
+      elsif params[:search] && params[:search] != ""
         @results = @movie.search(params[:search])
       end
     else

@@ -26,7 +26,6 @@ RSpec.describe "Discover index page" do
         visit discover_path
 
         expect(page).to have_button('Find Top Rated Movies')
-      save_and_open_page
       end
 
       it "redirects to the movies page and shows the top rated movies" do

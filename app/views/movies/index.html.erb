@@ -1,17 +1,31 @@
-<div class="search_bar">
-  <%= button_to "Find Top Rated Movies", movies_path, method: :get, params: [search: "Top Rated"] %>
-  <%= form_with url: movies_path, method: :get, local: true do |form| %>
-    <%= form.text_field :search %>
-    <%= form.submit "Search" %>
-  <% end %>
-</div>
-<div class="results">
+<header>
+  <center><h1>Search Results</h1></center>
+  <div class="search_bar" style="width:90%; clear: both">
+    <div style="display: inline-block; float: left; padding: 5px">
+      <%= button_to "Find Top Rated Movies", movies_path, method: :get, params: [search: "Top Rated"] %>
+    </div>
+    <div style="display: inline-block; float: left; padding: 5px">
+      <%= form_with url: movies_path, method: :get, local: true do |form| %>
+        <%= form.text_field :search %>
+        <%= form.submit "Search by Title" %>
+      <% end %>
+    </div>
+  </div>
+  <div style="clear: both"></div>
+</header>
+<center class="results">
   <% if @results %>
-    <% @results.each do |api_movie_id, movie_info| %>
-      <p id="<%= api_movie_id %>">
-        <%= link_to movie_info[:title], movie_path(api_movie_id) %><br>
-        Average vote: <%= movie_info[:vote_average] %>
-      </p>
-    <% end %>
+    <table style="width:90%">
+      <th style="text-align:left">Title</th>
+      <th style="text-align:left">Vote Average</th>
+      <% @results.each do |api_movie_id, movie_info| %>
+        <tr id="<%= api_movie_id %>">
+          <td><%= link_to movie_info[:title], movie_path(api_movie_id) %></td>
+          <td>Average vote: <%= movie_info[:vote_average] %></td>
+        </tr>
+      <% end %>
+    </table>
+  <% else %>
+    <br> Oh no! No search results found.
   <% end %>
-</div>
+</center>
