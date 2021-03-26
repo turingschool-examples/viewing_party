@@ -18,9 +18,7 @@ RSpec.describe 'Movie Show Page' do
          to_return(status: 200, body: json_review_response, headers: {})
 
       visit("/movies/550")
-        within "#viewing_party" do
-          expect(page).to have_button("Create Viewing Party for Movie")
-        end
+        expect(page).to have_button("Create Viewing Party for Movie")
         within "#movie_info" do
           expect(page).to have_content(body["title"])
           expect(page).to have_content(body["genres"][0]["name"])
