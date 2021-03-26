@@ -32,5 +32,21 @@ RSpec.describe "Dashboard Index Page" do
         expect(current_path).to eq(discover_path)
       end
     end
+    describe "I see a section for friends" do
+      it "It contains a text field to enter a friend's email and a button to Add Friend do" do
+        user = User.create(password: "hello", email: "sample@email.com")
+        visit root_path
+        click_on "Log In!"
+        fill_in :email, with: user.email
+        fill_in :password, with: user.password
+        click_on "Log In"
+        visit dashboard_path
+        within "#friends" do
+          expect(page).to have_field(:friend_email)
+          expect(page).to have_button("Add Friend")
+          expect(page).to have_content("You currently have no friends.")
+        end
+      end
+    end
   end
 end

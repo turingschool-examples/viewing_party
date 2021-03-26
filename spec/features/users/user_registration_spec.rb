@@ -39,7 +39,7 @@ RSpec.describe "User registration form" do
     fill_in "user[password_confirm]", with: "wrong password"
 
     click_on "Create User"
-save_and_open_page
+
     expect(current_path).to eq(new_user_path)
     expect(page).to have_content("Passwords do not match, please try again.")
   end
