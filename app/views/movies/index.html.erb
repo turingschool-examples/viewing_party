@@ -1,0 +1,19 @@
+<% if current_user %>
+  <h1>Welcome <%= current_user.email %></h1>
+
+ 
+  <%= link_to 'Find Top Rated Movies', movies_path(query: "top rated")%>
+
+  <%= form_tag movies_path, :method => "get" do %>
+    <%= label_tag(:search, "Find Movies by Movie Title") %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag("Find Movies", :name => nil) %>
+  <% end %>
+
+
+
+ 
+  <% @movies.each do |movie| %>
+    <h4><%= movie.title%>        Vote Average:  <%= movie.average%> </h4>
+  <% end%>
+<% end %>
