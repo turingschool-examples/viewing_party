@@ -5,9 +5,14 @@ Rails.application.routes.draw do
   resources :dashboard, only: :index
   resources :discover, only: [:index]
 
+  resources :movies, only: [:index]
+
 
   get "/registration", to: "users#new"
 
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
+
+  get "/movies", to: "movies#index"
+  post "/movies", to: "movies#search"
 end
