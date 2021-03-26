@@ -17,8 +17,9 @@ gem 'bootsnap'
 gem 'jbuilder', '~> 2.5'
 gem 'faraday'
 gem 'bcrypt', '~> 3.1.7'
-gem 'mimemagic', '~> 0.3.6'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
+gem 'mimemagic'
+
 
 
 group :development, :test do
@@ -35,7 +36,6 @@ group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'rubocop-rails'
-  gem 'travis'
 end
 
 group :test do
