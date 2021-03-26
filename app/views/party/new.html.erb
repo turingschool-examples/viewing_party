@@ -1,5 +1,0 @@
-<%= @movie.name %>
-<%= form_with model: @party, url: party_index_path, local: true do |form| %>
-<%= form.label :duration, "Duration" %>
-<%= form.number_field :duration, value: @party.duration %>
-  <% end %>
