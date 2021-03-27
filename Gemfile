@@ -20,11 +20,11 @@ gem 'hirb', '~> 0.7.3'
 gem 'bcrypt', '~> 3.1.7'
 gem 'mimemagic', '~> 0.3.6'
 gem 'faraday'
-gem 'json' 
+gem 'json'
 
 group :development, :test do
   gem 'pry'
-  gem 'shoulda-matchers'  
+  gem 'shoulda-matchers'
 end
 
 group :development do
@@ -38,6 +38,7 @@ group :test do
   gem 'capybara'
   gem 'launchy'
   gem 'simplecov'
+  gem 'orderly'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
