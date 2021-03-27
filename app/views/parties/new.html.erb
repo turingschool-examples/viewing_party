@@ -1,0 +1,8 @@
+<h1>Hello, <%= current_user.email %>!</h1>
+<h2>Viewing Party Details</h2>
+
+<%= form_with(model: @party, method: :post, local:true) do |form| %>
+  <%= form.datetime_local_field :date, value: @movie[:api_id] %>
+  <%= form.hidden_field :user_id, value: current_user.id %>
+  <%= form.submit "Create Viewing Party for Movie" %>
+<% end %>
