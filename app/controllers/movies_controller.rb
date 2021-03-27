@@ -1,6 +1,5 @@
 class MoviesController < ApplicationController
   def index
-    # @user = #session[:user_id]
     if params[:form] == 'top_forty'
       @top_movies = MovieService.new.top_forty_movies
     elsif !params[:movie_query].nil?
