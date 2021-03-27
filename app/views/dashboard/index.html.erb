@@ -4,17 +4,18 @@
   </section>
 
   <section class="movies">
-    <%= link_to "Discover Movies", discover_index_path %>
+    <h2><%= link_to "Discover Movies", discover_index_path %></h2>
   </section>
 
   <section class="friends">
-    <h2>Friends</h2>
-    <hr>
+    <h3>Find Friends</h3>
     <%= form_with url: user_followers_path, method: :post, local: true do |f| %>
       <%= f.label :email %>
       <%= f.text_field :search %>
       <%= f.submit "Add Friend" %>
     <% end %>
+    <h2>Friends</h2>
+    <hr>
     <% @host.followers.each do |follower| %>
       <div id="friend-<%= follower.id %>">
         <%= follower.full_name %>
@@ -26,12 +27,12 @@
     <h2>Hosted Parties</h2>
     <hr>
     <% @hosted_parties.each do |party| %>
-      <div id="party-<%= party.id %>">
-        <h4><%= link_to "#{party.movie.title}" %></h4>
+      <div id="party-<%= party.id %>" style="border:solid;margin:5px">
+        <h4><%= link_to "#{party.movie.title}", movie_path(party.movie_id) %></h4>
           <p>
-            At: <%= party.time %>
-            Lasting: <%= party.duration %>
-            Hosted by: <%= party.host.full_name %>
+            At: <%= party.time_format %> - <%= party.date_format %><br>
+            Duration: <%= party.duration %> Minutes<br>
+            Hosted by: <%= party.host.full_name %><br>
           </p>
           <h4>Guests:</h4>
           <ul class="invitees">
@@ -47,13 +48,13 @@
     <hr>
     <% @invited_parties.each do |party| %>
       <div id="party-<%= party.id %>">
-        <h4><%= link_to "#{party.movie.title}" %></h4>
+        <h4><%= link_to "#{party.movie.title}", movie_path(party.movie_id) %></h4>
           <p>
-            At: <%= party.time %>
-            Lasting: <%= party.duration %>
-            Hosted by: <%= party.host.full_name %>
+            At: <%= party.time_format %> - <%= party.date_format %><br>
+            Duration: <%= party.duration %> Minutes<br>
+            Hosted by: <%= party.host.full_name %><br>
           </p>
-          <h4>Friends invited:</h4>
+          <h4>Friends Invited:</h4>
           <ul>
             <%party.invitees.each do |invitee| %>
               <li id="friends-invited-<%= invitee.id %>" style=<%= invitee.user?(@host.id) %>><%= invitee.full_name %></li>

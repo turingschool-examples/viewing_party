@@ -24,7 +24,6 @@ RSpec.configure do |config|
     fill_in :email, with: user.email
     fill_in :password, with: 'password'
     click_button 'Log In'
-
   end
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
@@ -106,3 +105,5 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 end
+
+require 'webmock/rspec'

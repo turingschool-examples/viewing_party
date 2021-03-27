@@ -129,7 +129,8 @@ RSpec.describe "User Dashboard Index" do
         expect(page).to have_link(@party.movie.title)
         expect(page).to have_content(@host.full_name)
         expect(page).to have_content(@party.duration)
-        expect(page).to have_content(@party.time)
+        expect(page).to have_content(@party.time_format)
+        expect(page).to have_content(@party.date_format)
         within(".invitees") do
           expect(page).to have_content(@friend_1.full_name)
           expect(page).to have_content(@friend_3.full_name)
@@ -145,7 +146,8 @@ RSpec.describe "User Dashboard Index" do
         expect(page).to have_link(@party.movie.title)
         expect(page).to have_content(@party.host.full_name)
         expect(page).to have_content(@party.duration)
-        expect(page).to have_content(@party.time)
+        expect(page).to have_content(@party.time_format)
+        expect(page).to have_content(@party.date_format)
         # within("#friends-invited-#{@invitee_4.id}") do
         #   expect(page).to have_css("bold", text: "#{@invitee_4.full_name}")
         # end
@@ -172,6 +174,5 @@ RSpec.describe "User Dashboard Index" do
     fill_in :email, with: user.email
     fill_in :password, with: 'password'
     click_button 'Log In'
-
   end
 end

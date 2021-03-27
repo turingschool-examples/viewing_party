@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   resources :discover, only: [:index]
   resources :movies, only: [:index, :show]
+  resources :parties
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'

@@ -17,6 +17,10 @@ class MovieObject
     time_conversion(MovieService.movie_details_get(self.id)[:runtime])
   end
 
+  def runtime_minutes
+    MovieService.movie_details_get(self.id)[:runtime]
+  end
+
   def first_10_cast_members
     if MovieService.movie_cast_get(self.id)[:cast].size < 10
       cast_member_helper

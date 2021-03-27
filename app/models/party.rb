@@ -4,4 +4,15 @@ class Party < ApplicationRecord
   has_many :invitees
   has_many :users, through: :invitees
 
+  validates :duration, presence: true
+  validates :time, presence: true
+  validates :date, presence: true
+
+  def time_format
+    time.strftime('%I:%M %p')
+  end
+
+  def date_format
+    date.strftime("%A %B #{time.day.ordinalize}, %Y")
+  end
 end
