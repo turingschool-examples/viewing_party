@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe "Dashboard: Discover Movies" do
-  describe "Discover movies button" do
+RSpec.describe "User Dashboard" do
+  describe "Discover Movies Button" do
     it "Redirects user to a discover page when button is clicked" do
       user = User.create(email: "joeb@email.com", password: "test")
       visit root_path
@@ -10,7 +10,6 @@ RSpec.describe "Dashboard: Discover Movies" do
 
       fill_in :email, with: user.email.upcase
       fill_in :password, with: user.password
-
       click_button 'Login'
 
       within(".topnav") do
@@ -20,6 +19,56 @@ RSpec.describe "Dashboard: Discover Movies" do
       end
 
       expect(current_path).to eq(discover_path)
+    end
+  end
+
+  describe "Viewing Parties Section" do
+    it "displays all the details for viewing parties user is invited to" do
+      user = User.create(email: "funbucket13@example.com", password: "test")
+
+      visit root_path
+
+      click_link 'Login'
+
+      expect(current_path).to eq(login_path)
+
+      fill_in :email, with: "funbucket13@example.com"
+      fill_in :password, with: "test"
+
+      click_button 'Login'
+
+      expect(page).to have_content("Viewing Parties")
+
+      within("#invited-viewing-parties") do
+        expect(page).to have_content("Movie Title:")
+        expect(page).to have_content("Date and Time of Event:")
+        expect(page).to have_content("Hosting:")
+        expect(page).to have_content("Invited: #{user.email}")
+      end
+    end
+
+    it "shows viewing parties created by user(host) with all the details" do
+      user = User.create(email: "funbucket13@example.com", password: "test")
+
+      visit root_path
+
+      click_link 'Login'
+
+      expect(current_path).to eq(login_path)
+
+      fill_in :email, with: "funbucket13@example.com"
+      fill_in :password, with: "test"
+
+      click_button 'Login'
+
+      expect(page).to have_content("Viewing Parties")
+
+      within("#hosting-viewing-parties") do
+        expect(page).to have_content("Movie Title:")
+        expect(page).to have_content("Date and Time of Event:")
+        expect(page).to have_content("Hosting: #{user.email}")
+        expect(page).to have_content("Invited:")
+      end
     end
   end
 end
