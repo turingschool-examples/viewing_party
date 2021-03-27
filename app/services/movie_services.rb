@@ -12,7 +12,8 @@ class MovieService
     parsed = JSON.parse(response.body, symbolize_names: true)
   end
 
-  def film_finder(query)
-    response = Faraday.get "https://api.themoviedb.org/3/search/movie?api_key=#{ENV['MOVIE_API']}&language=en-US&query=#{query}&page=1&include_adult=false"
+  def film_finder(page, query)
+    response = get_data("search/movie?&query=#{query}&page=#{page}&include_adult=false")
+    parsed = JSON.parse(response.body, symbolize_names: true)
   end
 end

@@ -8,6 +8,15 @@ class FilmSearch
     @top_40_films = top_40
   end
 
+  def movie_searched(query)
+    [1,2].reduce([]) do |memo, page|
+      @movie_service.film_finder(page, query)[:results].each do |movie|
+        memo << Film.new(movie)
+      end
+      memo
+    end
+  end
+
   private
 
   def top_40
@@ -17,9 +26,5 @@ class FilmSearch
       end
       memo
     end
-  end
-
-  def movie_searched
-
   end
 end
