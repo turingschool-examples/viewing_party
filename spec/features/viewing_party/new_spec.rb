@@ -69,7 +69,7 @@ RSpec.describe 'viewing party' do
       check 'party[friend_check][]'
     end
     click_button "Start Viewing Party"
-    expect(current_path).to eq(new_party_path)
+    expect(current_path).to eq("/parties")
     expect(page).to have_content("Invites not sent, missing fields")
     end
   end
