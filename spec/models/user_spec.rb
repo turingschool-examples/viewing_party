@@ -8,8 +8,8 @@ describe User, type: :model do
   end
 
   describe 'relationships' do
-    it {should have_many(:followed)}
-    it {should have_many(:followers)}
+    it {should have_many(:followed).through(:followed_users)}
+    it {should have_many(:followers).through(:following_users)}
   end
 
   describe "email format" do
