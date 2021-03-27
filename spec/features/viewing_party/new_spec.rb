@@ -78,6 +78,18 @@ RSpec.describe 'viewing party' do
     end
   end
 
+  it "errors displays error messsages if viewing party is too short" do
+    VCR.use_cassette('all_movie_info') do
+      visit '/movies/550'
+      click_button "Create Viewing Party for Movie"
+      fill_in "party[duration]", with: 120
+      fill_in "party[date]" , with: Time.new(2021, 10, 15)
+      fill_in "party[start_time]", with: Time.now
+      click_button "Start Viewing Party"
+      expect(page).to have_content("Invites not sent, missing fields")
+    end
+  end
+
   it "sad path for missing data" do
   VCR.use_cassette('all_movie_info') do
     visit '/movies/550'
