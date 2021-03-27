@@ -54,7 +54,23 @@ RSpec.describe 'viewing party' do
         check 'party[friend_check][]'
       end
       click_button "Start Viewing Party"
-       expect(current_path).to be(dashboard_path)
+       expect(current_path).to eq(dashboard_path)
+    end
+  end
+  it "sad path for missing data" do
+  VCR.use_cassette('all_movie_info') do
+    visit '/movies/550'
+    click_button "Create Viewing Party for Movie"
+    fill_in "party[duration]", with: 140
+    within("#friend-#{@friend1.id}") do
+      check 'party[friend_check][]'
+    end
+    within("#friend-#{@friend2.id}") do
+      check 'party[friend_check][]'
+    end
+    click_button "Start Viewing Party"
+    expect(current_path).to eq(new_party_path)
+    expect(page).to have_content("Invites not sent, missing fields")
     end
   end
 end

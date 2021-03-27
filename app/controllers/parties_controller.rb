@@ -1,5 +1,6 @@
 class PartiesController < ApplicationController
   before_action :current_user
+  before_action :set_movie, only: [:create]
   def new
     @movie = Movie.find_or_create_by(name: params[:title], duration: params[:duration])
     @party = Party.new(movie_id: @movie.id, host_id: current_user.id, duration: @movie.duration )
@@ -12,8 +13,9 @@ class PartiesController < ApplicationController
       flash[:notice] = 'Invites Sent'
       redirect_to dashboard_path
     else
-      flash.now[:error] = 'Invites not sent ,missing Fields'
-      render :new, obj: @party
+      flash[:error] = 'Invites not sent, missing fields'
+      redirect_to new_party_path, obj: [@party, @movie]
+      set_movie
     end
   end
 
@@ -27,5 +29,9 @@ class PartiesController < ApplicationController
     params[:party][:friend_check].each do |friend|
       PartyFriend.create(party_id: @party.id,user_id: friend)
     end
+  end
+
+  def set_movie
+    @movie = Movie.find(params[:party][:movie_id])
   end
 end

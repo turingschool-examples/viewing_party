@@ -10,7 +10,11 @@ class UsersController < ApplicationController
     end
   end
 
-  def dashboard; end
+  def dashboard
+    @user = current_user
+    @host_parties = Party.where(host_id: @user.id)
+    @invited_parties = @user.parties
+  end
 
   def new; end
 
