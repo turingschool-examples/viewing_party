@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resource :dashboard, controller: 'users', only: :show do
     resources :parties, only: [:new, :create]
+    resources :friendships, only: [:create]
   end
 
   resources :movies, only: :show
