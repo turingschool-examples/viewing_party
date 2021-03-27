@@ -107,7 +107,8 @@ RSpec.describe "As an Authorized User" do
 
         expect(page).to have_button("Create Viewing Party for Movie")
         click_on("Create Viewing Party for Movie")
-        expect(page).to eq(new_party_path)
+        
+        expect(page).to eq('/parties/new')
       end
     end
   end
