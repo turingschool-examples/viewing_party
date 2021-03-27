@@ -6,6 +6,15 @@ class PartiesController < ApplicationController
   end
 
   def create
-    require "pry"; binding.pry
+    @party = Party.create(party_params)
+    @party_friend = PartyFriend.create(party_id: @party.id,
+                                      user_id: params[:party][:friend_check][0])
+    binding.pry
+  end
+
+  private
+
+  def party_params
+    params.require(:party).permit(:duration, :date, :start_time, :movie_id, :host_id)
   end
 end

@@ -40,18 +40,18 @@ RSpec.describe 'viewing party' do
     end
   end
 
-  xit "adds a viewing party when checkboxes are filled and button is submitted" do
+  it "adds a viewing party when checkboxes are filled and button is submitted" do
     VCR.use_cassette('all_movie_info') do
       visit '/movies/550'
       click_button "Create Viewing Party for Movie"
       fill_in "party[duration]", with: 140
       fill_in "party[date]" , with: Time.new(2021, 10, 15)
-      fill_in "party[time]", with: 140
+      fill_in "party[start_time]", with: Time.now
       within("#friend-#{@friend1.id}") do
-        check 'party[friend_check]'
+        check 'party[friend_check][]'
       end
       within("#friend-#{@friend2.id}") do
-        check 'party[friend_check]'
+        check 'party[friend_check][]'
       end
       click_button "Start Viewing Party"
        expect(current_path).to be(dashboard_path)
