@@ -8,9 +8,10 @@ Rails.application.routes.draw do
   post '/login', to: 'session#create'
 
   resource :dashboard, controller: 'users', only: :show
-  resources :parties, only: [:new, :create]
+  resources :parties
 
   resources :movies, only: :show
   get '/discover', to: 'movies#index'
   post '/discover', to: 'movies#index'
+  post '/movies/:id', to: 'parties#new'
 end
