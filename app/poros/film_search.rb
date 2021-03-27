@@ -1,5 +1,4 @@
 require './app/services/movie_services'
-require './app/poros/film'
 
 class FilmSearch
   attr_reader :top_40_films

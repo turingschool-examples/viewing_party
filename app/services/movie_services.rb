@@ -1,8 +1,3 @@
-require 'faraday'
-require 'json'
-require 'pry'
-require 'figaro'
-
 class MovieService
 
   def get_data(arg)

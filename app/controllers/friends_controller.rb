@@ -2,6 +2,7 @@ class FriendsController < ApplicationController
   def create
     user = User.find(params[:id])
     friend = User.find_by(email: params[:email])
+
     if friend
       user.followed << friend
     else
