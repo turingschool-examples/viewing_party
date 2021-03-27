@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :friends
+  has_many :parties
   has_secure_password
 
   validates :email, uniqueness: true, presence: true

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_27_041209) do
+ActiveRecord::Schema.define(version: 2021_03_27_150230) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,33 @@ ActiveRecord::Schema.define(version: 2021_03_27_041209) do
     t.index ["user_id"], name: "index_friendships_on_user_id"
   end
 
+  create_table "movies", force: :cascade do |t|
+    t.integer "api_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "parties", force: :cascade do |t|
+    t.datetime "date"
+    t.integer "duration"
+    t.string "movie_title"
+    t.bigint "movie_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["movie_id"], name: "index_parties_on_movie_id"
+    t.index ["user_id"], name: "index_parties_on_user_id"
+  end
+
+  create_table "party_friends", force: :cascade do |t|
+    t.bigint "friendship_id"
+    t.bigint "party_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["friendship_id"], name: "index_party_friends_on_friendship_id"
+    t.index ["party_id"], name: "index_party_friends_on_party_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "password_digest"
@@ -33,4 +60,8 @@ ActiveRecord::Schema.define(version: 2021_03_27_041209) do
 
   add_foreign_key "friendships", "users"
   add_foreign_key "friendships", "users", column: "friend_id"
+  add_foreign_key "parties", "movies"
+  add_foreign_key "parties", "users"
+  add_foreign_key "party_friends", "friendships"
+  add_foreign_key "party_friends", "parties"
 end
