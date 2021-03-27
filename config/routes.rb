@@ -7,9 +7,12 @@ Rails.application.routes.draw do
   get '/login', to: 'session#new'
   post '/login', to: 'session#create'
 
-  resource :dashboard, controller: 'users', only: :show
   resources :parties, only: [:new, :create]
 
+  resource :dashboard, controller: 'users', only: :show do
+    resources :friendships, only: [:create]
+  end
+  
   resources :movies, only: :show
   get '/discover', to: 'movies#index'
   post '/discover', to: 'movies#index'
