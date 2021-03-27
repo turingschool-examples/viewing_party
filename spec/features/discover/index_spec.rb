@@ -12,7 +12,7 @@ RSpec.describe "Discover index page" do
     end
   end
 
-  describe "as an unauthenticated user" do
+  describe "as an authenticated user" do
     before :each do
       @user = User.create!(name: "Name", email: "email@domain.com", password: "password")
       visit root_path

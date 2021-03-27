@@ -48,20 +48,79 @@ RSpec.describe "Movies index page" do
         expect(page).to have_button("Search")
       end
 
-      it "lists all movies that match the search results" do
-        VCR.use_cassette('search_movies') do
+      it "lists the first 40 results that match the search keywords" do
+        VCR.use_cassette('search_for_movies') do
           visit movies_path
 
-          fill_in :search, with: "fight club"
+          fill_in :search, with: "the"
           click_button "Search"
 
           expect(current_path).to eq(movies_path)
 
-          expect(page).to have_link("Fight Club")
-          expect(page).to have_link("Insane Fight Club")
-          expect(page).to have_link("Insane Fight Club II - This Time It’s Personal")
+          expect(page).to have_content("We found 40 results")
         end
       end
+
+      it "returns all of the results if there are less then 40" do
+        VCR.use_cassette('search_for_movies_short') do
+          visit movies_path
+
+          fill_in :search, with: "finding nemo"
+          click_button "Search"
+
+          expect(current_path).to eq(movies_path)
+
+          expect(page).to have_content("We found 3 results")
+        end
+      end
+    end
+  end
+
+  describe "sad path and error" do
+    before :each do
+      @user = User.create!(name: "Name", email: "email@domain.com", password: "password")
+      visit root_path
+      fill_in :email, with: @user.email
+      fill_in :password, with: @user.password
+      click_button "Log In"
+    end
+
+    it "404 error" do
+      api_key = ENV['movie_api_key']
+      stub_request(:get, "https://api.themoviedb.org/3/movie/top_rated?api_key=#{api_key}&language=en-US&page=1").
+        with(
+          headers: {
+         'Accept'=>'*/*',
+         'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+         'User-Agent'=>'Faraday v1.3.0'
+          }).
+        to_return(status: 404, body: "", headers: {})
+
+      visit movies_path
+
+      click_button("Find Top Rated Movies")
+      expect(current_path).to eq(movies_path)
+
+      expect(page).to have_content("Sorry, there was a server error while processing your request!")
+    end
+
+    it "500 error" do
+      api_key = ENV['movie_api_key']
+      stub_request(:get, "https://api.themoviedb.org/3/movie/top_rated?api_key=#{api_key}&language=en-US&page=1").
+        with(
+          headers: {
+         'Accept'=>'*/*',
+         'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+         'User-Agent'=>'Faraday v1.3.0'
+          }).
+        to_return(status: 500, body: "", headers: {})
+
+      visit movies_path
+
+      click_button("Find Top Rated Movies")
+      expect(current_path).to eq(movies_path)
+
+      expect(page).to have_content("Sorry, there was a server error while processing your request!")
     end
   end
 
