@@ -24,10 +24,13 @@ class MovieService
   end
 
   def self.make_searched_movies(title)
-    unless search_movies(title).nil?
+    # unless search_movies(title).nil?
+    x = 0
       search_movies(title).take(40).map do |movie_data|
+        break if x > 40
+        x += 1
         Film.new(movie_data)
       end
-    end
+    # end
   end
 end
