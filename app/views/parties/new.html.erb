@@ -1,0 +1,18 @@
+<h1>Welcome <%= @current_user.full_name %>!</h1>
+
+<%= form_with url: parties_path, method: :post, params: {user_id: @current_user.id, movie_id: @movie.id}, local: true do |f| %>
+  <%= f.hidden_field :user_id, value: @current_user.id %>
+  <%= f.hidden_field :movie_id, value: @movie.id %>
+  <%= f.label 'Duration of Party:' %>
+  <%= f.number_field :duration, min: @movie.runtime_minutes, value: @movie.runtime_minutes %><br><br>
+  <%= f.label 'Day:' %>
+  <%= f.date_field :date %><br><br>
+  <%= f.label 'Start Time:' %>
+  <%= f.time_field :time %><br>
+  <h3>Add Friends:</h3>
+  <% @followers.each do |friend| %>
+    <%= f.label friend.full_name %>
+    <%= f.check_box :friends, { multiple: true }, friend.id, false %><br><br>
+  <% end %>
+  <%= f.submit 'Create Event' %>
+<% end %>

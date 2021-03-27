@@ -1,0 +1,23 @@
+<h1>Welcome <%= @current_user.full_name %>!</h1>
+
+<h2><%= @movie.title %></h2>
+
+<%= button_to "Create Viewing Party", new_party_path, method: :get, params: {movie_id: @movie.id} %>
+
+Vote Average: <%= @movie.vote_average %><br>
+Runtime: <%= @movie.runtime %><br>
+Genre(s): <%= @genres.to_sentence %>
+<hr>
+Summary: <br>
+<%= @movie.description %>
+<hr>
+Cast: <br>
+<% @cast.each do |person| %>
+  <%= person[:actor] %> - <%=person[:character] %><br>
+<% end %>
+<hr>
+<%= @reviews.size %> Reviews: <br>
+<% @reviews.each do |review| %>
+  <p style='border:solid'><%= review[:name] %>:<br>
+  <%= review[:content] %></p>
+<% end %>
