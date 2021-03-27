@@ -44,8 +44,8 @@ RSpec.describe "As an authenticated user" do
         click_button("Create Viewing Party for Movie")
 
 
-        fill_in"Duration:", with: "200"
-        fill_in"Date and Time of Event:", with: "12/12/21"
+        fill_in :duration, with: 200
+        fill_in ':date', with: "12/12/21"
         click_on "Create Party"
 
         expect(current_path).to eq(dashboard_path(user))
