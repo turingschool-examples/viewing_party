@@ -36,6 +36,22 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
+  def follow
+    if followee = User.find_by(email: params[:friend_email])
+      current_user.followees << followee
+      redirect_to dashboard_path
+    else
+      flash[:error] = "Incorrect email"
+      redirect_to dashboard_path
+    end 
+  end
+
+  def unfollow
+    followee = User.find(params[:id])
+    current_user.followees.delete(followee)
+    redirect_to dashboard_path
+  end
+
   private
   def user_params
     params.require(:user).permit(:email, :password, :password_confirm)
