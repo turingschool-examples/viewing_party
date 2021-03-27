@@ -8,15 +8,16 @@
   </section>
 
   <section id="friends">
-    <%= form_with url: login_path, method: :post, local: true do |f| %>
+    <%= form_with url: follow_user_path(current_user), method: :post, local: true do |f| %>
       <%= f.label :friend_email, "Friend's Email" %>
       <%= f.text_field :friend_email %>
       <%= f.submit "Add Friend" %>
     <% end %>
-    <% if current_user.followers.length > 0 %>
-      <% current_user.followers.each do |user| %>
-        <p>My Followers: </p>
+    <% if current_user.followees.length > 0 %>
+      <p>People I follow: </p>
+      <% current_user.followees.each do |user| %>
         <p><%= user.email %></p>
+        <%= button_to "Unfollow", unfollow_user_path(user.id) %>
       <% end %>
     <% else %>
       <p>You currently have no friends.</p>
