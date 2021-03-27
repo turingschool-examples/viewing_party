@@ -59,6 +59,10 @@ describe "As an authenticated user, when I visit '/dashboard'" do
         expect(page).to_not have_content('notanyones@email.com')
       end
     end
+
+    it "I cannot add myself as a friend" do
+
+    end
   end
 
   describe "I see a button to discover movies" do

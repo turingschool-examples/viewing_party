@@ -24,9 +24,5 @@ describe User, type: :model do
 
       expect(user.save).to eq(false)
     end
-
-    xit "should have a strong password" do
-
-    end
   end
 end

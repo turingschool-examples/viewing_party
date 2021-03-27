@@ -1,5 +1,4 @@
 require './app/services/movie_services'
-require './app/poros/film'
 
 class FilmSearch
   attr_reader :top_40_films
@@ -7,6 +6,15 @@ class FilmSearch
   def initialize
     @movie_service = MovieService.new
     @top_40_films = top_40
+  end
+
+  def movie_searched(query)
+    [1,2].reduce([]) do |memo, page|
+      @movie_service.film_finder(page, query)[:results].each do |movie|
+        memo << Film.new(movie)
+      end
+      memo
+    end
   end
 
   private
@@ -18,9 +26,5 @@ class FilmSearch
       end
       memo
     end
-  end
-
-  def movie_searched
-
   end
 end
