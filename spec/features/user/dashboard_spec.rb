@@ -71,4 +71,34 @@ RSpec.describe "User Dashboard" do
       end
     end
   end
+
+  describe "Friends Section" do
+    describe "happy path" do
+      it "has a text field to search friends by email and button to add friends" do
+        user1 = User.create(email: "funbucket13@example.com", password: "test")
+        user2 = User.create(email: "user@example.com", password: "password")
+        friend1 = Friendship.users.create(user_id: user1.id, friendship_id: user2.id)
+        friend2 = Friendship.users.create(user_id: user2.id, friendship_id: user1.id)
+        require "pry"; binding.pry
+        visit root_path
+
+        click_link 'Login'
+
+        expect(current_path).to eq(login_path)
+
+        fill_in :email, with: "funbucket13@example.com"
+        fill_in :password, with: "test"
+
+        click_button 'Login'
+
+
+        within("#friends-#{user.id}") do
+          expect(page).to have_content("Friends")
+          expect(page).to have_field(:email)
+          expect(page).to have_content("You currently have no friends")
+          expect(page).to have_button("Add Friend")
+        end
+      end
+    end
+  end
 end

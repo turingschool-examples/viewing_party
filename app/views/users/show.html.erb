@@ -18,3 +18,19 @@
   <h3>Hosting:</h3><br>
   <h3>Invited: <%= current_user.email %></h3><br>
 </section>
+
+<section id="friends-<%= current_user.id %>">
+<h2>Friends</h2>
+<% if current_user.friendships.empty? %>
+  <p>"You currently have no friends"</p>
+<% else %>
+    <% current_user.friendships.each do |friend| %>
+      <p><%= friend.email %></p>
+    <% end %>
+<% end %>
+<%= form_with url: new_dashboard_friendship_path, local: true, method: :get do |f| %>
+  <%= f.text_field :email, value: "Friend's Email" %>
+
+  <%= f.submit 'Add Friend' %>
+<% end %>
+</section>
