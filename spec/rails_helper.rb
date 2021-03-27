@@ -9,6 +9,9 @@ require 'rspec/rails'
 VCR.configure do |config|
   config.cassette_library_dir = "fixtures/vcr_cassettes"
   config.hook_into :webmock
+  config.filter_sensitive_data('Movie_Key') { ENV['MOVIE_API'] }
+  # config.configure_rspec_metadata!
+  # config.response.body.force_encoding('UTF-8')
 end
 # Add additional requires below this line. Rails is not loaded until this point!
 
