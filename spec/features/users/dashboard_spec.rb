@@ -80,4 +80,8 @@ RSpec.describe "Dashboard" do
     end
     expect(page).to have_content("That User Does Not Exist")
   end
+
+  it "has both the hosted and invited viewing parties" do
+
+  end
 end
