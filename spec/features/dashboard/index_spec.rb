@@ -43,7 +43,21 @@ describe "As an authenticated user, when I visit '/dashboard'" do
       end
     end
 
-    it "If I search for someone not registered, I receive a message 'Friend cannot be found'" do
+    it "If I search for someone not registered, I receive a message" do
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
+      no_one = 'notanyones@email.com'
+
+      visit dashboard_index_path
+
+      fill_in :email, with: no_one
+      click_button 'Add Friend'
+
+      expect(current_path).to eq(dashboard_index_path)
+      expect(page).to have_content("#{no_one.titleize} cannot be found. Search for another friend")
+
+      within ".user-friends" do
+        expect(page).to_not have_content('notanyones@email.com')
+      end
     end
   end
 
