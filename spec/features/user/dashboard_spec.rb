@@ -5,7 +5,6 @@ RSpec.describe "User Dashboard" do
     it "Redirects user to a discover page when button is clicked" do
       user = User.create(email: "funbucket13@example.com", password: "test")
 
-
       visit root_path
 
       click_link 'Login'
@@ -83,8 +82,4 @@ RSpec.describe "User Dashboard" do
       end
     end
   end
-
-  # describe "Friends Section" do
-  #   it "has a field to enter a friend"
-  # end
 end
