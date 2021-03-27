@@ -89,5 +89,26 @@ RSpec.describe "As an Authorized User" do
         expect(page).to have_content("r96sk")
       end
     end
+    it "has a link to create a view party" do
+      VCR.use_cassette('viewing_party_path') do
+        user = User.create(email: "joeb@email.com", password: "test")
+        visit root_path
+        click_link "Login"
+        fill_in :email, with: user.email.upcase
+        fill_in :password, with: user.password
+        click_button 'Login'
+        within(".topnav") do
+          click_link "Discover Movies"
+        end
+
+        fill_in :movie_query, with: "Fight Club"
+        click_on("Find Movies")
+        click_link "Fight Club"
+
+        expect(page).to have_button("Create Viewing Party for Movie")
+        click_on("Create Viewing Party for Movie")
+        expect(page).to eq(new_party_path)
+      end
+    end
   end
 end
