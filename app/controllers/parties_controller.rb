@@ -28,7 +28,7 @@ class PartiesController < ApplicationController
     if params[:party][:friend_check]
       params[:party][:friend_check].each do |friend|
         PartyFriend.create(party_id: @party.id,user_id: friend)
-      end 
+      end
     end
   end
 

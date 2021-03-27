@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'users#dashboard'
   get '/discover', to: 'discover#index'
 
-  resources :parties, only: [:new, :create] 
+  resources :parties, only: [:new, :create]
 
 
   resources :friends, only: [:create]
