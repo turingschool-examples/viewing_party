@@ -49,7 +49,7 @@ RSpec.describe "Discover index page" do
       end
 
       it "redirects to the movies page and shows my searech results" do
-        VCR.use_cassette('search_movies') do
+        VCR.use_cassette('search_movies_fight_club') do
           visit movies_path
 
           fill_in :search, with: "fight club"
