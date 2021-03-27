@@ -8,15 +8,27 @@ class MovieProsessing
     @results = []
     page_num = 1
     until @results.count >= 40
-      @results += @service.top_rated(page_num)[:results]
+      info = @service.top_rated(page_num)
+      return info if info[:error]
+      return clean(@results) if info[:results].count.zero?
+      @results += info[:results]
       page_num += 1
     end
-    clean(@results).first(40)
+    clean(@results)
   end
 
   def search(keywords)
     keywords = keywords.gsub(/ /, '%20')
-    @results = clean(@service.search(keywords)[:results])
+    @results = []
+    page_num = 1
+    until @results.count >= 40
+      info = @service.search(keywords, page_num)
+      return info if info[:error]
+      return clean(@results) if info[:results].count.zero?
+      @results += info[:results]
+      page_num += 1
+    end
+    clean(@results)
   end
 
   def movie_info(api_movie_id)
@@ -51,9 +63,10 @@ class MovieProsessing
   end
 
   def clean(info)
-    info.reduce({}) do |hash, movie|
+    hash = Hash.new(false)
+    info.each do |movie|
       hash[movie[:id]] = {title: movie[:title], vote_average: movie[:vote_average], poster_path: movie[:poster_path]}
-      hash
     end
+    hash.first(40).to_h
   end
 end
