@@ -5,14 +5,16 @@
   <%= f.hidden_field :movie_id, value: @movie.id %>
   <%= f.label 'Duration of Party:' %>
   <%= f.number_field :duration, min: @movie.runtime_minutes, value: @movie.runtime_minutes %><br><br>
-  <%= f.label 'Day:' %>
+  <%= f.label 'Date:' %>
   <%= f.date_field :date %><br><br>
   <%= f.label 'Start Time:' %>
   <%= f.time_field :time %><br>
   <h3>Add Friends:</h3>
-  <% @followers.each do |friend| %>
-    <%= f.label friend.full_name %>
-    <%= f.check_box :friends, { multiple: true }, friend.id, false %><br><br>
+  <%= f.collection_check_boxes(:friends, @current_user.followers, :id, :full_name) do |follower| %>
+    <div>
+      <%= follower.check_box %>
+      <%= follower.label %>
+    </div>
   <% end %>
   <%= f.submit 'Create Event' %>
 <% end %>

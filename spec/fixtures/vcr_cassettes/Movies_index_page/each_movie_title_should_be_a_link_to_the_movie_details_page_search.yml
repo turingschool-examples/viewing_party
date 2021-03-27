@@ -25,71 +25,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Sat, 27 Mar 2021 15:33:03 GMT
-      Server:
-      - openresty
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Allow-Methods:
-      - GET, HEAD, POST, PUT, DELETE, OPTIONS
-      Access-Control-Expose-Headers:
-      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
-        Content-Length, Content-Range
-      Cache-Control:
-      - public, max-age=600
-      Vary:
-      - Accept-Encoding
-      X-Cache:
-      - Hit from cloudfront
-      Via:
-      - 1.1 4b2d2d4c49521bf403522140b78283a1.cloudfront.net (CloudFront)
-      X-Amz-Cf-Pop:
-      - DEN50-C2
-      X-Amz-Cf-Id:
-      - yBZE113202W0eQlIus8j0w9hhAL6Dmfp32ozHgLyWxYuu6MG5PGJQg==
-      Age:
-      - '26'
-    body:
-      encoding: ASCII-8BIT
-      string: '{"page":1,"results":[{"adult":false,"backdrop_path":"/k7h4RNAarfOrF2r2YMN0P2FQSr4.jpg","genre_ids":[80,18,53,28],"id":75780,"original_language":"en","original_title":"Jack
-        Reacher","overview":"When a gunman takes five lives with six shots, all evidence
-        points to the suspect in custody. On interrogation, the suspect offers up
-        a single note: \"Get Jack Reacher!\" So begins an extraordinary chase for
-        the truth, pitting Jack Reacher against an unexpected enemy, with a skill
-        for violence and a secret to keep.","popularity":38.41,"poster_path":"/zlyhKMi2aLk25nOHnNm43MpZMtQ.jpg","release_date":"2012-12-20","title":"Jack
-        Reacher","video":false,"vote_average":6.5,"vote_count":5158},{"adult":false,"backdrop_path":"/ww1eIoywghjoMzRLRIcbJLuKnJH.jpg","genre_ids":[28],"id":343611,"original_language":"en","original_title":"Jack
-        Reacher: Never Go Back","overview":"Jack Reacher must uncover the truth behind
-        a major government conspiracy in order to clear his name. On the run as a
-        fugitive from the law, Reacher uncovers a potential secret from his past that
-        could change his life forever.","popularity":42.972,"poster_path":"/wxLUQ1pIms3HAlVGYvEG9zg2kDs.jpg","release_date":"2016-10-19","title":"Jack
-        Reacher: Never Go Back","video":false,"vote_average":5.8,"vote_count":3519}],"total_pages":1,"total_results":2}'
-  recorded_at: Sat, 27 Mar 2021 15:33:30 GMT
-- request:
-    method: get
-    uri: https://api.themoviedb.org/3/search/movie?api_key=--PRIVATE--&query=Jack%2BReacher
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v0.9.2
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json;charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Date:
-      - Sat, 27 Mar 2021 15:33:03 GMT
+      - Sat, 27 Mar 2021 21:43:30 GMT
       Server:
       - openresty
       Access-Control-Allow-Origin:
@@ -110,9 +46,9 @@ http_interactions:
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - bf77Plw3P_dmOMCB2Yqy1mojv8Xu3Neu8Dz9EtRsGKyHr4Z5mcLQHQ==
+      - DMRARpLPIwrHMsYXbcVFAtWGfP8K-lNBescxxQ6rpdgVJWAJ2ajNLA==
       Age:
-      - '27'
+      - '3'
     body:
       encoding: ASCII-8BIT
       string: '{"page":1,"results":[{"adult":false,"backdrop_path":"/k7h4RNAarfOrF2r2YMN0P2FQSr4.jpg","genre_ids":[80,18,53,28],"id":75780,"original_language":"en","original_title":"Jack
@@ -127,7 +63,7 @@ http_interactions:
         fugitive from the law, Reacher uncovers a potential secret from his past that
         could change his life forever.","popularity":42.972,"poster_path":"/wxLUQ1pIms3HAlVGYvEG9zg2kDs.jpg","release_date":"2016-10-19","title":"Jack
         Reacher: Never Go Back","video":false,"vote_average":5.8,"vote_count":3519}],"total_pages":1,"total_results":2}'
-  recorded_at: Sat, 27 Mar 2021 15:33:31 GMT
+  recorded_at: Sat, 27 Mar 2021 21:43:33 GMT
 - request:
     method: get
     uri: https://api.themoviedb.org/3/search/movie?api_key=--PRIVATE--&query=Jack%2BReacher
@@ -153,7 +89,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Sat, 27 Mar 2021 15:33:03 GMT
+      - Sat, 27 Mar 2021 21:43:30 GMT
       Server:
       - openresty
       Access-Control-Allow-Origin:
@@ -170,13 +106,13 @@ http_interactions:
       X-Cache:
       - Hit from cloudfront
       Via:
-      - 1.1 28d79637e27f11e3ab19a9515e273a5b.cloudfront.net (CloudFront)
+      - 1.1 c55bfc9d9a95cdee8e23989feddaa4b3.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - q5miOb1x4vCPiUZwvVJRAFVkCSs4Z0xA5BFDsMfD4JrLU-cPMO2ybQ==
+      - 9fuakxaDWzc5-VSU1bMFIWILLSlYW8kB17U3aFmvRFjKjEfL4T3wzw==
       Age:
-      - '27'
+      - '3'
     body:
       encoding: ASCII-8BIT
       string: '{"page":1,"results":[{"adult":false,"backdrop_path":"/k7h4RNAarfOrF2r2YMN0P2FQSr4.jpg","genre_ids":[80,18,53,28],"id":75780,"original_language":"en","original_title":"Jack
@@ -191,7 +127,199 @@ http_interactions:
         fugitive from the law, Reacher uncovers a potential secret from his past that
         could change his life forever.","popularity":42.972,"poster_path":"/wxLUQ1pIms3HAlVGYvEG9zg2kDs.jpg","release_date":"2016-10-19","title":"Jack
         Reacher: Never Go Back","video":false,"vote_average":5.8,"vote_count":3519}],"total_pages":1,"total_results":2}'
-  recorded_at: Sat, 27 Mar 2021 15:33:31 GMT
+  recorded_at: Sat, 27 Mar 2021 21:43:33 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/search/movie?api_key=--PRIVATE--&query=Jack%2BReacher
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Sat, 27 Mar 2021 21:43:30 GMT
+      Server:
+      - openresty
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
+        Content-Length, Content-Range
+      Cache-Control:
+      - public, max-age=600
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 23d87d8c2ce38e34462e6c134d187eeb.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - DEN50-C2
+      X-Amz-Cf-Id:
+      - A8IHwCvkBDo9t6LJ-2DoyHke_z-mvF4WV-k92zGAZkmArvswCUQWhg==
+      Age:
+      - '3'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"page":1,"results":[{"adult":false,"backdrop_path":"/k7h4RNAarfOrF2r2YMN0P2FQSr4.jpg","genre_ids":[80,18,53,28],"id":75780,"original_language":"en","original_title":"Jack
+        Reacher","overview":"When a gunman takes five lives with six shots, all evidence
+        points to the suspect in custody. On interrogation, the suspect offers up
+        a single note: \"Get Jack Reacher!\" So begins an extraordinary chase for
+        the truth, pitting Jack Reacher against an unexpected enemy, with a skill
+        for violence and a secret to keep.","popularity":38.41,"poster_path":"/zlyhKMi2aLk25nOHnNm43MpZMtQ.jpg","release_date":"2012-12-20","title":"Jack
+        Reacher","video":false,"vote_average":6.5,"vote_count":5158},{"adult":false,"backdrop_path":"/ww1eIoywghjoMzRLRIcbJLuKnJH.jpg","genre_ids":[28],"id":343611,"original_language":"en","original_title":"Jack
+        Reacher: Never Go Back","overview":"Jack Reacher must uncover the truth behind
+        a major government conspiracy in order to clear his name. On the run as a
+        fugitive from the law, Reacher uncovers a potential secret from his past that
+        could change his life forever.","popularity":42.972,"poster_path":"/wxLUQ1pIms3HAlVGYvEG9zg2kDs.jpg","release_date":"2016-10-19","title":"Jack
+        Reacher: Never Go Back","video":false,"vote_average":5.8,"vote_count":3519}],"total_pages":1,"total_results":2}'
+  recorded_at: Sat, 27 Mar 2021 21:43:33 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/search/movie?api_key=--PRIVATE--&query=Jack%2BReacher
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Sat, 27 Mar 2021 21:43:30 GMT
+      Server:
+      - openresty
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
+        Content-Length, Content-Range
+      Cache-Control:
+      - public, max-age=600
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 a44b9db7a2d103360945ab52619e5016.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - DEN50-C2
+      X-Amz-Cf-Id:
+      - q5eTKDe-SSAGnrV7cXVlO2iq-O36ZWzdsM56wBfu-hkBJ14cCz9nDA==
+      Age:
+      - '3'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"page":1,"results":[{"adult":false,"backdrop_path":"/k7h4RNAarfOrF2r2YMN0P2FQSr4.jpg","genre_ids":[80,18,53,28],"id":75780,"original_language":"en","original_title":"Jack
+        Reacher","overview":"When a gunman takes five lives with six shots, all evidence
+        points to the suspect in custody. On interrogation, the suspect offers up
+        a single note: \"Get Jack Reacher!\" So begins an extraordinary chase for
+        the truth, pitting Jack Reacher against an unexpected enemy, with a skill
+        for violence and a secret to keep.","popularity":38.41,"poster_path":"/zlyhKMi2aLk25nOHnNm43MpZMtQ.jpg","release_date":"2012-12-20","title":"Jack
+        Reacher","video":false,"vote_average":6.5,"vote_count":5158},{"adult":false,"backdrop_path":"/ww1eIoywghjoMzRLRIcbJLuKnJH.jpg","genre_ids":[28],"id":343611,"original_language":"en","original_title":"Jack
+        Reacher: Never Go Back","overview":"Jack Reacher must uncover the truth behind
+        a major government conspiracy in order to clear his name. On the run as a
+        fugitive from the law, Reacher uncovers a potential secret from his past that
+        could change his life forever.","popularity":42.972,"poster_path":"/wxLUQ1pIms3HAlVGYvEG9zg2kDs.jpg","release_date":"2016-10-19","title":"Jack
+        Reacher: Never Go Back","video":false,"vote_average":5.8,"vote_count":3519}],"total_pages":1,"total_results":2}'
+  recorded_at: Sat, 27 Mar 2021 21:43:33 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/search/movie?api_key=--PRIVATE--&query=Jack%2BReacher
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Sat, 27 Mar 2021 21:43:30 GMT
+      Server:
+      - openresty
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
+        Content-Length, Content-Range
+      Cache-Control:
+      - public, max-age=600
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 e4ca364cc5959e3bf697ae231c5b56b0.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - DEN50-C2
+      X-Amz-Cf-Id:
+      - POz-mQA1n0NudT42O9v1_NONEroH5kGMQf0T5mXGkRFZ4i9By8K6yw==
+      Age:
+      - '3'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"page":1,"results":[{"adult":false,"backdrop_path":"/k7h4RNAarfOrF2r2YMN0P2FQSr4.jpg","genre_ids":[80,18,53,28],"id":75780,"original_language":"en","original_title":"Jack
+        Reacher","overview":"When a gunman takes five lives with six shots, all evidence
+        points to the suspect in custody. On interrogation, the suspect offers up
+        a single note: \"Get Jack Reacher!\" So begins an extraordinary chase for
+        the truth, pitting Jack Reacher against an unexpected enemy, with a skill
+        for violence and a secret to keep.","popularity":38.41,"poster_path":"/zlyhKMi2aLk25nOHnNm43MpZMtQ.jpg","release_date":"2012-12-20","title":"Jack
+        Reacher","video":false,"vote_average":6.5,"vote_count":5158},{"adult":false,"backdrop_path":"/ww1eIoywghjoMzRLRIcbJLuKnJH.jpg","genre_ids":[28],"id":343611,"original_language":"en","original_title":"Jack
+        Reacher: Never Go Back","overview":"Jack Reacher must uncover the truth behind
+        a major government conspiracy in order to clear his name. On the run as a
+        fugitive from the law, Reacher uncovers a potential secret from his past that
+        could change his life forever.","popularity":42.972,"poster_path":"/wxLUQ1pIms3HAlVGYvEG9zg2kDs.jpg","release_date":"2016-10-19","title":"Jack
+        Reacher: Never Go Back","video":false,"vote_average":5.8,"vote_count":3519}],"total_pages":1,"total_results":2}'
+  recorded_at: Sat, 27 Mar 2021 21:43:33 GMT
 - request:
     method: get
     uri: https://api.themoviedb.org/3/movie/75780?api_key=--PRIVATE--&language=en-US
@@ -216,8 +344,6 @@ http_interactions:
       - chunked
       Connection:
       - keep-alive
-      Date:
-      - Sat, 27 Mar 2021 15:20:19 GMT
       Server:
       - openresty
       Access-Control-Allow-Origin:
@@ -227,8 +353,6 @@ http_interactions:
       Access-Control-Expose-Headers:
       - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
         Content-Length, Content-Range
-      Cache-Control:
-      - public, max-age=21600
       X-Memc:
       - HIT
       X-Memc-Key:
@@ -237,20 +361,22 @@ http_interactions:
       - '17172'
       X-Memc-Expires:
       - '4428'
+      Date:
+      - Sat, 27 Mar 2021 21:43:33 GMT
+      Cache-Control:
+      - public, max-age=21600
       Etag:
       - W/"de47fba9510108b5f6e551bf91d41b8b"
       Vary:
       - Accept-Encoding
       X-Cache:
-      - Hit from cloudfront
+      - RefreshHit from cloudfront
       Via:
-      - 1.1 d29afc70fc2fdadee440493854714224.cloudfront.net (CloudFront)
+      - 1.1 91f1c114eac2b00f07286bc49dddd7e5.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - pIskimmLZKzRENF7gdGuEYthE8IvBFM0b72R1Ih0Q5leTaC_Wuc26w==
-      Age:
-      - '792'
+      - DPdGV3wYPM-cck71j0yNJv1_oqkD7W4gHAiREWRDipy0tdavIjvuFA==
     body:
       encoding: ASCII-8BIT
       string: '{"adult":false,"backdrop_path":"/k7h4RNAarfOrF2r2YMN0P2FQSr4.jpg","belongs_to_collection":{"id":403374,"name":"Jack
@@ -267,7 +393,7 @@ http_interactions:
         Films","origin_country":""},{"id":4,"logo_path":"/fycMZt242LVjagMByZOLUGbCvv3.png","name":"Paramount","origin_country":"US"}],"production_countries":[{"iso_3166_1":"US","name":"United
         States of America"}],"release_date":"2012-12-20","revenue":218340595,"runtime":130,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"}],"status":"Released","tagline":"The
         Law Has Limits. He Does Not.","title":"Jack Reacher","video":false,"vote_average":6.5,"vote_count":5158}'
-  recorded_at: Sat, 27 Mar 2021 15:33:31 GMT
+  recorded_at: Sat, 27 Mar 2021 21:43:33 GMT
 - request:
     method: get
     uri: https://api.themoviedb.org/3/movie/75780?api_key=--PRIVATE--&language=en-US
@@ -292,8 +418,6 @@ http_interactions:
       - chunked
       Connection:
       - keep-alive
-      Date:
-      - Sat, 27 Mar 2021 15:20:19 GMT
       Server:
       - openresty
       Access-Control-Allow-Origin:
@@ -303,8 +427,6 @@ http_interactions:
       Access-Control-Expose-Headers:
       - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
         Content-Length, Content-Range
-      Cache-Control:
-      - public, max-age=21600
       X-Memc:
       - HIT
       X-Memc-Key:
@@ -313,6 +435,84 @@ http_interactions:
       - '17172'
       X-Memc-Expires:
       - '4428'
+      Date:
+      - Sat, 27 Mar 2021 21:43:33 GMT
+      Cache-Control:
+      - public, max-age=21600
+      Etag:
+      - W/"de47fba9510108b5f6e551bf91d41b8b"
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 38059ba65876500c040fb73e2cbaebf5.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - DEN50-C2
+      X-Amz-Cf-Id:
+      - JrHYdHwc39A9MvY0CtB5T3yLber64PkqkkLxTfz5Fn9h-MgeeEy0VQ==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"adult":false,"backdrop_path":"/k7h4RNAarfOrF2r2YMN0P2FQSr4.jpg","belongs_to_collection":{"id":403374,"name":"Jack
+        Reacher Collection","poster_path":"/7baSUtFKi8PQ9SLo6ECYBfAW2K8.jpg","backdrop_path":"/vViRXFnSyGJ2fzMbcc5sqTKswcd.jpg"},"budget":60000000,"genres":[{"id":80,"name":"Crime"},{"id":18,"name":"Drama"},{"id":53,"name":"Thriller"},{"id":28,"name":"Action"}],"homepage":"http://www.jackreachermovie.com/","id":75780,"imdb_id":"tt0790724","original_language":"en","original_title":"Jack
+        Reacher","overview":"When a gunman takes five lives with six shots, all evidence
+        points to the suspect in custody. On interrogation, the suspect offers up
+        a single note: \"Get Jack Reacher!\" So begins an extraordinary chase for
+        the truth, pitting Jack Reacher against an unexpected enemy, with a skill
+        for violence and a secret to keep.","popularity":38.41,"poster_path":"/zlyhKMi2aLk25nOHnNm43MpZMtQ.jpg","production_companies":[{"id":82819,"logo_path":"/5Z8WWr0Lf1tInVWwJsxPP0uMz9a.png","name":"Skydance
+        Media","origin_country":"US"},{"id":128585,"logo_path":null,"name":"H2L Media
+        \"AKA\" Mutual Film Company","origin_country":""},{"id":128586,"logo_path":null,"name":"H2L
+        Media Group","origin_country":""},{"id":21777,"logo_path":null,"name":"TC
+        Productions","origin_country":""},{"id":117362,"logo_path":null,"name":"Mutual
+        Films","origin_country":""},{"id":4,"logo_path":"/fycMZt242LVjagMByZOLUGbCvv3.png","name":"Paramount","origin_country":"US"}],"production_countries":[{"iso_3166_1":"US","name":"United
+        States of America"}],"release_date":"2012-12-20","revenue":218340595,"runtime":130,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"}],"status":"Released","tagline":"The
+        Law Has Limits. He Does Not.","title":"Jack Reacher","video":false,"vote_average":6.5,"vote_count":5158}'
+  recorded_at: Sat, 27 Mar 2021 21:43:33 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/75780?api_key=--PRIVATE--&language=en-US
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - openresty
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
+        Content-Length, Content-Range
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - 587c9c40d7c94915005db24a8bb77d892e0f994c
+      X-Memc-Age:
+      - '17172'
+      X-Memc-Expires:
+      - '4428'
+      Date:
+      - Sat, 27 Mar 2021 21:43:33 GMT
+      Cache-Control:
+      - public, max-age=21600
       Etag:
       - W/"de47fba9510108b5f6e551bf91d41b8b"
       Vary:
@@ -324,9 +524,7 @@ http_interactions:
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - VpOicPPFNfLpuITxXrc58mayRKF0m-CH2eOakWpMyY4dcAHL57Jjxg==
-      Age:
-      - '792'
+      - bsQP_gRXtG8k5pSKpp0a4ISDzt1oa5ngmyYW4eAnWMIv0Vwo3wHVXw==
     body:
       encoding: ASCII-8BIT
       string: '{"adult":false,"backdrop_path":"/k7h4RNAarfOrF2r2YMN0P2FQSr4.jpg","belongs_to_collection":{"id":403374,"name":"Jack
@@ -343,83 +541,7 @@ http_interactions:
         Films","origin_country":""},{"id":4,"logo_path":"/fycMZt242LVjagMByZOLUGbCvv3.png","name":"Paramount","origin_country":"US"}],"production_countries":[{"iso_3166_1":"US","name":"United
         States of America"}],"release_date":"2012-12-20","revenue":218340595,"runtime":130,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"}],"status":"Released","tagline":"The
         Law Has Limits. He Does Not.","title":"Jack Reacher","video":false,"vote_average":6.5,"vote_count":5158}'
-  recorded_at: Sat, 27 Mar 2021 15:33:31 GMT
-- request:
-    method: get
-    uri: https://api.themoviedb.org/3/movie/75780?api_key=--PRIVATE--&language=en-US
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v0.9.2
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json;charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Date:
-      - Sat, 27 Mar 2021 15:20:19 GMT
-      Server:
-      - openresty
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Allow-Methods:
-      - GET, HEAD, POST, PUT, DELETE, OPTIONS
-      Access-Control-Expose-Headers:
-      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
-        Content-Length, Content-Range
-      Cache-Control:
-      - public, max-age=21600
-      X-Memc:
-      - HIT
-      X-Memc-Key:
-      - 587c9c40d7c94915005db24a8bb77d892e0f994c
-      X-Memc-Age:
-      - '17172'
-      X-Memc-Expires:
-      - '4428'
-      Etag:
-      - W/"de47fba9510108b5f6e551bf91d41b8b"
-      Vary:
-      - Accept-Encoding
-      X-Cache:
-      - Hit from cloudfront
-      Via:
-      - 1.1 d29afc70fc2fdadee440493854714224.cloudfront.net (CloudFront)
-      X-Amz-Cf-Pop:
-      - DEN50-C2
-      X-Amz-Cf-Id:
-      - K_FPJz9wemnVktMwc3yiwGu_R5zzGRFj7QRWA8s5xRFSPguMSp1PVA==
-      Age:
-      - '792'
-    body:
-      encoding: ASCII-8BIT
-      string: '{"adult":false,"backdrop_path":"/k7h4RNAarfOrF2r2YMN0P2FQSr4.jpg","belongs_to_collection":{"id":403374,"name":"Jack
-        Reacher Collection","poster_path":"/7baSUtFKi8PQ9SLo6ECYBfAW2K8.jpg","backdrop_path":"/vViRXFnSyGJ2fzMbcc5sqTKswcd.jpg"},"budget":60000000,"genres":[{"id":80,"name":"Crime"},{"id":18,"name":"Drama"},{"id":53,"name":"Thriller"},{"id":28,"name":"Action"}],"homepage":"http://www.jackreachermovie.com/","id":75780,"imdb_id":"tt0790724","original_language":"en","original_title":"Jack
-        Reacher","overview":"When a gunman takes five lives with six shots, all evidence
-        points to the suspect in custody. On interrogation, the suspect offers up
-        a single note: \"Get Jack Reacher!\" So begins an extraordinary chase for
-        the truth, pitting Jack Reacher against an unexpected enemy, with a skill
-        for violence and a secret to keep.","popularity":38.41,"poster_path":"/zlyhKMi2aLk25nOHnNm43MpZMtQ.jpg","production_companies":[{"id":82819,"logo_path":"/5Z8WWr0Lf1tInVWwJsxPP0uMz9a.png","name":"Skydance
-        Media","origin_country":"US"},{"id":128585,"logo_path":null,"name":"H2L Media
-        \"AKA\" Mutual Film Company","origin_country":""},{"id":128586,"logo_path":null,"name":"H2L
-        Media Group","origin_country":""},{"id":21777,"logo_path":null,"name":"TC
-        Productions","origin_country":""},{"id":117362,"logo_path":null,"name":"Mutual
-        Films","origin_country":""},{"id":4,"logo_path":"/fycMZt242LVjagMByZOLUGbCvv3.png","name":"Paramount","origin_country":"US"}],"production_countries":[{"iso_3166_1":"US","name":"United
-        States of America"}],"release_date":"2012-12-20","revenue":218340595,"runtime":130,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"}],"status":"Released","tagline":"The
-        Law Has Limits. He Does Not.","title":"Jack Reacher","video":false,"vote_average":6.5,"vote_count":5158}'
-  recorded_at: Sat, 27 Mar 2021 15:33:31 GMT
+  recorded_at: Sat, 27 Mar 2021 21:43:33 GMT
 - request:
     method: get
     uri: https://api.themoviedb.org/3/movie/75780/credits?api_key=--PRIVATE--&language=en-US
@@ -444,8 +566,6 @@ http_interactions:
       - chunked
       Connection:
       - keep-alive
-      Date:
-      - Sat, 27 Mar 2021 15:20:20 GMT
       Server:
       - openresty
       Access-Control-Allow-Origin:
@@ -455,8 +575,6 @@ http_interactions:
       Access-Control-Expose-Headers:
       - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
         Content-Length, Content-Range
-      Cache-Control:
-      - public, max-age=21600
       X-Memc:
       - HIT
       X-Memc-Key:
@@ -465,20 +583,22 @@ http_interactions:
       - '15630'
       X-Memc-Expires:
       - '5970'
+      Date:
+      - Sat, 27 Mar 2021 21:43:33 GMT
+      Cache-Control:
+      - public, max-age=21600
       Etag:
       - W/"84dfbea0845b7fb131b08a2cb67706d7"
       Vary:
       - Accept-Encoding
       X-Cache:
-      - Hit from cloudfront
+      - RefreshHit from cloudfront
       Via:
-      - 1.1 f0b290c4e2273a7586bc6f080031d9bc.cloudfront.net (CloudFront)
+      - 1.1 264cccdb967e804907074b11d3a83242.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - 5ov474hISI1TV9IvlntURFMET36l_Er1EoVrwk94BN2dsfZr_rtMIA==
-      Age:
-      - '791'
+      - "-rP4YG8995ffs4-iONL1tJ73SXgSzFI7-7jJ8CY0AuGxWFjFkvWW8Q=="
     body:
       encoding: ASCII-8BIT
       string: '{"id":75780,"cast":[{"adult":false,"gender":2,"id":500,"known_for_department":"Acting","name":"Tom
@@ -681,7 +801,7 @@ http_interactions:
         Second Assistant Director"},{"adult":false,"gender":0,"id":2615929,"known_for_department":"Directing","name":"Walter
         E. Myal","original_name":"Walter E. Myal","popularity":0.6,"profile_path":null,"credit_id":"5ea5f2deb39e350021e93613","department":"Directing","job":"Second
         Second Assistant Director"}]}'
-  recorded_at: Sat, 27 Mar 2021 15:33:31 GMT
+  recorded_at: Sat, 27 Mar 2021 21:43:33 GMT
 - request:
     method: get
     uri: https://api.themoviedb.org/3/movie/75780/credits?api_key=--PRIVATE--&language=en-US
@@ -706,8 +826,6 @@ http_interactions:
       - chunked
       Connection:
       - keep-alive
-      Date:
-      - Sat, 27 Mar 2021 15:20:20 GMT
       Server:
       - openresty
       Access-Control-Allow-Origin:
@@ -717,8 +835,6 @@ http_interactions:
       Access-Control-Expose-Headers:
       - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
         Content-Length, Content-Range
-      Cache-Control:
-      - public, max-age=21600
       X-Memc:
       - HIT
       X-Memc-Key:
@@ -727,6 +843,10 @@ http_interactions:
       - '15630'
       X-Memc-Expires:
       - '5970'
+      Date:
+      - Sat, 27 Mar 2021 21:43:33 GMT
+      Cache-Control:
+      - public, max-age=21600
       Etag:
       - W/"84dfbea0845b7fb131b08a2cb67706d7"
       Vary:
@@ -734,13 +854,13 @@ http_interactions:
       X-Cache:
       - Hit from cloudfront
       Via:
-      - 1.1 0e018abb74f4918cb6e427c3e0a7ee33.cloudfront.net (CloudFront)
+      - 1.1 ee9de9e6182ae0c8e8f119177e905245.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - ibPGwxm3ALMuBkyKvx20t3xb_wmRFdYCSOmJAU4IPneiwnHbWwBCTA==
+      - JOFVmP82hyb_isz-3O71YLt6U494WcbsOALw6kenbCNVsUXRgF7YUQ==
       Age:
-      - '791'
+      - '1'
     body:
       encoding: ASCII-8BIT
       string: '{"id":75780,"cast":[{"adult":false,"gender":2,"id":500,"known_for_department":"Acting","name":"Tom
@@ -943,7 +1063,7 @@ http_interactions:
         Second Assistant Director"},{"adult":false,"gender":0,"id":2615929,"known_for_department":"Directing","name":"Walter
         E. Myal","original_name":"Walter E. Myal","popularity":0.6,"profile_path":null,"credit_id":"5ea5f2deb39e350021e93613","department":"Directing","job":"Second
         Second Assistant Director"}]}'
-  recorded_at: Sat, 27 Mar 2021 15:33:31 GMT
+  recorded_at: Sat, 27 Mar 2021 21:43:34 GMT
 - request:
     method: get
     uri: https://api.themoviedb.org/3/movie/75780/reviews?api_key=--PRIVATE--&language=en-US&page=1
@@ -969,7 +1089,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Sat, 27 Mar 2021 15:20:20 GMT
+      - Sat, 27 Mar 2021 21:43:34 GMT
       Server:
       - openresty
       Access-Control-Allow-Origin:
@@ -994,15 +1114,13 @@ http_interactions:
       Vary:
       - Accept-Encoding
       X-Cache:
-      - Hit from cloudfront
+      - Miss from cloudfront
       Via:
-      - 1.1 48a6ccbb0ddb052ab512a3422295bd39.cloudfront.net (CloudFront)
+      - 1.1 1e5c934b70471a41d2b61ae8c4abeb79.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - KBmeompnceKY_MdWSejgA-Oead6FNz1TZTJ4d0HoFXhiQ7HpmBaRcg==
-      Age:
-      - '791'
+      - sBfqPb5jACpHB63eyb1njYMnLNXRxFSqtDJIAHKdyjMOO5SXqYYH0Q==
     body:
       encoding: ASCII-8BIT
       string: '{"id":75780,"page":1,"results":[{"author":"Kenneth Axel Carlsson","author_details":{"name":"Kenneth
@@ -1056,7 +1174,7 @@ http_interactions:
         adding considerably to this splendid Cruise and McQuarrie broth. In spite
         of divisive reviews and reports, Jack Reacher in filmic form has risen above
         that to become a success. Hooray! 7.5/10","created_at":"2018-12-16T11:00:12.185Z","id":"5c16303c0e0a2641003b77e7","updated_at":"2018-12-19T17:48:36.469Z","url":"https://www.themoviedb.org/review/5c16303c0e0a2641003b77e7"}],"total_pages":1,"total_results":2}'
-  recorded_at: Sat, 27 Mar 2021 15:33:31 GMT
+  recorded_at: Sat, 27 Mar 2021 21:43:34 GMT
 - request:
     method: get
     uri: https://api.themoviedb.org/3/movie/75780?api_key=--PRIVATE--&language=en-US
@@ -1081,8 +1199,6 @@ http_interactions:
       - chunked
       Connection:
       - keep-alive
-      Date:
-      - Sat, 27 Mar 2021 15:20:19 GMT
       Server:
       - openresty
       Access-Control-Allow-Origin:
@@ -1092,8 +1208,6 @@ http_interactions:
       Access-Control-Expose-Headers:
       - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
         Content-Length, Content-Range
-      Cache-Control:
-      - public, max-age=21600
       X-Memc:
       - HIT
       X-Memc-Key:
@@ -1102,6 +1216,10 @@ http_interactions:
       - '17172'
       X-Memc-Expires:
       - '4428'
+      Date:
+      - Sat, 27 Mar 2021 21:43:33 GMT
+      Cache-Control:
+      - public, max-age=21600
       Etag:
       - W/"de47fba9510108b5f6e551bf91d41b8b"
       Vary:
@@ -1109,13 +1227,13 @@ http_interactions:
       X-Cache:
       - Hit from cloudfront
       Via:
-      - 1.1 a47d45d25cc354507eae77aba89ca253.cloudfront.net (CloudFront)
+      - 1.1 c29390732f5bc4b2c7832623ae6e492f.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - grM-XJbjgXMkfTCpdVuWRrbcmrs70LDlOqKk7JXQDHVo15RLR1t8QA==
+      - dNJTLfmcBAJIEuudbxcAIQYPfqlcLpqWFOfWz81598DWa3wKyiXIQQ==
       Age:
-      - '792'
+      - '1'
     body:
       encoding: ASCII-8BIT
       string: '{"adult":false,"backdrop_path":"/k7h4RNAarfOrF2r2YMN0P2FQSr4.jpg","belongs_to_collection":{"id":403374,"name":"Jack
@@ -1132,5 +1250,5 @@ http_interactions:
         Films","origin_country":""},{"id":4,"logo_path":"/fycMZt242LVjagMByZOLUGbCvv3.png","name":"Paramount","origin_country":"US"}],"production_countries":[{"iso_3166_1":"US","name":"United
         States of America"}],"release_date":"2012-12-20","revenue":218340595,"runtime":130,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"}],"status":"Released","tagline":"The
         Law Has Limits. He Does Not.","title":"Jack Reacher","video":false,"vote_average":6.5,"vote_count":5158}'
-  recorded_at: Sat, 27 Mar 2021 15:33:31 GMT
+  recorded_at: Sat, 27 Mar 2021 21:43:34 GMT
 recorded_with: VCR 6.0.0

@@ -101,5 +101,36 @@ RSpec.describe 'Movies index page', type: :feature do
 
       expect(current_path).to eq(movie_path(75780))
     end
+
   end
+
+  it 'user can search for movie with no matches', :vcr do
+    visit discover_index_path
+
+    fill_in :search, with: 'ojafnciivpav'
+    click_on 'Search'
+
+    expect(page).to have_content('No Movies Match Your Search, Try Again')
+  end
+
+  it 'redirects to the movie discover path if you dont search or click top 40', :vcr do
+    visit movies_path
+
+    expect(current_path).to eq(discover_index_path)
+  end
+  
+
+  # it 'bad api key call' do
+  #   json_response = File.read("spec/fixtures/top_40_movies_call.json")
+  #   stub_request(:get, "https://api.themoviedb.org/3/movie/top_rated?api_key=#{ENV['mdb_key']}&language=en-US&page=1").to_return(status: 200, body: json_response)
+  #
+  #   # bad_api_key = File.read("spec/fixtures/bad_api_key.json")
+  #   # stub_request(:get, "https://api.themoviedb.org/3/movie/top_rated?api_key=wrong_key&language=en-US&page=1").to_return(status: 7, body: bad_api_key)
+  #
+  #   # visit discover_index_path
+  #   #
+  #   # click_button "Top 40 Movies"
+  #   #
+  #   # save_and_open_page
+  # end
 end

@@ -7,10 +7,9 @@ class PartiesController < ApplicationController
   end
 
   def create
-    require "pry"; binding.pry
     @movie = MovieService.movie_object(params[:movie_id])
     @movie_db = Movie.find_or_create_by(id: @movie.id, title: @movie.title)
-    @party = Party.create!(party_params)
+    @party = Party.new(party_params)
     if @party.save
       @invitees = Invitee.create_multiple_invitees(params[:friends], @party.id)
 
