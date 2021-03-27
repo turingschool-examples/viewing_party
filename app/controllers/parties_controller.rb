@@ -14,7 +14,7 @@ class PartiesController < ApplicationController
       redirect_to dashboard_path
     else
       flash[:error] = 'Invites not sent, missing fields'
-      render new_party_path, obj: [@party, @movie]
+      render :new, obj: [@party, @movie]
     end
   end
 
@@ -28,7 +28,6 @@ class PartiesController < ApplicationController
     if params[:party][:friend_check]
       params[:party][:friend_check].each do |friend|
         PartyFriend.create(party_id: @party.id,user_id: friend)
-      end
     end
   end
 
