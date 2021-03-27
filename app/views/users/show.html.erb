@@ -3,3 +3,18 @@
 </div>
 
 <h1>Hello, <%= current_user.email %>!</h1>
+
+<h2>Viewing Parties</h2>
+
+<section id="hosting-viewing-parties">
+  <h3>Movie Title:</h3><br>
+  <h3>Date and Time of Event:</h3><br>
+  <h3>Hosting: <%= current_user.email %></h3><br>
+  <h3>Invited:</h3><br>
+</section>
+<section id="invited-viewing-parties">
+  <h3>Movie Title:</h3><br>
+  <h3>Date and Time of Event:</h3><br>
+  <h3>Hosting:</h3><br>
+  <h3>Invited: <%= current_user.email %></h3><br>
+</section>
