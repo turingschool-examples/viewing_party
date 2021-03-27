@@ -7,10 +7,13 @@
 <h2>Viewing Parties</h2>
 
 <section id="hosting-viewing-parties">
-  <h3>Movie Title:</h3><br>
-  <h3>Date and Time of Event:</h3><br>
-  <h3>Hosting: <%= current_user.email %></h3><br>
-  <h3>Invited:</h3><br>
+  <%= @user_hosting_parties.each do |party| %>
+    <h3>Movie Title: <%= party.movie_title %></h3><br>
+    <h3>Date and Time of Event: <%= party.date %></h3><br>
+    <h3>Duration: <%= party.duration %></h3><br>
+    <h3>Hosting: <%= current_user.email %></h3><br>
+    <h3>Invited:</h3><br>
+  <% end %>
 </section>
 <section id="invited-viewing-parties">
   <h3>Movie Title:</h3><br>

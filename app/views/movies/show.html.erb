@@ -2,8 +2,6 @@
 
 <%= form_with(model: @party, url: new_party_path, method: :get, local:true) do |form| %>
   <%= form.hidden_field :api_id, value: @movie[:api_id] %>
-  <%= form.hidden_field :movie_title, value: @movie[:title] %>
-  <%= form.hidden_field :duration, value: @movie[:runtime] %>
   <%= form.hidden_field :user_id, value: current_user.id %>
   <%= form.submit "Create Viewing Party for Movie" %>
 <% end %>

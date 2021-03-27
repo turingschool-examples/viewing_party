@@ -4,7 +4,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.new
+    @user = current_user
+    @user_hosting_parties = @user.parties
   end
 
   def create

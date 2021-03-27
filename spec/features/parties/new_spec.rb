@@ -26,7 +26,7 @@ RSpec.describe "As an authenticated user" do
       end
     end
     it "creates a party object when the form is submitted" do
-      VCR.use_cassette('viewing_party_path') do
+      VCR.use_cassette('create_viewing_party_path') do
         user = User.create(email: "joeb@email.com", password: "test")
         visit root_path
         click_link "Login"
@@ -44,11 +44,12 @@ RSpec.describe "As an authenticated user" do
         click_button("Create Viewing Party for Movie")
 
 
-        fill_in 'party[duration]', with: 200
+        fill_in 'party[duration]', with: 900
         fill_in 'party[date]', with: DateTime.new(12, 12, 12)
         click_on "Create Party"
 
         expect(current_path).to eq(dashboard_path(user))
+        expect(Party.exists?(user_id: user.id, movie_title: "Fight Club")).to eq(true)
       end
     end
   end
