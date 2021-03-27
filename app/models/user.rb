@@ -10,6 +10,5 @@ class User < ApplicationRecord
   validates :password, confirmation: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
   before_save {email.try(:downcase!)}
-
   has_secure_password
 end
