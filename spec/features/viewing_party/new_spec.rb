@@ -30,6 +30,26 @@ RSpec.describe 'viewing party' do
     end
   end
 
+  it "creates viewing parties with one friend" do
+    VCR.use_cassette('all_movie_info') do
+      visit '/movies/550'
+      click_button "Create Viewing Party for Movie"
+      fill_in "party[duration]", with: 140
+      fill_in "party[date]" , with: Time.new(2021, 10, 15)
+      fill_in "party[start_time]", with: Time.now
+      within("#friend-#{@friend1.id}") do
+        check 'party[friend_check][]'
+      end
+      click_button "Start Viewing Party"
+       expect(current_path).to eq(dashboard_path)
+       within("#viewing_party#{@user.id}") do
+         expect(page).to have_content(@friend1.name)
+         expect(page).to have_content("140 minutes")
+         expect(page).to have_content("Host of the Party Bob")
+      end
+    end
+  end
+
   it "does not error out if user has not friends" do
       VCR.use_cassette('all_movie_info') do
         Friend.destroy_all
@@ -40,21 +60,66 @@ RSpec.describe 'viewing party' do
     end
   end
 
-  xit "adds a viewing party when checkboxes are filled and button is submitted" do
+  it "adds a viewing party when checkboxes are filled and button is submitted" do
     VCR.use_cassette('all_movie_info') do
       visit '/movies/550'
       click_button "Create Viewing Party for Movie"
       fill_in "party[duration]", with: 140
       fill_in "party[date]" , with: Time.new(2021, 10, 15)
-      fill_in "party[time]", with: 140
+      fill_in "party[start_time]", with: Time.now
       within("#friend-#{@friend1.id}") do
-        check 'party[friend_check]'
+        check 'party[friend_check][]'
       end
       within("#friend-#{@friend2.id}") do
-        check 'party[friend_check]'
+        check 'party[friend_check][]'
       end
       click_button "Start Viewing Party"
-       expect(current_path).to be(dashboard_path)
+       expect(current_path).to eq(dashboard_path)
+    end
+  end
+
+  it "sad path for missing data" do
+  VCR.use_cassette('all_movie_info') do
+    visit '/movies/550'
+    click_button "Create Viewing Party for Movie"
+    fill_in "party[duration]", with: 140
+    within("#friend-#{@friend1.id}") do
+      check 'party[friend_check][]'
+    end
+    within("#friend-#{@friend2.id}") do
+      check 'party[friend_check][]'
+    end
+    click_button "Start Viewing Party"
+    expect(page).to have_content("Invites not sent, missing fields")
+    end
+  end
+
+    it "default value data" do
+      VCR.use_cassette('all_movie_info') do
+        visit '/movies/550'
+        click_button "Create Viewing Party for Movie"
+        expect(page).to have_xpath("//input[@min='139']")
+        expect(page).to have_xpath("//input[@value='139']")
+        expect(page).to have_xpath("//input[@max='10000']")
+        expect(page).to have_xpath("//input[@value = '#{Date.today}']")
+      end
+    end
+
+  it "happy path for no boxes checked" do
+    VCR.use_cassette('all_movie_info') do
+      visit '/movies/550'
+      click_button "Create Viewing Party for Movie"
+      fill_in "party[duration]", with: 140
+      fill_in "party[date]" , with: Time.new(2021, 10, 15)
+      fill_in "party[start_time]", with: Time.now
+      click_button "Start Viewing Party"
+      expect(current_path).to eq(dashboard_path)
+      within("#viewing_party#{@user.id}") do
+        expect(page).to have_content("Fight Club")
+        expect(page).to have_content("October 15th, 2021")
+        expect(page).to have_content("Host of the Party Bob")
+        expect(page).to have_content("140 minutes")
+      end
     end
   end
 end

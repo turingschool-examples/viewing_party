@@ -80,4 +80,24 @@ RSpec.describe "Dashboard" do
     end
     expect(page).to have_content("That User Does Not Exist")
   end
+
+  it "has both the hosted and invited viewing parties" do
+    @friend1 = User.create(name: "Berry", email: "berry@gmail.com", password: 'password1')
+    @friend2 = User.create(name: "John", email: "john@gmail.com", password: 'password1')
+    @friendship = Friend.create(user_id: @user.id, friend_id: @friend1.id)
+    @friendship2 = Friend.create(user_id: @user.id, friend_id: @friend2.id)
+    @movie1 = Movie.create(name: 'The Godfather', duration: 175)
+    @movie2 = Movie.create(name: 'The Shawshank Redemption', duration: 142)
+    @party1 = Party.create!(movie_id: @movie1.id, duration: @movie1.duration, date: "2021/03/29", start_time: "6:00 PM", host_id: @user.id)
+    @party2 = Party.create!(movie_id: @movie2.id, duration: @movie1.duration, date: "2021/03/29", start_time: "6:00 PM", host_id: @friend1.id)
+    @party_friend1 = PartyFriend.create(party_id: @party1.id, user_id: @friend1.id)
+    @party_friend1 = PartyFriend.create(party_id: @party1.id, user_id: @friend2.id)
+    @party_friend1 = PartyFriend.create(party_id: @party2.id, user_id: @user.id)
+    @party_friend1 = PartyFriend.create(party_id: @party2.id, user_id: @friend2.id)
+    visit dashboard_path
+    expect(page).to have_content("The Godfather")
+    expect(page).to have_content(175)
+    expect(page).to have_content("6:00PM")
+    expect(page).to have_content("The Godfather")
+  end
 end

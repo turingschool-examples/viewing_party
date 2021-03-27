@@ -1,17 +1,19 @@
 
 <h1><%= @movie.name %></h1>
 <%= form_with model: @party, local: true do |form| %>
+<%= form.hidden_field :movie_id, value: @movie.id %>
+<%= form.hidden_field :host_id, value: current_user.id %>
 <%= form.label :duration, "Duration" %>
 <%= form.number_field :duration, value: @party.duration, min: @party.duration, max:10000 %>
 <%= form.label :date, "Date of Party" %>
 <%= form.date_field :date, value: Date.today, min:Time.now  %>
-<%= form.label :time, "Start of Party" %>
-<%= form.time_field :time, started_at: "%H:%M", value: "%H:%M", min: "%H:%M" %>
+<%= form.label :start_time, "Start of Party" %>
+<%= form.time_field :start_time, started_at: "%H:%M", value: "%H:%M", min: "%H:%M" %>
 <% if !current_user.friends.empty? %>
   <% current_user.friends.each do |friend| %>
   	<section id="friend-<%= friend.friend.id %>">
   <%= form.label  :friend_check, "#{friend.friend.name}" %>
-  <%= form.check_box :friend_check  %>
+  <%= form.check_box :friend_check, {multiple: true}, friend.friend_id, false  %>
   </section>
   <%end%>
 <%end%>

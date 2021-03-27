@@ -21,4 +21,48 @@
 
 <section id="viewing_party<%= current_user.id %>">
   <h3>Viewing Parties</h3>
+  <table style="width:90%">
+  <% @host_parties.each do |party| %>
+  <tr id="<%= party %>">
+    <td style="text-align: center"></td>
+    <td>
+    Movie Title: <%= party.find_movie %><br>
+    Date of Party: <%= party.clean_date %><br>
+    Time of Party: <%= party.clean_time %><br>
+    Host of the Party <%= party.host.name %> or Me, Myself, and I<br>
+    Friends Invited to Party: <% party.users.each do |user| %>
+      <%=user.name %>
+    <% end %><br>
+    <%= party.duration %> minutes<br><br><br>
+    </td>
+    </tr>
+    <% end %>
+    </table>
+
+    <h3>Invited To These Parties</h3>
+    <table style="width:100%">
+      <tr>
+        <th> Hosted Parties</th>
+        <th> Invited Parties</th>
+      </tr>
+    <% @invited_parties.each do |party| %>
+    <tr id="<%= party %>">
+      <td style="text-align: center"></td>
+      <td>
+        Movie Title: <%= party.find_movie %><br>
+        Date of Party: <%= party.clean_date %><br>
+        Time of Party: <%= party.clean_time %><br>
+      Host of the Party: <%= party.host.name %><br>
+      Friends Invited to Party: <% party.users.each do |user| %>
+        <% if user.id == current_user.id %>
+        <b><%= user.name %></b>
+        <% else %>
+        <%= user.name %>
+        <% end %>
+      <% end %><br>
+      <%= party.duration %> minutes<br>
+      </td>
+      </tr>
+      <% end %>
+      </table>
 </section>
