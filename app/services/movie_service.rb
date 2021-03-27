@@ -25,9 +25,7 @@ class MovieService
 
   def self.make_searched_movies(title)
     unless search_movies(title).nil?
-      search_movies(title).map do |movie_data|
-        # require "pry"; binding.pry
-        # break if Film.all.size >= 40
+      search_movies(title).take(40).map do |movie_data|
         Film.new(movie_data)
       end
     end
