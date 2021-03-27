@@ -15,7 +15,7 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @results = @movie.movie_info(550)
+    @results = @movie.movie_info(params[:id])
   end
 
   private
