@@ -6,15 +6,14 @@ class MovieService
   def self.get_top_rated
     movies = []
     x = 1
-    until movies.size >= 40 do 
+    until movies.size >= 40 do
       response = MovieService.find_top_40(x)
       parsed = JSON.parse(response.body, symbolize_names: true)
       parsed[:results].map do |film|
         movies << Film.new(film)
        end
       x += 1
-    end
-      
+    end  
     movies[0..39]
   end
 end
