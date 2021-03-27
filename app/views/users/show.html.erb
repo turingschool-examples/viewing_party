@@ -21,16 +21,15 @@
 
 <section id="friends-<%= current_user.id %>">
 <h2>Friends</h2>
-<% if current_user.friendships.empty? %>
+<% if current_user.friends.empty? %>
   <p>"You currently have no friends"</p>
 <% else %>
-    <% current_user.friendships.each do |friend| %>
-      <p><%= friend.email %></p>
+    <% current_user.friends.each do |friend| %>
+      <li><%= friend.email %></li>
     <% end %>
 <% end %>
-<%= form_with url: new_dashboard_friendship_path, local: true, method: :get do |f| %>
-  <%= f.text_field :email, value: "Friend's Email" %>
-
+<%= form_with url: dashboard_friendships_path, local: true, method: :post do |f| %>
+  <%= f.email_field :email %>
   <%= f.submit 'Add Friend' %>
 <% end %>
 </section>

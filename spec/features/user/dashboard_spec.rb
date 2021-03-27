@@ -77,9 +77,8 @@ RSpec.describe "User Dashboard" do
       it "has a text field to search friends by email and button to add friends" do
         user1 = User.create(email: "funbucket13@example.com", password: "test")
         user2 = User.create(email: "user@example.com", password: "password")
-        friend1 = Friendship.users.create(user_id: user1.id, friendship_id: user2.id)
-        friend2 = Friendship.users.create(user_id: user2.id, friendship_id: user1.id)
-        require "pry"; binding.pry
+        # friend1 = user1.friendships.create(user_id: user1.id, friend_id: user2.id)
+
         visit root_path
 
         click_link 'Login'
@@ -91,13 +90,57 @@ RSpec.describe "User Dashboard" do
 
         click_button 'Login'
 
-
-        within("#friends-#{user.id}") do
+        within("#friends-#{user1.id}") do
           expect(page).to have_content("Friends")
           expect(page).to have_field(:email)
           expect(page).to have_content("You currently have no friends")
           expect(page).to have_button("Add Friend")
         end
+      end
+
+      it "can add a friend and see the current list of friends" do
+        user1 = User.create(email: "funbucket13@example.com", password: "test")
+        user2 = User.create(email: "user@example.com", password: "password")
+        # friend1 = user1.friendships.create(user_id: user1.id, friend_id: user2.id)
+        visit login_path
+
+        fill_in :email, with: "funbucket13@example.com"
+        fill_in :password, with: "test"
+
+        click_button 'Login'
+
+        within("#friends-#{user1.id}") do
+          fill_in :email, with: 'user@example.com'
+
+          click_button 'Add Friend'
+        end
+
+        expect(current_path).to eq(dashboard_path)
+        expect(page).to have_content("You are now following #{user2.email}!")
+        expect(page).to have_button("Add Friend")
+        expect(page).to_not have_content("You currently have no friends")
+      end
+    end
+
+    describe "sad path" do
+      it "renders an error message if no email exists when searching for" do
+        user1 = User.create(email: "funbucket13@example.com", password: "test")
+        # user2 = User.create(email: "user@example.com", password: "password")
+        # friend1 = user1.friendships.create(user_id: user1.id, friend_id: user2.id)
+        visit login_path
+
+        fill_in :email, with: "funbucket13@example.com"
+        fill_in :password, with: "test"
+
+        click_button 'Login'
+
+        within("#friends-#{user1.id}") do
+          fill_in :email, with: 'bestfriend@example.com'
+
+          click_button 'Add Friend'
+        end
+
+        expect(page).to have_content('That user does not exist. Enter a valid email')
       end
     end
   end
