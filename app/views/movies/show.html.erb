@@ -1,0 +1,30 @@
+<h1>Welcome "User name and Email"</h1>
+
+<section id="movie_info_basics">
+  <h2><%= @movie[:title]  %></h2>
+  <p>Vote Average: <%= @movie[:vote_average] %> | Runtime: <%= @movie[:runtime] %> minutes |
+    Genre(s): <% @movie[:genres].each do |genre| %>
+      <%= genre %>
+    <% end %>
+    <br>
+  <h4>Summary:</h4>
+  <p><%= @movie[:summary] %></p>
+</section>
+
+<section id="movie_cast">
+  <h4>Cast:</h4>
+  <% @movie[:cast].each do |cast_member| %>
+    <%= cast_member[0] %> / <%= cast_member[1] %><br>
+  <% end %>
+</section>
+<section id="movie_reviews">
+  <h4><%= @movie[:reviews][:total_reviews]%> Reviews</h4>
+  <% @movie[:reviews].each_with_index do |review, index| %>
+    <% if index > 0 %>
+      <p>Author: <%= review[0] %></p>
+      <p><%= review[1] %></p><br>
+    <% end %>
+  <% end %>
+</section>
+
+<h3></h3>
