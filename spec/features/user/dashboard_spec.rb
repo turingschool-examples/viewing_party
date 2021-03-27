@@ -15,13 +15,6 @@ RSpec.describe "User Dashboard" do
       fill_in :password, with: "test"
 
       click_button 'Login'
-      visit root_path
-      click_link "Login"
-      expect(current_path).to eq(login_path)
-      fill_in :email, with: "funbucket13@example.com"
-      fill_in :password, with: "test"
-      click_button "Login"
-
 
       within(".topnav") do
         expect(page).to have_link("Discover Movies")
