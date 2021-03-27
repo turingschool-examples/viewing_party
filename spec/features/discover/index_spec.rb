@@ -66,5 +66,32 @@ RSpec.describe "As a user after I click the link from my dashboard to visit the 
         expect(page).to have_content("Phoenix Forgotten")
       end
     end
+    describe "create a movie model when a link is clicked" do
+      it "text" do
+        VCR.use_cassette('movie_search_model_save') do
+          user = User.create(email: "joeb@email.com", password: "test")
+          visit root_path
+          click_link "Login"
+          fill_in :email, with: user.email.upcase
+          fill_in :password, with: user.password
+          click_button 'Login'
+          within(".topnav") do
+            click_link "Discover Movies"
+          end
+          fill_in :movie_query, with: "phoenix"
+          click_on("Find Movies")
+
+          click_on("Dark Phoenix") #api_id = 320288
+          expect(Movie.exists?(api_id: 320288)).to eq(true)
+
+          visit discover_path
+          fill_in :movie_query, with: "phoenix"
+          click_on("Find Movies")
+
+          click_on("Dark Phoenix") #api_id = 320288
+          movie = Movie.find_by(api_id: 320288)
+        end
+      end
+    end
   end
 end
