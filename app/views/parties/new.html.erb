@@ -1,4 +1,4 @@
-<%= binding.pry %>
+
 <h1><%= @movie.name %></h1>
 <%= form_with model: @party, local: true do |form| %>
 <%= form.hidden_field :movie_id, value: @movie.id %>
