@@ -3,8 +3,8 @@ class TmdbService
     make_api_call("movie/top_rated?&language=en-US&page=#{page_num}")
   end
 
-  def search(keywords)
-    make_api_call("search/movie?&language=en-US&query=#{keywords}&page=1&include_adult=false")
+  def search(keywords, page_num)
+    make_api_call("search/movie?&language=en-US&query=#{keywords}&page=#{page_num}&include_adult=false")
   end
 
   def details(api_movie_id)
@@ -23,8 +23,14 @@ class TmdbService
 
   def make_api_call(url)
     response = connection.get(url)
-    data = response.body
-    JSON.parse(data, symbolize_names: true)
+    if response.status == 200
+      data = response.body
+      JSON.parse(data, symbolize_names: true)
+    else
+      response = Hash.new([])
+      response[:error] = true
+      response
+    end
   end
 
   def connection

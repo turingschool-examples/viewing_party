@@ -14,21 +14,27 @@
   <div style="clear: both"></div>
 </header>
 <center class="results">
+
+
   <% if @results %>
-  <h4>We found <%= @results.count %> results</h4>
-    <table style="width:90%">
-      <th></th>
-      <th></th>
-      <% @results.each do |api_movie_id, movie_info| %>
-        <tr id="<%= api_movie_id %>">
-          <td style="text-align: center"><img src="https://image.tmdb.org/t/p/w200<%=movie_info[:poster_path]%>" alt="<%= movie_info[:title] %>" style="max-height: 100px; max-width: 150px"></td>
-          <td>
-            <%= link_to movie_info[:title], movie_path(api_movie_id) %><br>
-            Average vote: <%= movie_info[:vote_average] %>
-          </td>
-        </tr>
-      <% end %>
-    </table>
+    <% if @results[:error] %>
+      Sorry, there was a server error while processing your request!
+    <% else %>
+      <h4>We found <%= @results.count %> results</h4>
+      <table style="width:90%">
+        <th></th>
+        <th></th>
+        <% @results.each do |api_movie_id, movie_info| %>
+          <tr id="<%= api_movie_id %>">
+            <td style="text-align: center"><img src="https://image.tmdb.org/t/p/w200<%=movie_info[:poster_path]%>" alt="<%= movie_info[:title] %>" style="max-height: 100px; max-width: 150px"></td>
+            <td>
+              <%= link_to movie_info[:title], movie_path(api_movie_id) %><br>
+              Average vote: <%= movie_info[:vote_average] %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    <% end %>
   <% else %>
     <br> Oh no! No search results found.
   <% end %>

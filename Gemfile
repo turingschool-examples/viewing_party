@@ -22,6 +22,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt'
 gem 'mimemagic', '~> 0.3.6'
 gem "figaro"
+gem 'faraday'
 
 group :development, :test do
   gem 'pry'
