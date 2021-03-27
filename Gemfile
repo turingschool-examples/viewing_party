@@ -19,6 +19,7 @@ gem 'faraday'
 gem 'bcrypt', '~> 3.1.7'
 gem 'mimemagic', '~> 0.3.9'
 gem 'bootstrap', '~> 4.5.0'
+gem 'mini_racer'
 gem 'jquery-rails'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 
