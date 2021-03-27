@@ -37,9 +37,13 @@ class UsersController < ApplicationController
   end
 
   def follow
-    followee = User.find_by(email: params[:friend_email])
-    current_user.followees << followee
-    redirect_to dashboard_path
+    if followee = User.find_by(email: params[:friend_email])
+      current_user.followees << followee
+      redirect_to dashboard_path
+    else
+      flash[:error] = "Incorrect email"
+      redirect_to dashboard_path
+    end 
   end
 
   def unfollow

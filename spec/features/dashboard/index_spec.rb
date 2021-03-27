@@ -47,7 +47,7 @@ RSpec.describe "Dashboard Index Page" do
           expect(page).to have_content("You currently have no friends.")
         end
       end
-      it "When I enter  avalid email into the field and click add friend, a new friend is added" do
+      it "When I enter a valid email into the field and click add friend, a new friend is added" do
         user_1 = User.create(password: "hello", email: "sample@email.com")
         user_2 = User.create(password: "hello", email: "sample_1@email.com")
         visit root_path
@@ -60,7 +60,44 @@ RSpec.describe "Dashboard Index Page" do
             fill_in :friend_email, with: user_1.email
             click_button("Add Friend")
           end
-        expect(current_path).to eq(dashboard_path)  
+        expect(current_path).to eq(dashboard_path)
+        expect(page).to have_content(user_1.email)
+      end
+      it "When I enter an invalid email into the field and click add friend, a new friend is not added" do
+        user_1 = User.create(password: "hello", email: "sample@email.com")
+        user_2 = User.create(password: "hello", email: "sample_1@email.com")
+        visit root_path
+        click_on "Log In!"
+        fill_in :email, with: user_2.email
+        fill_in :password, with: user_2.password
+        click_on "Log In"
+        visit dashboard_path
+          within("#friends") do
+            fill_in :friend_email, with: "ample_1@email.com"
+            click_button("Add Friend")
+          end
+        expect(current_path).to eq(dashboard_path)
+        expect(page).to_not have_content(user_1.email)
+        expect(page).to have_content("Incorrect email")
+      end
+      it "When I enter a valid email into the field and click add friend, a new friend is added" do
+        user_1 = User.create(password: "hello", email: "sample@email.com")
+        user_2 = User.create(password: "hello", email: "sample_1@email.com")
+        visit root_path
+        click_on "Log In!"
+        fill_in :email, with: user_2.email
+        fill_in :password, with: user_2.password
+        click_on "Log In"
+        visit dashboard_path
+          within("#friends") do
+            fill_in :friend_email, with: user_1.email
+            click_button("Add Friend")
+          end
+        expect(current_path).to eq(dashboard_path)
+        expect(page).to have_content(user_1.email)
+        click_button("Unfollow")
+        expect(current_path).to eq(dashboard_path)
+        expect(page).to_not have_content(user_1.email)
       end
     end
   end
