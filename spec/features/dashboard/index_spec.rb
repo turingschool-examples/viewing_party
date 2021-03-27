@@ -33,7 +33,7 @@ RSpec.describe "Dashboard Index Page" do
       end
     end
     describe "I see a section for friends" do
-      it "It contains a text field to enter a friend's email and a button to Add Friend do" do
+      it "It contains a text field to enter a   friend's email and a button to Add Friend" do
         user = User.create(password: "hello", email: "sample@email.com")
         visit root_path
         click_on "Log In!"
@@ -46,6 +46,21 @@ RSpec.describe "Dashboard Index Page" do
           expect(page).to have_button("Add Friend")
           expect(page).to have_content("You currently have no friends.")
         end
+      end
+      it "When I enter  avalid email into the field and click add friend, a new friend is added" do
+        user_1 = User.create(password: "hello", email: "sample@email.com")
+        user_2 = User.create(password: "hello", email: "sample_1@email.com")
+        visit root_path
+        click_on "Log In!"
+        fill_in :email, with: user_2.email
+        fill_in :password, with: user_2.password
+        click_on "Log In"
+        visit dashboard_path
+          within("#friends") do
+            fill_in :friend_email, with: user_1.email
+            click_button("Add Friend")
+          end
+        expect(current_path).to eq(dashboard_path)  
       end
     end
   end
