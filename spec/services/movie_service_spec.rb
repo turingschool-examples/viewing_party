@@ -4,7 +4,7 @@ RSpec.describe 'MovieService' do
     it "can return JSON from an API endpoint" do
       movie_service_data = MovieService.new
       url = ENV['API_TEST_COUNT_URL']
-      
+
       expect(movie_service_data.get_data(url).count).to eq(4)
       expect(movie_service_data.get_data(url).keys).to eq([:page, :results, :total_pages, :total_results])
       expect(movie_service_data.get_data(url).class).to eq(Hash)
@@ -38,6 +38,7 @@ RSpec.describe 'MovieService' do
   describe "#results_page_count" do
     it "returns an integer from JSON data regarding number of pages of results" do
         movie_service = MovieService.new
+        # Where are you setting this env var locally?
         url = ENV['API_TEST_COUNT_URL']
 
         expect(movie_service.results_page_count(url)).to eq(500)
