@@ -1,15 +1,33 @@
-<header class="title">
+<div class='topnav'>
+  <%= link_to "Home", root_path %>
+</div>
+
+<header class="text-center">
   <h1>Register to Viewing Party</h1>
 </header>
 
 <section>
-  <%= form_with model: @user, local: true do |f| %>
-    <%= f.label :email, "Email:" %>
-    <%= f.email_field :email %>
-    <%= f.label :password, "Password:" %>
-    <%= f.password_field :password %>
-    <%= f.label :password_confirmation, "Confirm Password:" %>
-    <%= f.password_field :password_confirmation %>
-    <%= f.submit "Register" %>
-  <% end %>
+  <div class="container p-3 my-3 border">
+    <%= form_with model: @user, local: true do |f| %>
+      <div class="form-group">
+        <%= f.label :email, "Email:" %>
+        <%= f.email_field :email, {class:"form-control", placeholder:"Enter Email"} %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password, "Password:" %>
+        <%= f.password_field :password, {class:"form-control", placeholder:"Enter Password"} %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password_confirmation, "Confirm Password:" %>
+        <%= f.password_field :password_confirmation, {class:"form-control", placeholder:"Confirm Password"} %>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col text-center">
+            <%= f.submit "Register", class:"btn btn-outline-primary" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </section>

@@ -3,17 +3,13 @@ require 'rails_helper'
 RSpec.describe "User Dashboard" do
   describe "Discover Movies Button" do
     it "Redirects user to a discover page when button is clicked" do
-      user = User.create(email: "funbucket13@example.com", password: "test")
-
+      user = User.create(email: "joeb@email.com", password: "test")
       visit root_path
 
-      click_link 'Login'
+      click_link "Login"
 
-      expect(current_path).to eq(login_path)
-
-      fill_in :email, with: "funbucket13@example.com"
-      fill_in :password, with: "test"
-
+      fill_in :email, with: user.email.upcase
+      fill_in :password, with: user.password
       click_button 'Login'
 
       within(".topnav") do
