@@ -24,18 +24,4 @@ class PartiesController < ApplicationController
     movie_service = MovieService.new
     @movie_info = movie_service.movie_information(cookies[:seivom_di])
   end
-  # def new
-  #   if params[:movie_id] != nil
-  #     @movie = Movie.find(params[:movie_id])
-  #   else
-  #     @movie = Movie.find_by(api_id: params[:api_id])
-  #   end
-  #   movie_service = MovieService.new
-  #   @movie_info = movie_service.movie_information(@movie.api_id)
-  #   @party = Party.new({
-  #             movie_id:   @movie.id,
-  #             movie_title: params[:movie_title],
-  #             duration:  @movie_info[:runtime],
-  #              user_id:   params[:user_id]})
-  # end
 end
