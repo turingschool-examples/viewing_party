@@ -36,7 +36,7 @@ class MovieService
   def movie_information(api_movie_id)
     info = get_data((url_storage(movie_id: api_movie_id)[:movie_info]))
     movie_information = {}
-    movie_information[:tmdb_id] = info[:id]
+    movie_information[:api_id] = info[:id]
     movie_information[:title] = info[:title]
     movie_information[:vote_average] = info[:vote_average]
     movie_information[:runtime] = info[:runtime]

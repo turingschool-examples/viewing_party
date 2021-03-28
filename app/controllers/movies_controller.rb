@@ -1,6 +1,5 @@
 class MoviesController < ApplicationController
   def index
-    # @user = #session[:user_id]
     if params[:form] == 'top_forty'
       @top_movies = MovieService.new.top_forty_movies
     elsif !params[:movie_query].nil?
@@ -12,6 +11,15 @@ class MoviesController < ApplicationController
 
   def show
     movie_service = MovieService.new
-    @movie = movie_service.movie_information(params[:id])
+    @movie_info = movie_service.movie_information(params[:id])
+    # cookies[:movie_title] = @movie_info[:title]
+    # cookies[:duration] = @movie_info[:runtime]
+    cookies[:seivom_di] = @movie_info[:api_id]
+
+    if Movie.exists?(api_id: params[:id])
+      @movie = Movie.find_by(api_id: params[:id])
+    else
+      @movie = Movie.create({api_id: params[:id]})
+    end
   end
 end

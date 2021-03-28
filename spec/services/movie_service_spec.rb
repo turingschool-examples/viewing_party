@@ -16,8 +16,8 @@ RSpec.describe 'MovieService' do
         movie_service_data = MovieService.new
         results = movie_service_data.top_forty_movies
 
-        expect(results.first[0]).to eq("Gabriel's Inferno Part III")
-        expect(results.first[1]).to eq([761053, 8.8])
+        expect(results.first[0]).to eq("Gabriel's Inferno Part II")
+        expect(results.first[1]).to eq([724089, 8.7])
         expect(results.count).to eq(40)
       end
     end
@@ -50,7 +50,7 @@ RSpec.describe 'MovieService' do
         movie_service = MovieService.new
         movie_info = movie_service.movie_information(550)
         expect(movie_info.class).to eq(Hash)
-        expect(movie_info.keys).to eq([:tmdb_id, :title, :vote_average, :runtime, :genres, :summary, :cast, :reviews])
+        expect(movie_info.keys).to eq([:api_id, :title, :vote_average, :runtime, :genres, :summary, :cast, :reviews])
         expect(movie_info[:title]).to eq("Fight Club")
         expect(movie_info[:vote_average]).to eq(8.4)
         expect(movie_info[:runtime]).to eq(139)

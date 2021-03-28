@@ -7,8 +7,10 @@ Rails.application.routes.draw do
   get '/login', to: 'session#new'
   post '/login', to: 'session#create'
 
+  resources :parties, only: [:new, :create]
+  post '/parties/new', to: 'parties#create'
+
   resource :dashboard, controller: 'users', only: :show do
-    resources :parties, only: [:new, :create]
     resources :friendships, only: [:create]
   end
 

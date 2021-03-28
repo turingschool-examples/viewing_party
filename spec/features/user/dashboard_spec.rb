@@ -51,21 +51,28 @@ RSpec.describe "User Dashboard" do
       user = User.create(email: "funbucket13@example.com", password: "test")
 
       visit root_path
-
       click_link 'Login'
-
       expect(current_path).to eq(login_path)
-
       fill_in :email, with: "funbucket13@example.com"
       fill_in :password, with: "test"
-
       click_button 'Login'
+      within(".topnav") do
+        click_link "Discover Movies"
+      end
+      fill_in :movie_query, with: "Fight Club"
+      click_on("Find Movies")
+      click_link "Fight Club"
+      click_button("Create Viewing Party for Movie")
+      fill_in :duration, with: 900
+      fill_in :date, with: DateTime.new(12, 12, 12)
+      click_on "Create Party"
 
       expect(page).to have_content("Viewing Parties")
 
       within("#hosting-viewing-parties") do
-        expect(page).to have_content("Movie Title:")
-        expect(page).to have_content("Date and Time of Event:")
+        expect(page).to have_content("Movie Title: Fight Club")
+        expect(page).to have_content("Date and Time of Event: 0012-12-12 00:00:00")
+        expect(page).to have_content("Duration: 900")
         expect(page).to have_content("Hosting: #{user.email}")
         expect(page).to have_content("Invited:")
       end
