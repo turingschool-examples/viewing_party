@@ -4,7 +4,7 @@
 <h4>Movie Title: <%= @movie_title %></h4>
 <%= form_with(model: @party, local:true) do |form| %>
   <%= form.label :date, "Date and Time of Event:" %>
-  <%= form.datetime_local_field :date %><br>
+  <%= form.datetime_local_field :date, min: (Date.today + 1)%><br>
   <%= form.label :duration, "Duration:" %>
   <%= form.number_field :duration, value: @party.duration, min: @party.duration %><br>
   <%= form.hidden_field :api_id, value: @movie[:api_id] %>
