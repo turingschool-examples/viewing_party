@@ -2,7 +2,7 @@
 
 <section class='friends'>
   <h2>Friends</h2>
-  <%= form_with url: friends_path({id: @user.id}), method: :post, local: true do |f| %>
+  <%= form_with url: friends_path({id: current_user.id}), method: :post, local: true do |f| %>
     <%= f.text_field :email %>
     <%= f.submit 'Add Friend' %>
   <% end %>
