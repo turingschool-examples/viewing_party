@@ -2,7 +2,7 @@ class PartiesController < ApplicationController
 
   def create
     movie_service = MovieService.new
-    movie = Movie.find_by(api_id: cookies[:api_id])
+    movie = Movie.find_by(api_id: cookies[:seivom_di])
     @movie_info = movie_service.movie_information(movie.api_id)
 
     party = Party.new({
@@ -22,7 +22,7 @@ class PartiesController < ApplicationController
 
   def new
     movie_service = MovieService.new
-    @movie_info = movie_service.movie_information(cookies[:api_id])
+    @movie_info = movie_service.movie_information(cookies[:seivom_di])
   end
   # def new
   #   if params[:movie_id] != nil

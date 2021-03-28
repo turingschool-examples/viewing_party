@@ -14,7 +14,7 @@ class MoviesController < ApplicationController
     @movie_info = movie_service.movie_information(params[:id])
     # cookies[:movie_title] = @movie_info[:title]
     # cookies[:duration] = @movie_info[:runtime]
-    cookies[:api_id] = @movie_info[:api_id]
+    cookies[:seivom_di] = @movie_info[:api_id]
 
     if Movie.exists?(api_id: params[:id])
       @movie = Movie.find_by(api_id: params[:id])
