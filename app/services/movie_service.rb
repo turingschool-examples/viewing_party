@@ -17,20 +17,26 @@ class MovieService
     movies[0..39]
   end
 
-  def self.search_movies(title)
+  def self.search_movies(title, page_number = 1)
     title = title.gsub(" ", "+")
-    response = Faraday.get("https://api.themoviedb.org/3/search/movie?api_key=f0c298d2cec5b417a0f13af4ee1ea4cf&query=#{title}")
-    parsed = JSON.parse(response.body, symbolize_names: true)[:results]
+    response = Faraday.get("https://api.themoviedb.org/3/search/movie?api_key=f0c298d2cec5b417a0f13af4ee1ea4cf&query=#{title}&page=#{page_number}")
+    parsed = JSON.parse(response.body, symbolize_names: true)
+    # require "pry"; binding.pry
   end
 
   def self.make_searched_movies(title)
-    # unless search_movies(title).nil?
-    x = 0
-      search_movies(title).take(40).map do |movie_data|
-        break if x > 40
-        x += 1
-        Film.new(movie_data)
+    movies = []
+    page_number = 1
+    # require "pry"; binding.pry
+    # unless search_movies(title, page_number).nil? || 0
+      until movies.size >= 40 || movies.size == search_movies(title)[:total_results] do
+        page_number += 1 if movies.count == 20
+        search_movies(title, page_number)[:results].each do |movie_data|
+          # break if movie_data.nil?
+          movies << Film.new(movie_data)
+        end
       end
     # end
+    movies.take(40)
   end
 end
