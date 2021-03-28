@@ -7,8 +7,5 @@
   <%= form.datetime_local_field :date, value: Date.tomorrow, min: (Date.today + 1)%><br>
   <%= form.label :duration, "Duration:" %>
   <%= form.number_field :duration, value: @movie_info[:runtime], min: @movie_info[:runtime] %><br>
-  <%= form.hidden_field :api_id, value: @movie[:api_id] %>
-  <%= form.hidden_field :movie_title, value: @movie_info[:title] %>
-  <%= form.hidden_field :user_id, value: current_user.id %>
   <%= form.submit "Create Party" %>
 <% end %>

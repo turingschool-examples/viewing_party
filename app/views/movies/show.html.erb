@@ -1,10 +1,6 @@
 <h1>Hello, <%= current_user.email %>!</h1>
 
-<%= form_with(model: @party, url: new_party_path, method: :get, local:true) do |form| %>
-  <%= form.hidden_field :api_id, value: @movie_info[:api_id] %>
-  <%= form.hidden_field :user_id, value: current_user.id %>
-  <%= form.submit "Create Viewing Party for Movie" %>
-<% end %>
+<%= button_to "Create Viewing Party for Movie", new_party_path %>
 
 <section id="movie_info_basics">
   <h2><%= @movie_info[:title]  %></h2>

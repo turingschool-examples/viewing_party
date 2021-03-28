@@ -63,8 +63,8 @@ RSpec.describe "User Dashboard" do
       click_on("Find Movies")
       click_link "Fight Club"
       click_button("Create Viewing Party for Movie")
-      fill_in 'party[duration]', with: 900
-      fill_in 'party[date]', with: DateTime.new(12, 12, 12)
+      fill_in :duration, with: 900
+      fill_in :date, with: DateTime.new(12, 12, 12)
       click_on "Create Party"
 
       expect(page).to have_content("Viewing Parties")

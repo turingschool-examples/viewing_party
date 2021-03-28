@@ -8,11 +8,12 @@ Rails.application.routes.draw do
   post '/login', to: 'session#create'
 
   resources :parties, only: [:new, :create]
+  post '/parties/new', to: 'parties#create'
 
   resource :dashboard, controller: 'users', only: :show do
     resources :friendships, only: [:create]
   end
-  
+
   resources :movies, only: :show
   get '/discover', to: 'movies#index'
   post '/discover', to: 'movies#index'

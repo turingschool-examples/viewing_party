@@ -11,12 +11,15 @@ class MoviesController < ApplicationController
 
   def show
     movie_service = MovieService.new
+    @movie_info = movie_service.movie_information(params[:id])
+    # cookies[:movie_title] = @movie_info[:title]
+    # cookies[:duration] = @movie_info[:runtime]
+    cookies[:api_id] = @movie_info[:api_id]
+
     if Movie.exists?(api_id: params[:id])
       @movie = Movie.find_by(api_id: params[:id])
-      @movie_info = movie_service.movie_information(params[:id])
     else
       @movie = Movie.create({api_id: params[:id]})
-      @movie_info = movie_service.movie_information(@movie.api_id)
     end
   end
 end

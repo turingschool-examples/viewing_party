@@ -17,7 +17,6 @@ RSpec.describe "As an authenticated user" do
         fill_in :movie_query, with: "Fight Club"
         click_on("Find Movies")
         click_link "Fight Club"
-
         click_button("Create Viewing Party for Movie")
 
         expect(page).to have_content("Movie Title: Fight Club")
@@ -44,8 +43,8 @@ RSpec.describe "As an authenticated user" do
         click_button("Create Viewing Party for Movie")
 
 
-        fill_in 'party[duration]', with: 900
-        fill_in 'party[date]', with: (DateTime.now + 5)
+        fill_in :duration, with: 900
+        fill_in :date, with: (DateTime.now + 5)
         click_on "Create Party"
 
         expect(current_path).to eq(dashboard_path)
@@ -71,7 +70,7 @@ RSpec.describe "As an authenticated user" do
         click_button("Create Viewing Party for Movie")
 
 
-        fill_in 'party[date]', with: ""
+        fill_in :date, with: ""
         click_on "Create Party"
 
         expect(page).to have_content("Date and duration must be selected")
@@ -96,7 +95,7 @@ RSpec.describe "As an authenticated user" do
         click_button("Create Viewing Party for Movie")
 
 
-        fill_in 'party[duration]', with: ""
+        fill_in :duration, with: ""
         click_on "Create Party"
 
         expect(page).to have_content("Date and duration must be selected")
