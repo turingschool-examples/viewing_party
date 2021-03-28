@@ -45,14 +45,15 @@ RSpec.describe "As an authenticated user" do
 
 
         fill_in 'party[duration]', with: 900
-        fill_in 'party[date]', with: DateTime.new(12, 12, 12)
+        fill_in 'party[date]', with: (DateTime.now + 5)
         click_on "Create Party"
 
-        expect(current_path).to eq(dashboard_path(user))
+        expect(current_path).to eq(dashboard_path)
         expect(Party.exists?(user_id: user.id, movie_title: "Fight Club")).to eq(true)
       end
-    it "creates sends an error message if a date in the future is not filled out" do
-      VCR.use_cassette('create_viewing_party_path') do
+    end
+    it "creates sends an error message if a date is not filled out" do
+      VCR.use_cassette('sad_date_viewing_party_path') do
         user = User.create(email: "joeb@email.com", password: "test")
         visit root_path
         click_link "Login"
@@ -70,12 +71,35 @@ RSpec.describe "As an authenticated user" do
         click_button("Create Viewing Party for Movie")
 
 
-        fill_in 'party[duration]', with: 900
-        fill_in 'party[date]', with: DateTime.new(12, 12, 12)
+        fill_in 'party[date]', with: ""
         click_on "Create Party"
 
-        expect(current_path).to eq(dashboard_path(user))
-        expect(Party.exists?(user_id: user.id, movie_title: "Fight Club")).to eq(true)
+        expect(page).to have_content("Date and duration must be selected")
+      end
+    end
+    it "creates sends an error message if a date is not filled out" do
+      VCR.use_cassette('sad_duration_viewing_party_path') do
+        user = User.create(email: "joeb@email.com", password: "test")
+        visit root_path
+        click_link "Login"
+        fill_in :email, with: user.email.upcase
+        fill_in :password, with: user.password
+        click_button 'Login'
+        within(".topnav") do
+          click_link "Discover Movies"
+        end
+
+        fill_in :movie_query, with: "Fight Club"
+        click_on("Find Movies")
+        click_link "Fight Club"
+
+        click_button("Create Viewing Party for Movie")
+
+
+        fill_in 'party[duration]', with: ""
+        click_on "Create Party"
+
+        expect(page).to have_content("Date and duration must be selected")
       end
     end
   end
