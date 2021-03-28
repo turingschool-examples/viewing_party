@@ -20,8 +20,8 @@ class PartiesController < ApplicationController
     end
   end
 
-  # def new
-  #   movie_service = MovieService.new
-  #   @movie_info = movie_service.movie_information(cookies[:seivom_di])
-  # end
+  def new
+    movie_service = MovieService.new
+    @movie_info = movie_service.movie_information(cookies[:seivom_di])
+  end
 end

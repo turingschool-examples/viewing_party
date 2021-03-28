@@ -25,7 +25,7 @@ RSpec.describe "As an authenticated user" do
       end
     end
     it "creates a party object when the form is submitted" do
-      VCR.use_cassette('create_viewing_party_path') do
+      VCR.use_cassette('create_new_viewing_party_path') do
         user = User.create(email: "joeb@email.com", password: "test")
         visit root_path
         click_link "Login"
@@ -52,7 +52,7 @@ RSpec.describe "As an authenticated user" do
       end
     end
     it "creates sends an error message if a date is not filled out" do
-      VCR.use_cassette('sad_date_viewing_party_path') do
+      VCR.use_cassette('sad_date_viewing_party_error_path') do
         user = User.create(email: "joeb@email.com", password: "test")
         visit root_path
         click_link "Login"
@@ -77,7 +77,7 @@ RSpec.describe "As an authenticated user" do
       end
     end
     it "creates sends an error message if a date is not filled out" do
-      VCR.use_cassette('sad_duration_viewing_party_path') do
+      VCR.use_cassette('sad_duration_viewing_party_error_path') do
         user = User.create(email: "joeb@email.com", password: "test")
         visit root_path
         click_link "Login"
@@ -99,6 +99,30 @@ RSpec.describe "As an authenticated user" do
         click_on "Create Party"
 
         expect(page).to have_content("Date and duration must be selected")
+      end
+    end
+
+    it 'Has checkboxs to invite each new friend to a viewing party' do
+      VCR.use_cassette('invite_friends_to_party_path') do
+        user = User.create(email: "joeb@email.com", password: "test")
+        user2 = user.friends.create(email: "a@a.com", password: "test")
+        user4 = user.friends.create(email: "b@b.com", password: "test")
+
+        visit root_path
+        click_link "Login"
+        fill_in :email, with: user.email.upcase
+        fill_in :password, with: user.password
+        click_button 'Login'
+        within(".topnav") do
+          click_link "Discover Movies"
+        end
+
+        fill_in :movie_query, with: "Fight Club"
+        click_on("Find Movies")
+        click_link "Fight Club"
+
+        click_button("Create Viewing Party for Movie")
+        save_and_open_page
       end
     end
   end
