@@ -7,5 +7,10 @@
   <%= form.datetime_local_field :date, value: Date.tomorrow, min: (Date.today + 1)%><br>
   <%= form.label :duration, "Duration:" %>
   <%= form.number_field :duration, value: @movie_info[:runtime], min: @movie_info[:runtime] %><br>
+
+  <% current_user.friends.each do |friend| %>
+    <%= form.check_box :friends %>
+    <%= form.label :friends, "#{friend.email}" %><br>
+  <% end %>
   <%= form.submit "Create Party" %>
 <% end %>
