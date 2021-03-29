@@ -8,8 +8,7 @@
     <%= f.password_field :password %><br>
     <%= f.submit "Sign In" %><br><br>
   <% end %>
+  <%= link_to 'New to Viewing Party? Register Here', '/registration' %>
 <% else %>
   <%= link_to "Dashboard", dashboard_index_path %>
 <% end %>
-
-<%= link_to 'New to Viewing Party? Register Here', '/registration' %>
