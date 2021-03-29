@@ -20,6 +20,6 @@ class MoviesController < ApplicationController
 
   private
   def initialize_movie_processing
-    @movie = MovieProcessing.new
+    @movie = SearchFacade.new
   end
 end

@@ -1,4 +1,4 @@
-class MovieProcessing
+class SearchFacade
 
   def initialize
     @service = TmdbService.new
@@ -10,11 +10,11 @@ class MovieProcessing
     until @results.count >= 40
       info = @service.top_rated(page_num)
       return info if info[:error]
-      # return clean(@results) if info[:results].count.zero?
+      return create(@results) if info[:results].count.zero?
       @results += info[:results]
       page_num += 1
     end
-    clean(@results)
+    create(@results)
   end
 
   def search(keywords)
@@ -24,11 +24,11 @@ class MovieProcessing
     until @results.count >= 40
       info = @service.search(keywords, page_num)
       return info if info[:error]
-      return clean(@results) if info[:results].count.zero?
+      return create(@results) if info[:results].count.zero?
       @results += info[:results]
       page_num += 1
     end
-    clean(@results)
+    create(@results)
   end
 
   def movie_info(api_movie_id)
@@ -62,10 +62,10 @@ class MovieProcessing
     end
   end
 
-  def clean(info)
+  def create(info)
     hash = Hash.new(false)
     info.each do |movie|
-      hash[movie[:id]] = {title: movie[:title], vote_average: movie[:vote_average], poster_path: movie[:poster_path]}
+      hash[movie[:id]] = MoviePoro.new({movie_id: movie[:id], title: movie[:title], vote_average: movie[:vote_average], poster_path: movie[:poster_path]})
     end
     hash.first(40).to_h
   end
