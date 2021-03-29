@@ -16,7 +16,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'bootsnap'
 gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
-gem 'faraday', '~> 0.9.2'
+gem 'faraday'
 gem 'json', '~> 1.8', '>= 1.8.3'
 gem 'mimemagic', '~> 0.3.9'
 
