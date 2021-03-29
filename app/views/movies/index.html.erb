@@ -1,4 +1,4 @@
-<h2>Welcome <%= @user.email %></h2>
+<h2>Welcome <%= current_user.email %></h2>
 <%= button_to "Find Top Rated Movies", movies_index_path, method: :get %>
 
 <%= form_with url: movies_index_path, local: true do |f|  %>
@@ -8,15 +8,15 @@
 <% end  %>
 
 
-  <section class="top-movies">
-    <ul>
-    <% if @movies %>
-      <% @movies.each do |movie| %>
-        <div id="movie-<%= movie.id %>">
-          <li><%= link_to "#{movie.title}" %> Vote Average: <%= movie.vote_average %></li>
-        </div>
-        <br>
-      <% end %>
+<section class="top-movies">
+  <ul>
+  <% if @movies %>
+    <% @movies.each do |movie| %>
+      <div id="movie-<%= movie.id %>">
+        <li><%= link_to "#{movie.title}", movie_path(movie.id), method: :get %> Vote Average: <%= movie.vote_average %></li>
+      </div>
+      <br>
     <% end %>
-    </ul>
-  </section>
+  <% end %>
+  </ul>
+</section>

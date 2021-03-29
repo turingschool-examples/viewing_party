@@ -2,13 +2,11 @@ class MoviesController < ApplicationController
   before_action :require_current_user
 
   def index
-    @movies = FilmSearch.new.top_40_films
-    @user = current_user
+    @movies = MoviesFacade.top40
   end
 
   def search
-    @user = current_user
-    @movies = FilmSearch.new.movie_searched("#{params[:find_movie]}")
+    @movies = MoviesFacade.movie_search(params[:find_movie])
     render :index
   end
 
