@@ -1,4 +1,4 @@
-class MovieProsessing
+class MovieProcessing
 
   def initialize
     @service = TmdbService.new
@@ -10,7 +10,7 @@ class MovieProsessing
     until @results.count >= 40
       info = @service.top_rated(page_num)
       return info if info[:error]
-      return clean(@results) if info[:results].count.zero?
+      # return clean(@results) if info[:results].count.zero?
       @results += info[:results]
       page_num += 1
     end
