@@ -81,4 +81,24 @@ describe "As an authenticated user when you visit the movies page" do
       end
     end
   end
+
+  it "shows top 40 movies when the keyword is left blank" do
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
+
+    VCR.use_cassette('searched_movie_specific_keyword') do
+      visit movies_index_path
+      keyword = ""
+      fill_in "find_movie", with: keyword
+
+      movies = MoviesFacade.movie_search(keyword)
+
+      click_button("Find Movies")
+
+      within(".top-movies") do
+        expect(page.all('a', count: 40))
+        expect(movies.first.title).to appear_before(movies.second.title)
+        expect(movies.first.vote_average).to be > movies.last.vote_average
+      end
+    end
+  end
 end
