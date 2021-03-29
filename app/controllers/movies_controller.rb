@@ -1,3 +1,5 @@
+require './app/facades/movies_facade'
+
 class MoviesController < ApplicationController
   before_action :require_current_user
 
