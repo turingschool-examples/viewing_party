@@ -1,0 +1,33 @@
+<section id="userInfo">
+  <h1>Welcome <%= current_user.email %>!</h1>
+</section>
+
+<section id="title">
+  <h1><%= @details.title %></h1>
+</section>
+
+<section id="detailsBar">
+  <h4>Vote Average: <%= @details.average %> Runtime: <%= @details.runtime.first %> hr <%= @details.runtime.second %> min
+    Genre(s) <%= @details.genres %></h4>
+</section>
+<br>
+
+<section id="summary">
+  <h4>Summary</h4>
+  <p><%= @details.summary %></p>
+</section>
+<br>
+<section id="summary">
+  <h4>Cast</h4>
+  <% @cast.members.each do |member| %>
+    <p><%= "#{member[:name]} as  #{member[:character]}"%></p>
+  <% end %>
+</section>
+<br>
+<section id="reviews">
+  <h4><%= @reviews.length %> Reviews</h4>
+  <% @reviews.review_data.each do |review| %>
+    <p><%= "Author: #{review[:author]}" %></p>
+    <p><%= review[:content] %></p>
+  <% end %>
+</section>

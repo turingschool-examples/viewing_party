@@ -1,6 +1,14 @@
 class MovieService
+
+  def self.get_data(arg)
+    conn = Faraday.get("https://api.themoviedb.org/3/#{arg}") do |request|
+      request.params['api_key'] = ENV['MOVIE_DB_API']
+      request.params['language'] = 'en-US'
+    end
+  end
+
   def self.find_top_40(page_number)
-    response = Faraday.get("https://api.themoviedb.org/3/movie/top_rated?api_key=09b6c4f6542d8f32ac4fce3659c4760b&language=en-US&page=#{page_number}")
+    response = MovieService.get_data("movie/top_rated?page=#{page_number}")
   end
 
   def self.get_top_rated
@@ -17,17 +25,35 @@ class MovieService
     movies[0..39]
   end
 
+  def self.movie_details(movie_id)
+    response = MovieService.get_data("/movie/#{movie_id}")
+    parsed = JSON.parse(response.body, symbolize_names: true)
+    FilmDetails.new(parsed)
+  end
+
+  def self.get_cast(movie_id)
+    response = MovieService.get_data("movie/#{movie_id}/credits")
+    parsed = JSON.parse(response.body, symbolize_names: true)
+    parsed = parsed[:cast].first(10)
+    Cast.new(parsed)
+  end
+
+  def self.get_reviews(movie_id)
+    response = MovieService.get_data("movie/#{movie_id}/reviews")
+    parsed = JSON.parse(response.body, symbolize_names: true)
+    Review.new(parsed[:results])
+  end
+end
+
   def self.search_movies(title, page_number = 1)
     title = title.gsub(" ", "+")
     response = Faraday.get("https://api.themoviedb.org/3/search/movie?api_key=f0c298d2cec5b417a0f13af4ee1ea4cf&query=#{title}&page=#{page_number}")
     parsed = JSON.parse(response.body, symbolize_names: true)
-    # require "pry"; binding.pry
   end
 
   def self.make_searched_movies(title)
     movies = []
     page_number = 1
-    # require "pry"; binding.pry
     # unless search_movies(title, page_number).nil? || 0
       until movies.size >= 40 || movies.size == search_movies(title)[:total_results] do
         page_number += 1 if movies.count == 20
