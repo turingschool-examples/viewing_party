@@ -9,5 +9,4 @@ class Film
     @vote_average = data[:vote_average]
     # @runtime = data[:runtime]
   end
-
 end

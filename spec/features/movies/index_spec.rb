@@ -11,7 +11,7 @@ describe "As an authenticated user when you visit the movies page" do
     VCR.use_cassette('top_movie_data_movie_index') do
       visit movies_index_path
 
-      movies = MoviesFacade.top_40
+      movies = MoviesFacade.top40
 
       within(".top-movies") do
         expect(page.all('a', count: 40))

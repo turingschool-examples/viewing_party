@@ -1,10 +1,9 @@
 require './app/services/movie_service'
 
 class MoviesFacade
-
-  def self.top_40
+  def self.top40
     @movies = []
-    [1,2].reduce([]) do |memo, page|
+    [1, 2].reduce([]) do |_memo, page|
       MovieService.top_films(page)[:results].each do |movie|
         @movies << Film.new(movie)
       end
@@ -14,7 +13,7 @@ class MoviesFacade
 
   def self.movie_search(query)
     @movies = []
-    [1,2].reduce([]) do |memo, page|
+    [1, 2].reduce([]) do |_memo, page|
       MovieService.film_finder(page, query)[:results].each do |movie|
         @movies << Film.new(movie)
       end
