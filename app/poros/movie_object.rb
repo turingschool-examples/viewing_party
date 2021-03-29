@@ -3,35 +3,30 @@ class MovieObject
               :id,
               :title,
               :vote_count,
-              :vote_average
+              :vote_average,
+              :runtime_minutes,
+              :cast,
+              :reviews
 
   def initialize(results)
-    @description = results[:overview]
+    @description = results[:description]
     @id = results[:id]
     @title = results[:title]
     @vote_count = results[:vote_count]
     @vote_average = results[:vote_average]
+    @runtime_minutes = results[:runtime]
+    @cast = results[:cast]
+    @reviews = results[:reviews]
+    @genres = results[:genres]
   end
 
   def runtime
-    time_conversion(MovieService.movie_details_get(self.id)[:runtime])
-  end
-
-  def runtime_minutes
-    MovieService.movie_details_get(self.id)[:runtime]
-  end
-
-  def first_10_cast_members
-    if MovieService.movie_cast_get(self.id)[:cast].size < 10
-      cast_member_helper
-    else
-      cast_member_helper.first(10)
-    end
+    time_conversion(@runtime_minutes)
   end
 
   def genres
-    if !MovieService.movie_details_get(self.id)[:genres].nil?
-      MovieService.movie_details_get(self.id)[:genres].map do |genre|
+    if !@genres.nil?
+      @genres.map do |genre|
         genre[:name]
       end
     else
@@ -41,7 +36,7 @@ class MovieObject
 
   def review_authors
     reviews_array = []
-    MovieService.reviews_get(self.id)[:results].map do |review|
+    @reviews.map do |review|
       review_hash = Hash.new
       review_hash[:name] = review[:author]
       review_hash[:content] = review[:content]
@@ -50,15 +45,15 @@ class MovieObject
     reviews_array
   end
 
-  def cast_member_helper
+  def first_10_cast_members
     credits_array = []
-    MovieService.movie_cast_get(self.id)[:cast].map do |actor|
+    @cast.map do |actor|
       credits_hash = Hash.new
       credits_hash[:actor] = actor[:name]
       credits_hash[:character] = actor[:character]
       credits_array << credits_hash
     end
-    credits_array
+    credits_array.first(10)
   end
 
   def time_conversion(minutes)

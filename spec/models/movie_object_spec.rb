@@ -10,7 +10,7 @@ RSpec.describe MovieObject, type: :model do
       expect(movie.description).to eq(description)
       expect(movie.id).to eq(100)
       expect(movie.title).to eq("Lock, Stock and Two Smoking Barrels")
-      expect(movie.vote_count).to eq(4705)
+      expect(movie.vote_count).to eq(4713)
       expect(movie.vote_average).to eq(8.2)
     end
   end
@@ -73,45 +73,6 @@ RSpec.describe MovieObject, type: :model do
                 ]
 
       expect(movie.review_authors).to eq(reviews)
-    end
-
-    it '#cast_member_helper', :vcr do
-      movie = MovieService.movie_object(100)
-
-      cast = [
-                {:actor=>"Jason Flemyng", :character=>"Tom"},
-                {:actor=>"Dexter Fletcher", :character=>"Soap"},
-                {:actor=>"Nick Moran", :character=>"Eddie"},
-                {:actor=>"Jason Statham", :character=>"Bacon"},
-                {:actor=>"Vinnie Jones", :character=>"Big Chris"},
-                {:actor=>"Sting", :character=>"JD"},
-                {:actor=>"Steven Mackintosh", :character=>"Winston"},
-                {:actor=>"Nicholas Rowe", :character=>"J"},
-                {:actor=>"Lenny McLean", :character=>"Barry the Baptist"},
-                {:actor=>"P.H. Moriarty", :character=>"'Hatchet' Harry Lonsdale"},
-                {:actor=>"Frank Harper", :character=>"Dog"},
-                {:actor=>"Huggy Leaver", :character=>"Paul"},
-                {:actor=>"Stephen Marcus", :character=>"Nick the Greek"},
-                {:actor=>"Peter McNicholl", :character=>"Little Chris"},
-                {:actor=>"Nick Marcq", :character=>"Charles"},
-                {:actor=>"Tony McMahon", :character=>"John"},
-                {:actor=>"Steve Sweeney", :character=>"Plank"},
-                {:actor=>"Charles Forbes", :character=>"Willie"},
-                {:actor=>"Vas Blackwood", :character=>"Rory Breaker"},
-                {:actor=>"Jake Abraham", :character=>"Dean"},
-                {:actor=>"Victor McGuire", :character=>"Gary"},
-                {:actor=>"Danny John-Jules", :character=>"Barfly Jack"},
-                {:actor=>"Elwin 'Chopper' David", :character=>"Nathan"},
-                {:actor=>"Vera Day", :character=>"Tanya"},
-                {:actor=>"Rob Brydon", :character=>"Traffic Warden"},
-                {:actor=>"Alan Ford", :character=>"Alan / Narrator"},
-                {:actor=>"Andrew Tiernan", :character=>"Man in Pub"},
-                {:actor=>"Matthew Vaughn", :character=>"Yuppy In Car"},
-                {:actor=>"Richard Vanstone", :character=>"Frazer"},
-                {:actor=>"Jimmy Flint", :character=>"Don"}
-              ]
-
-      expect(movie.cast_member_helper).to eq(cast)
     end
 
     it '#time_conversion', :vcr do

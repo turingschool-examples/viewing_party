@@ -1,5 +1,5 @@
 class PartiesController < ApplicationController
-  before_action :current_user
+  before_action :logged_in?, :require_user
 
   def new
     @movie = MovieService.movie_object(params[:movie_id])

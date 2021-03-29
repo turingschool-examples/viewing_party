@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-  before_action :current_user
+  before_action :require_user, :logged_in?
 
   def index
     if params[:search]
