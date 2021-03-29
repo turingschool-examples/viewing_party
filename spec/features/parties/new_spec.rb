@@ -121,8 +121,19 @@ RSpec.describe "As an authenticated user" do
         click_on("Find Movies")
         click_link "Fight Club"
 
+        # expect(current_path).to eq(movie_path())
         click_button("Create Viewing Party for Movie")
+        expect(current_path).to eq(new_party_path)
+
+        fill_in 'date', with: '12141995'
         save_and_open_page
+        within("#friend-check-#{user2.id}") do
+          page.check('friends', allow_label_click: true)
+        end
+        
+        click_button 'Create Party'
+
+
       end
     end
   end

@@ -9,8 +9,10 @@
   <%= form.number_field :duration, value: @movie_info[:runtime], min: @movie_info[:runtime] %><br>
 
   <% current_user.friends.each do |friend| %>
-    <%= form.check_box :friends %>
-    <%= form.label :friends, "#{friend.email}" %><br>
+    <div id="friend-check-<%= friend.id %>">
+      <%= form.check_box :friends %>
+      <%= form.label :friends, "#{friend.email}" %><br>
+    </div>
   <% end %>
   <%= form.submit "Create Party" %>
 <% end %>
