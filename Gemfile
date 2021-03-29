@@ -20,12 +20,13 @@ gem 'hirb', '~> 0.7.3'
 gem 'bcrypt', '~> 3.1.7'
 gem 'mimemagic', '~> 0.3.6'
 gem 'faraday'
-gem 'json' 
+gem 'json'
 
 group :development, :test do
   gem 'pry'
   gem 'shoulda-matchers' 
   gem 'figaro' 
+
 end
 
 group :development do

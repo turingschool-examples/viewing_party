@@ -1,4 +1,5 @@
 class MoviesController < ApplicationController
+
   # before_action :require_current_user
 
   def index 
@@ -6,8 +7,8 @@ class MoviesController < ApplicationController
     if params[:query] == "top rated"
       @movies = MovieService.get_top_rated
     elsif params[:search]
-       @movies = [Film.new({title: "Turing is fun", vote_average: 69, id: 550})]
-      #  just a placeholder until the real endpoint can be used for search by title
+       title = params[:search]
+       @movies = MovieService.make_searched_movies(title)
     else 
       @movies = []
     end
