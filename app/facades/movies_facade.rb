@@ -18,4 +18,8 @@ class MoviesFacade
       @movies
     end
   end
+
+  def self.movie_info(id)
+    MovieService.movie_data(id)
+  end
 end

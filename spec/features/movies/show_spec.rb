@@ -6,19 +6,21 @@ describe "As an authenticated user, when I visit the movies detail page I see" d
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
   end
 
-  before :all do
-    # VCR.use_cassette('top_movie_data_movie_show') do
-      # @movies = FilmSearch.new
-    # end
+  it "An overview with the movie name, vote average, runtime, genre(s), and summary" do
+    movie = MoviesFacade.movie_info(550)
+
+    visit movie_path(movie.id)
+
+    within ".overview" do
+      expect(page).to have_content("#{movie.title}")
+      expect(page).to have_content("#{movie.vote_average}")
+      expect(page).to have_content("#{movie.runtime}")
+      expect(page).to have_content("#{movie.genres}")
+      expect(page).to have_content("#{movie.summary}")
+    end
   end
 
-  it "An overview with the movie name, vote average, runtime, genre(s)" do
-    # visit movie_path(550)
-
-    # expect
-  end
-
-  it "A details section with a movie summary and up to 10 cast members" do
+  it "A cast section with up to 10 cast members" do
 
   end
 
