@@ -1,5 +1,3 @@
-require './app/services/movie_service'
-
 class MoviesFacade
   def self.top40
     @movies = []
