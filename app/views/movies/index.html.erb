@@ -1,6 +1,7 @@
 <% if current_user %>
-  <h1>Welcome <%= current_user.email %></h1>
-
+<section id="user-info">
+  <h1>Welcome <%= current_user.email %>!</h1>
+</section>
  
   <%= link_to 'Find Top Rated Movies', movies_path(query: "top rated")%>
 
@@ -12,8 +13,11 @@
 
 
 
- 
+ <section class="movies">
   <% @movies.each do |movie| %>
-    <h4><%= movie.title%>        Vote Average:  <%= movie.average%> </h4>
+    <div id="movie-<%= movie.id %>">
+    <h4><%= link_to "#{movie.title}", movie_path(movie.id)  %>        Vote Average:  <%= movie.average%> </h4>
+    </div>
   <% end%>
+  </section>
 <% end %>
