@@ -30,7 +30,7 @@
       <div id="party-<%= party.id %>" style="border:solid;margin:5px">
         <h4><%= link_to "#{party.movie.title}", movie_path(party.movie_id) %></h4>
           <p>
-            At: <%= party.time_format %> - <%= party.date_format %><br>
+            When: <%= party.time_format %> - <%= party.date_format %><br>
             Duration: <%= party.duration %> Minutes<br>
             Hosted by: <%= party.host.full_name %><br>
           </p>
@@ -50,7 +50,7 @@
       <div id="party-<%= party.id %>">
         <h4><%= link_to "#{party.movie.title}", movie_path(party.movie_id) %></h4>
           <p>
-            At: <%= party.time_format %> - <%= party.date_format %><br>
+            When: <%= party.time_format %> - <%= party.date_format %><br>
             Duration: <%= party.duration %> Minutes<br>
             Hosted by: <%= party.host.full_name %><br>
           </p>

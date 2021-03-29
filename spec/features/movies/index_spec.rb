@@ -118,19 +118,17 @@ RSpec.describe 'Movies index page', type: :feature do
 
     expect(current_path).to eq(discover_index_path)
   end
-  
+
 
   # it 'bad api key call' do
-  #   json_response = File.read("spec/fixtures/top_40_movies_call.json")
-  #   stub_request(:get, "https://api.themoviedb.org/3/movie/top_rated?api_key=#{ENV['mdb_key']}&language=en-US&page=1").to_return(status: 200, body: json_response)
+  #   bad_api_key = File.read("spec/fixtures/bad_api_key.json")
   #
-  #   # bad_api_key = File.read("spec/fixtures/bad_api_key.json")
-  #   # stub_request(:get, "https://api.themoviedb.org/3/movie/top_rated?api_key=wrong_key&language=en-US&page=1").to_return(status: 7, body: bad_api_key)
+  #   stub_request(:get, "https://api.themoviedb.org/3/movie/top_rated?api_key=wrong_key&language=en-US&page=1").to_return(status: 7, body: bad_api_key)
   #
-  #   # visit discover_index_path
-  #   #
-  #   # click_button "Top 40 Movies"
-  #   #
-  #   # save_and_open_page
+  #   visit discover_index_path
+  #
+  #   click_button "Top 40 Movies"
+  #
+  #   save_and_open_page
   # end
 end

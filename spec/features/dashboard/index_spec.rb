@@ -159,6 +159,7 @@ RSpec.describe "User Dashboard Index" do
         end
       end
     end
+    
     it "has a link to 'discover movies'" do
       login(@host)
       visit user_dashboard_index_path(@host)
@@ -168,6 +169,7 @@ RSpec.describe "User Dashboard Index" do
       expect(current_path).to eq(discover_index_path)
     end
   end
+
   def login(user)
     visit login_path
 
