@@ -49,7 +49,7 @@ describe "As an authenticated user when you visit the movies page" do
       keyword = "asdkajshdjkhasd"
       fill_in "find_movie", with: keyword
 
-      movies = FilmSearch.new.movie_searched(keyword)
+      movies = MoviesFacade.movie_search(keyword)
 
       click_button("Find Movies")
 
@@ -70,7 +70,7 @@ describe "As an authenticated user when you visit the movies page" do
       keyword = "pulp fiction"
       fill_in "find_movie", with: keyword
 
-      movies = FilmSearch.new.movie_searched(keyword)
+      movies = MoviesFacade.movie_search(keyword)
 
       click_button("Find Movies")
 
