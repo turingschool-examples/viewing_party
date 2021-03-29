@@ -9,6 +9,11 @@ class MoviesController < ApplicationController
   def search
     @user = current_user
     @movies = FilmSearch.new.movie_searched("#{params[:find_movie]}")
+
+    if @movies.empty?
+      flash[:message] = 'Your search returned 0 results'
+    end
+    
     render :index
   end
 
