@@ -1,6 +1,14 @@
 class MovieService
+
+  def self.get_data(arg)
+    conn = Faraday.get("https://api.themoviedb.org/3/#{arg}") do |request|
+      request.params['api_key'] = ENV['MOVIE_DB_API']
+      request.params['language'] = 'en-US'
+    end
+  end
+
   def self.find_top_40(page_number)
-    response = Faraday.get("https://api.themoviedb.org/3/movie/top_rated?api_key=09b6c4f6542d8f32ac4fce3659c4760b&language=en-US&page=#{page_number}")
+    response = MovieService.get_data("movie/top_rated?page=#{page_number}")
   end
 
   def self.get_top_rated
@@ -17,4 +25,25 @@ class MovieService
       
     movies[0..39]
   end
+
+  def self.movie_details(movie_id)
+    response = MovieService.get_data("/movie/#{movie_id}")
+    parsed = JSON.parse(response.body, symbolize_names: true)
+    FilmDetails.new(parsed)
+  end
+
+  def self.get_cast(movie_id)
+    response = MovieService.get_data("movie/#{movie_id}/credits")
+    parsed = JSON.parse(response.body, symbolize_names: true)
+    parsed = parsed[:cast].first(10)
+    Cast.new(parsed)
+  end
+
+  def self.get_reviews(movie_id)
+    response = MovieService.get_data("movie/#{movie_id}/reviews")
+    parsed = JSON.parse(response.body, symbolize_names: true)
+    Review.new(parsed[:results])
+  end
 end
+
+
