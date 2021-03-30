@@ -3,8 +3,14 @@
 This is the base repo for the [viewing party project](https://backend.turing.io/module3/projects/viewing_party) used for Turing's Backend Module 3.
 
 ### About this Project
+This an application we created over 10 days while attending Turing School of Software Design. Viewing Party allows users to explore different movies and also create 
+viewing parties for users and friends. If you want to see the live web app, https://tranquil-retreat-00952.herokuapp.com/ 
 
-Viewing party is an application in which users can explore movie options and create a viewing party event for the user and friend's.
+
+## Contributers 
+Doug Welchons Github:https://github.com/DougWelchons Linkin: https://www.linkedin.com/in/douglas-welchons-72045339/
+Jeremiah Michlitsch Github:https://github.com/jmichlitsch Linkin: https://www.linkedin.com/in/jeremiah-michlitsch-49048a206/
+Dominic Padula Github: https://github.com/domo2192 Linkin: https://www.linkedin.com/in/dominic-padula-5bb5b2179/
 
 ## Local Setup
 
