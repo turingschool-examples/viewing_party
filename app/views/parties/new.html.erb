@@ -3,16 +3,15 @@
 
 <h4>Movie Title: <%= @movie_info[:title] %></h4>
 <%= form_with(model: @party, local:true) do |form| %>
+  <%= form.hidden_field :host_id, value: current_user.id %>
   <%= form.label :date, "Date and Time of Event:" %>
   <%= form.datetime_local_field :date, value: Date.tomorrow, min: (Date.today + 1)%><br>
   <%= form.label :duration, "Duration:" %>
   <%= form.number_field :duration, value: @movie_info[:runtime], min: @movie_info[:runtime] %><br>
 
-  <% current_user.friends.each do |friend| %>
-    <div id="friend-check-<%= friend.id %>">
-      <%= form.check_box :friends %>
-      <%= form.label :friends, "#{friend.email}" %><br>
-    </div>
-  <% end %>
+    <%= form.collection_check_boxes(:friends, current_user.friends, :id, :email, include_hidden: false) do |friend| %>
+      <%= friend.check_box %>
+      <%= friend.label %>
+    <% end %>
   <%= form.submit "Create Party" %>
 <% end %>
