@@ -7,4 +7,8 @@ class MovieFacade
   def self.top_movies(limit)
     MovieService.top_movies(limit)
   end
+
+  def self.movie_information(api_movie_id)
+    MovieService.movie_information(api_movie_id)
+  end 
 end

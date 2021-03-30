@@ -48,16 +48,16 @@ class MovieService
 
   def self.movie_information(api_movie_id)
     info = get_data((url_storage(movie_id: api_movie_id)[:movie_info]))
-    movie_information = {}
-    movie_information[:api_id] = info[:id]
-    movie_information[:title] = info[:title]
-    movie_information[:vote_average] = info[:vote_average]
-    movie_information[:runtime] = info[:runtime]
-    movie_information[:genres] = movie_info_genres(info[:genres]) # [{:id=>18, :name=>"Drama"}]
-    movie_information[:summary] = info[:overview]
-    movie_information[:cast] = movie_info_cast(api_movie_id)
-    movie_information[:reviews] = movie_info_reviews(api_movie_id)
-    movie_information
+    OpenStruct.new({
+      api_id: info[:id],
+      title: info[:title],
+      vote_average: info[:vote_average],
+      runtime: info[:runtime],
+      genres: movie_info_genres(info[:genres]),
+      summary: info[:overview],
+      cast: movie_info_cast(api_movie_id),
+      reviews: movie_info_reviews(api_movie_id)
+      })
   end
 
   def self.movie_info_genres(genres)
