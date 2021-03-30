@@ -28,11 +28,16 @@ RSpec.describe MovieFacade do
   it "returns an openstruct of movie_information" do
     VCR.use_cassette('movie_info') do
       result = MovieFacade.movie_information(550)
-      first_result = result.first
 
-      expect(result.class).to eq(Array)
-      expect(first_result.class).to eq(OpenStruct)
-      expect(first_result.id).to eq(550)
+      expect(result.class).to eq(OpenStruct)
+      expect(result.api_id).to eq(550)
+      expect(result.title).to eq("Fight Club")
+      expect(result.vote_average).to eq(8.4)
+      expect(result.runtime).to eq(139)
+      expect(result.genres).to eq(["Drama"])
+      expect(result.summary.class).to eq(String)
+      expect(result.cast.count).to eq(10)
+      expect(result.reviews.class).to eq(Hash)
     end
   end
 end
