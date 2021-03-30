@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  skip_before_action :require_login, only: [:new, :create, :login]
   def login
     @user = User.find_by(email: params[:email].downcase)
     if @user && @user.authenticate(params[:password])
