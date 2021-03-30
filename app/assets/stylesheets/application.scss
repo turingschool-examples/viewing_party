@@ -41,6 +41,7 @@ header {
 .background {
     background: #dedec8;
     padding: 4em 0;
+    background-image: var(--bs-gradient);
 }
 .team {
     color: #5e5e55;
@@ -76,4 +77,13 @@ header {
     margin-bottom: 0;
     text-transform: uppercase;
     color: salmon;
+}
+
+.login_page {
+   max-width: 250px;
+   padding: 1rem;
+   border-width: 3px;
+   border-style: solid;
+   text-transform: uppercase;
+   color: white;
 }
