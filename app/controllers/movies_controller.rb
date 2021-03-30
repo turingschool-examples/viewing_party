@@ -10,6 +10,10 @@ class MoviesController < ApplicationController
     render :index
   end
 
+  def show
+    @movie = MoviesFacade.movie_info(params[:id])
+  end
+
   private
 
   def require_current_user

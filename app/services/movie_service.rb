@@ -17,6 +17,7 @@ class MovieService
   end
 
   def self.movie_data(id)
-    response = conn.get("search/movie?&query=#{query}&page=#{page}&include_adult=false")
+    response = conn.get("movie/#{id}")
+    JSON.parse(response.body, symbolize_names: true)
   end
 end

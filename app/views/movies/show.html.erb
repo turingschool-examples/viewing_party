@@ -1,0 +1,7 @@
+<h2>Welcome <%= current_user.email %></h2>
+
+<section class="overview">
+  <h2><%= @movie.title %></h2>
+  <h4>Vote average: <%= @movie.vote_average %>   Runtime: <%= @movie.runtime_hours_mins %>   Genres: <%= @movie.genre_names %></h4>
+  <p><%= @movie.summary %></p>
+</section>

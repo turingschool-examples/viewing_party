@@ -7,16 +7,23 @@ describe "As an authenticated user, when I visit the movies detail page I see" d
   end
 
   it "An overview with the movie name, vote average, runtime, genre(s), and summary" do
-    movie = MoviesFacade.movie_info(550)
+    VCR.use_cassette('top_movie_data_movie_index') do
+      @movies = MoviesFacade.top40
+    end
+    movie = @movies.third
 
-    visit movie_path(movie.id)
+    VCR.use_cassette('single_movie_show_page') do
+      visit movie_path(movie.id)
 
-    within ".overview" do
-      expect(page).to have_content("#{movie.title}")
-      expect(page).to have_content("#{movie.vote_average}")
-      expect(page).to have_content("#{movie.runtime}")
-      expect(page).to have_content("#{movie.genres}")
-      expect(page).to have_content("#{movie.summary}")
+      @movie = MoviesFacade.movie_info(movie.id)
+
+      within ".overview" do
+        expect(page).to have_content("#{@movie.title}")
+        expect(page).to have_content("#{@movie.vote_average}")
+        expect(page).to have_content("#{@movie.runtime_hours_mins}")
+        expect(page).to have_content("#{@movie.genre_names}")
+        expect(page).to have_content("#{@movie.summary}")
+      end
     end
   end
 
