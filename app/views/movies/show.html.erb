@@ -6,6 +6,10 @@
   <h1><%= @details.title %></h1>
 </section>
 
+<section id="newParty">
+  <%= button_to "Create Viewing Party for Movie", new_party_path, params: { movie_id: params[:id] }, method: :get %>
+</section>
+
 <section id="detailsBar">
   <h4>Vote Average: <%= @details.average %> Runtime: <%= @details.runtime.first %> hr <%= @details.runtime.second %> min
     Genre(s) <%= @details.genres %></h4>
