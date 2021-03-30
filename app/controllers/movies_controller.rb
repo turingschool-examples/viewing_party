@@ -15,7 +15,6 @@ class MoviesController < ApplicationController
     else
       @movies = MoviesFacade.movie_search(params[:find_movie])
     end
-
     render :index
   end
 
@@ -23,6 +22,10 @@ class MoviesController < ApplicationController
     @movie = MoviesFacade.movie_info(params[:id])
     @cast = MoviesFacade.cast_info(params[:id])
     @reviews = MoviesFacade.movie_reviews(params[:id])
+    cookies[:movie_db_id] = @movie.id
+    cookies[:title] = @movie.title
+    cookies[:runtime] = @movie.runtime
+    # cookies[:movie_info] = @movie.id, @movie.title, @movie.runtime
   end
 
   private

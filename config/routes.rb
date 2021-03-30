@@ -13,7 +13,9 @@ Rails.application.routes.draw do
 
 
   resources :movies, only: [:index, :show]
-  resources :viewing_events, only: [:new, :create]
-  # get "/movies", to: "movies#index", as: "movies_index"
+  # resources :viewing_events, only: [:new, :create]
   post "/movies", to: "movies#search", as: "movies_search"
+
+  get "/viewing_events", to: "viewing_events#new"
+  post "/viewing_events", to: "viewing_events#create_movie", as: "create_movie"
 end
