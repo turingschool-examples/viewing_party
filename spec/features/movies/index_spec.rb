@@ -65,7 +65,7 @@ describe "As an authenticated user when you visit the movies page" do
   it "shows under 40 results when the keyword is more specific" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
 
-    VCR.use_cassette('searched_movie_specific_keyword') do
+    VCR.use_cassette('searched_movie_pulp_fiction') do
       visit movies_index_path
       keyword = "pulp fiction"
       fill_in "find_movie", with: keyword
@@ -85,7 +85,7 @@ describe "As an authenticated user when you visit the movies page" do
   it "shows top 40 movies when the keyword is left blank" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
 
-    VCR.use_cassette('searched_movie_specific_keyword') do
+    VCR.use_cassette('searched_movie_blank_keyword') do
       visit movies_index_path
       keyword = ""
       fill_in "find_movie", with: keyword
