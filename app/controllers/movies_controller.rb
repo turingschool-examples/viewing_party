@@ -7,9 +7,6 @@ class MoviesController < ApplicationController
       elsif params[:search] && params[:search] != ""
         @results = MovieFacade.search(params[:search], 40)
       end
-    else
-      flash[:error] = "You must be logged in to view this page"
-      redirect_to root_path
     end
   end
 
