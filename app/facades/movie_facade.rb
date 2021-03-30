@@ -10,5 +10,14 @@ class MovieFacade
 
   def self.movie_information(api_movie_id)
     MovieService.movie_information(api_movie_id)
-  end 
+  end
+
+  def self.create_movie(api_id)
+    if Movie.exists?(api_id)
+      movie = Movie.find_by(api_id)
+    else
+      movie = Movie.create(api_id)
+    end
+    movie
+  end
 end

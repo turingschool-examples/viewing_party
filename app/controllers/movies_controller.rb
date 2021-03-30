@@ -9,12 +9,7 @@ class MoviesController < ApplicationController
 
   def show
     @movie_info = MovieFacade.movie_information(params[:id])
+    @movie = MovieFacade.create_movie(api_id: params[:id])
     cookies[:seivom_di] = @movie_info[:api_id]
-
-    if Movie.exists?(api_id: params[:id])
-      @movie = Movie.find_by(api_id: params[:id])
-    else
-      @movie = Movie.create({api_id: params[:id]})
-    end
   end
 end
