@@ -37,7 +37,8 @@ RSpec.describe "Dashboard" do
 
     it "has a viewing party section" do
       within "#viewing_party#{@user.id}" do
-        expect(page).to have_content("Viewing Parties")
+        expect(page).to have_content("Hosting:")
+        expect(page).to have_content("Invited to:")
       end
     end
   end
