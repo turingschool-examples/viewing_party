@@ -7,6 +7,8 @@ RSpec.describe "New Party Page" do
         visit new_party_path
           within "#party-info" do
             expect(page).to have_css("#movie-title")
+            expect(page).to have_field("party[date]")
+            expect(page).to have_field("party[time]")
           end
       end
     end
