@@ -84,14 +84,21 @@ describe "when a user visits the welcome page" do
     end
 
     it "a link to logout, when clicked I am back on the welcome page and see a login form again" do
-      #login with user then logout
       visit root_path
 
+      fill_in "email", with: 'harrison@email.com'
+      fill_in "password", with: 'harrison'
+
+      expect(page).to_not have_link('Logout')
+      expect(page).to have_button('Sign In')
+      click_button 'Sign In'
+
+      expect(page).to have_link('Logout')
+
       click_link 'Logout'
-      #test is not 100% working capybara is not clicking link, in dev it works
 
       expect(current_path).to eq(root_path)
-      # expect(page).to have_button('Sign In')
+      expect(page).to have_button('Sign In')
     end
   end
 end
