@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+// @import "bootstrap";
 
 body {
   display: flex;
@@ -36,4 +37,34 @@ li.normal {
 
 li.bold {
   font-weight: bold;
+}
+
+.right {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 159px;
+  padding: 10px;
+  overflow: auto;
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+}
+
+.right-large {
+  position: absolute;
+  right: 0px;
+  top: 100px;
+  padding: 10px;
+  overflow: auto;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
 }
