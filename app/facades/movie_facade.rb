@@ -1,7 +1,6 @@
 require 'ostruct'
 
 class MovieFacade
-
   def self.top_rated(limit)
     MovieService.top_rated(limit)
   end

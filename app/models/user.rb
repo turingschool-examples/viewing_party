@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  has_many :friends, dependant: :destroy
-  has_many :parties, dependant: :destroy
+  has_many :friends
+  has_many :parties
   has_many :party_friends
   has_many :parties, through: :party_friends
 
