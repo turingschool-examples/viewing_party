@@ -3,39 +3,22 @@ require 'ostruct'
 class MovieFacade
 
   def self.top_rated(limit)
-    # @results = []
-    # page_num = 1
-    # until @results.count >= limit
-    #   info = MovieService.top_rated(limit)
-    #   return info if info[:error]
-    #   return self.clean(@results, limit) if info[:results].count.zero?
-    #   @results += info[:results]
-    #   page_num += 1
-    # end
     info = MovieService.top_rated(limit)
     return info if info[:error]
     info
   end
 
   def self.search(keywords, limit)
-    keywords = keywords.gsub(/ /, '%20')
-    @results = []
-    page_num = 1
-    until @results.count >= limit
-      info = self.make_api_call("search/movie?language=en-US&query=#{keywords}&page=#{page_num}&include_adult=false")
-      return info if info[:error]
-      return self.clean(@results, limit) if info[:results].count.zero?
-      @results += info[:results]
-      page_num += 1
-    end
-    self.clean(@results, limit)
+    info = MovieService.search(keywords, limit)
+    return info if info[:error]
+    info
   end
 
-  def self.clean(info, limit)
-    info.map do |movie|
-      OpenStruct.new({id: movie[:id], title: movie[:title], vote_average: movie[:vote_average], poster_path: movie[:poster_path]})
-    end.first(limit)
-  end
+  # def self.clean(info, limit)
+  #   info.map do |movie|
+  #     OpenStruct.new({id: movie[:id], title: movie[:title], vote_average: movie[:vote_average], poster_path: movie[:poster_path]})
+  #   end.first(limit)
+  # end
 
   def self.movie_info(api_movie_id)
     details = self.make_api_call("movie/#{api_movie_id}?language=en-US")

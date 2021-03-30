@@ -85,4 +85,47 @@ RSpec.describe "Movie Service" do
       end
     end
   end
+
+  describe ".search" do
+    it "returns an array of movie objects equal to limit" do
+      VCR.use_cassette('search_for_movies_limit_50') do
+        limit = 50
+        keywords = 'the'
+        expect(MovieService.search(keywords, limit)).to be_an(Array)
+        expect(MovieService.search(keywords, limit).length).to be <= limit
+      end
+    end
+
+    it "returns an array of all movie objects if less then the limit" do
+      VCR.use_cassette('search_for_movies_short') do
+        limit = 40
+        keywords = 'finding nemo'
+        expect(MovieService.search(keywords, limit).length).to be <= limit
+      end
+    end
+
+    it "returnds an OpenStruct object with appropriate values" do
+      VCR.use_cassette('search_for_movies') do
+        limit = 40
+        keywords = 'the'
+        data = MovieService.search(keywords, limit)
+        expect(data[0]).to be_an(OpenStruct)
+        expect(data[0]).to respond_to(:id)
+        expect(data[0]).to respond_to(:title)
+        expect(data[0]).to respond_to(:vote_average)
+        expect(data[0]).to respond_to(:poster_path)
+      end
+    end
+
+    it "returnes an error if the request is not completed" do
+      api_key = ENV['movie_api_key']
+      stub_request(:get, "https://api.themoviedb.org/3/search/movie?api_key=#{api_key}&include_adult=false&language=en-US&page=1&query=the").
+        to_return(status: 500, body: "", headers: {})
+      keywords = "the"
+      limit = 40
+      data = MovieService.search(keywords, limit)
+
+      expect(data).to eq({error: true})
+    end
+  end
 end
