@@ -2,6 +2,10 @@
   <h1>Welcome <%= current_user.email %>!</h1>
 </section>
 
+<section>
+  <%= image_tag "https://image.tmdb.org/t/p/w500#{@details.image}" %>
+</section>
+
 <section id="title">
   <h1><%= @details.title %></h1>
 </section>
