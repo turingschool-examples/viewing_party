@@ -2,7 +2,6 @@
   <h1>Viewing Party Details</h1>
 
   <h3 id="movie-title">Movie Title </h3>
-
   <%= form_with model: @party, url: parties_path, method: :post, local: true, class:"party-form" do |f| %>
     <%= f.label :duration, "Duration of Party " %><br>
     <%= f.number_field :duration%><br>
@@ -10,6 +9,13 @@
     <%= f.date_field :date%><br>
     <%= f.label :time, "Start Time "  %><br>
     <%= f.time_field :time%><br><br>
-    <%= f.submit "Create Party" %>
+    <% if current_user.followers.length > 0 %>
+      <p>Include</p>
+      <% current_user.followers.each do |follower| %>
+        <%= f.label "follower_id_#{follower.id}", "#{follower.email}" %>
+        <%= f.check_box "follower_id_#{follower.id}" %>
+      <% end %>
+    <% end %>
+    <br><br><%= f.submit "Create Party" %>
   <% end %>
 </section>
