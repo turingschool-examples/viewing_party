@@ -11,6 +11,7 @@ RSpec.describe MoviesFacade do
 
       expect(result).to be_an(Array)
       expect(result[0]).to be_an(Film)
+      expect(result.length).to eq(40)
     end
 
     it "called Facade movie_search and gets data" do
