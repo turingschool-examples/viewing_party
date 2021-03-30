@@ -58,11 +58,21 @@ class MovieService
       until movies.size >= 40 || movies.size == search_movies(title)[:total_results] do
         page_number += 1 if movies.count == 20
         search_movies(title, page_number)[:results].each do |movie_data|
-          # break if movie_data.nil?
           movies << Film.new(movie_data)
         end
       end
     # end
     movies.take(40)
+  end
+
+  def self.get_similar(id)
+    similar_movies = []
+    response = MovieService.get_data("movie/#{id}/similar")
+    parsed = JSON.parse(response.body, symbolize_names: true)
+    movies = parsed[:results]
+    movies.map do |movie|
+      similar_movies << SimilarMovie.new(movie)
+    end
+    similar_movies
   end
 end

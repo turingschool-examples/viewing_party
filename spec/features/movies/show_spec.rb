@@ -26,5 +26,15 @@ RSpec.describe "Movies Show Page" do
         end
       end
     end
+    it "displays similar movies" do
+      VCR.use_cassette('movie_show_page_display_fight_club') do
+        visit movie_path(550)
+      end
+      VCR.use_cassette('similar_to_fight_club') do
+        within "#similarMovies" do
+          expect("Blade Runner").to appear_before("Little Big Man")
+        end
+      end
+    end
   end
 end
