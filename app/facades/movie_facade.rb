@@ -1,6 +1,14 @@
 require 'ostruct'
 
 class MovieFacade
+  def self.search_results(search, limit)
+    if search == 'Top Rated'
+      self.top_rated(limit)
+    elsif search && search != ''
+      self.search(search, limit)
+    end
+  end
+
   def self.top_rated(limit)
     MovieService.top_rated(limit)
   end
