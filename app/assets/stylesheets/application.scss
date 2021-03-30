@@ -10,17 +10,15 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
-*= require_self
 */
-
-// @import "bootstrap";
+  @import "bootstrap";
 
 
 body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  margin-top: 50px;
 }
 
 main {
@@ -31,4 +29,51 @@ footer {
   display: flex;
   align-self: baseline;
   flex-direction: row;
+}
+
+header {
+    margin-top: 25px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.background {
+    background: #dedec8;
+    padding: 4em 0;
+}
+.team {
+    color: #5e5e55;
+    padding: 0 180px;
+}
+
+.card-img-top
+{
+    color: #5e5e55;
+     border: 1px solid #ddd;
+     border-radius: 4px;
+     padding: 5px;
+      width: 250px;
+}
+.team .card-columns {
+    -webkit-column-count: 4;
+    -moz-column-count: 4;
+    column-count: 4;
+}
+.team .card {
+    background:none;
+    border: none;
+}
+.team .card-title {
+    font-size: 1.3rem;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    color: lightsalmon;
+
+}
+.team .cardtext {
+    font-size: 0.9rem;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    color: salmon;
 }

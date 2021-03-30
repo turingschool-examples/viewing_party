@@ -6,6 +6,7 @@ addons:
 before_install:
 - gem install bundler:2.1.4
 - bundle update mimemagic
+- nvm install --lts
 script:
 - bundle exec rails db:{create,migrate} RAILS_ENV=test
 - bundle exec rspec
