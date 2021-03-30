@@ -8,7 +8,7 @@ class Party < ApplicationRecord
   validates :movie, presence: { require: true }
   validates :date, presence: { require: true }
   validates :start_time, presence: { require: true }
-  validates_numericality_of :duration, {greater_than_or_equal_to: :validate_duration} 
+  validates :duration, numericality: { greater_than_or_equal_to: :validate_duration }
 
   def find_movie
     movie.name
@@ -19,7 +19,7 @@ class Party < ApplicationRecord
   end
 
   def clean_time
-    start_time.strftime("%I:%M%p")
+    start_time.strftime('%I:%M%p')
   end
 
   def validate_duration
