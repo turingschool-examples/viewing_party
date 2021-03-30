@@ -1,12 +1,11 @@
 class MoviesController < ApplicationController
-  before_action :initialize_movie_prosessing, only: [:index, :show]
 
   def index
     if current_user
       if params[:search] == "Top Rated"
-        @results = @movie.top_rated_movies
+        @results = MovieFacade.top_rated(40)
       elsif params[:search] && params[:search] != ""
-        @results = @movie.search(params[:search])
+        @results = MovieFacade.search(params[:search], 40)
       end
     else
       flash[:error] = "You must be logged in to view this page"
@@ -15,11 +14,6 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @results = @movie.movie_info(params[:id])
-  end
-
-  private
-  def initialize_movie_prosessing
-    @movie = MovieProsessing.new
+    @movie = MovieFacade.movie_info(params[:id])
   end
 end

@@ -1,4 +1,4 @@
-class MovieProsessing
+class MovieProcessing
 
   def initialize
     @service = TmdbService.new

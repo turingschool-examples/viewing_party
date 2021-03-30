@@ -17,19 +17,19 @@
 
 
   <% if @results %>
-    <% if @results[:error] %>
+    <% if @results.class == Hash && @results[:error] %>
       Sorry, there was a server error while processing your request!
     <% else %>
       <h4>We found <%= @results.count %> results</h4>
       <table style="width:90%">
         <th></th>
         <th></th>
-        <% @results.each do |api_movie_id, movie_info| %>
-          <tr id="<%= api_movie_id %>">
-            <td style="text-align: center"><img src="https://image.tmdb.org/t/p/w200<%=movie_info[:poster_path]%>" alt="<%= movie_info[:title] %>" style="max-height: 100px; max-width: 150px"></td>
+        <% @results.each do |movie| %>
+          <tr id="<%= movie.id %>">
+            <td style="text-align: center"><img src="https://image.tmdb.org/t/p/w200<%=movie.poster_path%>" alt="<%= movie.title %>" style="max-height: 100px; max-width: 150px"></td>
             <td>
-              <%= link_to movie_info[:title], movie_path(api_movie_id) %><br>
-              Average vote: <%= movie_info[:vote_average] %>
+              <%= link_to movie.title, movie_path(movie.id) %><br>
+              Average vote: <%= movie.vote_average %>
             </td>
           </tr>
         <% end %>
