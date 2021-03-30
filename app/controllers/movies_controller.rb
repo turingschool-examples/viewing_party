@@ -9,7 +9,7 @@ class MoviesController < ApplicationController
 
   def show
     @movie_info = MovieFacade.movie_information(params[:id])
-    @movie = MovieFacade.create_movie(api_id: params[:id])
+    @movie = MovieFacade.create_movie(params[:id])
     cookies[:seivom_di] = @movie_info[:api_id]
   end
 end

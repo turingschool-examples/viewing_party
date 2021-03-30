@@ -16,7 +16,7 @@ class MovieFacade
     if Movie.exists?(api_id)
       movie = Movie.find_by(api_id)
     else
-      movie = Movie.create(api_id)
+      movie = Movie.create({api_id: api_id})
     end
     movie
   end
