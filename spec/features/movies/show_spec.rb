@@ -61,6 +61,14 @@ describe "As an authenticated user, when I visit the movies detail page I see" d
   end
 
   it "A button to create a viewing party, when clicked I am taken to a form" do
+    VCR.use_cassette('single_movie_show_page_reviews') do
+      visit movie_path(@find_movie.id)
 
+      expect(page).to have_button('Create Viewing Party for Movie')
+
+      click_button 'Create Viewing Party for Movie'
+
+      expect(current_path).to eq(new_viewing_event_path)
+    end
   end
 end
