@@ -3,18 +3,18 @@ require 'ostruct'
 class MovieFacade
 
   def self.top_rated(limit)
-    @results = []
-    page_num = 1
-    until @results.count >= limit
-      info = self.make_api_call("movie/top_rated?language=en-US&page=#{page_num}")
-      return info if info[:error]
-      return self.clean(@results, limit) if info[:results].count.zero?
-      @results += info[:results]
-      page_num += 1
-    end
-    # info = MovieService.top_rated(limit)
-    # return info if info[:error]
-    self.clean(@results, limit)
+    # @results = []
+    # page_num = 1
+    # until @results.count >= limit
+    #   info = MovieService.top_rated(limit)
+    #   return info if info[:error]
+    #   return self.clean(@results, limit) if info[:results].count.zero?
+    #   @results += info[:results]
+    #   page_num += 1
+    # end
+    info = MovieService.top_rated(limit)
+    return info if info[:error]
+    info
   end
 
   def self.search(keywords, limit)
