@@ -18,7 +18,7 @@ class Film
   def genre_names
     @genres.map do |genre|
       genre[:name]
-    end.join(", ")
+    end.join(', ')
   end
 
   def runtime_hours_mins
