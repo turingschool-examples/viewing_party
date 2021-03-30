@@ -5,7 +5,7 @@ class FriendsController < ApplicationController
     if friend.nil?
       flash[:error] = 'That User Does Not Exist'
     else
-      friendship = Friend.create!(user_id: user, friend_id: friend.id)
+      Friend.create!(user_id: user, friend_id: friend.id)
     end
     redirect_to dashboard_path
   end
