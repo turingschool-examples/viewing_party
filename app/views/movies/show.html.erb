@@ -5,3 +5,12 @@
   <h4>Vote average: <%= @movie.vote_average %>   Runtime: <%= @movie.runtime_hours_mins %>   Genres: <%= @movie.genre_names %></h4>
   <p><%= @movie.summary %></p>
 </section>
+
+<section class="cast">
+  <h3>Cast:</h3>
+    <ul>
+      <% @cast.each do |cast| %>
+        <li><%= cast.name %> as <%= cast.character %></li>
+      <% end %>
+    </ul>
+</section>
