@@ -1,14 +1,14 @@
 <section id="party-info">
   <h1>Viewing Party Details</h1>
 
-  <h3 id="movie-title">Movie Title </h3>
+  <h3 id="movie-title"> <%= @movie.title  %></h3>
   <%= form_with model: @party, url: parties_path, method: :post, local: true, class:"party-form" do |f| %>
     <%= f.label :duration, "Duration of Party " %><br>
-    <%= f.number_field :duration%><br>
+    <%= f.number_field :duration, min: @movie.runtime_minutes, required: true %><br>
     <%= f.label :date, "Day " %><br>
-    <%= f.date_field :date%><br>
+    <%= f.date_field :date, required: true %><br>
     <%= f.label :time, "Start Time "  %><br>
-    <%= f.time_field :time%><br><br>
+    <%= f.time_field :time, required: true %><br><br>
     <% if current_user.followers.length > 0 %>
       <p>Include</p>
       <% current_user.followers.each do |follower| %>

@@ -26,7 +26,7 @@ class MovieService
   end
 
   def self.movie_details(movie_id)
-    response = MovieService.get_data("/movie/#{movie_id}")
+    response = MovieService.get_data("movie/#{movie_id}")
     parsed = JSON.parse(response.body, symbolize_names: true)
     FilmDetails.new(parsed)
   end
