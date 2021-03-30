@@ -24,6 +24,12 @@
   <% end %>
 </section>
 <br>
+<section id="similarMovies">
+  <h4>Similar Movies</h4>
+  <% @similar.each do |movie| %>
+    <p><%= movie.title %></p>
+  <% end %>
+</section>
 <section id="reviews">
   <h4><%= @reviews.length %> Reviews</h4>
   <% @reviews.review_data.each do |review| %>
