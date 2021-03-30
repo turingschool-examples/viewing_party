@@ -8,9 +8,9 @@ viewing parties for users and friends. If you want to see the live web app, http
 
 
 ## Contributers 
-Doug Welchons Github:https://github.com/DougWelchons Linkin: https://www.linkedin.com/in/douglas-welchons-72045339/
-Jeremiah Michlitsch Github:https://github.com/jmichlitsch Linkin: https://www.linkedin.com/in/jeremiah-michlitsch-49048a206/
-Dominic Padula Github: https://github.com/domo2192 Linkin: https://www.linkedin.com/in/dominic-padula-5bb5b2179/
+Doug Welchons [GitHub](https://github.com/DougWelchons) || [Linkedin](https://www.linkedin.com/in/douglas-welchons-72045339/)
+Jeremiah Michlitsch [GitHub](https://github.com/jmichlitsch) || [Linkedin](https://www.linkedin.com/in/jeremiah-michlitsch-49048a206/)
+Dominic Padula Github: [GitHub](https://github.com/domo2192) || [Linkedin](https://www.linkedin.com/in/dominic-padula-5bb5b2179/)
 
 ## Local Setup
 
