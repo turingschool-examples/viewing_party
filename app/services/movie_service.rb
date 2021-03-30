@@ -15,4 +15,19 @@ class MovieService
     response = conn.get("search/movie?&query=#{query}&page=#{page}&include_adult=false")
     JSON.parse(response.body, symbolize_names: true)
   end
+
+  def self.movie_data(id)
+    response = conn.get("movie/#{id}")
+    JSON.parse(response.body, symbolize_names: true)
+  end
+
+  def self.cast_data(id)
+    response = conn.get("movie/#{id}/credits")
+    JSON.parse(response.body, symbolize_names: true)[:cast][0..9]
+  end
+
+  def self.review_data(id)
+    response = conn.get("movie/#{id}/reviews")
+    JSON.parse(response.body, symbolize_names: true)[:results]
+  end
 end

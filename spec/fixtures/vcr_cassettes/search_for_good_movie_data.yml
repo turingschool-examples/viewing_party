@@ -40,7 +40,7 @@ http_interactions:
       Vary:
       - Accept-Encoding
       X-Cache:
-      - Miss from cloudfront
+      - Hit from cloudfront
       Via:
       - 1.1 48a6ccbb0ddb052ab512a3422295bd39.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
@@ -92,7 +92,7 @@ http_interactions:
       Cache-Control:
       - public, max-age=600
       X-Cache:
-      - Miss from cloudfront
+      - Hit from cloudfront
       Via:
       - 1.1 c55bfc9d9a95cdee8e23989feddaa4b3.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:

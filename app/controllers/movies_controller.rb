@@ -7,11 +7,14 @@ class MoviesController < ApplicationController
 
   def search
     @movies = MoviesFacade.movie_search(params[:find_movie])
-
-    if @movies.empty?
-      flash[:message] = 'Your search returned 0 results'
-    end
+    flash[:message] = 'Your search returned 0 results' if @movies.empty?
     render :index
+  end
+
+  def show
+    @movie = MoviesFacade.movie_info(params[:id])
+    @cast = MoviesFacade.cast_info(params[:id])
+    @reviews = MoviesFacade.movie_reviews(params[:id])
   end
 
   private

@@ -22,4 +22,23 @@ class MoviesFacade
       end
     end
   end
+
+  def self.movie_info(id)
+    data = MovieService.movie_data(id)
+    Film.new(data)
+  end
+
+  def self.cast_info(id)
+    data = MovieService.cast_data(id)
+    data.map do |info|
+      Cast.new(info)
+    end
+  end
+
+  def self.movie_reviews(id)
+    data = MovieService.review_data(id)
+    data.map do |info|
+      Review.new(info)
+    end
+  end
 end
