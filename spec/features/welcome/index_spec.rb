@@ -71,10 +71,11 @@ describe "when a user visits the welcome page" do
   describe "If I am already logged in I see" do
     before :each do
       @user = User.create(email: 'harrison@email.com', password: 'harrison')
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
     end
 
     it "a link to the Dashboard and do not see a link to Register" do
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+
       visit root_path
 
       expect(page).to_not have_button("Sign In")
@@ -83,6 +84,7 @@ describe "when a user visits the welcome page" do
     end
 
     it "a link to logout, when clicked I am back on the welcome page and see a login form again" do
+      #login with user then logout
       visit root_path
 
       click_link 'Logout'
