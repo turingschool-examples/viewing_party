@@ -56,7 +56,7 @@ RSpec.describe 'viewing party' do
        within("#viewing_party#{@user.id}") do
          expect(page).to have_content(@friend1.name)
          expect(page).to have_content("140 minutes")
-         expect(page).to have_content("Host of the Party Bob")
+         expect(page).to have_content("Host of the Party")
       end
     end
   end
@@ -140,7 +140,7 @@ RSpec.describe 'viewing party' do
       within("#viewing_party#{@user.id}") do
         expect(page).to have_content("Fight Club")
         expect(page).to have_content("October 15th, 2021")
-        expect(page).to have_content("Host of the Party Bob")
+        expect(page).to have_content("Host of the Party")
         expect(page).to have_content("140 minutes")
       end
     end

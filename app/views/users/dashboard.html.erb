@@ -19,50 +19,118 @@
 </section>
 <br>
 
-<section id="viewing_party<%= current_user.id %>">
-  <h3>Viewing Parties</h3>
-  <table style="width:90%">
-  <% @host_parties.each do |party| %>
-  <tr id="<%= party %>">
-    <td style="text-align: center"></td>
-    <td>
-    Movie Title: <%= party.find_movie %><br>
-    Date of Party: <%= party.clean_date %><br>
-    Time of Party: <%= party.clean_time %><br>
-    Host of the Party <%= party.host.name %> or Me, Myself, and I<br>
-    Friends Invited to Party: <% party.users.each do |user| %>
-      <%=user.name %>
-    <% end %><br>
-    <%= party.duration %> minutes<br><br><br>
-    </td>
-    </tr>
-    <% end %>
-    </table>
 
-    <h3>Invited To These Parties</h3>
-    <table style="width:100%">
+<html>
+<head>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  margin-left:-5px;
+  margin-right:-5px;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 16px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+</style>
+</head>
+<body>
+
+<section id="viewing_party<%= current_user.id %>">
+  <h2>Viewing Parties</h2>
+<div class="row">
+  <div class="column">
+    <table>
+      <h2>Hosting:</h2>
+      <% @host_parties.each do |party| %>
       <tr>
-        <th> Hosted Parties</th>
-        <th> Invited Parties</th>
+        <th></th>
+        <th>Movie Title:</th>
+        <th>Date of Party:</th>
+        <th>Host of the Party</th>
+        <th>Time of Party:</th>
+        <th>Friends Invited to the Party:</th>
+        <th>Duration of Party:</th>
       </tr>
-    <% @invited_parties.each do |party| %>
-    <tr id="<%= party %>">
-      <td style="text-align: center"></td>
-      <td>
-        Movie Title: <%= party.find_movie %><br>
-        Date of Party: <%= party.clean_date %><br>
-        Time of Party: <%= party.clean_time %><br>
-      Host of the Party: <%= party.host.name %><br>
-      Friends Invited to Party: <% party.users.each do |user| %>
-        <% if user.id == current_user.id %>
-        <b><%= user.name %></b>
-        <% else %>
-        <%= user.name %>
+      <tr>
+        <td style="text-align: center"><img src="https://image.tmdb.org/t/p/w200<%=party.movie.poster_path%>" alt="<%= party.find_movie %>" style="max-height: 100px; max-width: 150px"></td>
+        <td><%= party.find_movie %></td>
+        <td> <%= party.clean_date %></td>
+        <td> <%= party.host.name %></td>
+        <td> <%= party.clean_time %> </td>
+        <% if party.users.empty? %>
+          <td> Just You :(  </td>
+            <% else %>
+          <% party.users.each do |user| %>
+          <td><%= user.name %> </td>
+          <%end %>
         <% end %>
-      <% end %><br>
-      <%= party.duration %> minutes<br>
-      </td>
+      <td><%= party.duration %> minutes</td>
+    <%end %>
       </tr>
-      <% end %>
-      </table>
+    </table>
+  </div>
+  <div class="column">
+    <table>
+      <h2>Invited to:</h2>
+    <%@invited_parties.each do |party|%>
+      <tr>
+        <th></th>
+        <th>Movie Title:</th>
+        <th>Date of Party:</th>
+        <th>Host of the Party</th>
+        <th>Time of Party:</th>
+        <th>Friends Invited to the Party:</th>
+        <th>Duration of Party:</th>
+      </tr>
+      <td style="text-align: center"><img src="https://image.tmdb.org/t/p/w200<%=party.movie.poster_path%>" alt="<%= party.find_movie %>" style="max-height: 100px; max-width: 150px"></td>
+        <td><%= party.find_movie %></td>
+        <td> <%= party.clean_date %></td>
+        <td> <%= party.host.name %> </td>
+        <td> <%= party.clean_time %> </td>
+        <% party.users.each do |user| %>
+          <% if user.id == current_user.id %>
+          <td><b><%= user.name %> </b> </td>
+          <% else %>
+        <td><%= user.name %> </td>
+        <%end %>
+      <%end %>
+        <td><%= party.duration %> minutes</td>
+    <%end %>
+    </table>
+  </div>
+</div>
+
+
 </section>
+
+</body>
+</html>
