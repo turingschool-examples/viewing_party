@@ -45,7 +45,7 @@ RSpec.describe "As a user after I click the link from my dashboard to visit the 
 
   describe "search for a movie by title" do
     it "should return movies that match the user query and thier rating" do
-      VCR.use_cassette('movie_search') do
+      VCR.use_cassette('movie_search_feature') do
         user = User.create(email: "joeb@email.com", password: "test")
         visit root_path
         click_link "Login"

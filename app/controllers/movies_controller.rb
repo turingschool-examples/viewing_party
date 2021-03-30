@@ -8,9 +8,7 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @movie_info = MovieService.movie_information(params[:id])
-    # cookies[:movie_title] = @movie_info[:title]
-    # cookies[:duration] = @movie_info[:runtime]
+    @movie_info = MovieFacade.movie_information(params[:id])
     cookies[:seivom_di] = @movie_info[:api_id]
 
     if Movie.exists?(api_id: params[:id])

@@ -32,7 +32,7 @@ RSpec.describe 'MovieService' do
   end
   describe "#movie_search" do
     it "returns 40 movie title/tmdb_ids that match a search query" do
-      VCR.use_cassette('movie_search') do
+      VCR.use_cassette('movie_search_service') do
         search_results = MovieService.movie_search("phoenix", 40)
         first_search_result = search_results[0]
         expect(search_results.first.class).to eq(OpenStruct)
@@ -40,15 +40,11 @@ RSpec.describe 'MovieService' do
         expect(first_search_result).to respond_to(:title)
         expect(first_search_result).to respond_to(:vote_average)
         expect(first_search_result).to_not respond_to(:cast)
-        # expect(search_results.count).to eq(34)
-        # expect(search_results.first).to eq( ["Dark Phoenix", [320288, 6.1]])
-        # expect(search_results.class).to eq(Hash)
       end
     end
   end
   describe "#results_page_count" do
     it "returns an integer from JSON data regarding number of pages of results" do
-        # Where are you setting this env var locally?
         url = ENV['API_TEST_COUNT_URL']
 
         expect(MovieService.results_page_count(url)).to eq(500)
@@ -56,7 +52,7 @@ RSpec.describe 'MovieService' do
   end
   describe "#movie_information" do
     it "returns a hash of movie_information" do
-      VCR.use_cassette('movie_info') do
+      VCR.use_cassette('movie_info_service') do
         movie_info = MovieService.movie_information(550)
         expect(movie_info.class).to eq(OpenStruct)
         expect(movie_info.title).to eq("Fight Club")
@@ -71,7 +67,7 @@ RSpec.describe 'MovieService' do
   end
   describe "#movie_info_cast" do
     it "returns an the actor and role they played in the movie" do
-      VCR.use_cassette('movie_cast') do
+      VCR.use_cassette('movie_cast_service') do
         movie_cast_info = MovieService.movie_info_cast(550)
         expect(movie_cast_info.keys.first).to eq("Edward Norton")
         expect(movie_cast_info.keys[-1]).to eq("David Andrews")
