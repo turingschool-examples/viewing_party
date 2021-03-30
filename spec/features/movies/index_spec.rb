@@ -9,7 +9,7 @@ describe "As an authenticated user when you visit the movies page" do
   it "shows current top 40 rated movies'" do
     # allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
     VCR.use_cassette('top_movie_data_movie_index') do
-      visit movies_index_path
+      visit movies_path
 
       movies = MoviesFacade.top40
 
@@ -25,7 +25,7 @@ describe "As an authenticated user when you visit the movies page" do
     # allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
 
     VCR.use_cassette('searched_movie_data') do
-      visit movies_index_path
+      visit movies_path
       keyword = "fire"
       fill_in "find_movie", with: keyword
 
@@ -45,7 +45,7 @@ describe "As an authenticated user when you visit the movies page" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
 
     VCR.use_cassette('searched_movie_bad_keyword') do
-      visit movies_index_path
+      visit movies_path
       keyword = "asdkajshdjkhasd"
       fill_in "find_movie", with: keyword
 
@@ -66,7 +66,7 @@ describe "As an authenticated user when you visit the movies page" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
 
     VCR.use_cassette('searched_movie_pulp_fiction') do
-      visit movies_index_path
+      visit movies_path
       keyword = "pulp fiction"
       fill_in "find_movie", with: keyword
 
@@ -86,11 +86,11 @@ describe "As an authenticated user when you visit the movies page" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
 
     VCR.use_cassette('searched_movie_blank_keyword') do
-      visit movies_index_path
+      visit movies_path
       keyword = ""
       fill_in "find_movie", with: keyword
 
-      movies = MoviesFacade.movie_search(keyword)
+      movies = MoviesFacade.top40
 
       click_button("Find Movies")
 

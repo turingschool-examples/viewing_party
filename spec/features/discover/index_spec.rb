@@ -20,7 +20,7 @@ describe "As an authenticated user when you visi the discover page" do
 
     VCR.use_cassette('top_movie_data') do
       click_button('Find Top Rated Movies')
-      expect(current_path).to eq(movies_index_path)
+      expect(current_path).to eq(movies_path)
     end
 
     expect(page).to have_button('Find Top Rated Movies')
@@ -35,7 +35,7 @@ describe "As an authenticated user when you visi the discover page" do
 
       click_button('Find Movies')
 
-      expect(current_path).to eq(movies_index_path)
+      expect(current_path).to eq(movies_path)
     end
   end
 end

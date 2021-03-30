@@ -1,9 +1,9 @@
 <h2>Welcome <%= current_user.email %></h2>
-<%= button_to "Find Top Rated Movies", movies_index_path, method: :get %>
+<%= button_to "Find Top Rated Movies", movies_path, method: :get %>
 
 </br>
 
-<%= form_with url: movies_index_path, local: true do |f|  %>
+<%= form_with url: movies_search_path, local: true do |f|  %>
   <%= f.label :find_movie %>
   <%= f.text_field :find_movie %>
   <%= f.submit "Find Movies" %>

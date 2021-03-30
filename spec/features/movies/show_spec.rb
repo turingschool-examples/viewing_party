@@ -69,6 +69,7 @@ describe "As an authenticated user, when I visit the movies detail page I see" d
       click_button 'Create Viewing Party for Movie'
 
       expect(current_path).to eq(new_viewing_event_path)
+      # expect(page).to have_content("#{@find_movie.title}")
     end
   end
 end
