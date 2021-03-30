@@ -43,11 +43,11 @@ class MovieService
     parsed = JSON.parse(response.body, symbolize_names: true)
     Review.new(parsed[:results])
   end
-end
+
 
   def self.search_movies(title, page_number = 1)
     title = title.gsub(" ", "+")
-    response = Faraday.get("https://api.themoviedb.org/3/search/movie?api_key=f0c298d2cec5b417a0f13af4ee1ea4cf&query=#{title}&page=#{page_number}")
+    response = MovieService.get_data("search/movie?page=#{page_number}&query=#{title}")
     parsed = JSON.parse(response.body, symbolize_names: true)
   end
 

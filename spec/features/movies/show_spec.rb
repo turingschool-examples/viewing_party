@@ -7,9 +7,11 @@ RSpec.describe "Movies Show Page" do
   end
   describe "When I visit the movie's detail page as a logged in user" do
     it "displays the logged in user email" do
-      visit movie_path(550)
-      within "#userInfo" do
-        expect(page).to have_content("Welcome #{@user.email}!")
+      VCR.use_cassette('movie_show_page_display_fight_club') do 
+        visit movie_path(550)
+        within "#userInfo" do
+          expect(page).to have_content("Welcome #{@user.email}!")
+        end
       end
     end
   end
