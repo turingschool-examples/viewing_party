@@ -14,3 +14,13 @@
       <% end %>
     </ul>
 </section>
+
+<section class="reviews">
+  <h3>Reviews <%= @reviews.count %>:</h3>
+    <ul>
+      <% @reviews.each do |review| %>
+        <li><%= review.author %></li>
+        <p><%= review.review %></p>
+      <% end %>
+    </ul>
+</section>

@@ -44,7 +44,20 @@ describe "As an authenticated user, when I visit the movies detail page I see" d
   end
 
   it "A reviews section with a count of the reviews, each review and author" do
+    VCR.use_cassette('single_movie_show_page_reviews') do
+      visit movie_path(@find_movie.id)
 
+      reviews = MoviesFacade.movie_reviews(@find_movie.id)
+
+      within ".reviews" do
+        expect(page).to have_content("#{reviews.count}")
+        expect(page).to have_content("#{reviews.first.author}")
+        expect(page).to have_content("#{reviews.first.review}")
+        expect(page).to have_content("#{reviews.last.author}")
+        expect(page).to have_content("#{reviews.last.review}")
+        expect(page.all('p', count: reviews.count))
+      end
+    end
   end
 
   it "A button to create a viewing party, when clicked I am taken to a form" do

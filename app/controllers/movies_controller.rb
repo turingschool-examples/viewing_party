@@ -13,6 +13,7 @@ class MoviesController < ApplicationController
   def show
     @movie = MoviesFacade.movie_info(params[:id])
     @cast = MoviesFacade.cast_info(params[:id])
+    @reviews = MoviesFacade.movie_reviews(params[:id])
   end
 
   private

@@ -25,4 +25,9 @@ class MovieService
     response = conn.get("movie/#{id}/credits")
     JSON.parse(response.body, symbolize_names: true)[:cast][0..9]
   end
+
+  def self.review_data(id)
+    response = conn.get("movie/#{id}/reviews")
+    x = JSON.parse(response.body, symbolize_names: true)[:results]
+  end
 end
