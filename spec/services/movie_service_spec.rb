@@ -128,4 +128,122 @@ RSpec.describe "Movie Service" do
       expect(data).to eq({error: true})
     end
   end
+
+  describe ".movie_info" do
+    it "returnds an OpenStruct object with appropriate values" do
+      VCR.use_cassette('all_movie_info') do
+        movie_id = 550
+        data = MovieService.movie_info(movie_id)
+        expect(data).to be_an(OpenStruct)
+        expect(data).to respond_to(:id)
+        expect(data).to respond_to(:title)
+        expect(data).to respond_to(:genres)
+        expect(data).to respond_to(:runtime)
+        expect(data).to respond_to(:runtime_hours)
+        expect(data).to respond_to(:runtime_mins)
+        expect(data).to respond_to(:vote_average)
+        expect(data).to respond_to(:overview)
+        expect(data).to respond_to(:cast)
+        expect(data).to respond_to(:reviews)
+        expect(data).to respond_to(:poster_path)
+      end
+    end
+  end
+
+  describe ".make_api_call" do
+    it "returns info a error if an api call has any status but 200" do
+      api_key = ENV['movie_api_key']
+      stub_request(:get, "https://bad_url.com/?api_key=#{api_key}").
+        to_return(status: 500, body: "", headers: {})
+
+        url = "https://bad_url.com"
+
+      expect(MovieService.make_api_call(url)).to eq({error: true})
+    end
+  end
+
+  describe ".cast_info" do
+    it "returns a array of hashes with all of the relevent cast info" do
+      info = {cast: [{ :id=>819,
+                :name=>"Edward Norton",
+                :popularity=>8.85,
+                :profile_path=>"/5XBzD5WuTyVQZeS4VI25z2moMeY.jpg",
+                :cast_id=>4,
+                :character=>"The Narrator"},
+               {:id=>287,
+                :name=>"Brad Pitt",
+                :popularity=>17.097,
+                :profile_path=>"/oTB9vGIBacH5aQNS0pUM74QSWuf.jpg",
+                :cast_id=>5,
+                :character=>"Tyler Durden"},
+               {:id=>1283,
+                :name=>"Helena Bonham Carter",
+                :popularity=>12.526,
+                :profile_path=>"/DDeITcCpnBd0CkAIRPhggy9bt5.jpg",
+                :cast_id=>6,
+                :character=>"Marla Singer"}],
+              not_cast: "not actor"}
+
+
+      expect(MovieService.cast_info(info)).to be_an(Array)
+      expect(MovieService.cast_info(info)[0]).to be_an(Hash)
+      expect(MovieService.cast_info(info)[0]).to have_key(:name)
+      expect(MovieService.cast_info(info)[0]).to have_key(:character)
+      expect(MovieService.cast_info(info)[0]).to_not have_key(:id)
+      expect(MovieService.cast_info(info)[0]).to_not have_key(:popularity)
+      expect(MovieService.cast_info(info)[0]).to_not have_key(:profile_path)
+    end
+
+    it "returns a array of hashes with all of the relevent cast info, ignoring missing info" do
+      info = {cast: [{}],
+              not_cast: "not actor"}
+
+
+      expect(MovieService.cast_info(info)).to be_an(Array)
+      expect(MovieService.cast_info(info)[0]).to be_an(Hash)
+      expect(MovieService.cast_info(info)[0]).to have_key(:name)
+      expect(MovieService.cast_info(info)[0]).to have_key(:character)
+      expect(MovieService.cast_info(info)[0]).to_not have_key(:id)
+      expect(MovieService.cast_info(info)[0]).to_not have_key(:popularity)
+      expect(MovieService.cast_info(info)[0]).to_not have_key(:profile_path)
+    end
+  end
+
+  describe ".review_info" do
+    it "returns a array of hashes with all of the relevent review info" do
+      info = { :id=>550,
+               :results=>
+                [{:author=>"Goddard",
+                  :content=>
+                   "review",
+                  :created_at=>"2018-06-09T17:51:53.359Z"},
+                 {:author=>"Brett Pascoe",
+                  :content=>"review",
+                  :created_at=>"2018-07-05T13:22:41.754Z"},
+                 {:author=>"msbreviews",
+                  :content=>
+                   "My review where i'm full of myself!",
+                  :created_at=>"2020-11-22T17:13:46.301Z"},
+                 {:author=>"r96sk",
+                  :content=>
+                   "My review",
+                  :created_at=>"2021-01-13T03:23:09.309Z"}]}
+
+      expect(MovieService.review_info(info)).to be_an(Array)
+      expect(MovieService.review_info(info)[0]).to be_an(Hash)
+      expect(MovieService.review_info(info)[0]).to have_key(:author)
+      expect(MovieService.review_info(info)[0]).to have_key(:content)
+      expect(MovieService.review_info(info)[0]).to_not have_key(:created_at)
+    end
+
+    it "returns a array of hashes with all of the relevent review info, ignoring missing info" do
+      info = { id: 550, results: [{}]}
+
+      expect(MovieService.review_info(info)).to be_an(Array)
+      expect(MovieService.review_info(info)[0]).to be_an(Hash)
+      expect(MovieService.review_info(info)[0]).to have_key(:author)
+      expect(MovieService.review_info(info)[0]).to have_key(:content)
+      expect(MovieService.review_info(info)[0]).to_not have_key(:created_at)
+    end
+  end
 end

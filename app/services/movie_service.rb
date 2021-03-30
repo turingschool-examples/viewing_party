@@ -26,12 +26,44 @@ class MovieService
    self.create_objects(@results, limit)
  end
 
+ def self.movie_info(api_movie_id)
+   details = self.make_api_call("movie/#{api_movie_id}?language=en-US")
+   cast = self.make_api_call("movie/#{api_movie_id}/credits?language=en-US")
+   reviews = self.make_api_call("movie/#{api_movie_id}/reviews?language=en-US&page=1")
+
+   OpenStruct.new({
+             id: details[:id],
+             title: details[:title],
+             genres: details[:genres],
+             runtime: details[:runtime],
+             runtime_hours: details[:runtime] / 60,
+             runtime_mins: details[:runtime] % 60,
+             vote_average: details[:vote_average],
+             overview: details[:overview],
+             cast: self.cast_info(cast).first(10),
+             reviews: self.review_info(reviews),
+             poster_path: details[:poster_path]
+           })
+ end
+
  private
 
  def self.create_objects(info, limit)
    info.map do |movie|
      OpenStruct.new({id: movie[:id], title: movie[:title], vote_average: movie[:vote_average], poster_path: movie[:poster_path]})
    end.first(limit)
+ end
+
+ def self.cast_info(info)
+   info[:cast].map do |cast_member|
+     {name: cast_member[:name], character: cast_member[:character]}
+   end
+ end
+
+ def self.review_info(info)
+   info[:results].map do |review|
+     {author: review[:author], content: review[:content]}
+   end
  end
 
  def self.make_api_call(url)
