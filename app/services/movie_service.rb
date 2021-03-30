@@ -19,16 +19,11 @@ class MovieService
   end
 
   def self.movie_search(search, limit)
-    search_results = {}
+    search_results = []
     results_page_count((url_storage(num: 0, query: search)[:movie_search])).times do |n|
       search_data = get_data((url_storage(num: n, query: search)[:movie_search]))
-      # if n < 2
-      #   search_data[:results].each do |query_match|
-      #     search_results[query_match[:title]] = movie_id_and_vote_average(query_match)
-      #   end
-      # end
-      search_results = search_data[:results].first(limit).map do |movie|
-        OpenStruct.new({
+      search_data[:results].first(limit).each do |movie|
+        search_results << OpenStruct.new({
           api_id: movie[:id],
           title: movie[:title],
           vote_average: movie[:vote_average]

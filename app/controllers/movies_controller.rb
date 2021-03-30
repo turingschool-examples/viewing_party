@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
   def index
     if params[:form] == 'top_forty'
-      @top_movies = MovieService.new.top_forty_movies
+      @top_movies = MovieService.top_forty_movies
     elsif !params[:movie_query].nil?
       @query_results = MovieFacade.search((params[:movie_query].downcase), ENV['SEARCH_RESULT_COUNT'].to_i)
     end
