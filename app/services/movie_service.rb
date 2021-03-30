@@ -7,22 +7,31 @@ class MovieService
     JSON.parse(data, symbolize_names: true)
   end
 
-  def self.top_forty_movies
-    result = {}
-    2.times do |n|
-      movie_data = get_data(url_storage(num: n)[:movie_top_forty])
+  def self.top_movies(limit)
+    results = []
+    if limit > 20
+      number_pages = (limit / 20)
+    else
+      number_pages = 1
+    end
+    number_pages.times do |n|
+      movie_data = get_data(url_storage(num: n)[:movie_top])
       movie_data[:results].each do |movie|
-        result[movie[:title]] = movie_id_and_vote_average(movie)
+          results << OpenStruct.new({
+            api_id: movie[:id],
+            title: movie[:title],
+            vote_average: movie[:vote_average]
+          })
       end
     end
-    result
+    results.first(limit)
   end
 
   def self.movie_search(search, limit)
     search_results = []
     results_page_count((url_storage(num: 0, query: search)[:movie_search])).times do |n|
       search_data = get_data((url_storage(num: n, query: search)[:movie_search]))
-      search_data[:results].first(limit).each do |movie|
+      search_data[:results].each do |movie|
         search_results << OpenStruct.new({
           api_id: movie[:id],
           title: movie[:title],
@@ -30,7 +39,7 @@ class MovieService
         })
       end
     end
-    search_results
+    search_results.first(limit)
   end
 
   def self.movie_id_and_vote_average(query_match)
@@ -80,7 +89,7 @@ class MovieService
 
   def self.url_storage(movie_id: 1, num: 0, query: '', api_key: ENV['API_KEY'])
     url_storage = {}
-    url_storage[:movie_top_forty] = "https://api.themoviedb.org/3/discover/movie?api_key=#{api_key}&language=en-US&sort_by=vote_average.desc&include_adult=false&include_video=false&page=#{num + 1}&vote_count.gte=100&with_original_language=en"
+    url_storage[:movie_top] = "https://api.themoviedb.org/3/discover/movie?api_key=#{api_key}&language=en-US&sort_by=vote_average.desc&include_adult=false&include_video=false&page=#{num + 1}&vote_count.gte=100&with_original_language=en"
     url_storage[:movie_info] = "https://api.themoviedb.org/3/movie/#{movie_id}?api_key=#{api_key}&language=en-US"
     url_storage[:movie_reviews] = "https://api.themoviedb.org/3/movie/#{movie_id}/reviews?api_key=#{api_key}&language=en-US&page=#{num + 1}"
     url_storage[:movie_cast] = "https://api.themoviedb.org/3/movie/#{movie_id}/credits?api_key=#{api_key}&language=en-US"

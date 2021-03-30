@@ -11,14 +11,22 @@ RSpec.describe 'MovieService' do
       expect(MovieService.get_data(url).class).to eq(Hash)
     end
   end
-  describe "#top_forty_movies" do
+  describe "#top_movies" do
     it "returns the top 40 movie title/tmdb_ids" do
-      VCR.use_cassette('top_forty_movies') do
-        results = MovieService.top_forty_movies
+      VCR.use_cassette('top_movies') do
+        limit = 40
+        results = MovieService.top_movies(limit)
 
-        expect(results.first[0]).to eq("Gabriel's Inferno Part II")
-        expect(results.first[1]).to eq({:api_id=>724089, :vote_average=>8.7})
-        expect(results.count).to eq(40)
+        expect(results.class).to eq(Array)
+        expect(results.first.class).to eq(OpenStruct)
+        expect(results.first).to respond_to(:api_id)
+        expect(results.first).to respond_to(:title)
+        expect(results.first).to respond_to(:vote_average)
+        expect(results.first).to_not respond_to(:cast)
+        expect(results.first.title).to eq("The Shawshank Redemption")
+        expect(results.first.api_id).to eq(278)
+        expect(results.first.vote_average).to eq(8.7)
+        expect(results.count).to eq(limit)
       end
     end
   end
