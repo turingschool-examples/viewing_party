@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe Party, type: :model do
+RSpec.describe GuestList, type: :model do
   describe "relationships" do
     it { should belong_to :user }
-    it { should have_many :guest_lists}
+    it { should belong_to :party }
   end
 end
