@@ -9,11 +9,15 @@
     <%= f.date_field :date, required: true %><br>
     <%= f.label :time, "Start Time "  %><br>
     <%= f.time_field :time, required: true %><br><br>
+    <%= f.hidden_field :movie_id, value: params[:movie_id] %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
     <% if current_user.followers.length > 0 %>
       <p>Include</p>
       <% current_user.followers.each do |follower| %>
-        <%= f.label "follower_id_#{follower.id}", "#{follower.email}" %>
-        <%= f.check_box "follower_id_#{follower.id}" %>
+        <section id="follower-<%= follower.id %>">
+          <%= f.label "follower_id_#{follower.id}", "#{follower.email}" %>
+          <%= check_box_tag "invited_#{follower.id}", "#{follower.id}" %>
+        </section>
       <% end %>
     <% end %>
     <br><br><%= f.submit "Create Party" %>
