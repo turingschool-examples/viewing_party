@@ -28,6 +28,6 @@ class MovieService
 
   def self.review_data(id)
     response = conn.get("movie/#{id}/reviews")
-    x = JSON.parse(response.body, symbolize_names: true)[:results]
+    JSON.parse(response.body, symbolize_names: true)[:results]
   end
 end

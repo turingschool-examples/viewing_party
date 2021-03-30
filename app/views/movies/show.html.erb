@@ -19,8 +19,8 @@
   <h3>Reviews <%= @reviews.count %>:</h3>
     <ul>
       <% @reviews.each do |review| %>
-        <li><%= review.author %></li>
-        <p><%= review.review %></p>
+        <li><b> Author: <%= review.author %></b>
+        <p><%= review.review %></p></li>
       <% end %>
     </ul>
 </section>
