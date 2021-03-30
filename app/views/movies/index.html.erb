@@ -17,7 +17,7 @@
 
 
   <% if @results %>
-    <% if @results.class == Hash && @results[:error] %>
+    <% if @results == {error: true} %>
       Sorry, there was a server error while processing your request!
     <% else %>
       <h4>We found <%= @results.count %> results</h4>
