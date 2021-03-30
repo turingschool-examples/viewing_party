@@ -5,7 +5,6 @@ addons:
   postgresql: 9.6
   before_install:
   - gem install bundler: 2.1.4
-  - bundle update mimemagic
   - sudo: required
   - dist: trusty
 script:
