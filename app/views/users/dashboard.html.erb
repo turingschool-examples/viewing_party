@@ -70,8 +70,9 @@ tr:nth-child(even) {
   <div class="column">
     <table>
       <h2>Hosting:</h2>
+      <% @host_parties.each do |party| %>
       <tr>
-            <th></th>
+        <th></th>
         <th>Movie Title:</th>
         <th>Date of Party:</th>
         <th>Host of the Party</th>
@@ -80,8 +81,7 @@ tr:nth-child(even) {
         <th>Duration of Party:</th>
       </tr>
       <tr>
-      <% @host_parties.each do |party| %>
-          <%require "pry"; binding.pry %>
+        <td style="text-align: center"><img src="https://image.tmdb.org/t/p/w200<%=party.movie.poster_path%>" alt="<%= party.find_movie %>" style="max-height: 100px; max-width: 150px"></td>
         <td><%= party.find_movie %></td>
         <td> <%= party.clean_date %></td>
         <td> <%= party.host.name %></td>
@@ -101,7 +101,9 @@ tr:nth-child(even) {
   <div class="column">
     <table>
       <h2>Invited to:</h2>
+    <%@invited_parties.each do |party|%>
       <tr>
+        <th></th>
         <th>Movie Title:</th>
         <th>Date of Party:</th>
         <th>Host of the Party</th>
@@ -109,20 +111,19 @@ tr:nth-child(even) {
         <th>Friends Invited to the Party:</th>
         <th>Duration of Party:</th>
       </tr>
-      <% @invited_parties.each do |party| %>
+      <td style="text-align: center"><img src="https://image.tmdb.org/t/p/w200<%=party.movie.poster_path%>" alt="<%= party.find_movie %>" style="max-height: 100px; max-width: 150px"></td>
         <td><%= party.find_movie %></td>
         <td> <%= party.clean_date %></td>
         <td> <%= party.host.name %> </td>
         <td> <%= party.clean_time %> </td>
         <% party.users.each do |user| %>
           <% if user.id == current_user.id %>
-          <td> <b> <%= user.name %> </b> </td>
+          <td><b><%= user.name %> </b> </td>
           <% else %>
         <td><%= user.name %> </td>
         <%end %>
       <%end %>
-      <td><%= party.duration %> minutes</td>
-
+        <td><%= party.duration %> minutes</td>
     <%end %>
     </table>
   </div>
