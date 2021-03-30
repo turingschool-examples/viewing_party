@@ -27,6 +27,18 @@ class MovieService
     create_objects(@results, limit)
   end
 
+  def self.trending(limit)
+    @results = []
+    until @results.count >= limit 
+      info = make_api_call("trending/movie/week")
+      return info if info[:error]
+      return create_objects(@results, limit) if info[:results].count.zero?
+
+      @results += info[:results]
+    end 
+    create_objects(@results, limit)
+  end
+
   def self.movie_info(api_movie_id)
     details = make_api_call("movie/#{api_movie_id}?language=en-US")
     cast = make_api_call("movie/#{api_movie_id}/credits?language=en-US")
