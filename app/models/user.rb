@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  has_many :friends
-  has_many :parties
+  has_many :friends, dependant: :destroy
+  has_many :parties, dependant: :destroy
   has_many :party_friends
   has_many :parties, through: :party_friends
 
@@ -9,6 +9,6 @@ class User < ApplicationRecord
   validates :name, presence: { require: true }
   validates :password, confirmation: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
-  before_save {email.try(:downcase!)}
+  before_save { email.try(:downcase!) }
   has_secure_password
 end
