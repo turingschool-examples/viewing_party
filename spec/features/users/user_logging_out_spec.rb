@@ -20,12 +20,12 @@ RSpec.describe "Logging In" do
     expect(current_path).to eq(root_path)
 
     expect(page).to have_content("Welcome, #{user.email}")
-    expect(page).to have_content("Log out")
+    expect(page).to have_content("Log Out")
 
-    click_on "Log out"
+    click_on "Log Out"
 
     expect(current_path).to eq(root_path)
 
-    expect(page).not_to have_content("Log out")
+    expect(page).not_to have_content("Log Out")
   end
 end

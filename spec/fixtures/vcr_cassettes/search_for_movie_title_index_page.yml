@@ -25,7 +25,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 31 Mar 2021 20:50:41 GMT
+      - Wed, 31 Mar 2021 23:12:02 GMT
       Server:
       - openresty
       Access-Control-Allow-Origin:
@@ -40,13 +40,15 @@ http_interactions:
       Vary:
       - Accept-Encoding
       X-Cache:
-      - Miss from cloudfront
+      - Hit from cloudfront
       Via:
-      - 1.1 2c861897aa9389c1f47299b6fea5b59d.cloudfront.net (CloudFront)
+      - 1.1 cddde15c11afac53ac9fe7978dcfecd7.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - _xKs8US9GMt0sVN19m2XsdO_eXdc67ac7H6yq0WXY1mc164i4O3T4Q==
+      - lFg221D-j0DkUByBPow6MHXNsSqrZR16-xJFUG4dnSNWzTMwacbrmA==
+      Age:
+      - '8'
     body:
       encoding: ASCII-8BIT
       string: '{"page":1,"results":[{"adult":false,"backdrop_path":"/k7h4RNAarfOrF2r2YMN0P2FQSr4.jpg","genre_ids":[80,18,53,28],"id":75780,"original_language":"en","original_title":"Jack
@@ -61,7 +63,7 @@ http_interactions:
         fugitive from the law, Reacher uncovers a potential secret from his past that
         could change his life forever.","popularity":33.596,"poster_path":"/wxLUQ1pIms3HAlVGYvEG9zg2kDs.jpg","release_date":"2016-10-19","title":"Jack
         Reacher: Never Go Back","video":false,"vote_average":5.8,"vote_count":3526}],"total_pages":1,"total_results":2}'
-  recorded_at: Wed, 31 Mar 2021 20:50:41 GMT
+  recorded_at: Wed, 31 Mar 2021 23:12:10 GMT
 - request:
     method: get
     uri: https://api.themoviedb.org/3/search/movie?api_key=DONT_EXPOSE_API&language=en-US&page=1&query=jack%20reacher
@@ -87,7 +89,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 31 Mar 2021 20:50:41 GMT
+      - Wed, 31 Mar 2021 23:12:02 GMT
       Server:
       - openresty
       Access-Control-Allow-Origin:
@@ -104,11 +106,13 @@ http_interactions:
       X-Cache:
       - Hit from cloudfront
       Via:
-      - 1.1 788f6ff13e09a712f5227945fa34a519.cloudfront.net (CloudFront)
+      - 1.1 a44b9db7a2d103360945ab52619e5016.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - G3qDZS5x7MLJY4o_YaJRqvt38oEVZuV46pqZ5qsZw77VjA3VSkdKnQ==
+      - 8yj-Z67zO-z88fie6cjzPyD4t5d5fVqpuQU371EqYwgBJy0zRvvjyg==
+      Age:
+      - '8'
     body:
       encoding: ASCII-8BIT
       string: '{"page":1,"results":[{"adult":false,"backdrop_path":"/k7h4RNAarfOrF2r2YMN0P2FQSr4.jpg","genre_ids":[80,18,53,28],"id":75780,"original_language":"en","original_title":"Jack
@@ -123,7 +127,7 @@ http_interactions:
         fugitive from the law, Reacher uncovers a potential secret from his past that
         could change his life forever.","popularity":33.596,"poster_path":"/wxLUQ1pIms3HAlVGYvEG9zg2kDs.jpg","release_date":"2016-10-19","title":"Jack
         Reacher: Never Go Back","video":false,"vote_average":5.8,"vote_count":3526}],"total_pages":1,"total_results":2}'
-  recorded_at: Wed, 31 Mar 2021 20:50:41 GMT
+  recorded_at: Wed, 31 Mar 2021 23:12:10 GMT
 - request:
     method: get
     uri: https://api.themoviedb.org/3/search/movie?api_key=DONT_EXPOSE_API&language=en-US&page=1&query=jack%20reacher
@@ -149,7 +153,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 31 Mar 2021 20:50:41 GMT
+      - Wed, 31 Mar 2021 23:12:02 GMT
       Server:
       - openresty
       Access-Control-Allow-Origin:
@@ -166,11 +170,13 @@ http_interactions:
       X-Cache:
       - Hit from cloudfront
       Via:
-      - 1.1 ee9de9e6182ae0c8e8f119177e905245.cloudfront.net (CloudFront)
+      - 1.1 c29390732f5bc4b2c7832623ae6e492f.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - JmaH_Og2an4uaTII8dT_QqKFGYI98GsoeBRZvFPqMe6EmmKJO3742Q==
+      - ZG10BTvBzQMiLw8PjImnBnQg2Nvxo_r6hcG8jrhg_Z9nLgv4Yo_Ehw==
+      Age:
+      - '8'
     body:
       encoding: ASCII-8BIT
       string: '{"page":1,"results":[{"adult":false,"backdrop_path":"/k7h4RNAarfOrF2r2YMN0P2FQSr4.jpg","genre_ids":[80,18,53,28],"id":75780,"original_language":"en","original_title":"Jack
@@ -185,5 +191,5 @@ http_interactions:
         fugitive from the law, Reacher uncovers a potential secret from his past that
         could change his life forever.","popularity":33.596,"poster_path":"/wxLUQ1pIms3HAlVGYvEG9zg2kDs.jpg","release_date":"2016-10-19","title":"Jack
         Reacher: Never Go Back","video":false,"vote_average":5.8,"vote_count":3526}],"total_pages":1,"total_results":2}'
-  recorded_at: Wed, 31 Mar 2021 20:50:41 GMT
+  recorded_at: Wed, 31 Mar 2021 23:12:10 GMT
 recorded_with: VCR 6.0.0
