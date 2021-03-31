@@ -23,8 +23,8 @@ RSpec.describe 'MovieService' do
         expect(results.first).to respond_to(:title)
         expect(results.first).to respond_to(:vote_average)
         expect(results.first).to_not respond_to(:cast)
-        expect(results.first.title).to eq("The Shawshank Redemption")
-        expect(results.first.api_id).to eq(278)
+        expect(results.first.title).to eq("Gabriel's Inferno Part II")
+        expect(results.first.api_id).to eq(724089)
         expect(results.first.vote_average).to eq(8.7)
         expect(results.count).to eq(limit)
       end

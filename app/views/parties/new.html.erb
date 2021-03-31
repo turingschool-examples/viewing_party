@@ -6,15 +6,6 @@
   <h2>Viewing Party Details</h2>
 </header>
 
-<h4>Movie Title: <%= @movie_info[:title] %></h4>
-<%= form_with(model: @party, method: :create, local:true) do |form| %>
-  <%= form.label :date, "Date and Time of Event:" %>
-  <%= form.datetime_local_field :date, value: Date.tomorrow, min: (Date.today + 1)%><br>
-  <%= form.label :duration, "Duration:" %>
-  <%= form.number_field :duration, value: @movie_info[:runtime], min: @movie_info[:runtime] %><br>
-  <%= form.submit "Create Party" %>
-<% end %>
-
 <div class="container p-3 my-3 border">
   <section class="text-center">
     <h4>Movie Title: <%= @movie_info[:title] %></h4>
@@ -32,4 +23,3 @@
     <% end %>
   <section>
 </div>
-
