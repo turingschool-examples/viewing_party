@@ -6,11 +6,14 @@ class UsersController < ApplicationController
   def show
     @user = current_user
     @user_hosting_parties = @user.parties
+    @invited = @user.invites
+    # require "pry"; binding.pry
+
   end
 
   def create
     user = user_params
-    user[:email] = user[:email].downcase
+    user[:email] = user[:email]
     new_user = User.new(user)
     if new_user.save
       flash[:success] = "Welcome, #{new_user.email}!"
