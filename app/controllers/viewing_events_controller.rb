@@ -11,9 +11,8 @@ class ViewingEventsController < ApplicationController
   def create
     viewing_event = ViewingEvent.new(viewing_event_params)
     if viewing_event.save && params[:friends]
-      params[:friends].each do |friend|
-        Viewer.new(user_id: friend, viewing_event_id: viewing_event.id)
-      end
+      Viewer.create_event_viewers(params[:friends], viewing_event.id)
+      session.delete(:movie_info)
       redirect_to dashboard_index_path
     else
       flash.now[:errors] = viewing_event.errors.full_messages.to_sentence
