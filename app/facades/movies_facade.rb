@@ -10,9 +10,6 @@ class MoviesFacade
   end
 
   def self.movie_search(query)
-    if query.empty?
-      top40
-    else
       @movies = []
       [1, 2].reduce([]) do |_memo, page|
         MovieService.film_finder(page, query)[:results].each do |movie|
@@ -20,7 +17,6 @@ class MoviesFacade
         end
         @movies
       end
-    end
   end
 
   def self.movie_info(id)

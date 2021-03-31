@@ -10,6 +10,9 @@ describe User, type: :model do
   describe 'relationships' do
     it {should have_many(:followed).through(:followed_users)}
     it {should have_many(:followers).through(:following_users)}
+    it {should have_many(:viewers)}
+    it {should have_many(:viewing_events).through(:viewers)}
+    it {should have_many(:viewing_events)}
   end
 
   describe "email format" do

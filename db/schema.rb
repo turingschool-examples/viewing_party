@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_25_233628) do
+ActiveRecord::Schema.define(version: 2021_03_31_023609) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,14 @@ ActiveRecord::Schema.define(version: 2021_03_25_233628) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "movies", force: :cascade do |t|
+    t.integer "movie_db_id"
+    t.string "title"
+    t.integer "runtime"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "password_digest"
@@ -29,4 +37,29 @@ ActiveRecord::Schema.define(version: 2021_03_25_233628) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "viewers", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "viewing_event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_viewers_on_user_id"
+    t.index ["viewing_event_id"], name: "index_viewers_on_viewing_event_id"
+  end
+
+  create_table "viewing_events", force: :cascade do |t|
+    t.integer "duration"
+    t.time "start_date_time"
+    t.bigint "user_id"
+    t.bigint "movie_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.date "start_date"
+    t.index ["movie_id"], name: "index_viewing_events_on_movie_id"
+    t.index ["user_id"], name: "index_viewing_events_on_user_id"
+  end
+
+  add_foreign_key "viewers", "users"
+  add_foreign_key "viewers", "viewing_events"
+  add_foreign_key "viewing_events", "movies"
+  add_foreign_key "viewing_events", "users"
 end

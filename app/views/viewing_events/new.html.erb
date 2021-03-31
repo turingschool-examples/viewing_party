@@ -1,0 +1,21 @@
+<h3>Viewing Party Details</h3>
+
+<%= form_with url: viewing_events_path({user_id: current_user.id}), local: true do |f| %>
+  <%= f.label 'Movie Title' %>
+  <%= @movie.title %><br>
+  <%= f.hidden_field :movie_id, value: @movie.id %>
+  <%= f.label 'Duration of Party' %>
+  <%= f.number_field :duration, value: @movie.runtime, min: @movie.runtime %><br>
+  <%= f.label :date %>
+  <%= f.date_field :start_date, value: Time.now.strftime("%Y-%m-%d") %><br>
+  <%= f.label 'Start Time' %>
+  <%= f.time_field :start_date_time %><br><br>
+  <section class="friends">
+    <b><%= f.label :invite %><br></b>
+    <%= f.collection_check_boxes(:friends, current_user.followed, :id, :email, include_hidden: false) do |friend| %>
+      <%= friend.check_box %>
+      <%= friend.label %>
+    <% end %>
+  </section>
+  <br><br><%= f.submit 'Create Party'%>
+<% end %>

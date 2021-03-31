@@ -10,10 +10,8 @@ Rails.application.routes.draw do
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
-
-
+  
   resources :movies, only: [:index, :show]
   resources :viewing_events, only: [:new, :create]
-  get "/movies", to: "movies#index", as: "movies_index"
-  post "/movies", to: "movies#search"
+  post "/movies", to: "movies#search", as: "movies_search"
 end
