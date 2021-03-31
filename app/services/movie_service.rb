@@ -40,10 +40,6 @@ class MovieService
     search_results.first(limit)
   end
 
-  def self.movie_id_and_vote_average(query_match)
-    {api_id: query_match[:id], vote_average: query_match[:vote_average]}
-  end
-
   def self.movie_information(api_movie_id)
     info = get_data((url_storage(movie_id: api_movie_id)[:movie_info]))
     if info[:id] != nil
@@ -55,7 +51,8 @@ class MovieService
         genres: movie_info_genres(info[:genres]),
         summary: info[:overview],
         cast: movie_info_cast(api_movie_id),
-        reviews: movie_info_reviews(api_movie_id)
+        reviews: movie_info_reviews(api_movie_id),
+        poster_path: info[:poster_path]
       })
     else
       []
@@ -97,10 +94,25 @@ class MovieService
     url_storage[:movie_cast] = "https://api.themoviedb.org/3/movie/#{movie_id}/credits?api_key=#{api_key}&language=en-US"
     url_storage[:movie_search] = "https://api.themoviedb.org/3/search/movie?api_key=#{api_key}&language=en-US&query=#{query}&page=#{num + 1}&include_adult=false"
     url_storage[:poster_path] = "https://api.themoviedb.org/3/movie/#{movie_id}?api_key=#{api_key}&language=en-US"
+    url_storage[:trending_movies] = "https://api.themoviedb.org/3/trending/movie/day?api_key=#{api_key}&language=en-US"
     url_storage
   end
 
   def self.results_page_count(url)
     get_data(url)[:total_pages]
+  end
+
+  def self.trending_movies(limit)
+    results = []
+    until results.length >= limit
+      trending_movies_data = get_data(url_storage[:trending_movies])
+      trending_movies_data[:results].each do |movie|
+        results << OpenStruct.new({
+          api_id: movie[:id],
+          title: movie[:title]
+          })
+      end
+    end
+    results.first(limit)
   end
 end
