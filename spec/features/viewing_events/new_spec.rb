@@ -55,18 +55,54 @@ describe "As an authenticated user, when I visit the movies detail page and crea
       # expect(page).to have_content("Viewing Party - #{@movie.title}")
     end
 
-    xit "I can create an event without inviting friends" do
+    it "I can create an event without inviting friends" do
+      date = Time.now.strftime("%Y-%m-%d")
+      time = Time.now.strftime("%H:%M")
+      duration = @movie.runtime + 30
 
+      fill_in :duration, with: duration
+      fill_in :start_date, with: date
+      fill_in :start_date_time, with: time
+      click_button 'Create Party'
+
+      expect(current_path).to eq(dashboard_index_path)
+
+      viewing_event = ViewingEvent.find_by(user_id: @user_1.id)
+
+      expect(viewing_event.duration).to eq(duration)
+      expect(viewing_event.user_id).to eq(@user_1.id)
+      expect(viewing_event.viewers.count).to eq(0)
+      expect { Viewer.find(viewing_event.id) }.to raise_error ActiveRecord::RecordNotFound
     end
   end
 
   describe "and if I do not fill out the form with valid info" do
     xit "I cannot create a event for a date in the past" do
+      date = Time.new(2002).strftime("%Y-%m-%d")
+      time = Time.now.strftime("%H:%M")
+      duration = @movie.runtime + 30
+
+      fill_in :duration, with: duration
+      fill_in :start_date, with: date
+      fill_in :start_date_time, with: time
+      click_button 'Create Party'
+
+      expect(current_path).to eq(new_viewing_event_path)
+      expect(page).to have_content("Start date cannot be in the past")
 
     end
 
-    xit "I cannot create a event for a duration less than the movie runtime" do
+    it "I cannot create a event for a duration less than the movie runtime" do
+      date = Time.new(2002).strftime("%Y-%m-%d")
+      time = Time.now.strftime("%H:%M")
+      duration = @movie.runtime - 30
 
+      fill_in :duration, with: duration
+      fill_in :start_date, with: date
+      fill_in :start_date_time, with: time
+      click_button 'Create Party'
+
+      expect(current_path).to eq(new_viewing_event_path)
     end
 
     xit "I cannot create without a duration" do
