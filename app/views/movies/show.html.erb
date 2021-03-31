@@ -1,12 +1,15 @@
-<h1>Welcome <%= @current_user.full_name %>!</h1>
+<img class="right" src="https://image.tmdb.org/t/p/w200<%=@movie.poster_path%>" alt="<%= @movie.title %>">
 
-<h2><%= @movie.title %></h2>
+<h1>Welcome <%= @current_user.full_name %>!</h1>
 
 <%= button_to "Create Viewing Party", new_party_path, method: :get, params: {movie_id: @movie.id} %>
 
-Vote Average: <%= @movie.vote_average %><br>
+<h2><%= @movie.title %></h2>
+
+Vote Average: <%= @movie.vote_average %>/10<br>
 Runtime: <%= @movie.runtime %><br>
-Genre(s): <%= @genres.to_sentence %>
+Genre(s): <%= @genres.to_sentence %><br>
+
 <hr>
 Summary: <br>
 <%= @movie.description %>

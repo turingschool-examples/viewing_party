@@ -81,6 +81,7 @@ class MovieService
       cast: cast,
       reviews: reviews[:results],
       genres: details[:genres],
+      poster: details[:poster_path]
     }
     MovieObject.new(hash)
   end

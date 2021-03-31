@@ -19,6 +19,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'faraday', '~> 0.9.2'
 gem 'json', '~> 1.8', '>= 1.8.3'
 gem 'mimemagic', '~> 0.3.9'
+gem 'bootstrap', '~> 5.0.0.beta2'
 
 
 group :development, :test do

@@ -1,6 +1,12 @@
+<center>
 <h1>Welcome <%= @current_user.full_name %>!</h1>
+<h2>Creating <%= @movie.title %> Viewing Party</h2>
 
-<%= form_with url: parties_path, method: :post, params: {user_id: @current_user.id, movie_id: @movie.id}, local: true do |f| %>
+
+<img src="https://image.tmdb.org/t/p/w200<%=@movie.poster_path%>" alt="<%= @movie.title %>"><br><br>
+
+<section class="left">
+  <%= form_with url: parties_path, method: :post, params: {user_id: @current_user.id, movie_id: @movie.id}, local: true do |f| %>
   <%= f.hidden_field :user_id, value: @current_user.id %>
   <%= f.hidden_field :movie_id, value: @movie.id %>
   <%= f.label 'Duration of Party:' %>
@@ -11,10 +17,13 @@
   <%= f.time_field :time %><br>
   <h3>Add Friends:</h3>
   <%= f.collection_check_boxes(:friends, @current_user.followers, :id, :full_name) do |follower| %>
-    <div>
-      <%= follower.check_box %>
-      <%= follower.label %>
-    </div>
+  <div>
+    <%= follower.check_box %>
+    <%= follower.label %>
+  </div>
   <% end %>
-  <%= f.submit 'Create Event' %>
-<% end %>
+  <%= f.submit 'Create Event' %><br><br>
+  <% end %>
+</section>
+
+</center>
