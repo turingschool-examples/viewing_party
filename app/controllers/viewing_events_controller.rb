@@ -7,11 +7,11 @@ class ViewingEventsController < ApplicationController
     viewing_event = ViewingEvent.new(viewing_event_params)
     if viewing_event.save && params[:friends]
       Viewer.create_event_viewers(params[:friends], viewing_event.id)
+    elsif viewing_event.save
     else
       flash.now[:errors] = viewing_event.errors.full_messages.to_sentence
       render :new
     end
-    viewing_event.save
     session.delete(:movie_info)
     redirect_to dashboard_index_path
   end
