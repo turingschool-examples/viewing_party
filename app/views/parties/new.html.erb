@@ -2,7 +2,7 @@
 <h2>Viewing Party Details</h2>
 
 <h4>Movie Title: <%= @movie_info[:title] %></h4>
-<%= form_with(model: @party, local:true) do |form| %>
+<%= form_with(model: @party, method: :create, local:true) do |form| %>
   <%= form.label :date, "Date and Time of Event:" %>
   <%= form.datetime_local_field :date, value: Date.tomorrow, min: (Date.today + 1)%><br>
   <%= form.label :duration, "Duration:" %>

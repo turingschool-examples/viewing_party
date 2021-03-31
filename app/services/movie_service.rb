@@ -9,11 +9,7 @@ class MovieService
 
   def self.top_movies(limit)
     results = []
-    if limit > 20
-      number_pages = (limit / 20)
-    else
-      number_pages = 1
-    end
+    number_pages = (limit / 20) + 1
     number_pages.times do |n|
       movie_data = get_data(url_storage(num: n)[:movie_top])
       movie_data[:results].each do |movie|

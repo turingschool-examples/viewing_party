@@ -49,7 +49,7 @@ RSpec.describe MovieFacade do
     end
   end
   describe "sad path" do
-    it "can create an create  " do
+    it "can return an empty array if no movies match the api_id " do
       VCR.use_cassette('movie_info_sad_path') do
         result = MovieFacade.movie_information(1)
 
