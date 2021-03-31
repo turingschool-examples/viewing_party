@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Logout function', type: :feature do
   before :each do
     @user = User.create!(full_name: 'Andrew J', email: 'example@email.com', password: 'password')
+    visit registration_confirmation_user_url(@user)
     login(@user)
   end
 

@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe "As an authenticated user" do
   before :each do
     @host = create(:user, password: 'password')
+    visit registration_confirmation_user_url(@host)
     login(@host)
     visit discover_index_path
   end

@@ -24,6 +24,10 @@ RSpec.describe "User Dashboard Index" do
     @invitee_5 = create(:invitee, party: @party, user: @friend_2)
     @invitee_6 = create(:invitee, party: @party, user: @friend_3)
 
+    visit registration_confirmation_user_url(@host)
+    visit registration_confirmation_user_url(@friend_1)
+    visit registration_confirmation_user_url(@friend_2)
+    visit registration_confirmation_user_url(@friend_3)
   end
 
   describe "As an authenticated user" do
@@ -159,7 +163,7 @@ RSpec.describe "User Dashboard Index" do
         end
       end
     end
-    
+
     it "has a link to 'discover movies'" do
       login(@host)
       visit user_dashboard_index_path(@host)

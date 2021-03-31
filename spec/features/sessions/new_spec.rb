@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe 'User login new page', type: :feature do
   before :each do
     @user = User.create!(full_name: 'Andrew J', email: 'example@email.com', password: 'test')
+    visit registration_confirmation_user_url(@user)
   end
 
   it 'i can login after entering the correct information' do

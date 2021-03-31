@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Movies details page', type: :feature do
   before :each do
     @host = create(:user, password: 'password')
+    visit registration_confirmation_user_url(@host)
     login(@host)
   end
 

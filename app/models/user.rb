@@ -10,8 +10,22 @@ class User < ApplicationRecord
   validates :password, presence: true
   validates :password, confirmation: {case_sensitive: true}
 
+  before_create :confirmation_token
+
   def parties_im_invited_to
     parties = Invitee.where(user_id: self.id).pluck(:party_id)
     Party.find(parties)
+  end
+
+  def confirmation_token
+    if self.confirm_token.blank?
+      self.confirm_token = SecureRandom.urlsafe_base64.to_s
+    end
+  end
+
+  def email_activate
+    self.email_confirmed = true
+    self.confirm_token = nil
+    save!(:validate => false)
   end
 end

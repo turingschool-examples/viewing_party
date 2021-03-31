@@ -12,7 +12,9 @@ RSpec.describe "user new page" do
       fill_in :password, with: "password"
       fill_in :password_confirmation, with: "password"
       click_on "Submit"
-      expect(page).to have_content("Welcome Kyle schulz")
+
+      expect(current_path).to eq(login_path)
+      expect(page).to have_content("Please activate your account by following the instructions in the account confirmation email you received to proceed")
     end
 
     it "validates that the email is valid" do
@@ -54,6 +56,51 @@ RSpec.describe "user new page" do
       click_on "Submit"
 
       expect(page).to have_content("Email has already been taken")
+    end
+
+    it 'sends confirmation email with link that needs to be clicked before a user can login' do
+
+      expect(ActionMailer::Base.deliveries.count).to eq(0)
+
+      fill_in :full_name, with: "kyle schulz"
+      fill_in :email, with: "kylschulz@gmail.com"
+      fill_in :password, with: "password"
+      fill_in :password_confirmation, with: "password"
+      click_on "Submit"
+
+      expect(ActionMailer::Base.deliveries.count).to eq(1)
+      email = ActionMailer::Base.deliveries.last
+
+      expect(current_path).to eq(login_path)
+      expect(page).to have_content("Please activate your account by following the instructions in the account confirmation email you received to proceed")
+
+      user = User.find_by(email: 'kylschulz@gmail.com')
+
+      visit registration_confirmation_user_url(user)
+
+      expect(current_path).to eq(login_path)
+
+      fill_in :email, with: 'kylschulz@gmail.com'
+      fill_in :password, with: 'password'
+      click_on 'Log In'
+
+      expect(current_path).to eq(user_dashboard_index_path(user))
+    end
+
+    it 'user cant login after registering if they havent clicked the link in the email' do
+      fill_in :full_name, with: "kyle schulz"
+      fill_in :email, with: "kylschulz@gmail.com"
+      fill_in :password, with: "password"
+      fill_in :password_confirmation, with: "password"
+      click_on "Submit"
+
+      expect(current_path).to eq(login_path)
+
+      fill_in :email, with: 'kylschulz@gmail.com'
+      fill_in :password, with: 'password'
+      click_on "Log In"
+
+      expect(page).to have_content('Please activate your account by following the instructions in the account confirmation email you received to proceed')
     end
   end
 end

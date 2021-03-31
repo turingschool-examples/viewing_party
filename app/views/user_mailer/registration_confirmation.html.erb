@@ -1,0 +1,5 @@
+Hi <%= @user.full_name.titleize %>,
+
+Thanks for registering for Viewing Party! To confirm you registration click the URL:
+
+<%= link_to "Confirm Registration", registration_confirmation_user_url(@user.id) %>

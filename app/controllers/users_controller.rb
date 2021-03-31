@@ -8,16 +8,25 @@ class UsersController < ApplicationController
     user[:email] = user[:email].downcase
     @user = User.create(user_params)
     if @user.save
-      session[:user_id] = @user.id
-      redirect_to user_dashboard_index_path(@user)
+      UserMailer.registration_confirmation(@user).deliver_now
+      flash[:error] = 'Please activate your account by following the
+      instructions in the account confirmation email you received to proceed'
+      redirect_to login_path
     else
       flash[:error] = @user.errors.full_messages.to_sentence
       render :new
     end
   end
 
-  private
+  def confirm_email
+    @user = User.find(params[:id])
+    @user.email_activate
+    flash[:success] = "Welcome to the Viewing Party! Your email has been confirmed.
+    Please sign in to continue."
+    redirect_to login_path
+  end
 
+  private
   def user_params
     params.permit(:full_name, :email, :password, :password_confirmation)
   end
