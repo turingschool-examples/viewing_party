@@ -22,7 +22,7 @@ RSpec.describe "As a user after I click the link from my dashboard to visit the 
 
   describe "search for top 40 rated movies" do
     it "should return the top 40 movie titles based on Vote Average" do
-      VCR.use_cassette('top_forty_movies') do
+      VCR.use_cassette('top_movies') do
         user = User.create(email: "joeb@email.com", password: "test")
         visit root_path
         click_link "Login"
@@ -38,14 +38,13 @@ RSpec.describe "As a user after I click the link from my dashboard to visit the 
         expect(page).to have_content("Vote Average: 8.7")
         expect(page).to_not have_content("Vote Average: 1.5")
         expect(page).to have_content("David Attenborough: A Life on Our Planet")
-        expect(page).to have_content("Mortal Kombat Legends")
       end
     end
   end
 
   describe "search for a movie by title" do
     it "should return movies that match the user query and thier rating" do
-      VCR.use_cassette('movie_search') do
+      VCR.use_cassette('movie_search_feature') do
         user = User.create(email: "joeb@email.com", password: "test")
         visit root_path
         click_link "Login"
@@ -64,6 +63,25 @@ RSpec.describe "As a user after I click the link from my dashboard to visit the 
         expect(page).to have_content("Rising Phoenix")
         expect(page).to have_content("Griffin & Phoenix")
         expect(page).to have_content("Phoenix Forgotten")
+      end
+    end
+    it "should return movies that match the user query and thier rating" do
+      VCR.use_cassette('movie_blank_search_feature') do
+        user = User.create(email: "joeb@email.com", password: "test")
+        visit root_path
+        click_link "Login"
+        fill_in :email, with: user.email.upcase
+        fill_in :password, with: user.password
+        click_button 'Login'
+        within(".topnav") do
+          click_link "Discover Movies"
+        end
+        fill_in :movie_query, with: ""
+        click_on("Find Movies")
+
+        expect(page).to_not have_content("Dark Phoenix")
+        expect(page).to have_button("Find Top Rated Movies")
+        expect(page).to have_button("Find Movies")
       end
     end
     describe "create a movie model when a link is clicked" do

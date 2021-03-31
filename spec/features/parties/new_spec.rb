@@ -185,7 +185,7 @@ RSpec.describe "As an authenticated user" do
     end
 
     it "can create a party without friends" do
-      VCR.use_cassette('invite_friends_path') do
+      VCR.use_cassette('invite_friends_path_two') do
         user = User.create(email: "joeb@email.com", password: "test")
         user2 = user.friends.create(email: "a@a.com", password: "test")
         user3 = user.friends.create(email: "b@b.com", password: "test")
