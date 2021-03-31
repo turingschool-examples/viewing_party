@@ -8,7 +8,10 @@ Viewing Party is a User web application for creating and tracking movie viewing 
 
   - [Getting Started](#getting-started)
   - [Runing the tests](#running-the-tests)
+  - [Database Schema](#database-schema)
   - [Deployment](#deployment)
+  - [Application Code](#application-code)
+    - [API Implementation](#api-implementation)
   - [Built With](#built-with)
   - [Contributing](#contributing)
   - [Versioning](#versioning)
@@ -23,7 +26,7 @@ To get the web application running, please fork and clone down the repo.
 
 ### Prerequisites
 
-To run this application you will need Ruby 2.5.3 and Rails 5.2.4.3
+To run this application you will need Ruby 2.5.3 and Rails 5.2.4.3, Travis CI, OpenStruct
 
 ### Installing
 
@@ -70,37 +73,75 @@ Travis CI was utilized for deployment on this project. Please note this project 
 To deploy this application please utilize your own hosting service. The original repo is deployed to Heroku-18.
 
 ## Applicaiton code
+This application code utilizes MVC pricinples along with the Facade Design Pattern.
 
 ### API Implementation
-Facade patterns were used to implement the API endpoints
+Facade patterns were used to implement the API endpoints. Below, follow the code path of the Movies Details Page.
 
-- The MoviesController controls the Movie Details Page and the Discover Movies Page.
+- The `MoviesController` controls the Movie Details Page and the Discover Movies Page.
 ```ruby
   # app/controllers/movies_controller.rb
   class MoviesController < ApplicationController
-    def index
-      if params[:form] == 'top_forty'
-        @top_movies = MovieFacade.top_movies(40)
-      elsif !params[:movie_query].nil?
-        @query_results = MovieFacade.search((params[:movie_query].downcase), ENV['SEARCH_RESULT_COUNT'].to_i)
-      end
-      @trending_movies = MovieFacade.trending_movies(limit)
-    end
+    ...
 
     def show
       @movie_info = MovieFacade.movie_information(params[:id])
       @movie = MovieFacade.create_movie(params[:id])
       cookies[:bdseivom_di] = @movie_info.api_id
-      cookies[:seivom_di] = @movie.id
-      cookies[:seivom_eltit] = @movie_info.title
+    end
+  end
+```
+- The `MovieFacade` interacts with the service objects and the models so the Controller remains more manageable.
+```ruby
+# app/facades/movie_facade.rb
+class MovieFacade
+    ...
+
+    def self.movie_information(api_movie_id)
+      MovieService.movie_information(api_movie_id)
+    end
+
+    def self.create_movie(api_id)
+      if Movie.exists?(api_id)
+        movie = Movie.find_by(api_id)
+      else
+        movie = Movie.create({api_id: api_id})
+      end
+      movie
+    end
+  end
+```
+- The `MovieService` object interacts with the API datapoint and creates Openstruct objects to interact with various facades for different components of our application code. In this example, most of the content on the Movie Details page is generated from an OpenStruct object.
+```ruby
+  # app/services/movie_service.rb
+  require 'ostruct'
+
+  class MovieService
+    ...
+
+    def self.movie_information(api_movie_id)
+      info = get_data((url_storage(movie_id: api_movie_id)[:movie_info]))
+      if info[:id] != nil
+        OpenStruct.new({
+          api_id: info[:id],
+          title: info[:title],
+          vote_average: info[:vote_average],
+          runtime: info[:runtime],
+          genres: movie_info_genres(info[:genres]),
+          summary: info[:overview],
+          cast: movie_info_cast(api_movie_id),
+          reviews: movie_info_reviews(api_movie_id)
+        })
+      else
+        []
+      end
     end
   end
 ```
 
 ## Authors
 
-- **Joseph Budina**
-     | [GitHub](https://github.com/josephbudina) |
+- **Joseph Budina**| [GitHub](https://github.com/josephbudina) |
     [LinkedIn](https://www.linkedin.com/in/joseph-budina-7a0bb4202/)
 - **Katy La Tour**
      | [GitHub](https://github.com/klatour324) |
@@ -108,6 +149,3 @@ Facade patterns were used to implement the API endpoints
 - **Alexa Morales Smyth**
      | [GitHub](https://github.com/amsmyth1) |
     [LinkedIn](https://linkedin.com/alexamorales)
-
-# DTR
-https://gist.github.com/klatour324/e4b8e3181a80421ab633654dc64134b7
