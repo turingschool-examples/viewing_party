@@ -90,7 +90,6 @@ RSpec.describe MovieObject, type: :model do
       stub_request(:get, "https://api.themoviedb.org/3/movie/155?api_key=ad4941ff23859e195ff1169f1ffc04fa&language=en-US").to_return(status: 200, body: json_details)
       stub_request(:get, "https://api.themoviedb.org/3/movie/155/reviews?api_key=ad4941ff23859e195ff1169f1ffc04fa&language=en-US&page=1").to_return(status: 200, body: json_reviews)
       stub_request(:get, "https://api.themoviedb.org/3/movie/155/reviews?api_key=ad4941ff23859e195ff1169f1ffc04fa&language=en-US&page=1").to_return(status: 200, body: json_cast)
-
       movie = MovieService.movie_object(155)
 
       expect(movie.genres).to eq(["N/A"])

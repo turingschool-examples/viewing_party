@@ -6,7 +6,8 @@ class MovieObject
               :vote_average,
               :runtime_minutes,
               :cast,
-              :reviews
+              :reviews,
+              :poster_path
 
   def initialize(results)
     @description = results[:description]
@@ -18,6 +19,7 @@ class MovieObject
     @cast = results[:cast]
     @reviews = results[:reviews]
     @genres = results[:genres]
+    @poster_path = results[:poster]
   end
 
   def runtime
