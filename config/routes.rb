@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   resources :movies, only: [:index, :show]
   get '/registration', to: 'users#new'
   post '/registration', to: 'users#create'
-  resources :users, only: [ :create]
+  resources :users, only: [:create]
   post '/login', to: 'users#login'
+  delete '/logout', to: 'users#destroy'
   get '/dashboard', to: 'users#dashboard'
   get '/discover', to: 'discover#index'
 

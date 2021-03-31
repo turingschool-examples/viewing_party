@@ -18,6 +18,7 @@ class UsersController < ApplicationController
   end
 
   def new
+    @skip_navbar = true
   end
 
   def create
@@ -31,6 +32,12 @@ class UsersController < ApplicationController
       render :new, obj: @user
     end
   end
+
+  def destroy
+   session[:user_id] = nil
+   flash[:success] = "You have been logged out!"
+   redirect_to '/'
+ end
 
   private
 

@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <% unless @skip_navbar %>
+    <%= render partial: "/shared/render_navbar" %>
+    <%end %>
     <title>ViewingParty</title>
-    <ul id="navbar">
-    <li><a href="/">Home Page</a></li>
-    <li><a href= '/registration'>Register</a></li>
-    <li><a href="/">Login</a></li>
-    <li><a href="/discover">Discover Movies</a></li>
-    <li><a href="/dashboard">Your Page</a></li>
-  </ul>
     <%= csrf_meta_tags %>
 
 
