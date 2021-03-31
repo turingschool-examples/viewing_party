@@ -6,7 +6,11 @@ class Friendship < ApplicationRecord
 
   validates :friend_id, presence: true
 
-  def self.find_friendships(user, friends_ids)
-    where(friend_id: friends_ids, user_id: user).pluck(:id)
+  def self.find_friendships(user_id, friends_ids)
+    where(friend_id: friends_ids, user_id: user_id).pluck(:id)
+  end
+
+  def self.find_user_friendships(user)
+    where(friend_id: user).pluck(:id)
   end
 end

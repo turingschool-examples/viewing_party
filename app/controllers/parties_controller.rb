@@ -13,7 +13,7 @@ class PartiesController < ApplicationController
                       user_id: params[:host_id]
                         })
     if party.save
-      PartyFriend.make_multiple_friends(params[:friends], party.id)
+      PartyFriend.make_multiple_friends(params[:friends], party.id, current_user.id)
       redirect_to dashboard_path
     else
       flash[:error] = "Date and duration must be selected"

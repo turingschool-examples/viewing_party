@@ -14,7 +14,8 @@ class User < ApplicationRecord
   def invites
     # current_user != user.id
     # id = self.id
-    Party.joins(:party_friends).where(party_friends: {friendship_id: self.id})
+    # Party.joins(:party_friends).where(party_friends: {friendship_id: self.id})
+    PartyFriend.find_invited_parties(self.id)
   end
 
   def self.sanitize_email
