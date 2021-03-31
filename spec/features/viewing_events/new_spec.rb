@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "As an authenticated user, when I visit the movies detail page" do
+describe "As an authenticated user, when I visit the movies detail page and create viewing party" do
   before :each do
     @user_1 = User.create!(email: 'sassy@email.com', password: 'sassyperson1')
     @user_2 = User.create!(email: 'grumpy@email.com', password: 'grumpyperson1')
@@ -19,22 +19,41 @@ describe "As an authenticated user, when I visit the movies detail page" do
     click_button 'Create Viewing Party for Movie'
   end
 
-  describe "and I click 'Create Viewing Party for Movie' button" do
-    it "I see a form with the movie title, duration, date, time" do
-      time = Time.now.strftime("%Y-%m-%d")
+  it "I see a form with the movie title, duration, date, time" do
+    date = Time.now.strftime("%Y-%m-%d")
 
-      expect(page).to have_content("#{@find_movie.title}")
-      expect(page).to have_field(:duration, with: "#{@movie.runtime}")
-      expect(page).to have_field(:start_date, with: time)
-      expect(page).to have_field(:start_time)
-    end
+    expect(page).to have_content("#{@find_movie.title}")
+    expect(page).to have_field(:duration, with: "#{@movie.runtime}")
+    expect(page).to have_field(:start_date, with: date)
+    expect(page).to have_field(:start_date_time)
+  end
 
-    it "I also see an invite section where I can invite my friends" do
+  it "I also see an invite section where I can invite my friends" do
+    friend_1 = @user_1.followed.first
+    friend_2 = @user_1.followed.last
+
+    expect(page).to have_unchecked_field("friends_#{friend_1.id}")
+    expect(page).to have_unchecked_field("friends_#{friend_2.id}")
+    expect(page).to_not have_unchecked_field("friends_#{@user_4.id}")
+  end
+
+  describe "and if I fill out the form with valid info" do
+    it "I create a viewing party and am taken to the dashboard where I can see it" do
+      date = Time.now.strftime("%Y-%m-%d")
+      time = Time.now.strftime("%H:%M")
+      duration = @movie.runtime + 30
       friend_1 = @user_1.followed.first
       friend_2 = @user_1.followed.last
 
-      expect(page).to have_unchecked_field("friends_#{friend_1.id}")
-      expect(page).to have_unchecked_field("friends_#{friend_2.id}")
+      fill_in :duration, with: duration
+      fill_in :start_date, with: date
+      fill_in :start_date_time, with: time
+      check "friends_#{friend_1.id}"
+      click_button 'Create Party'
+
+      expect(current_path).to eq(dashboard_index_path)
+      # expect(page).to have_content("Viewing Party - #{@movie.title}")
     end
   end
+
 end
