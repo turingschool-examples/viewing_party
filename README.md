@@ -72,8 +72,8 @@ Travis CI was utilized for deployment on this project. Please note this project 
 
 To deploy this application please utilize your own hosting service. The original repo is deployed to Heroku-18.
 
-## Applicaiton code
-This application code utilizes MVC pricinples along with the Facade Design Pattern.
+## Application code
+This application code utilizes MVC principles along with the Facade Design Pattern.
 
 ### API Implementation
 Facade patterns were used to implement the API endpoints. Below, follow the code path of the Movies Details Page.
@@ -111,7 +111,7 @@ class MovieFacade
     end
   end
 ```
-- The `MovieService` object interacts with the API datapoint and creates Openstruct objects to interact with various facades for different components of our application code. In this example, most of the content on the Movie Details page is generated from an OpenStruct object.
+- The `MovieService` object interacts with the API datapoint and creates OpenStruct objects to interact with various facades for different components of our application code. In this example, most of the content on the Movie Details page is generated from an OpenStruct object.
 ```ruby
   # app/services/movie_service.rb
   require 'ostruct'
