@@ -71,8 +71,30 @@ To deploy this application please utilize your own hosting service. The original
 
 ## Applicaiton code
 
-```
+### API Implementation
+Facade patterns were used to implement the API endpoints
 
+- The MoviesController controls the Movie Details Page and the Discover Movies Page.
+```ruby
+  # app/controllers/movies_controller.rb
+  class MoviesController < ApplicationController
+    def index
+      if params[:form] == 'top_forty'
+        @top_movies = MovieFacade.top_movies(40)
+      elsif !params[:movie_query].nil?
+        @query_results = MovieFacade.search((params[:movie_query].downcase), ENV['SEARCH_RESULT_COUNT'].to_i)
+      end
+      @trending_movies = MovieFacade.trending_movies(limit)
+    end
+
+    def show
+      @movie_info = MovieFacade.movie_information(params[:id])
+      @movie = MovieFacade.create_movie(params[:id])
+      cookies[:bdseivom_di] = @movie_info.api_id
+      cookies[:seivom_di] = @movie.id
+      cookies[:seivom_eltit] = @movie_info.title
+    end
+  end
 ```
 
 ## Authors
