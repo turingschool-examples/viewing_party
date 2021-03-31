@@ -41,6 +41,7 @@ header {
 .background {
     background: #dedec8;
     padding: 4em 0;
+    background-image: var(--bs-gradient);
 }
 .team {
     color: #5e5e55;
@@ -76,4 +77,39 @@ header {
     margin-bottom: 0;
     text-transform: uppercase;
     color: salmon;
+}
+
+.login_page {
+   max-width: 250px;
+   padding: 1rem;
+   border-width: 3px;
+   border-style: solid;
+   text-transform: uppercase;
+   color: white;
+}
+
+#navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #EEEEEE;
+}
+
+ul#navbar li {
+    float:left;
+}
+
+ul#navbar li a {
+    display: block;
+    color: #000000;
+    font-weight:bold;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+
+ul#navbar li a:hover {
+    background-color: orange;
+    color: white;
 }

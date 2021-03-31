@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <% unless @skip_navbar %>
+    <%= render partial: "/shared/render_navbar" %>
+    <%end %>
     <title>ViewingParty</title>
     <%= csrf_meta_tags %>
 
@@ -15,7 +18,7 @@
                 color: white;
                 padding: 10px
               }
-              
+
       tr:hover {background-color: #ddd;}
     </style>
 

@@ -1,13 +1,19 @@
-<h1> Registration Page</h1>
-
-<%= form_with model: @user, local: true do |form| %>
-  <%= form.label :name, "Name:" %>
-  <%= form.text_field :name %>
-  <%= form.label :email, "Email:" %>
-  <%= form.text_field :email %>
-  <%= form.label :password, "Password:" %>
-  <%= form.password_field :password %>
-  <%= form.label :password_confirmation, "Confirm Password" %>
-  <%= form.password_field :password_confirmation %>
-  <%= form.submit "Register" %>
-<% end %>
+<div class="bg-image d-flex justify-content-center align-items-center"
+    style="background-image: url('https://mdbcdn.b-cdn.net/img/new/fluid/nature/015.jpg');
+          height: 125vh;"
+    >
+  <h1 class="text-white">Registration Page</h1>
+  <div class="login_page">
+      <%= form_with model: @user, local: true do |form| %>
+      <%= form.label :name, "Name:" %>
+      <%= form.text_field :name %>
+      <%= form.label :email, "Email:" %>
+      <%= form.text_field :email %>
+      <%= form.label :password, "Password:" %>
+      <%= form.password_field :password %>
+      <%= form.label :password_confirmation, "Confirm Password" %>
+      <%= form.password_field :password_confirmation %>
+      <%= form.submit "Register" %>
+  <% end %>
+  </div>
+</div>
