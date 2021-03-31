@@ -1,9 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'from@example.com'
+  default from: 'turingpractice@gmail.com'
   layout 'mailer'
-
-  def registration_confirmation(user)
-   @user = user
-   mail(:to => "#{user.full_name} <#{user.email}>", :subject => "Registration Confirmation")
-  end
 end

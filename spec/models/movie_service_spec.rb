@@ -32,7 +32,7 @@ RSpec.describe MovieService, type: :model do
 
       expect(result.first.class).to eq(MovieObject)
       expect(result.first.title).to eq("Dilwale Dulhania Le Jayenge")
-      expect(result.last.title).to eq("A Silent Voice: The Movie")
+      expect(result.last.title).to eq("City of God")
       expect(result.size).to eq(40)
     end
 

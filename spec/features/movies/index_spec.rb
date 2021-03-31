@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Movies index page', type: :feature do
   before :each do
     @host = create(:user, password: 'password')
+    visit registration_confirmation_user_url(@host)
     login(@host)
     visit discover_index_path
   end
@@ -13,7 +14,7 @@ RSpec.describe 'Movies index page', type: :feature do
 
     within "#movie-791373" do
       expect(page).to have_content("Zack Snyder's Justice League")
-      expect(page).to have_content("8.7")
+      expect(page).to have_content("8.6")
     end
 
     within "#movie-761053" do
@@ -52,7 +53,7 @@ RSpec.describe 'Movies index page', type: :feature do
 
     within "#movie-791373" do
       expect(page).to have_content("Zack Snyder's Justice League")
-      expect(page).to have_content("8.7")
+      expect(page).to have_content("8.6")
     end
 
     within "#movie-761053" do

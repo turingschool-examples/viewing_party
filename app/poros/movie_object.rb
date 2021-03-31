@@ -27,7 +27,7 @@ class MovieObject
   end
 
   def genres
-    if !@genres.nil?
+    if !@genres.empty?
       @genres.map do |genre|
         genre[:name]
       end

@@ -12,6 +12,8 @@ RSpec.describe 'New viewing party page', type: :feature do
     @follow_3 = create(:follow, followee: @host, follower: @friend_3)
 
     @movie = create(:movie)
+    
+    visit registration_confirmation_user_url(@host)
     login(@host)
   end
 

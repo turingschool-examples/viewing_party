@@ -10,7 +10,7 @@ RSpec.describe MovieObject, type: :model do
       expect(movie.description).to eq(description)
       expect(movie.id).to eq(100)
       expect(movie.title).to eq("Lock, Stock and Two Smoking Barrels")
-      expect(movie.vote_count).to eq(4713)
+      expect(movie.vote_count).to eq(4715)
       expect(movie.vote_average).to eq(8.2)
     end
   end
@@ -80,6 +80,20 @@ RSpec.describe MovieObject, type: :model do
 
       expect(movie.time_conversion(90)).to eq('1:30')
       expect(movie.time_conversion(125)).to eq('2:05')
+    end
+
+    it 'if genres are empty then we get N/A returned' do
+      json_details = File.read('spec/fixtures/movie_details.json')
+      json_reviews = File.read('spec/fixtures/movie_reviews.json')
+      json_cast = File.read('spec/fixtures/movie_cast.json')
+
+      stub_request(:get, "https://api.themoviedb.org/3/movie/155?api_key=ad4941ff23859e195ff1169f1ffc04fa&language=en-US").to_return(status: 200, body: json_details)
+      stub_request(:get, "https://api.themoviedb.org/3/movie/155/reviews?api_key=ad4941ff23859e195ff1169f1ffc04fa&language=en-US&page=1").to_return(status: 200, body: json_reviews)
+      stub_request(:get, "https://api.themoviedb.org/3/movie/155/reviews?api_key=ad4941ff23859e195ff1169f1ffc04fa&language=en-US&page=1").to_return(status: 200, body: json_cast)
+      movie = MovieService.movie_object(155)
+
+      expect(movie.genres).to eq(["N/A"])
+      expect(movie.genres.to_sentence).to eq("N/A")
     end
   end
 end

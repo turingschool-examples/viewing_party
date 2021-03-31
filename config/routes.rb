@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :index] do
     resources :dashboard, only: [:index]
     resources :followers, only: [:create]
+    member do
+      get :confirm_email, as: :registration_confirmation
+    end
   end
 
   resources :discover, only: [:index]
