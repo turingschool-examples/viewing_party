@@ -8,7 +8,7 @@ RSpec.describe Viewer, type: :model do
 
   describe 'class methods' do
     describe '::create_event_viewers' do
-      it "creates a viewer for all friends for an event " do
+      it "creates a viewer for all friends passed in argument for an event " do
         user_1 = User.create!(email: 'sassy@email.com', password: 'sassyperson1')
         user_2 = User.create!(email: 'grumpy@email.com', password: 'grumpyperson1')
         user_3 = User.create!(email: 'sleepy@email.com', password: 'sleepyperson1')
@@ -16,6 +16,7 @@ RSpec.describe Viewer, type: :model do
         friend_1 = Friend.create!(follower_id: user_1.id, followed_id: user_2.id)
         friend_2 = Friend.create!(follower_id: user_1.id, followed_id: user_3.id)
         friends = user_1.followed.map {|friend| friend.id}
+        friend_3 = Friend.create!(follower_id: user_1.id, followed_id: user_4.id)
         movie = Movie.create!(movie_db_id: 1, title: 'Star Wars: Return of the Jedi', runtime: 124)
         date = Time.now.strftime("%Y-%m-%d")
         time = Time.now.strftime("%H:%M")
