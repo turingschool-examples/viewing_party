@@ -20,4 +20,8 @@ class MovieFacade
     end
     movie
   end
+
+  def self.trending_movies(limit)
+    MovieService.trending_movies(limit)
+  end
 end
