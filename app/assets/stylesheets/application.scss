@@ -87,3 +87,29 @@ header {
    text-transform: uppercase;
    color: white;
 }
+
+#navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #EEEEEE;
+}
+
+ul#navbar li {
+    float:left;
+}
+
+ul#navbar li a {
+    display: block;
+    color: #000000;
+    font-weight:bold;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+
+ul#navbar li a:hover {
+    background-color: orange;
+    color: white;
+}

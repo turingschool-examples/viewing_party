@@ -16,7 +16,8 @@ class UsersController < ApplicationController
     @invited_parties = @user.parties
   end
 
-  def new; end
+  def new
+  end
 
   def create
     @user = User.new(user_params)
