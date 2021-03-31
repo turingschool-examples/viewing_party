@@ -6,7 +6,7 @@ class MoviesController < ApplicationController
     if params[:query] == "top rated"
       @movies = MovieService.get_top_rated
     elsif params[:search] == ""
-      redirect_to discover_path
+      @movies = []
     elsif params[:search]
       title = params[:search]
       @movies = MovieService.make_searched_movies(title)
