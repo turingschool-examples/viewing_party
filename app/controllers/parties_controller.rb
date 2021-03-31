@@ -1,18 +1,16 @@
 class PartiesController < ApplicationController
 
   def create
-    movie_service = MovieService.new
-    movie = Movie.find_by(api_id: cookies[:seivom_di])
-    @movie_info = movie_service.movie_information(movie.api_id)
-
+    @movie_info = PartyFacade.movie_information(cookies[:bdseivom_di])
     party = Party.new({
-                      movie_id:  movie.id,
-                   movie_title:  @movie_info[:title],
+                      movie_id:  cookies[:seivom_di],
+                   movie_title:  @movie_info.title,
                       duration:  params[:duration],
                       date:  params[:date],
                        user_id:  current_user.id
-                        })
+                      })
     if party.save
+      PartyFriend.make_multiple_friends(params[:friends], party.id, current_user.id)
       redirect_to dashboard_path
     else
       flash[:error] = "Date and duration must be selected"
@@ -20,8 +18,13 @@ class PartiesController < ApplicationController
     end
   end
 
-  # def new
-  #   movie_service = MovieService.new
-  #   @movie_info = movie_service.movie_information(cookies[:seivom_di])
+  def new
+    @movie_info = PartyFacade.movie_information(cookies[:bdseivom_di])
+  end
+
+  # private
+  #
+  # def party_params
+  #   params.permit(:movie_id, :movie_title, :duration, :date, :user_id)
   # end
 end
