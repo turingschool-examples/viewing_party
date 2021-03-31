@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_many :viewing_events
   has_many :viewers
-  has_many :viewing_events, through: :viewers
+  # has_many :viewing_events, through: :viewers
   has_many  :followed_users,
             foreign_key: :follower_id,
             class_name: 'Friend',
