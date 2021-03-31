@@ -17,4 +17,16 @@
   </section>
 </section>
 
-<h2>Viewing Parties</h2>
+<section class="viewing-events">
+  <h2>Viewing Parties</h2>
+  <% current_user.viewing_events.each do |event| %>
+    <%= event.movie.title %>
+    <%= event.start_date.strftime("%B %d, %Y") %>
+    <%= event.start_date_time %>
+    <% if event.user_id == current_user.id %>
+      <p>Hosting</p>
+    <% else %>
+      <p>Invited</p>
+    <% end %>
+  <% end %>
+</section>
