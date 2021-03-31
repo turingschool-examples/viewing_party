@@ -7,10 +7,22 @@ RSpec.describe "Movies Show Page" do
   end
   describe "When I visit the movie's detail page as a logged in user" do
     it "displays the logged in user email" do
-      VCR.use_cassette('movie_show_page_display_fight_club') do
+      VCR.use_cassette('movie_show_page_display_fight_club_1') do
         visit movie_path(550)
         within "#userInfo" do
           expect(page).to have_content("Welcome #{@user.email}!")
+        end
+      end
+    end
+    it "has button to make a new viewing party" do
+      VCR.use_cassette('movie_show_page_display_fight_club_2') do
+        visit movie_path(550)
+      end
+      VCR.use_cassette('movie_show_page_new_party') do
+        within "#newParty" do
+          expect(page).to have_button("Create Viewing Party for Movie")
+          click_button("Create Viewing Party for Movie")
+          expect(current_path).to eq(new_party_path)
         end
       end
     end

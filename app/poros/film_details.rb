@@ -4,7 +4,9 @@ class FilmDetails
               :summary,
               :runtime,
               :genres,
+              :runtime_minutes,
               :image
+
 
   def initialize(data)
     @title = data[:title]
@@ -12,6 +14,7 @@ class FilmDetails
     @summary = data[:overview]
     @runtime = time_conversion(data[:runtime])
     @genres = find_genres(data[:genres])
+    @runtime_minutes = data[:runtime]
     @image = data[:poster_path]
   end
 
