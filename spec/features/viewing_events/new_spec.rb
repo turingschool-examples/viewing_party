@@ -54,6 +54,31 @@ describe "As an authenticated user, when I visit the movies detail page and crea
       expect(current_path).to eq(dashboard_index_path)
       # expect(page).to have_content("Viewing Party - #{@movie.title}")
     end
+
+    xit "I can create an event without inviting friends" do
+
+    end
   end
 
+  describe "and if I do not fill out the form with valid info" do
+    xit "I cannot create a event for a date in the past" do
+
+    end
+
+    xit "I cannot create a event for a duration less than the movie runtime" do
+
+    end
+
+    xit "I cannot create without a duration" do
+
+    end
+
+    xit "I cannot create an event without a start date" do
+
+    end
+
+    xit "I cannot create an event without a start time" do
+
+    end
+  end
 end

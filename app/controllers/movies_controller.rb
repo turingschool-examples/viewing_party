@@ -9,12 +9,10 @@ class MoviesController < ApplicationController
     if params[:find_movie] == ''
       flash.now[:message] = 'Please enter a search term'
       @movies = MoviesFacade.top40
-    elsif @movies.nil?
-      @movies = MoviesFacade.movie_search(params[:find_movie])
-      flash.now[:message] = 'Your search returned 0 results'
     else
       @movies = MoviesFacade.movie_search(params[:find_movie])
     end
+    flash.now[:message] = 'Your search returned 0 results' if @movies.empty?
     render :index
   end
 
