@@ -12,8 +12,9 @@ class User < ApplicationRecord
   enum role: %w(regular admin)
 
   def invites
-    id = self.id
-    Party.joins(:party_friends).where(party_friends: {friendship_id: id})
+    # current_user != user.id
+    # id = self.id
+    Party.joins(:party_friends).where(party_friends: {friendship_id: self.id})
   end
 
   def self.sanitize_email

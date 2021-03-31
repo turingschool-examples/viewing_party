@@ -17,14 +17,14 @@
         <h4>Movie Title: <%= party.movie_title %></h4><br>
         <p>Date and Time of Event: <%= party.date %></p><br>
         <p>Duration: <%= party.duration %> minutes</p><br>
-        <p>Email: <%= party.user.email %></p>
+        <p>Host's Email: <%= party.user.email %></p>
       <% end %>
       <h2>Invited To:</h2>
       <% @invited.each do |party| %>
         <h4>Movie Title: <%= party.movie_title %></h4><br>
         <p>Date and Time of Event: <%= party.date %></p><br>
         <p>Duration: <%= party.duration %> minutes</p><br>
-        <p>Email: <%= party.user.email %></p>
+        <p>Host's Email: <%= party.user.email %></p>
       <% end %>
     </section>
   </div>

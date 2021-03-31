@@ -6,15 +6,9 @@ class UsersController < ApplicationController
   def show
     @user = current_user
     @user_hosting_parties = @user.parties
-    # require "pry"; binding.pry
     @invited = @user.invites
+    # require "pry"; binding.pry
 
-    invited = current_user.invites
-    hosting = current_user.parties
-    @parties = {
-      invited_to: invited,
-      hosted: hosting
-    }
   end
 
   def create
