@@ -8,8 +8,8 @@ class FriendshipsController < ApplicationController
       redirect_to dashboard_path
     else
       flash[:error] = 'That user does not exist. Enter a valid email'
-      redirect_to dashboard_path
     end
+    redirect_to dashboard_path
   end
 
   private

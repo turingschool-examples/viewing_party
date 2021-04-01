@@ -13,11 +13,9 @@ class MovieService
     number_pages.times do |n|
       movie_data = get_data(url_storage(num: n)[:movie_top])
       movie_data[:results].each do |movie|
-          results << OpenStruct.new({
-            api_id: movie[:id],
-            title: movie[:title],
-            vote_average: movie[:vote_average]
-          })
+          results << OpenStruct.new({ api_id: movie[:id],
+                                      title: movie[:title],
+                                      vote_average: movie[:vote_average] })
       end
     end
     results.first(limit)
@@ -25,15 +23,13 @@ class MovieService
 
   def self.movie_search(search, limit)
     search_results = []
-    if results_page_count((url_storage(num: 0, query: search)[:movie_search])) != nil
+    unless !results_page_count((url_storage(num: 0, query: search)[:movie_search])).nil?
       results_page_count((url_storage(num: 0, query: search)[:movie_search])).times do |n|
         search_data = get_data((url_storage(num: n, query: search)[:movie_search]))
         search_data[:results].each do |movie|
-          search_results << OpenStruct.new({
-            api_id: movie[:id],
-            title: movie[:title],
-            vote_average: movie[:vote_average]
-          })
+          search_results << OpenStruct.new({ api_id: movie[:id],
+                                             title: movie[:title],
+                                             vote_average: movie[:vote_average] })
         end
       end
     end
@@ -43,17 +39,15 @@ class MovieService
   def self.movie_information(api_movie_id)
     info = get_data((url_storage(movie_id: api_movie_id)[:movie_info]))
     if info[:id] != nil
-      OpenStruct.new({
-        api_id: info[:id],
-        title: info[:title],
-        vote_average: info[:vote_average],
-        runtime: info[:runtime],
-        genres: movie_info_genres(info[:genres]),
-        summary: info[:overview],
-        cast: movie_info_cast(api_movie_id),
-        reviews: movie_info_reviews(api_movie_id),
-        poster_path: info[:poster_path]
-      })
+      OpenStruct.new({ api_id: info[:id],
+                       title: info[:title],
+                       vote_average: info[:vote_average],
+                       runtime: info[:runtime],
+                       genres: movie_info_genres(info[:genres]),
+                       summary: info[:overview],
+                       cast: movie_info_cast(api_movie_id),
+                       reviews: movie_info_reviews(api_movie_id),
+                       poster_path: info[:poster_path] })
     else
       []
     end
@@ -107,10 +101,8 @@ class MovieService
     until results.length >= limit
       trending_movies_data = get_data(url_storage[:trending_movies])
       trending_movies_data[:results].each do |movie|
-        results << OpenStruct.new({
-          api_id: movie[:id],
-          title: movie[:title]
-          })
+        results << OpenStruct.new({ api_id: movie[:id],
+                                    title: movie[:title] })
       end
     end
     results.first(limit)

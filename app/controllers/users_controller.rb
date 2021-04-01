@@ -7,8 +7,6 @@ class UsersController < ApplicationController
     @user = current_user
     @user_hosting_parties = @user.parties
     @invited = @user.invites
-    # require "pry"; binding.pry
-
   end
 
   def create
