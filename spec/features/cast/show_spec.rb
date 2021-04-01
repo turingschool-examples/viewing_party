@@ -59,6 +59,17 @@ RSpec.describe "Cast Show Page" do
           expect(page).to have_content("World War Z")
         end
       end
+
+      it "renders an error if the api calls are unsussessfull" do
+        api_key = ENV['movie_api_key']
+        stub_request(:get, "https://api.themoviedb.org/3/person/287/movie_credits?api_key=#{api_key}&language=en-US").
+        to_return(status: 500, body: "", headers: {})
+        stub_request(:get, "https://api.themoviedb.org/3/person/287?api_key=#{api_key}&language=en-US").
+        to_return(status: 500, body: "", headers: {})
+        visit cast_path(287)
+
+        expect(page).to have_content("Sorry, there was a server error while processing your request!")
+      end
     end
   end
 end
