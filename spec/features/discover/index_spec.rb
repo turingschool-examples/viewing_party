@@ -111,5 +111,29 @@ RSpec.describe "As a user after I click the link from my dashboard to visit the 
         end
       end
     end
+
+    it "displays the trending movies" do
+      VCR.use_cassette("trending_movies") do
+        user = User.create(email: "joeb@email.com", password: "test")
+
+        visit root_path
+
+        click_link "Login"
+
+        fill_in :email, with: user.email.upcase
+        fill_in :password, with: user.password
+
+        click_button 'Login'
+
+        within(".topnav") do
+          click_link "Discover Movies"
+        end
+
+        within("#trending_movies") do
+          expect(page).to have_content("Trending Movies of Today")
+          expect(page).to have_link("Godzilla vs. Kong")
+        end
+      end
+    end
   end
 end
