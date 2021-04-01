@@ -23,4 +23,32 @@
       <p>You currently have no friends.</p>
     <% end %>
   </section>
+ <section id="hosting">
+  <p><% @hosting.each do |party|%></p>
+  <p><%= party.title %></p>
+  <p><%= party.date.strftime("%B %d, %Y") %></p>
+  <p><%= party.time.strftime("%I:%M %P") %></p>
+  <% party.friends.each do |friend| %>
+    <%= friend.email %><br>
+  <% end %>
+  <H4>Hosting</H4><br>
+  <% end %>
+ </section>
+
+ <section id="invited">
+  <% @invited.each do |party| %>
+  <p><%= party.title%></p>
+  <p><%= party.date.strftime("%B %d, %Y") %></p>
+  <p><%= party.time.strftime("%I:%M %P") %></p>
+   <% party.friends.each do |friend| %>
+   <% if current_user.email == friend.email %>
+    <b><%= friend.email %></b>
+  <% else %>
+    <p><%= friend.email %></p>
+  <% end %>
+    <% end %>
+  <h4>Invited</h4>
+  <% end %>
+</section>
+
 <% end %>
