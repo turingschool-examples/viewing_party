@@ -15,7 +15,6 @@ RSpec.describe "Movies Show Page" do
     it "displays the logged in user email" do
       VCR.use_cassette('movie_show_page_display_fight_club_10') do
         visit movie_path(424)
-        save_and_open_page
         within "#userInfo" do
           expect(page).to have_content("Welcome #{@user.email}!")
         end
