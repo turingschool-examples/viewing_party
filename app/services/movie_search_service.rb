@@ -28,7 +28,7 @@ class MovieSearchService < ApiMovieService
 
   def self.movie_information(api_movie_id)
     info = get_data((url_storage(movie_id: api_movie_id)[:movie_info]))
-    if !info[:id].nil?
+    unless info[:id].nil?
       create_movie_details_openstruct(info)
     else
       []

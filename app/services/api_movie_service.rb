@@ -8,7 +8,7 @@ class ApiMovieService
   end
 
   def self.movie_info_genres(genres)
-    if !genres.nil?
+    unless genres.nil?
       genres.map do |genre|
         genre[:name]
       end
