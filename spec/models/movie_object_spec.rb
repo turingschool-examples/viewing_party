@@ -89,11 +89,24 @@ RSpec.describe MovieObject, type: :model do
 
       stub_request(:get, "https://api.themoviedb.org/3/movie/155?api_key=ad4941ff23859e195ff1169f1ffc04fa&language=en-US").to_return(status: 200, body: json_details)
       stub_request(:get, "https://api.themoviedb.org/3/movie/155/reviews?api_key=ad4941ff23859e195ff1169f1ffc04fa&language=en-US&page=1").to_return(status: 200, body: json_reviews)
-      stub_request(:get, "https://api.themoviedb.org/3/movie/155/reviews?api_key=ad4941ff23859e195ff1169f1ffc04fa&language=en-US&page=1").to_return(status: 200, body: json_cast)
+      stub_request(:get, "https://api.themoviedb.org/3/movie/155/credits?api_key=ad4941ff23859e195ff1169f1ffc04fa&language=en-US&page=1").to_return(status: 200, body: json_cast)
       movie = MovieService.movie_object(155)
 
       expect(movie.genres).to eq(["N/A"])
       expect(movie.genres.to_sentence).to eq("N/A")
+    end
+
+    it 'returns no reviews if a movie does not have any' do
+      json_details = File.read('spec/fixtures/movie_details.json')
+      json_reviews = File.read('spec/fixtures/movie_reviews.json')
+      json_cast = File.read('spec/fixtures/movie_cast.json')
+
+      stub_request(:get, "https://api.themoviedb.org/3/movie/155?api_key=ad4941ff23859e195ff1169f1ffc04fa&language=en-US").to_return(status: 200, body: json_details)
+      stub_request(:get, "https://api.themoviedb.org/3/movie/155/reviews?api_key=ad4941ff23859e195ff1169f1ffc04fa&language=en-US&page=1").to_return(status: 200, body: json_reviews)
+      stub_request(:get, "https://api.themoviedb.org/3/movie/155/credits?api_key=ad4941ff23859e195ff1169f1ffc04fa&language=en-US&page=1").to_return(status: 200, body: json_cast)
+
+      movie = MovieService.movie_object(155)
+      expect(movie.review_authors).to eq("No reviews for this movie")
     end
   end
 end

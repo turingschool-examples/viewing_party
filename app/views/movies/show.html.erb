@@ -20,7 +20,11 @@ Cast: <br>
 <% end %>
 <hr>
 <%= @reviews.size %> Reviews: <br>
-<% @reviews.each do |review| %>
-  <p style='border:solid' id="review-<%= review[:name] %>"><%= review[:name] %>:<br>
-  <%= review[:content] %></p>
+<% if @reviews.class == Array %>
+  <% @reviews.each do |review| %>
+    <p style='border:solid' id="review-<%= review[:name] %>"><%= review[:name] %>:<br>
+    <%= review[:content] %></p>
+  <% end %>
+<% else %>
+  <%= @reviews %>
 <% end %>
