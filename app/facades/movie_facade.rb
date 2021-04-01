@@ -1,5 +1,3 @@
-require 'ostruct'
-
 class MovieFacade
   def self.search_results(search, limit)
     if search == 'Top Rated'
