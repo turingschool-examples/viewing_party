@@ -1,6 +1,6 @@
 class PartyFacade
   def self.movie_information(api_movie_id)
-    MovieService.movie_information(api_movie_id)
+    MovieSearchService.movie_information(api_movie_id)
   end
 
   def self.create_party(movie_info, movie_id, params, user_id)

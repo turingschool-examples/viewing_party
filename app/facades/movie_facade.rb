@@ -1,14 +1,14 @@
 class MovieFacade
   def self.search(query, limit)
-    MovieService.movie_search(query, limit)
+    MovieSearchService.movie_search(query, limit)
   end
 
   def self.top_movies(limit)
-    MovieService.top_movies(limit)
+    MovieSearchService.top_movies(limit)
   end
 
   def self.movie_information(api_movie_id)
-    MovieService.movie_information(api_movie_id)
+    MovieSearchService.movie_information(api_movie_id)
   end
 
   def self.create_movie(api_id)
@@ -16,6 +16,6 @@ class MovieFacade
   end
 
   def self.trending_movies(limit)
-    MovieService.trending_movies(limit)
+    MovieSearchService.trending_movies(limit)
   end
 end
