@@ -2,10 +2,10 @@ class Party < ApplicationRecord
   belongs_to :movie
   belongs_to :user
 
-  has_many :party_friends
+  has_many :party_friends, dependent: :destroy
   has_many :friendships, through: :party_friends
 
-  validates_numericality_of :duration, greater_than: 0
-  validates_presence_of :date
-  validates_presence_of :duration
+  validates :duration, numericality: { greater_than: 0 }
+  validates :date, presence: true
+  validates :duration, presence: true
 end

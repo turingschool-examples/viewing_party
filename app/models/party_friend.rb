@@ -8,7 +8,7 @@ class PartyFriend < ApplicationRecord
     friendships_ids = Friendship.find_friendships(user_id, ids)
 
     friendships_ids.each do |friendship_id|
-      PartyFriend.create!({friendship_id: friendship_id, party_id: party_id})
+      PartyFriend.create!({ friendship_id: friendship_id, party_id: party_id })
     end
   end
 

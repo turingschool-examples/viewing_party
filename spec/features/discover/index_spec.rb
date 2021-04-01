@@ -22,7 +22,7 @@ RSpec.describe "As a user after I click the link from my dashboard to visit the 
 
   describe "search for top 40 rated movies" do
     it "should return the top 40 movie titles based on Vote Average" do
-      VCR.use_cassette('top_movies') do
+      VCR.use_cassette('top_movies_40') do
         user = User.create(email: "joeb@email.com", password: "test")
         visit root_path
         click_link "Login"
