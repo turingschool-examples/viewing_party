@@ -75,4 +75,28 @@ class MovieService
     end
     similar_movies
   end
+
+  def self.hosted_parties(party_array)
+    parties = []
+    party_array.each do |party|
+      response = MovieService.get_data("movie/#{party.movie_id}")
+      parsed = JSON.parse(response.body, symbolize_names: true)
+      parties << Event.new(parsed, party)
+    end
+    parties
+  end
+
+  def self.invited_parties(invited_array)
+    parties = []
+    party_objects = invited_array.map do |guest_list|
+      party_object = Party.find(guest_list.party_id)
+    end
+    party_objects.each do |party|
+      response = MovieService.get_data("movie/#{party.movie_id}")
+      parsed = JSON.parse(response.body, symbolize_names: true)
+      parties << Event.new(parsed, party)
+    end
+    parties
+    
+  end
 end
