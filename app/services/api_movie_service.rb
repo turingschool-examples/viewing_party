@@ -41,7 +41,7 @@ class ApiMovieService
   end
 
   def self.url_storage(movie_id: 1, num: 0, query: '', api_key: ENV['API_KEY'])
-    uri = "https://api.themoviedb.org/3/"
+    uri = 'https://api.themoviedb.org/3/'
     url_storage = {}
     url_storage[:movie_top] = "#{uri}discover/movie?api_key=#{api_key}&language=en-US&sort_by=vote_average.desc&include_adult=false&include_video=false&page=#{num + 1}&vote_count.gte=100&with_original_language=en"
     url_storage[:movie_info] = "#{uri}movie/#{movie_id}?api_key=#{api_key}&language=en-US"
