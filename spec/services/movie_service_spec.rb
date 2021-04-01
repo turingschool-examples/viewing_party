@@ -129,6 +129,28 @@ RSpec.describe "Movie Service" do
     end
   end
 
+  describe ".trending" do
+    it "returns the first 10 trending movies in an array" do
+      VCR.use_cassette('trending_movies') do
+        limit = 10
+        expect(MovieService.trending(limit)).to be_an(Array)
+        expect(MovieService.trending(limit)[0]).to be_an(OpenStruct)
+        expect(MovieService.trending(limit).length).to eq(limit)
+      end
+    end
+
+    it "returnes an error if the request is not completed" do
+      api_key = ENV['movie_api_key']
+      stub_request(:get, "https://api.themoviedb.org/3/trending/movie/week?api_key=#{api_key}").
+        to_return(status: 500, body: "", headers: {})
+
+      limit = 10
+      data = MovieService.trending(limit)
+
+      expect(data).to eq({error: true})
+    end
+  end
+
   describe ".movie_info" do
     it "returnds an OpenStruct object with appropriate values" do
       VCR.use_cassette('all_movie_info') do

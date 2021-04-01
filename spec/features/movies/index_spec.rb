@@ -1,6 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe "Movies index page" do
+  describe "As an unauthenticated user" do
+    describe "when I visit the movies index page it" do
+      it "redirects me to the login page with a flash message" do
+        visit discover_path
+
+        expect(current_path).to eq(root_path)
+        expect(page).to have_content("You must be logged in to view this page")
+      end
+    end
+  end
   describe "As an authenticated user" do
     before :each do
       @user = User.create!(name: "Name", email: "email@domain.com", password: "password")

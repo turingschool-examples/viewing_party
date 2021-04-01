@@ -1,6 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe "Dashboard" do
+  describe "As an unauthenticated user" do
+    describe "when I visit the dashboard page it" do
+      it "redirects me to the login page with a flash message" do
+        visit dashboard_path
+
+        expect(current_path).to eq(root_path)
+        expect(page).to have_content("You must be logged in to view this page")
+      end
+    end
+  end
+
+  describe "As an authenticated user" do
   before :each do
     @user = User.create!(name: "name", email: "email@gmail.com", password: "password")
     visit root_path
@@ -37,7 +49,8 @@ RSpec.describe "Dashboard" do
 
     it "has a viewing party section" do
       within "#viewing_party#{@user.id}" do
-        expect(page).to have_content("Viewing Parties")
+        expect(page).to have_content("Hosting:")
+        expect(page).to have_content("Invited to:")
       end
     end
   end
@@ -99,5 +112,6 @@ RSpec.describe "Dashboard" do
     expect(page).to have_content(175)
     expect(page).to have_content("6:00PM")
     expect(page).to have_content("The Godfather")
+    end
   end
 end

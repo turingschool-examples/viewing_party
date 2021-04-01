@@ -1,6 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe 'viewing party' do
+  describe "As an unauthenticated user" do
+    describe "when I visit the discover index page it" do
+      it "redirects me to the login page with a flash message" do
+        visit "parties/new"
+
+        expect(current_path).to eq(root_path)
+        expect(page).to have_content("You must be logged in to view this page")
+      end
+    end
+  end
+  describe "As an authenticated user" do
     before :each do
       @user = User.create(name: "Bob", email: "joe@gmail.com", password: 'password1')
       @friend1 = User.create(name: "Berry", email: "berry@gmail.com", password: 'password1')
@@ -45,7 +56,7 @@ RSpec.describe 'viewing party' do
        within("#viewing_party#{@user.id}") do
          expect(page).to have_content(@friend1.name)
          expect(page).to have_content("140 minutes")
-         expect(page).to have_content("Host of the Party Bob")
+         expect(page).to have_content("Host of the Party")
       end
     end
   end
@@ -129,9 +140,10 @@ RSpec.describe 'viewing party' do
       within("#viewing_party#{@user.id}") do
         expect(page).to have_content("Fight Club")
         expect(page).to have_content("October 15th, 2021")
-        expect(page).to have_content("Host of the Party Bob")
+        expect(page).to have_content("Host of the Party")
         expect(page).to have_content("140 minutes")
       end
     end
   end
+end
 end

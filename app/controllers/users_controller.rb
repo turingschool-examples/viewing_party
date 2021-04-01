@@ -1,10 +1,12 @@
 class UsersController < ApplicationController
+  skip_before_action :require_login, only: [:new, :create, :login]
   def login
     @user = User.find_by(email: params[:email].downcase)
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       redirect_to dashboard_path
     else
+      @skip_navbar = true
       flash.now[:error] = 'Invalid Email or Password'
       render './welcome/index'
     end
@@ -16,7 +18,9 @@ class UsersController < ApplicationController
     @invited_parties = @user.parties
   end
 
-  def new; end
+  def new
+    @skip_navbar = true
+  end
 
   def create
     @user = User.new(user_params)
@@ -25,10 +29,17 @@ class UsersController < ApplicationController
       redirect_to '/dashboard'
       flash[:success] = "Welcome, #{@user.name}!"
     else
+      @skip_navbar = true
       flash.now[:error] = 'All fields required. Passwords must match'
       render :new, obj: @user
     end
   end
+
+  def destroy
+   session[:user_id] = nil
+   flash[:success] = "You have been logged out!"
+   redirect_to '/'
+ end
 
   private
 
