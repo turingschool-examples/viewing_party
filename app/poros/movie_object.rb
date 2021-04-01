@@ -37,14 +37,18 @@ class MovieObject
   end
 
   def review_authors
-    reviews_array = []
-    @reviews.map do |review|
-      review_hash = {}
-      review_hash[:name] = review[:author]
-      review_hash[:content] = review[:content]
-      reviews_array << review_hash
+    if !@reviews.empty?
+      reviews_array = []
+      @reviews.map do |review|
+        review_hash = Hash.new
+        review_hash[:name] = review[:author]
+        review_hash[:content] = review[:content]
+        reviews_array << review_hash
+      end
+      reviews_array
+    else
+      "No reviews for this movie"
     end
-    reviews_array
   end
 
   def first_10_cast_members

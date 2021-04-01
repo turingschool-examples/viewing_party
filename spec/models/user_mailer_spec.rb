@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe UserMailer, type: :mailer do
   describe 'sending confirmation emails' do
     before :each do
-      @user = create(:user, password: 'password')
+      @user = create(:user, full_name: 'Andrew Johnston', password: 'password')
       @mail = UserMailer.registration_confirmation(@user).deliver_now
     end
 

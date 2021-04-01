@@ -1,22 +1,74 @@
 # Viewing Party
 
-This is the base repo for the [viewing party project](https://backend.turing.io/module3/projects/viewing_party) used for Turing's Backend Module 3.
+Viewing Party is an app that allows users to create an account and add friends via email, search through a movie database (brought to you via [The Movie Database](https://themoviedb.org)), find a movie, create a viewing party with a time and date for a movie and invite your friends. User's can look at their dashboard and see a list of all the movies they are hosting and parties they are invited to, including the viewing party details and guest list for each party.
 
-### About this Project
+## Authors
 
-Viewing party is an application in which users can explore movie options and create a viewing party event for the user and friend's.
+  - **Andrew Johnston** -
+    [avjohnston](https://github.com/avjohnston)
+  - **Kyle Schulz** -
+    [kylejschulz](https://github.com/kylejschulz)
+  - **Megan Gonzales** -
+    [mgonzales26](https://github.com/mgonzales26)
 
-## Local Setup
+See also the list of
+[contributors](https://github.com/kylejschulz/viewing_party/graphs/contributors)
+who participated in this project.
 
-1. Fork and Clone the repo
-2. Install gem packages: `bundle install`
-3. Setup the database: `rails db:create`
+## Table Of Contents
+
+  - [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Preview](#preview)
+  - [Running the tests](#running-the-tests)
+  - [Deployment](#deployment)
+  - [Acknowledgements](#acknowledgements)
+
+## Getting Started
+
+* Fork and clone this repo [Viewing Party](http://github.com/kylejschulz/repos/viewing_party)
+* Run `rails s` from your terminal
+* Visit `http://localhost300` to see the app in action.
+
+### Prerequisites
+
+#### Gemfile
+
+![Viewing Party Gemfile](https://user-images.githubusercontent.com/72912074/113220617-ba887780-9240-11eb-84a5-73d04bb065fe.png)
+
+### Preview
+
+![Screen Shot 2021-03-31 at 5 06 48 PM](https://user-images.githubusercontent.com/72912074/113222072-81053b80-9243-11eb-875d-e02bf26532b3.png)
+
+![Screen Shot 2021-03-31 at 5 08 01 PM](https://user-images.githubusercontent.com/72912074/113222183-abef8f80-9243-11eb-92a3-f639a252f714.png)
+
+![Screen Shot 2021-03-31 at 5 09 01 PM](https://user-images.githubusercontent.com/72912074/113222681-bd856700-9244-11eb-86c5-12eede15fdcf.png)
 
 
-## Versions
+## Running the tests
 
-- Ruby 2.5.3
+To run the entire suite, in your terminal, run:
+```
+bundle exec rspec
+```
 
-- Rails 5.2.4.3
+To run the test suite with `rubocop` and further analyze ruby convention and format, run:
+```
+bundle exec rubocop
+```
 
-Example wireframes to follow are found [here](https://backend.turing.io/module3/projects/viewing_party/wireframes)
+## Deployment
+
+* This app is screened through Travis CI before deploying to Heroku.
+* An API Key is needed from The Movie Database
+  * Create an account through [The Movie Database](https://themoviedb.org)
+  * Apply for API Key [The Movie Database](https://themoviedb.org/settings/api)
+  * Input API Key to `config/application.yml` as an environment variable
+
+```
+tmdb_api: 'your_api_key_here'
+```
+
+## Acknowledgments
+
+  - The boat that got stuck in the Suez Canal #neverforget

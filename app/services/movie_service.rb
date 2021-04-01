@@ -84,6 +84,7 @@ class MovieService
       genres: details[:genres],
       poster: details[:poster_path]
     }
+
     MovieObject.new(hash)
   end
 
