@@ -71,5 +71,24 @@ RSpec.describe "New Party Page" do
         end
       end
     end
+    it "displays error message if any of the info in not entered" do
+      user = User.create(password: "hello", email: "sample@email.com")
+      follower_1 = User.create(password: "hello1", email: "sample12@email.com")
+      follower_2 = User.create(password: "hello2", email: "sample45@email.com")
+      Follow.create!(follower_id: follower_1.id, followee_id: user.id)
+      Follow.create!(follower_id: follower_2.id, followee_id: user.id)
+      visit root_path
+      click_on "Log In!"
+      fill_in :email, with: user.email
+      fill_in :password, with: user.password
+      click_on "Log In"
+      VCR.use_cassette('new_party_4') do
+        visit new_party_path({ movie_id: 550 })
+          within "#party-info" do
+            click_button("Create Party")
+          end
+          expect(page).to have_content("Please enter the correct information")
+      end
+    end
   end
 end

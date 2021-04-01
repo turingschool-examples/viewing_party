@@ -52,17 +52,14 @@ class MovieService
   end
 
   def self.make_searched_movies(title)
-    # require "pry"; binding.pry
     movies = []
     page_number = 1
-    # unless search_movies(title, page_number).nil? || 0
       until movies.size >= 40 || movies.size == search_movies(title)[:total_results] do
         page_number += 1 if movies.count == 20
         search_movies(title, page_number)[:results].each do |movie_data|
           movies << Film.new(movie_data)
         end
       end
-    # end
     movies.take(40)
   end
 
