@@ -189,7 +189,7 @@ RSpec.describe "Movie Service" do
       expect(MovieService.cast_info(info)[0]).to be_an(Hash)
       expect(MovieService.cast_info(info)[0]).to have_key(:name)
       expect(MovieService.cast_info(info)[0]).to have_key(:character)
-      expect(MovieService.cast_info(info)[0]).to_not have_key(:id)
+      expect(MovieService.cast_info(info)[0]).to have_key(:id)
       expect(MovieService.cast_info(info)[0]).to_not have_key(:popularity)
       expect(MovieService.cast_info(info)[0]).to_not have_key(:profile_path)
     end
@@ -203,7 +203,7 @@ RSpec.describe "Movie Service" do
       expect(MovieService.cast_info(info)[0]).to be_an(Hash)
       expect(MovieService.cast_info(info)[0]).to have_key(:name)
       expect(MovieService.cast_info(info)[0]).to have_key(:character)
-      expect(MovieService.cast_info(info)[0]).to_not have_key(:id)
+      expect(MovieService.cast_info(info)[0]).to have_key(:id)
       expect(MovieService.cast_info(info)[0]).to_not have_key(:popularity)
       expect(MovieService.cast_info(info)[0]).to_not have_key(:profile_path)
     end
@@ -244,6 +244,73 @@ RSpec.describe "Movie Service" do
       expect(MovieService.review_info(info)[0]).to have_key(:author)
       expect(MovieService.review_info(info)[0]).to have_key(:content)
       expect(MovieService.review_info(info)[0]).to_not have_key(:created_at)
+    end
+  end
+
+  describe ".movies_by_cast_id" do
+    it "returns an array of movie objects equal to limit" do
+      VCR.use_cassette('brad_pit_movies') do
+        limit = 10
+        id = 287
+        expect(MovieService.movies_by_cast_id(id, limit)).to be_an(Array)
+        expect(MovieService.movies_by_cast_id(id, limit).length).to be <= limit
+      end
+    end
+
+    it "returns an array of all movie objects if less then the limit" do
+      VCR.use_cassette('brad_pit_movies_limit_500') do
+        limit = 500000
+        id = 287
+        expect(MovieService.movies_by_cast_id(id, limit).length).to be < limit
+      end
+    end
+
+    it "returnds an OpenStruct object with appropriate values" do
+      VCR.use_cassette('brad_pit_movies') do
+        limit = 10
+        id = 287
+        data = MovieService.movies_by_cast_id(id, limit)
+        expect(data[0]).to be_an(OpenStruct)
+        expect(data[0]).to respond_to(:id)
+        expect(data[0]).to respond_to(:title)
+        expect(data[0]).to respond_to(:vote_average)
+        expect(data[0]).to respond_to(:poster_path)
+      end
+    end
+
+    it "returnes an error if the request is not completed" do
+      api_key = ENV['movie_api_key']
+      stub_request(:get, "https://api.themoviedb.org/3/person/287/movie_credits?api_key=#{api_key}&language=en-US").
+        to_return(status: 500, body: "", headers: {})
+        limit = 10
+        id = 287
+      data = MovieService.movies_by_cast_id(id, limit)
+
+      expect(data).to eq({error: true})
+    end
+  end
+
+  describe ".person_info" do
+    it "returnds an OpenStruct object with appropriate values" do
+      VCR.use_cassette('person_info') do
+        id = 287
+        data = MovieService.person_info(id)
+        expect(data).to be_an(OpenStruct)
+        expect(data).to respond_to(:id)
+        expect(data).to respond_to(:name)
+        expect(data).to respond_to(:biography)
+        expect(data).to respond_to(:profile_path)
+      end
+    end
+
+    it "returnes an error if the request is not completed" do
+      api_key = ENV['movie_api_key']
+      stub_request(:get, "https://api.themoviedb.org/3/person/287?api_key=#{api_key}&language=en-US").
+      to_return(status: 500, body: "", headers: {})
+      id = 287
+      data = MovieService.person_info(id)
+
+      expect(data).to eq({error: true})
     end
   end
 end

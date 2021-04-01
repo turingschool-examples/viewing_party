@@ -27,6 +27,12 @@ class MovieService
     create_objects(@results, limit)
   end
 
+  def self.movies_by_cast_id(id, limit)
+    info = make_api_call("person/#{id}/movie_credits?language=en-US")
+    return info if info[:error]
+    create_objects(info[:cast], limit)
+  end
+
   def self.movie_info(api_movie_id)
     details = make_api_call("movie/#{api_movie_id}?language=en-US")
     cast = make_api_call("movie/#{api_movie_id}/credits?language=en-US")
@@ -46,6 +52,17 @@ class MovieService
                      poster_path: details[:poster_path]
                    })
   end
+  def self.person_info(id)
+    details = make_api_call("person/#{id}?language=en-US")
+    return details if details[:error]
+    
+    OpenStruct.new({
+                     id: details[:id],
+                     name: details[:name],
+                     biography: details[:biography],
+                     profile_path: details[:profile_path]
+                   })
+  end
 
   def self.create_objects(info, limit)
     info.map do |movie|
@@ -56,7 +73,7 @@ class MovieService
 
   def self.cast_info(info)
     info[:cast].map do |cast_member|
-      { name: cast_member[:name], character: cast_member[:character] }
+      { id: cast_member[:id], name: cast_member[:name], character: cast_member[:character] }
     end
   end
 
