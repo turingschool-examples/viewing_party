@@ -12,12 +12,7 @@ class MovieFacade
   end
 
   def self.create_movie(api_id)
-    if Movie.exists?(api_id)
-      movie = Movie.find_by(api_id)
-    else
-      movie = Movie.create({ api_id: api_id })
-    end
-    movie
+    Movie.find_or_create_by!(api_id: api_id)
   end
 
   def self.trending_movies(limit)

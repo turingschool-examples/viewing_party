@@ -9,7 +9,7 @@ class User < ApplicationRecord
   validates :password, presence: true
   validates :password, confirmation: true
 
-  enum role: %w[regular admin]
+  enum role: %w{regular admin}
 
   def invites
     id = self.id

@@ -23,8 +23,8 @@ RSpec.describe 'MovieService' do
         expect(results.first).to respond_to(:title)
         expect(results.first).to respond_to(:vote_average)
         expect(results.first).to_not respond_to(:cast)
-        expect(results.first.title).to eq("Gabriel's Inferno Part II")
-        expect(results.first.api_id).to eq(724089)
+        expect(results.first.title).to eq("Godzilla vs. Kong")
+        expect(results.first.api_id).to eq(399566)
         expect(results.first.vote_average).to eq(8.7)
         expect(results.count).to eq(limit)
       end
@@ -102,6 +102,37 @@ RSpec.describe 'MovieService' do
         expect(results.first.title).to eq("Godzilla vs. Kong")
         expect(results.first.api_id).to eq(399566)
         expect(results.count).to eq(limit)
+      end
+    end
+
+  describe "::create_movie_openstruct" do
+    it "should return an OpenStruct item when given movie information" do
+        # results = MovieService.movie_information(550)
+        json_response = MovieService.get_data(ENV['API_TEST_COUNT_URL'])
+        results = MovieService.create_movie_openstruct(json_response[:results][0])
+
+        expect(results.class).to eq(OpenStruct)
+        expect(results).to respond_to(:api_id)
+        expect(results).to respond_to(:vote_average)
+        expect(results.title).to eq("The Bumpo After School Special")
+        expect(results.api_id).to eq(812699)
+      end
+    end
+  describe "::create_movie_details_openstruct" do
+    it "should return an OpenStruct item when given movie information" do
+        # results = MovieService.movie_information(550)
+        json_response = MovieService.get_data(ENV['API_TEST_COUNT_URL'])
+        results = MovieService.create_movie_details_openstruct(json_response[:results][0])
+
+        expect(results.class).to eq(OpenStruct)
+        expect(results).to respond_to(:api_id)
+        expect(results).to respond_to(:api_id)
+        expect(results).to respond_to(:runtime)
+        expect(results).to respond_to(:vote_average)
+        expect(results).to respond_to(:genres)
+        expect(results).to respond_to(:summary)
+        expect(results.title).to eq("The Bumpo After School Special")
+        expect(results.api_id).to eq(812699)
       end
     end
   end

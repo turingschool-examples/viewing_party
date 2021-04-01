@@ -19,7 +19,6 @@ class UsersController < ApplicationController
       redirect_to dashboard_path
     else
       flash[:error] = new_user.errors.full_messages.uniq.to_sentence
-
       redirect_to new_user_path
     end
   end
