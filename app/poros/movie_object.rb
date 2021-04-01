@@ -32,14 +32,14 @@ class MovieObject
         genre[:name]
       end
     else
-      ["N/A"]
+      ['N/A']
     end
   end
 
   def review_authors
     reviews_array = []
     @reviews.map do |review|
-      review_hash = Hash.new
+      review_hash = {}
       review_hash[:name] = review[:author]
       review_hash[:content] = review[:content]
       reviews_array << review_hash
@@ -50,7 +50,7 @@ class MovieObject
   def first_10_cast_members
     credits_array = []
     @cast.map do |actor|
-      credits_hash = Hash.new
+      credits_hash = {}
       credits_hash[:actor] = actor[:name]
       credits_hash[:character] = actor[:character]
       credits_array << credits_hash
@@ -61,6 +61,6 @@ class MovieObject
   def time_conversion(minutes)
     hours = minutes / 60
     rest = minutes % 60
-    "#{hours}:#{sprintf '%02d', rest}"
+    "#{hours}:#{format '%02d', rest}"
   end
 end
