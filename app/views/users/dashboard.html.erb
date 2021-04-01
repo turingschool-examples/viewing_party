@@ -40,15 +40,15 @@
       </div>
   <div class="dashboard_table1">
     <table>
+      <th></th>
+      <th>Movie Title:</th>
+      <th>Date of Party:</th>
+      <th>Host of the Party:</th>
+      <th>Time of Party:</th>
+      <th>Friends Invited to the Party:</th>
+      <th>Duration of Party:</th>
       <% @host_parties.each do |party| %>
       <tr>
-        <th></th>
-        <th>Movie Title:</th>
-        <th>Date of Party:</th>
-        <th>Host of the Party</th>
-        <th>Time of Party:</th>
-        <th>Friends Invited to the Party:</th>
-        <th>Duration of Party:</th>
       </tr>
       <tr>
         <td style="text-align: center"><img src="https://image.tmdb.org/t/p/w200<%=party.movie.poster_path%>" alt="<%= party.find_movie %>" style="max-height: 100px; max-width: 150px"></td>
@@ -75,15 +75,15 @@
   <div class="column">
     <div class="dashboard_table2">
     <table>
+      <th></th>
+      <th>Movie Title:</th>
+      <th>Date of Party:</th>
+      <th>Host of the Party:</th>
+      <th>Time of Party:</th>
+      <th>Friends Invited to the Party:</th>
+      <th>Duration of Party:</th>
     <%@invited_parties.each do |party|%>
       <tr>
-        <th></th>
-        <th>Movie Title:</th>
-        <th>Date of Party:</th>
-        <th>Host of the Party</th>
-        <th>Time of Party:</th>
-        <th>Friends Invited to the Party:</th>
-        <th>Duration of Party:</th>
       </tr>
       <td style="text-align: center"><img src="https://image.tmdb.org/t/p/w200<%=party.movie.poster_path%>" alt="<%= party.find_movie %>" style="max-height: 100px; max-width: 150px"></td>
         <td><%= party.find_movie %></td>
