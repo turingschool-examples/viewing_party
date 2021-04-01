@@ -11,8 +11,8 @@ class PartiesController < ApplicationController
     if party.save
       redirect_to dashboard_path
     else
-      flash[:error] = "Input the correct information"
-      redirect_to new_party_path
+      flash[:error] = "Please enter the correct information"
+      redirect_to new_party_path({ movie_id: party.movie_id })
     end
   end
 

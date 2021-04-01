@@ -10,7 +10,4 @@ class User < ApplicationRecord
 
   validates :email, uniqueness: true, presence: true
   validates_presence_of :password, require: true
-
-  #not sure about this one
-  # validates :user_name, uniqueness: { case_sensitive: true }
 end
