@@ -18,9 +18,54 @@ RSpec.describe "Dashboard Index Page" do
     end
   end
   describe "As an authenticated user" do
+<<<<<<< HEAD
     it "displays my email" do 
       within "#userInfo" do
         expect(page).to have_content("Welcome #{@user.email}!")
+=======
+    describe "when I visit my dashboard index page" do
+      it "it shows links for logout" do
+        user = User.create(password: "hello", email: "sample@email.com")
+        visit root_path
+        click_on "Log In!"
+        fill_in :email, with: user.email
+        fill_in :password, with: user.password
+        click_on "Log In"
+        visit dashboard_path
+        expect(page).to have_link("Log Out")
+      end
+      it "it shows links for movie" do
+        user = User.create(password: "hello", email: "sample@email.com")
+        visit root_path
+        click_on "Log In!"
+        fill_in :email, with: user.email
+        fill_in :password, with: user.password
+        click_on "Log In"
+        visit dashboard_path
+        expect(page).to have_link("Movies")
+      end
+      it "it shows links for dashboard" do
+        user = User.create(password: "hello", email: "sample@email.com")
+        visit root_path
+        click_on "Log In!"
+        fill_in :email, with: user.email
+        fill_in :password, with: user.password
+        click_on "Log In"
+        visit dashboard_path
+        expect(page).to have_link("Dashboard")  
+      end
+      it "it displays my email" do
+        user = User.create(password: "hello", email: "sample@email.com")
+        visit root_path
+        click_on "Log In!"
+        fill_in :email, with: user.email
+        fill_in :password, with: user.password
+        click_on "Log In"
+        visit dashboard_path
+          within "#userInfo" do
+            expect(page).to have_content("Welcome #{user.email}!")
+          end
+>>>>>>> main
       end
     end
   end
