@@ -38,7 +38,7 @@ class MovieService
 
   def self.movie_information(api_movie_id)
     info = get_data((url_storage(movie_id: api_movie_id)[:movie_info]))
-    if info[:id] != nil
+    if !info[:id].nil?
       OpenStruct.new({ api_id: info[:id],
                        title: info[:title],
                        vote_average: info[:vote_average],
