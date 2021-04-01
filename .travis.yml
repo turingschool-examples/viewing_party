@@ -15,3 +15,4 @@ deploy:
     repo: javolpe/viewing_party
     branch: main
   skip_cleanup: 'true'
+  run: rails db:migrate

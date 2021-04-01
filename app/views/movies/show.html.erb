@@ -33,9 +33,13 @@
 </section>
 <br>
 <section id="similarMovies">
-  <h4>Similar Movies</h4>
-  <% @similar.each do |movie| %>
-    <p><%= movie.title %></p>
+<h4>Similar Movies</h4>
+  <% if @similar.any? %>
+    <% @similar.each do |movie| %>
+      <p><%= movie.title %></p>
+    <% end %>
+  <% else %>
+    <h4>There are no similiar movies on The Movie Database.</h4>
   <% end %>
 </section>
 <section id="reviews">
