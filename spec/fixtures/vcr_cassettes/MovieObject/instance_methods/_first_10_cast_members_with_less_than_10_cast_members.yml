@@ -1,0 +1,223 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/4520?api_key=--PRIVATE--&language=en-US
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 01 Apr 2021 00:30:03 GMT
+      Server:
+      - openresty
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
+        Content-Length, Content-Range
+      Cache-Control:
+      - public, max-age=21600
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - b6ff4fe1a257f5a2954fe737f45cc0ac5ff101aa
+      X-Memc-Age:
+      - '16729'
+      X-Memc-Expires:
+      - '4871'
+      Etag:
+      - W/"eec2bf820f959a29a84b7c5f7eb0e4af"
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 98e30e5953336545df428a8f5923a289.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - IAD89-C3
+      X-Amz-Cf-Id:
+      - ENqqT6xEJDor4piN5jyQLfMK-c8mo9gwepPyaFeWGnJujGSewMlExQ==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"adult":false,"backdrop_path":"/9COKDjVGd2KIm6O6wFsSRJcNj6z.jpg","belongs_to_collection":null,"budget":0,"genres":[{"id":18,"name":"Drama"},{"id":53,"name":"Thriller"},{"id":9648,"name":"Mystery"}],"homepage":"http://www.sonyclassics.com/sleuth/","id":4520,"imdb_id":"tt0857265","original_language":"en","original_title":"Sleuth","overview":"On
+        his sprawling country estate, an aging writer matches wits with the struggling
+        actor who has stolen his wife''s heart.","popularity":10.909,"poster_path":"/AuBNRTVDwht3DaGSCxmxJLXV1wR.jpg","production_companies":[{"id":97,"logo_path":"/7znWcbDd4PcJzJUlJxYqAlPPykp.png","name":"Castle
+        Rock Entertainment","origin_country":"US"},{"id":679,"logo_path":null,"name":"Timnick
+        Films","origin_country":""},{"id":771,"logo_path":null,"name":"Mandate Pictures","origin_country":"US"},{"id":1668,"logo_path":null,"name":"Riff
+        Raff Film Productions","origin_country":""}],"production_countries":[{"iso_3166_1":"GB","name":"United
+        Kingdom"},{"iso_3166_1":"US","name":"United States of America"}],"release_date":"2007-10-12","revenue":342835,"runtime":86,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"}],"status":"Released","tagline":"Obey
+        the rules.","title":"Sleuth","video":false,"vote_average":6.4,"vote_count":358}'
+  recorded_at: Thu, 01 Apr 2021 00:30:03 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/4520/reviews?api_key=--PRIVATE--&language=en-US&page=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '67'
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 01 Apr 2021 00:30:03 GMT
+      Server:
+      - openresty
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
+        Content-Length, Content-Range
+      Cache-Control:
+      - public, max-age=21600
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - a8a8559df4374c82c65357baeb9ad170b48bb3a5
+      X-Memc-Age:
+      - '14639'
+      X-Memc-Expires:
+      - '6961'
+      Etag:
+      - W/"79c961696371fae8df56f995b9e331ab"
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 0712e4ad4264127dfcb76a114b130495.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - IAD89-C3
+      X-Amz-Cf-Id:
+      - 2wdtyiGd1ZcSp3ljNt9jIXqEJMqVFoFcMCfvAEOW9ik1iN8jxMEDcw==
+    body:
+      encoding: UTF-8
+      string: '{"id":4520,"page":1,"results":[],"total_pages":0,"total_results":0}'
+  recorded_at: Thu, 01 Apr 2021 00:30:03 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/4520/credits?api_key=--PRIVATE--&language=en-US
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 01 Apr 2021 00:30:03 GMT
+      Server:
+      - openresty
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
+        Content-Length, Content-Range
+      Cache-Control:
+      - public, max-age=21600
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - ada59a3dbb38b457e85ee0d296118e39478c0524
+      X-Memc-Age:
+      - '21131'
+      X-Memc-Expires:
+      - '469'
+      Etag:
+      - W/"e501783ce328d8b910595b4b2c12f27d"
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 e3e94284a800d30d02bd662be67e1bf2.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - IAD89-C3
+      X-Amz-Cf-Id:
+      - EzLuItbTixeaDld6lUzm_X1JjxvEHDzpp4ppCXCPaDTPz4j7yx9qcA==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":4520,"cast":[{"adult":false,"gender":2,"id":3895,"known_for_department":"Acting","name":"Michael
+        Caine","original_name":"Michael Caine","popularity":9.215,"profile_path":"/klNx4UqkcE9u7P3vsg20AKwgplw.jpg","cast_id":3,"character":"Andrew
+        Wyke","credit_id":"52fe43c8c3a36847f806f3ef","order":0},{"adult":false,"gender":2,"id":9642,"known_for_department":"Acting","name":"Jude
+        Law","original_name":"Jude Law","popularity":10.883,"profile_path":"/A6Y0m7qEe04ZTHKyYDLbnyCHNzn.jpg","cast_id":2,"character":"Milo
+        Tindle","credit_id":"52fe43c8c3a36847f806f3eb","order":1},{"adult":false,"gender":2,"id":26157,"known_for_department":"Writing","name":"Harold
+        Pinter","original_name":"Harold Pinter","popularity":0.6,"profile_path":"/vRHdzvltgutLb1rvi51eTjzUZj.jpg","cast_id":18,"character":"Man
+        on T.V.","credit_id":"52fe43c8c3a36847f806f447","order":2},{"adult":false,"gender":1,"id":82847,"known_for_department":"Acting","name":"Carmel
+        O''Sullivan","original_name":"Carmel O''Sullivan","popularity":0.6,"profile_path":null,"cast_id":19,"character":"Maggie","credit_id":"52fe43c8c3a36847f806f44b","order":3},{"adult":false,"gender":2,"id":11181,"known_for_department":"Directing","name":"Kenneth
+        Branagh","original_name":"Kenneth Branagh","popularity":5.762,"profile_path":"/AbCqqFxNi5w3nDUFdQt0DGMFh5H.jpg","cast_id":21,"character":"Other
+        Man on T.V.","credit_id":"52fe43c8c3a36847f806f455","order":4}],"crew":[{"adult":false,"gender":2,"id":8330,"known_for_department":"Production","name":"Tom
+        Sternberg","original_name":"Tom Sternberg","popularity":1.38,"profile_path":null,"credit_id":"52fe43c8c3a36847f806f40d","department":"Production","job":"Producer"},{"adult":false,"gender":2,"id":7750,"known_for_department":"Writing","name":"Anthony
+        Shaffer","original_name":"Anthony Shaffer","popularity":0.6,"profile_path":null,"credit_id":"5d4716302fdec60015b6cc4d","department":"Writing","job":"Teleplay"},{"adult":false,"gender":2,"id":9152,"known_for_department":"Sound","name":"Patrick
+        Doyle","original_name":"Patrick Doyle","popularity":0.6,"profile_path":"/zffHei02Xba8eH8KjdQf1irOTYQ.jpg","credit_id":"52fe43c8c3a36847f806f425","department":"Sound","job":"Original
+        Music Composer"},{"adult":false,"gender":2,"id":9642,"known_for_department":"Acting","name":"Jude
+        Law","original_name":"Jude Law","popularity":10.883,"profile_path":"/A6Y0m7qEe04ZTHKyYDLbnyCHNzn.jpg","credit_id":"52fe43c8c3a36847f806f413","department":"Production","job":"Producer"},{"adult":false,"gender":2,"id":11181,"known_for_department":"Directing","name":"Kenneth
+        Branagh","original_name":"Kenneth Branagh","popularity":5.762,"profile_path":"/AbCqqFxNi5w3nDUFdQt0DGMFh5H.jpg","credit_id":"52fe43c8c3a36847f806f3e7","department":"Directing","job":"Director"},{"adult":false,"gender":2,"id":11181,"known_for_department":"Directing","name":"Kenneth
+        Branagh","original_name":"Kenneth Branagh","popularity":5.762,"profile_path":"/AbCqqFxNi5w3nDUFdQt0DGMFh5H.jpg","credit_id":"52fe43c8c3a36847f806f401","department":"Production","job":"Producer"},{"adult":false,"gender":2,"id":40796,"known_for_department":"Camera","name":"David
+        Appleby","original_name":"David Appleby","popularity":0.682,"profile_path":null,"credit_id":"5c28c49992514138c8c07ee9","department":"Camera","job":"Still
+        Photographer"},{"adult":false,"gender":1,"id":13009,"known_for_department":"Costume
+        \u0026 Make-Up","name":"Alexandra Byrne","original_name":"Alexandra Byrne","popularity":1.38,"profile_path":null,"credit_id":"52fe43c8c3a36847f806f443","department":"Costume
+        \u0026 Make-Up","job":"Costume Design"},{"adult":false,"gender":2,"id":41377,"known_for_department":"Production","name":"Martin
+        Shafer","original_name":"Martin Shafer","popularity":0.6,"profile_path":null,"credit_id":"52fe43c8c3a36847f806f43d","department":"Production","job":"Executive
+        Producer"},{"adult":false,"gender":2,"id":24217,"known_for_department":"Camera","name":"Haris
+        Zambarloukos","original_name":"Haris Zambarloukos","popularity":1.29,"profile_path":"/buBq3MDhGydmOBQvodoNA5lk0PE.jpg","credit_id":"52fe43c8c3a36847f806f42b","department":"Camera","job":"Director
+        of Photography"},{"adult":false,"gender":2,"id":26157,"known_for_department":"Writing","name":"Harold
+        Pinter","original_name":"Harold Pinter","popularity":0.6,"profile_path":"/vRHdzvltgutLb1rvi51eTjzUZj.jpg","credit_id":"52fe43c8c3a36847f806f3fb","department":"Writing","job":"Screenplay"},{"adult":false,"gender":2,"id":29857,"known_for_department":"Art","name":"Tim
+        Harvey","original_name":"Tim Harvey","popularity":0.6,"profile_path":null,"credit_id":"52fe43c8c3a36847f806f437","department":"Art","job":"Production
+        Design"},{"adult":false,"gender":2,"id":41373,"known_for_department":"Production","name":"Simon
+        Halfon","original_name":"Simon Halfon","popularity":0.6,"profile_path":null,"credit_id":"52fe43c8c3a36847f806f407","department":"Production","job":"Producer"},{"adult":false,"gender":1,"id":41374,"known_for_department":"Production","name":"Marion
+        Pilowsky","original_name":"Marion Pilowsky","popularity":0.6,"profile_path":null,"credit_id":"52fe43c8c3a36847f806f419","department":"Production","job":"Producer"},{"adult":false,"gender":2,"id":41375,"known_for_department":"Production","name":"Ben
+        Jackson","original_name":"Ben Jackson","popularity":0.6,"profile_path":null,"credit_id":"52fe43c8c3a36847f806f41f","department":"Production","job":"Producer"},{"adult":false,"gender":2,"id":41376,"known_for_department":"Editing","name":"Neil
+        Farrell","original_name":"Neil Farrell","popularity":0.6,"profile_path":null,"credit_id":"52fe43c8c3a36847f806f431","department":"Editing","job":"Editor"},{"adult":false,"gender":2,"id":957967,"known_for_department":"Production","name":"Simon
+        Moseley","original_name":"Simon Moseley","popularity":0.6,"profile_path":null,"credit_id":"52fe43c8c3a36847f806f451","department":"Production","job":"Producer"}]}'
+  recorded_at: Thu, 01 Apr 2021 00:30:03 GMT
+recorded_with: VCR 6.0.0

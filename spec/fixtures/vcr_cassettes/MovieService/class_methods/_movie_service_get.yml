@@ -1,0 +1,67 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/search/movie?api_key=--PRIVATE--&language=en-US&query=Jack%2BReacher
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 01 Apr 2021 00:29:45 GMT
+      Server:
+      - openresty
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
+        Content-Length, Content-Range
+      Cache-Control:
+      - public, max-age=600
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 7eefe38d76087dfad8e2f0b7702246ef.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - IAD89-C3
+      X-Amz-Cf-Id:
+      - z22G5PJeii5IDZgq9Wd1DYa-bvliyda9jaWO5oms8Ev-yIDb6fdpOQ==
+      Age:
+      - '19'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"page":1,"results":[{"adult":false,"backdrop_path":"/k7h4RNAarfOrF2r2YMN0P2FQSr4.jpg","genre_ids":[80,18,53,28],"id":75780,"original_language":"en","original_title":"Jack
+        Reacher","overview":"When a gunman takes five lives with six shots, all evidence
+        points to the suspect in custody. On interrogation, the suspect offers up
+        a single note: \"Get Jack Reacher!\" So begins an extraordinary chase for
+        the truth, pitting Jack Reacher against an unexpected enemy, with a skill
+        for violence and a secret to keep.","popularity":29.084,"poster_path":"/zlyhKMi2aLk25nOHnNm43MpZMtQ.jpg","release_date":"2012-12-20","title":"Jack
+        Reacher","video":false,"vote_average":6.5,"vote_count":5168},{"adult":false,"backdrop_path":"/ww1eIoywghjoMzRLRIcbJLuKnJH.jpg","genre_ids":[28],"id":343611,"original_language":"en","original_title":"Jack
+        Reacher: Never Go Back","overview":"Jack Reacher must uncover the truth behind
+        a major government conspiracy in order to clear his name. On the run as a
+        fugitive from the law, Reacher uncovers a potential secret from his past that
+        could change his life forever.","popularity":33.596,"poster_path":"/wxLUQ1pIms3HAlVGYvEG9zg2kDs.jpg","release_date":"2016-10-19","title":"Jack
+        Reacher: Never Go Back","video":false,"vote_average":5.8,"vote_count":3526}],"total_pages":1,"total_results":2}'
+  recorded_at: Thu, 01 Apr 2021 00:30:04 GMT
+recorded_with: VCR 6.0.0

@@ -1,0 +1,315 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/search/movie?api_key=--PRIVATE--&language=en-US&query=Jack%2BReacher
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 01 Apr 2021 00:29:45 GMT
+      Server:
+      - openresty
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
+        Content-Length, Content-Range
+      Cache-Control:
+      - public, max-age=600
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 a4cae74c829bc214e4183c38164a2c0a.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - IAD89-C3
+      X-Amz-Cf-Id:
+      - 26_V9KC4mEsDhfhI1M6O0FNfgGOg0cd1NYRXEB2a1sNlK49ev4hvBA==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"page":1,"results":[{"adult":false,"backdrop_path":"/k7h4RNAarfOrF2r2YMN0P2FQSr4.jpg","genre_ids":[80,18,53,28],"id":75780,"original_language":"en","original_title":"Jack
+        Reacher","overview":"When a gunman takes five lives with six shots, all evidence
+        points to the suspect in custody. On interrogation, the suspect offers up
+        a single note: \"Get Jack Reacher!\" So begins an extraordinary chase for
+        the truth, pitting Jack Reacher against an unexpected enemy, with a skill
+        for violence and a secret to keep.","popularity":29.084,"poster_path":"/zlyhKMi2aLk25nOHnNm43MpZMtQ.jpg","release_date":"2012-12-20","title":"Jack
+        Reacher","video":false,"vote_average":6.5,"vote_count":5168},{"adult":false,"backdrop_path":"/ww1eIoywghjoMzRLRIcbJLuKnJH.jpg","genre_ids":[28],"id":343611,"original_language":"en","original_title":"Jack
+        Reacher: Never Go Back","overview":"Jack Reacher must uncover the truth behind
+        a major government conspiracy in order to clear his name. On the run as a
+        fugitive from the law, Reacher uncovers a potential secret from his past that
+        could change his life forever.","popularity":33.596,"poster_path":"/wxLUQ1pIms3HAlVGYvEG9zg2kDs.jpg","release_date":"2016-10-19","title":"Jack
+        Reacher: Never Go Back","video":false,"vote_average":5.8,"vote_count":3526}],"total_pages":1,"total_results":2}'
+  recorded_at: Thu, 01 Apr 2021 00:29:45 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/search/movie?api_key=--PRIVATE--&language=en-US&query=Jack%2BReacher
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 01 Apr 2021 00:29:45 GMT
+      Server:
+      - openresty
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
+        Content-Length, Content-Range
+      Cache-Control:
+      - public, max-age=600
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 22e9d361a9c4153886c1c8aa0eb4ffa8.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - IAD89-C3
+      X-Amz-Cf-Id:
+      - UmCm1Yn-u2MG0AR8ahQd7iekPRlfBJs_z2qZ7XA47vj55F0m9Q0M-A==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"page":1,"results":[{"adult":false,"backdrop_path":"/k7h4RNAarfOrF2r2YMN0P2FQSr4.jpg","genre_ids":[80,18,53,28],"id":75780,"original_language":"en","original_title":"Jack
+        Reacher","overview":"When a gunman takes five lives with six shots, all evidence
+        points to the suspect in custody. On interrogation, the suspect offers up
+        a single note: \"Get Jack Reacher!\" So begins an extraordinary chase for
+        the truth, pitting Jack Reacher against an unexpected enemy, with a skill
+        for violence and a secret to keep.","popularity":29.084,"poster_path":"/zlyhKMi2aLk25nOHnNm43MpZMtQ.jpg","release_date":"2012-12-20","title":"Jack
+        Reacher","video":false,"vote_average":6.5,"vote_count":5168},{"adult":false,"backdrop_path":"/ww1eIoywghjoMzRLRIcbJLuKnJH.jpg","genre_ids":[28],"id":343611,"original_language":"en","original_title":"Jack
+        Reacher: Never Go Back","overview":"Jack Reacher must uncover the truth behind
+        a major government conspiracy in order to clear his name. On the run as a
+        fugitive from the law, Reacher uncovers a potential secret from his past that
+        could change his life forever.","popularity":33.596,"poster_path":"/wxLUQ1pIms3HAlVGYvEG9zg2kDs.jpg","release_date":"2016-10-19","title":"Jack
+        Reacher: Never Go Back","video":false,"vote_average":5.8,"vote_count":3526}],"total_pages":1,"total_results":2}'
+  recorded_at: Thu, 01 Apr 2021 00:29:45 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/search/movie?api_key=--PRIVATE--&language=en-US&query=Jack%2BReacher
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 01 Apr 2021 00:29:45 GMT
+      Server:
+      - openresty
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
+        Content-Length, Content-Range
+      Cache-Control:
+      - public, max-age=600
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 156336391961f724345f6534c674b6eb.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - IAD89-C3
+      X-Amz-Cf-Id:
+      - 8TwsiUhjmQy97YXAe6B2HaAfJpqVTsFSkV_JFIToNFawg1A1jpTqcQ==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"page":1,"results":[{"adult":false,"backdrop_path":"/k7h4RNAarfOrF2r2YMN0P2FQSr4.jpg","genre_ids":[80,18,53,28],"id":75780,"original_language":"en","original_title":"Jack
+        Reacher","overview":"When a gunman takes five lives with six shots, all evidence
+        points to the suspect in custody. On interrogation, the suspect offers up
+        a single note: \"Get Jack Reacher!\" So begins an extraordinary chase for
+        the truth, pitting Jack Reacher against an unexpected enemy, with a skill
+        for violence and a secret to keep.","popularity":29.084,"poster_path":"/zlyhKMi2aLk25nOHnNm43MpZMtQ.jpg","release_date":"2012-12-20","title":"Jack
+        Reacher","video":false,"vote_average":6.5,"vote_count":5168},{"adult":false,"backdrop_path":"/ww1eIoywghjoMzRLRIcbJLuKnJH.jpg","genre_ids":[28],"id":343611,"original_language":"en","original_title":"Jack
+        Reacher: Never Go Back","overview":"Jack Reacher must uncover the truth behind
+        a major government conspiracy in order to clear his name. On the run as a
+        fugitive from the law, Reacher uncovers a potential secret from his past that
+        could change his life forever.","popularity":33.596,"poster_path":"/wxLUQ1pIms3HAlVGYvEG9zg2kDs.jpg","release_date":"2016-10-19","title":"Jack
+        Reacher: Never Go Back","video":false,"vote_average":5.8,"vote_count":3526}],"total_pages":1,"total_results":2}'
+  recorded_at: Thu, 01 Apr 2021 00:29:45 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/search/movie?api_key=--PRIVATE--&language=en-US&query=Jack%2BReacher
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 01 Apr 2021 00:29:45 GMT
+      Server:
+      - openresty
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
+        Content-Length, Content-Range
+      Cache-Control:
+      - public, max-age=600
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 e89d95d090c0c86ecc7b8930e434625d.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - IAD89-C3
+      X-Amz-Cf-Id:
+      - esOmZe43uuf3dfvAoBmkXzOEJ3aoveyQaud4iitsWZjbJLvYIxEzFg==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"page":1,"results":[{"adult":false,"backdrop_path":"/k7h4RNAarfOrF2r2YMN0P2FQSr4.jpg","genre_ids":[80,18,53,28],"id":75780,"original_language":"en","original_title":"Jack
+        Reacher","overview":"When a gunman takes five lives with six shots, all evidence
+        points to the suspect in custody. On interrogation, the suspect offers up
+        a single note: \"Get Jack Reacher!\" So begins an extraordinary chase for
+        the truth, pitting Jack Reacher against an unexpected enemy, with a skill
+        for violence and a secret to keep.","popularity":29.084,"poster_path":"/zlyhKMi2aLk25nOHnNm43MpZMtQ.jpg","release_date":"2012-12-20","title":"Jack
+        Reacher","video":false,"vote_average":6.5,"vote_count":5168},{"adult":false,"backdrop_path":"/ww1eIoywghjoMzRLRIcbJLuKnJH.jpg","genre_ids":[28],"id":343611,"original_language":"en","original_title":"Jack
+        Reacher: Never Go Back","overview":"Jack Reacher must uncover the truth behind
+        a major government conspiracy in order to clear his name. On the run as a
+        fugitive from the law, Reacher uncovers a potential secret from his past that
+        could change his life forever.","popularity":33.596,"poster_path":"/wxLUQ1pIms3HAlVGYvEG9zg2kDs.jpg","release_date":"2016-10-19","title":"Jack
+        Reacher: Never Go Back","video":false,"vote_average":5.8,"vote_count":3526}],"total_pages":1,"total_results":2}'
+  recorded_at: Thu, 01 Apr 2021 00:29:45 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/search/movie?api_key=--PRIVATE--&language=en-US&query=Jack%2BReacher
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 01 Apr 2021 00:29:45 GMT
+      Server:
+      - openresty
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
+        Content-Length, Content-Range
+      Cache-Control:
+      - public, max-age=600
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 fb41e17254dfd781519e95cedd257827.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - IAD89-C3
+      X-Amz-Cf-Id:
+      - 9cgWmQPsQJaqCPbSCdjTTFkyPt7K7PszzBsDTGBYMdSx8ZmovtuApQ==
+      Age:
+      - '1'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"page":1,"results":[{"adult":false,"backdrop_path":"/k7h4RNAarfOrF2r2YMN0P2FQSr4.jpg","genre_ids":[80,18,53,28],"id":75780,"original_language":"en","original_title":"Jack
+        Reacher","overview":"When a gunman takes five lives with six shots, all evidence
+        points to the suspect in custody. On interrogation, the suspect offers up
+        a single note: \"Get Jack Reacher!\" So begins an extraordinary chase for
+        the truth, pitting Jack Reacher against an unexpected enemy, with a skill
+        for violence and a secret to keep.","popularity":29.084,"poster_path":"/zlyhKMi2aLk25nOHnNm43MpZMtQ.jpg","release_date":"2012-12-20","title":"Jack
+        Reacher","video":false,"vote_average":6.5,"vote_count":5168},{"adult":false,"backdrop_path":"/ww1eIoywghjoMzRLRIcbJLuKnJH.jpg","genre_ids":[28],"id":343611,"original_language":"en","original_title":"Jack
+        Reacher: Never Go Back","overview":"Jack Reacher must uncover the truth behind
+        a major government conspiracy in order to clear his name. On the run as a
+        fugitive from the law, Reacher uncovers a potential secret from his past that
+        could change his life forever.","popularity":33.596,"poster_path":"/wxLUQ1pIms3HAlVGYvEG9zg2kDs.jpg","release_date":"2016-10-19","title":"Jack
+        Reacher: Never Go Back","video":false,"vote_average":5.8,"vote_count":3526}],"total_pages":1,"total_results":2}'
+  recorded_at: Thu, 01 Apr 2021 00:29:45 GMT
+recorded_with: VCR 6.0.0
