@@ -52,6 +52,7 @@ class MovieService
   end
 
   def self.make_searched_movies(title)
+    # require "pry"; binding.pry
     movies = []
     page_number = 1
     # unless search_movies(title, page_number).nil? || 0
