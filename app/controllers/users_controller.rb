@@ -6,6 +6,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to dashboard_path
     else
+      @skip_navbar = true
       flash.now[:error] = 'Invalid Email or Password'
       render './welcome/index'
     end
@@ -28,6 +29,7 @@ class UsersController < ApplicationController
       redirect_to '/dashboard'
       flash[:success] = "Welcome, #{@user.name}!"
     else
+      @skip_navbar = true
       flash.now[:error] = 'All fields required. Passwords must match'
       render :new, obj: @user
     end

@@ -1,8 +1,14 @@
-<h1>Welcome <%= current_user.name %>!</h1>
+<html>
+<div class="bg-image d-flex justify-content-center align-items-center"
+    style="background-image: url('https://mdbcdn.b-cdn.net/img/new/fluid/nature/015.jpg');
+          height: 200vh; width: 200vw;"
+    >
+  <h1 class="font-dash">Welcome <%= current_user.name %>!</h1>
 <br>
-<%= button_to "Discover Movies", discover_path, method: :get %>
+<%= button_to "Discover Movies", discover_path, method: :get,  :style=>"position:absolute; left: 50%; right: 50%; top:40%; margin-left: -100px;" %>
 <br>
 <section id="friends-<%=current_user.id%>">
+  <div class="dashboard_friend">
   <h3>Friends</h3>
   <%= form_with url: friends_path, local: true do |f| %>
     <%= f.label "Friend's Email:" %>
@@ -17,9 +23,91 @@
     You have no one on your friends list yet
   <% end %>
 </section>
+
+
 <br>
 
 
+<body>
+<section id="viewing_party<%= current_user.id %>">
+<div class="vp-text">
+  <h2>Viewing Parties</h2>
+  </div>
+<div class="row">
+  <div class="column">
+    <div class="hosting_text">
+    <h2>Hosting:</h2>
+      </div>
+  <div class="dashboard_table1">
+    <table>
+      <th></th>
+      <th>Movie Title:</th>
+      <th>Date of Party:</th>
+      <th>Host of the Party:</th>
+      <th>Time of Party:</th>
+      <th>Friends Invited to the Party:</th>
+      <th>Duration of Party:</th>
+      <% @host_parties.each do |party| %>
+      <tr>
+      </tr>
+      <tr>
+        <td style="text-align: center"><img src="https://image.tmdb.org/t/p/w200<%=party.movie.poster_path%>" alt="<%= party.find_movie %>" style="max-height: 100px; max-width: 150px"></td>
+        <td><%= party.find_movie %></td>
+        <td> <%= party.clean_date %></td>
+        <td> <%= party.host.name %></td>
+        <td> <%= party.clean_time %> </td>
+        <% if party.users.empty? %>
+          <td> Just You :(  </td>
+            <% else %>
+          <% party.users.each do |user| %>
+          <td><%= user.name %> </td>
+          <%end %>
+        <% end %>
+      <td><%= party.duration %> minutes</td>
+    <%end %>
+      </tr>
+    </table>
+  </div>
+  </div>
+  <div class="invited_text">
+  <h2>Invited to:</h2>
+  </div>
+  <div class="column">
+    <div class="dashboard_table2">
+    <table>
+      <th></th>
+      <th>Movie Title:</th>
+      <th>Date of Party:</th>
+      <th>Host of the Party:</th>
+      <th>Time of Party:</th>
+      <th>Friends Invited to the Party:</th>
+      <th>Duration of Party:</th>
+    <%@invited_parties.each do |party|%>
+      <tr>
+      </tr>
+      <td style="text-align: center"><img src="https://image.tmdb.org/t/p/w200<%=party.movie.poster_path%>" alt="<%= party.find_movie %>" style="max-height: 100px; max-width: 150px"></td>
+        <td><%= party.find_movie %></td>
+        <td> <%= party.clean_date %></td>
+        <td> <%= party.host.name %> </td>
+        <td> <%= party.clean_time %> </td>
+        <% party.users.each do |user| %>
+          <% if user.id == current_user.id %>
+          <td><b><%= user.name %> </b> </td>
+          <% else %>
+        <td><%= user.name %> </td>
+        <%end %>
+      <%end %>
+        <td><%= party.duration %> minutes</td>
+    <%end %>
+      </table>
+    </div>
+  </div>
+  </div>
+  </section>
+  </body>
+</div>
+
+</html>
 <html>
 <head>
 <style>
@@ -30,6 +118,7 @@
 .row {
   margin-left:-5px;
   margin-right:-5px;
+    bottom:10%;
 }
 
 .column {
@@ -50,6 +139,8 @@ table {
   border-spacing: 0;
   width: 100%;
   border: 1px solid #ddd;
+  color:white;
+
 }
 
 th, td {
@@ -58,79 +149,8 @@ th, td {
 }
 
 tr:nth-child(even) {
-  background-color: #f2f2f2;
+  background-color: black;
 }
 </style>
 </head>
-<body>
-
-<section id="viewing_party<%= current_user.id %>">
-  <h2>Viewing Parties</h2>
-<div class="row">
-  <div class="column">
-    <table>
-      <h2>Hosting:</h2>
-      <% @host_parties.each do |party| %>
-      <tr>
-        <th></th>
-        <th>Movie Title:</th>
-        <th>Date of Party:</th>
-        <th>Host of the Party</th>
-        <th>Time of Party:</th>
-        <th>Friends Invited to the Party:</th>
-        <th>Duration of Party:</th>
-      </tr>
-      <tr>
-        <td style="text-align: center"><img src="https://image.tmdb.org/t/p/w200<%=party.movie.poster_path%>" alt="<%= party.find_movie %>" style="max-height: 100px; max-width: 150px"></td>
-        <td><%= party.find_movie %></td>
-        <td> <%= party.clean_date %></td>
-        <td> <%= party.host.name %></td>
-        <td> <%= party.clean_time %> </td>
-        <% if party.users.empty? %>
-          <td> Just You :(  </td>
-            <% else %>
-          <% party.users.each do |user| %>
-          <td><%= user.name %> </td>
-          <%end %>
-        <% end %>
-      <td><%= party.duration %> minutes</td>
-    <%end %>
-      </tr>
-    </table>
-  </div>
-  <div class="column">
-    <table>
-      <h2>Invited to:</h2>
-    <%@invited_parties.each do |party|%>
-      <tr>
-        <th></th>
-        <th>Movie Title:</th>
-        <th>Date of Party:</th>
-        <th>Host of the Party</th>
-        <th>Time of Party:</th>
-        <th>Friends Invited to the Party:</th>
-        <th>Duration of Party:</th>
-      </tr>
-      <td style="text-align: center"><img src="https://image.tmdb.org/t/p/w200<%=party.movie.poster_path%>" alt="<%= party.find_movie %>" style="max-height: 100px; max-width: 150px"></td>
-        <td><%= party.find_movie %></td>
-        <td> <%= party.clean_date %></td>
-        <td> <%= party.host.name %> </td>
-        <td> <%= party.clean_time %> </td>
-        <% party.users.each do |user| %>
-          <% if user.id == current_user.id %>
-          <td><b><%= user.name %> </b> </td>
-          <% else %>
-        <td><%= user.name %> </td>
-        <%end %>
-      <%end %>
-        <td><%= party.duration %> minutes</td>
-    <%end %>
-    </table>
-  </div>
-</div>
-
-
-</section>
-
-</body>
 </html>
