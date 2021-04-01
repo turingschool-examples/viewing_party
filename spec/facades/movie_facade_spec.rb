@@ -98,4 +98,26 @@ RSpec.describe "Movie Facade" do
       end
     end
   end
+  
+  describe ".trending" do
+    it "returns an array of movie objects equal to or less the limit" do
+      VCR.use_cassette('trending_movies') do
+         limit = 40
+        expect(MovieFacade.trending(limit)).to be_an(Array)
+        expect(MovieFacade.trending(limit).length).to be <= limit
+       end
+     end
+
+    it "returnds an OpenStruct object with appropriate values" do
+      VCR.use_cassette('trending_movies') do
+        limit = 40
+         data = MovieFacade.trending(limit)
+         expect(data[0]).to be_an(OpenStruct)
+        expect(data[0]).to respond_to(:id)
+        expect(data[0]).to respond_to(:title)
+        expect(data[0]).to respond_to(:vote_average)
+        expect(data[0]).to respond_to(:poster_path)
+      end
+    end
+  end
 end
