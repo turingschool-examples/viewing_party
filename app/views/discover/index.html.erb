@@ -1,5 +1,9 @@
-<header><h1>Discover New Movies</h1></header>
+<div class="bg-image d-flex justify-content-center align-items-center"
+    style="background-image: url('https://mdbcdn.b-cdn.net/img/new/fluid/nature/015.jpg');
+          height: 200vh; width: 100vw;"
+    >
 <div class="search_block">
+<header><h1>Discover New Movies</h1></header>
   <p>
     <center>
       <%= button_to "Find Top Rated Movies", movies_path, method: :get, params: [search: "Top Rated"] %> <br>
@@ -10,4 +14,6 @@
       <% end %>
     </center>
   </p>
+</div>
+
 </div>
