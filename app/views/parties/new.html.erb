@@ -1,3 +1,8 @@
+<div class="bg-image d-flex justify-content-center align-items-center"
+    style="background-image: url('https://mdbcdn.b-cdn.net/img/new/fluid/nature/015.jpg');
+          height: 200vh; width: 100vw;"
+    >
+<div class="search_block">
 
 <h1><%= @movie.name %></h1>
 <%= form_with model: @party, local: true do |form| %>
@@ -18,4 +23,8 @@
   <%end%>
 <%end%>
 <%=form.submit "Start Viewing Party"%>
+<td style="text-align: center"><img src="https://image.tmdb.org/t/p/w200<%=@movie.poster_path%>"  style="max-height: 500px; max-width: 500px; left: 10%;"></td>
 <% end %>
+</div>
+
+</div>

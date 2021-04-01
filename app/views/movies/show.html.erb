@@ -1,7 +1,14 @@
+<div class="bg-image d-flex justify-content-center align-items-center"
+    style="background-image: url('https://mdbcdn.b-cdn.net/img/new/fluid/nature/015.jpg');
+          height: 200vh; width: 100vw;"
+    >
+<div class="search_block">
+
 <%= button_to "Create Viewing Party for Movie", new_party_path(), method: :get, params: {:title=> @movie.title, :movie_id=> @movie.id, :duration=> @movie.runtime, :poster_path => @movie.poster_path}%>
 
 <section id="movie_info">
   <h1>Movie title:<%= @movie.title%></h1>
+<td style="text-align: center"><img src="https://image.tmdb.org/t/p/w200<%=@movie.poster_path%>" alt="<%= @movie.title %>" style="max-height: 500px; max-width: 500px"></td>
   <% @movie.genres.each do |gen|%>
     <p> Genres: <%= gen[:name] %> </p>
   <% end %>
@@ -24,3 +31,6 @@
     <p> Review: <%= review[:content] %></p>
   <% end %>
 </section>
+
+</div>
+</div>
