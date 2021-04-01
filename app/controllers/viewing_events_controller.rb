@@ -1,10 +1,9 @@
 class ViewingEventsController < ApplicationController
   def new
-    @movie = Movie.new(session[:movie_info])
+    @movie = Movie.find_or_create(session[:movie_info])
   end
 
   def create
-    @movie = Movie.find_or_create(session[:movie_info])
     viewing_event = ViewingEvent.new(viewing_event_params)
     if viewing_event.save && params[:friends]
       Viewer.create_event_viewers(params[:friends], viewing_event.id)
@@ -14,6 +13,7 @@ class ViewingEventsController < ApplicationController
       session.delete(:movie_info)
       redirect_to dashboard_index_path
     else
+      @movie = Movie.find(params[:movie_id])
       flash.now[:errors] = viewing_event.errors.full_messages.to_sentence
       render :new
     end
@@ -22,6 +22,6 @@ class ViewingEventsController < ApplicationController
   private
 
   def viewing_event_params
-    params.permit(:duration, :start_date, :start_time, :user_id, :movie_id)
+    params.permit(:duration, :start_date_time, :start_date, :user_id, :movie_id)
   end
 end
