@@ -5,9 +5,8 @@ class Invitee < ApplicationRecord
   delegate :full_name, to: :user
 
   def user?(user_id)
-    return 'text-weight:bold' if self.user_id == user_id
-
-    'text-weight:normal'
+    return 'font-weight:bold' if self.user_id == user_id
+    'font-weight:normal'
   end
 
   def self.create_multiple_invitees(friend_ids, party_id)
