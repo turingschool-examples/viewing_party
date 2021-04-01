@@ -64,5 +64,51 @@ RSpec.describe Film do
       expect(data[:results][0]).to have_key(:id)
       expect(data[:results][0]).to have_key(:popularity)
     end
+
+    it "returns individual movie data specified by keyword" do
+      data = ''
+      id = 238
+
+      VCR.use_cassette('specific_searched_movie_data') do
+        data = MovieService.movie_data(id)
+      end
+
+      expect(data).to have_key(:title)
+      expect(data).to have_key(:revenue)
+      expect(data).to have_key(:overview)
+      expect(data).to have_key(:genres)
+      expect(data).to have_key(:runtime)
+      expect(data[:genres]).to be_an(Array)
+    end
+
+    it "returns cast data for a specific movie" do
+      data = ''
+      id = 238
+
+      VCR.use_cassette('specific_cast_movie_data') do
+        data = MovieService.cast_data(id)
+      end
+
+      expect(data[0]).to have_key(:name)
+      expect(data[0]).to have_key(:character)
+      expect(data[0]).to have_key(:popularity)
+      expect(data).to be_an(Array)
+    end
+
+    it "returns review data for a specific movie" do
+      data = ''
+      id = 238
+
+      VCR.use_cassette('specific_review_movie_data') do
+        data = MovieService.review_data(id)
+      end
+
+      expect(data[0]).to have_key(:author)
+      expect(data[0]).to have_key(:author_details)
+      expect(data[0]).to have_key(:content)
+      expect(data).to be_an(Array)
+      expect(data[0]).to be_an(Hash)
+      expect(data[0][:author_details]).to be_an(Hash)
+    end
   end
 end
