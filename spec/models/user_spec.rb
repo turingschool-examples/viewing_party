@@ -48,7 +48,7 @@ describe User, type: :model do
       it "returns email in lowercase format" do
         user = User.create(email:'FUNbuCKET@email.com', password: 'test')
 
-        expect(user.email.downcase).to eq('funbucket@email.com')
+        expect(user.sanitize_email).to eq('funbucket@email.com')
       end
     end
   end

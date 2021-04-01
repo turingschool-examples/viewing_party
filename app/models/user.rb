@@ -16,7 +16,7 @@ class User < ApplicationRecord
     PartyFriend.find_invited_parties(id)
   end
 
-  def self.sanitize_email
-    email.downcase
+  def sanitize_email
+    self.email.downcase
   end
 end
