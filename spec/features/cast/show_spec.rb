@@ -41,7 +41,16 @@ RSpec.describe "Cast Show Page" do
           expect(page).to have_content("Movies that Brad Pitt has stared in:")
         end
       end
-      it "shows that persons name" do
+
+      it "shows that persons biography" do
+        VCR.use_cassette('brad_pitt') do
+          visit cast_path(287)
+
+          expect(page).to have_content("Biograph: William Bradley Pitt is an American actor and film producer.")
+        end
+      end
+
+      it "shows movies that personm has been in" do
         VCR.use_cassette('brad_pitt') do
           visit cast_path(287)
 
