@@ -2,7 +2,7 @@ require "rails_helper"
 require "ostruct"
 
 RSpec.describe 'MovieService' do
-  describe "#get_data(url)" do
+  describe "::get_data(url)" do
     it "can return JSON from an API endpoint" do
       url = ENV['API_TEST_COUNT_URL']
 
@@ -11,7 +11,7 @@ RSpec.describe 'MovieService' do
       expect(MovieService.get_data(url).class).to eq(Hash)
     end
   end
-  describe "#top_movies" do
+  describe "::top_movies" do
     it "returns the top 40 movie title/tmdb_ids" do
       VCR.use_cassette('top_movies') do
         limit = 40
@@ -30,7 +30,7 @@ RSpec.describe 'MovieService' do
       end
     end
   end
-  describe "#movie_search" do
+  describe "::movie_search" do
     it "returns 40 movie title/tmdb_ids that match a search query" do
       VCR.use_cassette('movie_search_service') do
         search_results = MovieService.movie_search("phoenix", 40)
@@ -43,14 +43,14 @@ RSpec.describe 'MovieService' do
       end
     end
   end
-  describe "#results_page_count" do
+  describe "::results_page_count" do
     it "returns an integer from JSON data regarding number of pages of results" do
         url = ENV['API_TEST_COUNT_URL']
 
         expect(MovieService.results_page_count(url)).to eq(500)
     end
   end
-  describe "#movie_information" do
+  describe "::movie_information" do
     it "returns a hash of movie_information" do
       VCR.use_cassette('movie_info_service') do
         movie_info = MovieService.movie_information(550)
@@ -65,7 +65,7 @@ RSpec.describe 'MovieService' do
       end
     end
   end
-  describe "#movie_info_cast" do
+  describe "::movie_info_cast" do
     it "returns an the actor and role they played in the movie" do
       VCR.use_cassette('movie_cast_service') do
         movie_cast_info = MovieService.movie_info_cast(550)
@@ -75,7 +75,7 @@ RSpec.describe 'MovieService' do
       end
     end
   end
-  describe "#movie_info_reviews" do
+  describe "::movie_info_reviews" do
     it "should return a hash with the review count and review and authors when there are more than 1 pages of reviews" do
       VCR.use_cassette('movie_reivews') do
         movie_review_info = MovieService.movie_info_reviews(558)
@@ -86,6 +86,22 @@ RSpec.describe 'MovieService' do
       VCR.use_cassette('movie_reivews_550') do
         movie_review_info = MovieService.movie_info_reviews(550)
         expect(movie_review_info.count).to eq(5)
+      end
+    end
+  end
+  describe "::trending_movies" do
+    it "should return the top ten trending movies for the day" do
+      VCR.use_cassette('trending_movies') do
+        limit = 10
+        results = MovieService.trending_movies(limit)
+
+        expect(results.class).to eq(Array)
+        expect(results.first.class).to eq(OpenStruct)
+        expect(results.first).to respond_to(:api_id)
+        expect(results.first).to respond_to(:title)
+        expect(results.first.title).to eq("Godzilla vs. Kong")
+        expect(results.first.api_id).to eq(399566)
+        expect(results.count).to eq(limit)
       end
     end
   end

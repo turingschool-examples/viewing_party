@@ -6,7 +6,16 @@
   <h1>Hello, <%= current_user.email %>!</h1>
   <h2>Discover Movies!</h2>
 </header>
-
+<section id="trending_movies">
+  <h2>Top Trending Movies of Today</h2>
+  <ol>
+  <% @trending_movies.each do |movie| %>
+    <li>
+        <%= link_to movie.title, movie_path(movie.api_id)%><br>
+    </li>
+  <% end %>
+  </ol>
+</section>
 <section id="top_forty">
   <div class="container p-3 my-3 border">
     <div class="container">
