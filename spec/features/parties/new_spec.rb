@@ -90,6 +90,7 @@ RSpec.describe "As an authenticated user" do
 
         fill_in :movie_query, with: "Fight Club"
         click_on("Find Movies")
+        save_and_open_page
         click_link "Fight Club"
 
         click_button("Create Viewing Party for Movie")

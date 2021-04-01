@@ -23,7 +23,7 @@ class MovieService
 
   def self.movie_search(search, limit)
     search_results = []
-    unless !results_page_count((url_storage(num: 0, query: search)[:movie_search])).nil?
+    unless results_page_count((url_storage(num: 0, query: search)[:movie_search])).nil?
       results_page_count((url_storage(num: 0, query: search)[:movie_search])).times do |n|
         search_data = get_data((url_storage(num: n, query: search)[:movie_search]))
         search_data[:results].each do |movie|
