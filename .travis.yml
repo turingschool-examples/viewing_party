@@ -9,5 +9,6 @@ script:
 deploy:
   provider: heroku
   api_key:
-  app:
+    secure: 0df750e8-4bbe-4198-832c-bd487cd47ec9
+  app: intense-harbor-71203
   run: rails db:migrate
