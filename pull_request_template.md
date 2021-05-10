@@ -1,25 +1,25 @@
-Neccesary checkmarks:
+## Neccesary checkmarks:
 
    [ ] All Tests are Passing
 
    [ ] The code will run locally
 
-Type of change
+## Type of change
 
    [ ] New feature
    [ ] Bug Fix
 
-Implements/Fixes:
+## Implements/Fixes:
 
-    description closes #
 
-Check the correct boxes
+
+## Check the correct boxes
 
    [ ] This broke nothing
    [ ] This broke some stuff
    [ ] This broke everything
 
-Comments:
+## Comments:
 
    [ ] My code has no unused/commented out code
    [ ] I have commented my code, particularly in hard-to-understand areas
