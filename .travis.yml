@@ -9,6 +9,6 @@ script:
 deploy:
   provider: heroku
   api_key:
-    secure: 0df750e8-4bbe-4198-832c-bd487cd47ec9
+    secure: SmoOQHngKFzq2D+o943ijtw2prgpISQNC98scOpfx+/OCyQc460FME/6ynVmIuOxVFVJ/Mjgv7q5TLk+3r/n2hH2O19CpUcBD76BjXZmr8jslofd0oNlFnJAiZ3Dj2+AcjXbME/nF7RjiQ34Cg5r4geT3VtignU5y3AhPdMLzY8UeAKaJIMQSOAkTa5QlonMSMHaYOg6bVSMG4UyM95KFu8B6/klzU9CL5+2V6UzhNmPdnddHfbjbclUkFG5FS5JlvZzfhcQzZ6CWjoa7yuJrYL1GlVmUGgQX5l/0on+Ej2eaqM4BvNIATucIJRiFBNTMvyVwOvjZklw9uDOoO3oCLTNLALcMvs7uDurLB690L1hAlIl+ISZGVdqHcp8H4plmrX4zQj8MYviq9jwbzlge/QQyhya85wlWtxr/9TSJgQK3FqmJqADhv7KL5T9hq26wPvPyob55de5rtHh0fU+PtE/EBiNtAqKhJFX9kZbyBoBKnhVRsvVv8XEt7VCof10ZC4NE6FRdkYLrHoWzuohMsFz9x6Lt9kskXYbTeW2nRBtx9+o1JVMIacqlqwvAxpGR30miq26HGrTUUAvUplweYa/l3AQjnLyyeGd6Ykuy30rKYTDg95AmVvu6KLv0I06gae/dQTz/pOxPhTu/4zwX0FFpgDVjofR2HhN5ofJaGk=
   app: intense-harbor-71203
   run: rails db:migrate
