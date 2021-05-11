@@ -20,6 +20,6 @@ RSpec.describe "welcome index page" do
     expect(page).to have_link("New to Viewing Party? Register Here")
     click_link "New to Viewing Party? Register Here"
 
-    expect(current_path).to eq(new_registration_path)
+    expect(current_path).to eq(registration_path)
   end
 end
