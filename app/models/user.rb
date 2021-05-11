@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   has_secure_password
 
-  has_many :parties
-  has_many :user_friends
+  has_many :parties, dependent: :destroy
+  has_many :user_friends, dependent: :destroy
   has_many :friends, through: :user_friends
 
   validates :email, presence: true, uniqueness: true
