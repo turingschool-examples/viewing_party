@@ -10,9 +10,9 @@ RSpec.describe 'show registration form' do
 
         expect(current_path).to eq("/register")
 
-        fill_in :user_email, with: "joeyh@gmail.com"
-        fill_in :user_password, with: "Password"
-        fill_in :user_password_confirmation, with: "Password"
+        fill_in 'user[user_name]', with: "joeyh@gmail.com"
+        fill_in 'user[password]', with: "Password"
+        fill_in 'user[password_confirmation]', with: "Password"
 
 
         click_button "Register"
