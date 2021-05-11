@@ -23,6 +23,7 @@ gem 'pry'
 group :development, :test do
   gem 'pry'
   gem 'travis'
+  gem 'shoulda-matchers'
 end
 
 group :development do
