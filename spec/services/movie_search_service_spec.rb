@@ -23,8 +23,8 @@ RSpec.describe MovieSearchService do
         expect(results.first).to respond_to(:title)
         expect(results.first).to respond_to(:vote_average)
         expect(results.first).to_not respond_to(:cast)
-        expect(results.first.title).to eq("Godzilla vs. Kong")
-        expect(results.first.api_id).to eq(399566)
+        expect(results.first.title).to eq("Gabriel's Inferno Part II")
+        expect(results.first.api_id).to eq(724089)
         expect(results.first.vote_average).to eq(8.7)
         expect(results.count).to eq(limit)
       end
@@ -84,7 +84,7 @@ RSpec.describe MovieSearchService do
     it "should return a hash with the review count and review and authors when there is only 1 page of reviews" do
       VCR.use_cassette('movie_reivews_550') do
         movie_review_info = MovieSearchService.movie_info_reviews(550)
-        expect(movie_review_info.count).to eq(5)
+        expect(movie_review_info.count).to eq(6)
       end
     end
   end
@@ -98,8 +98,8 @@ RSpec.describe MovieSearchService do
         expect(results.first.class).to eq(OpenStruct)
         expect(results.first).to respond_to(:api_id)
         expect(results.first).to respond_to(:title)
-        expect(results.first.title).to eq("Godzilla vs. Kong")
-        expect(results.first.api_id).to eq(399566)
+        expect(results.first.title).to eq("Mortal Kombat")
+        expect(results.first.api_id).to eq(460465)
         expect(results.count).to eq(limit)
       end
     end
@@ -113,8 +113,8 @@ RSpec.describe MovieSearchService do
         expect(results.class).to eq(OpenStruct)
         expect(results).to respond_to(:api_id)
         expect(results).to respond_to(:vote_average)
-        expect(results.title).to eq("The Bumpo After School Special")
-        expect(results.api_id).to eq(812699)
+        expect(results.title).to eq("SCAR TISSUE LOOKS GOOD ON ME")
+        expect(results.api_id).to eq(827925)
       end
     end
   describe "::create_movie_details_openstruct" do
@@ -130,8 +130,8 @@ RSpec.describe MovieSearchService do
       expect(results).to respond_to(:vote_average)
       expect(results).to respond_to(:genres)
       expect(results).to respond_to(:summary)
-      expect(results.title).to eq("The Bumpo After School Special")
-      expect(results.api_id).to eq(812699)
+      expect(results.title).to eq("SCAR TISSUE LOOKS GOOD ON ME")
+      expect(results.api_id).to eq(827925)
     end
   end
 end
