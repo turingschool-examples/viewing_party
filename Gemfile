@@ -37,8 +37,9 @@ group :test do
   gem 'pry'
   gem 'orderly'
   gem 'shoulda-matchers', '~> 3.1'
-  gem 'factory_bot_rails'
-  gem 'faker'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'factory_bot_rails'
+gem 'faker'
