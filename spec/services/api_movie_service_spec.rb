@@ -31,7 +31,7 @@ RSpec.describe ApiMovieService do
     it "should return a hash with the review count and review and authors when there is only 1 page of reviews" do
       VCR.use_cassette('movie_reivews_550') do
         movie_review_info = ApiMovieService.movie_info_reviews(550)
-        expect(movie_review_info.count).to eq(5)
+        expect(movie_review_info.count).to eq(6)
       end
     end
   end
