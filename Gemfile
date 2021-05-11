@@ -18,6 +18,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem 'rubocop', '~> 1.14', require: false
+gem 'pry'
 
 group :development, :test do
   gem 'pry'
@@ -29,6 +30,7 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'rubocop-rails'
   gem 'travis'
+  gem 'shoulda-matchers'
 end
 
 group :test do
