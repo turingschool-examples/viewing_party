@@ -15,11 +15,6 @@ ActiveRecord::Schema.define(version: 2021_05_11_002837) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "friends", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "friendships", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "friend_id"
@@ -50,13 +45,13 @@ ActiveRecord::Schema.define(version: 2021_05_11_002837) do
     t.string "email"
     t.string "username"
     t.string "password_digest"
-    t.boolean "host"
+    t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "friendships", "friends"
   add_foreign_key "friendships", "users"
+  add_foreign_key "friendships", "users", column: "friend_id"
   add_foreign_key "parties", "movies"
   add_foreign_key "parties", "users"
 end
