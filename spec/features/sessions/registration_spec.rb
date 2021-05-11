@@ -19,7 +19,7 @@ RSpec.describe 'show registration form' do
         # This needs to be changed to equal to the user dashboard, based on the session ID
         expect(current_path).to eq(root_path)
         user = User.last
-        expect(user.email).to eq("joeyh@gmail.com")
+        expect(user.user_name).to eq("joeyh@gmail.com")
       end
     end
   end

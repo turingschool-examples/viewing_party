@@ -3,4 +3,5 @@ class User <ApplicationRecord
 
     validates :user_name, presence: true, uniqueness: true
     validates :password_digest, presence: true
+    validates :password, confirmation: { case_sensitive: true }
 end
