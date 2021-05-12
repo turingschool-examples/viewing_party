@@ -11,12 +11,15 @@ class UsersController < ApplicationController
       session[:user_id] = new_user.id
       flash[:info] = "Welcome #{new_user.username}"
       redirect_to dashboard_path
+    else
+      flash[:error] = new_user.errors.full_messages.to_sentence
+      redirect_to registration_path
     end
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:email, :username, :password)
+    params.require(:user).permit(:email, :username, :password, :password_confirmation)
   end
 end
