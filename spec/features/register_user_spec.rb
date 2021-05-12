@@ -8,6 +8,8 @@ RSpec.describe 'User registration form' do
 
     fill_in 'user[email]', with: 'alex@example.com'
     fill_in 'user[password]', with: 'strongpassword'
+    fill_in 'user[password_confirmation]', with: 'strongpassword'
+
 
     click_button 'Register'
 
@@ -23,6 +25,8 @@ RSpec.describe 'User registration form' do
 
     fill_in 'user[email]', with: "email@email.com"
     fill_in 'user[password]', with: "strongpassword"
+    fill_in 'user[password_confirmation]', with: 'strongpassword'
+
 
     click_on "Register"
 
