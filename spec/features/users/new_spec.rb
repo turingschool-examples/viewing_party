@@ -9,6 +9,7 @@ RSpec.describe "users new page" do
     fill_in "user[email]", with: "test@test.com"
     fill_in "user[username]", with: "TopMovieFan"
     fill_in "user[password]", with: "testpassword"
+    fill_in "user[password_confirmation]", with: "testpassword"
 
     click_button "Register Button"
 
@@ -18,5 +19,19 @@ RSpec.describe "users new page" do
     expect(page).to have_content("Welcome TopMovieFan!")
     expect(new_user.email).to eq('test@test.com')
     expect(new_user.username).to eq('TopMovieFan')
+  end
+
+  it 'new user not able to register with non matching passwords' do
+    fill_in "user[email]", with: "test2@test.com"
+    fill_in "user[username]", with: "Top2MovieFan"
+    fill_in "user[password]", with: "testpassword"
+    fill_in "user[password_confirmation]", with: "wrongpassword"
+
+
+    click_button "Register Button"
+    expect(page).to have_content("Password confirmation doesn't match Password")
+
+    expect(current_path).to eq(registration_path)
+    expect(User.find_by(username: "Top2MovieFan")).to eq(nil)
   end
 end
