@@ -30,7 +30,7 @@ RSpec.describe 'Registration Page' do
 
        user = User.last
        downcase_email = email.downcase
-binding.pry
+       
        expect(user.email).to eq(downcase_email)
      end
   end
