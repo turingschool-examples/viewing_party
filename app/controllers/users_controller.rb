@@ -21,4 +21,11 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:email, :password)
   end
+
+  def login
+    user = User.find_by(email: params[:email])
+    flash[:success] = "Welcome, #{user.email}!"
+    redirect_to "/dashboard"
+  end
 end
+
