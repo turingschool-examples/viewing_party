@@ -25,14 +25,26 @@ RSpec.describe 'Registration Page' do
     it 'email field cannot be blank' do
 
       password = "test"
-      
+
       fill_in "user[password]", with: password
       fill_in "user[password_confirmation]", with: password
       click_button "Register"
 
-      blank_email_notice = "An email is required to create your account"
+      blank_email_notice = "Email can't be blank"
 
       expect(page).to have_content(blank_email_notice)
+    end
+
+    it 'password field cannot be blank' do
+
+      email = "example@example.com"
+
+      fill_in "user[email]", with: email
+      click_button "Register"
+
+      blank_password_notice = "Password can't be blank"
+
+      expect(page).to have_content(blank_password_notice)
     end
   end
 end
