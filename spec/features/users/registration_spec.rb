@@ -46,5 +46,18 @@ RSpec.describe 'Registration Page' do
 
       expect(page).to have_content(blank_password_notice)
     end
+
+    it 'must be a valid email format' do
+
+      fill_in "user[email]", with: "iloveMovies.com"
+      fill_in "user[password]", with: "password"
+      fill_in "user[password_confirmation]", with: "password"
+
+      click_on "Register"
+
+      invalid_email = "Email is invalid"
+
+      expect(page).to have_content(invalid_email)
+    end
   end
 end
