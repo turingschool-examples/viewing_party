@@ -16,12 +16,18 @@ class UsersController < ApplicationController
       flash[:error] = "Please make sure the passwords match"
       redirect_to register_path
       # render :new
-    end #make sad path error as well
+    end
   end
 
   private
 
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation)
+  end
+
+  def login
+    user = User.find_by(email: params[:email])
+    flash[:success] = "Welcome, #{user.email}!"
+    redirect_to "/dashboard"
   end
 end
