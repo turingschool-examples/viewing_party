@@ -6,10 +6,9 @@ RSpec.describe "users new page" do
   end
 
   it 'shows a form to register and creates and saves a user to the database' do
-
-    fill_in :email, with: "test@test.com"
-    fill_in :username, with: "TopMovieFan"
-    fill_in :password, with: "testpassword"
+    fill_in "user[email]", with: "test@test.com"
+    fill_in "user[username]", with: "TopMovieFan"
+    fill_in "user[password]", with: "testpassword"
 
     click_button "Register Button"
 
