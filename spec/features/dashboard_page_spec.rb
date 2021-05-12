@@ -10,8 +10,10 @@ require 'rails_helper'
 
 RSpec.describe 'Dashboard', type: :feature do
   describe 'Dashboard Page' do
-    before(:each) do
-      @new_user = User.last
+    it 'I can see welcome username at the top of the page' do
+      visit dashboard_path
+      user = User.create(email: "cup@cup.com", password: "1234", password_confirmation: "1234")
+      expect(page).to have_content("Welcome #{user.email}!")
     end
 
     it "I can see and click a button to discover movies" do
