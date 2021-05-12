@@ -11,9 +11,7 @@ Type of change:
 
 Any Requests From Reviewer: 
 
-Implements/Fixes:
-
-    description closes #
+Closes Issue #
 
 Testing Changes:
 
@@ -25,6 +23,7 @@ Testing Changes:
 Checklist:
 
     [] My code has no unused/commented out code
+    [] I ran Rubocop
     [] I have reviewed my code
     [] I have commented my code, particularly in hard-to-understand areas
     [] I have fully tested my code
