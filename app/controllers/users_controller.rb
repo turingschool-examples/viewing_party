@@ -4,12 +4,17 @@ class UsersController < ApplicationController
   end
 
   def create
-    
+    user = User.create!(user_params)
+    redirect_to dashboard_path
   end
 
-  # private
-  #
-  # def _params
-  #   params.permit(:)
-  # end
+  def show
+    # @user = User.find(params[:id])
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:email, :password)
+  end
 end
