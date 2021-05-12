@@ -1,3 +1,8 @@
 Welcome! It's a Netflix Party. This is the description
-<%= button_to 'Log in', login_path %>
-<%= link_to 'Register', register_path %>
+
+<% if current_user %>
+  <%= link_to "Log Out" %>
+<% else %>
+  <%= link_to "Register As A User", new_user_path %>
+  <%= link_to "Log in", login_path %>
+<% end %>
