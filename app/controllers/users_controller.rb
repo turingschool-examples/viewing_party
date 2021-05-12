@@ -4,8 +4,13 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.create!(user_params)
-    redirect_to dashboard_path
+    user = User.create(user_params)
+    if user.save
+      redirect_to dashboard_path
+    else
+      flash[:error] = user.errors.full_messages.to_sentence
+      render :new
+    end
   end
 
   def show
