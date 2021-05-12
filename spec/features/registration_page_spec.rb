@@ -1,12 +1,4 @@
 require 'rails_helper'
-# When a user visits the '/registration' path they should see a form to register.
-# The form should include:
-#
-#  Email
-#  Password
-#  Password Confirmation
-#  Register Button
-#  Once the user registers they should be logged in and redirected to the dashboard page
 
 RSpec.describe 'Registration', type: :feature do
   describe 'Registration Page' do
@@ -19,13 +11,33 @@ RSpec.describe 'Registration', type: :feature do
 
       fill_in 'user[email]', with: "klaw@test.com"
       fill_in 'user[password]', with: "test123"
-      #add password_confirmation
+      fill_in 'user[password_confirmation]', with: "test123"
+
       click_button "Register"
 
       expect(current_path).to eq(dashboard_path)
       new_user = User.last
 
       expect(page).to have_content("Welcome, klaw@test.com!")
+    end
+
+    it "I cannot create a new user if the password and password confirmation are not the same" do
+      visit root_path
+
+      click_link "Sign Up to Be a User"
+
+      expect(current_path).to eq("/register")
+
+      fill_in 'user[email]', with: "clock@test.com"
+      fill_in 'user[password]', with: "test1234"
+      fill_in 'user[password_confirmation]', with: "test"
+
+      click_button "Register"
+
+      expect(current_path).to eq(register_path)
+
+      expect(page).to have_content("Register")
+      expect(page).to have_content("Please make sure the passwords match")
     end
   end
 end

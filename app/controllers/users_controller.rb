@@ -4,12 +4,11 @@ class UsersController < ApplicationController
   end
 
   def create
-    binding.pry
     user = user_params
     user_email = user[:email].downcase
     new_user = User.create(user_params)
     if new_user.save
-      session[:user_id] = new_user.id #session comes with rails
+      session[:user_id] = new_user.id
       flash[:info] = "Welcome, #{new_user.email}!"
       redirect_to dashboard_path(user_email: "#{new_user.email}")
     elsif !new_user.save
