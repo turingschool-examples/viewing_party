@@ -20,4 +20,19 @@ RSpec.describe 'Registration Page' do
       expect(current_path).to eq('/dashboard')
     end
   end
+
+  describe 'sad path' do
+    it 'email field cannot be blank' do
+
+      password = "test"
+      
+      fill_in "user[password]", with: password
+      fill_in "user[password_confirmation]", with: password
+      click_button "Register"
+
+      blank_email_notice = "An email is required to create your account"
+
+      expect(page).to have_content(blank_email_notice)
+    end
+  end
 end
