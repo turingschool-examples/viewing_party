@@ -14,8 +14,8 @@ describe 'User log in' do
         
         click_button "Log in"
         
-        expect(current_path).to eq(root_path)
-        expect(page).to have_content("Welcome, joeyh@test.com!")
+        expect(current_path).to eq(dashboard_path)
+        expect(page).to have_content("Welcome joeyh@test.com!")
         expect(page).to_not have_link("I already have an account")
         expect(page).to_not have_link("Sign Up to Be a User")
 
