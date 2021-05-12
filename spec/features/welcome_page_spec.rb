@@ -11,11 +11,11 @@ RSpec.describe 'Welcome Page', type: :feature do
       user = User.create(username: "ClaSte", password: "1234")
       visit root_path
       expect(page).to have_content("Welome! We're Glad You're Here! At Viewing Party, we make it easy to watch a movie with friends from the world. Let's get started!")
+      expect(page).to have_link("New to Viewing Party? Register Here", href: new_user_path)
       fill_in :username, with: user.username
       fill_in :password, with: user.password
-
-      click_on "Log In"
-
+      expect(page).to have_button("Log In")
+      click_on("Log In")
       expect(current_path).to eq(root_path)
       expect(page).to have_content("Welcome, #{user.username}!We're Glad You're Here! At Viewing Party, we make it easy to watch a movie with friends from the world. Let's get started!")
     end
