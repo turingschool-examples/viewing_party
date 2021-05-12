@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by(user_name: params[:user_name])
-    require 'pry'; binding.pry
+
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       flash[:info] = "Welcome, #{user.user_name}!"
