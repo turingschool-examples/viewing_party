@@ -19,6 +19,20 @@ RSpec.describe 'Registration Page' do
 
       expect(current_path).to eq('/dashboard')
     end
+
+     it 'saves user email downcased' do
+       email = "ExamplE@example.com"
+       password = "test"
+       fill_in "user[email]", with: email
+       fill_in "user[password]", with: password
+       fill_in "user[password_confirmation]", with: password
+       click_button "Register"
+
+       user = User.last
+       downcase_email = email.downcase
+binding.pry
+       expect(user.email).to eq(downcase_email)
+     end
   end
 
   describe 'sad path and edge case' do
@@ -86,7 +100,7 @@ RSpec.describe 'Registration Page' do
       fill_in "user[password]", with: password
       fill_in "user[password_confirmation]", with: "wrong0password"
       click_button "Register"
-      
+
       confirmation_error = "Password confirmation doesn't match Password"
 
       expect(page).to have_content(confirmation_error)
