@@ -17,15 +17,14 @@ RSpec.describe 'Registration', type: :feature do
 
       expect(current_path).to eq("/register")
 
-      fill_in :user_email, with: "klaw@test.com"
-      fill_in :user_password, with: "test123"
-
+      fill_in 'user[email]', with: "klaw@test.com"
+      fill_in 'user[password]', with: "test123"
+      #add password_confirmation
       click_button "Register"
 
       expect(current_path).to eq(dashboard_path)
       new_user = User.last
 
-      expect(page).to have_content("Welcome, klaw@test.com!")
       expect(page).to have_content("Welcome, klaw@test.com!")
     end
   end
