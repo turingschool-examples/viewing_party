@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   
   get  '/dashboard', to: 'dashboard#index'
+  get '/discover', to: 'discover#index'
 end
