@@ -6,7 +6,7 @@ describe 'User log in' do
         
         visit root_path
 
-        click_link "I already have an account"
+        click_button "Log in"
 
         expect(current_path).to eq(login_path)
         
