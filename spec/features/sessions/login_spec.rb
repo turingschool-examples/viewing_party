@@ -2,8 +2,7 @@ require 'rails_helper'
 
 describe 'User log in' do 
     it 'as a registered user, I can log in with an email and password. My password is stored with bcrypt' do 
-        user = User.create(user_name: 'joeyh@test.com', password: 'doyoulikemusic')
-        
+        user = User.create(user_name: 'joeyh@test.com', password: 'doyouwanttohearasong')
         visit root_path
 
         click_button "Log in"
@@ -11,7 +10,7 @@ describe 'User log in' do
         expect(current_path).to eq(login_path)
         
         fill_in :user_name, with: "joeyh@test.com"
-        fill_in :password, with: "doyoulikemusic"
+        fill_in :password, with: "doyouwanttohearasong"
         
         click_button "Log in"
         
@@ -30,7 +29,7 @@ describe 'User log in' do
     end 
 
     it 'as a registered user, I cannot log in with incorrect credentials' do 
-        user = User.create(user_name: 'joeyh@test.com', password: 'doyoulikemusic')
+        user = User.create(user_name: 'joeyh@test.com', password: 'doyouwanttohearasong')
         
         visit root_path
 
@@ -39,7 +38,7 @@ describe 'User log in' do
         expect(current_path).to eq(login_path)
         
         fill_in :user_name, with: "joeyh@test.com"
-        fill_in :password, with: "celeryjuice"
+        fill_in :password, with: "beetlejuice"
         
         click_button "Log in"
         
