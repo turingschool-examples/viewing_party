@@ -11,6 +11,6 @@ RSpec.describe User do
   describe 'relationships' do
     it { should have_many(:user_friends) }
     it { should have_many(:friends).through(:user_friends) }
-    it { should have_many(:parties) }
+    # it { should have_many(:parties) }
   end
 end
