@@ -10,3 +10,4 @@ class User < ApplicationRecord
   validates :password_digest, presence: true
   validates :password_confirmation, presence: true
 end
+
