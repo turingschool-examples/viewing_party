@@ -9,7 +9,6 @@ RSpec.describe 'Registration Page' do
   describe 'User visits the registration page' do
     it 'can see a form to register' do
       expect(current_path).to eq('/registration')
-      require "pry"; binding.pry
 
       email = "example@example.com"
       password = "test"
