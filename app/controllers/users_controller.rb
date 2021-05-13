@@ -8,10 +8,9 @@ class UsersController < ApplicationController
 
     user[:email] = user[:email].downcase
     new_user = User.new(user)
-# binding.pry
     if new_user.save
       session[:user_id] = new_user.id
-      redirect_to  root_path
+      redirect_to root_path
     else
       redirect_to register_path
       flash[:error] = "Error: #{error_message(new_user.errors)}"
@@ -19,6 +18,7 @@ class UsersController < ApplicationController
   end
 
   private
+
   def user_params
     params.require(:user).permit(:email, :password, :name)
   end

@@ -1,7 +1,5 @@
 class SessionsController < ApplicationController
-
-  def new
-  end
+  def new; end
 
   def create
     user = User.find_by(email: params[:email])
@@ -11,13 +9,13 @@ class SessionsController < ApplicationController
       redirect_to root_path
     else
       redirect_to login_path
-      flash[:error] = "Your email or password is Incorrect"
+      flash[:error] = 'Your email or password is Incorrect'
     end
   end
 
   def destroy
     session[:user_id] = nil
     redirect_to root_path
-    flash[:success] = "You have successfully logged off."
+    flash[:success] = 'You have successfully logged off.'
   end
 end
