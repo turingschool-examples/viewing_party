@@ -8,18 +8,26 @@ class UsersController < ApplicationController
     user_email = user[:email].downcase
     new_user = User.create(user_params)
     if new_user.save
-      session[:user_id] = new_user.id #session comes with rails
+      session[:user_id] = new_user.id
       flash[:info] = "Welcome, #{new_user.email}!"
       redirect_to dashboard_path(user_email: "#{new_user.email}")
-    else
-      flash[:error]
-    end #make sad path error as well
+    elsif !new_user.save
+      flash[:error] = "Please make sure the passwords match"
+      redirect_to register_path
+      # render :new
+    end
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:email, :password)
+    params.require(:user).permit(:email, :password, :password_confirmation)
+  end
+
+  def login
+    user = User.find_by(email: params[:email])
+    flash[:success] = "Welcome, #{user.email}!"
+    redirect_to "/dashboard"
   end
 
   def login
