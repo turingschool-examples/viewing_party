@@ -37,5 +37,15 @@ RSpec.describe 'Login page' do
       expect(current_path).to eq('/login')
       expect(page).to have_content('Fields cannot be blank')
     end
+
+    it 'can see message for incorrect email' do
+      bad_email = "helloworld@email.com"
+      fill_in :email, with: bad_email
+      fill_in :password, with: @user.password
+      click_button "Log In"
+
+      expect(current_path).to eq('/login')
+      expect(page).to have_content('User does not exist with that email')
+    end
   end
 end

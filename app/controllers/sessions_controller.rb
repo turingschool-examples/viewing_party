@@ -8,6 +8,9 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       redirect_to dashboard_path
+    elsif !user && !params[:email].empty?
+      flash[:error] = 'User does not exist with that email'
+      render :new
     elsif params[:email].empty? || params[:password].empty?
       flash[:error] = 'Fields cannot be blank'
       render :new
