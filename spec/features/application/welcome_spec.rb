@@ -20,25 +20,11 @@ RSpec.describe 'welcome page' do
 
         click_on "Register new user"
         expect(current_path).to eq(register_path)
-
-        fill_in "user[email]", with: "555@dooffus.edu"
-        fill_in "user[password]", with: "password"
-        fill_in "user[name]", with: "The Doof"
-        click_on("Register")
-
-        expect(current_path).to eq(root_path)
       end
 
-      it "allows existing user to login" do
-        user = User.create!(email: "#{Faker::Internet.email}", password: "#{Faker::Internet.password}", name: "devin")
+      it "has link for existing user to login" do
         click_on("Login")
         expect(current_path).to eq(login_path)
-
-        fill_in :email, with: "#{user.email}"
-        fill_in :password, with: "#{user.password}"
-
-        click_on("Login")
-        expect(current_path).to eq(root_path)
       end
     end
 
@@ -48,19 +34,25 @@ RSpec.describe 'welcome page' do
         visit root_path
 
         click_on("Login")
-        fill_in :email, with: "#{user.email}"
-        fill_in :password, with: "#{user.password}"
+        fill_in :email, with: "#{@user.email}"
+        fill_in :password, with: "#{@user.password}"
 
         click_on("Login")
       end
-      it "has no login and no register link" do
 
+      it "has no login and no register link" do
         expect(page).to_not have_link("Login")
         expect(page).to_not have_link("Register new user")
       end
 
       it "has a log out link" do
         expect(page).to have_link("Logout")
+      end
+
+      it "logout link works" do
+        click_on "Logout"
+        expect(current_path).to eq(root_path)
+        expect(page).to have_content("You have successfully logged off.")
       end
     end
   end
