@@ -6,3 +6,11 @@
     <%= f.text_field :search %>
     <%= f.submit "Search" %>
   <% end %>
+
+<% if defined?(movie_search) %>
+  <h3>Search Results</h3>
+  <% movie_search.each do |movie| %>
+    <%= link_to "#{movie.title}", "/discover/movies/WHAT TO PUT HERE?" %> 
+    <%= movie.vote_average %>
+  <% end %>
+<% end %>
