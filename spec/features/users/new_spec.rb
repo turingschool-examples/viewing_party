@@ -12,6 +12,7 @@ RSpec.describe 'user registration page' do
 
       fill_in "user[email]", with: "555@dooffus.edu"
       fill_in "user[password]", with: "password"
+      fill_in "user[password_confirmation]", with: "password"
       fill_in "user[name]", with: "The Doof"
       click_on("Register")
 
@@ -25,7 +26,7 @@ RSpec.describe 'user registration page' do
       click_on("Register")
 
       expect(current_path).to eq(register_path)
-      expect(page).to have_content("Error: Email can't be blank, Name can't be blank, Password digest can't be blank, Password can't be blank")
+      expect(page).to have_content("Error: Email can't be blank, Name can't be blank, Password digest can't be blank, Password confirmation doesn't match Password, Password can't be blank")
     end
   end
 end
