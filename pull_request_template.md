@@ -5,6 +5,7 @@
 ### Type of change
 * [ ] New feature 
 * [ ] Bug Fix
+* [ ] Refactor
 
 ### Implements/Fixes:
 ### Check the correct boxes
