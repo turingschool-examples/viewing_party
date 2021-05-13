@@ -10,6 +10,7 @@ class MoviedbService
         'Authorization' => "Bearer #{ENV['moviedb_bearer_token']}",
         'Language' => 'en-US',
         })
+        require "pry"; binding.pry
   end
 
   def get_popular_movies
@@ -20,3 +21,5 @@ class MoviedbService
     end
   end
 end
+
+puts MoviedbService.new.conn
