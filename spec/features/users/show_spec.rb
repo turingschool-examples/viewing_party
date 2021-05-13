@@ -6,13 +6,28 @@ RSpec.describe 'Dashboard Page' do
       visit '/login'
       email = "example@example.com"
       password = "test"
-      @user = User.create!(email: email, password: password)
+      user = User.create!(email: email, password: password)
 
       fill_in :email, with: email
       fill_in :password, with: password
       click_button "Log In"
 
       expect(current_path).to eq('/dashboard')
+      expect(page).to have_button('Discover Movies')
+    end
+
+    it 'Discover Movies button redirects me to Discover Page' do
+      visit '/login'
+      email = "example@example.com"
+      password = "test"
+      user = User.create!(email: email, password: password)
+
+      fill_in :email, with: email
+      fill_in :password, with: password
+      click_button "Log In"
+      click_button "Discover Movies"
+
+      expect(current_path).to eq('/discover')
     end
   end
 
