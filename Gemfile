@@ -46,5 +46,9 @@ end
 #   gem "nyan-cat-formatter"
 # end
 
+gem 'faraday'
+gem 'figaro'
+gem 'json'
+gem 'sinatra'
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

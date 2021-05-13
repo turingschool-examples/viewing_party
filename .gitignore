@@ -90,3 +90,5 @@ pickle-email-*.html
 .byebug_history
 vendor
 .vscode
+# Ignore application configuration
+/config/application.yml
