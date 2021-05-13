@@ -4,8 +4,16 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.create!(user_params)
-    redirect_to dashboard_path
+    new_user_params = user_params
+    new_user_params[:email] = new_user_params[:email].downcase
+
+    user = User.create(new_user_params)
+    if user.save
+      redirect_to dashboard_path
+    else
+      flash[:error] = user.errors.full_messages.to_sentence
+      render :new
+    end
   end
 
   def show
@@ -15,6 +23,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password)
+    params.require(:user).permit(:email, :password, :password_confirmation)
   end
 end
