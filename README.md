@@ -1,4 +1,3 @@
-![Screen Shot 2021-05-11 at 1 39 08 PM](https://user-images.githubusercontent.com/24997456/118187537-4b37a300-b3fc-11eb-8914-3effb873b71d.png)
 # Viewing Party
 
 This is the base repo for the [viewing party project](https://backend.turing.io/module3/projects/viewing_party) used for Turing's Backend Module 3.
