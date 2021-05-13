@@ -7,7 +7,13 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to dashboard_path 
+      redirect_to dashboard_path
+    elsif params[:email].empty? || params[:password].empty?
+      flash[:error] = 'Fields cannot be blank'
+      render :new
+    else
+      flash[:error] = 'Your credentials are incorrect'
+      render :new
     end
   end
 end

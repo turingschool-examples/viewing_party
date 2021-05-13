@@ -17,4 +17,25 @@ RSpec.describe 'Login page' do
       expect(current_path).to eq('/dashboard')
     end
   end
+
+  describe 'sad path and edge case' do
+    it 'can see message for blank fields and incorrect password' do
+      bad_password = "world100"
+      fill_in :email, with: @user.email
+      fill_in :password, with: bad_password
+      click_button "Log In"
+
+      expect(current_path).to eq('/login')
+      expect(page).to have_content('Your credentials are incorrect')
+
+      visit '/login'
+
+      fill_in :email, with: ''
+      fill_in :password, with: ''
+      click_button "Log In"
+
+      expect(current_path).to eq('/login')
+      expect(page).to have_content('Fields cannot be blank')
+    end
+  end
 end
