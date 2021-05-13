@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def new
     @user = User.new
   end
@@ -9,6 +10,7 @@ class UsersController < ApplicationController
 
     user = User.create(new_user_params)
     if user.save
+      session[:user_id] = user.id
       redirect_to dashboard_path
     else
       flash[:error] = user.errors.full_messages.to_sentence
@@ -17,7 +19,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    # @user = User.find(params[:id])
+    if session[:user_id]
+      @user = User.find(session[:user_id])
+    else
+      flash[:error] = "You must be logged in to view your dashboard"
+      redirect_to root_path
+    end
   end
 
   private
