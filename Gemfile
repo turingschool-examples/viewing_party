@@ -15,9 +15,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'bootsnap'
 gem 'jbuilder', '~> 2.5'
-
-
-# Authentication
 gem 'bcrypt'
 
 group :development, :test do
@@ -30,7 +27,6 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'rubocop-rails'
 end
-
 
 group :test do
   gem 'rspec-rails'
