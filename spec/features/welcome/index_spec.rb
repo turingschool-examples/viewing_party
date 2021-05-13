@@ -15,8 +15,11 @@ RSpec.describe 'Welcome Page' do
     end
 
     it 'displays button to log in and link to register' do
-      expect(page).to have_button("Log In")
+
       expect(page).to have_link("Register as New User", href: "/registration")
+
+      click_button "Log In"
+      expect(current_path).to eq(login_path)
     end
   end
 end
