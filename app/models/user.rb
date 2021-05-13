@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_secure_password
+
   has_and_belongs_to_many :friends,
               class_name: 'User',
               join_table: :friendships,
@@ -10,7 +12,6 @@ class User < ApplicationRecord
 
 
   validates :email, uniqueness: true, presence: true
-  validates :username, uniqueness: true, presence: true
   validates :password_digest, presence: true
 
 end
