@@ -8,7 +8,7 @@ RSpec.describe 'Welcome Page', type: :feature do
       Button to Log in
       Link to Registration
       (Details: Implement basic auth in the application allowing a user to log in with an email and password. The password should be stored in the database using bcrypt)." do
-      user = User.create(email: "ClaSte", password: "1234")
+      user = User.create!(email: "ClaSte", password: "1234", password_confirmation: "1234" )
       visit root_path
       expect(page).to have_content("Welome! We're Glad You're Here! At Viewing Party, we make it easy to watch a movie with friends from the world. Let's get started!")
       expect(page).to have_link("New to Viewing Party? Register Here", href: new_user_path)
