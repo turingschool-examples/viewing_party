@@ -11,9 +11,16 @@ require 'rails_helper'
 RSpec.describe 'Dashboard', type: :feature do
   describe 'Dashboard Page' do
     it 'I can see welcome username at the top of the page' do
-      visit dashboard_path
-      user = User.create(email: "cup@cup.com", password: "1234", password_confirmation: "1234")
-      expect(page).to have_content("Welcome #{user.email}!")
+      user = User.create!(email: "ClaSte", password: "1234" )
+      visit root_path
+      expect(page).to have_content("Welome! We're Glad You're Here! At Viewing Party, we make it easy to watch a movie with friends from the world. Let's get started!")
+      expect(page).to have_link("New to Viewing Party? Register Here", href: new_user_path)
+      fill_in :email, with: user.email
+      fill_in :password, with: user.password
+      expect(page).to have_button("Log In")
+      click_on("Log In")
+      expect(current_path).to eq("/dashboard")
+      expect(page).to have_content("Welcome, #{user.email}!")
     end
 
     it "I can see and click a button to discover movies" do
