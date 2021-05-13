@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe 'welcome page' do
   context "you go to main page" do
-
     before :each do
       visit root_path
     end
@@ -27,33 +26,28 @@ RSpec.describe 'welcome page' do
         expect(current_path).to eq(login_path)
       end
     end
+  end
 
-    context "when you are allready logged in" do
-      before :each do
-        @user = User.create!(email: "#{Faker::Internet.email}", password: "#{Faker::Internet.password}", name: "devin")
-        visit root_path
+  context "when you are allready logged in" do
+    before :each do
+      @user = create(:user)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+      visit root_path
+    end
 
-        click_on("Login")
-        fill_in :email, with: "#{@user.email}"
-        fill_in :password, with: "#{@user.password}"
+    it "has no login and no register link" do
+      expect(page).to_not have_link("Login")
+      expect(page).to_not have_link("Register new user")
+    end
 
-        click_on("Login")
-      end
+    it "has a log out link" do
+      expect(page).to have_link("Logout")
+    end
 
-      it "has no login and no register link" do
-        expect(page).to_not have_link("Login")
-        expect(page).to_not have_link("Register new user")
-      end
-
-      it "has a log out link" do
-        expect(page).to have_link("Logout")
-      end
-
-      it "logout link works" do
-        click_on "Logout"
-        expect(current_path).to eq(root_path)
-        expect(page).to have_content("You have successfully logged off.")
-      end
+    it "logout link works" do
+      click_on "Logout"
+      expect(current_path).to eq(root_path)
+      expect(page).to have_content("You have successfully logged off.")
     end
   end
 end

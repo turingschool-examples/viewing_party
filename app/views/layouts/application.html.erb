@@ -27,6 +27,11 @@
           Further citation information regarding the movie data used in this project can be found <a href="http://files.grouplens.org/datasets/movielens/ml-latest-small-README.html">here.</a>
         </p>
       </div>
+        <% if current_user %>
+          <div id='logout'>
+            <%= link_to "Logout", session_path(session), method: :delete %>
+          </div>
+        <% end %>
     </footer>
   </body>
 </html>
