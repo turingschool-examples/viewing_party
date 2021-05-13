@@ -40,8 +40,8 @@ RSpec.describe "users new page" do
                         password: "r9gutsdsad"
     )
 
-    fill_in "user[email]", with: "test2@test.com"
-    fill_in "user[username]", with: "Top2MovieFan"
+    fill_in "user[email]", with: user1.email
+    fill_in "user[username]", with: user1.username
     fill_in "user[password]", with: "testpassword"
     fill_in "user[password_confirmation]", with: "testpassword"
 
