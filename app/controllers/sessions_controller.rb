@@ -13,10 +13,11 @@ class SessionsController < ApplicationController
       redirect_to login_path
       flash[:error] = "Your email or password is Incorrect"
     end
-
-
-
-    # binding.pry
   end
 
+  def destroy
+    session[:user_id] = nil
+    redirect_to root_path
+    flash[:success] = "You have successfully logged off."
+  end
 end
