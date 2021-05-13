@@ -28,42 +28,40 @@ RSpec.describe 'welcome page' do
 
         expect(current_path).to eq(root_path)
       end
-  
-      it "allows existing user to login" do
-        user = create(:user)
 
+      it "allows existing user to login" do
+        user = User.create!(email: "#{Faker::Internet.email}", password: "#{Faker::Internet.password}", name: "devin")
         click_on("Login")
         expect(current_path).to eq(login_path)
 
-        fill_in("Email"), with: "#{user.email}"
-        fill_in("Password"), with: "#{user.password}"
+        fill_in :email, with: "#{user.email}"
+        fill_in :password, with: "#{user.password}"
 
         click_on("Login")
         expect(current_path).to eq(root_path)
       end
-  #   end
-  #
-  #   context "when you are allready logged in" do
-  #     before :each do
-  #       @user = create(:user)
-  #       visit root_path
-  #
-  #       click_on("Login")
-  #       fill_in("Email"), with: "#{user.email}"
-  #       fill_in("Password"), with: "#{user.password}"
-  #
-  #       click_on("Login")
-  #     end
-  #     it "has no login and no register link" do
-  #
-  #       expect(page).to_not have_link("Login")
-  #       expect(page).to_not have_link("Register new user")
-  #     end
-  #
-  #     it "has a log out link" do
-  #       expect(page).to have_link("Logout")
-  #     end
-  #
+    end
+
+    context "when you are allready logged in" do
+      before :each do
+        @user = User.create!(email: "#{Faker::Internet.email}", password: "#{Faker::Internet.password}", name: "devin")
+        visit root_path
+
+        click_on("Login")
+        fill_in :email, with: "#{user.email}"
+        fill_in :password, with: "#{user.password}"
+
+        click_on("Login")
+      end
+      it "has no login and no register link" do
+
+        expect(page).to_not have_link("Login")
+        expect(page).to_not have_link("Register new user")
+      end
+
+      it "has a log out link" do
+        expect(page).to have_link("Logout")
+      end
     end
   end
 end
