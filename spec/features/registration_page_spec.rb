@@ -34,8 +34,6 @@ RSpec.describe 'Registration', type: :feature do
 
       click_button "Register"
 
-      expect(current_path).to eq(register_path)
-
       expect(page).to have_content("Register")
       expect(page).to have_content("Please make sure the passwords match")
     end

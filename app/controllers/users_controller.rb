@@ -7,11 +7,8 @@ class UsersController < ApplicationController
     user = user_params
     user_email = user[:email].downcase
     new_user = User.create(user_params)
-    # if User.find_by(email: params[:user][:email])
-    #     flash[:notice] = "This username has already been taken."
-    #     redirect_to register_path
     if !new_user.save
-      flash[:error] = "Please make sure the passwords match"
+      flash.now[:error] = "Please make sure the passwords match"
       # redirect_to register_path
       render :new
     else new_user.save
@@ -24,7 +21,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:email, :password)
+    params.require(:user).permit(:email, :password, :password_confirmation)
   end
 
 end
