@@ -3,15 +3,13 @@ require 'json'
 require 'figaro'
 
 class MoviedbService
-
   def conn
     Faraday.new(
       url: "https://api.themoviedb.org",
       headers: {
         'Authorization' => "Bearer #{ENV["moviedb_bearer_token"]}",
         'Language' => 'en-US',
-      })
-      require "pry"; binding.pry
+        })
   end
 
   def get_popular_movies
