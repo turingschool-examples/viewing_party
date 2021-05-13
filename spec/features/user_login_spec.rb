@@ -19,8 +19,6 @@ RSpec.describe "User login functionality" do
 
     expect(current_path).to eq(dashboard_path)
     expect(page).to have_content("Welcome #{user1.username}!")
-
-    save_
   end
 
   it 'as a registered user with incorrect credentials I cannot log in' do
