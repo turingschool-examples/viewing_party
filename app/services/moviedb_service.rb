@@ -20,3 +20,5 @@ class MoviedbService
     end
   end
 end
+
+puts MoviedbService.new.conn
