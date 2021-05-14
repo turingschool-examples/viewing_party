@@ -1,0 +1,8 @@
+<%= button_to "Discover Top 40 Movies", movies_path, method: :get, params: {search_query: :top_40} %>
+
+
+  <%=form_with url: movies_path, local: true, method: :get do |form| %>
+    <%=form.label :search_query, "Enter Keyword(s) To Search By Movie Title:" %>
+    <%=form.text_field :search_query%>
+    <%=form.submit "Find Movie"%>
+  <%end%>
