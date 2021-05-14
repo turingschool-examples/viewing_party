@@ -10,7 +10,7 @@ class DiscoverController < ApplicationController
     elsif params[:top_40].present?
       @user = current_user
       @popular_movies = MovieInfo.new(params).popular_movies
-      binding.pry
+
     end
   end
 end

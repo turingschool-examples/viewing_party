@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 
     if new_user.save
       flash[:info] = 'Registration Succesful'
+      session[:user_id] = new_user.id
       redirect_to dashboard_path
     end
   end
