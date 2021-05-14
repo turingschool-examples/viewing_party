@@ -21,10 +21,23 @@ RSpec.describe "discover page" do
     expect(current_path).to eq("/movies?q=just+mercy")
   end
 
-  describe 'Movies Search' do
-    describe 'happy path' do
-      it 'allows users to search for most popular movies'
-      
-    end
+  it 'allows users to search for most popular movies' do
+    json_response = File.read("spec/fixtures/moviedb_popular.json")
+    stub_request(:get, "https://api.themoviedb.org/3/movie/popular").
+     with(
+       headers: {
+      'Accept'=>'*/*',
+      'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+      'Authorization'=> "Bearer #{ENV['moviedb_bearer_token']}",
+      'Language'=>'en-US',
+      'User-Agent'=>'Faraday v1.4.1'
+       }).to_return(status: 200, body: json_response)
+
+    visit movies_path
+
+    expect(current_path).to eq("/movies")
+    expect(page.status_code).to eq(200)
+    expect(page).to have_content("Tom Clancy's Without Remorse")
+    expect(page).to have_content("vote_average: 7.3")
   end
 end
