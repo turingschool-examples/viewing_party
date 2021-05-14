@@ -9,4 +9,3 @@ end
 
 # response[0][:title]
 # response[0][:vote_average]
-
