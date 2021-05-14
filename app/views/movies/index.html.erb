@@ -1,1 +1,4 @@
-<h1><%="Welcome #{current_user.username} Discover Page"%></h1>
+<h1><%="Welcome #{current_user.username}!"%></h1>
+
+<p><%= button_to "Find Top 20 Rated Movies", movies_path, method: :get %></p>
+<li><%= @top_20_movies %></li>
