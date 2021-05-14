@@ -20,4 +20,11 @@ RSpec.describe "discover page" do
 
     expect(current_path).to eq("/movies?q=just+mercy")
   end
+
+  describe 'Movies Search' do
+    describe 'happy path' do
+      it 'allows users to search for most popular movies'
+      
+    end
+  end
 end
