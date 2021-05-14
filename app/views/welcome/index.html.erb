@@ -1,6 +1,6 @@
 <h2>Welcome to Viewing Party</h2>
 <p>Invite and join to view movies with friends</p>
-<%= form_with url: root_path, local: true do |f| %>
+<%= form_with url: dashboard_path, local: true do |f| %>
   <%= f.label :email %>
   <%= f.text_field :email %>
   <%= f.label :password %>

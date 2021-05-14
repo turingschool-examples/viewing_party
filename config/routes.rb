@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get '/dashboard', to: "dashboard#index"
   get '/discover', to: "discover#index"
   resources :movies, only: [:index, :show]
+  post '/dashboard', to: "sessions#create"
 end
