@@ -1,9 +1,11 @@
 class MovieInfo
-  attr_reader :popular_movies
+  attr_reader :popular_movies,
+              :search_results
 
-  def initialize
+  def initialize(search_params= nil)
     movie_service = MovieService.new
-    @popular_movies = movie_service.get_movie_data
+    @popular_movies = movie_service.get_popular_movies
+    @search_results = movie_service.get_search_results(search_params)
   end
 end
 

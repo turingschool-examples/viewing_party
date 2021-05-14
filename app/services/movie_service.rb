@@ -18,6 +18,7 @@ class MovieService
     end
     response = Faraday.get("https://api.themoviedb.org/3/search/movie?api_key=#{key}&language=en-US&query=#{search_params}&page=1&include_adult=false")
     json = JSON.parse(response.body, symbolize_names: true)
+    json[:results]
   end
 end
 

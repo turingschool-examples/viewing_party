@@ -9,11 +9,11 @@ RSpec.describe 'Movie Service' do
 
         expect(results.count).to eq(40)
       end
-      it 'returns data on forty movies' do
+      it 'returns data on search results' do
         test = MovieService.new
         results = test.get_search_results("Mortal Kombat")
 
-        expect(results.count).to eq(4)
+        expect(results.count).to eq(15)
       end
     end
   end

@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
     if new_user.save
       flash[:info] = 'Registration Succesful'
-      redirect_to root_path
+      redirect_to dashboard_path
     end
   end
 

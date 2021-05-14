@@ -20,12 +20,9 @@ RSpec.describe 'movies discover page' do
       user = User.create(user_name: 'joeyh@test.com', password: 'doyouwanttohearasong')
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
       visit discover_path
-      # 'user[user_name]'
-      save_and_open_page
       fill_in :search, with: "Mortal Kombat"
       click_button "Search"
-      
-      expect(current_path).to eq("/discover/movies/")
+      expect(current_path).to eq("/discover/movies")
       expect(page).to have_content("Mortal Kombat")
     end
   end
