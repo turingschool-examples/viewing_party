@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 ruby '2.5.3'
+gem 'figaro'
 
 gem 'rails', '5.2.5'
 gem 'pg', '>= 0.18', '< 2.0'
@@ -37,6 +38,8 @@ group :test do
   gem 'launchy'
   gem 'simplecov'
   gem 'shoulda-matchers'
+  gem 'webmock'
+  gem 'vcr'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
