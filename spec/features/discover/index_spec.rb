@@ -28,4 +28,12 @@ RSpec.describe 'Discover Page' do
       expect(current_path).to eq('/movies')
     end
   end
+
+  describe 'sad paths and edge cases' do
+    it 'shows message if search field is blank' do
+      fill_in :movie_title, with: ""
+      click_button "Search"
+      expect(page).to have_content("Search field cannot be blank.")
+    end
+  end
 end
