@@ -37,7 +37,6 @@ RSpec.describe "discover page" do
 
     expect(current_path).to eq("/movies")
     expect(page.status_code).to eq(200)
-    expect(page).to have_content("Tom Clancy's Without Remorse")
-    expect(page).to have_content("vote_average: 7.3")
+    expect(page).to have_content("Tom Clancy's Without Remorse vote average:7.3")
   end
 end
