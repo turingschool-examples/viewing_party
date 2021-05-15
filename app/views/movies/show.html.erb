@@ -1,0 +1,8 @@
+<%= button_to 'Create Viewing Party for Movie' %>
+<h1><%= @movie.title %></h1>
+<h1><%= @movie.rating %></h1>
+<p><%= @movie.format_time(@movie.runtime) %></p>
+<% @movie.genres.each do |genre| %>
+  <p><%= genre %></p>
+<% end %>
+<p><%= @movie.summary %></p>

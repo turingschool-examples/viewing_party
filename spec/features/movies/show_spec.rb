@@ -1,32 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe 'Movies Page' do
+RSpec.describe 'Movie Details(show) Page' do
   before :each do
-    visit '/login'
-    email = "example@example.com"
-    password = "test"
-    user = User.create!(email: email, password: password)
-
-    fill_in :email, with: email
-    fill_in :password, with: password
-    click_button "Log In"
-    click_button "Discover Movies"
-  end
-
-  describe 'When I visit the movies page' do
-    it 'can see top 40 movies titles and vote average' do
-      VCR.use_cassette('top40_movies') do
-        click_button "Top 40 Movies"
-        expect(current_path).to eq("/movies")
-        expect(page).to have_content("Dilwale Dulhania Le Jayenge 8.7")
-      end
-    end
-
-    xit 'when I click link on movie title I am redirect to the movie show page' do
-      # click_button "Top 40 Movies"
-      click_link "Dilwale Dulhania Le Jayenge"
-      null = nil
-      details = {
+    null = nil
+    details = {
     "adult": false,
     "backdrop_path": "/gNBCvtYyGPbjPCT1k3MvJuNuXR6.jpg",
     "belongs_to_collection": null,
@@ -84,17 +61,28 @@ RSpec.describe 'Movies Page' do
     "vote_average": 8.7,
     "vote_count": 2860
 }
-      movie = Film.new(details)
-      expect(current_path).to eq("/movies/#{movie.api_id}")
+    @movie = Film.new(details)
+
+    visit "/movies/#{@movie.api_id}"
+  end
+
+  describe 'When I visit the movie details page' do
+    it 'can see button to create a viewing party' do
+      expect(page).to have_button('Create Viewing Party for Movie')
+      # click_button 'Create Viewing Party for Movie'
+      # expect(current_path).to eq('/viewing-party/new')
     end
 
-    it 'can see results for search by movie title' do
-      VCR.use_cassette('search_dilwale') do
-        fill_in "movie_title", with: "Dilwale"
-        click_button "Search"
-        expect(current_path).to eq("/movies")
-        expect(page).to have_content("Dilwale Dulhania Le Jayenge 8.7")
-      end
+    it 'can see title, rating, run time, genres, and summary for movie' do
+      genres = @movie.genres
+
+      expect(page).to have_content(@movie.title)
+      expect(page).to have_content(@movie.rating)
+      expect(page).to have_content(@movie.format_time(@movie.runtime))
+      expect(genres.size).to eq(3)
+      expect(@movie.genres).to be_an(Array)
+      expect(page).to have_content(@movie.summary)
+      save_and_open_page
     end
   end
 end

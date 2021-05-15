@@ -5,7 +5,7 @@ class MoviesController < ApplicationController
       redirect_to discover_path
     elsif params['movie_title']
       movie_keyword = params['movie_title']
-      
+
       response = Faraday.get("https://api.themoviedb.org/3/search/movie?api_key=#{ENV['MOVIE_KEY']}&language=en-US&page=1&include_adult=false") do |req|
         req.params['query'] = movie_keyword
       end
@@ -27,5 +27,9 @@ class MoviesController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    response = Faraday.get("https://api.themoviedb.org/3/movie/#{params["id"]}?api_key=#{ENV['MOVIE_KEY']}&language=en-US")
+    details = JSON.parse(response.body, symbolize_names: true)
+    @movie = Film.new(details)
+  end
 end
