@@ -12,4 +12,11 @@ class DiscoverController < ApplicationController
       @popular_movies = MovieInfo.new.popular_movies
     end
   end
+
+  def show
+    @user = current_user
+    @movie_details = MovieInfo.new(params[:movie_id]).movie_details
+    @movie_cast = MovieInfo.new(params[:movie_id]).movie_cast_details
+    @movie_reviews = MovieInfo.new(params[:movie_id]).movie_review_details
+  end
 end
