@@ -61,11 +61,5 @@ RSpec.describe "dashboard page" do
         expect(page).to_not have_content(not_registered)
       end
     end
-
-    it "cannot add yourself as a friend" do
-
-    end
-
-    end
   end
 end
