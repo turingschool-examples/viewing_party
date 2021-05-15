@@ -15,7 +15,7 @@ RSpec.describe 'Movies Page' do
 
   describe 'When I visit the movies page' do
     it 'can see top 40 movies titles and vote average' do
-      VCR.use_cassette('top_40_movies') do
+      VCR.use_cassette('top40_movies') do
         click_button "Top 40 Movies"
         expect(current_path).to eq("/movies")
         expect(page).to have_content("Dilwale Dulhania Le Jayenge 8.7")
