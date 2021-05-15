@@ -6,7 +6,7 @@ class MoviesController < ApplicationController
     elsif params['movie_title']
       movie_keyword = params['movie_title']
 
-      response = Faraday.get("https://api.themoviedb.org/3/search/movie?api_key=#{ENV['MOVIE_KEY']}&language=en-US&page=1&include_adult=false") do |req|
+      response = conn.get("/3/search/movie?api_key=#{ENV['MOVIE_KEY']}&language=en-US&page=1&include_adult=false") do |req|
         req.params['query'] = movie_keyword
       end
       parsed = JSON.parse(response.body, symbolize_names: true)
@@ -14,8 +14,8 @@ class MoviesController < ApplicationController
         Film.new(result)
       end.first(40)
     else
-      page1 = Faraday.get("https://api.themoviedb.org/3/movie/top_rated?api_key=#{ENV['MOVIE_KEY']}&language=en-US&page=1")
-      page2 = Faraday.get("https://api.themoviedb.org/3/movie/top_rated?api_key=#{ENV['MOVIE_KEY']}&language=en-US&page=2")
+      page1 = conn.get("/3/movie/top_rated?api_key=#{ENV['MOVIE_KEY']}&language=en-US&page=1")
+      page2 = conn.get("/3/movie/top_rated?api_key=#{ENV['MOVIE_KEY']}&language=en-US&page=2")
 
       page_1_response = JSON.parse(page1.body, symbolize_names: true)
       page_2_response = JSON.parse(page2.body, symbolize_names: true)
@@ -28,8 +28,16 @@ class MoviesController < ApplicationController
   end
 
   def show
-    response = Faraday.get("https://api.themoviedb.org/3/movie/#{params["id"]}?api_key=#{ENV['MOVIE_KEY']}&language=en-US")
+    response = conn.get("/3/movie/#{params["id"]}?api_key=#{ENV['MOVIE_KEY']}&language=en-US")
     details = JSON.parse(response.body, symbolize_names: true)
     @movie = Film.new(details)
+
+    cast_response = conn.get("/3/movie/#{params["id"]}/credits?language=en-US&api_key=#{ENV['MOVIE_KEY']}")
+    cast_details = JSON.parse(cast_response.body, symbolize_names: true)
+    @cast_members = @movie.cast(cast_details)
+  end
+
+  def conn
+    Faraday.new('https://api.themoviedb.org')
   end
 end

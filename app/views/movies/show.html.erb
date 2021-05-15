@@ -6,3 +6,6 @@
   <p><%= genre %></p>
 <% end %>
 <p><%= @movie.summary %></p>
+<% @cast_members.each do |member| %>
+  <p><%= member %></p>
+<% end %>

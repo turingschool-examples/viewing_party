@@ -21,4 +21,11 @@ class Film
      genre[:name]
     end
   end
+
+  def cast(cast_endpoint)
+    cast = cast_endpoint[:cast]
+    cast.map do |actor|
+      "#{actor[:name]} as #{actor[:character]}"
+    end.first(10)
+  end
 end
