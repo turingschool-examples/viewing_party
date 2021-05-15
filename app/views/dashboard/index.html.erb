@@ -2,10 +2,22 @@
 
 <%= button_to "Discover Movies", discover_path, method: :get %> <br>
 
-<h3>Friends</h3> <br>
+<section class=friends>
+  <h3>Friends</h3> <br>
 
-<%= form_with url: dashboard_path, local: true do |f| %>
-  <%= f.label :email, "Friend's Email" %>
-  <%= f.text_field :email %>
-  <%= f.submit "Add Friend" %>
-<% end %>
+  <%= form_with url: friends_path, local: true do |f| %>
+    <%= f.label :email, "Friend's Email" %>
+    <%= f.text_field :email %>
+    <%= f.submit "Add Friend" %>
+  <% end %>
+
+  <section class='user-friends'>
+    <% if @friends.empty? %>
+      <p>You currently have no friends.</p>
+    <% else %>
+      <% @friends.each do |friend| %>
+        <%= friend.username %>
+      <% end %>
+    <% end %>
+  </section>
+</section>
