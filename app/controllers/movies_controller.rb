@@ -1,6 +1,9 @@
 class MoviesController < ApplicationController
   def index
-    @top_20_movies = MoviedbService.new.get_popular_movies
+    data = MoviedbService.new.get_popular_movies
+    @top_20_movies = data[:results].map do |movie|
+      Movie.new(movie)
+    end
   end
 
   def show

@@ -7,13 +7,13 @@ RSpec.describe "discover page" do
     visit discover_path
   end
 
-  xit "should include button to discover top 40 movies" do
+  it "should include button to discover top 40 movies", :vcr do
     click_button("Find Top 20 Rated Movies")
 
     expect(current_path).to eq("/movies")
   end
 
-  xit "should allow user to search by movie title" do
+  xit "should allow user to search by movie title", :vcr do
     fill_in "Search by movie title", with: "Just Mercy"
 
     click_button("Find Movies")
@@ -27,6 +27,6 @@ RSpec.describe "discover page" do
 
     expect(current_path).to eq("/movies")
     expect(page.status_code).to eq(200)
-    expect(page).to have_content("Tom Clancy's Without Remorse vote average:7.3")
+    expect(page).to have_content("Dilwale Dulhania Le Jayenge vote average:8.7")
   end
 end
