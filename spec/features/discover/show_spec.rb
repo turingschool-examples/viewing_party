@@ -36,15 +36,4 @@ describe 'Movie Detail (Show) Page' do
       expect(page).to have_content('Rating: ')
     end
   end
-
-  # And I should see the following information about the movie:
-  # Movie Title
-  # Vote Average of the movie
-  # Runtime in hours & minutes
-  # Genere(s) associated to movie
-  # Summary description
-  # List the first 10 cast members (characters&actress/actors)
-  # Count of total reviews
-  # Each review's author and information
-  # Details: This information should come from 3 different endpoints from The Movie DB API
 end
