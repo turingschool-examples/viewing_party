@@ -40,3 +40,9 @@ footer {
   right: 0;
   padding: 5px;
 }
+.review {
+  border-style: solid;
+  border-width: thin;
+  border-color: blue;
+  margin-bottom: 1em;
+}
