@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   get  '/dashboard', to: 'dashboard#index'
   get '/discover', to: 'discover#discover'
   get '/discover/movies', to: 'discover#index'
+  get '/discover/movies/:movie_title', to: 'discover#show', as: 'movie_detail'
 end

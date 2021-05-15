@@ -9,8 +9,7 @@ class DiscoverController < ApplicationController
       @results = MovieInfo.new(params[:search]).search_results
     elsif params[:top_40].present?
       @user = current_user
-      @popular_movies = MovieInfo.new(params).popular_movies
-
+      @popular_movies = MovieInfo.new.popular_movies
     end
   end
 end
