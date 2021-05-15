@@ -20,4 +20,13 @@ RSpec.describe "discover page" do
 
     expect(current_path).to eq("/movies?q=just+mercy")
   end
+
+  it 'allows users to search for most popular movies', :vcr do
+
+    visit movies_path
+
+    expect(current_path).to eq("/movies")
+    expect(page.status_code).to eq(200)
+    expect(page).to have_content("Tom Clancy's Without Remorse vote average:7.3")
+  end
 end
