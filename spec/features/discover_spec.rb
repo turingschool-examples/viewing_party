@@ -21,17 +21,7 @@ RSpec.describe "discover page" do
     expect(current_path).to eq("/movies?q=just+mercy")
   end
 
-  it 'allows users to search for most popular movies' do
-    json_response = File.read("spec/fixtures/moviedb_popular.json")
-    stub_request(:get, "https://api.themoviedb.org/3/movie/popular").
-     with(
-       headers: {
-      'Accept'=>'*/*',
-      'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-      'Authorization'=> "Bearer #{ENV['moviedb_bearer_token']}",
-      'Language'=>'en-US',
-      'User-Agent'=>'Faraday v1.4.1'
-       }).to_return(status: 200, body: json_response)
+  it 'allows users to search for most popular movies', :vcr do
 
     visit movies_path
 
