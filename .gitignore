@@ -12,9 +12,25 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+coverage/
+coverage/.resultset.json
+coverage/index.html
+coverage/.last_run.json
+coverage/.
+
+.DS_Store
+# Ignore uploaded files in development
+/storage/*
+!/storage/.keep
 
 /node_modules
 /yarn-error.log
 
-# Ignore test coverage
-/coverage/*
+/public/assets
+.byebug_history
+
+# Ignore master key for decrypting credentials and more.
+/config/master.key
+
+# Ignore application configuration
+/config/application.yml

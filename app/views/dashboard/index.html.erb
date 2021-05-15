@@ -1,0 +1,23 @@
+<h1><%= "Welcome #{current_user.username}!" %></h1>
+
+<%= button_to "Discover Movies", discover_path, method: :get %> <br>
+
+<section class=friends>
+  <h3>Friends</h3> <br>
+
+  <%= form_with url: friends_path, local: true do |f| %>
+    <%= f.label :email, "Friend's Email" %>
+    <%= f.text_field :email %>
+    <%= f.submit "Add Friend" %>
+  <% end %>
+
+  <section class='user-friends'>
+    <% if @friends.empty? %>
+      <p>You currently have no friends.</p>
+    <% else %>
+      <% @friends.each do |friend| %>
+        <%= friend.username %>
+      <% end %>
+    <% end %>
+  </section>
+</section>
