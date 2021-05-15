@@ -20,12 +20,16 @@ RSpec.describe 'Discover Movies Index page' do
       click_button 'Search'
       expect(current_path).to eq('/discover/movies')
       expect(page).to have_content('Mortal Kombat')
+      click_link "Mortal Kombat Legends: Scorpion's Revenge"
+      expect(current_path).to eq('/discover/movies/664767')
     end
     it 'load the movies discover movies page with top 40 when selected' do
       visit discover_movies_path
       click_button 'Discover Top 40 Movies'
       expect(current_path).to eq('/discover/movies')
       expect(page).to have_css('.movie', count: 40)
+      click_link 'Mortal Kombat'
+      expect(current_path).to eq('/discover/movies/460465')
     end
   end
 end
