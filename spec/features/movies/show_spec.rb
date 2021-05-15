@@ -82,7 +82,6 @@ RSpec.describe 'Movie Details(show) Page' do
       expect(genres.size).to eq(3)
       expect(@movie.genres).to be_an(Array)
       expect(page).to have_content(@movie.summary)
-      save_and_open_page
     end
   end
 end
