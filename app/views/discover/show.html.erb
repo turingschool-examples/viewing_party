@@ -1,6 +1,10 @@
 <h1><%="#{@movie_details[:title]}"%></h1>
 
+<%
+=begin%>
 <%=button_to "Create a New Party", new_party_path, method: :get, :params => {:movie_id => @movie_details[:id]}%>
+<%
+=end%>
 <h3>Movie Details</h3>
 
 <ul>

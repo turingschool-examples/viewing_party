@@ -18,7 +18,6 @@ describe 'Movie Detail (Show) Page' do
       expect(current_path).to eq(new_party_path)
     end
     it 'It Display all pertitnate data about a movie' do
-      save_and_open_page
       expect(page).to have_content('Title: Mortal Kombat')
       expect(page).to have_content('Vote Average: 7.7')
       expect(page).to have_content('Run Time: 1:50')
