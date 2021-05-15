@@ -1,4 +1,4 @@
-<%= button_to 'Create Viewing Party for Movie' %>
+<%= button_to 'Create Viewing Party for Movie', viewing_party_new_path, method: :get %>
 <h1><%= @movie.title %></h1>
 <h1><%= @movie.rating %></h1>
 <p><%= @movie.format_time(@movie.runtime) %></p>
@@ -6,6 +6,14 @@
   <p><%= genre %></p>
 <% end %>
 <p><%= @movie.summary %></p>
+
+<h3>Cast</h3>
 <% @cast_members.each do |member| %>
   <p><%= member %></p>
+<% end %>
+
+<h3><%= @reviews.size %> Review(s)</h3>
+<% @reviews.each do |review| %>
+  <p>Author: <%= review[0] %></p>
+  <p>Review: <%= review[1] %></p>
 <% end %>

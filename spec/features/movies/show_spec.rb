@@ -69,8 +69,8 @@ RSpec.describe 'Movie Details(show) Page' do
   describe 'When I visit the movie details page' do
     it 'can see button to create a viewing party' do
       expect(page).to have_button('Create Viewing Party for Movie')
-      # click_button 'Create Viewing Party for Movie'
-      # expect(current_path).to eq('/viewing-party/new')
+      click_button 'Create Viewing Party for Movie'
+      expect(current_path).to eq('/viewing-party/new')
     end
 
     it 'can see title, rating, run time, genres, and summary for movie' do
@@ -876,6 +876,36 @@ RSpec.describe 'Movie Details(show) Page' do
       list_of_cast = @movie.cast(endpoint)
       expect(page).to have_content(list_of_cast[0])
       expect(page).to have_content(list_of_cast[9])
+    end
+
+    it 'can see count of total reviews, each author and their review' do
+      null = nil
+      endpoint = {
+    "id": 19404,
+    "page": 1,
+    "results": [
+        {
+            "author": "MohamedElsharkawy",
+            "author_details": {
+                "name": "",
+                "username": "MohamedElsharkawy",
+                "avatar_path": null,
+                "rating": null
+            },
+            "content": "The Dilwale Dulhania Le Jayenge is a film considered by most to be one of the greatest ever made. From The American Film Institute to as voted by users on the Internet Movie Database (IMDB) it is consider to be one of the best.",
+            "created_at": "2017-10-21T12:27:46.145Z",
+            "id": "59eb3d42925141565100e901",
+            "updated_at": "2017-10-22T00:40:50.358Z",
+            "url": "https://www.themoviedb.org/review/59eb3d42925141565100e901"
+        }
+    ],
+    "total_pages": 1,
+    "total_results": 1
+}
+      list_of_reviews = @movie.reviews(endpoint)
+      expect(page).to have_content(list_of_reviews[0][0])
+      expect(page).to have_content(list_of_reviews[0][1])
+      expect(list_of_reviews.size).to eq(1)
     end
   end
 end

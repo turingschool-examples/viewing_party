@@ -28,4 +28,24 @@ class Film
       "#{actor[:name]} as #{actor[:character]}"
     end.first(10)
   end
+
+  # def reviews(review_endpoint)
+  #   reviews = review_endpoint[:results]
+  #   reviews.map do |reviewer|
+  #     "Author: #{reviewer[:author]}""#{reviewer[:content]}"
+  #   end
+  # end
+
+  def reviews(review_endpoint)
+    reviews = review_endpoint[:results]
+    authors = reviews.map do |reviewer|
+      reviewer[:author]
+    end
+
+    content = reviews.map do |reviewer|
+      reviewer[:content]
+    end
+
+    authors.zip(content)
+  end
 end
