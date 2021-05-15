@@ -14,28 +14,33 @@ class MovieService
 
   def get_search_results(search_params)
     key = ENV['movie_api_key']
-    search_params.gsub!(' ', '%20') if search_params.include?(' ')
-    response = Faraday.get("https://api.themoviedb.org/3/search/movie?api_key=#{key}&language=en-US&query=#{search_params}&page=1&include_adult=false")
-    json = JSON.parse(response.body, symbolize_names: true)
-    json[:results]
+    unless search_params.nil?
+      search_params.gsub!(' ', '%20') if search_params.include?(' ')
+      response = Faraday.get("https://api.themoviedb.org/3/search/movie?api_key=#{key}&language=en-US&query=#{search_params}&page=1&include_adult=false")
+      json = JSON.parse(response.body, symbolize_names: true)
+      json[:results]
+    end
   end
-  
+
   def get_movie_details(search_params)
     key = ENV['movie_api_key']
-    response = Faraday.get("https://api.themoviedb.org/3/movie/#{search_params}?api_key=#{key}&language=en-US")
-    json = JSON.parse(response.body, symbolize_names: true)
+    unless search_params.nil?
+      response = Faraday.get("https://api.themoviedb.org/3/movie/#{search_params}?api_key=#{key}&language=en-US")
+      json = JSON.parse(response.body, symbolize_names: true)
+    end
   end
- 
+
   def get_movie_cast_details(search_params)
     key = ENV['movie_api_key']
     response = Faraday.get("https://api.themoviedb.org/3/movie/#{search_params}/credits?api_key=#{key}&language=en-US")
     json = JSON.parse(response.body, symbolize_names: true)
-    json[:cast][0..9]
+    json[:cast][0..9] if json[:status_code] != 34
   end
+
   def get_movie_review_details(search_params)
     key = ENV['movie_api_key']
     response = Faraday.get("https://api.themoviedb.org/3/movie/#{search_params}/reviews?api_key=#{key}&language=en-US")
     json = JSON.parse(response.body, symbolize_names: true)
-    json[:results]
+    json[:results] if json[:status_code] != 34
   end
 end

@@ -11,7 +11,7 @@ class MovieInfo
     @search_results = movie_service.get_search_results(search_params)
     @movie_details = movie_service.get_movie_details(search_params)
     @movie_cast_details = movie_service.get_movie_cast_details(search_params)
-    @movie_cast_details = movie_service.get_movie_review_details(search_params)
+    @movie_review_details = movie_service.get_movie_review_details(search_params)
   end
 end
 
