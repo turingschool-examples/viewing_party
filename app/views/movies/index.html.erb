@@ -2,8 +2,15 @@
 <p>Find Top Rated Movies</p>
 
 <section>
-  Top 40 Movies
-  <p>
-    <%=# binding.pry %>
-  </p>
+  <h2>
+    Top 40 Movies
+  </h2>
+  <ul class="movies">
+    <% @top_40_movies.each do |movie| %>
+      <li id="movie-<%= movie[:id] %>">
+        <%= link_to "#{movie[:original_title]}", "/movies/#{movie[:id]}" %>,
+        Vote Average: <%= movie[:vote_average] %>
+      </li>
+    <% end %>
+  </ul>
 </section>
