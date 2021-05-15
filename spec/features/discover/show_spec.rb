@@ -5,8 +5,7 @@ describe "Movie Detail (Show) Page" do
     user = User.create(user_name: 'joeyh@test.com', password: 'doyouwanttohearasong')
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-    # NEED MOVIE_ID HERE...
-    visit movie_detail_path()
+    visit movie_detail_path
   end
 
   describe "As an authenticated user, when I visit the movie's detail page" do

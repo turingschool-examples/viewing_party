@@ -7,7 +7,7 @@ RSpec.describe Friendship do
 
   end
   describe 'relationships' do
-    it { should belong_to :follower, class_name 'User'}
-    it { should belong_to :followee, class_name 'User'}
+    it { should belong_to :follower}
+    it { should belong_to :followee}
   end
 end

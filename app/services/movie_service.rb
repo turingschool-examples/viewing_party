@@ -19,8 +19,23 @@ class MovieService
     json = JSON.parse(response.body, symbolize_names: true)
     json[:results]
   end
+  
+  def get_movie_details(search_params)
+    key = ENV['movie_api_key']
+    response = Faraday.get("https://api.themoviedb.org/3/movie/#{search_params}?api_key=#{key}&language=en-US")
+    json = JSON.parse(response.body, symbolize_names: true)
+  end
+ 
+  def get_movie_cast_details(search_params)
+    key = ENV['movie_api_key']
+    response = Faraday.get("https://api.themoviedb.org/3/movie/#{search_params}/credits?api_key=#{key}&language=en-US")
+    json = JSON.parse(response.body, symbolize_names: true)
+    json[:cast][0..9]
+  end
+  def get_movie_review_details(search_params)
+    key = ENV['movie_api_key']
+    response = Faraday.get("https://api.themoviedb.org/3/movie/#{search_params}/reviews?api_key=#{key}&language=en-US")
+    json = JSON.parse(response.body, symbolize_names: true)
+    json[:results]
+  end
 end
-
-# test = MovieService.new
-# test.get_popular_movies
-# test.get_search_results("Mortal Kombat")
