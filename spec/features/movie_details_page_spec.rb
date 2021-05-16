@@ -6,7 +6,7 @@ RSpec.describe 'Movie Details', type: :feature do
     login(user)
   end
 
-  describe 'display of the movies' do
+  describe 'single movie display' do
     it "As an authenticated user,
       When I visit the movies detail page,
       I should see:
@@ -16,15 +16,21 @@ RSpec.describe 'Movie Details', type: :feature do
         Movie Title
         Vote Average of the movie
         Runtime in hours & minutes
-        Genere(s) associated to movie
+        Genre(s) associated to movie
         Summary description
         List the first 10 cast members (characters&actress/actors)
         Count of total reviews
         Each review's author and information" do
-     visit "/discover"
-     fill_in :search_query, with: "Titanic"
-     click_on("Search")
-     expect(current_path).to eq(movies_path)
+     visit "/movies/:id"
+     save_and_open_page
+     expect(page).to have_button("Create Viewing Party For Movie")
+     expect(page).to have_content(titanic.title)
+     expect(page).to have_content(titanic.vote_average)
+     expect(page).to have_content(titanic.runtime)
+     expect(page).to have_content(titanic.genre)
+     expect(page).to have_content(titanic.summary)
+     expect(page).to have_content(titanic.cast_top_10)
+     expect(page).to have_content(titanic.total_reviews)
     end
   end
 end
