@@ -1,0 +1,5 @@
+Top 40 Movies:
+<% @movies[:results].first(40).map do |movie|  %>
+  <%= movie[:title] %>,
+  <%= movie[:vote_average] %><br>
+<% end  %>

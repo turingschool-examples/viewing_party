@@ -28,9 +28,12 @@ RSpec.describe "dashboard discover movies" do
     end
 
     it "can search for movies", :vcr do
+      visit discover_path
+
       expect(page).to have_field(:search)
       fill_in :search, with: "Fight"
-      click_on("Search")
+      click_button("Search")
+
       expect(current_path).to eq(movies_path)
       expect(page).to have_content("Fight Club")
     end
