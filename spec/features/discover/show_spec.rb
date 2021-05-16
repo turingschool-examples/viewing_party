@@ -10,8 +10,7 @@ describe 'Movie Detail (Show) Page' do
   end
 
   describe "As an authenticated user, when I visit the movie's detail page" do
-    xit 'has a button to create a viewing party that takes the user to the new party page' do
-      expect(current_path).to eq(movie_detail_path)
+    it 'has a button to create a viewing party that takes the user to the new party page' do
       expect(page).to have_button('Create a New Party')
 
       click_button 'Create a New Party'

@@ -3,6 +3,7 @@
 <%= form_with url: parties_path, method: :post, local: true do |f| %>
 <%= f.hidden_field :movie_title, value: @movie_title %>
 <%= f.hidden_field :host_id, value: @user_id %>
+<%= f.hidden_field :runtime, value: params[:runtime] %>
 <%= f.label :viewing_party_duration, "Duration: " %>
 <%= f.number_field :viewing_party_duration, :value => params[:runtime] %>
 <%= f.label :viewing_party_date, "Date: " %>

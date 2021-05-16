@@ -7,6 +7,9 @@ RSpec.describe Party do
     it { should validate_presence_of :viewing_party_date }
     it { should validate_presence_of :start_time }
     it { should validate_presence_of :host_id }
+    it { should validate_presence_of :runtime }
+    it { should validate_numericality_of :runtime }
+    it { should validate_numericality_of(:viewing_party_duration).is_greater_than_or_equal_to(:runtime) }
     it { should validate_numericality_of :host_id }
   end
   describe 'relationships' do
