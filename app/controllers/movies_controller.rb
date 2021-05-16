@@ -14,4 +14,8 @@ class MoviesController < ApplicationController
                         #for the movie so we can just call things like
                         #@movie.id for the above hash
   end
+
+  def movies_params
+    params.require(:movie).permit(:search_query, :search_text)
+  end
 end
