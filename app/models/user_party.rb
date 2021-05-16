@@ -1,4 +1,4 @@
-class UserViewingParty < ApplicationRecord
+class UserParty < ApplicationRecord
   validates :party_id, presence: true, numericality: true
   validates :user_id, presence: true, numericality: true
 
