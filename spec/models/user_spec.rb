@@ -10,9 +10,10 @@ RSpec.describe User do
   describe 'relationships' do
     it { should have_many :user_parties }
     it { should have_many(:parties).through(:user_parties) }
-    it { should have_many :followed_users }
-    it { should have_many(:followees).through(:followed_users) }
-    it { should have_many :following_users }
-    it { should have_many(:followers).through(:following_users) }
+    it { should have_many :parties }
+    it { should have_many :friendships }
+    it { should have_many(:friends).through(:friendships) }
+    # it { should have_many :following_users }
+    # it { should have_many(:followers).through(:following_users) }
   end
 end

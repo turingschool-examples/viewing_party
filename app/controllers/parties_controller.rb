@@ -22,6 +22,6 @@ class PartiesController < ApplicationController
   private
 
   def party_params
-    params.permit(:movie_title, :party_duration, :party_date, :start_time, :host_id, :runtime)
+    params.permit(:movie_title, :party_duration, :party_date, :start_time, :user_id, :runtime)
   end
 end
