@@ -1,1 +1,17 @@
 <%= button_to "Discover Movies", discover_path, method: :get %>
+
+<section>
+  <%= form_with  model: @friendship, local: true do |f| %>
+    <%= f.label :email, "Email: " %>
+    <%= f.email_field :email %>
+    <%= f.submit "Add Friend" %>
+  <% end %>
+  <h2>Current Friends</h2>
+  <% if @user.friendships.empty? %>
+      <p>You currently have no friends</p>
+  <% else %>
+    <% @user.friends.each do |friend| %>
+      <%= friend.email %>
+    <% end %>
+  <% end %>
+</section>
