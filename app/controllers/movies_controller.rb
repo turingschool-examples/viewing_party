@@ -35,6 +35,10 @@ class MoviesController < ApplicationController
     cast_response = conn.get("/3/movie/#{params["id"]}/credits?language=en-US&api_key=#{ENV['MOVIE_KEY']}")
     cast_details = JSON.parse(cast_response.body, symbolize_names: true)
     @cast_members = @movie.cast(cast_details)
+
+    reviews_response = conn.get("/3/movie/#{params["id"]}/reviews?language=en-US&page=1&api_key=#{ENV['MOVIE_KEY']}")
+    reviews_details = JSON.parse(reviews_response.body, symbolize_names: true)
+    @reviews = @movie.reviews(reviews_details)
   end
 
   def conn
