@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe UserViewingParty do
+RSpec.describe UserParty do
   describe 'validations' do
     it { should validate_presence_of :party_id }
     it { should validate_presence_of :user_id }

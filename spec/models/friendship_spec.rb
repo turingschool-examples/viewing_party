@@ -2,12 +2,11 @@ require 'rails_helper'
 
 RSpec.describe Friendship do
   describe 'validations' do
-    it { should validate_presence_of :follower_id }
-    it { should validate_presence_of :followee_id }
-
+    it { should validate_presence_of :user_id }
+    it { should validate_presence_of :friend_id }
   end
   describe 'relationships' do
-    it { should belong_to :follower}
-    it { should belong_to :followee}
+    it { should belong_to :user }
+    it { should belong_to :friend }
   end
 end
