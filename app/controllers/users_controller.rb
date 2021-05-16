@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def create
     user = user_params
     user_email = user[:email].downcase
-    new_user = User.create!(user_params)
+    new_user = User.create(user_params)
     if !new_user.save
       flash.now[:error] = "Please make sure the passwords match"
       # redirect_to register_path
