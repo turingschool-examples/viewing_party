@@ -1,0 +1,23 @@
+<h2><%= @movie_title %></h2>
+
+<%= form_with model: @party, local: true do |f| %>
+  <%= f.label :duration, 'Duration of Party: ' %>
+  <%= f.number_field :duration, value: @movie_runtime, min: @movie_runtime %>
+
+  <%= f.label :date, 'Date: ' %>
+  <%= f.date_field :date %>
+
+  <%= f.label :start_time, 'Start Time: ' %>
+  <%= f.time_field :start_time %>
+
+  <p>Include Some Friends:</p>
+   <% current_user.friends.each do |friend| %>
+    <div id="friend-<%= friend.id %>">
+      <%= f.label friend.email %>
+      <%= f.check_box friend.email %><br><br>
+    </div>
+   <% end %>
+
+   <%= f.submit 'Create Party' %>
+
+<% end %>
