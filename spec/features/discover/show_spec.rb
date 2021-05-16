@@ -10,14 +10,13 @@ describe 'Movie Detail (Show) Page' do
   end
 
   describe "As an authenticated user, when I visit the movie's detail page" do
-    xit 'has a button to create a viewing party that takes the user to the new party page' do
-      expect(current_path).to eq(movie_detail_path)
-      expect(page).to have_button('Create a New Viewing Party')
+    it 'has a button to create a viewing party that takes the user to the new party page' do
+      expect(page).to have_button('Create a New Party')
 
-      click_button 'Create a New Viewing Party'
+      click_button 'Create a New Party'
       expect(current_path).to eq(new_party_path)
     end
-    it 'It Display all pertitnate data about a movie' do
+    it 'It displays all pertitnent data about a movie' do
       expect(page).to have_content('Title: Mortal Kombat')
       expect(page).to have_content('Vote Average: 7.7')
       expect(page).to have_content('Run Time: 1:50')
@@ -36,15 +35,4 @@ describe 'Movie Detail (Show) Page' do
       expect(page).to have_content('Rating: ')
     end
   end
-
-  # And I should see the following information about the movie:
-  # Movie Title
-  # Vote Average of the movie
-  # Runtime in hours & minutes
-  # Genere(s) associated to movie
-  # Summary description
-  # List the first 10 cast members (characters&actress/actors)
-  # Count of total reviews
-  # Each review's author and information
-  # Details: This information should come from 3 different endpoints from The Movie DB API
 end
