@@ -44,9 +44,9 @@ RSpec.describe 'Dashboard Page' do
         click_button "Log In"
 
         expect(page).to have_content("You currently have no friends")
-        exptect(page).to_not have_content(new_friend.email)
+        expect(page).to_not have_content(new_friend.email)
 
-        fill_in :friend_email, with: new_friend.email
+        fill_in :email, with: new_friend.email
         click_button "Add Friend"
 
         expect(page).to have_content(new_friend.email)
@@ -63,6 +63,23 @@ RSpec.describe 'Dashboard Page' do
 
       expect(current_path).to eq('/')
       expect(page).to have_content(not_authorized)
+    end
+
+    it 'show message when adding friend that does not exist' do
+      visit '/login'
+      email = "example@example.com"
+      password = "test"
+      user = User.create!(email: email, password: password)
+
+      fill_in :email, with: email
+      fill_in :password, with: password
+      click_button "Log In"
+
+      fill_in :email, with: 'dontexist@email.com'
+      click_button "Add Friend"
+
+      message = 'That user does not exist'
+      expect(page).to have_content(message)
     end
   end
 end

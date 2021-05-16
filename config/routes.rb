@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :users, only: [:create, :index]
 
   get '/dashboard', to: 'users#show'
+  post '/dashboard', to: 'friendships#create'
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
