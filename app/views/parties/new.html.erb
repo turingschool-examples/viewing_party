@@ -1,19 +1,14 @@
-<h2>Create a New Viewing Party for <%= @movie[:title] %></h2>
+<h2>Create a New Viewing Party for <%= @movie_title %></h2>
 
-<%= form_with url: new_party_path, method: :post, local: true do |f| %>
-<% f.hidden_field :movie_title, value: @movie[:title] %>
-<% f.hidden_field :host_id, value: @user[:id] %>
-
+<%= form_with url: parties_path, method: :post, local: true do |f| %>
+<%= f.hidden_field :movie_title, value: @movie_title %>
+<%= f.hidden_field :host_id, value: @user_id %>
 <%= f.label :viewing_party_duration, "Duration: " %>
-<%= f.number_field :viewing_party_duration %><br><br> # NEED TO ADD MOVIE DURATION AS DEFAULT HERE
-<%= f.label :party_date, "Date: " %>
-<%= f.date_field :party_date %><br><br>
+<%= f.number_field :viewing_party_duration, :value => params[:runtime] %>
+<%= f.label :viewing_party_date, "Date: " %>
+<%= f.date_field :viewing_party_date %>
 <%= f.label :start_time, "Start Time: " %>
-<%= f.datetime_field :start_time %><br><br>
-<p>Invite friends:</p>
-# f.collection_check_boxes
-<% @user.friends.each do |friend| %> # NOT SURE HOW TO PUT A GROUP OF CHECKBOXES HERE
-  <%= f.check_box ???, "#{friend.name}" %>
-<%end%>
+<%= f.time_field :start_time %>
+
 <%= f.submit "Create Viewing Party"%>
-<% end %>
+<%end%>

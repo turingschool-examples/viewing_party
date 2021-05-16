@@ -1,27 +1,25 @@
 class PartiesController < ApplicationController
-  before_action :find_user, only: [:new, :create, :destroy]
 
   def new
-    @party = Party.new
+    @movie_title = params[:movie_title]
+    @user_id = current_user.id 
   end
 
   def create
-    party = @user.parties.new(party_params)
-    if discount.save
-      flash[:notice] = "Party has been created!"
-      redirect_to dashboard_path(@user)
+    @user = current_user
+    party = current_user.parties.new(party_params)
+    if party.save
+      # flash[:notice] = "Party has been created!"
+      redirect_to dashboard_path
     else
-      flash[:notice] = "Party was not saved. Try again."
-      redirect_to new_party_path(@user)
+      require 'pry'; binding.pry
+      # flash[:notice] = "Party was not saved. Try again."
+      render "new"
     end
   end
 
   private
   def party_params
-    params.require(:party).permit(:movie_title, :party_duration, :party_date, :start_time, :host_id)
-  end
-
-  def find_user
-    @user = User.find(params[:host_id]) #user_id ?
+    params.permit(:movie_title, :viewing_party_duration, :viewing_party_date, :start_time, :host_id)
   end
 end
