@@ -63,6 +63,14 @@ RSpec.describe 'Movie Details(show) Page' do
 }
     @movie = Film.new(details)
 
+    visit '/login'
+    email = "example@example.com"
+    password = "test"
+    @user = User.create!(email: email, password: password)
+    fill_in :email, with: email
+    fill_in :password, with: password
+    click_button "Log In"
+
     visit "/movies/#{@movie.api_id}"
   end
 
