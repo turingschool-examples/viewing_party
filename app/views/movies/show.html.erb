@@ -1,7 +1,6 @@
-<% service = TMDBService.new(ENV['movie_db_key'], @movie_id) %>
-<% movie = service.get_movie_info %>
-<% cast = service.get_first_10_credits %>
-<% reviews = service.get_movie_reviews %>
+<% movie = @service.get_movie_info %>
+<% cast = @service.get_first_10_credits %>
+<% reviews = @service.get_movie_reviews %>
 
 <h1><%= movie[:title] %></h1>
 
@@ -32,4 +31,3 @@
     </div>
   <% end %>
 </div>
-
