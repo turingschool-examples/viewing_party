@@ -1,13 +1,32 @@
 <h1>
   <%= "Welcome, #{@user_email}!" %>
-</h2>
+</h1>
 
 <%= button_to "Discover Movies", "/discover", method: :get %>
 
 <section>
-  <h3>
-    Friends
-  </h3>
+  <h3>Friends</h3>
+  <% if @user.friends.count == 0 %>
+    You currently have no friends.
+  <% else %>
+    <ul>
+      <% @user.friends.uniq.each do |friend| %>
+        <li>
+          <%= friend.email %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+  <div>
+    <%= form_with url: dashboard_index_path, method: :post, local: true do |f| %>
+      <%= f.label :friend_search, "Add a friend by their email" %>
+      <%= f.text_field :friend_search %>
+
+      <%= f.hidden_field :user_id, :value => @user.id %>
+
+      <%= f.submit "Add friend" %>
+    <% end %>
+  </div>
 </section>
 
 <section>
