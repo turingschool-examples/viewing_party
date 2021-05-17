@@ -1,0 +1,8 @@
+<%= button_to 'Find Top Rated Movies', movies_path, method: :get %>
+
+<h2>OR</h2>
+
+<%= form_with url: movies_path, method: :get do |f| %>
+  <%= f.text_field :title, placeholder: 'Search by movie title' %>
+  <%= f.submit 'Find Movies' %>
+<% end %>

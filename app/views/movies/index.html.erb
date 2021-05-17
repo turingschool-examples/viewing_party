@@ -1,0 +1,13 @@
+<% if @title %>
+  <ol>
+    <% @service.each do |movie| %>
+      <li><%= link_to movie[:title], movie_path(movie[:id]) %> Vote Average: <%= movie[:vote_average] %></li>
+    <% end %>
+  </ol>
+<% else %>
+  <ol>
+    <% @service.each do |movie| %>
+      <li><%= link_to movie[:title], movie_path(movie[:id]) %> Vote Average: <%= movie[:vote_average] %></li>
+    <% end %>
+  </ol>
+<% end %>
