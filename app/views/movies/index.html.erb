@@ -1,12 +1,16 @@
-<p>Search by movie title:</p>
-<p>Find Top Rated Movies</p>
+<h1>Welcome "@user"!</h1>
+
+<%= button_to "Discover Top 40 Movies", movies_path, method: :get, params: {search_query: :top_40} %>
+
+ <%=form_with url: movies_path, local: true, method: :get do |form| %>
+    <%=form.label :search_text, "Enter Keyword(s) To Search By Movie Title:" %>
+    <%=form.text_field  :search_text%>
+    <%=form.submit "Find Movie"%>
+  <%end%>
 
 <section>
-  <h2>
-    Top 40 Movies
-  </h2>
   <ul class="movies">
-    <% @top_40_movies.each do |movie| %>
+    <% @movie_list.each do |movie| %>
       <li id="movie-<%= movie[:id] %>">
         <%= link_to "#{movie[:original_title]}", "/movies/#{movie[:id]}" %>,
         Vote Average: <%= movie[:vote_average] %>
