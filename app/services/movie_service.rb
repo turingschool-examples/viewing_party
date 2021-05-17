@@ -11,4 +11,7 @@ class MovieService
 
     result1[:results] + result2[:results]
   end
+
+  def search
+  end
 end

@@ -5,3 +5,9 @@
   <%= f.text_field :search %>
   <%= f.submit 'Search' %>
 <% end %>
+
+<% if params[:search]  %>
+  <% @movies.each do |movie| %>
+    <%= movie[:title] %>
+  <% end %>
+<% end %>

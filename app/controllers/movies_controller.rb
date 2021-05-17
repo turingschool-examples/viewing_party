@@ -1,7 +1,11 @@
 class MoviesController < ApplicationController
 
   def index
-    @movies = MovieService.new.top_40
+    if params[:search].present?
+      @movies = MovieService.new.search(params[:search])
+    else
+      @movies = MovieService.new.top_40
+    end
   end
 
   def show
