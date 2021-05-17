@@ -1,6 +1,7 @@
-<% movie = @service.get_movie_info %>
-<% cast = @service.get_first_10_credits %>
-<% reviews = @service.get_movie_reviews %>
+<% service = TMDBService.new('6b310e0dcdbc8d375cce6ea3bf466eea', @movie_id)%>
+<% movie = service.get_movie_info %>
+<% cast = service.get_first_10_credits %>
+<% reviews = service.get_movie_reviews %>
 
 <h1><%= movie[:title] %></h1>
 
