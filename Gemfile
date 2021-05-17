@@ -32,7 +32,6 @@ end
 
 group :test do
   gem 'rspec-rails'
-  gem 'rspec-rainbow'
   gem 'capybara'
   gem 'launchy'
   gem 'simplecov'
