@@ -6,9 +6,9 @@ Rails.application.routes.draw do
 
   get "/register", to: "users#new"
   get "/login", to: "sessions#new"
+  get '/discover', to: 'movies#discover'
 
   resources :users, except: [:new]
   resources :sessions, except: [:new]
-  resources :movies
-
+  resources :movies, except: [:new]
 end
