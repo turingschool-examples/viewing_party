@@ -15,7 +15,7 @@ RSpec.describe 'Registration', type: :feature do
 
       click_button "Register"
 
-      expect(current_path).to eq(dashboard_path)
+      expect(current_path).to eq(dashboard_index_path)
       new_user = User.last
 
       expect(page).to have_content("Welcome, klaw@test.com!")
