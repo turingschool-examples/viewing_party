@@ -26,5 +26,17 @@ RSpec.describe 'movies page' do
       expect(page).to have_link('Sinister Squad')
       expect(page).to have_content('Average', count: 40)
     end
+
+    it 'submitting a blank search returns top 40', :vcr do
+      visit discover_path
+  
+      fill_in :title, with: ''
+      click_on 'Find Movies'
+      expect(current_path).to eq(movies_path)
+
+      expect(page).to have_link('Dilwale Dulhania Le Jayenge')
+      expect(page).to have_link('Clouds')
+      expect(page).to have_content('Average', count: 40)
+    end
   end
 end
