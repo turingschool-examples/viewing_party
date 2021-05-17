@@ -20,7 +20,7 @@ class DashboardController < ApplicationController
       friend = params[:friend_search]
       # binding.pry
       if User.find_by(email: "#{friend}").nil?
-        flash[:error] = "I'm sorry your frined cannot be found"
+        flash[:error] = "#{friend} cannot be found"
         redirect_to dashboard_index_path(user_id: "#{user.id}")
       else
         search = User.find_by(email: "#{friend}")

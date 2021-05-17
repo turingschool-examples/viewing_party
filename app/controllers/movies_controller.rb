@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
   def index
     @top_40_movies = MovieService.get_top_rated_movies
-    #refactor this into a facade later 
+    #refactor this into a facade later
   end
 
   def show
