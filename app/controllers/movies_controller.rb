@@ -5,14 +5,14 @@ class MoviesController < ApplicationController
 
 
     @movie_list = if params[:search_text].present?
-                    MovieService.list_movies_by_keyword
+                    MovieService.list_movies_by_keyword(params[:search_text])
                   else
                     MovieService.get_top_rated_movies
                   end
   end
 
   def show
-    @movie = MovieService.return_single_movie
+    @movie = MovieService.return_single_movie(params[:id])
     #Jahara info, we need to make a poro/facade to call something such as
     #@movie = MoviesFacade.get_movie_details(params[:id])
     #session[:movie] = { api_id: @movie[:id],
