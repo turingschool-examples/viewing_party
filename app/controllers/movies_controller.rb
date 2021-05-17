@@ -11,8 +11,7 @@ class MoviesController < ApplicationController
     @movie = MovieService.return_single_movie(params[:id])
   end
 
-  private
   def movies_params
-    params.require(:movie).permit(:search_query, :search_text, :id)
+    params.require(:movie).permit(:search_query, :search_text)
   end
 end

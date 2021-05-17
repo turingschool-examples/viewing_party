@@ -2,7 +2,7 @@
 
 
   <%=form_with url: movies_path, local: true, method: :get do |form| %>
-    <%=form.label :search_text, "Enter Keyword(s) To Search By Movie Title:" %>
-    <%=form.text_field  :search_text%>
+    <%=form.label :search_query, "Enter Keyword(s) To Search By Movie Title:" %>
+    <%=form.text_field search_query: :search_text%>
     <%=form.submit "Find Movie"%>
   <%end%>

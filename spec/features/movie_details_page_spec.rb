@@ -22,14 +22,15 @@ RSpec.describe 'Movie Details', type: :feature do
         Count of total reviews
         Each review's author and information" do
      visit "/movies/:id"
+     save_and_open_page
      expect(page).to have_button("Create Viewing Party For Movie")
-    #  expect(page).to have_content(titanic.title)
-    #  expect(page).to have_content(titanic.vote_average)
-    #  expect(page).to have_content(titanic.runtime)
-    #  expect(page).to have_content(titanic.genre)
-    #  expect(page).to have_content(titanic.summary)
-    #  expect(page).to have_content(titanic.cast_top_10)
-    #  expect(page).to have_content(titanic.total_reviews)
+     expect(page).to have_content(titanic.title)
+     expect(page).to have_content(titanic.vote_average)
+     expect(page).to have_content(titanic.runtime)
+     expect(page).to have_content(titanic.genre)
+     expect(page).to have_content(titanic.summary)
+     expect(page).to have_content(titanic.cast_top_10)
+     expect(page).to have_content(titanic.total_reviews)
     end
   end
 end

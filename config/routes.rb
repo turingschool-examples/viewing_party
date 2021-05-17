@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   get '/register', to:'users#new'
   post '/register', to: 'users#create'
   get '/discover', to: 'discover#index'
-  get '/viewing_party', to: 'viewing_party#new'
   post '/', to: 'sessions#create'
 
   resources :movies, only: [:index, :show]
