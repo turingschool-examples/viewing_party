@@ -11,7 +11,7 @@ describe 'New Viewing Party Page' do
     # create two more users
     # User adds one of the other two
   end
-  it 'for an authenticated user, it should display the movie title rendered above a form with fields for: Duration of Party with a default value of movie runtime in minutes, When: field to select date, Start Time: field to select time, Checkboxes next to each friend (if user has friends), Button to create a party' do
+  it 'displays movie title form field and button to create party', :vcr do
     expect(page).to have_content('Create a New Viewing Party for Mortal Kombat')
     expect(page).to have_field(:party_duration, with: 110)
     expect(page).to have_field(:party_date)
@@ -19,7 +19,7 @@ describe 'New Viewing Party Page' do
     expect(page).to have_button('Create Viewing Party')
   end
 
-  it 'HAPPY PATH - User should be able to fill in a form and create a new party' do
+  it 'HAPPY PATH - User should be able to fill in a form and create a new party', :vcr do
     fill_in :party_duration, with: 130
     fill_in :party_date, with: '2021-06-17'
     fill_in :start_time, with: '19:00'
@@ -31,7 +31,7 @@ describe 'New Viewing Party Page' do
     # expect(page).to have_content('Mortal Kombat Party on June 17, 2021')
   end
 
-  it 'SAD PATH - displays a message to the user if the new party was not saved' do
+  it 'SAD PATH - displays a message to the user if the new party was not saved', :vcr do
     fill_in :party_duration, with: ''
     fill_in :party_date, with: ''
     fill_in :start_time, with: ''

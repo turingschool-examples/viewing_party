@@ -18,7 +18,6 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'figaro'
 
-
 group :development, :test do
   gem 'pry'
   gem 'travis'
@@ -27,7 +26,7 @@ group :development, :test do
   gem 'launchy'
   gem 'simplecov'
   gem 'orderly'
-  gem "nyan-cat-formatter"
+  gem 'nyan-cat-formatter'
   gem 'shoulda-matchers'
 end
 
@@ -35,20 +34,19 @@ group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'rubocop-rails'
-  gem 'travis'
 end
 
-# group :test do
+group :test do
+  gem 'webmock'
+  gem 'vcr'
 #   gem 'rspec-rails'
 #   gem 'capybara'
 #   gem 'launchy'
 #   gem 'simplecov'
 #   gem 'orderly'
-#   gem "nyan-cat-formatter"
-# end
+end
 
 gem 'faraday'
-
 gem 'json'
 gem 'sinatra'
 

@@ -10,15 +10,15 @@ describe 'Movie Detail (Show) Page' do
   end
 
   describe "As an authenticated user, when I visit the movie's detail page" do
-    it 'has a button to create a viewing party that takes the user to the new party page' do
+    it 'has a button to create a viewing party that takes the user to the new party page', :vcr do
       expect(page).to have_button('Create a New Party')
 
       click_button 'Create a New Party'
       expect(current_path).to eq(new_party_path)
     end
-    it 'It displays all pertitnent data about a movie' do
+    it 'It displays all pertitnent data about a movie', :vcr do
       expect(page).to have_content('Title: Mortal Kombat')
-      expect(page).to have_content('Vote Average: 7.7')
+      expect(page).to have_content('Vote Average: 7.6')
       expect(page).to have_content('Run Time: 1:50')
       expect(page).to have_content('Action')
       expect(page).to have_content('Fantasy')
