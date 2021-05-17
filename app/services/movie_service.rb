@@ -13,15 +13,18 @@ class MovieService
 
     page_1_json = JSON.parse(page_1.body, symbolize_names: true)
     page_2_json = JSON.parse(page_2.body, symbolize_names: true)
-    all_results = page_1_json[:results] + page_2_json[:results]
+    movie_list = page_1_json[:results] + page_2_json[:results]
   end
 
   def self.list_movies_by_keyword
     page_1= conn.get("search/movie?api_key=#{ENV['MOVIE_TOKEN']}&query=Phoenix")
     page_1_json = JSON.parse(page_1.body, symbolize_names: true)
-    all_results = page_1_json[:results]
   end
 
+  def self.return_single_movie
+    selected_movie = conn.get("movie/675?api_key=#{ENV['MOVIE_TOKEN']}&language=en-US")
+    parsed_movie = JSON.parse(selected_movie.body, symbolize_names: true)
+  end
   # def self.search(query)
   #   results = conn.get("/search/movie?api_key=#{ENV['MOVIE_TOKEN']}&language=en-US&page=1&include_adult=false&query=#{query}")
   #   parsed_results = JSON.parse(results.body, symbolize_names: true)

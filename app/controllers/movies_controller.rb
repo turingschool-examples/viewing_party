@@ -6,14 +6,13 @@ class MoviesController < ApplicationController
 
     @movie_list = if params[:search_text].present?
                     MovieService.list_movies_by_keyword
-                    require 'pry'; binding.pry
                   else
                     MovieService.get_top_rated_movies
                   end
   end
 
   def show
-    require 'pry'; binding.pry
+    @movie = MovieService.return_single_movie
     #Jahara info, we need to make a poro/facade to call something such as
     #@movie = MoviesFacade.get_movie_details(params[:id])
     #session[:movie] = { api_id: @movie[:id],
