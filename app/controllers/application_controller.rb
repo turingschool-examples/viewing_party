@@ -14,4 +14,8 @@ class ApplicationController < ActionController::Base
   def error_message(errors)
     errors.full_messages.join(', ')
   end
+
+  def to_uri(param)
+    param.gsub(' ', '%20')
+  end
 end
