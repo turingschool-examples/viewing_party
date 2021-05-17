@@ -1,6 +1,6 @@
 <h1>Top 40 Movies</h1>
-<% @movies[:results].first(40).map do |movie|  %>
-  <%= movie[:title] %>, rating:
+<ol><% @movies.map do |movie|  %>
+  <li><%= movie[:title] %>, rating:
   <%= movie[:vote_average] %><br>
-<% end  %><br>
+<% end  %></li><br></ol>
 <%= link_to "Back to Discover Movies", "/discover" %>
