@@ -18,6 +18,8 @@ class MovieService
   def self.keyword_search(search_text)
     page_1 = conn.get("search/keyword?api_key=#{ENV['MOVIE_TOKEN']}&query=#{search_text}&page=1")
 
+  def self.list_movies_by_keyword
+    page_1= conn.get("search/movie?api_key=#{ENV['MOVIE_TOKEN']}&query=Phoenix")
     page_1_json = JSON.parse(page_1.body, symbolize_names: true)
   end
 
