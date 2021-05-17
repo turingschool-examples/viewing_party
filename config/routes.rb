@@ -10,5 +10,5 @@ Rails.application.routes.draw do
 
   resources :users, except: [:new]
   resources :sessions, except: [:new]
-  resources :movies, except: [:new]
+  resources :movies
 end
