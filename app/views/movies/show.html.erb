@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 <% service = TMDBService.new(ENV['movie_db_key'], @movie_id)%>
 <% movie = service.get_movie_info %>
 <% cast = service.get_first_10_credits %>
 <% reviews = service.get_movie_reviews %>
+=======
+<% movie = FilmService.get_movie_info(@movie_id) %>
+<% cast = FilmService.get_first_10_credits(@movie_id) %>
+<% reviews = FilmService.get_movie_reviews(@movie_id) %>
+>>>>>>> 980d78c2744583e62afd05126fbc4e7ce0c0166b
 
 <h1><%= movie[:title] %></h1>
 
