@@ -1,10 +1,12 @@
 class MoviesController < ApplicationController
 
   def index
-    if params[:search].present?
-      @movies = MovieService.new.search(params[:search])
+    if params[:search]
+      @movies = MovieService.search_result(params[:search])
+    elsif params[:top_40]
+      @movies = MovieService.top_40
     else
-      @movies = MovieService.new.top_40
+      redirect_to discover_path
     end
   end
 
