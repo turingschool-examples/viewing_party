@@ -30,4 +30,3 @@ class MovieService
   #   parsed_results = JSON.parse(results.body, symbolize_names: true)
   # end
 end
-
