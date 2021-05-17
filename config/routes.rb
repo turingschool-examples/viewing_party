@@ -15,4 +15,5 @@ Rails.application.routes.draw do
 
   get '/parties/new', to: 'parties#new', as: 'new_party'
   post '/parties/', to: 'parties#create'
+  post '/friendships', to: 'friendships#create'
 end

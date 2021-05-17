@@ -36,8 +36,9 @@ RSpec.describe 'Dashboard page' do
     it 'Add Friend Happy Path' do
       visit dashboard_path
       fill_in :search, with: 'steve'
-
-      expect(page).to have_field('search')
+      click_button 'Add Friend'
+      save_and_open_page
+      expect(page).to have_content('steve')
     end
   end
 end

@@ -3,9 +3,13 @@
 <%= button_to "Discover Movies", '/discover', :method => "get"  %>
 <br>
 <h3>Friends List</h3>
-<%= form_with url: "/dashboard/", method: :get, local: true do |f| %>
+<%= form_with url: "/friendships", method: :post, local: true do |f| %>
 <%= f.text_field :search %>
 <%= f.submit "Add Friend" %>
 <%end%>
-<br>
-<h3>Viewing Parties List</h3>
+<% @friends.each do |friend| %>
+< p> <%=friend.user_name%>
+  <% end %>
+
+  <br>
+  <h3>Viewing Parties List</h3>
