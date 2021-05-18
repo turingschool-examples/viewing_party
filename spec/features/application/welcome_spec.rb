@@ -6,7 +6,7 @@ RSpec.describe 'welcome page' do
   end
 
   context "you go to main page" do
-    it "has welcome message" do
+    it "has welcome message", :logged_out do
       expect(page).to have_content("Welcome to ViewingParty")
     end
 
