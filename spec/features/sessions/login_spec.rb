@@ -9,12 +9,19 @@ RSpec.describe 'Login page' do
   end
 
   describe 'when I visit the login page' do
-    it 'I enter correct email and password' do
+    it 'I enter correct email and password to login and can logout' do
       fill_in :email, with: @user.email
       fill_in :password, with: @user.password
       click_button "Log In"
 
       expect(current_path).to eq('/dashboard')
+
+      click_link "Log Out"
+
+      expect(current_path).to eq('/')
+      expect(page).to_not have_link('Log Out')
+      expect(page).to have_button('Log In')
+      expect(page).to have_link('Register as New User')
     end
   end
 
