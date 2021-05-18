@@ -16,7 +16,7 @@ RSpec.describe 'user registration page' do
       fill_in "user[name]", with: "The Doof"
       click_on("Register")
 
-      expect(current_path).to eq(root_path)
+      expect(current_path).to eq(dashboards_path)
     end
 
     it "requires valid input" do

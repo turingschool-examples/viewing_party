@@ -14,7 +14,7 @@ RSpec.describe 'session login page' do
       fill_in :password, with: "#{user.password}"
 
       click_on("Login")
-      expect(current_path).to eq(root_path)
+      expect(current_path).to eq(dashboards_path)
     end
 
     it "requires existing user" do

@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     new_user = User.new(user)
     if new_user.save
       session[:user_id] = new_user.id
-      redirect_to root_path
+      redirect_to dashboards_path
     else
       redirect_to register_path
       flash[:error] = "Error: #{error_message(new_user.errors)}"
