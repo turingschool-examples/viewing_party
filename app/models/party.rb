@@ -12,7 +12,7 @@ class Party < ApplicationRecord
   # belongs_to :user # host
 
   def host_name
-    id = self.user_id
+    id = user_id
     User.find(id).user_name
   end
 end

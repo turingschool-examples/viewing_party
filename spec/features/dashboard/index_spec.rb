@@ -60,7 +60,7 @@ RSpec.describe 'Dashboard page' do
   describe 'when a logged in user visits the dashboard they can see the parties they are invited to or hosting' do
     it 'shows parties with all details included' do
       visit dashboard_path
-      save_and_open_page
+
       within "#party-#{@party1.id}" do
         expect(page).to have_content(@party1.movie_title)
         expect(page).to have_content(@party1.party_date)

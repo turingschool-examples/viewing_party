@@ -34,10 +34,8 @@ describe 'New Viewing Party Page' do
     check 'klaudia@test.com'
 
     click_button 'Create Viewing Party'
-    save_and_open_page
+
     expect(current_path).to eq(dashboard_path)
-    # expect(page).to have_content('klaudia@test.com')
-    # expect(page).to have_content('Mortal Kombat Party on June 17, 2021')
     within "#party-#{Party.last.id}" do
       expect(page).to have_content('Mortal Kombat')
       expect(page).to have_content('klaudia@test.com')
