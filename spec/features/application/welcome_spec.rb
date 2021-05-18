@@ -14,17 +14,14 @@ RSpec.describe 'welcome page' do
       expect(page).to have_content("The app for planning movie parties with your friends!")
     end
 
-    context "you arrive at page for first time" do
-
+    context "you arrive at page for first time", :logged_out do
       it "has link to register a new user" do
-        click_on "Logout"
         click_on "Register new user"
         expect(current_path).to eq(register_path)
       end
 
       it "has link for existing user to login" do
-        click_on "Logout"
-        click_on("Login")
+        click_on "Login"
         expect(current_path).to eq(login_path)
       end
     end
