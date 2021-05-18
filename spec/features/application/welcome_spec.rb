@@ -11,17 +11,19 @@ RSpec.describe 'welcome page' do
     end
 
     it "has application discription" do
-      expect(page).to have_content("The app for planing movie parties with your friends!")
+      expect(page).to have_content("The app for planning movie parties with your friends!")
     end
 
     context "you arrive at page for first time" do
-      it "has link to register a new user" do
 
+      it "has link to register a new user" do
+        click_on "Logout"
         click_on "Register new user"
         expect(current_path).to eq(register_path)
       end
 
       it "has link for existing user to login" do
+        click_on "Logout"
         click_on("Login")
         expect(current_path).to eq(login_path)
       end
@@ -30,8 +32,6 @@ RSpec.describe 'welcome page' do
 
   context "when you are allready logged in" do
     before :each do
-      @user = create(:user)
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
       visit root_path
     end
 

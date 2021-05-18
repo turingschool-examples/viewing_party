@@ -211,8 +211,6 @@ GEM
       rspec-expectations (~> 3.10)
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
-    rspec-rainbow (0.2.1)
-      rspec (>= 2.14.0, < 4)
     rspec-support (3.10.2)
     rubocop (1.14.0)
       parallel (~> 1.10)
@@ -313,7 +311,6 @@ DEPENDENCIES
   puma (~> 3.7)
   rails (= 5.2.5)
   rspec-rails
-  rspec-rainbow
   rubocop-rails
   sass-rails (~> 5.0)
   shoulda-matchers (~> 3.1)

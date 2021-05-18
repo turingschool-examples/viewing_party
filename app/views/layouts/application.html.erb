@@ -14,8 +14,14 @@
         <%= msg  %>
       </div>
     <% end %>
+
+
     <main>
-      <%= yield %>
+      <% if current_user || action_name == 'welcome' || controller_name == 'sessions' || current_page?(controller: 'users', action: 'new') %>
+        <%= yield %>
+      <% else %>
+        <p> You don't have access to this page! </p>
+      <% end %>
     </main>
     <footer>
       <img src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg" alt="The MovieDB Logo" width="75px" style="margin:10px" >
