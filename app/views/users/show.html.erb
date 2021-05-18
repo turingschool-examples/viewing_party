@@ -8,11 +8,31 @@
     <%= f.submit "Add Friend" %>
   <% end %>
   <h2>Current Friends</h2>
-  <% if @user.friendships.empty? %>
+  <% if current_user.friendships.empty? %>
       <p>You currently have no friends</p>
   <% else %>
-    <% @user.friends.each do |friend| %>
+    <% current_user.friends.each do |friend| %>
       <%= friend.email %>
+    <% end %>
+  <% end %>
+</section>
+
+<section>
+  <% @parties.each do |party| %>
+    <div id="party-<%= party.id %>">
+      <p>Movie: <%= party.movie_title %></p>
+      <p>Date: <%= party.date %></p>
+      <p>Start Time: <%= party.start_time %></p>
+      <p>Duration: <%= party.duration %> mins</p>
+      <p>Host: <%= party.host %></p>
+      <p>Invited:</p>
+      <% party.invited_email.each do |email| %>
+        <% if email == current_user.email %>
+          <strong><%= email %></strong>
+        <% else %>
+          <p><%= email %></p>
+        <% end %>
+    </div>
     <% end %>
   <% end %>
 </section>

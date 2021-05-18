@@ -82,4 +82,43 @@ RSpec.describe 'Dashboard Page' do
       expect(page).to have_content(message)
     end
   end
+
+  describe 'viewing parties' do
+    it 'can create a viewing party and add a friend' do
+      friend = User.create!(email: 'world@email.com', password: "hello")
+      other_friend = User.create!(email: 'unicorn@email.com', password: "hi")
+
+      visit '/login'
+      email = "example@example.com"
+      password = "test"
+      user = User.create!(email: email, password: password)
+
+      Friendship.create!(user_id: user.id, friend_id: friend.id)
+      Friendship.create!(user_id: user.id, friend_id: other_friend.id)
+
+      fill_in :email, with: email
+      fill_in :password, with: password
+      click_button "Log In"
+
+      visit '/movies/556574'
+
+      click_button 'Create Viewing Party for Movie'
+
+      fill_in :date, with: '2021-05-17'
+      fill_in :start_time, with: '07:00 PM'
+      within("#friend-#{friend.id}") do
+        check "#{friend.email}"
+      end
+      click_button 'Create Party'
+
+      expect(page).to have_content('Hamilton')
+      expect(page).to have_content('2021-05-17')
+      expect(page).to have_content("07:00 PM")
+      expect(page).to have_content("Host: #{user.email}")
+      within("#party-#{user.parties.first.id}") do
+        expect(page).to have_content(friend.email)
+        expect(page).to_not have_content(other_friend.email)
+      end
+    end
+  end
 end
