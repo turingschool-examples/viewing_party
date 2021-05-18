@@ -87,6 +87,13 @@ RSpec.describe 'you visit your dashboard ' do
 
           expect(page).to have_content('This user does not exist, or you are already their friend')
         end
+
+        it 'you cannot add yourself as a friend you sad looser' do
+          fill_in 'friend', with: @user.email
+          click_on 'Add Friend'
+
+          expect(page).to have_content('You cant be friends with yourself!')
+        end
       end
     end
   end
