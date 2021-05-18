@@ -7,10 +7,15 @@
 <%= f.text_field :search %>
 <%= f.submit "Add Friend" %>
 <%end%>
-<% @friends.each do |friend| %>
+
+<%if @friends.count == 0%>
+<p> Go Make Some Friends!
+  <%else%>
+  <% @friends.each do |friend| %>
 <div id="friend-<%=friend.id%>">
   <p> <%=friend.user_name%> </p>
 </div>
+<% end %>
 <% end %>
 
 <br>
@@ -24,9 +29,12 @@
   <p>Friends Invited</p>
   <% p.users.each do |u| %>
   <div id="party-<%=p.id%>-<%=u.id%>">
-    <% if u.id == @user.id %>
+    <% if p.user_id == u.id %>
+
+
+    <% elsif u.id == @user.id %>
     <p><b><%= u.user_name %></b>
-      <% else %>
+      <%else%>
       <%= u.user_name %>
       <% end %>
   </div>

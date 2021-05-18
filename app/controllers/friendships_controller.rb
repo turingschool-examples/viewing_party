@@ -1,14 +1,16 @@
 class FriendshipsController < ApplicationController
   def create
     @user = current_user
-    friend = User.find_by(user_name: params[:search])
-    @user.friends << friend
-    flash[:notice] = 'You made a friend!'
-    binding.pry
-    redirect_to dashboard_path
-  end
+    friend = User.search(params[:search]).first
 
-  def self.search(search_params)
-    where("user_name ILIKE ?", "%#{search_params}%")
+    if friend.nil?
+      flash[:error] = 'No user found'
+      redirect_to dashboard_path
+    else
+      @user.friends << friend
+      flash[:notice] = 'You made a friend!'
+      redirect_to dashboard_path
+
+    end
   end
 end
