@@ -4,18 +4,17 @@ describe 'New Viewing Party Page' do
   before :each do
     @user = User.create(user_name: 'joeyh@test.com', password: 'doyouwanttohearasong')
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
-    
+
     @friend_1 = User.create(user_name: 'klaudia@test.com', password: 'hotsprings')
     @friend_2 = User.create(user_name: 'keegan@test.com', password: 'extrapeppermint')
     @friend_3 = User.create(user_name: 'kseniya@test.com', password: 'catsss') # don't add
     @user.friends << @friend_1
     @user.friends << @friend_2
-    
+
     visit discover_movies_path
     click_button 'Discover Top 40 Movies'
     click_link 'Mortal Kombat'
     click_button 'Create a New Party'
-    
   end
   it 'displays movie title form field and button to create party', :vcr do
     expect(page).to have_content('Create a New Viewing Party for Mortal Kombat')
@@ -37,9 +36,11 @@ describe 'New Viewing Party Page' do
     click_button 'Create Viewing Party'
 
     expect(current_path).to eq(dashboard_path)
-    # expect(page).to have_content('klaudia@test.com')
-    # expect(page).to_not have_content('keegan@test.com')
-    # expect(page).to have_content('Mortal Kombat Party on June 17, 2021')
+    within "#party-#{Party.last.id}" do
+      expect(page).to have_content('Mortal Kombat')
+      expect(page).to have_content('klaudia@test.com')
+      expect(page).to_not have_content(@friend_2.user_name)
+    end
   end
 
   it 'SAD PATH - displays a message to the user if the new party was not saved', :vcr do

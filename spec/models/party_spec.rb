@@ -15,7 +15,7 @@ RSpec.describe Party do
   describe 'relationships' do
     it { should have_many :user_parties }
     it { should have_many(:users).through(:user_parties) }
-    it { should belong_to :user }
+
   end
 
   describe 'instance methods' do 
