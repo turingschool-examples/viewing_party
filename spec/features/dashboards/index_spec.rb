@@ -42,7 +42,7 @@ RSpec.describe 'you visit your dashboard ' do
         fill_in 'friend', with: '123@numb.edu'
         click_on 'Add Friend'
 
-        expect(page).to have_content("You are already friends with #{@user_1.name}. What!? you forgot already!!!")
+        expect(page).to have_content("This user does not exist, or you are already their friend")
       end
 
       it 'you can add a friend', :logged_out do
@@ -68,7 +68,6 @@ RSpec.describe 'you visit your dashboard ' do
     end
 
     context 'you may or may not have friends yet' do
-
       it 'has no friends in it', :logged_out do
         visit register_path
         fill_in "user[email]", with: "555@dooffus.edu"
@@ -82,15 +81,11 @@ RSpec.describe 'you visit your dashboard ' do
       end
 
       context 'you want to add a friend' do
-
-
-
-
         it 'you cannot add a friend who is not in the data base' do
           fill_in 'friend', with: "asldfkjalsdfk"
           click_on 'Add Friend'
 
-          expect(page).to have_content("This user does not exist.")
+          expect(page).to have_content('This user does not exist, or you are already their friend')
         end
       end
     end
