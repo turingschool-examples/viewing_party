@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
   def index
     @movie_list = if params[:search_text].present?
-                    MovieService.list_movies_by_keyword
+                    MovieService.list_movies_by_keyword(params[:search_text])
                   else
                     MovieService.get_top_rated_movies
                   end
