@@ -1,10 +1,7 @@
 class DashboardsController < ApplicationController
 
   def index
-    unless current_user == nil
-      @users_friends = current_user.friends
-    end
-    # binding.pry
+    @users_friends = current_user.friends
   end
 
 end

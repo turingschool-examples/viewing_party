@@ -18,7 +18,7 @@
   <% end %>
 
 
-  <%  if @users_friends == [] %>
+  <%  if @users_friends.empty? %>
     <%= "You currently have no friends." %>
   <% else %>
     <% @users_friends.each do |friend| %>
