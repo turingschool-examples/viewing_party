@@ -22,12 +22,16 @@ class MovieFacade
 
   def self.fetch_movie_cast(movie_id)
     json = MovieService.cast_query(movie_id)
-    Film.new(json).cast(json)
+    json[:cast].map do |actor|
+      Cast.new(actor)
+    end.first(10)
   end
 
   def self.fetch_movie_reviews(movie_id)
     json = MovieService.reviews_query(movie_id)
-    Film.new(json).reviews(json)
+    json[:results].map do |review|
+      Review.new(review)
+    end
   end
 
   private
