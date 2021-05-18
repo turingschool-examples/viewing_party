@@ -17,4 +17,13 @@ RSpec.describe Party do
     it { should have_many(:users).through(:user_parties) }
     it { should belong_to :user }
   end
+
+  describe 'instance methods' do 
+    it "#host_name" do
+      user = User.create!(user_name: 'johnnycage@test.com', password: '123')
+      party = Party.create!(user_id: user.id, movie_title: 'Mortal Kombat', party_duration: 110, party_date: "2021-05-31", start_time: "8:00", runtime: 100)
+
+      expect(party.host_name).to eq('johnnycage@test.com')
+    end 
+  end
 end

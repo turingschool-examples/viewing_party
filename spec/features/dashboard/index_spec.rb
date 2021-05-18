@@ -37,8 +37,15 @@ RSpec.describe 'Dashboard page' do
       visit dashboard_path
       fill_in :search, with: 'steve'
       click_button 'Add Friend'
-      save_and_open_page
       expect(page).to have_content('steve')
+      save_and_open_page
+    end
+  end
+  describe 'it displays a list viewing parties for the current user with their name in bold' do
+    it '' do
+      visit dashboard_path
+
+      # expect(page).to have_field('search')
     end
   end
 end

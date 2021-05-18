@@ -1,17 +1,16 @@
 class PartiesController < ApplicationController
   def new
     @movie_title = params[:movie_title]
-    @user_id = current_user.id
+    @user = current_user
   end
 
   def create
-    @user = current_user
-    party = current_user.parties.new(party_params)
+    party = Party.new(party_params)
     if party.save
+      current_user.parties << party
       flash[:notice] = 'Party has been created!'
       redirect_to dashboard_path
     else
-
       @movie_title = params[:movie_title]
       @user_id = current_user.id
       flash[:notice] = 'Party was not saved. Try again.'
