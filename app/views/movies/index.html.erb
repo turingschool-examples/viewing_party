@@ -7,10 +7,10 @@
 
 <% if @top40 %>
   <% @top40.each do |movie| %>
-      <p><%= link_to "#{movie.title}", movies_path(movie.api_id) %> <%= movie.rating %></p>
+      <p><%= link_to "#{movie.title}", "/movies/#{movie.api_id}" %> <%= movie.rating %></p>
   <% end %>
 <% else %>
   <% @search_results.each do |movie| %>
-    <p><%= link_to "#{movie.title}", movies_path(movie.api_id) %> <%= movie.rating %></p>
+    <p><%= link_to "#{movie.title}", "/movies/#{movie.api_id}" %> <%= movie.rating %></p>
   <% end %>
 <% end %>

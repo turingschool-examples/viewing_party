@@ -85,7 +85,7 @@ RSpec.describe 'Movies Page' do
     "vote_count": 2860
 }
       movie = Film.new(details)
-      expect(current_path).to eq(movies_path(movie.api_id))
+      expect(current_path).to eq("/movies/#{movie.api_id}")
     end
 
     it 'can see results for search by movie title' do
