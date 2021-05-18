@@ -1,7 +1,8 @@
-<h2>Create a New Viewing Party for <%= @movie_title %></h2>
+<h2>Create a New Viewing Party for <%= params[:movie_title] %></h2>
 
 <%= form_with url: parties_path, method: :post, local: true do |f| %>
-<%= f.hidden_field :movie_title, value: @movie_title %>
+<%= f.hidden_field :movie_title, value: params[:movie_title] %>
+<%= f.hidden_field :movie_id, value: params[:movie_id] %>
 <%= f.hidden_field :user_id, value: @user.id %>
 <%= f.hidden_field :runtime, value: params[:runtime] %>
 <%= f.label :party_duration, "Duration: " %>

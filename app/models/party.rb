@@ -6,10 +6,10 @@ class Party < ApplicationRecord
   validates :user_id, presence: true, numericality: true
   validates :runtime, presence: true, numericality: true
   validates :party_duration, numericality: { greater_than_or_equal_to: :runtime }
+  validates :movie_id, presence: true, numericality: true
 
   has_many :user_parties
-  has_many :users, through: :user_parties # friends/guests
-  # belongs_to :user # host
+  has_many :users, through: :user_parties
 
   def host_name
     id = user_id
