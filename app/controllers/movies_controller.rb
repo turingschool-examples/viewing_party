@@ -4,44 +4,17 @@ class MoviesController < ApplicationController
       flash[:error] = 'Search field cannot be blank.'
       redirect_to discover_path
     elsif params['movie_title']
-      movie_keyword = params['movie_title']
-
-      response = conn.get("/3/search/movie?api_key=#{ENV['MOVIE_KEY']}&language=en-US&page=1&include_adult=false") do |req|
-        req.params['query'] = movie_keyword
-      end
-      parsed = JSON.parse(response.body, symbolize_names: true)
-      @search_results = parsed[:results].map do |result|
-        Film.new(result)
-      end.first(40)
+      @search_results = MovieFacade.search_by_title(params['movie_title'])
     else
-      page1 = conn.get("/3/movie/top_rated?api_key=#{ENV['MOVIE_KEY']}&language=en-US&page=1")
-      page2 = conn.get("/3/movie/top_rated?api_key=#{ENV['MOVIE_KEY']}&language=en-US&page=2")
-
-      page_1_response = JSON.parse(page1.body, symbolize_names: true)
-      page_2_response = JSON.parse(page2.body, symbolize_names: true)
-      @results = page_1_response[:results] + page_2_response[:results]
-
-      @top40 = @results.map do |result|
-        Film.new(result)
-      end
+      @top40 = MovieFacade.top40
     end
   end
 
   def show
-    response = conn.get("/3/movie/#{params["id"]}?api_key=#{ENV['MOVIE_KEY']}&language=en-US")
-    details = JSON.parse(response.body, symbolize_names: true)
-    @movie = Film.new(details)
+    @movie = MovieFacade.fetch_movie_details(params["id"])
 
-    cast_response = conn.get("/3/movie/#{params["id"]}/credits?language=en-US&api_key=#{ENV['MOVIE_KEY']}")
-    cast_details = JSON.parse(cast_response.body, symbolize_names: true)
-    @cast_members = @movie.cast(cast_details)
+    @cast_members = MovieFacade.fetch_movie_cast(params["id"])
 
-    reviews_response = conn.get("/3/movie/#{params["id"]}/reviews?language=en-US&page=1&api_key=#{ENV['MOVIE_KEY']}")
-    reviews_details = JSON.parse(reviews_response.body, symbolize_names: true)
-    @reviews = @movie.reviews(reviews_details)
-  end
-
-  def conn
-    Faraday.new('https://api.themoviedb.org')
+    @reviews = MovieFacade.fetch_movie_reviews(params["id"])
   end
 end

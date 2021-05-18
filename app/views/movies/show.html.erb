@@ -10,11 +10,15 @@
 
 <h3>Cast</h3>
 <% @cast_members.each do |member| %>
-  <p><%= member %></p>
+  <p><%= member.name %> as <%= member.character %></p>
 <% end %>
 
-<h3><%= @reviews.size %> Review(s)</h3>
-<% @reviews.each do |review| %>
-  <p>Author: <%= review[0] %></p>
-  <p>Review: <%= review[1] %></p>
+<% if !@reviews.empty? %>
+  <h3><%= @reviews.size %> Review(s)</h3>
+  <% @reviews.each do |review| %>
+    <p>Author: <%= review.author %></p>
+    <p>Review: <%= review.content %></p>
+  <% end %>
+<% else %>
+  <h2>There are currently no reviews for this movie</h2>
 <% end %>
