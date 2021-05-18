@@ -6,10 +6,11 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
+      flash[:notice] = 'You have logged in'
       redirect_to dashboard_path
     else
-      render :new
       flash[:error] = 'Your email or password are incorrect'
+      render :new
     end
   end
 

@@ -3,5 +3,45 @@
 <%= button_to "Discover Movies", '/discover', :method => "get"  %>
 <br>
 <h3>Friends List</h3>
+<%= form_with url: "/friendships", method: :post, local: true do |f| %>
+<%= f.text_field :search %>
+<%= f.submit "Add Friend" %>
+<%end%>
+
+<%if @friends.count == 0%>
+<p> Go Make Some Friends!
+  <%else%>
+  <% @friends.each do |friend| %>
+<div id="friend-<%=friend.id%>">
+  <p> <%=friend.user_name%> </p>
+</div>
+<% end %>
+<% end %>
+
 <br>
 <h3>Viewing Parties List</h3>
+<% @user.parties.each do |p| %>
+<div id="party-<%=p.id%>">
+  <p> <%=p.movie_title%> </p>
+  <p> on <%=p.party_date%> </p>
+  <p> at <%=p.start_time%> </p>
+  <p> hosted by <%=p.host_name%> </p>
+  <p>Friends Invited</p>
+  <% p.users.each do |u| %>
+  <div id="party-<%=p.id%>-<%=u.id%>">
+    <% if p.user_id == u.id %>
+
+
+    <% elsif u.id == @user.id %>
+    <p><b><%= u.user_name %></b>
+      <%else%>
+      <%= u.user_name %>
+      <% end %>
+  </div>
+  <% end %>
+  <% if p.user_id = @user.id %>
+  <p> Hosting </p>
+  <% else %>
+  <p> Invited </p>
+  <% end %>
+  <% end %>

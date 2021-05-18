@@ -2,7 +2,7 @@
 
 <%= form_with url: parties_path, method: :post, local: true do |f| %>
 <%= f.hidden_field :movie_title, value: @movie_title %>
-<%= f.hidden_field :user_id, value: @user_id %>
+<%= f.hidden_field :user_id, value: @user.id %>
 <%= f.hidden_field :runtime, value: params[:runtime] %>
 <%= f.label :party_duration, "Duration: " %>
 <%= f.number_field :party_duration, :value => params[:runtime] %>
@@ -10,6 +10,7 @@
 <%= f.date_field :party_date %>
 <%= f.label :start_time, "Start Time: " %>
 <%= f.time_field :start_time %>
-
+<p>Invite Friends: </p>
+<%= f.collection_check_boxes :friends, @user.friends, :id, :user_name %> <br>
 <%= f.submit "Create Viewing Party"%>
 <%end%>
