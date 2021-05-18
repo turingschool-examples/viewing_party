@@ -18,6 +18,10 @@
 
     <main>
       <% if current_user || action_name == 'welcome' || controller_name == 'sessions' || current_page?(controller: 'users', action: 'new') %>
+        <header>
+          <h1> Welcome <%= current_user.name if current_user %><%= 'to ViewingParty' if current_user.nil? %>! </h1>
+        </header>
+        
         <%= yield %>
       <% else %>
         <p> You don't have access to this page! </p>

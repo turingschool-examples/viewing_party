@@ -33,9 +33,12 @@ rescue ActiveRecord::PendingMigrationError => e
 end
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.before :each do
-    user = create(:user)
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+  config.before :each do |test|
+    @user = create(:user)
+    
+    allow_any_instance_of(ApplicationController)
+    .to receive(:current_user)
+    .and_return(@user) unless test.metadata[:logged_out]
   end
 
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
