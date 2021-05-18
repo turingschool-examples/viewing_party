@@ -1,26 +1,37 @@
 ![Title](lib/images/title_01_viewing_party.jpeg)
 
 ## Table of contents
-* [General info](#general-info)
-* [Link](#link)
-* [Database Schema](#database-schema)
-* [Learning Goals/Areas of Focus](#learning-goals)
-* [Technologies](#technologies)
-* [Setup](#setup)
-* [Features](#features)
-* [Status](#status)
-* [Contact](#contact)
+[**General Info**](#general-info) |
+[**Link**](#link) |
+[**Database Schema**](#database-schema) |
+[**Areas of Focus**](#areas-of-focus) |
+[**Technologies**](#technologies) |
+[**Setup**](#setup) |
+[**Features**](#features) |
+[**Status**](#status) | 
+[**Contact**](contact)
+
 
 ## General info
 Viewing party is an application in which users can explore movies and create a viewing party event for the user and their friends.
+
+### Features:
+  * User authentication and log in with email and password
+  * Ability to search and add friends
+  * Discover popular movies or locate by title search
+  * View search results and movie details such as average rating, cast, reviews
+  * Create viewing party events with friends
+  * User dashboard displays information on friends and viewing parties, including host status
+
+  
 
 ## Link
 ### [https://joe-joey-viewing-party.herokuapp.com/](https://joe-joey-viewing-party.herokuapp.com/)
 
 ## Database Schema
-![Diagram](lib/images/viewing_pary_diagram.jpg "Database Schema")
+![Diagram](lib/images/viewing_party_diagram.jpeg "Database Schema")
 
-## Learning Goals / Areas of Focus
+## Areas of Focus
 * Consume JSON APIs that require authentication
 * Build application with basic user authentication
 * Organize and refactor code, including using POROs and Facades
@@ -33,7 +44,6 @@ Viewing party is an application in which users can explore movies and create a v
 Project is created with:
 * Ruby version 2.5.3
 * Rails version 5.2.5
-* ADD TO THIS LIST -- NOTABLE GEMS?
 
 ## Setup
 To run this program:
@@ -49,16 +59,13 @@ To run this program:
    2. Install gem packages: `bundle install`
    3. Setup the database: `rails db:create`
 
-## Features
-List of features ready and TODOs for future development
-* ADD DETAILS HERE
-
-To-do list:
+## To-do list:
 * Add links to movie titles on User's Dashboard - Parties section
 * Refactoring
 * Add movie poster images from API
 * Additional API consumption
 * Front-End styling
+* Validate email address format for user registration
 
 
 ## Status
