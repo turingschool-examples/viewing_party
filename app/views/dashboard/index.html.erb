@@ -1,5 +1,5 @@
 <h1>
-  <%= "Welcome, #{@user_email}!" %>
+  <%= "Welcome, #{@user.email}!" %>
 </h1>
 
 <%= button_to "Discover Movies", "/discover", method: :get %>
@@ -22,8 +22,6 @@
       <%= f.label :friend_search, "Add a friend by their email" %>
       <%= f.text_field :friend_search %>
 
-      <%= f.hidden_field :user_id, :value => @user.id %>
-
       <%= f.submit "Add friend" %>
     <% end %>
   </div>
@@ -32,5 +30,6 @@
 <section>
   <h3>
     Viewing Parties
+    <%#=figure out how to take out bottom welcome %>
   </h3>
 </section>
