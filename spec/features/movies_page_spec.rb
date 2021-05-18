@@ -10,10 +10,6 @@ RSpec.describe 'Movies Page', type: :feature do
     it "Displays the top 40 highest rated movies" do
       visit movies_path
 
-      expect(page).to have_content("Top 40 Movies")
-
-      # expect(MovieService.get_top_rated_movies.first[:id]).to eq(19404)
-
       within(".movies") do
         expect(page).to have_content("दिलवाले दुल्हनिया ले जायेंगे, Vote Average: 8.7")
         expect(page).to have_content("Gabriel's Inferno Part II, Vote Average: 8.7")
@@ -21,7 +17,6 @@ RSpec.describe 'Movies Page', type: :feature do
         expect(page).to have_content("Fight Club, Vote Average: 8.4")
         expect(page).to have_content("Clouds, Vote Average: 8.4")
         expect(page).to have_content("Cidade de Deus, Vote Average: 8.4")
-        # expect(page).to have_content(MovieService.get_top_rated_movies.size == 40)
       end
     end
 

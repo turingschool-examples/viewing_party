@@ -25,6 +25,6 @@ class MovieService
 
   def self.return_single_movie(id)
     selected_movie = conn.get("movie/#{id}?api_key=#{ENV['MOVIE_TOKEN']}&language=en-US")
-    parsed_movie = JSON.parse(selected_movie.body, symbolize_names: true)
+    JSON.parse(selected_movie.body, symbolize_names: true)
   end
 end

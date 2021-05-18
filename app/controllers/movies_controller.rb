@@ -12,6 +12,6 @@ class MoviesController < ApplicationController
   end
 
   def movies_params
-    params.require(:movie).permit(:search_query, :search_text)
+    params.require(:movie).permit(:search_query, :search_text, :id)
   end
 end

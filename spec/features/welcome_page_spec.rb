@@ -11,7 +11,7 @@ RSpec.describe 'Welcome Page', type: :feature do
       user = User.create!(email: "ClaSte", password: "1234", password_confirmation: "1234" )
       visit root_path
       expect(page).to have_content("Welome! We're Glad You're Here! At Viewing Party, we make it easy to watch a movie with friends from the world. Let's get started!")
-      expect(page).to have_link("New to Viewing Party? Register Here", href: new_user_path)
+      expect(page).to have_link("New to Viewing Party? Register Here", href: "/register")
       fill_in :email, with: user.email
       fill_in :password, with: user.password
       expect(page).to have_button("Log In")

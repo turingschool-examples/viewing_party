@@ -5,7 +5,7 @@ RSpec.describe 'Registration', type: :feature do
     it "I can create a new user and save that user to the db" do
       visit root_path
 
-      click_link "Sign Up to Be a User"
+      click_link "New to Viewing Party? Register Here"
 
       expect(current_path).to eq("/register")
 
@@ -24,7 +24,7 @@ RSpec.describe 'Registration', type: :feature do
     it "I cannot create a new user if the password and password confirmation are not the same" do
       visit root_path
 
-      click_link "Sign Up to Be a User"
+      click_link "New to Viewing Party? Register Here"
 
       expect(current_path).to eq("/register")
 
