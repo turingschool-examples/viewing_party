@@ -34,7 +34,7 @@ RSpec.describe 'New Party Page' do
       within("#friend-#{@friend.id}") do
         check "#{@friend.email}"
       end
-      fill_in :date, with: '05/16/2021'
+      fill_in :date, with: '2021-05-16'
       fill_in :start_time, with: '07:00 PM'
       click_button 'Create Party'
       expect(current_path).to eq('/dashboard')
