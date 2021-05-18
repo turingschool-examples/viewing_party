@@ -26,8 +26,7 @@ RSpec.describe 'Descover', type: :feature do
       When the user clicks on the Search button they should be taken to the movies page." do
         visit discover_path
         expect(page).to have_content("Enter Keyword(s) To Search By Movie Title")
-        save_and_open_page
-        fill_in :search_query, with: "Titanic"
+        fill_in :search_text, with: "Titanic"
         expect(page).to have_button("Find Movie")
         click_on("Find Movie")
         expect(current_path).to eq(movies_path)
