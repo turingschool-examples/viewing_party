@@ -63,8 +63,8 @@ RSpec.describe 'Dashboard page' do
 
       within "#party-#{@party1.id}" do
         expect(page).to have_content(@party1.movie_title)
-        expect(page).to have_content(@party1.party_date)
-        expect(page).to have_content(@party1.start_time)
+        expect(page).to have_content(@party1.party_date.strftime('%A, %B %e %Y'))
+        expect(page).to have_content(@party1.start_time.strftime('%l %M'))
         expect(page).to have_content(@party1.host_name)
         expect(page).to have_content('Hosting')
       end
@@ -79,8 +79,8 @@ RSpec.describe 'Dashboard page' do
       end
       within "#party-#{@party2.id}" do
         expect(page).to have_content(@party2.movie_title)
-        expect(page).to have_content(@party2.party_date)
-        expect(page).to have_content(@party2.start_time)
+        expect(page).to have_content(@party2.party_date.strftime('%A, %B %e %Y'))
+        expect(page).to have_content(@party2.start_time.strftime('%l %M'))
         expect(page).to have_content(@party2.host_name)
         expect(page).to have_content('Invited')
       end

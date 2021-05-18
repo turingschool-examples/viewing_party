@@ -32,7 +32,7 @@ describe 'New Viewing Party Page' do
     fill_in :party_date, with: '2021-06-17'
     fill_in :start_time, with: '19:00'
     check 'klaudia@test.com'
-    save_and_open_page
+
     click_button 'Create Viewing Party'
 
     expect(current_path).to eq(dashboard_path)
