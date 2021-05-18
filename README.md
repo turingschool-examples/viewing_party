@@ -78,4 +78,4 @@ Created by
 
 ~ feel free to contact us ~
 
-![Screenshot](lib/images/ADD-A-SCREENSHOT-HERE)
+![Screenshot](lib/images/ADD-A-SCREENSHOT)
