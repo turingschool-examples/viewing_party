@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe 'welcome page' do
-  context "you go to main page" do
-    before :each do
-      visit root_path
-    end
+  before :each do
+    visit root_path
+  end
 
+  context "you go to main page" do
     it "has welcome message" do
       expect(page).to have_content("Welcome to ViewingParty")
     end
@@ -28,10 +28,6 @@ RSpec.describe 'welcome page' do
   end
 
   context "when you are allready logged in" do
-    before :each do
-      visit root_path
-    end
-
     it "has no login and no register link" do
       expect(page).to_not have_link("Login")
       expect(page).to_not have_link("Register new user")
