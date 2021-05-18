@@ -114,12 +114,11 @@ RSpec.describe 'Dashboard Page' do
       expect(page).to have_content('Hamilton')
       expect(page).to have_content('2021-05-17')
       expect(page).to have_content("07:00 PM")
-      # expect(page).to have_content("Host: #{user.email}")
-      # within("#friend-#{friend.id}") do
-      #   expect(page).to have_content("Invited: #{friend.email}")
-      # end
-      # expect(page).to_not have_content(other_friend.email)
-
+      expect(page).to have_content("Host: #{user.email}")
+      within("#party-#{user.parties.first.id}") do
+        expect(page).to have_content(friend.email)
+        expect(page).to_not have_content(other_friend.email)
+      end
     end
   end
 end

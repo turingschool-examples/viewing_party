@@ -15,8 +15,6 @@ class PartiesController < ApplicationController
       user = User.find_by(email: email)
       Attendee.create!(user_id: user.id, party_id: @party.id, status: 0)
     end
-    # require "pry"; binding.pry
     redirect_to dashboard_path
-    # render 'users/show'
   end
 end

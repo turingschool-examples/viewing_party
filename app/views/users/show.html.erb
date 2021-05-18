@@ -18,13 +18,20 @@
 
 <section>
   <% @parties.each do |party| %>
-    <p>Movie: <%= party.movie_title %></p>
-    <p>Date: <%= party.date %></p>
-    <p>Start Time: <%= party.start_time %></p>
-    <p>Duration: <%= party.duration %> mins</p>
-    <% party.users.each do |user| %>
-      <p><%= user.email %></p>
+    <div id="party-<%= party.id %>">
+      <p>Movie: <%= party.movie_title %></p>
+      <p>Date: <%= party.date %></p>
+      <p>Start Time: <%= party.start_time %></p>
+      <p>Duration: <%= party.duration %> mins</p>
+      <p>Host: <%= party.host %></p>
+      <p>Invited:</p>
+      <% party.invited_email.each do |email| %>
+        <% if email == current_user.email %>
+          <strong><%= email %></strong>
+        <% else %>
+          <p><%= email %></p>
+        <% end %>
+    </div>
     <% end %>
   <% end %>
-
 </section>

@@ -8,6 +8,10 @@ class Party < ApplicationRecord
   has_many :users, through: :attendees
 
   def host
-    users.joins(:attendees).select('users.email').where('attendees.status = ?', 1)
+    attendees.where(status: 1).first.user.email
+  end
+
+  def invited_email
+     users.joins(:attendees).where('attendees.status = ?', 0).pluck('users.email')
   end
 end
