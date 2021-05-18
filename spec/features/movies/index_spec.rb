@@ -22,8 +22,8 @@ RSpec.describe 'Movies Page' do
       end
     end
 
-    xit 'when I click link on movie title I am redirect to the movie show page' do
-      # click_button "Top 40 Movies"
+    it 'when I click link on movie title I am redirect to the movie show page' do
+      click_button "Top 40 Movies"
       click_link "Dilwale Dulhania Le Jayenge"
       null = nil
       details = {
@@ -85,7 +85,7 @@ RSpec.describe 'Movies Page' do
     "vote_count": 2860
 }
       movie = Film.new(details)
-      expect(current_path).to eq("/movies/#{movie.api_id}")
+      expect(current_path).to eq(movies_path(movie.api_id))
     end
 
     it 'can see results for search by movie title' do

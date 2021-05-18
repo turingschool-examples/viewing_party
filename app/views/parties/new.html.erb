@@ -1,6 +1,7 @@
 <h2><%= @movie_title %></h2>
 
 <%= form_with model: @party, local: true do |f| %>
+  <%= f.hidden_field :title, value: params[:title] %>
   <%= f.label :duration, 'Duration of Party: ' %>
   <%= f.number_field :duration, value: @movie_runtime, min: @movie_runtime %>
 

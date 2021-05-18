@@ -20,6 +20,8 @@ class UsersController < ApplicationController
   def show
     if session[:user_id]
       @user = User.find(session[:user_id])
+      # require "pry"; binding.pry
+      @parties = @user.parties
     else
       flash[:error] = 'You must be logged in to view your dashboard'
       redirect_to root_path
