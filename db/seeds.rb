@@ -12,7 +12,11 @@ Friendship.destroy_all
 User.destroy_all
 
 # Users
-user1 = User.create!(user_name: 'Joey@gmail.com', password: '123')
-user2 = User.create!(user_name: 'Joe@gmail.com', password: '123')
-user3 = User.create!(user_name: 'Ryan@gmail.com', password: '123')
-user4 = User.create!(user_name: 'Alexander@gmail.com', password: '123')
+User.create!(user_name: 'joey@gmail.com', password: '123')
+User.create!(user_name: 'joe@gmail.com', password: '123')
+User.create!(user_name: 'ryan@gmail.com', password: '123')
+User.create!(user_name: 'raylene@gmail.com', password: '123')
+User.create!(user_name: 'alexander@gmail.com', password: '123')
+User.create!(user_name: 'alex@gmail.com', password: '123')
+User.create!(user_name: 'allen@gmail.com', password: '123')
+User.create!(user_name: 'joanna@gmail.com', password: '123')
