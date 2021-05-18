@@ -8,9 +8,9 @@ RSpec.describe 'Dashboard page' do
     @user1 = User.create(user_name: 'joey', password: '123')
     @user2 = User.create(user_name: 'steve', password: '123')
     @user3 = User.create(user_name: 'jeff', password: '123')
-    @party1 = Party.create!(movie_title: 'Mortal Kombat', party_duration: 150, party_date: '2021-06-17',
+    @party1 = Party.create!(movie_title: 'Mortal Kombat', movie_id: 460465, party_duration: 150, party_date: '2021-06-17',
                             start_time: '19:00', user_id: @user.id, runtime: 120)
-    @party2 = Party.create!(movie_title: 'Pokemon', party_duration: 150, party_date: '2021-06-17',
+    @party2 = Party.create!(movie_title: 'Pokemon', movie_id: 151, party_duration: 150, party_date: '2021-06-17',
                             start_time: '19:00', user_id: @user1.id, runtime: 120)
     @user.parties << @party1
     @user1.parties << @party1
@@ -63,8 +63,9 @@ RSpec.describe 'Dashboard page' do
 
       within "#party-#{@party1.id}" do
         expect(page).to have_content(@party1.movie_title)
-        expect(page).to have_content(@party1.party_date)
-        expect(page).to have_content(@party1.start_time)
+        expect(page).to have_link('Mortal Kombat', href: '/discover/movies/460465')
+        expect(page).to have_content(@party1.party_date.strftime('%A, %B %e %Y'))
+        expect(page).to have_content(@party1.start_time.strftime('%l %M'))
         expect(page).to have_content(@party1.host_name)
         expect(page).to have_content('Hosting')
       end
@@ -79,8 +80,9 @@ RSpec.describe 'Dashboard page' do
       end
       within "#party-#{@party2.id}" do
         expect(page).to have_content(@party2.movie_title)
-        expect(page).to have_content(@party2.party_date)
-        expect(page).to have_content(@party2.start_time)
+        expect(page).to have_link('Pokemon', href: '/discover/movies/151')
+        expect(page).to have_content(@party2.party_date.strftime('%A, %B %e %Y'))
+        expect(page).to have_content(@party2.start_time.strftime('%l %M'))
         expect(page).to have_content(@party2.host_name)
         expect(page).to have_content('Invited')
       end

@@ -22,9 +22,9 @@
 <h3>Viewing Parties List</h3>
 <% @user.parties.each do |p| %>
 <div id="party-<%=p.id%>">
-  <p> <%=p.movie_title%> </p>
-  <p> on <%=p.party_date%> </p>
-  <p> at <%=p.start_time%> </p>
+  <p> <%=link_to "#{p.movie_title}", "/discover/movies/#{p.movie_id}" %> </p>
+  <p> on <%=p.party_date.strftime('%A, %B %e %Y')%> </p>
+  <p> at <%=p.start_time.strftime('%l %M')%> </p>
   <p> hosted by <%=p.host_name%> </p>
   <p>Friends Invited</p>
   <% p.users.each do |u| %>
@@ -44,4 +44,5 @@
   <% else %>
   <p> Invited </p>
   <% end %>
+  <br>
   <% end %>
