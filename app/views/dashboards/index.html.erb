@@ -1,0 +1,34 @@
+
+
+<div id="discover">
+  <%= form_with url: discover_path, method: :get do |f| %>
+    <%= f.submit "Discover Movies" %>
+  <% end %>
+</div>
+
+<br>
+<br>
+
+
+<div id="friends ">
+  <%= form_with url: friends_path, method: :post do |f| %>
+    <%= f.label :friend %>
+    <%= f.text_field :friend %>
+    <%= f.submit "Add Friend" %>
+  <% end %>
+
+
+  <%  if @users_friends.empty? %>
+    <%= "You currently have no friends." %>
+  <% else %>
+    <% @users_friends.each do |friend| %>
+      <br>
+      <%= friend.name %>:
+      <%= friend.email %>
+    <% end %>
+  <% end %>
+</div>
+
+
+<div id="parties">
+</div>

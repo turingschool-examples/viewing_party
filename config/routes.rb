@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   resources :sessions, except: [:new]
   resources :movies
   resources :dashboards, only: [:index]
+  resources :friends
 end

@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_before_action :authorized, only: %i[new create]
+
   def new; end
 
   def create
@@ -6,7 +8,7 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to root_path
+      redirect_to dashboards_path
     else
       redirect_to login_path
       flash[:error] = 'Your email or password is Incorrect'

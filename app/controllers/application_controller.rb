@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  before_action :authorized
+  skip_before_action :authorized, only: :welcome
 
   def welcome; end
 
@@ -17,5 +19,9 @@ class ApplicationController < ActionController::Base
 
   def to_uri(param)
     param.gsub(' ', '%20')
+  end
+
+  def authorized
+    redirect_to root_path, notice: 'You need to be logged in to access that page' unless current_user
   end
 end

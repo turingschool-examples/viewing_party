@@ -46,3 +46,7 @@ footer {
   border-color: blue;
   margin-bottom: 1em;
 }
+
+.notice {
+  color: red;
+}

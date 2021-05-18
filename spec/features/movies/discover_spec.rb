@@ -1,6 +1,9 @@
 require 'rails_helper'
 
+
+
 RSpec.describe 'discover page' do
+
   before :each do
     visit discover_path
   end
