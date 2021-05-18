@@ -1,22 +1,74 @@
-# Viewing Party
+![Title](lib/images/title_01_viewing_party.jpeg)
 
-This is the base repo for the [viewing party project](https://backend.turing.io/module3/projects/viewing_party) used for Turing's Backend Module 3.
+## Table of contents
+* [General info](#general-info)
+* [Link](#link)
+* [Database Schema](#database-schema)
+* [Learning Goals/Areas of Focus](#learning-goals)
+* [Technologies](#technologies)
+* [Setup](#setup)
+* [Features](#features)
+* [Status](#status)
+* [Contact](#contact)
 
-### About this Project
+## General info
+Viewing party is an application in which users can explore movies and create a viewing party event for the user and their friends.
 
-Viewing party is an application in which users can explore movie options and create a viewing party event for the user and friend's.
+## Link
+### [https://joe-joey-viewing-party.herokuapp.com/](https://joe-joey-viewing-party.herokuapp.com/)
 
-## Local Setup
+## Database Schema
+![Diagram](lib/images/viewing_pary_diagram.jpg "Database Schema")
 
-1. Fork and Clone the repo
-2. Install gem packages: `bundle install`
-3. Setup the database: `rails db:create`
+## Learning Goals / Areas of Focus
+* Consume JSON APIs that require authentication
+* Build application with basic user authentication
+* Organize and refactor code, including using POROs and Facades
+* Implement a self-referential relationship in ActiveRecord
+* Apply RuboCop style guide for consistent code style
+* Utilize Continuous Integration using Travis CI
+* Deploy app to Heroku
+
+## Technologies
+Project is created with:
+* Ruby version 2.5.3
+* Rails version 5.2.5
+* ADD TO THIS LIST -- NOTABLE GEMS?
+
+## Setup
+To run this program:
+
+1. Open the browser of your choice and navigate to:
+[https://joe-joey-viewing-party.herokuapp.com/](https://joe-joey-viewing-party.herokuapp.com/)
+2. Register as a new user with email address and password
+3. Search or 'Discover' movies and create new viewing parties from a movie's detail page
+
+   ## Local Setup
+
+   1. Fork and Clone the repo
+   2. Install gem packages: `bundle install`
+   3. Setup the database: `rails db:create`
+
+## Features
+List of features ready and TODOs for future development
+* ADD DETAILS HERE
+
+To-do list:
+* Add links to movie titles on User's Dashboard - Parties section
+* Refactoring
+* Add movie poster images from API
+* Additional API consumption
+* Front-End styling
 
 
-## Versions
+## Status
+Project is: _in progress_
 
-- Ruby 2.5.3
+## Contact
+Created by
+* Github: [@joeyhass](https://github.com/joeyh92989) • [LinkedIn](https://www.linkedin.com/in/haasjoseph/)
+* Github: [@joemecha](https://github.com/joemecha) • [LinkedIn](https://www.linkedin.com/in/joemecha/)
 
-- Rails 5.2.5
+~ feel free to contact us ~
 
-Example wireframes to follow are found [here](https://backend.turing.io/module3/projects/viewing_party/wireframes)
+![Screenshot](lib/images/ADD-A-SCREENSHOT-HERE)
