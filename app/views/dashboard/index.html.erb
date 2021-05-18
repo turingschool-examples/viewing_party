@@ -18,7 +18,7 @@
 <% @user.parties.each do |p| %>
 <div id="party-<%=p.id%>">
   <p> <%=p.movie_title%> </p>
-  <p> on <%=p.party_date.to_formatted_s(:long)%> </p>
+  <p> on <%=p.party_date.strftime('%A, %B %e %Y')%> </p>
   <p> at <%=p.start_time.to_formatted_s(:time)%> </p>
   <p> hosted by <%=p.host_name%> </p>
   <p>Friends Invited</p>
