@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-  has_many :friends, dependent: :destroy
+  has_many :friendships, foreign_key: 'user_id', class_name: 'Friend'
+  has_many :friends, through: :friendships, dependent: :destroy
   has_many :parties, foreign_key: :host_id, dependent: :destroy, inverse_of: :host
   has_many :guests, dependent: :destroy
 
