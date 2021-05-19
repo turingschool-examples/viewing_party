@@ -6,17 +6,17 @@ class DiscoverController < ApplicationController
   def index
     if params[:search].present?
       @user = current_user
-      @results = MovieInfo.new(params[:search]).search_results
+      @results = MovieFacade.search_results(params[:search])
     elsif params[:top_40].present?
       @user = current_user
-      @popular_movies = MovieInfo.new.popular_movies
+      @popular_movies = MovieFacade.popular_movies
     end
   end
 
   def show
     @user = current_user
-    @movie_details = MovieInfo.new(params[:movie_id]).movie_details
-    @movie_cast = MovieInfo.new(params[:movie_id]).movie_cast_details
-    @movie_reviews = MovieInfo.new(params[:movie_id]).movie_review_details
+    @movie_details = MovieFacade.movie_details(params[:movie_id])
+    @movie_cast = MovieFacade.movie_cast_details(params[:movie_id])
+    @movie_reviews = MovieFacade.movie_review_details(params[:movie_id])
   end
 end
