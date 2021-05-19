@@ -6,6 +6,7 @@ RSpec.describe Party, type: :model do
     it { should validate_presence_of(:date) }
     it { should validate_presence_of(:start_time) }
     it { should validate_presence_of(:duration) }
+    it { should validate_presence_of(:movie_api_id) }
   end
 
   describe 'relationships' do
@@ -16,7 +17,7 @@ RSpec.describe Party, type: :model do
   describe 'instance methods' do
     describe '.host' do
       it 'can find the partys host' do
-        party = Party.create!(movie_title: 'movie', date: '2021-05-17', start_time: "07:00 PM", duration: 180)
+        party = Party.create!(movie_title: 'movie', date: '2021-05-17', start_time: "07:00 PM", duration: 180, movie_api_id: "46876")
 
         email = "example@example.com"
         password = "test"
@@ -37,7 +38,7 @@ RSpec.describe Party, type: :model do
 
     describe '.invited' do
       it 'can find invited attendees' do
-        party = Party.create!(movie_title: 'movie', date: '2021-05-17', start_time: "07:00 PM", duration: 180)
+        party = Party.create!(movie_title: 'movie', date: '2021-05-17', start_time: "07:00 PM", duration: 180, movie_api_id: "46876")
 
         email = "example@example.com"
         password = "test"
