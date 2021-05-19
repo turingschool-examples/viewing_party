@@ -1,6 +1,9 @@
 class DashboardController < ApplicationController
   def index
     @user = current_user
+    @hosting_party = @user.current_user_parties(@user) 
+    @watching_party = @user.invites
+    require "pry"; binding.pry
   end
 
   def create
