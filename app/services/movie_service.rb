@@ -28,7 +28,7 @@ class MovieService
     key = ENV['movie_api_key']
     unless search_params.nil?
       response = Faraday.get("https://api.themoviedb.org/3/movie/#{search_params}?api_key=#{key}&language=en-US")
-      json = JSON.parse(response.body, symbolize_names: true)
+      JSON.parse(response.body, symbolize_names: true)
     end
   end
 
