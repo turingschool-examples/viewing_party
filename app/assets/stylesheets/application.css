@@ -19,6 +19,9 @@ body {
   min-height: 100vh;
   flex-direction: column;
   font-family: 'Quicksand', sans-serif;
+  /* background: thistle; */
+  /* background: url('/Users/jaharaclark/turing/back_end/mod_3/projects/viewing_party/images/erik-witsoe-GF8VvBgcJ4o-unsplash.png'); */
+  
 }
 
 main {
@@ -33,4 +36,19 @@ footer {
 
 .welcome {
   font-family: 'Handlee', cursive;
+}
+
+#login {
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  background-color: turquoise;
+  flex-direction: column;
+}
+
+.login_page {
+  background-image: url("../../../../public/movies.png");
+  height: 100vh;
+  position: relative;
+  background-size: cover;
 }
