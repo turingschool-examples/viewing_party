@@ -27,4 +27,13 @@ class MovieService
     selected_movie = conn.get("movie/#{id}?api_key=#{ENV['MOVIE_TOKEN']}&language=en-US")
     JSON.parse(selected_movie.body, symbolize_names: true)
   end
+  
+  def self.return_single_movie_review(id)
+    reviews = conn.get("movie/#{id}/reviews?api_key=#{ENV['MOVIE_TOKEN']}&language=en-US&page=1")
+    JSON.parse(reviews.body, symbolize_names: true)
+  end
+  def self.return_single_movie_cast(id)
+    cast = conn.get("movie/#{id}/credits?api_key=#{ENV['MOVIE_TOKEN']}&language=en-US&page=1")
+    JSON.parse(cast.body, symbolize_names: true)
+  end
 end

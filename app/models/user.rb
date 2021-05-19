@@ -18,7 +18,6 @@ class User < ApplicationRecord
 
   def hosting
     #find all the party ids(partyviewer) where the host id (parties) is = current_user.id
-    require "pry"; binding.pry
     Party.joins(:party_viewers)
     .where('viewer_id = "#{current_user[:id]}"')
   end
