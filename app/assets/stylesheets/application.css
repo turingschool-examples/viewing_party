@@ -42,5 +42,11 @@ img.poster-class {
 .navbar{
   display: flex;
   background-color: rgb(143, 79, 130);
+}
 
+.notice{
+  color: green;
+}
+.error{
+  color: red;
 }
