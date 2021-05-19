@@ -21,7 +21,7 @@ class PartiesController < ApplicationController
     else
       @movie_title = params[:movie_title]
       @user = current_user
-      flash[:notice] = 'Party was not saved. Try again.'
+      flash[:error] = 'Party was not saved. Try again.'
       render 'new'
     end
   end

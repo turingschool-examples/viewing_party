@@ -336,4 +336,55 @@ http_interactions:
       string: '{"success":false,"status_code":34,"status_message":"The resource you
         requested could not be found."}'
   recorded_at: Mon, 17 May 2021 02:34:39 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/search/movie?api_key=<movie_api_key>&include_adult=false&language=en-US&page=2&query=Mortal%20Kombat
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '58'
+      Connection:
+      - keep-alive
+      Date:
+      - Wed, 19 May 2021 15:10:08 GMT
+      Server:
+      - openresty
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
+        Content-Length, Content-Range
+      Etag:
+      - bfca87e1912e6bb9e320c625fbf63005
+      Cache-Control:
+      - public, max-age=600
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 28d79637e27f11e3ab19a9515e273a5b.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - DEN50-C2
+      X-Amz-Cf-Id:
+      - Z1UdRQdLDq3d81VNM6gOzt6VAaNFlKl3Le3GFFw5bl43zIFmDJMskw==
+    body:
+      encoding: UTF-8
+      string: '{"page":2,"results":[],"total_pages":1,"total_results":15}'
+  recorded_at: Wed, 19 May 2021 15:10:08 GMT
 recorded_with: VCR 6.0.0

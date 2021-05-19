@@ -39,7 +39,6 @@ RSpec.describe 'Dashboard page' do
   describe 'when a logged in user visits the dashboard they can use the Search and Add friend feature' do
     it 'displays a search form to add friends' do
       visit dashboard_path
-
       expect(page).to have_field('search')
     end
     it 'Add Friend Happy Path' do

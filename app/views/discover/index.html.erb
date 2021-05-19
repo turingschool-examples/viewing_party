@@ -11,8 +11,11 @@
 <h3>Search Results</h3>
 <% @results.each do |movie| %>
 <br>
-<%= link_to "#{movie[:title]}", "/discover/movies/#{movie[:id]}" %>
-<%= movie[:vote_average] %>
+<div class="movie">
+  <%= link_to "#{movie[:title]}", "/discover/movies/#{movie[:id]}" %>
+
+  <%= movie[:vote_average] %>
+</div>
 <% end %>
 <% end %>
 

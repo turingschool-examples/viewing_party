@@ -6,8 +6,9 @@ Rails.application.routes.draw do
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
 
-  get  '/dashboard', to: 'dashboard#index'
+  get '/dashboard', to: 'dashboard#index'
 
   get '/discover', to: 'discover#discover'
   get '/discover/movies', to: 'discover#index'

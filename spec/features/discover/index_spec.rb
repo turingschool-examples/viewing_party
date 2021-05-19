@@ -23,6 +23,13 @@ RSpec.describe 'Discover Movies Index page' do
       click_link "Mortal Kombat Legends: Scorpion's Revenge"
       expect(current_path).to eq('/discover/movies/664767')
     end
+    it 'user can search for a movie and only see 40 results at most', :vcr do
+      visit discover_movies_path
+      fill_in :search, with: 'A'
+      click_button 'Search'
+      expect(current_path).to eq('/discover/movies')
+      expect(page).to have_css('.movie', count: 40)
+    end
     it 'load the movies discover movies page with top 40 when selected', :vcr do
       visit discover_movies_path
       click_button 'Discover Top 40 Movies'
