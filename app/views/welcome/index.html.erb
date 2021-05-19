@@ -1,15 +1,18 @@
 <section class='login_page'>
   <h1 class='welcome'>Welcome to Viewing Party</h1>
   <div id='login'>
-    <h2>"Welome! We're Glad You're Here! At Viewing Party, we make it easy to watch a movie with friends from the world. Let's get started!"</h2>
-    <%= form_with url: "/", method: :post, local: true do |form| %>
+    <h2>At Viewing Party, we make it easy to watch a movie with friends from the world.<br/>Let's get started!</h2>
+    <div id='login_form'>
+    <%= form_with url: "/", method: :post, local: true do |form|%>
       <%= form.label :email, 'Email:' %>
       <%= form.text_field :email %>
+      <br/>
       <%= form.label :password, 'Password:' %>
       <%= form.password_field :password %>
       <%= form.submit 'Log In' %>
     <% end %>
 
     <%= link_to "New to Viewing Party? Register Here", "/register" %>
+    </div>
   </div>
 </section>

@@ -19,8 +19,11 @@ body {
   min-height: 100vh;
   flex-direction: column;
   font-family: 'Quicksand', sans-serif;
-  /* background: thistle; */
-  /* background: url('/Users/jaharaclark/turing/back_end/mod_3/projects/viewing_party/images/erik-witsoe-GF8VvBgcJ4o-unsplash.png'); */
+  background-image: url("/movies.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
   
 }
 
@@ -36,19 +39,29 @@ footer {
 
 .welcome {
   font-family: 'Handlee', cursive;
+  font-size: 3rem;
 }
 
 #login {
   display: flex;
   align-items: center;
   justify-self: center;
-  background-color: turquoise;
+  text-align: center;
+  background-color:rgba(226, 117, 54, 0.33);
   flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1rem 4rem 2rem;
 }
 
-.login_page {
-  background-image: url("../../../../public/movies.png");
-  height: 100vh;
-  position: relative;
-  background-size: cover;
+form {
+  display: inline-flex;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+
+input {
+  font-family: 'Handlee', cursive;
 }
