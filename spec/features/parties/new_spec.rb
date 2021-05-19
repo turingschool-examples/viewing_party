@@ -28,7 +28,6 @@ RSpec.describe 'New Party Page' do
       expect(page).to have_field(:duration, with: "160")
       expect(page).to have_field(:date)
       expect(page).to have_field(:start_time)
-      expect(page).to have_field(:start_time)
       expect(page).to have_unchecked_field("#{@user.friends.first.email}")
 
       within("#friend-#{@friend.id}") do
