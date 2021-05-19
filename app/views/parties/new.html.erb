@@ -12,13 +12,18 @@
   <%= f.label :start_time, 'Start Time: ' %>
   <%= f.time_field :start_time %>
 
-  <p>Include Some Friends:</p>
-   <% current_user.friends.each do |friend| %>
-    <div id="friend-<%= friend.id %>">
-      <%= f.label friend.email %>
-      <%= f.check_box friend.email %><br><br>
-    </div>
-   <% end %>
+  <% if current_user.friends.empty? %>
+    <p>Seems like you have not added friends yet.<br>
+      Just a heads up that you will not be able to modify this event once it has been created.</p>
+  <% else %>
+    <p>Include Some Friends:</p>
+     <% current_user.friends.each do |friend| %>
+      <div id="friend-<%= friend.id %>">
+        <%= f.label friend.email %>
+        <%= f.check_box friend.email %><br><br>
+      </div>
+     <% end %>
+  <% end %>
 
    <%= f.submit 'Create Party' %>
 <% end %>

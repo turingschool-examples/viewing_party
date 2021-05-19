@@ -40,4 +40,25 @@ RSpec.describe 'New Party Page' do
       expect(current_path).to eq('/dashboard')
     end
   end
+
+  describe 'sad paths and edge cases' do
+    it 'displays message when user has no friends' do
+      VCR.use_cassette('hamilton_details') do
+        Friendship.destroy_all
+
+        visit '/movies/556574'
+        click_button 'Create Viewing Party for Movie'
+
+        fill_in :date, with: '2021-05-16'
+        fill_in :start_time, with: '07:00 PM'
+
+        message = 'Seems like you have not added friends yet. Just a heads up that you will not be able to modify this event once it has been created.'
+        expect(page).to have_content(message)
+
+        click_button 'Create Party'
+
+        expect(current_path).to eq('/dashboard')
+      end
+    end
+  end
 end
