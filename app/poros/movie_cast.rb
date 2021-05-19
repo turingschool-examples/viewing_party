@@ -1,6 +1,6 @@
 class MovieCast
   attr_reader :character,
-              :name 
+              :name
 
   def initialize(attributes)
     @character = attributes[:character]

@@ -9,7 +9,7 @@ class DiscoverController < ApplicationController
       @results = MovieFacade.search_results(params[:search])
     elsif params[:top_40].present?
       @user = current_user
-      @popular_movies = MovieFacade.popular_movies 
+      @popular_movies = MovieFacade.popular_movies
     end
   end
 
