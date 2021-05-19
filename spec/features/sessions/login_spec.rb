@@ -47,16 +47,32 @@ describe 'User log in' do
     expect(page).to have_link('Dashboard')
     click_link('Dashboard')
     expect(current_path).to eq(dashboard_path)
-    expect(page).to have_link('Log Out')
-    click_link('Log Out')
-    expect(current_path).to eq(root_path)
-
-    expect(page).to have_content('You have been logged out')
   end
   it 'cant see navbar without being logged in' do
     visit root_path
     expect(page).to_not have_link('Discover Movies')
     expect(page).to_not have_link('Dashboard')
     expect(page).to_not have_link('Log Out')
+  end
+  it 'can log out' do
+    user = User.create(user_name: 'joeyh@test.com', password: 'doyouwanttohearasong')
+
+    visit root_path
+
+    click_button 'Log in'
+
+    expect(current_path).to eq(login_path)
+
+    fill_in :user_name, with: 'joeyh@test.com'
+    fill_in :password, with: 'doyouwanttohearasong'
+
+    click_button 'Log in'
+    visit dashboard_path
+    expect(page).to have_link('Log Out')
+    click_link('Log Out')
+    expect(current_path).to eq(root_path)
+    expect(page).to have_content('You have been logged out')
+    visit dashboard_path
+    expect(current_path).to eq(root_path)
   end
 end

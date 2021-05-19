@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   end
 
   def check_login
-    redirect_to root_path if !Rails.env.test? && session[:user_id].nil?
+    redirect_to root_path if current_user.nil?
   end
   helper_method :current_user
 end
