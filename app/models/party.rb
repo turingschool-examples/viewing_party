@@ -5,7 +5,11 @@ class Party < ApplicationRecord
 
   # validates :party_viewers, presence: true
 
-  def current_user_parties(user)
-    #query select parties where host_id = user.id 
+  # def current_user_parties(user)
+  #   #query select parties where host_id = user.id
+  # end
+
+  def movie_title
+    self.movie.title
   end
 end

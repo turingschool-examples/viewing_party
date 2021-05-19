@@ -31,4 +31,15 @@
   <h3>
     Viewing Parties
   </h3>
+  <p>Parties you're invited to:</p>
+    <ul><% @watching_party.each do |party| %>
+      <li>
+        Title: <%= party.movie_title %>,
+        Duration: <%= party.length %> minutes,
+        Date: <%= party.date_of_party.strftime("%m/%d/%Y") %>,
+        Time: <%= party.time_of_party.strftime("%H:%M") %> UTC
+      <% end %>
+      </li>
+    </ul>
+  <p>Parties you're hosting:</p>
 </section>
