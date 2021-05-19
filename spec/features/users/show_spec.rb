@@ -111,7 +111,7 @@ RSpec.describe 'Dashboard Page' do
       end
       click_button 'Create Party'
 
-      expect(page).to have_content('Hamilton')
+      expect(page).to have_link('Hamilton', href: '/movies/556574')
       expect(page).to have_content('2021-05-17')
       expect(page).to have_content("07:00 PM")
       expect(page).to have_content("Host: #{user.email}")

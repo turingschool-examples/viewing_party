@@ -20,9 +20,9 @@
 </section>
 
 <section>
-  <% @parties.each do |party| %>
+  <% current_user.parties.each do |party| %>
     <div id="party-<%= party.id %>">
-      <p>Movie: <%= party.movie_title %></p>
+      <p>Movie: <%= link_to "#{party.movie_title}", "/movies/#{party.movie_api_id}" %></p>
       <p>Date: <%= party.date %></p>
       <p>Start Time: <%= party.start_time %></p>
       <p>Duration: <%= party.duration %> mins</p>
