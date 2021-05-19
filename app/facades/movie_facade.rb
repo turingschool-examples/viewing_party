@@ -33,10 +33,4 @@ class MovieFacade
       Review.new(review)
     end
   end
-
-  private
-
-  def self.conn
-    Faraday.new('https://api.themoviedb.org')
-  end
 end
