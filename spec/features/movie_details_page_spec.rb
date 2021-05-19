@@ -23,7 +23,6 @@ RSpec.describe 'Movie Details', type: :feature do
     Each review's author and information" do
       VCR.use_cassette('movie_details_page') do
       visit "/movies/675"
-      save_and_open_page
       expect(page).to have_button("Create Viewing Party For Movie")
     #  expect(page).to have_content(titanic.title)
     #  expect(page).to have_content(titanic.vote_average)
