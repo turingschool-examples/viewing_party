@@ -26,10 +26,21 @@ main {
 
 footer {
   display: flex;
-  align-self: baseline;
-  flex-direction: row;
+  /* align-self: baseline;
+  flex-direction: row; */
+  background-color: rgb(143, 79, 130);
 }
 
 img.poster-class {
     width: 180px;
+}
+.mainbody{
+  background-color: rgb(220, 199, 118);
+  color: black;
+  
+ }
+.navbar{
+  display: flex;
+  background-color: rgb(143, 79, 130);
+
 }

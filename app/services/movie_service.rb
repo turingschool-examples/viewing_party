@@ -16,9 +16,11 @@ class MovieService
     key = ENV['movie_api_key']
     unless search_params.nil?
       search_params.gsub!(' ', '%20') if search_params.include?(' ')
-      response = Faraday.get("https://api.themoviedb.org/3/search/movie?api_key=#{key}&language=en-US&query=#{search_params}&page=1&include_adult=false")
-      json = JSON.parse(response.body, symbolize_names: true)
-      json[:results]
+      response1 = Faraday.get("https://api.themoviedb.org/3/search/movie?api_key=#{key}&language=en-US&query=#{search_params}&page=1&include_adult=false")
+      response2 = Faraday.get("https://api.themoviedb.org/3/search/movie?api_key=#{key}&language=en-US&query=#{search_params}&page=2&include_adult=false")
+      json1 = JSON.parse(response1.body, symbolize_names: true)
+      json2 = JSON.parse(response2.body, symbolize_names: true)
+      response = json1[:results] + json2[:results]
     end
   end
 
