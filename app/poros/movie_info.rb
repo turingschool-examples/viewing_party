@@ -1,19 +1,19 @@
 class MovieInfo
-  attr_reader :popular_movies,
-              :search_results,
-              :movie_details,
-              :movie_cast_details,
-              :movie_review_details
+  attr_reader :title,
+              :vote_average,
+              :runtime,
+              :overview,
+              :genres,
+              :id,
+              :poster_path
 
-  def initialize(search_params = nil)
-    movie_service = MovieService.new
-    @popular_movies = movie_service.get_popular_movies
-    @search_results = movie_service.get_search_results(search_params)
-    @movie_details = movie_service.get_movie_details(search_params)
-    @movie_cast_details = movie_service.get_movie_cast_details(search_params)
-    @movie_review_details = movie_service.get_movie_review_details(search_params)
+  def initialize(attributes)
+    @title = attributes[:title]
+    @vote_average = attributes[:vote_average]
+    @runtime = attributes[:runtime]
+    @overview = attributes[:overview]
+    @genres = attributes[:genres]
+    @id = attributes[:id]
+    @poster_path = attributes[:poster_path]
   end
 end
-
-# response[0][:title]
-# response[0][:vote_average]

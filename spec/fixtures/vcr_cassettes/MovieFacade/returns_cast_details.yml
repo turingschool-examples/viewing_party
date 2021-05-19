@@ -1,0 +1,197 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/460465/credits?api_key=<movie_api_key>&language=en-US
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Wed, 19 May 2021 21:20:54 GMT
+      Server:
+      - openresty
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
+        Content-Length, Content-Range
+      Cache-Control:
+      - public, max-age=28800
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - b32a46c1e7e75c774db4f3a0080ed33055c37fad
+      X-Memc-Age:
+      - '13361'
+      X-Memc-Expires:
+      - '2221'
+      Etag:
+      - W/"d4fa3363a1c17552d18c5369d3ce4c56"
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 7b7e50db6589e0f941d9a919773b8e8b.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - ATL56-C2
+      X-Amz-Cf-Id:
+      - nR1s4W4RoHkNDAdxuDxS27yufK_l6CK01g5UaJQe96y2oU7zEczGKA==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":460465,"cast":[{"adult":false,"gender":2,"id":1610940,"known_for_department":"Acting","name":"Lewis
+        Tan","original_name":"Lewis Tan","popularity":6.66,"profile_path":"/lkW8gh20BuwzHecXqYH1eRVuWpb.jpg","cast_id":23,"character":"Cole
+        Young","credit_id":"5d647aaebcf8c9001575e2c1","order":0},{"adult":false,"gender":1,"id":136347,"known_for_department":"Acting","name":"Jessica
+        McNamee","original_name":"Jessica McNamee","popularity":5.843,"profile_path":"/aAfaMEEqD8syHv5bLi5B3sccrM2.jpg","cast_id":24,"character":"Sonya
+        Blade","credit_id":"5d647b30bcf8c9001475e363","order":1},{"adult":false,"gender":2,"id":189230,"known_for_department":"Acting","name":"Josh
+        Lawson","original_name":"Josh Lawson","popularity":1.966,"profile_path":"/Am9vM77uZd9bGODugwmWtOfzx6E.jpg","cast_id":25,"character":"Kano","credit_id":"5d647b74bcf8c9001675e36b","order":2},{"adult":false,"gender":2,"id":13275,"known_for_department":"Acting","name":"Tadanobu
+        Asano","original_name":"Tadanobu Asano","popularity":3.846,"profile_path":"/wDw1z9Pk9dEzopzlZQ4X8wTbj1t.jpg","cast_id":21,"character":"Lord
+        Raiden","credit_id":"5d57683abc86574b352ee5be","order":3},{"adult":false,"gender":2,"id":51684,"known_for_department":"Acting","name":"Mehcad
+        Brooks","original_name":"Mehcad Brooks","popularity":6.172,"profile_path":"/etlE8YdFgYk6Nbe3uRQcc5uF0t2.jpg","cast_id":29,"character":"Jackson
+        ''Jax'' Briggs","credit_id":"5d94320e87ae7b0024a46476","order":4},{"adult":false,"gender":2,"id":1525689,"known_for_department":"Acting","name":"Ludi
+        Lin","original_name":"Ludi Lin","popularity":2.008,"profile_path":"/9Ila4K8POeuVWRO9hzyekFjvCDk.jpg","cast_id":19,"character":"Liu
+        Kang","credit_id":"5d56865e4bc38b611b24611e","order":5},{"adult":false,"gender":2,"id":101015,"known_for_department":"Acting","name":"Ng
+        Chin Han","original_name":"Ng Chin Han","popularity":2.018,"profile_path":"/bFrdZelxF1GW2TsIWJFZfC4IEDR.jpg","cast_id":26,"character":"Shang
+        Tsung","credit_id":"5d65c932b3e6276e56fd7f24","order":6},{"adult":false,"gender":2,"id":592496,"known_for_department":"Acting","name":"Joe
+        Taslim","original_name":"Joe Taslim","popularity":3.737,"profile_path":"/lv85qMVXtofw7VsM7tKR36V0jAy.jpg","cast_id":17,"character":"Bi-Han
+        / Sub-Zero","credit_id":"5d25655714956500115ab63a","order":7},{"adult":false,"gender":2,"id":9195,"known_for_department":"Acting","name":"Hiroyuki
+        Sanada","original_name":"Hiroyuki Sanada","popularity":6.87,"profile_path":"/23VfcgQEVKno0QpnCInDedfiZgy.jpg","cast_id":27,"character":"Hanzo
+        Hasashi / Scorpion","credit_id":"5d65c954ba48020015267af0","order":8},{"adult":false,"gender":2,"id":1358974,"known_for_department":"Acting","name":"Max
+        Huang","original_name":"Max Huang","popularity":1.066,"profile_path":"/pHntB82hNVVKZtTAUgUKr2KE1Zt.jpg","cast_id":28,"character":"Kung
+        Lao","credit_id":"5d8013229f1be70014e225de","order":9},{"adult":false,"gender":0,"id":2388882,"known_for_department":"Acting","name":"Sisi
+        Stringer","original_name":"Sisi Stringer","popularity":0.637,"profile_path":"/nVMftj8BSVuWZaLptYfsibw8eKi.jpg","cast_id":22,"character":"Mileena","credit_id":"5d57686bbc865777712c19c6","order":10},{"adult":false,"gender":1,"id":2481704,"known_for_department":"Acting","name":"Matilda
+        Kimber","original_name":"Matilda Kimber","popularity":0.98,"profile_path":"/oYuk3cxOFH4YZN1B5Xpnf34HOub.jpg","cast_id":31,"character":"Emily
+        Young","credit_id":"5df39b1b4a4bf60017538aa8","order":11},{"adult":false,"gender":1,"id":962438,"known_for_department":"Acting","name":"Laura
+        Brent","original_name":"Laura Brent","popularity":1.316,"profile_path":"/iJ1m7piqcYNimoosSHR1Yha1BMB.jpg","cast_id":39,"character":"Allison
+        Young","credit_id":"6006d3ad420228003ff46251","order":12},{"adult":false,"gender":1,"id":2637828,"known_for_department":"Acting","name":"Melanie
+        Jarnson","original_name":"Melanie Jarnson","popularity":1.286,"profile_path":"/9t0wxqberiCWOepbVVPcsBgYChA.jpg","cast_id":36,"character":"Nitara","credit_id":"5fda40930d5d8500402dfb66","order":13},{"adult":false,"gender":2,"id":24898,"known_for_department":"Acting","name":"Nathan
+        Jones","original_name":"Nathan Jones","popularity":3.14,"profile_path":"/hlu4qYy9JGPxGn0wT8Ea6mTWR8R.jpg","cast_id":38,"character":"Reiko","credit_id":"6006226e6840cc003f1aac4a","order":14},{"adult":false,"gender":2,"id":2881089,"known_for_department":"Acting","name":"Daniel
+        Nelson","original_name":"Daniel Nelson","popularity":0.6,"profile_path":"/jfVtAqELfncHRHomUrTuVVYXrg.jpg","cast_id":35,"character":"Kabal","credit_id":"5fca3ebe43999b003b177d3a","order":15},{"adult":false,"gender":2,"id":2937753,"known_for_department":"Acting","name":"Ian
+        Streetz","original_name":"Ian Streetz","popularity":0.6,"profile_path":"/rzCImn5Eh6hW8qSSOFRLrFYmSg8.jpg","cast_id":37,"character":"Ramirez","credit_id":"6001efe9c99826003ca0744b","order":16},{"adult":false,"gender":1,"id":1407396,"known_for_department":"Acting","name":"Yukiko
+        Shinohara","original_name":"Yukiko Shinohara","popularity":0.63,"profile_path":"/3797As8HURRMWtGb02ogLyIxR56.jpg","cast_id":60,"character":"Harumi
+        Hasashi","credit_id":"60658e81b84f9400400e8240","order":17},{"adult":false,"gender":2,"id":3033045,"known_for_department":"Acting","name":"Ren
+        Miyagawa","original_name":"Ren Miyagawa","popularity":0.98,"profile_path":null,"cast_id":61,"character":"Satoshi
+        ''Jubei'' Hasashi","credit_id":"60658ec131d09b0058a16546","order":18},{"adult":false,"gender":1,"id":3034560,"known_for_department":"Acting","name":"Mia
+        Hall","original_name":"Mia Hall","popularity":0.6,"profile_path":null,"cast_id":65,"character":"Hasashi''s
+        Baby","credit_id":"6066efbb44ea54006d3f1cb0","order":19},{"adult":false,"gender":2,"id":57795,"known_for_department":"Acting","name":"David
+        Field","original_name":"David Field","popularity":0.6,"profile_path":"/aYtVOMnak4JmlLGw63lJObLf1J.jpg","cast_id":64,"character":"Referee","credit_id":"606590d8c2823a0029a1648f","order":20},{"adult":false,"gender":1,"id":110008,"known_for_department":"Acting","name":"Kris
+        McQuade","original_name":"Kris McQuade","popularity":0.6,"profile_path":"/567UnLF08FeK07HYW90wabC36M0.jpg","cast_id":75,"character":"Cargo
+        Plane Pilot","credit_id":"60a20c5a2fccee00779c6a9c","order":21},{"adult":false,"gender":2,"id":59117,"known_for_department":"Acting","name":"Angus
+        Sampson","original_name":"Angus Sampson","popularity":1.498,"profile_path":"/8EX6ul2zyVUg91oDvI3RpYS5szV.jpg","cast_id":63,"character":"Goro
+        (voice)","credit_id":"60658ff3f36a320078bae1f5","order":22},{"adult":false,"gender":0,"id":3093270,"known_for_department":"Acting","name":"Alice
+        Nassery","original_name":"Alice Nassery","popularity":0.6,"profile_path":null,"cast_id":76,"character":"Shang
+        Tsung Elite Guard","credit_id":"60a20c8600bfe800419f9050","order":23},{"adult":false,"gender":2,"id":62752,"known_for_department":"Acting","name":"Damon
+        Herriman","original_name":"Damon Herriman","popularity":4.367,"profile_path":"/6Wb5q2nua0JGJRdtZLRBon6uAua.jpg","cast_id":62,"character":"Kabal
+        (voice)","credit_id":"60658f59b458b80025a812af","order":24},{"adult":false,"gender":2,"id":2554548,"known_for_department":"Acting","name":"Mike
+        Foenander","original_name":"Mike Foenander","popularity":0.6,"profile_path":"/t05PLLTaayrq28LyvjUF2ewAxti.jpg","cast_id":34,"character":"Audience
+        Fight Scene (uncredited)","credit_id":"5e5bf12d66ae4d0019870922","order":25},{"adult":false,"gender":2,"id":2994027,"known_for_department":"Acting","name":"Michael
+        Coward","original_name":"Michael Coward","popularity":0.6,"profile_path":"/nDhNRyYw5dfZZvME6x9ZT8JneV1.jpg","cast_id":58,"character":"Bar
+        Straggler (uncredited)","credit_id":"603bfca377b1fb005b039565","order":26},{"adult":false,"gender":2,"id":1840496,"known_for_department":"Acting","name":"Garreth
+        Hadfield","original_name":"Garreth Hadfield","popularity":0.6,"profile_path":"/7hDnAi2tqm9XZqEVoWRhQzDqc1w.jpg","cast_id":59,"character":"Lin
+        Kuei Warrior (uncredited)","credit_id":"6048eaa7439be100583be5f4","order":27},{"adult":false,"gender":2,"id":2535732,"known_for_department":"Acting","name":"Bingchen
+        Ye","original_name":"Bingchen Ye","popularity":0.6,"profile_path":"/1Zlx9rblQcQOMhUEVTSUlSpmtTb.jpg","cast_id":33,"character":"Temple
+        Monk (uncredited)","credit_id":"5e43322c0c2710001381c3dd","order":28}],"crew":[{"adult":false,"gender":2,"id":2127,"known_for_department":"Directing","name":"James
+        Wan","original_name":"James Wan","popularity":3.428,"profile_path":"/hZeFnl5vg7lPusYstuFtuY9Lpx5.jpg","credit_id":"5cda4c019251417580d22b9c","department":"Production","job":"Producer"},{"adult":false,"gender":2,"id":40825,"known_for_department":"Sound","name":"Benjamin
+        Wallfisch","original_name":"Benjamin Wallfisch","popularity":0.6,"profile_path":"/dWcshjk0OUi3stGFFrwZIsYKZfQ.jpg","credit_id":"5e27c07ec68b6900123ebbcd","department":"Sound","job":"Original
+        Music Composer"},{"adult":false,"gender":2,"id":11455,"known_for_department":"Editing","name":"Dan
+        Lebental","original_name":"Dan Lebental","popularity":0.6,"profile_path":"/kG4N93eMa6fzkJjBsRPQXUcGQlg.jpg","credit_id":"602e9553aa659e003d22633d","department":"Editing","job":"Editor"},{"adult":false,"gender":2,"id":11814,"known_for_department":"Production","name":"Todd
+        Garner","original_name":"Todd Garner","popularity":0.6,"profile_path":"/hRu3nTh08RLwPNFnWlSwE9uu2Pw.jpg","credit_id":"59347610c3a3685a240237fc","department":"Production","job":"Producer"},{"adult":false,"gender":0,"id":17677,"known_for_department":"Art","name":"Naaman
+        Marshall","original_name":"Naaman Marshall","popularity":0.6,"profile_path":null,"credit_id":"602e9548aa659e003d226335","department":"Art","job":"Production
+        Design"},{"adult":false,"gender":2,"id":43518,"known_for_department":"Production","name":"Lawrence
+        Kasanoff","original_name":"Lawrence Kasanoff","popularity":0.6,"profile_path":"/4ahZJTfqhzINKenq7C34oJRRLYx.jpg","credit_id":"5cda4c190e0a2666decca77a","department":"Production","job":"Executive
+        Producer"},{"adult":false,"gender":2,"id":54252,"known_for_department":"Production","name":"E.
+        Bennett Walsh","original_name":"E. Bennett Walsh","popularity":0.98,"profile_path":null,"credit_id":"602e952b8e2ba6004016b1f8","department":"Production","job":"Producer"},{"adult":false,"gender":2,"id":54252,"known_for_department":"Production","name":"E.
+        Bennett Walsh","original_name":"E. Bennett Walsh","popularity":0.98,"profile_path":null,"credit_id":"60a20b94596a910057a1578c","department":"Production","job":"Unit
+        Production Manager"},{"adult":false,"gender":2,"id":57264,"known_for_department":"Writing","name":"Dave
+        Callaham","original_name":"Dave Callaham","popularity":2.71,"profile_path":"/mbppbv25p2o2W6FAtPbFNSUeGLj.jpg","credit_id":"602e93ed0f3655003e29055c","department":"Writing","job":"Screenplay"},{"adult":false,"gender":0,"id":57257,"known_for_department":"Crew","name":"John
+        Tobias","original_name":"John Tobias","popularity":0.6,"profile_path":null,"credit_id":"602f34d94ccc50003da6033e","department":"Crew","job":"Video
+        Game"},{"adult":false,"gender":2,"id":57430,"known_for_department":"Production","name":"Richard
+        Brener","original_name":"Richard Brener","popularity":2.431,"profile_path":"/i1nFbAKpbtjxBr2vkY5WeYRs250.jpg","credit_id":"602e9481d55c3d003f1f9a6a","department":"Production","job":"Executive
+        Producer"},{"adult":false,"gender":2,"id":61486,"known_for_department":"Art","name":"Tom
+        Nursey","original_name":"Tom Nursey","popularity":0.6,"profile_path":null,"credit_id":"5d514e4ab686b9241197b1b0","department":"Art","job":"Supervising
+        Art Director"},{"adult":false,"gender":0,"id":75167,"known_for_department":"Acting","name":"Ri-Jie
+        Kwok","original_name":"Ri-Jie Kwok","popularity":0.6,"profile_path":null,"credit_id":"60a20d9962fcd30078466e9d","department":"Crew","job":"Stunts"},{"adult":false,"gender":2,"id":101568,"known_for_department":"Editing","name":"Scott
+        Gray","original_name":"Scott Gray","popularity":0.6,"profile_path":null,"credit_id":"602e956b44ea540041d762c9","department":"Editing","job":"Editor"},{"adult":false,"gender":2,"id":928272,"known_for_department":"Production","name":"Rich
+        Delia","original_name":"Rich Delia","popularity":0.6,"profile_path":null,"credit_id":"602f3482ed28b9004147cf4f","department":"Production","job":"Casting"},{"adult":false,"gender":2,"id":965247,"known_for_department":"Camera","name":"Germain
+        McMicking","original_name":"Germain McMicking","popularity":0.6,"profile_path":null,"credit_id":"5d193feb30aa310018c5c788","department":"Camera","job":"Director
+        of Photography"},{"adult":false,"gender":2,"id":969283,"known_for_department":"Production","name":"Dave
+        Neustadter","original_name":"Dave Neustadter","popularity":0.6,"profile_path":null,"credit_id":"602e9491726fb1003faee54f","department":"Production","job":"Executive
+        Producer"},{"adult":false,"gender":2,"id":1090787,"known_for_department":"Writing","name":"Oren
+        Uziel","original_name":"Oren Uziel","popularity":0.6,"profile_path":"/1ipKuag8BcCNCcWLp2GgSK7INNq.jpg","credit_id":"602e93f6d94035004078e765","department":"Writing","job":"Story"},{"adult":false,"gender":0,"id":1182349,"known_for_department":"Production","name":"Jeremy
+        Stein","original_name":"Jeremy Stein","popularity":0.6,"profile_path":null,"credit_id":"602e94c48e2ba6003f176556","department":"Production","job":"Executive
+        Producer"},{"adult":false,"gender":0,"id":1196121,"known_for_department":"Costume
+        \u0026 Make-Up","name":"Cappi Ireland","original_name":"Cappi Ireland","popularity":0.6,"profile_path":null,"credit_id":"602e95952cde98003f300c3e","department":"Costume
+        \u0026 Make-Up","job":"Costume Design"},{"adult":false,"gender":0,"id":1401717,"known_for_department":"Visual
+        Effects","name":"Chris Godfrey","original_name":"Chris Godfrey","popularity":0.6,"profile_path":null,"credit_id":"602e957cd94035003f778c86","department":"Visual
+        Effects","job":"Visual Effects Supervisor"},{"adult":false,"gender":0,"id":1410551,"known_for_department":"Sound","name":"Robert
+        Mackenzie","original_name":"Robert Mackenzie","popularity":0.6,"profile_path":null,"credit_id":"608dc079ac41610040cc155e","department":"Sound","job":"Sound
+        Designer"},{"adult":false,"gender":0,"id":1416897,"known_for_department":"Acting","name":"Marky
+        Lee Campbell","original_name":"Marky Lee Campbell","popularity":0.656,"profile_path":null,"credit_id":"60a20e4eb0ba7e00293f1608","department":"Crew","job":"Stunts"},{"adult":false,"gender":2,"id":1418813,"known_for_department":"Crew","name":"Chris
+        Anderson","original_name":"Chris Anderson","popularity":0.6,"profile_path":"/lF4iol2GuUs1iHF1ziGLHl0gV4O.jpg","credit_id":"60a20d63da9ef20079e3e79f","department":"Crew","job":"Stunts"},{"adult":false,"gender":0,"id":1445964,"known_for_department":"Sound","name":"Steve
+        Burgess","original_name":"Steve Burgess","popularity":0.6,"profile_path":null,"credit_id":"608dc06420af77006db4f7f9","department":"Sound","job":"Sound
+        Designer"},{"adult":false,"gender":2,"id":1476970,"known_for_department":"Acting","name":"Yasushi
+        Asaya","original_name":"Yasushi Asaya","popularity":0.6,"profile_path":null,"credit_id":"60a20e306c1e04004439e900","department":"Crew","job":"Stunts"},{"adult":false,"gender":2,"id":1518756,"known_for_department":"Directing","name":"P.J.
+        Voeten","original_name":"P.J. Voeten","popularity":0.6,"profile_path":null,"credit_id":"60a20bda596a91003fc1fe47","department":"Directing","job":"First
+        Assistant Director"},{"adult":false,"gender":0,"id":1530809,"known_for_department":"Acting","name":"Robbie
+        Clissold","original_name":"Robbie Clissold","popularity":0.6,"profile_path":"/dU6kb18XcR4Zf0lnL6TWT2DxAzw.jpg","credit_id":"60a20d7bb0ba7e00794145b6","department":"Crew","job":"Stunts"},{"adult":false,"gender":0,"id":1538966,"known_for_department":"Costume
+        \u0026 Make-Up","name":"Rhonda Ann Burns","original_name":"Rhonda Ann Burns","popularity":0.6,"profile_path":null,"credit_id":"5cda4ff89251416b5bcdfba8","department":"Costume
+        \u0026 Make-Up","job":"Hair Department Head"},{"adult":false,"gender":0,"id":1635549,"known_for_department":"Crew","name":"Michael
+        M. Foster","original_name":"Michael M. Foster","popularity":0.98,"profile_path":"/cds8Fc9NEvQm4oBp2vg0MWqMh2B.jpg","credit_id":"60a20d86e18e3f006fa7bdae","department":"Crew","job":"Stunts"},{"adult":false,"gender":0,"id":1644563,"known_for_department":"Writing","name":"Connor
+        Van Vuuren","original_name":"Connor Van Vuuren","popularity":0.6,"profile_path":null,"credit_id":"60a20dbfd4cc8e00581059f4","department":"Crew","job":"Stunts"},{"adult":false,"gender":0,"id":1800923,"known_for_department":"Production","name":"Michael
+        Clear","original_name":"Michael Clear","popularity":0.828,"profile_path":null,"credit_id":"5cda4d480e0a2604afcd99d2","department":"Production","job":"Executive
+        Producer"},{"adult":false,"gender":0,"id":1805787,"known_for_department":"Directing","name":"Chris
+        Webb","original_name":"Chris Webb","popularity":0.6,"profile_path":null,"credit_id":"60a20bc6d4cc8e0040f77926","department":"Directing","job":"First
+        Assistant Director"},{"adult":false,"gender":0,"id":1816354,"known_for_department":"Directing","name":"Danielle
+        Blake","original_name":"Danielle Blake","popularity":0.6,"profile_path":null,"credit_id":"60a20be5e18e3f002a436d6f","department":"Directing","job":"Second
+        Assistant Director"},{"adult":false,"gender":2,"id":1828555,"known_for_department":"Writing","name":"Greg
+        Russo","original_name":"Greg Russo","popularity":0.6,"profile_path":"/vczdMv4ElrZ5Z3KvLaTnCOzzGJ2.jpg","credit_id":"602e93cd87e63e004195653d","department":"Writing","job":"Screenplay"},{"adult":false,"gender":2,"id":1828555,"known_for_department":"Writing","name":"Greg
+        Russo","original_name":"Greg Russo","popularity":0.6,"profile_path":"/vczdMv4ElrZ5Z3KvLaTnCOzzGJ2.jpg","credit_id":"602e93d7d55c3d003d1fc75b","department":"Writing","job":"Story"},{"adult":false,"gender":0,"id":1828590,"known_for_department":"Directing","name":"Simon
+        McQuoid","original_name":"Simon McQuoid","popularity":0.98,"profile_path":"/pFKRKvSb6N3CMNZYLpGmdSPIjch.jpg","credit_id":"593475c3c3a36859ef0253af","department":"Directing","job":"Director"},{"adult":false,"gender":0,"id":1828590,"known_for_department":"Directing","name":"Simon
+        McQuoid","original_name":"Simon McQuoid","popularity":0.98,"profile_path":"/pFKRKvSb6N3CMNZYLpGmdSPIjch.jpg","credit_id":"602e9521cedac40041546ebf","department":"Production","job":"Producer"},{"adult":false,"gender":2,"id":1830633,"known_for_department":"Crew","name":"Kyle
+        Gardiner","original_name":"Kyle Gardiner","popularity":0.6,"profile_path":null,"credit_id":"5d193fbe30aa31001ec5d67e","department":"Crew","job":"Stunt
+        Coordinator"},{"adult":false,"gender":2,"id":1871679,"known_for_department":"Crew","name":"Bradd
+        Buckley","original_name":"Bradd Buckley","popularity":0.6,"profile_path":null,"credit_id":"60a20d74e18e3f004056f022","department":"Crew","job":"Stunts"},{"adult":false,"gender":0,"id":1948185,"known_for_department":"Sound","name":"Mick
+        Boraso","original_name":"Mick Boraso","popularity":0.6,"profile_path":null,"credit_id":"608dc029d8cc4a006e373bbf","department":"Sound","job":"Sound
+        Designer"},{"adult":false,"gender":2,"id":2211786,"known_for_department":"Acting","name":"Ben
+        Siemer","original_name":"Ben Siemer","popularity":0.6,"profile_path":"/ezzb27944gwO8SVqWPIdSP0GOIa.jpg","credit_id":"60a20dac88bbe60029959d81","department":"Crew","job":"Stunts"},{"adult":false,"gender":0,"id":2265570,"known_for_department":"Crew","name":"Chan
+        Griffin","original_name":"Chan Griffin","popularity":0.6,"profile_path":null,"credit_id":"60a20d2200bfe80079bf8b2a","department":"Crew","job":"Fight
+        Choreographer"},{"adult":false,"gender":1,"id":2302447,"known_for_department":"Production","name":"Victoria
+        Palmeri","original_name":"Victoria Palmeri","popularity":0.652,"profile_path":null,"credit_id":"602e94a2d55c3d00401f4015","department":"Production","job":"Executive
+        Producer"},{"adult":false,"gender":0,"id":2314158,"known_for_department":"Production","name":"Kimberly
+        Aguilar","original_name":"Kimberly Aguilar","popularity":0.6,"profile_path":null,"credit_id":"5cdd4fdd9251413f67ce651c","department":"Production","job":"Casting
+        Assistant"},{"adult":false,"gender":0,"id":2513274,"known_for_department":"Crew","name":"Ed
+        Boon","original_name":"Ed Boon","popularity":0.6,"profile_path":null,"credit_id":"602f34cb64f716003d55c8c9","department":"Crew","job":"Video
+        Game"},{"adult":false,"gender":1,"id":2601160,"known_for_department":"Acting","name":"Jade
+        Amantea","original_name":"Jade Amantea","popularity":0.6,"profile_path":null,"credit_id":"60a20dc7e18e3f004056f06e","department":"Crew","job":"Stunts"},{"adult":false,"gender":0,"id":2763665,"known_for_department":"Production","name":"Anna
+        Steel","original_name":"Anna Steel","popularity":0.6,"profile_path":null,"credit_id":"60a20b8b59008600581e024d","department":"Production","job":"Unit
+        Production Manager"},{"adult":false,"gender":0,"id":2788756,"known_for_department":"Sound","name":"James
+        Ashton","original_name":"James Ashton","popularity":0.6,"profile_path":null,"credit_id":"608dc01acae63200582ef7f6","department":"Sound","job":"Sound
+        Designer"},{"adult":false,"gender":0,"id":2789462,"known_for_department":"Crew","name":"Amanda
+        Giblin","original_name":"Amanda Giblin","popularity":0.6,"profile_path":null,"credit_id":"60a20e65da9ef200291a3175","department":"Crew","job":"Stunts"},{"adult":false,"gender":0,"id":2794096,"known_for_department":"Crew","name":"Blake
+        Lindsell","original_name":"Blake Lindsell","popularity":0.6,"profile_path":null,"credit_id":"60a20e75da9ef20057afaf96","department":"Crew","job":"Stunts"},{"adult":false,"gender":0,"id":2823305,"known_for_department":"Crew","name":"Lee
+        Adamson","original_name":"Lee Adamson","popularity":0.6,"profile_path":null,"credit_id":"60a20d5759008600581e0481","department":"Crew","job":"Stunts"},{"adult":false,"gender":0,"id":2872781,"known_for_department":"Acting","name":"Zia
+        Kelly","original_name":"Zia Kelly","popularity":0.6,"profile_path":"/hrleo9Frp8qqQEpHjHowEmM7U4x.jpg","credit_id":"60a20d8d62fcd30057384522","department":"Crew","job":"Stunts"},{"adult":false,"gender":0,"id":2911022,"known_for_department":"Acting","name":"Laura
+        Sutton","original_name":"Laura Sutton","popularity":0.6,"profile_path":null,"credit_id":"60a20db662fcd30078466ec6","department":"Crew","job":"Stunts"},{"adult":false,"gender":2,"id":3056181,"known_for_department":"Acting","name":"Stephen
+        Murdoch","original_name":"Stephen Murdoch","popularity":0.6,"profile_path":null,"credit_id":"60a20da3596a91006e3797c6","department":"Crew","job":"Stunts"}]}'
+  recorded_at: Wed, 19 May 2021 21:20:54 GMT
+recorded_with: VCR 6.0.0

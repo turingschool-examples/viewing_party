@@ -1,28 +1,28 @@
-<h1><%="#{@movie_details[:title]}"%></h1>
+<h1><%="#{@movie_details.title}"%></h1>
 
-<%=button_to "Create a New Party", new_party_path, method: :get, :params => {:movie_id => @movie_details[:id], :movie_title => @movie_details[:title], :runtime => @movie_details[:runtime]}%>
+<%=button_to "Create a New Party", new_party_path, method: :get, :params => {:movie_id => @movie_details.id, :movie_title => @movie_details.title, :runtime => @movie_details.runtime}%>
 
 <h3>Movie Details</h3>
-<%= image_tag "http://image.tmdb.org/t/p/w500/#{@movie_details[:poster_path]}", :class => 'poster-class' %>
+<%= image_tag "http://image.tmdb.org/t/p/w500/#{@movie_details.poster_path}", :class => 'poster-class' %>
 <ul>
-  <li> Title: <%="#{@movie_details[:title]}"%>
-  <li> Vote Average: <%="#{@movie_details[:vote_average]}"%>
-  <li> Run Time: <%="#{time_conversion(@movie_details[:runtime])}"%>
-  <li>Plot Summary: <%="#{@movie_details[:overview]}"%>
-  <li>Genres: <% @movie_details[:genres].each do |genre|%> <%= genre[:name]%>, <%end%>
+  <li> Title: <%="#{@movie_details.title}"%>
+  <li> Vote Average: <%="#{@movie_details.vote_average}"%>
+  <li> Run Time: <%="#{time_conversion(@movie_details.runtime)}"%>
+  <li>Plot Summary: <%="#{@movie_details.overview}"%>
+  <li>Genres: <% @movie_details.genres.each do |genre|%> <%= genre[:name]%>, <%end%>
 
 </ul>
 
-<h3> Cast</h3>
+<h3>Cast</h3>
 <ul>
   <% @movie_cast.each do |cast| %>
-  <li> Character: <%="#{cast[:character]}"%> Actor/Actress: <%=cast[:name]%>
+  <li> Character: <%="#{cast.character}"%> Actor/Actress: <%=cast.name%>
     <% end %>
 </ul>
 <h3> Reviews</h3>
 <p> Total Reviews: <%="#{@movie_reviews.count}"%>
 <ul>
   <% @movie_reviews.each do |review| %>
-  <li> Reviewer: <%="#{review[:author]}"%> Rating: <%=review[:author_details][:rating]%>
+  <li> Reviewer: <%="#{review.author}"%> Rating: <%=review.rating%>
     <% end %>
 </ul>

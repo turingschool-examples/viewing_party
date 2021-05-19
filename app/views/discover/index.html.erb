@@ -12,9 +12,9 @@
 <% @results.each do |movie| %>
 <br>
 <div class="movie">
-  <%= link_to "#{movie[:title]}", "/discover/movies/#{movie[:id]}" %>
+  <%= link_to "#{movie.title}", "/discover/movies/#{movie.id}" %>
 
-  <%= movie[:vote_average] %>
+  <%= movie.vote_average %>
 </div>
 <% end %>
 <% end %>
@@ -24,8 +24,8 @@
 <% @popular_movies.each do |movie| %>
 <br>
 <div class="movie">
-  <%= link_to "#{movie[:title]}", "/discover/movies/#{movie[:id]}"%>
-  <%= movie[:vote_average] %>
+  <%= link_to "#{movie.title}", "/discover/movies/#{movie.id}"%>
+  <%= movie.vote_average %>
 </div>
 <% end %>
 <% end %>
