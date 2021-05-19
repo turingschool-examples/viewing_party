@@ -18,6 +18,7 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  font-family: 'Quicksand', sans-serif;
 }
 
 main {
@@ -28,4 +29,8 @@ footer {
   display: flex;
   align-self: baseline;
   flex-direction: row;
+}
+
+.welcome {
+  font-family: 'Handlee', cursive;
 }
