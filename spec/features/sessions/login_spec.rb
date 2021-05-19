@@ -52,9 +52,6 @@ describe 'User log in' do
     expect(current_path).to eq(root_path)
 
     expect(page).to have_content('You have been logged out')
-    # # expect(page).to_not have_link('Discover Movies')
-    # # expect(page).to_not have_link('Dashboard')
-    # # expect(page).to_not have_link('Log Out')
   end
   it 'cant see navbar without being logged in' do
     visit root_path
