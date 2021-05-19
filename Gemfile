@@ -18,6 +18,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'figaro'
 gem 'bootstrap'
+gem 'autoprefixer-rails', '10.2.5.0'
 
 group :development, :test do
   gem 'pry'

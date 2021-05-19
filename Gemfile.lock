@@ -347,6 +347,7 @@ PLATFORMS
   x86-mswin32
 
 DEPENDENCIES
+  autoprefixer-rails (= 10.2.5.0)
   bcrypt (~> 3.1.7)
   bootsnap
   bootstrap
