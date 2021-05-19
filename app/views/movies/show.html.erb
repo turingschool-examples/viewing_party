@@ -1,5 +1,5 @@
 <h1>Welcome <%="#{current_user[:email]}!"%></h1>
-<%= button_to "Create Viewing Party For Movie", "/viewing_party/new"%>
+<%= button_to "Create Viewing Party For Movie", "/parties/new", params: { :movie_id => params[:id] }, method: :get %>
 <h2>Title: <%=@movie[:original_title] %></h2>
 </br>
 <h2>Runtime: <%=@movie[:runtime] %></h2>

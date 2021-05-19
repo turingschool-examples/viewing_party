@@ -1,6 +1,5 @@
 class PartiesController < ApplicationController
   def index
-    require "pry"; binding.pry
   end
 
   def new

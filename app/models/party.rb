@@ -6,7 +6,6 @@ class Party < ApplicationRecord
   # validates :party_viewers, presence: true
 
   def current_user_parties(user)
-    binding.pry
     #query select parties where host_id = user.id 
   end
 end

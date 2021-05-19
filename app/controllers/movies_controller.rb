@@ -19,5 +19,3 @@ class MoviesController < ApplicationController
     params.require(:movie).permit(:search_query, :search_text, :id)
   end
 end
-
-# <%require 'pry'; binding.pry%>
