@@ -12,9 +12,8 @@ class MoviesController < ApplicationController
 
   def show
     @movie = MovieFacade.fetch_movie_details(params["id"])
-
     @cast_members = MovieFacade.fetch_movie_cast(params["id"])
-
     @reviews = MovieFacade.fetch_movie_reviews(params["id"])
+    @similar_movies = MovieFacade.fetch_similar_movies(params["id"])
   end
 end

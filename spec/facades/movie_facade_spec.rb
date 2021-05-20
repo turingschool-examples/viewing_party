@@ -47,4 +47,13 @@ RSpec.describe 'MovieFacade' do
       expect(hamilton_reviews.first).to be_a(Review)
     end
   end
+
+  it 'returns an array of Review objects for one movie' do
+    hamilton_similar_movies = MovieFacade.fetch_similar_movies('556574')
+    first_similar_movie = MovieFacade.fetch_similar_movies('556574').first
+
+    expect(hamilton_similar_movies).to be_an(Array)
+    expect(hamilton_similar_movies.first).to be_a(Similar)
+    expect(first_similar_movie.title).to eq('Elaine Stritch: At Liberty')
+  end
 end

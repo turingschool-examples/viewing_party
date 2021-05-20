@@ -33,4 +33,11 @@ class MovieFacade
       Review.new(review)
     end
   end
+
+  def self.fetch_similar_movies(movie_id)
+    json = MovieService.similar_movies_query(movie_id)
+    json[:results].map do |movie|
+      Similar.new(movie)
+    end.first(5)
+  end
 end
