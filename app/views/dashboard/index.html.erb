@@ -1,6 +1,14 @@
 <h1 class='welcome'><%= "Welcome, #{@user.email}!" %></h1>
-<%= button_to "Discover Movies", "/discover", method: :get %>
 <section>
+  <div class="nav_buttons">
+    <%= button_to "Discover Movies", "/discover", method: :get %>
+    <%= form_with url: dashboard_index_path, method: :post, local: true do |f| %>
+      <%= f.label :friend_search, "Enter an email to find a friend: " %>
+      <%= f.text_field :friend_search %>
+
+      <%= f.submit "Add friend" %>
+    <% end %>
+  </div>
   <h3>Friends</h3>
   <% if @user.friends.count == 0 %>
     You currently have no friends.
@@ -13,14 +21,6 @@
       <% end %>
     </ul>
   <% end %>
-  <div>
-    <%= form_with url: dashboard_index_path, method: :post, local: true do |f| %>
-      <%= f.label :friend_search, "Add a friend by their email" %>
-      <%= f.text_field :friend_search %>
-
-      <%= f.submit "Add friend" %>
-    <% end %>
-  </div>
 </section>
 
 <section id="viewing_parties">
