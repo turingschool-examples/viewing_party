@@ -48,7 +48,17 @@ RSpec.describe 'MovieFacade' do
     end
   end
 
-  it 'returns an array of Review objects for one movie' do
+  it 'returns an array of Comming Soon objects for upcoming movies' do
+    VCR.use_cassette('ten_upcoming_movies') do
+
+      upcoming_movies = MovieFacade.fetch_upcoming_movies
+
+      expect(upcoming_movies).to be_an(Array)
+      expect(upcoming_movies.first).to be_a(ComingSoon)
+    end
+  end
+
+  it 'returns an array of similar movies to the one selected' do
     hamilton_similar_movies = MovieFacade.fetch_similar_movies('556574')
     first_similar_movie = MovieFacade.fetch_similar_movies('556574').first
 

@@ -34,6 +34,13 @@ class MovieFacade
     end
   end
 
+  def self.fetch_upcoming_movies
+    json = MovieService.upcoming
+    json[:results].map do |movie|
+      ComingSoon.new(movie)
+    end.first(10)
+  end
+
   def self.fetch_similar_movies(movie_id)
     json = MovieService.similar_movies_query(movie_id)
     json[:results].map do |movie|

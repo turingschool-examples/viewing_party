@@ -30,6 +30,11 @@ class MovieService
     parse_json(response)
   end
 
+  def self.upcoming
+    response = conn.get("/3/movie/upcoming?api_key=#{ENV['MOVIE_KEY']}&language=en-US&page=1")
+    parse_json(response)
+  end
+
   def self.similar_movies_query(movie_id)
     response = conn.get("/3/movie/#{movie_id}/similar?api_key=#{ENV['MOVIE_KEY']}&language=en-US&page=1")
     parse_json(response)

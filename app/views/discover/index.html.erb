@@ -1,6 +1,16 @@
 <%= button_to "Top 40 Movies", movies_path, method: :get %>
+
+<%= link_to "10 Upcoming Movies", discover_path(upcoming: true), method: :get, upcoming: true %>
+
 <%= form_with url: movies_path, method: :get, local: true do |f| %>
   <%= f.label :movie_title, "Search for Movie by Title: " %>
   <%= f.text_field :movie_title, required: true %>
   <%= f.submit "Search" %>
+<% end %>
+
+<% if @upcoming %>
+  <% @upcoming.each do |movie| %>
+    <h2><%= movie.title %></h2>
+    <p><%= movie.release_date %></p><br>
+  <% end %>
 <% end %>
