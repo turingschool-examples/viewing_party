@@ -1,5 +1,5 @@
 # Viewing Party
-![IMG_0021]()
+![](assets/README-38db82c2.png)
 
 ## About this Project
 Welcome to Viewing Party, a fun social platform where you can create a virtual movie watch party and invite your friends. Grab some popcorn and enjoy the show!
@@ -41,7 +41,7 @@ RSpec testing suite is utilized for testing this application.
 ## DB Schema
 The following is a depiction of our Database Schema
 
- ![db_schema]()
+ ![Viewing Party Schema](assets/README-e68506fa.png)
 
 ## API Endpoints Consumed
 
