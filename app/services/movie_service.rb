@@ -40,8 +40,6 @@ class MovieService
     parse_json(response)
   end
 
-  private
-
   def self.conn
     Faraday.new('https://api.themoviedb.org')
   end
