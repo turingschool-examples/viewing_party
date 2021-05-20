@@ -1,8 +1,3 @@
-require 'faraday'
-require 'json'
-require 'pry'
-require 'figaro'
-
 class MovieFacade
   def self.popular_movies
     json = MovieService.get_popular_movies
@@ -27,5 +22,20 @@ class MovieFacade
   def self.movie_review_details(search_params)
     json = MovieService.get_movie_review_details(search_params)
     json.map { |review| MovieReview.new(review) }
+  end
+
+  def self.buy_provider(search_params)
+    json = MovieService.get_buy_providers(search_params)
+    json.map { |buy_provider| BuyProvider.new(buy_provider)}
+  end
+  
+  def self.rent_provider(search_params)
+    json = MovieService.get_rent_providers(search_params)
+    json.map { |rent_provider| RentProvider.new(rent_provider)}
+  end
+  
+  def self.streaming_provider(search_params)
+    json = MovieService.get_streaming_providers(search_params)
+    json.map { |streaming_provider| StreamingProvider.new(streaming_provider)}
   end
 end

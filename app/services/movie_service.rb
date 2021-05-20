@@ -1,7 +1,3 @@
-# require 'faraday'
-# require 'json'
-# require 'pry'
-# require 'figaro'
 class MovieService
   def self.get_popular_movies
     key = ENV['movie_api_key']
@@ -44,5 +40,26 @@ class MovieService
     response = Faraday.get("https://api.themoviedb.org/3/movie/#{search_params}/reviews?api_key=#{key}&language=en-US")
     json = JSON.parse(response.body, symbolize_names: true)
     json[:results] if json[:status_code] != 34
+  end
+
+  def self.get_buy_providers(search_params)
+    key = ENV['movie_api_key']
+    response = Faraday.get("https://api.themoviedb.org/3/movie/#{search_params}/watch/providers?api_key=#{key}")
+    json = JSON.parse(response.body, symbolize_names: true)
+    json[:results][:US][:buy]
+  end
+
+  def self.get_rent_providers(search_params)
+    key = ENV['movie_api_key']
+    response = Faraday.get("https://api.themoviedb.org/3/movie/#{search_params}/watch/providers?api_key=#{key}")
+    json = JSON.parse(response.body, symbolize_names: true)
+    json[:results][:US][:rent]
+  end
+
+  def self.get_streaming_providers(search_params)
+    key = ENV['movie_api_key']
+    response = Faraday.get("https://api.themoviedb.org/3/movie/#{search_params}/watch/providers?api_key=#{key}")
+    json = JSON.parse(response.body, symbolize_names: true)
+    json[:results][:US][:flatrate]
   end
 end
