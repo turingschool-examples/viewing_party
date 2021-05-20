@@ -27,6 +27,15 @@ RSpec.describe 'Discover Page' do
       click_button "Search"
       expect(current_path).to eq('/movies')
     end
+
+    it 'can see results for 10 upcoming movies' do
+      VCR.use_cassette('ten_upcoming_movies') do
+
+        click_link "10 Upcoming Movies"
+        expect(page).to have_content("Godzilla vs. Kong")
+        expect(page).to have_content("2021-03-24")
+      end
+    end
   end
 
   describe 'sad paths and edge cases' do

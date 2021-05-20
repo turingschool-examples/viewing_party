@@ -33,4 +33,11 @@ class MovieFacade
       Review.new(review)
     end
   end
+
+  def self.fetch_upcoming_movies
+    json = MovieService.upcoming
+    json[:results].map do |movie|
+      ComingSoon.new(movie)
+    end.first(10)
+  end
 end

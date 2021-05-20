@@ -47,4 +47,14 @@ RSpec.describe 'MovieFacade' do
       expect(hamilton_reviews.first).to be_a(Review)
     end
   end
+
+  it 'returns an array of Comming Soon objects for upcoming movies' do
+    VCR.use_cassette('ten_upcoming_movies') do
+
+      upcoming_movies = MovieFacade.fetch_upcoming_movies
+
+      expect(upcoming_movies).to be_an(Array)
+      expect(upcoming_movies.first).to be_a(ComingSoon)
+    end
+  end
 end

@@ -1,3 +1,7 @@
 class DiscoverController < ApplicationController
-  def index; end
+  def index
+    if params[:upcoming]
+      @upcoming = MovieFacade.fetch_upcoming_movies
+    end
+  end
 end
