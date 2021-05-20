@@ -40,4 +40,9 @@ describe 'MovieFacade' do
     expect(facade).to be_an Array
     expect(facade.first).to be_a StreamingProvider
   end
+  it 'returns similar movies', :vcr do
+    facade = MovieFacade.similar_movies('460465')
+    expect(facade).to be_an Array
+    expect(facade.first).to be_a MovieInfo
+  end
 end

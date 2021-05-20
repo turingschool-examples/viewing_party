@@ -10,6 +10,10 @@ class DiscoverController < ApplicationController
     elsif params[:top_40].present?
       @user = current_user
       @popular_movies = MovieFacade.popular_movies
+    elsif params[:similar_movies].present?
+
+      @user = current_user
+      @similar_movies = MovieFacade.similar_movies(params[:movie_id])
     end
   end
 

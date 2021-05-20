@@ -44,5 +44,10 @@ describe 'Movie Detail (Show) Page' do
       expect(page).to have_css('#stream-provider', count: 1)
       expect(page).to have_content('HBO Max')
     end
+    it 'It displays button to display similar movies to this show', :vcr do
+      expect(page).to have_button('Similar Movies')
+      click_button 'Similar Movies'
+      expect(current_path).to eq(discover_movies_path)
+    end
   end
 end

@@ -1,6 +1,7 @@
 <h1><%="#{@movie_details.title}"%></h1>
 
 <%=button_to "Create a New Party", new_party_path, method: :get, :params => {:movie_id => @movie_details.id, :movie_title => @movie_details.title, :runtime => @movie_details.runtime}%>
+<%=button_to "Similar Movies", discover_movies_path, method: :get, :params => {:movie_title => @movie_details.title, :similar_movies => true, :movie_id => @movie_details.id}%>
 
 <h3>Movie Details</h3>
 <%= image_tag "http://image.tmdb.org/t/p/w500/#{@movie_details.poster_path}", :class => 'poster-class' %>

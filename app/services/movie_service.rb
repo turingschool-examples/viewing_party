@@ -76,4 +76,11 @@ class MovieService
       json[:results][:US][:flatrate]
     end
   end
+
+  def self.get_similar_movies(search_params)
+    key = ENV['movie_api_key']
+    response = Faraday.get("https://api.themoviedb.org/3/movie/#{search_params}/similar?api_key=#{key}&language=en-US&page=1")
+    json = JSON.parse(response.body, symbolize_names: true)
+    json[:results][0..4]
+  end
 end
