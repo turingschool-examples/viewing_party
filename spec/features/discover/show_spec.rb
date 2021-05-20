@@ -34,5 +34,15 @@ describe 'Movie Detail (Show) Page' do
       expect(page).to have_content('Reviewer: garethmb')
       expect(page).to have_content('Rating: ')
     end
+    it 'It displays all provider information', :vcr do
+      expect(page).to have_content('Where to Watch')
+      expect(page).to have_content('Buy')
+      expect(page).to have_css('#buy-provider', count: 0)
+      expect(page).to have_content('Rent')
+      expect(page).to have_css('#rent-provider', count: 0)
+      expect(page).to have_content('Stream')
+      expect(page).to have_css('#stream-provider', count: 1)
+      expect(page).to have_content('HBO Max')
+    end
   end
 end

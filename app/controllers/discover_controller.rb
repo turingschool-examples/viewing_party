@@ -18,5 +18,7 @@ class DiscoverController < ApplicationController
     @movie_details = MovieFacade.movie_details(params[:movie_id])
     @movie_cast = MovieFacade.movie_cast_details(params[:movie_id])
     @movie_reviews = MovieFacade.movie_review_details(params[:movie_id])
+    @providers = [MovieFacade.buy_provider(params[:movie_id]), MovieFacade.rent_provider(params[:movie_id]),
+                  MovieFacade.streaming_provider(params[:movie_id])]
   end
 end

@@ -47,6 +47,11 @@ class MovieService
     response = Faraday.get("https://api.themoviedb.org/3/movie/#{search_params}/watch/providers?api_key=#{key}")
     json = JSON.parse(response.body, symbolize_names: true)
     json[:results][:US][:buy]
+    if json[:results][:US][:buy].nil?
+      []
+    else
+      json[:results][:US][:buy]
+    end
   end
 
   def self.get_rent_providers(search_params)
@@ -54,12 +59,21 @@ class MovieService
     response = Faraday.get("https://api.themoviedb.org/3/movie/#{search_params}/watch/providers?api_key=#{key}")
     json = JSON.parse(response.body, symbolize_names: true)
     json[:results][:US][:rent]
+    if json[:results][:US][:rent].nil?
+      []
+    else
+      json[:results][:US][:rent]
+    end
   end
 
   def self.get_streaming_providers(search_params)
     key = ENV['movie_api_key']
     response = Faraday.get("https://api.themoviedb.org/3/movie/#{search_params}/watch/providers?api_key=#{key}")
     json = JSON.parse(response.body, symbolize_names: true)
-    json[:results][:US][:flatrate]
+    if json[:results][:US][:flatrate].nil?
+      []
+    else
+      json[:results][:US][:flatrate]
+    end
   end
 end

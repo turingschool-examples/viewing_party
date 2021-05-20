@@ -29,15 +29,21 @@
 
 <h3>Where to Watch</h3>
 
-<%
-=begin%>
-<% @watch_providers_buy.each do |buy| %>
-<%
-=end%>
-<p>Buy: <%= %></p><br>
-<%
-=begin%>
-<%end%>
-<%
-=end%>
-<p>Rent: <%= %></p>
+<h4>Buy</h4>
+<% @providers[0].each do |buy_provider| %>
+<div id="buy-provider">
+  <li> Provider: <%=buy_provider.provider_name%>
+</div>
+<% end %>
+<h4>Rent</h4>
+<% @providers[1].each do |rent_provider| %>
+<div id="rent-provider">
+  <li> Provider: <%=rent_provider.provider_name%>
+</div>
+<% end %>
+<h4>Stream</h4>
+<% @providers[2].each do |stream_provider| %>
+<div id="stream-provider">
+  <li> Provider: <%=stream_provider.provider_name%>
+</div>
+<% end %>
