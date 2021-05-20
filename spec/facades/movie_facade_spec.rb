@@ -56,5 +56,13 @@ RSpec.describe 'MovieFacade' do
       expect(upcoming_movies).to be_an(Array)
       expect(upcoming_movies.first).to be_a(ComingSoon)
     end
+
+  it 'returns an array of similar movies to the one selected' do
+    hamilton_similar_movies = MovieFacade.fetch_similar_movies('556574')
+    first_similar_movie = MovieFacade.fetch_similar_movies('556574').first
+
+    expect(hamilton_similar_movies).to be_an(Array)
+    expect(hamilton_similar_movies.first).to be_a(Similar)
+    expect(first_similar_movie.title).to eq('Elaine Stritch: At Liberty')
   end
 end

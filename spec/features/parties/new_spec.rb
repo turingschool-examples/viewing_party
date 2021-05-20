@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'New Party Page' do
+RSpec.describe 'New Party Page', :vcr do
   before :each do
     @friend = User.create!(email: 'world@email.com', password: "hello")
     @other_friend = User.create!(email: 'unicorn@email.com', password: "hi")
@@ -19,15 +19,12 @@ RSpec.describe 'New Party Page' do
   end
 
   it 'displays movie title and party form' do
-    VCR.use_cassette('hamilton_details') do
-
       visit '/movies/556574'
       click_button 'Create Viewing Party for Movie'
 
       expect(page).to have_content("Hamilton")
       expect(page).to have_field(:duration, with: "160")
       expect(page).to have_field(:date)
-      expect(page).to have_field(:start_time)
       expect(page).to have_field(:start_time)
       expect(page).to have_unchecked_field("#{@user.friends.first.email}")
 
@@ -38,12 +35,10 @@ RSpec.describe 'New Party Page' do
       fill_in :start_time, with: '07:00 PM'
       click_button 'Create Party'
       expect(current_path).to eq('/dashboard')
-    end
   end
 
   describe 'sad paths and edge cases' do
     it 'displays message when user has no friends' do
-      VCR.use_cassette('hamilton_details') do
         Friendship.destroy_all
 
         visit '/movies/556574'
@@ -58,7 +53,6 @@ RSpec.describe 'New Party Page' do
         click_button 'Create Party'
 
         expect(current_path).to eq('/dashboard')
-      end
     end
   end
 end
