@@ -5,7 +5,7 @@ class User < ApplicationRecord
   validates :password_digest, presence: true
   validates :password, confirmation: { case_sensitive: true }
 
-  has_many :user_parties
+  has_many :user_parties, dependent: :destroy
   has_many :parties, through: :user_parties
 
   has_many :friendships, dependent: :destroy

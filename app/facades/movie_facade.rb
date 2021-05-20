@@ -1,6 +1,6 @@
 class MovieFacade
   def self.popular_movies
-    json = MovieService.get_popular_movies
+    json = MovieService.fetch_popular_movies
     json.map { |movie_info| MovieInfo.new(movie_info) }
   end
 

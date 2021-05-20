@@ -9,9 +9,7 @@ class PartiesController < ApplicationController
     if party.save
       current_user.parties << party
       params[:friends].each do |friend|
-        if friend == ''
-
-        else
+        if friend != ''
           user = User.find(friend.to_i)
           user.parties << party
         end

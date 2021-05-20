@@ -1,31 +1,32 @@
 class MovieService
-  def self.get_popular_movies
+  def self.fetch_popular_movies
     key = ENV['movie_api_key']
     response1 = Faraday.get("https://api.themoviedb.org/3/movie/popular?api_key=#{key}&language=en-US&page=1")
     response2 = Faraday.get("https://api.themoviedb.org/3/movie/popular?api_key=#{key}&language=en-US&page=2")
     json1 = JSON.parse(response1.body, symbolize_names: true)
     json2 = JSON.parse(response2.body, symbolize_names: true)
-    response = json1[:results] + json2[:results] # 40 movies returned
+    json1[:results] + json2[:results] # 40 movies returned
   end
 
   def self.get_search_results(search_params)
+    return if search_params.nil?
+
     key = ENV['movie_api_key']
-    unless search_params.nil?
-      search_params.gsub!(' ', '%20') if search_params.include?(' ')
-      response1 = Faraday.get("https://api.themoviedb.org/3/search/movie?api_key=#{key}&language=en-US&query=#{search_params}&page=1&include_adult=false")
-      response2 = Faraday.get("https://api.themoviedb.org/3/search/movie?api_key=#{key}&language=en-US&query=#{search_params}&page=2&include_adult=false")
-      json1 = JSON.parse(response1.body, symbolize_names: true)
-      json2 = JSON.parse(response2.body, symbolize_names: true)
-      response = json1[:results] + json2[:results]
-    end
+    search_params.gsub!(' ', '%20') if search_params.include?(' ')
+    response1 = Faraday.get("https://api.themoviedb.org/3/search/movie?api_key=#{key}&language=en-US&query=#{search_params}&page=1&include_adult=false")
+    response2 = Faraday.get("https://api.themoviedb.org/3/search/movie?api_key=#{key}&language=en-US&query=#{search_params}&page=2&include_adult=false")
+    json1 = JSON.parse(response1.body, symbolize_names: true)
+    json2 = JSON.parse(response2.body, symbolize_names: true)
+    json1[:results] + json2[:results]
   end
 
   def self.get_movie_details(search_params)
+    return if search_params.nil?
+
     key = ENV['movie_api_key']
-    unless search_params.nil?
-      response = Faraday.get("https://api.themoviedb.org/3/movie/#{search_params}?api_key=#{key}&language=en-US")
-      JSON.parse(response.body, symbolize_names: true)
-    end
+
+    response = Faraday.get("https://api.themoviedb.org/3/movie/#{search_params}?api_key=#{key}&language=en-US")
+    JSON.parse(response.body, symbolize_names: true)
   end
 
   def self.get_movie_cast_details(search_params)

@@ -8,7 +8,7 @@ class Party < ApplicationRecord
   validates :party_duration, numericality: { greater_than_or_equal_to: :runtime }
   validates :movie_id, presence: true, numericality: true
 
-  has_many :user_parties
+  has_many :user_parties, dependent: :destroy
   has_many :users, through: :user_parties
 
   def host_name

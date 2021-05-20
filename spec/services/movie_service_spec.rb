@@ -4,7 +4,7 @@ RSpec.describe 'Movie Service' do
   describe '#instance method' do
     describe 'get_movie_data' do
       it 'returns data on forty movies', :vcr do
-        results = MovieService.get_popular_movies
+        results = MovieService.fetch_popular_movies
         expect(results.count).to eq(40)
       end
 
