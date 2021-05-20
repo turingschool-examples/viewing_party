@@ -44,6 +44,7 @@ RSpec.describe 'Discover Movies Index page' do
       click_button 'Discover Top 40 Movies'
       click_link 'Mortal Kombat'
       click_button 'Similar Movies'
+      expect(page).to have_content('Movies Similar to Mortal Kombat')
       expect(current_path).to eq(discover_movies_path)
       expect(page).to have_css('.movie', count: 5)
     end
