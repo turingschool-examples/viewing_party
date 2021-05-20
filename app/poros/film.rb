@@ -12,13 +12,13 @@ class Film
 
   def format_time(minutes)
     hours = minutes / 60
-    minutes = (minutes) % 60
-    "#{ hours }hr #{ minutes }min"
+    minutes = minutes % 60
+    "#{hours}hr #{minutes}min"
   end
 
   def genres
     @genres.map do |genre|
-     genre[:name]
+      genre[:name]
     end
   end
 end
