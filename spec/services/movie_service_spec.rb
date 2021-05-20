@@ -4,7 +4,7 @@ RSpec.describe 'Movie Service' do
   describe '#instance method' do
     describe 'get_movie_data' do
       it 'returns data on forty movies', :vcr do
-        results = MovieService.get_popular_movies
+        results = MovieService.fetch_popular_movies
         expect(results.count).to eq(40)
       end
 
@@ -40,6 +40,32 @@ RSpec.describe 'Movie Service' do
         expect(results[0][:author_details][:rating]).to eq(10.0)
         expect(results[2][:author_details][:username]).to eq('msbreviews')
         expect(results[2][:author_details][:rating]).to eq(6.0)
+      end
+
+      it 'returns name of each buy (seller)', :vcr do
+        results = MovieService.get_buy_providers('1891')
+
+        expect(results[0][:provider_name]).to eq('Apple iTunes')
+        expect(results[3][:provider_name]).to eq('Google Play Movies')
+      end
+
+      it 'returns name of each renter', :vcr do
+        results = MovieService.get_rent_providers('1891')
+
+        expect(results[0][:provider_name]).to eq('Apple iTunes')
+        expect(results[4][:provider_name]).to eq('YouTube')
+      end
+
+      it 'returns name of each streamer', :vcr do
+        results = MovieService.get_streaming_providers('1891')
+
+        expect(results[0][:provider_name]).to eq('DIRECTV')
+        expect(results[1][:provider_name]).to eq('Disney Plus')
+      end
+      it 'returns similar movies', :vcr do
+        results = MovieService.get_similar_movies('460465')
+
+        expect(results.count).to eq(5)
       end
     end
   end

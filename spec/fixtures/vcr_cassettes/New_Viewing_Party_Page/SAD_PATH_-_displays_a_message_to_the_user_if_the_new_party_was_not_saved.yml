@@ -1752,4 +1752,376 @@ http_interactions:
       encoding: UTF-8
       string: '{"page":2,"results":[],"total_pages":0,"total_results":0}'
   recorded_at: Wed, 19 May 2021 15:10:10 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/460465/watch/providers?api_key=<movie_api_key>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 20 May 2021 01:26:42 GMT
+      Server:
+      - openresty
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
+        Content-Length, Content-Range
+      Cache-Control:
+      - public, max-age=28800
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - f5541d502b640d872025acc6fefbb3b5770d61a1
+      X-Memc-Age:
+      - '6102'
+      X-Memc-Expires:
+      - '10477'
+      Etag:
+      - W/"cc31948fe9d1ae9377a24a8b4b90f1e6"
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 a44b9db7a2d103360945ab52619e5016.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - DEN50-C2
+      X-Amz-Cf-Id:
+      - ka_Ok6_y82c76eCbhjXogRKBRrHAADtx9Dm4Jvjhl-VP7KxJOGuqtQ==
+      Age:
+      - '3473'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":460465,"results":{"AT":{"link":"https://www.themoviedb.org/movie/460465-mortal-kombat/watch?locale=AT","rent":[{"display_priority":41,"logo_path":"/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg","provider_id":68,"provider_name":"Microsoft
+        Store"},{"display_priority":52,"logo_path":"/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg","provider_id":3,"provider_name":"Google
+        Play Movies"},{"display_priority":65,"logo_path":"/vjKeS7Y9fNyqNtvp2ROCc71iu1u.jpg","provider_id":40,"provider_name":"Chili"},{"display_priority":91,"logo_path":"/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg","provider_id":35,"provider_name":"Rakuten
+        TV"},{"display_priority":99,"logo_path":"/pZgeSWpfvD59x6sY6stT5c6uc2h.jpg","provider_id":130,"provider_name":"Sky
+        Store"},{"display_priority":630,"logo_path":"/sVBEF7q7LqjHAWSnKwDbzmr2EMY.jpg","provider_id":10,"provider_name":"Amazon
+        Video"}],"buy":[{"display_priority":2,"logo_path":"/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg","provider_id":2,"provider_name":"Apple
+        iTunes"},{"display_priority":41,"logo_path":"/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg","provider_id":68,"provider_name":"Microsoft
+        Store"},{"display_priority":52,"logo_path":"/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg","provider_id":3,"provider_name":"Google
+        Play Movies"},{"display_priority":65,"logo_path":"/vjKeS7Y9fNyqNtvp2ROCc71iu1u.jpg","provider_id":40,"provider_name":"Chili"},{"display_priority":91,"logo_path":"/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg","provider_id":35,"provider_name":"Rakuten
+        TV"},{"display_priority":630,"logo_path":"/sVBEF7q7LqjHAWSnKwDbzmr2EMY.jpg","provider_id":10,"provider_name":"Amazon
+        Video"}]},"CA":{"link":"https://www.themoviedb.org/movie/460465-mortal-kombat/watch?locale=CA","rent":[{"display_priority":2,"logo_path":"/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg","provider_id":2,"provider_name":"Apple
+        iTunes"},{"display_priority":41,"logo_path":"/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg","provider_id":68,"provider_name":"Microsoft
+        Store"},{"display_priority":52,"logo_path":"/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg","provider_id":3,"provider_name":"Google
+        Play Movies"},{"display_priority":54,"logo_path":"/mK7Au1go2M5MqyZ8CjkpJPM6Apb.jpg","provider_id":492,"provider_name":"ILLICO"},{"display_priority":448,"logo_path":"/vDCcryHD32b0yMeSCgBhuYavsmx.jpg","provider_id":192,"provider_name":"YouTube"},{"display_priority":630,"logo_path":"/sVBEF7q7LqjHAWSnKwDbzmr2EMY.jpg","provider_id":10,"provider_name":"Amazon
+        Video"}]},"CH":{"link":"https://www.themoviedb.org/movie/460465-mortal-kombat/watch?locale=CH","buy":[{"display_priority":2,"logo_path":"/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg","provider_id":2,"provider_name":"Apple
+        iTunes"},{"display_priority":3,"logo_path":"/dSBzj4T9P7PMUr015gnV7meT2LR.jpg","provider_id":150,"provider_name":"SwissCom"},{"display_priority":41,"logo_path":"/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg","provider_id":68,"provider_name":"Microsoft
+        Store"},{"display_priority":52,"logo_path":"/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg","provider_id":3,"provider_name":"Google
+        Play Movies"},{"display_priority":91,"logo_path":"/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg","provider_id":35,"provider_name":"Rakuten
+        TV"},{"display_priority":99,"logo_path":"/pZgeSWpfvD59x6sY6stT5c6uc2h.jpg","provider_id":130,"provider_name":"Sky
+        Store"}],"rent":[{"display_priority":2,"logo_path":"/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg","provider_id":2,"provider_name":"Apple
+        iTunes"},{"display_priority":3,"logo_path":"/dSBzj4T9P7PMUr015gnV7meT2LR.jpg","provider_id":150,"provider_name":"SwissCom"},{"display_priority":41,"logo_path":"/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg","provider_id":68,"provider_name":"Microsoft
+        Store"},{"display_priority":52,"logo_path":"/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg","provider_id":3,"provider_name":"Google
+        Play Movies"},{"display_priority":91,"logo_path":"/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg","provider_id":35,"provider_name":"Rakuten
+        TV"},{"display_priority":99,"logo_path":"/pZgeSWpfvD59x6sY6stT5c6uc2h.jpg","provider_id":130,"provider_name":"Sky
+        Store"}]},"DE":{"link":"https://www.themoviedb.org/movie/460465-mortal-kombat/watch?locale=DE","buy":[{"display_priority":2,"logo_path":"/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg","provider_id":2,"provider_name":"Apple
+        iTunes"},{"display_priority":22,"logo_path":"/kd2fTHmmkCuZ4lCucf8xH48sl89.jpg","provider_id":133,"provider_name":"Videobuster"},{"display_priority":41,"logo_path":"/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg","provider_id":68,"provider_name":"Microsoft
+        Store"},{"display_priority":52,"logo_path":"/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg","provider_id":3,"provider_name":"Google
+        Play Movies"},{"display_priority":65,"logo_path":"/vjKeS7Y9fNyqNtvp2ROCc71iu1u.jpg","provider_id":40,"provider_name":"Chili"},{"display_priority":91,"logo_path":"/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg","provider_id":35,"provider_name":"Rakuten
+        TV"},{"display_priority":246,"logo_path":"/6QfNLK9toSu2bvsWN7A0sEsTz3j.jpg","provider_id":178,"provider_name":"EntertainTV"},{"display_priority":448,"logo_path":"/vDCcryHD32b0yMeSCgBhuYavsmx.jpg","provider_id":192,"provider_name":"YouTube"},{"display_priority":630,"logo_path":"/sVBEF7q7LqjHAWSnKwDbzmr2EMY.jpg","provider_id":10,"provider_name":"Amazon
+        Video"}],"rent":[{"display_priority":22,"logo_path":"/kd2fTHmmkCuZ4lCucf8xH48sl89.jpg","provider_id":133,"provider_name":"Videobuster"},{"display_priority":41,"logo_path":"/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg","provider_id":68,"provider_name":"Microsoft
+        Store"},{"display_priority":52,"logo_path":"/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg","provider_id":3,"provider_name":"Google
+        Play Movies"},{"display_priority":65,"logo_path":"/vjKeS7Y9fNyqNtvp2ROCc71iu1u.jpg","provider_id":40,"provider_name":"Chili"},{"display_priority":91,"logo_path":"/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg","provider_id":35,"provider_name":"Rakuten
+        TV"},{"display_priority":99,"logo_path":"/pZgeSWpfvD59x6sY6stT5c6uc2h.jpg","provider_id":130,"provider_name":"Sky
+        Store"},{"display_priority":246,"logo_path":"/6QfNLK9toSu2bvsWN7A0sEsTz3j.jpg","provider_id":178,"provider_name":"EntertainTV"},{"display_priority":448,"logo_path":"/vDCcryHD32b0yMeSCgBhuYavsmx.jpg","provider_id":192,"provider_name":"YouTube"},{"display_priority":630,"logo_path":"/sVBEF7q7LqjHAWSnKwDbzmr2EMY.jpg","provider_id":10,"provider_name":"Amazon
+        Video"}]},"FR":{"link":"https://www.themoviedb.org/movie/460465-mortal-kombat/watch?locale=FR","buy":[{"display_priority":2,"logo_path":"/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg","provider_id":2,"provider_name":"Apple
+        iTunes"},{"display_priority":11,"logo_path":"/bqgpWEtokIEOF5nsliXca2BQMEn.jpg","provider_id":61,"provider_name":"Orange
+        VOD"},{"display_priority":41,"logo_path":"/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg","provider_id":68,"provider_name":"Microsoft
+        Store"},{"display_priority":52,"logo_path":"/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg","provider_id":3,"provider_name":"Google
+        Play Movies"},{"display_priority":91,"logo_path":"/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg","provider_id":35,"provider_name":"Rakuten
+        TV"},{"display_priority":107,"logo_path":"/5DORP3F8POafFQGy7j6YtXkjPjl.jpg","provider_id":138,"provider_name":"Filmo
+        TV"},{"display_priority":448,"logo_path":"/vDCcryHD32b0yMeSCgBhuYavsmx.jpg","provider_id":192,"provider_name":"YouTube"}]},"GB":{"link":"https://www.themoviedb.org/movie/460465-mortal-kombat/watch?locale=GB","rent":[{"display_priority":2,"logo_path":"/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg","provider_id":2,"provider_name":"Apple
+        iTunes"},{"display_priority":22,"logo_path":"/uA7pG0PDWFnWWwlLmdG02cmJCzB.jpg","provider_id":93,"provider_name":"Talk
+        Talk TV"},{"display_priority":41,"logo_path":"/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg","provider_id":68,"provider_name":"Microsoft
+        Store"},{"display_priority":65,"logo_path":"/vjKeS7Y9fNyqNtvp2ROCc71iu1u.jpg","provider_id":40,"provider_name":"Chili"},{"display_priority":91,"logo_path":"/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg","provider_id":35,"provider_name":"Rakuten
+        TV"},{"display_priority":99,"logo_path":"/pZgeSWpfvD59x6sY6stT5c6uc2h.jpg","provider_id":130,"provider_name":"Sky
+        Store"},{"display_priority":630,"logo_path":"/sVBEF7q7LqjHAWSnKwDbzmr2EMY.jpg","provider_id":10,"provider_name":"Amazon
+        Video"}]},"IE":{"link":"https://www.themoviedb.org/movie/460465-mortal-kombat/watch?locale=IE","rent":[{"display_priority":2,"logo_path":"/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg","provider_id":2,"provider_name":"Apple
+        iTunes"},{"display_priority":41,"logo_path":"/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg","provider_id":68,"provider_name":"Microsoft
+        Store"},{"display_priority":52,"logo_path":"/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg","provider_id":3,"provider_name":"Google
+        Play Movies"},{"display_priority":91,"logo_path":"/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg","provider_id":35,"provider_name":"Rakuten
+        TV"},{"display_priority":99,"logo_path":"/pZgeSWpfvD59x6sY6stT5c6uc2h.jpg","provider_id":130,"provider_name":"Sky
+        Store"}]},"IT":{"link":"https://www.themoviedb.org/movie/460465-mortal-kombat/watch?locale=IT","flatrate":[{"display_priority":92,"logo_path":"/bzWGPi4Jxdzm9ehkT9ZDuiwj1Hp.jpg","provider_id":39,"provider_name":"Now
+        TV"}]},"KR":{"link":"https://www.themoviedb.org/movie/460465-mortal-kombat/watch?locale=KR","buy":[{"display_priority":2,"logo_path":"/8N0DNa4BO3lH24KWv1EjJh4TxoD.jpg","provider_id":356,"provider_name":"wavve"},{"display_priority":52,"logo_path":"/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg","provider_id":3,"provider_name":"Google
+        Play Movies"}],"rent":[{"display_priority":2,"logo_path":"/8N0DNa4BO3lH24KWv1EjJh4TxoD.jpg","provider_id":356,"provider_name":"wavve"},{"display_priority":52,"logo_path":"/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg","provider_id":3,"provider_name":"Google
+        Play Movies"}]},"RU":{"link":"https://www.themoviedb.org/movie/460465-mortal-kombat/watch?locale=RU","rent":[{"display_priority":2,"logo_path":"/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg","provider_id":2,"provider_name":"Apple
+        iTunes"},{"display_priority":52,"logo_path":"/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg","provider_id":3,"provider_name":"Google
+        Play Movies"},{"display_priority":91,"logo_path":"/4AWMLvjQUQNmU3CkpLp7FSSIyZX.jpg","provider_id":501,"provider_name":"Wink"}],"buy":[{"display_priority":52,"logo_path":"/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg","provider_id":3,"provider_name":"Google
+        Play Movies"},{"display_priority":91,"logo_path":"/4AWMLvjQUQNmU3CkpLp7FSSIyZX.jpg","provider_id":501,"provider_name":"Wink"}]},"US":{"link":"https://www.themoviedb.org/movie/460465-mortal-kombat/watch?locale=US","flatrate":[{"display_priority":473,"logo_path":"/aS2zvJWn9mwiCOeaaCkIh4wleZS.jpg","provider_id":384,"provider_name":"HBO
+        Max"}]},"ZA":{"link":"https://www.themoviedb.org/movie/460465-mortal-kombat/watch?locale=ZA","buy":[{"display_priority":2,"logo_path":"/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg","provider_id":2,"provider_name":"Apple
+        iTunes"},{"display_priority":52,"logo_path":"/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg","provider_id":3,"provider_name":"Google
+        Play Movies"}],"rent":[{"display_priority":52,"logo_path":"/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg","provider_id":3,"provider_name":"Google
+        Play Movies"}]}}}'
+  recorded_at: Thu, 20 May 2021 02:24:35 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/460465/watch/providers?api_key=<movie_api_key>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 20 May 2021 01:26:42 GMT
+      Server:
+      - openresty
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
+        Content-Length, Content-Range
+      Cache-Control:
+      - public, max-age=28800
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - f5541d502b640d872025acc6fefbb3b5770d61a1
+      X-Memc-Age:
+      - '6102'
+      X-Memc-Expires:
+      - '10477'
+      Etag:
+      - W/"cc31948fe9d1ae9377a24a8b4b90f1e6"
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 0f653303bc95b26f01daff2926667902.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - DEN50-C2
+      X-Amz-Cf-Id:
+      - NcpvJ_buEKmnEvGnFEoxWnwpOlZoLHHlFCsLihGNd9yceKttzJs2sg==
+      Age:
+      - '3473'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":460465,"results":{"AT":{"link":"https://www.themoviedb.org/movie/460465-mortal-kombat/watch?locale=AT","rent":[{"display_priority":41,"logo_path":"/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg","provider_id":68,"provider_name":"Microsoft
+        Store"},{"display_priority":52,"logo_path":"/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg","provider_id":3,"provider_name":"Google
+        Play Movies"},{"display_priority":65,"logo_path":"/vjKeS7Y9fNyqNtvp2ROCc71iu1u.jpg","provider_id":40,"provider_name":"Chili"},{"display_priority":91,"logo_path":"/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg","provider_id":35,"provider_name":"Rakuten
+        TV"},{"display_priority":99,"logo_path":"/pZgeSWpfvD59x6sY6stT5c6uc2h.jpg","provider_id":130,"provider_name":"Sky
+        Store"},{"display_priority":630,"logo_path":"/sVBEF7q7LqjHAWSnKwDbzmr2EMY.jpg","provider_id":10,"provider_name":"Amazon
+        Video"}],"buy":[{"display_priority":2,"logo_path":"/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg","provider_id":2,"provider_name":"Apple
+        iTunes"},{"display_priority":41,"logo_path":"/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg","provider_id":68,"provider_name":"Microsoft
+        Store"},{"display_priority":52,"logo_path":"/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg","provider_id":3,"provider_name":"Google
+        Play Movies"},{"display_priority":65,"logo_path":"/vjKeS7Y9fNyqNtvp2ROCc71iu1u.jpg","provider_id":40,"provider_name":"Chili"},{"display_priority":91,"logo_path":"/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg","provider_id":35,"provider_name":"Rakuten
+        TV"},{"display_priority":630,"logo_path":"/sVBEF7q7LqjHAWSnKwDbzmr2EMY.jpg","provider_id":10,"provider_name":"Amazon
+        Video"}]},"CA":{"link":"https://www.themoviedb.org/movie/460465-mortal-kombat/watch?locale=CA","rent":[{"display_priority":2,"logo_path":"/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg","provider_id":2,"provider_name":"Apple
+        iTunes"},{"display_priority":41,"logo_path":"/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg","provider_id":68,"provider_name":"Microsoft
+        Store"},{"display_priority":52,"logo_path":"/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg","provider_id":3,"provider_name":"Google
+        Play Movies"},{"display_priority":54,"logo_path":"/mK7Au1go2M5MqyZ8CjkpJPM6Apb.jpg","provider_id":492,"provider_name":"ILLICO"},{"display_priority":448,"logo_path":"/vDCcryHD32b0yMeSCgBhuYavsmx.jpg","provider_id":192,"provider_name":"YouTube"},{"display_priority":630,"logo_path":"/sVBEF7q7LqjHAWSnKwDbzmr2EMY.jpg","provider_id":10,"provider_name":"Amazon
+        Video"}]},"CH":{"link":"https://www.themoviedb.org/movie/460465-mortal-kombat/watch?locale=CH","buy":[{"display_priority":2,"logo_path":"/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg","provider_id":2,"provider_name":"Apple
+        iTunes"},{"display_priority":3,"logo_path":"/dSBzj4T9P7PMUr015gnV7meT2LR.jpg","provider_id":150,"provider_name":"SwissCom"},{"display_priority":41,"logo_path":"/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg","provider_id":68,"provider_name":"Microsoft
+        Store"},{"display_priority":52,"logo_path":"/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg","provider_id":3,"provider_name":"Google
+        Play Movies"},{"display_priority":91,"logo_path":"/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg","provider_id":35,"provider_name":"Rakuten
+        TV"},{"display_priority":99,"logo_path":"/pZgeSWpfvD59x6sY6stT5c6uc2h.jpg","provider_id":130,"provider_name":"Sky
+        Store"}],"rent":[{"display_priority":2,"logo_path":"/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg","provider_id":2,"provider_name":"Apple
+        iTunes"},{"display_priority":3,"logo_path":"/dSBzj4T9P7PMUr015gnV7meT2LR.jpg","provider_id":150,"provider_name":"SwissCom"},{"display_priority":41,"logo_path":"/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg","provider_id":68,"provider_name":"Microsoft
+        Store"},{"display_priority":52,"logo_path":"/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg","provider_id":3,"provider_name":"Google
+        Play Movies"},{"display_priority":91,"logo_path":"/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg","provider_id":35,"provider_name":"Rakuten
+        TV"},{"display_priority":99,"logo_path":"/pZgeSWpfvD59x6sY6stT5c6uc2h.jpg","provider_id":130,"provider_name":"Sky
+        Store"}]},"DE":{"link":"https://www.themoviedb.org/movie/460465-mortal-kombat/watch?locale=DE","buy":[{"display_priority":2,"logo_path":"/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg","provider_id":2,"provider_name":"Apple
+        iTunes"},{"display_priority":22,"logo_path":"/kd2fTHmmkCuZ4lCucf8xH48sl89.jpg","provider_id":133,"provider_name":"Videobuster"},{"display_priority":41,"logo_path":"/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg","provider_id":68,"provider_name":"Microsoft
+        Store"},{"display_priority":52,"logo_path":"/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg","provider_id":3,"provider_name":"Google
+        Play Movies"},{"display_priority":65,"logo_path":"/vjKeS7Y9fNyqNtvp2ROCc71iu1u.jpg","provider_id":40,"provider_name":"Chili"},{"display_priority":91,"logo_path":"/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg","provider_id":35,"provider_name":"Rakuten
+        TV"},{"display_priority":246,"logo_path":"/6QfNLK9toSu2bvsWN7A0sEsTz3j.jpg","provider_id":178,"provider_name":"EntertainTV"},{"display_priority":448,"logo_path":"/vDCcryHD32b0yMeSCgBhuYavsmx.jpg","provider_id":192,"provider_name":"YouTube"},{"display_priority":630,"logo_path":"/sVBEF7q7LqjHAWSnKwDbzmr2EMY.jpg","provider_id":10,"provider_name":"Amazon
+        Video"}],"rent":[{"display_priority":22,"logo_path":"/kd2fTHmmkCuZ4lCucf8xH48sl89.jpg","provider_id":133,"provider_name":"Videobuster"},{"display_priority":41,"logo_path":"/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg","provider_id":68,"provider_name":"Microsoft
+        Store"},{"display_priority":52,"logo_path":"/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg","provider_id":3,"provider_name":"Google
+        Play Movies"},{"display_priority":65,"logo_path":"/vjKeS7Y9fNyqNtvp2ROCc71iu1u.jpg","provider_id":40,"provider_name":"Chili"},{"display_priority":91,"logo_path":"/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg","provider_id":35,"provider_name":"Rakuten
+        TV"},{"display_priority":99,"logo_path":"/pZgeSWpfvD59x6sY6stT5c6uc2h.jpg","provider_id":130,"provider_name":"Sky
+        Store"},{"display_priority":246,"logo_path":"/6QfNLK9toSu2bvsWN7A0sEsTz3j.jpg","provider_id":178,"provider_name":"EntertainTV"},{"display_priority":448,"logo_path":"/vDCcryHD32b0yMeSCgBhuYavsmx.jpg","provider_id":192,"provider_name":"YouTube"},{"display_priority":630,"logo_path":"/sVBEF7q7LqjHAWSnKwDbzmr2EMY.jpg","provider_id":10,"provider_name":"Amazon
+        Video"}]},"FR":{"link":"https://www.themoviedb.org/movie/460465-mortal-kombat/watch?locale=FR","buy":[{"display_priority":2,"logo_path":"/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg","provider_id":2,"provider_name":"Apple
+        iTunes"},{"display_priority":11,"logo_path":"/bqgpWEtokIEOF5nsliXca2BQMEn.jpg","provider_id":61,"provider_name":"Orange
+        VOD"},{"display_priority":41,"logo_path":"/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg","provider_id":68,"provider_name":"Microsoft
+        Store"},{"display_priority":52,"logo_path":"/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg","provider_id":3,"provider_name":"Google
+        Play Movies"},{"display_priority":91,"logo_path":"/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg","provider_id":35,"provider_name":"Rakuten
+        TV"},{"display_priority":107,"logo_path":"/5DORP3F8POafFQGy7j6YtXkjPjl.jpg","provider_id":138,"provider_name":"Filmo
+        TV"},{"display_priority":448,"logo_path":"/vDCcryHD32b0yMeSCgBhuYavsmx.jpg","provider_id":192,"provider_name":"YouTube"}]},"GB":{"link":"https://www.themoviedb.org/movie/460465-mortal-kombat/watch?locale=GB","rent":[{"display_priority":2,"logo_path":"/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg","provider_id":2,"provider_name":"Apple
+        iTunes"},{"display_priority":22,"logo_path":"/uA7pG0PDWFnWWwlLmdG02cmJCzB.jpg","provider_id":93,"provider_name":"Talk
+        Talk TV"},{"display_priority":41,"logo_path":"/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg","provider_id":68,"provider_name":"Microsoft
+        Store"},{"display_priority":65,"logo_path":"/vjKeS7Y9fNyqNtvp2ROCc71iu1u.jpg","provider_id":40,"provider_name":"Chili"},{"display_priority":91,"logo_path":"/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg","provider_id":35,"provider_name":"Rakuten
+        TV"},{"display_priority":99,"logo_path":"/pZgeSWpfvD59x6sY6stT5c6uc2h.jpg","provider_id":130,"provider_name":"Sky
+        Store"},{"display_priority":630,"logo_path":"/sVBEF7q7LqjHAWSnKwDbzmr2EMY.jpg","provider_id":10,"provider_name":"Amazon
+        Video"}]},"IE":{"link":"https://www.themoviedb.org/movie/460465-mortal-kombat/watch?locale=IE","rent":[{"display_priority":2,"logo_path":"/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg","provider_id":2,"provider_name":"Apple
+        iTunes"},{"display_priority":41,"logo_path":"/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg","provider_id":68,"provider_name":"Microsoft
+        Store"},{"display_priority":52,"logo_path":"/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg","provider_id":3,"provider_name":"Google
+        Play Movies"},{"display_priority":91,"logo_path":"/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg","provider_id":35,"provider_name":"Rakuten
+        TV"},{"display_priority":99,"logo_path":"/pZgeSWpfvD59x6sY6stT5c6uc2h.jpg","provider_id":130,"provider_name":"Sky
+        Store"}]},"IT":{"link":"https://www.themoviedb.org/movie/460465-mortal-kombat/watch?locale=IT","flatrate":[{"display_priority":92,"logo_path":"/bzWGPi4Jxdzm9ehkT9ZDuiwj1Hp.jpg","provider_id":39,"provider_name":"Now
+        TV"}]},"KR":{"link":"https://www.themoviedb.org/movie/460465-mortal-kombat/watch?locale=KR","buy":[{"display_priority":2,"logo_path":"/8N0DNa4BO3lH24KWv1EjJh4TxoD.jpg","provider_id":356,"provider_name":"wavve"},{"display_priority":52,"logo_path":"/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg","provider_id":3,"provider_name":"Google
+        Play Movies"}],"rent":[{"display_priority":2,"logo_path":"/8N0DNa4BO3lH24KWv1EjJh4TxoD.jpg","provider_id":356,"provider_name":"wavve"},{"display_priority":52,"logo_path":"/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg","provider_id":3,"provider_name":"Google
+        Play Movies"}]},"RU":{"link":"https://www.themoviedb.org/movie/460465-mortal-kombat/watch?locale=RU","rent":[{"display_priority":2,"logo_path":"/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg","provider_id":2,"provider_name":"Apple
+        iTunes"},{"display_priority":52,"logo_path":"/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg","provider_id":3,"provider_name":"Google
+        Play Movies"},{"display_priority":91,"logo_path":"/4AWMLvjQUQNmU3CkpLp7FSSIyZX.jpg","provider_id":501,"provider_name":"Wink"}],"buy":[{"display_priority":52,"logo_path":"/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg","provider_id":3,"provider_name":"Google
+        Play Movies"},{"display_priority":91,"logo_path":"/4AWMLvjQUQNmU3CkpLp7FSSIyZX.jpg","provider_id":501,"provider_name":"Wink"}]},"US":{"link":"https://www.themoviedb.org/movie/460465-mortal-kombat/watch?locale=US","flatrate":[{"display_priority":473,"logo_path":"/aS2zvJWn9mwiCOeaaCkIh4wleZS.jpg","provider_id":384,"provider_name":"HBO
+        Max"}]},"ZA":{"link":"https://www.themoviedb.org/movie/460465-mortal-kombat/watch?locale=ZA","buy":[{"display_priority":2,"logo_path":"/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg","provider_id":2,"provider_name":"Apple
+        iTunes"},{"display_priority":52,"logo_path":"/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg","provider_id":3,"provider_name":"Google
+        Play Movies"}],"rent":[{"display_priority":52,"logo_path":"/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg","provider_id":3,"provider_name":"Google
+        Play Movies"}]}}}'
+  recorded_at: Thu, 20 May 2021 02:24:35 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/460465/watch/providers?api_key=<movie_api_key>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 20 May 2021 01:26:42 GMT
+      Server:
+      - openresty
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
+        Content-Length, Content-Range
+      Cache-Control:
+      - public, max-age=28800
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - f5541d502b640d872025acc6fefbb3b5770d61a1
+      X-Memc-Age:
+      - '6102'
+      X-Memc-Expires:
+      - '10477'
+      Etag:
+      - W/"cc31948fe9d1ae9377a24a8b4b90f1e6"
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 23241b9c368643949e3bb1a1ba4e97c3.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - DEN50-C2
+      X-Amz-Cf-Id:
+      - JL3xyGnhgVZM9c1q0YIV8J6sO5-xZPhV17btaGquUvtlkQXY2lNspA==
+      Age:
+      - '3473'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":460465,"results":{"AT":{"link":"https://www.themoviedb.org/movie/460465-mortal-kombat/watch?locale=AT","rent":[{"display_priority":41,"logo_path":"/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg","provider_id":68,"provider_name":"Microsoft
+        Store"},{"display_priority":52,"logo_path":"/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg","provider_id":3,"provider_name":"Google
+        Play Movies"},{"display_priority":65,"logo_path":"/vjKeS7Y9fNyqNtvp2ROCc71iu1u.jpg","provider_id":40,"provider_name":"Chili"},{"display_priority":91,"logo_path":"/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg","provider_id":35,"provider_name":"Rakuten
+        TV"},{"display_priority":99,"logo_path":"/pZgeSWpfvD59x6sY6stT5c6uc2h.jpg","provider_id":130,"provider_name":"Sky
+        Store"},{"display_priority":630,"logo_path":"/sVBEF7q7LqjHAWSnKwDbzmr2EMY.jpg","provider_id":10,"provider_name":"Amazon
+        Video"}],"buy":[{"display_priority":2,"logo_path":"/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg","provider_id":2,"provider_name":"Apple
+        iTunes"},{"display_priority":41,"logo_path":"/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg","provider_id":68,"provider_name":"Microsoft
+        Store"},{"display_priority":52,"logo_path":"/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg","provider_id":3,"provider_name":"Google
+        Play Movies"},{"display_priority":65,"logo_path":"/vjKeS7Y9fNyqNtvp2ROCc71iu1u.jpg","provider_id":40,"provider_name":"Chili"},{"display_priority":91,"logo_path":"/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg","provider_id":35,"provider_name":"Rakuten
+        TV"},{"display_priority":630,"logo_path":"/sVBEF7q7LqjHAWSnKwDbzmr2EMY.jpg","provider_id":10,"provider_name":"Amazon
+        Video"}]},"CA":{"link":"https://www.themoviedb.org/movie/460465-mortal-kombat/watch?locale=CA","rent":[{"display_priority":2,"logo_path":"/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg","provider_id":2,"provider_name":"Apple
+        iTunes"},{"display_priority":41,"logo_path":"/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg","provider_id":68,"provider_name":"Microsoft
+        Store"},{"display_priority":52,"logo_path":"/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg","provider_id":3,"provider_name":"Google
+        Play Movies"},{"display_priority":54,"logo_path":"/mK7Au1go2M5MqyZ8CjkpJPM6Apb.jpg","provider_id":492,"provider_name":"ILLICO"},{"display_priority":448,"logo_path":"/vDCcryHD32b0yMeSCgBhuYavsmx.jpg","provider_id":192,"provider_name":"YouTube"},{"display_priority":630,"logo_path":"/sVBEF7q7LqjHAWSnKwDbzmr2EMY.jpg","provider_id":10,"provider_name":"Amazon
+        Video"}]},"CH":{"link":"https://www.themoviedb.org/movie/460465-mortal-kombat/watch?locale=CH","buy":[{"display_priority":2,"logo_path":"/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg","provider_id":2,"provider_name":"Apple
+        iTunes"},{"display_priority":3,"logo_path":"/dSBzj4T9P7PMUr015gnV7meT2LR.jpg","provider_id":150,"provider_name":"SwissCom"},{"display_priority":41,"logo_path":"/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg","provider_id":68,"provider_name":"Microsoft
+        Store"},{"display_priority":52,"logo_path":"/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg","provider_id":3,"provider_name":"Google
+        Play Movies"},{"display_priority":91,"logo_path":"/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg","provider_id":35,"provider_name":"Rakuten
+        TV"},{"display_priority":99,"logo_path":"/pZgeSWpfvD59x6sY6stT5c6uc2h.jpg","provider_id":130,"provider_name":"Sky
+        Store"}],"rent":[{"display_priority":2,"logo_path":"/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg","provider_id":2,"provider_name":"Apple
+        iTunes"},{"display_priority":3,"logo_path":"/dSBzj4T9P7PMUr015gnV7meT2LR.jpg","provider_id":150,"provider_name":"SwissCom"},{"display_priority":41,"logo_path":"/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg","provider_id":68,"provider_name":"Microsoft
+        Store"},{"display_priority":52,"logo_path":"/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg","provider_id":3,"provider_name":"Google
+        Play Movies"},{"display_priority":91,"logo_path":"/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg","provider_id":35,"provider_name":"Rakuten
+        TV"},{"display_priority":99,"logo_path":"/pZgeSWpfvD59x6sY6stT5c6uc2h.jpg","provider_id":130,"provider_name":"Sky
+        Store"}]},"DE":{"link":"https://www.themoviedb.org/movie/460465-mortal-kombat/watch?locale=DE","buy":[{"display_priority":2,"logo_path":"/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg","provider_id":2,"provider_name":"Apple
+        iTunes"},{"display_priority":22,"logo_path":"/kd2fTHmmkCuZ4lCucf8xH48sl89.jpg","provider_id":133,"provider_name":"Videobuster"},{"display_priority":41,"logo_path":"/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg","provider_id":68,"provider_name":"Microsoft
+        Store"},{"display_priority":52,"logo_path":"/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg","provider_id":3,"provider_name":"Google
+        Play Movies"},{"display_priority":65,"logo_path":"/vjKeS7Y9fNyqNtvp2ROCc71iu1u.jpg","provider_id":40,"provider_name":"Chili"},{"display_priority":91,"logo_path":"/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg","provider_id":35,"provider_name":"Rakuten
+        TV"},{"display_priority":246,"logo_path":"/6QfNLK9toSu2bvsWN7A0sEsTz3j.jpg","provider_id":178,"provider_name":"EntertainTV"},{"display_priority":448,"logo_path":"/vDCcryHD32b0yMeSCgBhuYavsmx.jpg","provider_id":192,"provider_name":"YouTube"},{"display_priority":630,"logo_path":"/sVBEF7q7LqjHAWSnKwDbzmr2EMY.jpg","provider_id":10,"provider_name":"Amazon
+        Video"}],"rent":[{"display_priority":22,"logo_path":"/kd2fTHmmkCuZ4lCucf8xH48sl89.jpg","provider_id":133,"provider_name":"Videobuster"},{"display_priority":41,"logo_path":"/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg","provider_id":68,"provider_name":"Microsoft
+        Store"},{"display_priority":52,"logo_path":"/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg","provider_id":3,"provider_name":"Google
+        Play Movies"},{"display_priority":65,"logo_path":"/vjKeS7Y9fNyqNtvp2ROCc71iu1u.jpg","provider_id":40,"provider_name":"Chili"},{"display_priority":91,"logo_path":"/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg","provider_id":35,"provider_name":"Rakuten
+        TV"},{"display_priority":99,"logo_path":"/pZgeSWpfvD59x6sY6stT5c6uc2h.jpg","provider_id":130,"provider_name":"Sky
+        Store"},{"display_priority":246,"logo_path":"/6QfNLK9toSu2bvsWN7A0sEsTz3j.jpg","provider_id":178,"provider_name":"EntertainTV"},{"display_priority":448,"logo_path":"/vDCcryHD32b0yMeSCgBhuYavsmx.jpg","provider_id":192,"provider_name":"YouTube"},{"display_priority":630,"logo_path":"/sVBEF7q7LqjHAWSnKwDbzmr2EMY.jpg","provider_id":10,"provider_name":"Amazon
+        Video"}]},"FR":{"link":"https://www.themoviedb.org/movie/460465-mortal-kombat/watch?locale=FR","buy":[{"display_priority":2,"logo_path":"/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg","provider_id":2,"provider_name":"Apple
+        iTunes"},{"display_priority":11,"logo_path":"/bqgpWEtokIEOF5nsliXca2BQMEn.jpg","provider_id":61,"provider_name":"Orange
+        VOD"},{"display_priority":41,"logo_path":"/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg","provider_id":68,"provider_name":"Microsoft
+        Store"},{"display_priority":52,"logo_path":"/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg","provider_id":3,"provider_name":"Google
+        Play Movies"},{"display_priority":91,"logo_path":"/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg","provider_id":35,"provider_name":"Rakuten
+        TV"},{"display_priority":107,"logo_path":"/5DORP3F8POafFQGy7j6YtXkjPjl.jpg","provider_id":138,"provider_name":"Filmo
+        TV"},{"display_priority":448,"logo_path":"/vDCcryHD32b0yMeSCgBhuYavsmx.jpg","provider_id":192,"provider_name":"YouTube"}]},"GB":{"link":"https://www.themoviedb.org/movie/460465-mortal-kombat/watch?locale=GB","rent":[{"display_priority":2,"logo_path":"/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg","provider_id":2,"provider_name":"Apple
+        iTunes"},{"display_priority":22,"logo_path":"/uA7pG0PDWFnWWwlLmdG02cmJCzB.jpg","provider_id":93,"provider_name":"Talk
+        Talk TV"},{"display_priority":41,"logo_path":"/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg","provider_id":68,"provider_name":"Microsoft
+        Store"},{"display_priority":65,"logo_path":"/vjKeS7Y9fNyqNtvp2ROCc71iu1u.jpg","provider_id":40,"provider_name":"Chili"},{"display_priority":91,"logo_path":"/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg","provider_id":35,"provider_name":"Rakuten
+        TV"},{"display_priority":99,"logo_path":"/pZgeSWpfvD59x6sY6stT5c6uc2h.jpg","provider_id":130,"provider_name":"Sky
+        Store"},{"display_priority":630,"logo_path":"/sVBEF7q7LqjHAWSnKwDbzmr2EMY.jpg","provider_id":10,"provider_name":"Amazon
+        Video"}]},"IE":{"link":"https://www.themoviedb.org/movie/460465-mortal-kombat/watch?locale=IE","rent":[{"display_priority":2,"logo_path":"/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg","provider_id":2,"provider_name":"Apple
+        iTunes"},{"display_priority":41,"logo_path":"/paq2o2dIfQnxcERsVoq7Ys8KYz8.jpg","provider_id":68,"provider_name":"Microsoft
+        Store"},{"display_priority":52,"logo_path":"/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg","provider_id":3,"provider_name":"Google
+        Play Movies"},{"display_priority":91,"logo_path":"/wuViyDkbFp4r7VqI0efPW5hFfQj.jpg","provider_id":35,"provider_name":"Rakuten
+        TV"},{"display_priority":99,"logo_path":"/pZgeSWpfvD59x6sY6stT5c6uc2h.jpg","provider_id":130,"provider_name":"Sky
+        Store"}]},"IT":{"link":"https://www.themoviedb.org/movie/460465-mortal-kombat/watch?locale=IT","flatrate":[{"display_priority":92,"logo_path":"/bzWGPi4Jxdzm9ehkT9ZDuiwj1Hp.jpg","provider_id":39,"provider_name":"Now
+        TV"}]},"KR":{"link":"https://www.themoviedb.org/movie/460465-mortal-kombat/watch?locale=KR","buy":[{"display_priority":2,"logo_path":"/8N0DNa4BO3lH24KWv1EjJh4TxoD.jpg","provider_id":356,"provider_name":"wavve"},{"display_priority":52,"logo_path":"/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg","provider_id":3,"provider_name":"Google
+        Play Movies"}],"rent":[{"display_priority":2,"logo_path":"/8N0DNa4BO3lH24KWv1EjJh4TxoD.jpg","provider_id":356,"provider_name":"wavve"},{"display_priority":52,"logo_path":"/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg","provider_id":3,"provider_name":"Google
+        Play Movies"}]},"RU":{"link":"https://www.themoviedb.org/movie/460465-mortal-kombat/watch?locale=RU","rent":[{"display_priority":2,"logo_path":"/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg","provider_id":2,"provider_name":"Apple
+        iTunes"},{"display_priority":52,"logo_path":"/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg","provider_id":3,"provider_name":"Google
+        Play Movies"},{"display_priority":91,"logo_path":"/4AWMLvjQUQNmU3CkpLp7FSSIyZX.jpg","provider_id":501,"provider_name":"Wink"}],"buy":[{"display_priority":52,"logo_path":"/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg","provider_id":3,"provider_name":"Google
+        Play Movies"},{"display_priority":91,"logo_path":"/4AWMLvjQUQNmU3CkpLp7FSSIyZX.jpg","provider_id":501,"provider_name":"Wink"}]},"US":{"link":"https://www.themoviedb.org/movie/460465-mortal-kombat/watch?locale=US","flatrate":[{"display_priority":473,"logo_path":"/aS2zvJWn9mwiCOeaaCkIh4wleZS.jpg","provider_id":384,"provider_name":"HBO
+        Max"}]},"ZA":{"link":"https://www.themoviedb.org/movie/460465-mortal-kombat/watch?locale=ZA","buy":[{"display_priority":2,"logo_path":"/q6tl6Ib6X5FT80RMlcDbexIo4St.jpg","provider_id":2,"provider_name":"Apple
+        iTunes"},{"display_priority":52,"logo_path":"/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg","provider_id":3,"provider_name":"Google
+        Play Movies"}],"rent":[{"display_priority":52,"logo_path":"/p3Z12gKq2qvJaUOMeKNU2mzKVI9.jpg","provider_id":3,"provider_name":"Google
+        Play Movies"}]}}}'
+  recorded_at: Thu, 20 May 2021 02:24:35 GMT
 recorded_with: VCR 6.0.0

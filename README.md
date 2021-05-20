@@ -1,5 +1,5 @@
 ![Title](lib/images/title_01_viewing_party.jpeg)
-
+[![Build Status](https://travis-ci.com/joemecha/viewing_party.svg?branch=main)](https://travis-ci.com/joemecha/viewing_party)
 ## Table of contents
 [**General Info**](#general-info) |
 [**Link**](#link) |

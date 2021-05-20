@@ -14,6 +14,7 @@ RSpec.describe 'Discover Movies Index page' do
       expect(page).to have_content('Search For Movies')
       expect(page).to have_field(:search)
     end
+
     it 'user can search for a movie by title', :vcr do
       visit discover_movies_path
       fill_in :search, with: 'Mortal Kombat'
@@ -37,6 +38,15 @@ RSpec.describe 'Discover Movies Index page' do
       expect(page).to have_css('.movie', count: 40)
       click_link 'Mortal Kombat'
       expect(current_path).to eq('/discover/movies/460465')
+    end
+    it 'displays similar movies to what was selected in the show', :vcr do
+      visit discover_movies_path
+      click_button 'Discover Top 40 Movies'
+      click_link 'Mortal Kombat'
+      click_button 'Similar Movies'
+      expect(page).to have_content('Movies Similar to Mortal Kombat')
+      expect(current_path).to eq(discover_movies_path)
+      expect(page).to have_css('.movie', count: 5)
     end
   end
 end

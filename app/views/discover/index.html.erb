@@ -1,5 +1,5 @@
 <h1> Movies </h1>
-<%= button_to "Discover Top 40 Movies", discover_movies_path, method: :get, :params => {:top_40 => true}%>
+<%= button_to "Discover Top 40 Movies", discover_movies_path, method: :get, :params => {:top40 => true}%>
 
 <h3>Search For Movies </h3>
 <%= form_with url: "/discover/movies", method: :get, local: true do |f| %>
@@ -22,6 +22,17 @@
 <% if defined?(@popular_movies) %>
 <h3>Popular Movies</h3>
 <% @popular_movies.each do |movie| %>
+<br>
+<div class="movie">
+  <%= link_to "#{movie.title}", "/discover/movies/#{movie.id}"%>
+  <%= movie.vote_average %>
+</div>
+<% end %>
+<% end %>
+
+<% if defined?(@similar_movies) %>
+<h3>Movies Similar to <%=params[:movie_title]%></h3>
+<% @similar_movies.each do |movie| %>
 <br>
 <div class="movie">
   <%= link_to "#{movie.title}", "/discover/movies/#{movie.id}"%>

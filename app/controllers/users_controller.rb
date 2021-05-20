@@ -9,11 +9,11 @@ class UsersController < ApplicationController
     user[:user_name] = user[:user_name].downcase
     new_user = User.create(user)
 
-    if new_user.save
-      flash[:info] = 'Registration Succesful'
-      session[:user_id] = new_user.id
-      redirect_to dashboard_path
-    end
+    return unless new_user.save
+
+    flash[:info] = 'Registration Succesful'
+    session[:user_id] = new_user.id
+    redirect_to dashboard_path
   end
 
   private
