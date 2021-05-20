@@ -22,3 +22,12 @@
 <% else %>
   <h2>There are currently no reviews for this movie</h2>
 <% end %>
+
+<h3>Similar Movies:</h3>
+<% if @similar_movies.empty? %>
+   <p>Couldn't find any similar movies</p>
+<% else %>
+  <% @similar_movies.each do |movie| %>
+    <p><%= link_to"#{movie.title}", "/movies/#{movie.id}" %></p>
+  <% end %>
+<% end %>
