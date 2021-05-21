@@ -13,7 +13,5 @@ RSpec.describe User do
     it { should have_many :parties }
     it { should have_many :friendships }
     it { should have_many(:friends).through(:friendships) }
-    # it { should have_many :following_users }
-    # it { should have_many(:followers).through(:following_users) }
   end
 end
