@@ -5,11 +5,11 @@
 
 **Goals and Expectations for the Project (What does each group member hope to get out of this project? What do we want to achieve as a team? How will we know that we're successful?):**  
 Mark: To learn from my partner!
-Andrew: 
+Andrew: To learn from both Mark and the project process itself. 
 
 **Team strengths & collaboration styles (consider discussing your Pairin qualities here):**  
 Mark is very flexible. He tries to learn a problem on his own, but will ask questions if he runs into a wall. Mark is easygoing, if it is a basic question, no judgment here.
-Andrew's ...
+Andrew: I think and I'm a good team player, I like to collaborate and figure out a solution collectively.
 
 **How we can use our strengths to overcome obstacles:**  
 We feel like our strengths mesh very well together. We both will ask questions when we run into an issue.  
@@ -26,6 +26,7 @@ Get a good grasp of rails and databases. Through this project we would like to l
 
 **Workload Expectations (What features do we each want to work on?):**  
 We can work on our own for this one.
+Andrew: I think a lot of this project will be paired programming so no one misses key concepts but there may be some division of labor depending on time constraints.
 
 **Workflow Expectations (Git workflow/Tools/Code Review/Reviewing Pull Requests/Debugging and Problem-solving Techniques):**   
 - We can create branches for this one.
@@ -34,10 +35,11 @@ We can work on our own for this one.
 
 **Pomodoro Break Schedule:**  
 Maybe take a small break, but not necessary.
+Either 25-5 or 45-10/15
 
 **Expectations for giving and receiving feedback:**  
 Mark always tries to be kind and polite when giving feedback. He likes any feedback he received to be constructive.
-Andrew ...
+Andrew: Direct, constructive, polite.e
 
 ### Additional Remote Considerations:
 
@@ -54,3 +56,4 @@ Complete DTR and start coding.
 
 **Things to improve**
 - 
+
