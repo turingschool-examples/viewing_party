@@ -21,6 +21,7 @@ gem 'jwt'
 group :development, :test do
   gem 'pry'
   gem 'travis'
+  gem 'byebug'
 end
 
 group :development do

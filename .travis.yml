@@ -8,6 +8,7 @@ script:
 - bundle exec rspec
 deploy:
   provider: heroku
-  api_key: e938df06-1f27-48a1-b9c1-72131cda2003
+  api_key:
+    secure: LUNR1EsF3qm7rOxPk8pqu9lltrphHB54ViLuuYu6nRnpYa4ef/9WDBklqzAyR2sQynDoUnqNufkF2HhJjP0BWfH/c8fDYhD7D37+9LrRo0ugwOjOAbQkrm4x36DxKbXHHDbiThiP5is+VMw3iQZu5DOPIup+uF1RXU0db7/XsfIlXtuCiBKqKTvhZYgDZvRL5GxxP3yu7YZaRf2un4a+L23iWPUWZi+CI4Aq6gxuTCkOfmGTSsFEaVdgDvNQU0EBag0wxkrHIJRREcngDrJPMOxwo0zP0Ta28k19QplFADgV/dBi3/E/scPQ+B0b04kWpGVymgaZo5wv4X86vpB4bYoiyiVtDHj4qr4ndHiMw01rprPkzVtj02HX1r7ko972NB3MXykyGzC3PZttcb0p5z5Jbm+2MhmVrBBegIXG+uSABkRxSq9KHvUc1jOzQCU6lfPj0BcBZFJB/ku7m6i7P2CAlOuvCY5F+NVYnD48mK7hepf9hKP+XSzrxRBii229oD5S+cW6EUqwOzN/mofNWxKWNHglJao+/BNqVxsXLjZRgUFH2sZQzstuzTegwjA25NobGxmq8FwRHf6kP93uif9lSd7fJjETqQ2vr7ntAJAf6bgyA+1x19Y9ccfE8JV1yhPSOq+6zh6lA4Vdr4x7/Qto6efO2+pOEkn3QJMSyng=
   app: https://viewing-party-turing.herokuapp.com/
   run: rails db:migrate
