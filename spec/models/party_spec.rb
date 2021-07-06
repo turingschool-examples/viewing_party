@@ -11,5 +11,8 @@ describe Party do
 
   describe 'relationships' do
     it {should belong_to(:host)}
+    it {should have_many(:invitations)}
+    it {should have_many(:invitees).through(:invitations)}
+
   end
 end
