@@ -7,8 +7,9 @@ describe User do
     it {should have_secure_password}
   end
 
-  # TODO
-  # describe 'relationships' do
-  #   it {}
-  # end
+  describe 'relationships' do
+    it {should have_many(:friendships)}
+    it {should have_many(:friends).through(:friendship)}
+    it {should belong_to(:user).through(:friendship)}
+  end
 end
