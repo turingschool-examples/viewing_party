@@ -8,7 +8,7 @@ RSpec.describe User, type: :model do
     it { should have_many(:frienders).class_name('User') }
 
     it { should have_many(:attendees).dependent(:destroy) }
-    it { should have_many(:viewing_parties) }
+    it { should have_many(:movie_parties) }
     # it { should have_many(:viewing_parties).dependent(:destroy)}
   end
 
