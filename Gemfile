@@ -7,6 +7,7 @@ end
 
 ruby '2.7.2'
 
+gem 'bcrypt'  ##added
 gem 'rails', '5.2.5'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.7'
