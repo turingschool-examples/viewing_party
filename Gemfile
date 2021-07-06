@@ -19,6 +19,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'faraday'
 gem 'json'  
 gem 'active-designer'
+gem 'factory_bot_rails'
+gem 'faker'
 
 group :development, :test do
   gem 'pry'
