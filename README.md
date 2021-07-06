@@ -1,4 +1,4 @@
-<!-- ![schema](./Users/jcortespomeo/Desktop/db_schema.png) -->
+<!-- ![schema](./Users/jcortespomeo/Desktop/schema.png) -->
 ![schema](schema.png)
 ____________________________________________________________________________
 # Viewing Party
