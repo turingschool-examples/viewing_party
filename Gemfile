@@ -7,6 +7,7 @@ end
 
 ruby '2.7.2'
 
+gem 'bcrypt'  ##added
 gem 'rails', '5.2.5'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.7'
@@ -16,7 +17,10 @@ gem 'coffee-rails', '~> 4.2'
 gem 'bootsnap'
 gem 'jbuilder', '~> 2.5'
 gem 'faraday'
-gem 'json'
+gem 'json'  
+gem 'active-designer'
+gem 'factory_bot_rails'
+gem 'faker'
 
 group :development, :test do
   gem 'pry'
@@ -28,7 +32,6 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'rubocop-rails'
   gem 'figaro'
-  gem 'active-designer'
 end
 
 group :test do
