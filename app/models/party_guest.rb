@@ -1,5 +1,4 @@
 class PartyGuest < ApplicationRecord
   belongs_to :party
-  belongs_to :user  #as :guest_id
-
+  belongs_to :guest, class_name: :User  #as :guest_id
 end
