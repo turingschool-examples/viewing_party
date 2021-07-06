@@ -1,4 +1,4 @@
-![schema](schema.png)
+<img width="1058" alt="schema" src="https://user-images.githubusercontent.com/75275648/124644758-d73fd700-de4f-11eb-9d76-f1b72be067af.png">
 ____________________________________________________________________________
 # Viewing Party
 
