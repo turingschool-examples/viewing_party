@@ -1,0 +1,31 @@
+<style>
+body {
+  background-image: url(https://blog.mywallst.com/wp-content/uploads/2020/08/felix-mooneeram-evlkOfkQ5rE-unsplash-1210x642.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  text-align: center;
+  color: #4190a3;
+}
+a:link, a:visited {
+  background: transparent;
+  color: #03a9fc;
+  text-decoration: underline;
+}
+a:hover {
+  font-weight: 700;
+  color: #90c6d4;
+}
+</style>
+
+
+<h1>Welcome to Viewing Party!</h1>
+<h3>Browsing movies, create viewing partys, and invite friends!!!</h3>
+<br>
+<br>
+<%= button_to "Log in here", '/log_in', method: :get %>
+<p>Haven't created an account yet? <%= link_to "Regester here", '/register' %></p>
+<br>
+<br>
+<br>
+<br>
