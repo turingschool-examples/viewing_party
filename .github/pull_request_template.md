@@ -32,5 +32,3 @@ Checklist:
     [] I have reviewed my code
     [] I have commented my code, particularly in hard-to-understand areas
     [] I have fully tested my code
-    
-    ---------
