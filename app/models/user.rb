@@ -1,7 +1,9 @@
 class User < ApplicationRecord
-  validates :email, :password_digest, presence: true
+  validates :email, uniqueness: true, presence: true
+  validates :password, presence: true
 
-  belongs_to :friendship
   has_many :friendships
+  has_many :friends, class_name: :User, through: :friendships
 
+  has_secure_password
 end

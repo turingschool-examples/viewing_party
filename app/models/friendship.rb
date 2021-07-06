@@ -1,5 +1,5 @@
 class Friendship < ApplicationRecord
   belongs_to :user
-  has_many :users  #as :friend_id
+  belongs_to :friend, class_name: :User #as :friend_id
 
 end
