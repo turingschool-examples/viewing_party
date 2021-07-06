@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Invitation do
   describe 'relationships' do
-    it {should belong_to(:parties)}
-    it {should belong_to(:attendees)}
+    it {should belong_to(:party)}
+    it {should belong_to(:invitee)}
   end
 end

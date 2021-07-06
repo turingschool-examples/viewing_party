@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships
   has_many :parties, foreign_key: :host_id, dependent: :destroy
+  has_many :invitations
 end

@@ -11,6 +11,5 @@ describe User do
     it {should have_many(:friendships)}
     it {should have_many(:friends).through(:friendships)}
     it {should have_many(:parties)}
-    it {should have_many(:party_guests)}
   end
 end
