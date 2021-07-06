@@ -21,6 +21,7 @@ gem 'json'
 gem 'active-designer'
 gem 'factory_bot_rails'
 gem 'faker'
+gem 'bootstrap'
 
 group :development, :test do
   gem 'pry'
