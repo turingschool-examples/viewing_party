@@ -6,4 +6,9 @@ describe User do
     it {should validate_presence_of(:email)}
     it {should have_secure_password}
   end
+
+  # TODO
+  # describe 'relationships' do
+  #   it {}
+  # end
 end
