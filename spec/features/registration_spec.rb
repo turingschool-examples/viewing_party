@@ -1,14 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe "User registration form" do
-  it "creates new user" do
-    # commented out because I don't have a welcome page
-    # visit root_path 
-
-    # click_on "Register Here!"
-    # expect(current_path).to eq('/registration')
+  it "can create new user" do
     visit registration_path 
-   
+    expect(current_path).to eq(registration_path) 
+    
     email = "hi@here.com"
     password = "hello"
     password_confirmation = "hello"
@@ -19,6 +15,15 @@ RSpec.describe "User registration form" do
 
     click_on "Register User"
 
+    # We don't have a dashboard yet
+    # expect(current_path).to eq(dashboard_path)
     expect(page).to have_content("Welcome, #{email}!")
+  end
+
+  xit 'returns error message when you fail to register' do
+    click_on "Register User"
+
+    expect(current_path).to eq(registration_path)
+    expect(page).to have_content("Unable to Register")
   end
 end
