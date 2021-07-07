@@ -14,14 +14,14 @@ RSpec.describe "welcome page" do
   end
 
   it 'creates new user' do
-    save_and_open_page
+    # save_and_open_page
     click_link 'Register here'
 
     expect(current_path).to eq('/register')
 
     username = "movielover3"
     password = "abc123"
-    # save_and_open_page
+
     fill_in "user[username]", with: username
     fill_in "user[password]", with: password
 

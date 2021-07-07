@@ -7,7 +7,10 @@ class UsersController < ApplicationController
     user = user_params
     user[:username] = user[:username].downcase
     new_user = User.create(user)
-    flash[:success] = "Welcome, #{new_user.username}!"
+    if new_user.save
+        session[:user_id] = new_user.id
+        flash[:success] = "Welcome, #{new_user.username}!"
+    end
     redirect_to root_path
   end
 
