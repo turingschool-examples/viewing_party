@@ -21,8 +21,9 @@ gem 'json'
 gem 'active-designer'
 gem 'factory_bot_rails'
 gem 'faker'
-gem 'bootstrap'
+gem 'bootstrap', "~> 4.0.0"
 gem "bootstrap_form", "~> 4.0"
+gem 'jquery-rails'
 
 group :development, :test do
   gem 'pry'
