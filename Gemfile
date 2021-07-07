@@ -22,6 +22,7 @@ gem 'active-designer'
 gem 'factory_bot_rails'
 gem 'faker'
 gem 'bootstrap'
+gem "bootstrap_form", "~> 4.0"
 
 group :development, :test do
   gem 'pry'
