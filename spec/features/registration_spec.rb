@@ -15,15 +15,15 @@ RSpec.describe "User registration form" do
 
     click_on "Register User"
 
-    # We don't have a dashboard yet
-    # expect(current_path).to eq(dashboard_path)
+    expect(current_path).to eq(dashboard_path)
     expect(page).to have_content("Welcome, #{email}!")
   end
 
-  xit 'returns error message when you fail to register' do
+  it 'returns error message when you fail to register' do
+    visit registration_path 
     click_on "Register User"
 
     expect(current_path).to eq(registration_path)
-    expect(page).to have_content("Unable to Register")
+    expect(page).to have_content("Passwords do not match")
   end
 end

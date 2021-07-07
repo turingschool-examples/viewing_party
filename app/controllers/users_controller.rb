@@ -8,12 +8,17 @@ class UsersController < ApplicationController
     user = user_params 
     user[:email] = user[:email].downcase 
     new_user = User.create(user)
-    redirect_to dashboard_path 
-    flash[:success] = "Welcome, #{new_user[:email]}!"
+    if new_user.save 
+      redirect_to dashboard_path
+      flash[:success] = "Welcome, #{new_user[:email]}!"
+    else
+      flash[:error] = "Passwords do not match"
+      redirect_to registration_path
+    end
   end
 
   def show 
-    
+
   end
 
   private
