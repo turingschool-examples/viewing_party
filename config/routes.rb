@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   
   get "/registration", to: "users#new"
   post "/registration", to: "users#create"
+  get "/dashboard", to: "users#show"
+  
 end

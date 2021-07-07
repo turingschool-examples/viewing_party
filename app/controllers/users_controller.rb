@@ -12,6 +12,10 @@ class UsersController < ApplicationController
     flash[:success] = "Welcome, #{new_user[:email]}!"
   end
 
+  def show 
+    
+  end
+
   private
     def user_params 
       params.require(:user).permit(:email, :password, :password_confirmation)
