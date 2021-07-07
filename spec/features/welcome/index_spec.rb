@@ -10,23 +10,12 @@ RSpec.describe "welcome page" do
   end
 
   it 'has a brief description of the application' do
-    expect(page).to have_content("Browsing movies, create viewing partys, and invite friends!!!")
+    expect(page).to have_content("Browse movies, create viewing partys, and invite friends!!!")
   end
 
-  it 'creates new user' do
-    # save_and_open_page
+  it 'has a link to register user' do
     click_link 'Register here'
 
     expect(current_path).to eq('/register')
-
-    username = "movielover3"
-    password = "abc123"
-
-    fill_in "user[username]", with: username
-    fill_in "user[password]", with: password
-
-    click_on "Create Account"
-
-    expect(page).to have_content("Welcome, #{username}!")
   end
 end

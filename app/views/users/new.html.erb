@@ -1,7 +1,19 @@
+<h3>Please enter info here</h3>
 <%= form_with model: @user, local: true do |form| %>
   <%= form.label :username, 'Username:' %>
+  <br>
   <%= form.text_field :username %>
+  <br>
+  <br>
   <%= form.label :password, 'Password:' %>
+  <br>
   <%= form.password_field :password %>
+  <br>
+  <br>
+  <%= form.label :password_confirmation, 'Confirm Password:' %>
+  <br>
+  <%= form.password_field :password_confirmation %>
+  <br>
+  <br>
   <%= form.submit 'Create Account' %>
 <% end %>
