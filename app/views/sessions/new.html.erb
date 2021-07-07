@@ -1,0 +1,14 @@
+<h1 align="center">Welcome Viewing Party</h1>
+
+<% if current_user %>
+  <%= link_to "Log out", '/logout', method: :delete %>
+<% else %>
+  <%= form_with url:'/login', method: :post, local: true do |f| %>
+      <%= f.label :username, "Username: " %>
+      <%= f.text_field :username %>
+      <%= f.label :password, "Password: " %>
+      <%= f.password_field :password %>
+      <%= f.submit "Log in" %>
+  <% end %>
+  <%= link_to "New to Viewing Party? Register Here", "/register" %>
+<% end %>
