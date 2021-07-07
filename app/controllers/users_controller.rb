@@ -7,7 +7,6 @@ class UsersController < ApplicationController
     user = user_params
     user[:email] = user[:email].downcase
     new_user = User.create(user)
-
     if new_user.save
       flash[:success] = "Welcome, #{new_user.email}"
       session[:user_id] = new_user.id
@@ -19,6 +18,7 @@ class UsersController < ApplicationController
   end
 
   private
+
   def user_params
     params.permit(:email, :password, :password_confirmation)
   end
