@@ -81,6 +81,10 @@ GEM
     database_cleaner-core (2.0.1)
     diff-lcs (1.4.4)
     docile (1.3.5)
+    dotenv (2.7.6)
+    dotenv-rails (2.7.6)
+      dotenv (= 2.7.6)
+      railties (>= 3.2)
     erubi (1.10.0)
     execjs (2.8.0)
     factory_bot (4.11.1)
@@ -329,6 +333,7 @@ DEPENDENCIES
   capybara
   coffee-rails (~> 4.2)
   database_cleaner
+  dotenv-rails
   factory_bot_rails
   jbuilder (~> 2.5)
   jwt
