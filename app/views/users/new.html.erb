@@ -1,0 +1,10 @@
+<div class="container" style="width: 30%">
+  <div class="col-sm", style='padding-left: 25px'>
+    <%= bootstrap_form_with(model: @user, url: registration_path, local: true) do |f| %>
+      <%= f.email_field :email %>
+      <%= f.password_field :password %>
+      <%= f.password_field :password_confirmation %>
+      <%= f.submit 'Register User' %>
+    <% end %>
+  </div>
+</div>
