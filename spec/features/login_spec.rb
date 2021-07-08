@@ -24,7 +24,7 @@ RSpec.describe 'login process' do
 
         click_on 'Log in'
 
-        expect(page).to have_current_path("/users/#{user.id}")
+        expect(page).to have_current_path("/dashboard")
         expect(page).to have_link('Log out')
 
         visit '/'
