@@ -7,3 +7,12 @@
     <p>I already have an account, log me in!</p>
     <%= button_to "Login", "/login" %>
 </div>
+
+# <% if current_user %>
+#     <%= button_to "Log out", '/logout', method: :delete %>
+# <% else %>
+#     <p>I want this service, sign me up!</p>
+#     <%= button_to "Register", "/register" %>
+#     <p>I already have an account, log me in!</p>
+#     <%= button_to "Login", "/login" %>
+# <% end %>
