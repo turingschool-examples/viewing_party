@@ -28,4 +28,9 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:username, :password, :password_confirmation)
   end
+# IDK HOW TO DO THIS.
+  #   <%= form_with model: @friendship, local: true do |form| %>
+  #   <%= form.label :email, 'Email:' %>
+  #   <%= form.submit 'Add Friend' %>
+  # <% end %>
 end
