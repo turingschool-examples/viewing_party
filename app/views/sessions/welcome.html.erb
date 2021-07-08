@@ -8,7 +8,7 @@
   <%= link_to "Log out", '/logout', method: :delete %>
 <% else %>
   <div class="login-form">
-    <%= form_with url:'/login', method: :post, local: true do |f| %>
+    <%= form_with url:'/', method: :post, local: true do |f| %>
         <%= f.label :email, "Email: " %>
         <%= f.text_field :email %><br><br>
         <%= f.label :password, "Password: " %>
