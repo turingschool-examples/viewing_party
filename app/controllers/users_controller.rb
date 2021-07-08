@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       redirect_to "/users/#{new_user.id}/dashboard"
       flash[:success] = "Welcome, #{new_user.email}!"
     else
-      flash[:error] = new_user.errors.full_messages.join + " for #{new_user.email}! Please try again!"
+      flash[:error] = new_user.errors.full_messages.join + "! Please try again!"
       redirect_to '/register'
     end
   end
