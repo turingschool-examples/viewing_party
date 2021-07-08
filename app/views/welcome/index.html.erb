@@ -1,8 +1,9 @@
 <h1>Welcome</h1>
+<h2>This app will help you find movies and invite your friends to watch them with you!</h2>
 
 <% if current_user %>
     <%= link_to "Log out", '/logout', method: :delete %>
 <% else %>
-    <%= link_to "Register New Account", "/register" %>
+    <%= link_to "Register New Account", "/register" %><p>
     <%= link_to "I already have an Account", "/login" %>
 <% end %>
