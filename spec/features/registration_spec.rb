@@ -8,26 +8,24 @@ RSpec.describe "Registration Page" do
       click_link 'Link to Registration'
 
       email = 'andrew@smith.com'
-      password = 'smith'
-      confirm_password = 'smith'
+      password = 'andrewsmith'
+      confirm_password = 'andrewsmith'
 
       fill_in 'user[email]', with: email
       fill_in 'user[password]', with: password
       fill_in 'user[password_confirmation]', with: confirm_password
-
+ 
       click_on 'Register'
 
       expect(page).to have_content("Welcome, #{email}!")
     end
 
-    it 'sad path' do
-      visit root_path
-
-      click_link 'Link to Registration'
+    it 'password sad path' do
+      visit '/register'
 
       email = 'andrew@smith.com'
-      password = 'smith'
-      confirm_password = 'smiths'
+      password = 'andrewsmith'
+      confirm_password = 'andrewsmiths'
 
       fill_in 'user[email]', with: email
       fill_in 'user[password]', with: password
@@ -35,7 +33,23 @@ RSpec.describe "Registration Page" do
 
       click_on 'Register'
 
-      expect(page).to have_content("Password confirmation doesn't match Password for #{email}! Please try again!")
+      expect(page).to have_content("Password confirmation doesn't match Password! Please try again!")
+    end
+
+    it 'email sad path' do
+      visit '/register'
+
+      email = 'andrew#smith.com'
+      password = 'andrewsmith'
+      confirm_password = 'andrewsmith'
+
+      fill_in 'user[email]', with: email
+      fill_in 'user[password]', with: password
+      fill_in 'user[password_confirmation]', with: confirm_password
+
+      click_on 'Register'
+
+      expect(page).to have_content('Email is invalid! Please try again!')
     end
   end
 end
