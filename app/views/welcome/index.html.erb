@@ -2,5 +2,9 @@
 <h3>Browse movies, create viewing partys, and invite friends!!!</h3>
 <br>
 <br>
-<%= button_to "Log in here", '/log_in', method: :get %>
-<p>Haven't created an account yet? <%= link_to "Register here", '/register' %></p>
+<% if current_user %>
+    <%= link_to "Log out", '/logout', method: :delete %>
+<% else %>
+  <%= button_to "Log in here", '/login', method: :get %>
+  <p>Haven't created an account yet? <%= link_to "Register here", '/register' %></p>
+<% end %>
