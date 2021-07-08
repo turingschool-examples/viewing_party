@@ -27,8 +27,8 @@ RSpec.describe "Welcome Page" do
     it 'it displays a registration link with desctiption for new users' do
 
         expect(page).to have_content("I want this service, sign me up!")
-        click_button('Register')
-        expect(current_path).to eq(users_path)
+        click_link('Register')
+        expect(current_path).to eq("/registration")
       end
     end
   end
