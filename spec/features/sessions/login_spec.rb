@@ -15,10 +15,8 @@ describe 'logging in' do
 
         click_on "Log in"
 
-        expect(current_path).to eq(root_path)
+        expect(current_path).to eq(dashboard_path)
         expect(page).to have_content("Welcome, person@ex.com!")
-        expect(page).to_not have_link("I already have an account")
-        expect(page).to_not have_link("Register here")
         expect(page).to have_link("Log out")
 
         click_link("Log out")
