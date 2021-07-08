@@ -17,7 +17,7 @@ RSpec.describe "Login Page" do
 
       click_link("Log Out")
 
-      expect(current_page).to eq(root_path)
+      expect(current_path).to eq(root_path)
       expect(page).to_not have_link("Log Out")
       expect(page).to have_link("Link to Registration")
     end
