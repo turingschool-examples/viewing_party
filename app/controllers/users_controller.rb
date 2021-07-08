@@ -4,7 +4,6 @@ class UsersController < ApplicationController
 
   def new
       @user = User.new
-      # require 'pry';binding.pry
   end
 
   def create
@@ -13,6 +12,13 @@ class UsersController < ApplicationController
       new_user = User.create(user)
       flash[:success] = "Welcome, #{new_user.email}!"
       redirect_to "/"
+  end
+
+  def show
+    # require 'pry';binding.pry
+    @user = User.all.first
+    # @user = current_user  ##not in Session
+    #my_string[/[^@]+/]
   end
 
   private

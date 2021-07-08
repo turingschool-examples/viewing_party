@@ -20,7 +20,7 @@ describe 'logging in' do
 
     expect(current_path).to eq("/dashboard")
     expect(page).to_not have_link("New to Viewing Party? Register Here")
-    expect(page).to have_content("Welcome, test123@xyz.com!")
+    expect(page).to have_content("test123@xyz.com is signed in")
     # expect(page).to have_link("Log out")
     #
     # click_link("Log out")
