@@ -21,6 +21,6 @@ RSpec.describe 'User Registration form' do
 
         click_on 'Register'
 
-        expect(page).to have_content("Welcome, #{email}!")
+        expect(page).to have_content("Welcome, #{email}")
     end
 end

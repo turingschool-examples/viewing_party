@@ -9,12 +9,12 @@ class UsersController < ApplicationController
         user[:email] = user[:email].downcase
         new_user = User.create!(user)
         cookies.encrypted[:user_id] = new_user.id
-        flash[:success] = "Welcome, #{new_user.email}!"
+        flash[:success] = "Account created succesfully!"
         redirect_to "/dashboard"
     end
 
     def show
-      @user = User.find(cookies.encrypted[:user_id])
+      
     end
 
     private

@@ -329,7 +329,7 @@ DEPENDENCIES
   capybara
   coffee-rails (~> 4.2)
   database_cleaner
-  factory_bot_rails (~> 4.0)
+  factory_bot_rails
   jbuilder (~> 2.5)
   jwt
   launchy

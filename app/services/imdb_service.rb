@@ -10,7 +10,7 @@ class ImdbService
     ruby_body = ruby_body_1[:results].concat(ruby_body_2[:results])
     return 'No Movies Found' if ruby_body == []
     ruby_body.each_with_object([]) do |movie, array|
-      array.push({title: movie[:title], vote: [:vote_average]})
+      array.push({title: movie[:title], vote: movie[:vote_average]})
     end
   end
   def self.top_movies
@@ -22,7 +22,7 @@ class ImdbService
     ruby_body_2 = JSON.parse(body_2, symbolize_names: true)
     ruby_body = ruby_body_1[:results].concat(ruby_body_2[:results])
     ruby_body.each_with_object([]) do |movie, array|
-      array.push({title: movie[:title], vote: [:vote_average]})
+      array.push({title: movie[:title], vote: movie[:vote_average]})
     end
   end
 end

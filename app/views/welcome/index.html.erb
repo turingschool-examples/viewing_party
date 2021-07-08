@@ -2,7 +2,9 @@
 <h2>This app will help you find movies and invite your friends to watch them with you!</h2>
 
 <% if current_user %>
-    <%= link_to "Log out", '/logout', method: :delete %>
+  <%= form_with url: '/logout', local: true, method: :delete do |form| %>
+    <%= form.submit 'Log out' %>
+  <% end %>
 <% else %>
     <%= link_to "Register New Account", "/register" %><p>
     <%= link_to "I already have an Account", "/login" %>
