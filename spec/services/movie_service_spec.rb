@@ -23,7 +23,16 @@ RSpec.describe MovieService do
     end
 
     describe '#find_by_title' do
-      it 'can find movie '
+      it 'can find movie by its title' do
+        response = @m.find_by_title("Cruella")
+
+        expect(response).to have_key(:results)
+        expect(response).to have_key(:page)
+        expect(response[:results]).to be_an(Array)
+        expect(response[:total_results]).to eq(5)
+        expect(response[:results].first[:title]).to eq("Cruella")
+        expect(response[:results].last[:title]).to eq("Cruella De Vil: Drawn to Be Bad")
+      end
     end
   end
 end
