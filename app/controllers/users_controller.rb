@@ -6,16 +6,13 @@ class UsersController < ApplicationController
 
     def create
         user = user_params
-        # binding.pry
         user[:email] = user[:email].downcase
-        # binding.pry
         new_user = User.new(user)
         if new_user.save
           # session[:user_id] = new_user.id
           flash[:success] = "Welcome, #{new_user.email}!"
           redirect_to "/users/#{new_user.id}"
         else
-          # binding.pry
           if User.find_by(email: user[:email]) != nil
             flash[:error] = "invalid email or password"
           else
@@ -23,8 +20,6 @@ class UsersController < ApplicationController
           end
           redirect_to '/register'
         end
-        # binding.pry
-        # binding.pry
     end
 
     def show
