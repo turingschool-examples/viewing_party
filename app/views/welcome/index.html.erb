@@ -1,1 +1,8 @@
-<%= link_to 'Register New Account', '/register' %>
+<h1>Welcome</h1>
+
+<% if current_user %>
+    <%= link_to "Log out", '/logout', method: :delete %>
+<% else %>
+    <%= link_to "Register New Account", "/register" %>
+    <%= link_to "I already have an Account", "/login" %>
+<% end %>
