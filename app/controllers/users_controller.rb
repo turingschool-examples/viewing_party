@@ -1,5 +1,14 @@
 class UsersController < ApplicationController
 
+  def show
+    if current_user
+      @user = User.find(session[:user_id])
+    else
+      flash[:error] = 'You must be logged in to view this page.'
+      redirect_to '/login'
+    end
+  end
+
   def new
     @user = User.new
   end
