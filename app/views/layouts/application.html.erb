@@ -6,18 +6,24 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <style>
+      h1 {text-align: center;}
+      p {text-align: center;}
+      div {text-align: center;}
+      section {text-align: center;}
+    </style>
   </head>
 
   <body>
     <main>
       <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, class: name%>
+        <%= content_tag :div, msg, class: name %>
       <% end %>
       <%= yield %>
     </main>
     <footer>
-      <img src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg" alt="The MovieDB Logo" width="75px" style="margin:10px" >
       <div>
+      <img src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg" alt="The MovieDB Logo" width="75px" style="margin:10px" >
         <p>
           Thank you to <a href="https://www.themoviedb.org/about/logos-attribution">The MovieDB</a> for providing the movie data that is used in this application.
         </p>
