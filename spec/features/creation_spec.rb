@@ -2,14 +2,14 @@ require 'rails_helper'
 
 RSpec.describe 'User Registration form' do
 
-    it 'is accessed through from the root' do
-        visit root_path
+  it 'is accessed through from the root' do
+      visit root_path
 
-        click_on 'Register New Account'
+      click_on 'Register New Account'
 
-        expect(page).to have_current_path('/register')
-        expect(page).to have_button('Register')
-    end
+      expect(page).to have_current_path('/register')
+      expect(page).to have_button('Register')
+  end
 
   describe "submitting form " do
     describe "happy path" do
@@ -21,6 +21,7 @@ RSpec.describe 'User Registration form' do
 
         fill_in 'user[email]', with: email
         fill_in 'user[password]', with: password
+        fill_in 'user[password_confirmation]', with: password
 
         click_on 'Register'
 
@@ -39,6 +40,7 @@ RSpec.describe 'User Registration form' do
 
           fill_in 'user[email]', with: email
           fill_in 'user[password]', with: password
+          fill_in 'user[password_confirmation]', with: password
 
           click_on 'Register'
 
@@ -59,6 +61,7 @@ RSpec.describe 'User Registration form' do
 
           fill_in 'user[email]', with: email
           fill_in 'user[password]', with: password
+          fill_in 'user[password_confirmation]', with: password
 
           click_on 'Register'
 
@@ -77,6 +80,7 @@ RSpec.describe 'User Registration form' do
         password = 'foobar'
 
         fill_in 'user[password]', with: password
+        fill_in 'user[password_confirmation]', with: password
 
         click_on 'Register'
 
@@ -93,26 +97,87 @@ RSpec.describe 'User Registration form' do
 
         fill_in 'user[email]', with: email
         fill_in 'user[password]', with: password
+        fill_in 'user[password_confirmation]', with: password
 
         click_on 'Register'
 
         expect(page).to have_content("invalid email or password")
       end
 
-      it 'requires passwords to be filled out ' do
-        visit '/register'
+      describe 'it requires password fields to be filled out' do
+        it ' password mush be filled out ' do
+          visit '/register'
 
-        email = 'test@turing.com'
+          email = 'test@turing.com'
+          password = 'foobar'
 
-        fill_in 'user[email]', with: email
+          fill_in 'user[email]', with: email
+          fill_in 'user[password_confirmation]', with: password
 
-        click_on 'Register'
+          click_on 'Register'
 
-        expect(page).to have_content("Password can't be blank")
+          expect(page).to have_content("Password can't be blank")
+        end
+        
+        it ' password confirmation must be filled out ' do
+          visit '/register'
+
+          email = 'test@turing.com'
+          password = 'foobar'
+
+          fill_in 'user[email]', with: email
+          fill_in 'user[password]', with: password
+
+          click_on 'Register'
+
+          expect(page).to have_content("Password confirmation doesn't match Password")
+        end
+
+        it ' both mush be filled out ' do
+          visit '/register'
+
+          email = 'test@turing.com'
+          password = 'foobar'
+
+          fill_in 'user[email]', with: email
+
+          click_on 'Register'
+
+          expect(page).to have_content("Password can't be blank")
+        end
       end
 
-      # it 'requires passwords to match  ' do
-      # end
+      describe 'requires passwords to match  ' do
+        it 'fails if they dont match'do
+          visit '/register'
+
+          email = 'test@turing.com'
+          password = 'foobar'
+
+          fill_in 'user[email]', with: email
+          fill_in 'user[password]', with: password
+          fill_in 'user[password_confirmation]', with: "asdlfjasklfs"
+
+          click_on 'Register'
+
+          expect(page).to have_content("Password confirmation doesn't match Password")
+        end
+
+        it ' is case sensative 'do
+          visit '/register'
+
+          email = 'test@turing.com'
+          password = 'foobar'
+
+          fill_in 'user[email]', with: email
+          fill_in 'user[password]', with: password
+          fill_in 'user[password_confirmation]', with: "FOOBAR"
+
+          click_on 'Register'
+
+          expect(page).to have_content("Password confirmation doesn't match Password")
+        end
+      end
     end
 
   end

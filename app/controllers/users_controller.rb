@@ -8,6 +8,8 @@ class UsersController < ApplicationController
         user = user_params
         user[:email] = user[:email].downcase
         new_user = User.new(user)
+
+
         if new_user.save
           # session[:user_id] = new_user.id
           flash[:success] = "Welcome, #{new_user.email}!"
@@ -29,7 +31,7 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:email, :password)
+        params.require(:user).permit(:email, :password, :password_confirmation)
     end
 
 end
