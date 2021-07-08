@@ -3,4 +3,6 @@ class User < ApplicationRecord
   has_many :friends, through: :friendships  
   has_many :invitations
   has_many :parties, through: :invitations
+
+  has_secure_password
 end
