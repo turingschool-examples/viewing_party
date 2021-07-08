@@ -26,6 +26,48 @@ RSpec.describe 'User Registration form' do
 
         expect(page).to have_content("Welcome, #{email}!")
       end
+
+      describe 'it makes a user in the data base' do
+        it 'makes a new row in our table' do
+          email = 'test@turing.com'
+          password = 'foobar'
+
+          user = User.find_by(email: email)
+          expect(user).to eq(nil)
+
+          visit '/register'
+
+          fill_in 'user[email]', with: email
+          fill_in 'user[password]', with: password
+
+          click_on 'Register'
+
+          new_user = User.find_by(email: email)
+
+          expect(new_user).to_not eq(nil)
+          expect(new_user.email).to eq(email)
+        end
+
+        it 'encripts password' do
+          email = 'test@turing.com'
+          password = 'foobar'
+
+          user = User.find_by(email: email)
+          expect(user).to eq(nil)
+
+          visit '/register'
+
+          fill_in 'user[email]', with: email
+          fill_in 'user[password]', with: password
+
+          click_on 'Register'
+
+          new_user = User.find_by(email: email)
+
+          expect(new_user.password_digest).to_not eq(password)
+        end
+      end
+
     end
 
     describe "sad paths" do
