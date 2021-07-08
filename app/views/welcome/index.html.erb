@@ -1,0 +1,13 @@
+<h1>Welcome to Viewing Party!</h1>
+<h3>Remove the pysical barrier of distance and watch movies with your friends, from anywhere in the world!</h3>
+
+<% if current_user %>
+   <%= button_to "Log out", '/logout', method: :delete %>
+<% else %>
+   <p>I want this service, sign me up!</p>
+   <%= button_to "Register", "/users" %>
+   <p>I already have an account.</p>
+   <%= button_to "Log me in!", "/login" %>
+<% end %>
+
+<br>
