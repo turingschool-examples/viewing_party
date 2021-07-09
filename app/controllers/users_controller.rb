@@ -14,7 +14,8 @@ class UsersController < ApplicationController
     end
 
     def show
-      
+      @friends = current_user.friends
+      require 'pry', binding.pry
     end
 
     private
