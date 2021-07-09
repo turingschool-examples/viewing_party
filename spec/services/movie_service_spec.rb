@@ -11,6 +11,17 @@ RSpec.describe MovieService do
 
   describe 'instance methods' do 
     describe '#top_rated' do 
+     it 'can connect to tmdb api' do
+        response = @m.request_api('3/movie/upcoming')
+        
+        expect(response).to have_key(:results)
+        expect(response).to have_key(:page)
+        expect(response[:results]).to be_an(Array)
+        expect(response[:results].first[:title]).to eq("Luca")
+      end
+    end
+
+    describe '#top_rated' do 
       it 'can return list of top rated movies' do
         response = @m.top_rated
         # json_response = File.open('./fixtures/')
