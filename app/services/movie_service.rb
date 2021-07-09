@@ -15,6 +15,10 @@ class MovieService
   def find_by_id(movie_id)
     request_api("/3/movie/#{movie_id}")
   end
+
+  def find_cast(movie_id)
+    request_api("/3/movie/#{movie_id}/credits")
+  end
   
   def request_api(path)
     resp = conn('https://api.themoviedb.org/').get(path) do |faraday|
