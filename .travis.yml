@@ -11,5 +11,5 @@ script:
 deploy:
   provider: heroku
   api_key:
-  app:
+  app: shrouded-plains-74033
   run: rails db:migrate

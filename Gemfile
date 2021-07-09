@@ -21,6 +21,10 @@ gem 'json'
 gem 'active-designer'
 gem 'factory_bot_rails'
 gem 'faker'
+gem 'bootstrap', "~> 4.0.0"
+gem "bootstrap_form", "~> 4.0"
+gem 'jquery-rails'
+gem 'figaro'
 
 group :development, :test do
   gem 'pry'
@@ -31,7 +35,6 @@ group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'rubocop-rails'
-  gem 'figaro'
 end
 
 group :test do
