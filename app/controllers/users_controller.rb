@@ -1,5 +1,4 @@
-class UsersController < ApplicationController 
-
+class UsersController < ApplicationController
   def new
     @user = User.new
   end
@@ -17,8 +16,9 @@ class UsersController < ApplicationController
     end
   end
 
-  def show 
-
+  def show
+    redirect_to welcome_path if current_user.nil?
+    @user = current_user 
   end
 
   private
