@@ -71,5 +71,16 @@ RSpec.describe MovieService do
         expect(response[:cast].length).to eq(29)
       end
     end
+
+    describe '#find_reviews' do
+      it 'can find reviews by movie id' do
+        response = @m.find_reviews(337404)
+
+        expect(response).to have_key(:results)
+        expect(response[:results].first[:author]).to eq("msbreviews")
+        expect(response[:results].first[:author_details][:username]).to eq("msbreviews")
+        expect(response[:results].length).to eq(2)
+      end
+    end
   end
 end
