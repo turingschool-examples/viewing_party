@@ -4,9 +4,23 @@
 <br>
 <%= button_to "Discover Movies" %>
 <br>
-<h2><%= "Friend List" %></h2>
-<h3></h3>
-<li><%= 'friend' %></li>
+<div id='friends-list'>
+  <h2>Friend List:</h2>
+  <% @friendships.each do |friend| %>
+    <%= friend.username %>
+    <br>
+    <br>
+  <% end %>
+</div>
 <br>
+<div id='add-friends'>
+  <h2><%= "Add Friends" %></h2>
+  <p><% @users.each do |user|%>
+    <% if user != current_user %>
+      <br/><%= user.username %> <%= link_to "Add #{user.username}", friendships_path(:friend_id => user), :method => :post %>
+    <% end %>
+    <br>
+  <%end%>
+</div>
 <h2><%= "Viewing Parties" %></h2>
 <li><%= 'party' %></li>

@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     if new_user.save
       session[:user_id] = new_user.id
       flash[:success] = "Welcome, #{new_user.username}!"
-      redirect_to root_path
+      redirect_to dashboard_path
     else
       flash[:alert] = "Must fill out all fields/confirm password"
       render :new
@@ -21,6 +21,9 @@ class UsersController < ApplicationController
   end
 
   def show
+    friend_ids = current_user.friendships.select(:friend_id).distinct.pluck(:friend_id)
+    @friendships = User.find(friend_ids)
+    @users = User.all
   end
 
   private

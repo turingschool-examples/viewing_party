@@ -1,24 +1,53 @@
 require 'rails_helper'
 
-describe 'dashboard' do
-  it 'as a registered user, I can log in with correct credentials' do
+RSpec.describe 'dashboard' do
+  describe 'dashboard' do
+    it 'as a registered user, I can log in with correct credentials' do
       user = User.create(username: 'person@ex.com', password: 'ilovecatsanddogs')
 
-        visit root_path
+      visit root_path
 
-        click_on "Log in here"
+      click_on "Log in here"
 
-        expect(current_path).to eq("/login")
+      expect(current_path).to eq("/login")
 
-        fill_in :username, with: "person@ex.com"
-        fill_in :password, with: "ilovecatsanddogs"
+      fill_in :username, with: "person@ex.com"
+      fill_in :password, with: "ilovecatsanddogs"
 
-        click_on "Log in"
+      click_on "Log in"
 
-
-      expect(current_path).to eq(dashboard_path)
       expect(page).to have_content("Welcome, person@ex.com!")
       expect(page).to have_content("Friend List")
       expect(page).to have_button("Discover Movies")
+    end
+
+    it 'can add friends' do
+      user = User.create(username: 'person@ex.com', password: 'ilovecatsanddogs')
+      user_1 = User.create(username: 'person@ex1.com', password: 'ilovecatsanddogs2')
+      user_2 = User.create(username: 'person@ex2.com', password: 'ilovecatsanddogs3')
+
+      visit root_path
+
+      click_on "Log in here"
+
+      expect(current_path).to eq("/login")
+
+      fill_in :username, with: "person@ex.com"
+      fill_in :password, with: "ilovecatsanddogs"
+
+      click_on "Log in"
+
+      expect(page).to have_link("Add #{user_1.username}")
+
+      within("#add-friends") do
+        expect(page).to have_content(user_1.username)
+      end
+
+      click_on "Add #{user_1.username}"
+
+      within("#friends-list") do
+        expect(page).to have_content(user_1.username)
+      end
+    end
   end
 end
