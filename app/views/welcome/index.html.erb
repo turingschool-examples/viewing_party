@@ -5,9 +5,9 @@
    <%= button_to "Log out", '/logout', method: :delete %>
 <% else %>
    <p>I want this service, sign me up!</p>
-   <%= button_to "Register", "/users" %>
+   <%= link_to "Register", "/registration" %>
    <p>I already have an account.</p>
-   <%= button_to "Log me in!", "/login" %>
+   <%= link_to "Log me in!", '/login', method: :get %>
 <% end %>
 
 <br>

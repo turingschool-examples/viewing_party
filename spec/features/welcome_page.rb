@@ -15,20 +15,21 @@ RSpec.describe "Welcome Page" do
     end
 
     it 'it displays login but that redirects to login page' do
-      user = User.create!(email: 'empanada_luvr@email.com', password: 'hocuspocus')
+      current_user = User.create!(email: 'empanada_luvr@email.com', password: 'hocuspocus')
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@current_user)
 
       expect(page).to have_content("I already have an account.")
-      expect(page).to have_button('Log me in!')
+      expect(page).to have_link('Log me in!')
 
-      click_button('Log me in!')
+      click_link('Log me in!')
       expect(current_path).to eq('/login')
     end
 
     it 'it displays a registration link with desctiption for new users' do
 
         expect(page).to have_content("I want this service, sign me up!")
-        click_button('Register')
-        expect(current_path).to eq(users_path)
+        click_link('Register')
+        expect(current_path).to eq("/registration")
       end
     end
   end
