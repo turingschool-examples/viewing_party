@@ -1,5 +1,5 @@
 <%# require 'pry';binding.pry %>
-<h1>Welcome <% @user.email %>!</h1><br>
+<h1>Welcome <%= @user.email[/[^@]+/] %>!</h1><br>
 
 <%= button_to "Discover Movies", "/movies/discover" %><br><br>
 

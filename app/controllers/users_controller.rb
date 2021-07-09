@@ -1,7 +1,4 @@
 class UsersController < ApplicationController
-  def welcome
-  end
-
   def new
       @user = User.new
   end
@@ -15,10 +12,10 @@ class UsersController < ApplicationController
   end
 
   def show
+    redirect_to welcome_path if current_user.nil?
+    @user = current_user
     # require 'pry';binding.pry
-    @user = User.all.first
-    # @user = current_user  ##not in Session
-    #my_string[/[^@]+/]
+    # @user = User.all.first
   end
 
   private
