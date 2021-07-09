@@ -11,10 +11,10 @@
   <% if @friends ==  [] %>
     <p>You currently have no friends.</p>
   <% else %>
-    <%= @friends.each do |friend| %><ul>
-      <li><%= friend.email %></li>
+    <% @friends.each do |friend| %>
+      <ul><li><%= friend.friendee.email %></li></ul>
     <% end %>
-  <% end %></ul>
+  <% end %>
 </div>
 
 <%= form_with url: '/discover', local: true, method: :get do |form| %>

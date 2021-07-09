@@ -5,10 +5,9 @@ class FriendsController < ApplicationController
     if friend == nil
       flash[:error] = 'Error, friend does not have an account'
     elsif friend.email == current_user.email
-      flash[:error] = 'Error, annot friend yourself'
+      flash[:error] = 'Error, cannot friend yourself'
     else
       friend_add = Friend.new(friender: current_user, friendee: friend)
-      require 'pry', binding.pry
       if friend_add.save
         flash[:error] = 'Friend Added!'
       else

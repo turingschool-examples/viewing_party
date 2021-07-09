@@ -40,6 +40,7 @@ RSpec.describe 'Friends' do
         expect(page).to_not have_content('You currently have no friends')
         expect(page).to have_content('tester_2@turing.orb')
         expect(page).to have_content('tester_3@turing.orb')
+        save_and_open_page
       end
     end
     describe 'adding a friend not on our service' do
@@ -54,7 +55,7 @@ RSpec.describe 'Friends' do
         expect(page).to have_current_path('/dashboard')
         expect(page).to have_content('You currently have no friends')
         expect(page).to_not have_content('tester_2@turing.orb')
-        expect(page).to have_content('Error, friend does not have an account.')
+        expect(page).to have_content('Error, friend does not have an account')
       end
     end
     describe 'adding yourself' do
@@ -68,10 +69,27 @@ RSpec.describe 'Friends' do
 
         expect(page).to have_current_path('/dashboard')
         expect(page).to have_content('You currently have no friends')
-        withing 'div#friends' do
+        within 'div#friends' do
           expect(page).to_not have_content(user.email)
         end 
-        expect(page).to have_content('Error, cannot friend yourself.')
+        expect(page).to have_content('Error, cannot friend yourself')
+      end
+    end
+    describe 'adding a friend twice' do
+      it 'returns to dashboard with an error' do
+        user_1 = User.create!(email: 'tester_1@turing.orb', password: 'testing')
+        user_2 = User.create!(email: 'tester_2@turing.orb', password: 'testing')
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user_1)
+        
+        visit '/dashboard'
+
+        fill_in 'friend_email', with: user_2.email
+        click_on 'Add Friend'
+
+        fill_in 'friend_email', with: user_2.email
+        click_on 'Add Friend'
+
+        expect(page).to have_content('Friender has already been taken')
       end
     end
   end
