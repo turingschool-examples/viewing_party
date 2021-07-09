@@ -12,9 +12,13 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
-
 /node_modules
 /yarn-error.log
 
 # Ignore test coverage
 /coverage/*
+
+# sensative data
+.env
+# Ignore application configuration
+/config/application.yml
