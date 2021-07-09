@@ -15,7 +15,8 @@ RSpec.describe "Welcome Page" do
     end
 
     it 'it displays login but that redirects to login page' do
-      user = User.create!(email: 'empanada_luvr@email.com', password: 'hocuspocus')
+      current_user = User.create!(email: 'empanada_luvr@email.com', password: 'hocuspocus')
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@current_user)
 
       expect(page).to have_content("I already have an account.")
       expect(page).to have_button('Log me in!')
