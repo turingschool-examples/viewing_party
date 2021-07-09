@@ -10,6 +10,10 @@ RSpec.describe Attendee, type: :model do
   describe 'validations' do
     it { should validate_presence_of :user }
     it { should validate_presence_of :movie_party }
+    # it { should validate_uniqueness_of(:user).scoped_to(:movie_party)}
+
   end
+
+
 
 end

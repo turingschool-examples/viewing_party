@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.themoviedb.org/3/search/movie?api_key=e1dce8b90f48a3084940ca941868f474&page=1&query=klsdjfl
+    uri: https://api.themoviedb.org/3/search/movie?api_key=6b310e0dcdbc8d375cce6ea3bf466eea&page=1&query=klsdjfl
     body:
       encoding: US-ASCII
       string: ''
@@ -24,6 +24,8 @@ http_interactions:
       - '57'
       Connection:
       - keep-alive
+      Date:
+      - Fri, 09 Jul 2021 22:36:42 GMT
       Server:
       - openresty
       Access-Control-Allow-Origin:
@@ -33,29 +35,25 @@ http_interactions:
       Access-Control-Expose-Headers:
       - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
         Content-Length, Content-Range
-      Date:
-      - Thu, 08 Jul 2021 23:02:19 GMT
-      Cache-Control:
-      - public, max-age=600
       Etag:
       - a8d277d2d95f2ea20f792a48c43093dc
+      Cache-Control:
+      - public, max-age=600
       X-Cache:
-      - Hit from cloudfront
+      - Miss from cloudfront
       Via:
-      - 1.1 045f1e1f031241f3808c557a2b5d6b0a.cloudfront.net (CloudFront)
+      - 1.1 6af3b573d8970d5db2a4d03354335b85.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
-      - DEN50-C2
+      - SEA19-C3
       X-Amz-Cf-Id:
-      - qWFQzqhbke1nGljoXuRQaNe_7bRb_p37dhgWzulO_GBYsiPgUXkN2w==
-      Age:
-      - '156'
+      - J_HkkfhykZJ4syEbG7dqoTV5rl4sY0dCLkTkgp4XB3OnTirBY7-JcA==
     body:
       encoding: UTF-8
       string: '{"page":1,"results":[],"total_pages":0,"total_results":0}'
-  recorded_at: Thu, 08 Jul 2021 23:04:55 GMT
+  recorded_at: Fri, 09 Jul 2021 22:36:42 GMT
 - request:
     method: get
-    uri: https://api.themoviedb.org/3/search/movie?api_key=e1dce8b90f48a3084940ca941868f474&page=2&query=klsdjfl
+    uri: https://api.themoviedb.org/3/search/movie?api_key=6b310e0dcdbc8d375cce6ea3bf466eea&page=2&query=klsdjfl
     body:
       encoding: US-ASCII
       string: ''
@@ -77,6 +75,8 @@ http_interactions:
       - '57'
       Connection:
       - keep-alive
+      Date:
+      - Fri, 09 Jul 2021 22:36:42 GMT
       Server:
       - openresty
       Access-Control-Allow-Origin:
@@ -86,24 +86,20 @@ http_interactions:
       Access-Control-Expose-Headers:
       - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
         Content-Length, Content-Range
-      Date:
-      - Thu, 08 Jul 2021 23:02:19 GMT
-      Cache-Control:
-      - public, max-age=600
       Etag:
       - daeb628883c68203dc276731d4722f32
+      Cache-Control:
+      - public, max-age=600
       X-Cache:
-      - Hit from cloudfront
+      - Miss from cloudfront
       Via:
-      - 1.1 8bd27032f0d38908fbe32b696e45c288.cloudfront.net (CloudFront)
+      - 1.1 9adef5b1c5fc9ca80d6f4f8d19e103a2.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
-      - DEN50-C2
+      - SEA19-C3
       X-Amz-Cf-Id:
-      - NDbJEilNYyKXZgR2F1Yakcij6vFivsJCB2UO5wAtyfsuCssMn7kHCQ==
-      Age:
-      - '156'
+      - Qkjq4fiC6lEK4Er9IWztw_DsRZvDPwzIL972SarYpxLSL0KcbnoH2Q==
     body:
       encoding: UTF-8
       string: '{"page":2,"results":[],"total_pages":0,"total_results":0}'
-  recorded_at: Thu, 08 Jul 2021 23:04:55 GMT
+  recorded_at: Fri, 09 Jul 2021 22:36:42 GMT
 recorded_with: VCR 6.0.0
