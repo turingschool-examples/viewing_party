@@ -60,5 +60,16 @@ RSpec.describe MovieService do
         expect(response[:runtime]).to eq(134)
       end
     end
+
+    describe '#find_cast' do
+      it 'can find cast by movie id' do
+        response = @m.find_cast(337404)
+
+        expect(response).to have_key(:cast)
+        expect(response[:cast].first[:name]).to eq("Emma Stone")
+        expect(response[:cast].last[:name]).to eq("Tom Turner")
+        expect(response[:cast].length).to eq(29)
+      end
+    end
   end
 end
