@@ -25,7 +25,7 @@ RSpec.describe 'User Registration form' do
 
         click_on 'Register'
 
-        expect(page).to have_content("Welcome, #{email}!")
+        expect(page).to have_content("Welcome, #{email}")
       end
 
       describe 'it makes a user in the data base' do
@@ -118,7 +118,7 @@ RSpec.describe 'User Registration form' do
 
           expect(page).to have_content("Password can't be blank")
         end
-        
+
         it ' password confirmation must be filled out ' do
           visit '/register'
 
@@ -179,6 +179,5 @@ RSpec.describe 'User Registration form' do
         end
       end
     end
-
   end
 end

@@ -9,11 +9,13 @@ class UsersController < ApplicationController
         user[:email] = user[:email].downcase
         new_user = User.new(user)
 
-
         if new_user.save
           # session[:user_id] = new_user.id
-          flash[:success] = "Welcome, #{new_user.email}!"
-          redirect_to "/users/#{new_user.id}"
+          cookies.encrypted[:user_id] = new_user.id
+          flash[:success] = "Account created succesfully!"
+          # flash[:success] = "Welcome, #{new_user.email}!"
+          redirect_to "/dashboard"
+
         else
           if User.find_by(email: user[:email]) != nil
             flash[:error] = "invalid email or password"
@@ -25,7 +27,7 @@ class UsersController < ApplicationController
     end
 
     def show
-      @user = User.find(params[:id])
+
     end
 
     private

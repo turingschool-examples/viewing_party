@@ -4,6 +4,7 @@ class Friend < ApplicationRecord
   belongs_to :friendee, class_name: 'User'
 
   validates_presence_of :friender, :friendee
-  # validates :friender, uniqueness: {scope: :friendee_id}
+
+  # validates :friender, uniqueness: { scope: :friendee }
 
 end

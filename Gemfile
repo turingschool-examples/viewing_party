@@ -7,6 +7,7 @@ end
 
 ruby '2.7.2'
 
+gem 'dotenv-rails'
 gem 'rails', '5.2.5'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.7'
@@ -35,9 +36,11 @@ group :test do
   gem 'capybara'
   gem 'launchy'
   gem 'simplecov'
-  gem 'factory_bot_rails', '~> 4.0'
+  gem 'factory_bot_rails'
   gem 'shoulda-matchers'
   gem 'database_cleaner'
+  gem 'webmock'
+  gem 'vcr'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
