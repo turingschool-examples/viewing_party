@@ -8,14 +8,12 @@ class UsersController < ApplicationController
       user[:email] = user[:email].downcase
       new_user = User.create(user)
       flash[:success] = "Welcome, #{new_user.email}!"
-      redirect_to "/"
+      redirect_to welcome_path
   end
 
   def show
     redirect_to welcome_path if current_user.nil?
     @user = current_user
-    # require 'pry';binding.pry
-    # @user = User.all.first
   end
 
   private

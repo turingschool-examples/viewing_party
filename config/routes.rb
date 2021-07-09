@@ -9,6 +9,4 @@ Rails.application.routes.draw do
   post '/', to:'sessions#create'
   # get '/logout', to: 'sessions#logout_user'
   delete '/logout', to: 'sessions#destroy'
-  # get "/dashboard", to: "sessions#show"
-
 end
