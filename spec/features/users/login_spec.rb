@@ -9,8 +9,10 @@ RSpec.describe "Welcome Page" do
 
     it 'it allows registered users to log in with correct credentials' do
       click_link 'Log me in!'
+
       fill_in :email, with: 'empanada_luvr@email.com'
       fill_in :password, with: 'hocuspocus'
+
       click_button('Log In')
 
       expect(current_path).to eq(root_path)
@@ -19,6 +21,27 @@ RSpec.describe "Welcome Page" do
       expect(page).to_not have_link("Log me in!")
       expect(page).to_not have_link("Register")
       expect(page).to have_button("Log out")
+
+      click_button("Log out")
+
+      expect(current_path).to eq(root_path)
+      expect(page).to_not have_link("Log out")
+      expect(page).to have_content("I already have an account.")
+      expect(page).to have_link("Register")
+    end
+
+    it 'it will not allow users to log in with invlaid credentials' do
+        click_link 'Log me in!'
+
+        expect(current_path).to eq(login_path)
+
+        fill_in :email, with: 'empanada_hatr@email.com'
+        fill_in :password, with: 'hocuspocus'
+
+        click_button('Log In')
+
+        expect(current_path).to eq(login_path)
+        expect(page).to have_content("Your username or password are incorrect")
     end
   end
 end
