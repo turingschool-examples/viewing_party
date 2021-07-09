@@ -24,13 +24,14 @@ RSpec.describe 'login process' do
 
         click_on 'Log in'
 
-        expect(page).to have_current_path("/users/#{user.id}")
-        expect(page).to have_link('Log out')
+        expect(page).to have_current_path("/dashboard", ignore_query: true)
+        expect(page).to have_button('Log out')
+      
 
         visit '/'
 
         expect(page).to_not have_link("I already have an Account")
-        expect(page).to have_link('Log out')
+        expect(page).to have_button('Log out')
 
       end
     end
@@ -63,7 +64,7 @@ RSpec.describe 'login process' do
 
         expect(page).to have_current_path('/')
         expect(page).to have_link('I already have an Account')
-        expect(page).to_not have_link('Log out')
+        expect(page).to_not have_button('Log out')
       end
     end
   end

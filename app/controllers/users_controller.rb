@@ -8,13 +8,13 @@ class UsersController < ApplicationController
         user = user_params
         user[:email] = user[:email].downcase
         new_user = User.create!(user)
-        session[:user_id] = new_user.id
-        flash[:success] = "Welcome, #{new_user.email}!"
-        redirect_to "/users/#{new_user.id}"
+        cookies.encrypted[:user_id] = new_user.id
+        flash[:success] = "Account created succesfully!"
+        redirect_to "/dashboard"
     end
 
     def show
-      @user = User.find(params[:id])
+      
     end
 
     private

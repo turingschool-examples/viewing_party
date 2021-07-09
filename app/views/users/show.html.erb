@@ -1,3 +1,9 @@
-<%= "Welcome #{@user.email}" %>
+<%= "Welcome, #{current_user.email}" %>
 
-<%= link_to "Log out", '/logout', method: :delete %>
+<%= form_with url: '/discover', local: true, method: :get do |form| %>
+  <%= form.submit 'Discover Top 40 Movies' %>
+<% end %>
+
+<%= form_with url: '/logout', local: true, method: :delete do |form| %>
+  <%= form.submit 'Log out' %>
+<% end %>
