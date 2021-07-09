@@ -1,0 +1,31 @@
+<h1><%= "Welcome #{@user.email}" %></h1>
+
+<%= button_to 'Discover Movies', '/discover' %>
+
+<% if @user.friends.count > 0  %>
+  <h3><%= "#{@user.email}'s Friends: " %></h3>
+  <% @user.userfriends.each do |friend| %>
+    <%= friend.email %>
+  <% end %>
+<% else %>
+  <p>You currently haven't added any friends.</p>
+<% end %>
+
+<h3>Parties You are Hosting: </h3>
+<% if @user.viewing_parties > 0 %>
+  <% @user.viewing_parties.each do |party| %>
+    <%= link_to "#{party.movie_title}", url: "/movies/#{party.movie_id}", method: :get, local: true %>
+    <p>Start Time: <%= party.start_time %><p>
+    <p>Host: <%= @user.email %></p>
+    <p>Attendees: </p>
+    <% party.attendees.each do |attendee| %>
+      <% if attendee.email == @user.email %>
+        <b><%= attendee.email %></b>
+      <% else %>
+        <%= attendee.email %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% else %>
+  <p>None Currently</p>
+<% end %>
