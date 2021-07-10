@@ -16,12 +16,23 @@ ActiveRecord::Schema.define(version: 2021_07_07_232623) do
   enable_extension "plpgsql"
 
   create_table "attendees", force: :cascade do |t|
-    t.bigint "viewing_party_id"
+    t.bigint "party_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["party_id"], name: "index_attendees_on_party_id"
     t.index ["user_id"], name: "index_attendees_on_user_id"
-    t.index ["viewing_party_id"], name: "index_attendees_on_viewing_party_id"
+  end
+
+  create_table "parties", force: :cascade do |t|
+    t.bigint "party_host_id"
+    t.string "movie_title"
+    t.date "date"
+    t.time "duration"
+    t.time "start_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["party_host_id"], name: "index_parties_on_party_host_id"
   end
 
   create_table "user_friendships", force: :cascade do |t|
@@ -40,20 +51,9 @@ ActiveRecord::Schema.define(version: 2021_07_07_232623) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "viewing_parties", force: :cascade do |t|
-    t.bigint "party_host_id"
-    t.string "movie_title"
-    t.date "date"
-    t.time "duration"
-    t.time "start_time"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["party_host_id"], name: "index_viewing_parties_on_party_host_id"
-  end
-
+  add_foreign_key "attendees", "parties"
   add_foreign_key "attendees", "users"
-  add_foreign_key "attendees", "viewing_parties"
+  add_foreign_key "parties", "users", column: "party_host_id"
   add_foreign_key "user_friendships", "users"
   add_foreign_key "user_friendships", "users", column: "friend_id"
-  add_foreign_key "viewing_parties", "users", column: "party_host_id"
 end
