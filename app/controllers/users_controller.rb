@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  def index
+  end
+
   def new
     @user = User.new
   end
@@ -23,7 +26,13 @@ class UsersController < ApplicationController
   def show
     friend_ids = current_user.friendships.select(:friend_id).distinct.pluck(:friend_id)
     @friendships = User.find(friend_ids)
-    @users = User.all
+    users = User.all
+    if params[:search_by_username] != ""
+      @user = User.find_by(username: params[:search_by_username])
+    else
+      flash[:alert] = "User not found."
+      redirect to dashboard_path
+    end
   end
 
   private
@@ -31,9 +40,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:username, :password, :password_confirmation)
   end
-# IDK HOW TO DO THIS.
-  #   <%= form_with model: @friendship, local: true do |form| %>
-  #   <%= form.label :email, 'Email:' %>
-  #   <%= form.submit 'Add Friend' %>
-  # <% end %>
 end
