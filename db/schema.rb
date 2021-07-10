@@ -25,10 +25,12 @@ ActiveRecord::Schema.define(version: 2021_07_07_232623) do
   end
 
   create_table "user_friendships", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "friend_id"
+    t.bigint "user_id"
+    t.bigint "friend_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["friend_id"], name: "index_user_friendships_on_friend_id"
+    t.index ["user_id"], name: "index_user_friendships_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -39,17 +41,19 @@ ActiveRecord::Schema.define(version: 2021_07_07_232623) do
   end
 
   create_table "viewing_parties", force: :cascade do |t|
-    t.bigint "user_id"
+    t.bigint "party_host_id"
     t.string "movie_title"
     t.date "date"
     t.time "duration"
     t.time "start_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_viewing_parties_on_user_id"
+    t.index ["party_host_id"], name: "index_viewing_parties_on_party_host_id"
   end
 
   add_foreign_key "attendees", "users"
   add_foreign_key "attendees", "viewing_parties"
-  add_foreign_key "viewing_parties", "users"
+  add_foreign_key "user_friendships", "users"
+  add_foreign_key "user_friendships", "users", column: "friend_id"
+  add_foreign_key "viewing_parties", "users", column: "party_host_id"
 end
