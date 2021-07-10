@@ -10,8 +10,8 @@ class User < ApplicationRecord
   has_many :attendees, dependent: :destroy
   has_many :movie_parties, through: :attendees
   has_many :movie_parties, dependent: :destroy
-  
-  # validates :email, uniqueness: true, presence: true
-  # validates_presence_of :password_digest, require: true
+
+  validates :email, uniqueness: true, presence: true
+  validates_presence_of :password_digest, require: true
 
 end

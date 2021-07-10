@@ -9,7 +9,7 @@ RSpec.describe 'login process' do
         expect(page).to have_link('I already have an Account')
 
         click_on 'I already have an Account'
-        
+
         expect(page).to have_current_path('/login')
       end
     end

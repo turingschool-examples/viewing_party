@@ -7,6 +7,8 @@ end
 
 ruby '2.7.2'
 
+gem 'figaro'
+
 gem 'dotenv-rails'
 gem 'rails', '5.2.5'
 gem 'pg', '>= 0.18', '< 2.0'
