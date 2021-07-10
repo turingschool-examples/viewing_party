@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   get '/registration', to: 'users#new'
-  get '/dashboard', to: 'user#show'
+  get '/dashboard', to: 'users#show'
   post '/users', to: 'users#create'
 
   get '/movie_details', to: 'movies#show'
+  post '/user_friendships', to: 'user_friendships#create'
 end

@@ -41,8 +41,7 @@ RSpec.describe 'Dashboard page' do
  # I should see the viewing parties I have been invited to with the following details:
  it 'shows all viewing parties user is attending' do
    party = ViewingParty.create!(movie_title: 'Mrs. Doubtfire', date: '2021-09-14', duration: 122, start_time: "13:00:00"  )
-   expect(page).to have_link(party.movie_title) #placeholder until API in incorporated
-   expect(page).to have_content(party.date)
+   expect(page).to have_link(party.movie_title) #placeholder until API   expect(page).to have_content(party.date)
    expect(page).to have_content(party.duration)
    expect(page).to have_content(party.start_time)
  end

@@ -58,7 +58,7 @@ RSpec.describe 'Registration Page' do
     expect(page).to have_content("Password confirmation doesn't match Password")
   end
 
-  it 'Logs the newly created user in' do
+  xit 'Logs the newly created user in' do
     visit '/registration'
 
     email = 'Roald@gmail.com'
