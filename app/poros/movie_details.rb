@@ -13,7 +13,7 @@ class MovieDetails
     @vote_average = movie[:vote_average]
     @runtime = movie[:runtime]
     @genres = movie[:genres]
-    @overview = movie[:overviews]
+    @overview = movie[:overview]
     @cast = cast[:cast] 
     @reviews = reviews[:results]
     @id = movie[:id]
