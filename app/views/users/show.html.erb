@@ -1,4 +1,21 @@
-<%= "Welcome, #{current_user.email}" %>
+<h1><%= "Welcome, #{current_user.email}" %></h1>
+
+<%= form_with url: '/friends', method: :post, local: true do |form| %>
+  <%= form.label :friend_email, 'You Friends Email:' %>
+  <%= form.text_field :friend_email %>
+  <%= form.submit 'Add Friend' %>
+<% end %>
+
+<div id = 'friends'>
+  <h2>Your Friends:</h2>
+  <% if @friends ==  [] %>
+    <p>You currently have no friends.</p>
+  <% else %>
+    <% @friends.each do |friend| %>
+      <ul><li><%= friend.friendee.email %></li></ul>
+    <% end %>
+  <% end %>
+</div>
 
 <%= form_with url: '/discover', local: true, method: :get do |form| %>
   <%= form.submit 'Discover Top 40 Movies' %>
