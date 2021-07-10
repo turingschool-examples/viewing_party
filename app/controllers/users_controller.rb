@@ -27,9 +27,9 @@ class UsersController < ApplicationController
     end
 
     def show
-
+      @friends = Friend.where('friender_id = ?', current_user.id)
     end
-
+    
     private
 
     def user_params
