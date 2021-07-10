@@ -36,13 +36,8 @@ RSpec.describe 'dashboard' do
       fill_in :password, with: "ilovecatsanddogs"
 
       click_on "Log in"
-
-      expect(page).to have_link("Add #{user_1.username}")
-
-      within("#add-friends") do
-        expect(page).to have_content(user_1.username)
-      end
-
+      fill_in :search_by_username, with: 'person@ex1.com'
+      click_on "Search"
       click_on "Add #{user_1.username}"
 
       within("#friends-list") do
