@@ -1,6 +1,6 @@
 class MoviesController < ApplicationController
   def discover
-    redirect_to welcome_path if current_user.nil?
+    # redirect_to welcome_path if current_user.nil?
     @user = current_user
   end
 

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   # get '/logout', to: 'sessions#logout_user'
   delete '/logout', to: 'sessions#destroy'
 
-  resoureces :movies, only: [:index, :show]
+  resources :movies, only: [:index, :show]
   get '/discover', to:'movies#discover'
+  post '/discover', to:'movies#discover'
 end

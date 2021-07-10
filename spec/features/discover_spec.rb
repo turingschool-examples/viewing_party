@@ -11,6 +11,8 @@ describe 'discover movies page' do
   end
 
   it 'has button Find Top Rated Movies' do
+    save_and_open_page
+    
     expect(current_path).to eq(discover_path)
     expect(page).to have_content("Welcome test123!")
     expect(page).to have_button("Find Top Rated Movies")
@@ -26,6 +28,10 @@ describe 'discover movies page' do
     expect(current_path).to eq(discover_path)
     expect(find('form')).to have_content('Title')
     expect(page).to have_button("Find Movies")
+  end
+
+  it 'lists search results' do
+
   end
 
     # expect(page).to_not have_link("New to Viewing Party? Register Here")
