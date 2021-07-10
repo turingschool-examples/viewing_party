@@ -33,11 +33,52 @@ RSpec.describe 'Dashboard page' do
    expect(page).to have_content(user_2.email)
  end
 
- xit 'shows all viewing parties user is attending' do
-   expect(page).to have_content(party.title)
-   expect(page).to have_content(party.start_time)
+ it 'has viewing party sections' do
+   expect(page).to have_content('Viewing Parties')
+   expect(page).to have_content('Parties you have been invited to attend')
+   expect(page).to have_content('You as party host - Your Parties')
+ end
+ # I should see the viewing parties I have been invited to with the following details:
+ it 'shows all viewing parties user is attending' do
+   party = ViewingParty.create!(movie_title: 'Mrs. Doubtfire', date: '2021-09-14', duration: 122, start_time: "13:00:00"  )
+   expect(page).to have_link(party.movie_title) #placeholder until API in incorporated
    expect(page).to have_content(party.date)
-   expect(page).to have_content(user_2.email)
-   expect(page).to have_content(party)
+   expect(page).to have_content(party.duration)
+   expect(page).to have_content(party.start_time)
+ end
+
+ it 'displays movie title with link to movie show page' do
+   click_link(party.movie_title)
+   expect(current_path).to eq(movie_details_path)
+ end
+
+ it 'lists friends invited, with user name in bold' do
+
  end
 end
+
+ describe "viewing parties with user as the host" do
+   it 'displays movie title, which links to the movie show page' do
+   end
+
+   it 'displays date and time of parties with the user as host of the event' do
+   end
+
+   it 'lists friends invited to the viewing party' do
+   end
+ end
+end
+
+# As an authenticated user,
+# I should see the viewing parties I have been invited to with the following details:
+# -- invited to --
+# Movie Title, which links to the movie show page
+# Date and Time of Event
+# who is hosting the event
+# list of friends invited, with my name in bold
+# I should also see the viewing parties that I have created with the following details:
+#-- party_host --
+# Movie Title, which links to the movie show page
+# Date and Time of Event
+# That I am the host of the party
+# List of friends invited to the viewing party
