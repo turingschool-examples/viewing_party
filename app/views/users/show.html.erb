@@ -1,0 +1,33 @@
+<%= link_to "Log out", '/logout', method: :delete %>
+<br>
+<br>
+<br>
+<%= button_to "Discover Movies" %>
+<br>
+<div id='friends-list'>
+  <h2>Friend List:</h2>
+  <% if @friendships.empty? %>
+    <%= "You currently have no friends." %>
+  <% else%>
+    <% @friendships.each do |friend| %>
+      <%= friend.username %>
+      <br>
+      <br>
+    <% end %>
+  <% end %>
+</div>
+<br>
+<div id='add-friends'>
+  <h2><%= "Add Friends" %></h2>
+  <%= form_tag "/users", method: "GET" do %>
+  <%= label_tag :search_by_username %>
+  <%= text_field_tag :search_by_username, params[:search_by_username] %>
+  <%= submit_tag "Search" %>
+  <br>
+  <% if !@user.nil? %>
+    <%= @user.username %> <%= link_to "Add #{@user.username}", friendships_path(:friend_id => @user), :method => :post %>
+  <% end %>
+<% end %>
+</div>
+<h2><%= "Viewing Parties" %></h2>
+<li><%= 'party' %></li>

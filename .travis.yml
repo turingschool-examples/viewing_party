@@ -11,6 +11,5 @@ deploy:
   api_key: HKEY
   app: viewing-party-ja
   run: rails db:migrate
-env:
-  global:
-    secure: rt9gY4DCoPUe9m9DGCiKqk61RmHX0pWrU3YHyscsCLwgQjOKnEv46JOT1Wk2jkWFBwC4d0fknwQFUnkYe+D0YH6hmg29PKcv/YGU/Kat6qID73dC2V3P/a3/+FotSB6D0lDVd7E1q5ar8WKQtOUh+4j8yS75ZrUs0QSrlyQxJLcuN/nxPenFkn8DX2eDYsPjVSgGP+YM7VrwVoc2fR85E/XhwL80HpQ2lKmaYlKZE0dHAhCi8M8alG0ynsQ7oyJkxk00A87tvKJ0M7UFKfhX8mrlda7WvsnWcpsHTrTeqd3PyXrXIkuQK3Z9RM5cja9UqnESaBYAZGue2gHgtJwX7tIDrfb3lCTpMkGSdlfICehbKfC4Qo0GYgwMoi8ZXHgq03hM9LyUA6fcbpHFgwvMpOqWnQbgLiKEuLE8lVb/D+UCcrzFQWl55lDTBv+/hTAloA2zxy8/yyx+3OAyFGn6ckNX2+3bLiy9SnZPUgstbzzyBxfk61XSKaLEUQ3DReWT0/eL8BJt4zkDU5VfdhcTDHx/k5eDgUF8ZkK9TMOTATWdInS4rYQkEf+svwtLTd4d8Ol4SRyyJZzODf8eNRb+qFtc2V4u7SypLnLdZRFa1kZ0E7G0ZwjP0TyGWUUrEKZ8U/+CbcCO6EJ5ixzLrlPru2n4b6B66Ni4ltRnZcHEqE0=
+  on:
+    branch: main
