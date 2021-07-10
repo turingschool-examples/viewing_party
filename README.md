@@ -1,4 +1,7 @@
-# Viewing Party
+![alt text](./21_M3-viewing-party-schema.png "Schema Diagram")
+
+# Project: Viewing Party
+## Group Member Names: Kevin & Suzie
 
 This is the base repo for the [viewing party project](https://backend.turing.io/module3/projects/viewing_party) used for Turing's Backend Module 3.
 
