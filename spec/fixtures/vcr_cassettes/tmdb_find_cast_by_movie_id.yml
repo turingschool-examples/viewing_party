@@ -50,13 +50,15 @@ http_interactions:
       Vary:
       - Accept-Encoding
       X-Cache:
-      - Miss from cloudfront
+      - Hit from cloudfront
       Via:
-      - 1.1 909fc123d4e8b7ecf80a806121a98be7.cloudfront.net (CloudFront)
+      - 1.1 980d2a1c9c4f90ad69118c6357f92882.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - BOS50-C1
       X-Amz-Cf-Id:
-      - wDGCoMdiOySzz8xl7YYEVSmAsH9zkry7a1fI5bfUU5velbFyPlxE_A==
+      - nJFMzpsLqfrMXHzxbq_zp3AqppBKtox_LCbgD9PsC-DU5o9XqV_I5A==
+      Age:
+      - '23673'
     body:
       encoding: ASCII-8BIT
       string: '{"id":337404,"cast":[{"adult":false,"gender":1,"id":54693,"known_for_department":"Acting","name":"Emma
@@ -135,5 +137,5 @@ http_interactions:
         LeBoff","original_name":"Jared LeBoff","popularity":0.6,"profile_path":null,"credit_id":"602d2d91cedac400405104a9","department":"Production","job":"Executive
         Producer"},{"adult":false,"gender":0,"id":2109201,"known_for_department":"Production","name":"Kristin
         Burr","original_name":"Kristin Burr","popularity":0.6,"profile_path":null,"credit_id":"602d2ddd223e20003d970777","department":"Production","job":"Producer"}]}'
-  recorded_at: Sat, 10 Jul 2021 16:14:31 GMT
+  recorded_at: Sat, 10 Jul 2021 22:49:04 GMT
 recorded_with: VCR 6.0.0

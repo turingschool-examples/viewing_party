@@ -50,13 +50,15 @@ http_interactions:
       Vary:
       - Accept-Encoding
       X-Cache:
-      - Miss from cloudfront
+      - Hit from cloudfront
       Via:
-      - 1.1 450997492b27c3075eae0b294c536b04.cloudfront.net (CloudFront)
+      - 1.1 909fc123d4e8b7ecf80a806121a98be7.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - BOS50-C1
       X-Amz-Cf-Id:
-      - b4cyP4OM33h8_JONhPwqMA1r-Ip16BNBAbtLvkUfdR7EknDkjQoT2A==
+      - IlbcOdCara_tDm1pWvSPaWmtNr7pdBYYLb4MzoYeKHNNab3-w5SM6Q==
+      Age:
+      - '23530'
     body:
       encoding: ASCII-8BIT
       string: '{"id":337404,"page":1,"results":[{"author":"msbreviews","author_details":{"name":"","username":"msbreviews","avatar_path":"/https://secure.gravatar.com/avatar/992eef352126a53d7e141bf9e8707576.jpg","rating":8.0},"content":"If
@@ -219,5 +221,5 @@ http_interactions:
         that the movie would Go further than the animation ever did but instead it
         was a snooze fest. just did not capture the real crazy essence of the animation
         Cruella.","created_at":"2021-07-08T19:19:28.996Z","id":"60e74fc043250f0047133e58","updated_at":"2021-07-08T23:09:51.828Z","url":"https://www.themoviedb.org/review/60e74fc043250f0047133e58"}],"total_pages":1,"total_results":3}'
-  recorded_at: Sat, 10 Jul 2021 16:16:54 GMT
+  recorded_at: Sat, 10 Jul 2021 22:49:04 GMT
 recorded_with: VCR 6.0.0
