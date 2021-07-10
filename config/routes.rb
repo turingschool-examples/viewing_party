@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   get '/registration', to: 'users#new'
   get '/dashboard', to: 'user#show'
   post '/users', to: 'users#create'
+
+  get '/movie_details', to: 'movies#show'
 end
