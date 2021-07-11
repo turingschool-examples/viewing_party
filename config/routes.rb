@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   get '/movies/details', to: 'movies#show'
   post 'friends', to: 'friends#create'
 
+  get '/viewing_party/new', to: 'viewing_party#new'
+
 end
