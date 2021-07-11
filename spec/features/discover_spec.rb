@@ -12,21 +12,22 @@ describe 'discover movies page' do
 
   it 'has button Find Top Rated Movies' do
     save_and_open_page
-    
+
     expect(current_path).to eq(discover_path)
     expect(page).to have_content("Welcome test123!")
     expect(page).to have_button("Find Top Rated Movies")
   end
 
-  it 'shows Top Rated Movies' do
+  xit 'shows Top Rated Movies' do
+    expect(current_path).to eq(discover_path)
     click_button "Find Top Rated Movies"
 
-    expect(current_path).to have_content("title1")
+    expect(current_page).to have_content("title1")
   end
 
   it 'has search form and button Find movies' do
     expect(current_path).to eq(discover_path)
-    expect(find('form')).to have_content('Title')
+    expect(find('form')).to have_content('Search')
     expect(page).to have_button("Find Movies")
   end
 
