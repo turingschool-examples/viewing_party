@@ -23,39 +23,42 @@ RSpec.describe 'Movies Page' do
 
     it 'displays movie title' do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-      visit "/viewing_party/new?title=Spider-Man:%20Homecoming"
+      visit "/movie_party/new?title=Spider-Man:%20Homecoming"
 
       expect(page).to have_content('Spider-Man: Homecoming')
     end
 
-    # describe 'there is a form to fill out data' do
-    #   it 'form has movie runtime field' do
-    #     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-    #     visit "/viewing_party/new?title=Spider-Man:%20Homecoming"
-    #
-    #     expect(page).to have_field('runtime')
-    #   end
-    #   it 'sellect date field' do
-    #     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-    #     visit "/viewing_party/new?title=Spider-Man:%20Homecoming"
-    #
-    #     expect(page).to have_field("date")
-    #   end
-    #   it 'start time field ' do
-    #     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-    #     visit "/viewing_party/new?title=Spider-Man:%20Homecoming"
-    #
-    #     expect(page).to have_field("time")
-    #   end
-    #
-    #
-    #   describe 'checkboxes for firends' do
-    #     it 'if you have friends' do
-    #     end
-    #     it 'if  you have no friends' do
-    #     end
-    #   end
-    # end
+    describe 'there is a form to fill out data' do
+      it 'form has movie runtime field' do
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+        visit "/movie_party/new?title=Spider-Man:%20Homecoming"
+
+        expect(page).to have_content('Runtime')
+        expect(page).to have_field('runtime')
+      end
+      it 'sellect date field' do
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+        visit "/movie_party/new?title=Spider-Man:%20Homecoming"
+
+        expect(page).to have_content("date")
+        expect(page).to have_field("date")
+      end
+      it 'start time field ' do
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+        visit "/movie_party/new?title=Spider-Man:%20Homecoming"
+
+        expect(page).to have_content("time")
+        expect(page).to have_field("time")
+      end
+
+
+      describe 'checkboxes for firends' do
+        it 'if you have friends' do
+        end
+        it 'if  you have no friends' do
+        end
+      end
+    end
 
   end
 

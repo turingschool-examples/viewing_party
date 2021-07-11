@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get '/movies/details', to: 'movies#show'
   post 'friends', to: 'friends#create'
 
-  get '/viewing_party/new', to: 'viewing_party#new'
+
+  get '/movie_party/new', to: 'movie_party#new'
+  post '/movie_party/create', to: 'movie_party#create'
 
 end
