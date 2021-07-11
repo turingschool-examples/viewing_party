@@ -1,0 +1,9 @@
+<%= button_to "Discover Top 40 Movies", movies_path, method: :get, local: true  %>
+<br>
+<h2>Search for Movies</h2>
+
+<%= form_with url: movies_path, method: :post, local: true do |form| %>
+  <%= form.label :search, 'Search For Movies by Title:' %>
+  <%= form.text_field :search %>
+  <%= form.submit 'Search' %>
+<% end %>
