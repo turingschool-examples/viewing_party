@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2021_07_07_232623) do
   create_table "parties", force: :cascade do |t|
     t.bigint "party_host_id"
     t.string "movie_title"
+    t.integer "movie_id"
     t.date "date"
     t.time "duration"
     t.time "start_time"
