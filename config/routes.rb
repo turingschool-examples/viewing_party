@@ -9,4 +9,7 @@ Rails.application.routes.draw do
   post '/', to:'sessions#create'
   # get '/logout', to: 'sessions#logout_user'
   delete '/logout', to: 'sessions#destroy'
+
+  resources :movies, only: [:index, :show]
+  get '/discover', to: "movies#discover"
 end

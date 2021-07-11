@@ -1,0 +1,55 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/search/movie?api_key=471fbec1249579ef3875b9b4cbaaea28&query=Cruella
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.5.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Sat, 10 Jul 2021 22:49:04 GMT
+      Server:
+      - openresty
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
+        Content-Length, Content-Range
+      Cache-Control:
+      - public, max-age=600
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 e672a9473bd80174ece54114220b84e0.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - BOS50-C1
+      X-Amz-Cf-Id:
+      - SRhYHbTu70FE3O6gFGHKRrvrv7s1_6Y2FWEttUOBfLRc3r3cKvaAFw==
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJwYWdlIjoxLCJyZXN1bHRzIjpbeyJhZHVsdCI6ZmFsc2UsImJhY2tkcm9wX3BhdGgiOiIvNk1LcjNLZ09MbXpPUDZNU3VaRVJPNDFMcGt0LmpwZyIsImdlbnJlX2lkcyI6WzM1LDgwXSwiaWQiOjMzNzQwNCwib3JpZ2luYWxfbGFuZ3VhZ2UiOiJlbiIsIm9yaWdpbmFsX3RpdGxlIjoiQ3J1ZWxsYSIsIm92ZXJ2aWV3IjoiSW4gMTk3MHMgTG9uZG9uIGFtaWRzdCB0aGUgcHVuayByb2NrIHJldm9sdXRpb24sIGEgeW91bmcgZ3JpZnRlciBuYW1lZCBFc3RlbGxhIGlzIGRldGVybWluZWQgdG8gbWFrZSBhIG5hbWUgZm9yIGhlcnNlbGYgd2l0aCBoZXIgZGVzaWducy4gU2hlIGJlZnJpZW5kcyBhIHBhaXIgb2YgeW91bmcgdGhpZXZlcyB3aG8gYXBwcmVjaWF0ZSBoZXIgYXBwZXRpdGUgZm9yIG1pc2NoaWVmLCBhbmQgdG9nZXRoZXIgdGhleSBhcmUgYWJsZSB0byBidWlsZCBhIGxpZmUgZm9yIHRoZW1zZWx2ZXMgb24gdGhlIExvbmRvbiBzdHJlZXRzLiBPbmUgZGF5LCBFc3RlbGxh4oCZcyBmbGFpciBmb3IgZmFzaGlvbiBjYXRjaGVzIHRoZSBleWUgb2YgdGhlIEJhcm9uZXNzIHZvbiBIZWxsbWFuLCBhIGZhc2hpb24gbGVnZW5kIHdobyBpcyBkZXZhc3RhdGluZ2x5IGNoaWMgYW5kIHRlcnJpZnlpbmdseSBoYXV0ZS4gQnV0IHRoZWlyIHJlbGF0aW9uc2hpcCBzZXRzIGluIG1vdGlvbiBhIGNvdXJzZSBvZiBldmVudHMgYW5kIHJldmVsYXRpb25zIHRoYXQgd2lsbCBjYXVzZSBFc3RlbGxhIHRvIGVtYnJhY2UgaGVyIHdpY2tlZCBzaWRlIGFuZCBiZWNvbWUgdGhlIHJhdWNvdXMsIGZhc2hpb25hYmxlIGFuZCByZXZlbmdlLWJlbnQgQ3J1ZWxsYS4iLCJwb3B1bGFyaXR5IjoxOTM3LjY0NywicG9zdGVyX3BhdGgiOiIvclRoNEs1dXc5SHlwbXBHc2xjS2Q0UWZIbDkzLmpwZyIsInJlbGVhc2VfZGF0ZSI6IjIwMjEtMDUtMjYiLCJ0aXRsZSI6IkNydWVsbGEiLCJ2aWRlbyI6ZmFsc2UsInZvdGVfYXZlcmFnZSI6OC41LCJ2b3RlX2NvdW50IjozODU0fSx7ImFkdWx0IjpmYWxzZSwiYmFja2Ryb3BfcGF0aCI6bnVsbCwiZ2VucmVfaWRzIjpbODAsMzUsMThdLCJpZCI6ODM2NDU0LCJvcmlnaW5hbF9sYW5ndWFnZSI6ImVuIiwib3JpZ2luYWxfdGl0bGUiOiJDcnVlbGxhIDIiLCJvdmVydmlldyI6IlNlcXVlbCB0byAyMDIxJ3MgQ3J1ZWxsYS4iLCJwb3B1bGFyaXR5Ijo1LjMxOSwicG9zdGVyX3BhdGgiOm51bGwsInJlbGVhc2VfZGF0ZSI6IiIsInRpdGxlIjoiQ3J1ZWxsYSAyIiwidmlkZW8iOmZhbHNlLCJ2b3RlX2F2ZXJhZ2UiOjAsInZvdGVfY291bnQiOjB9LHsiYWR1bHQiOmZhbHNlLCJiYWNrZHJvcF9wYXRoIjoiL2t1U3RSVjlJdFhFU052dUVHRFpNc202NXlmdi5qcGciLCJnZW5yZV9pZHMiOlsxNiwxMDc1MV0sImlkIjo3NTA5NTUsIm9yaWdpbmFsX2xhbmd1YWdlIjoiZW4iLCJvcmlnaW5hbF90aXRsZSI6IkEgQ2hyaXN0bWFzIENydWVsbGEiLCJvdmVydmlldyI6IlRoZSBnaG9zdHMgb2YgQ2hyaXN0bWFzZXMgcGFzdCwgcHJlc2VudCBhbmQgZnV0dXJlIGhhdW50IENydWVsbGEncyBkcmVhbXMuIiwicG9wdWxhcml0eSI6Mi45ODcsInBvc3Rlcl9wYXRoIjoiL2Z1a3k1eFpHMnBaRHdkZVFGcmxscU5iQzJDby5qcGciLCJyZWxlYXNlX2RhdGUiOiIxOTk3LTEyLTIwIiwidGl0bGUiOiJBIENocmlzdG1hcyBDcnVlbGxhIiwidmlkZW8iOmZhbHNlLCJ2b3RlX2F2ZXJhZ2UiOjAsInZvdGVfY291bnQiOjB9LHsiYWR1bHQiOmZhbHNlLCJiYWNrZHJvcF9wYXRoIjoiL3pJVnd2NGxnbTBGd3hiRWNqSUxHY3owaEFLTC5qcGciLCJnZW5yZV9pZHMiOltdLCJpZCI6MzI0ODk1LCJvcmlnaW5hbF9sYW5ndWFnZSI6Im5sIiwib3JpZ2luYWxfdGl0bGUiOiJNZWdhIE1pbmR5IC0gRGVsbGEgQ3J1ZWxsYSIsIm92ZXJ2aWV3IjoiIiwicG9wdWxhcml0eSI6MS45MDIsInBvc3Rlcl9wYXRoIjoiL3RuczFIa3lPU1ZpcEVBdTJrZDVvdVRNa1M0ZC5qcGciLCJyZWxlYXNlX2RhdGUiOiIyMDE0LTA1LTE1IiwidGl0bGUiOiJNZWdhIE1pbmR5IC0gRGVsbGEgQ3J1ZWxsYSIsInZpZGVvIjpmYWxzZSwidm90ZV9hdmVyYWdlIjo1LCJ2b3RlX2NvdW50IjoyfSx7ImFkdWx0IjpmYWxzZSwiYmFja2Ryb3BfcGF0aCI6bnVsbCwiZ2VucmVfaWRzIjpbMTA3NTEsOTksMTZdLCJpZCI6NTM0MTEyLCJvcmlnaW5hbF9sYW5ndWFnZSI6ImVuIiwib3JpZ2luYWxfdGl0bGUiOiJDcnVlbGxhIERlIFZpbDogRHJhd24gdG8gQmUgQmFkIiwib3ZlcnZpZXciOiJCb251cyBzaG9ydCBvbiB0aGUgMTAxIERhbG1hdGlhbnMgRGlhbW9uZCBFZGl0aW9uIEJsdS1yYXkgZmVhdHVyaW5nIGludGVydmlld3Mgd2l0aCB0aGUgcGVvcGxlIHdobyB3b3JrZWQgb24gdGhlIG1vdmllLiIsInBvcHVsYXJpdHkiOjQuMTczLCJwb3N0ZXJfcGF0aCI6Ii80N2pMTDFIR253TnJxQzduRGhPQ0x1Rlg1aWQuanBnIiwicmVsZWFzZV9kYXRlIjoiMjAwOC0wMy0wNCIsInRpdGxlIjoiQ3J1ZWxsYSBEZSBWaWw6IERyYXduIHRvIEJlIEJhZCIsInZpZGVvIjp0cnVlLCJ2b3RlX2F2ZXJhZ2UiOjAsInZvdGVfY291bnQiOjB9XSwidG90YWxfcGFnZXMiOjEsInRvdGFsX3Jlc3VsdHMiOjV9
+  recorded_at: Sat, 10 Jul 2021 22:49:04 GMT
+recorded_with: VCR 6.0.0
