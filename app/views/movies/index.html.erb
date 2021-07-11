@@ -1,8 +1,12 @@
 <% if @movies.present? %>
-  <% @movies.each do |movie| %>
-    <div class='movie'>
-      <p><%= movie[:title] %></p>
-      <p><%= movie[:vote_average] %></p>
-    </div>
-  <% end %>
+  <div class='movies'>
+    <table class="movie-list">
+      <% @movies.each do |movie| %>
+        <tr> 
+          <td><%= movie[:title] %></td>
+          <td><%= movie[:vote_average] %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
 <% end %>
