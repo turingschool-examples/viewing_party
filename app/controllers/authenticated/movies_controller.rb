@@ -1,7 +1,7 @@
-class MoviesController < ApplicationController
+class Authenticated::MoviesController < Authenticated::BaseController
 
   def index
-    @movie_search = ImdbService.top_movies_search(params[:movie_title])
+    @movie_search = MovieFacade.top_movie_search_results(params[:movie_title])
   end
   
   def show

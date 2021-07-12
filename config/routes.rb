@@ -7,10 +7,10 @@ Rails.application.routes.draw do
   get '/login', to:'sessions#new'
   post '/login', to:'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-  get '/dashboard', to: 'users#show'
-  get '/discover', to: 'discover#index'
-  get '/movies', to: 'movies#index'
-  get '/movies/details', to: 'movies#show'
-  post 'friends', to: 'friends#create'
+  get '/dashboard', to: 'authenticated/dashboard#show'
+  get '/discover', to: 'authenticated/discover#index'
+  get '/movies', to: 'authenticated/movies#index'
+  get '/movies/details', to: 'authenticated/movies#show'
+  post 'friends', to: 'authenticated/friends#create'
 
 end

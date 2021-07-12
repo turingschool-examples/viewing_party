@@ -3,38 +3,34 @@ require 'rails_helper'
 RSpec.describe ImdbService do
   describe 'class methods' do
     describe '.top_movies' do
-      describe 'no search provided' do
-        it 'returns an array containing the top movies titles and vote average' do
-          VCR.use_cassette 'imdb_top' do
-            actual = ImdbService.top_movies
-            require 'pry', binding.pry
+      it 'returns an array containing the top movies titles and vote average' do
+        VCR.use_cassette 'imdb_top' do
+          actual = ImdbService.top_movies
 
-            expect(actual.class).to eq(Array)
-            expect(actual[0].title.include?('Tomorrow')).to eq(true)
-            expect(actual[0].title.nil?).to eq(false)
-            expect(actual[0].class).to eq(Movie)
-            expect(actual.count).to eq(40)
-          end
+          expect(actual.class).to eq(Array)
+          expect(actual[0][:title].include?('Tomorrow')).to eq(true)
+          expect(actual[0][:title].nil?).to eq(false)
+          expect(actual[0].class).to eq(Hash)
         end
       end
-      describe 'search term provided' do
-        it 'returns an array based on search' do
-          VCR.use_cassette 'imdb_search' do
-            actual = ImdbService.top_movies('Jack')
-  
-            expect(actual.class).to eq(Array)
-            expect(actual[0].title.include?('Jack')).to eq(true)
-            expect(actual[0].title.nil?).to eq(false)
-            expect(actual[0].class).to eq(Movie)
-            expect(actual.count).to eq(40)
-          end
+    end
+    describe '.top_movies_search' do
+      it 'returns an array based on search' do
+        VCR.use_cassette 'imdb_search' do
+          actual = ImdbService.top_movies_search('Jack')
+
+          expect(actual.class).to eq(Array)
+          expect(actual[0][:title].include?('Jack')).to eq(true)
+          expect(actual[0][:title].nil?).to eq(false)
+          expect(actual[0].class).to eq(Hash)
+          expect(actual.count).to eq(40)
         end
-        it 'returns No Movies Found if not title matches' do
-          VCR.use_cassette 'imdb_nil' do
-            actual = ImdbService.top_movies('klsdjfl')
-  
-            expect(actual).to eq('No Movies Found')
-          end
+      end
+      it 'returns a hash if no title matches' do
+        VCR.use_cassette 'imdb_nil' do
+          actual = ImdbService.top_movies_search('klsdjfl')
+
+          expect(actual).to eq([])
         end
       end
     end
@@ -49,7 +45,7 @@ RSpec.describe ImdbService do
           expect(actual[:runtime]).to eq(130)
           expect(actual[:genres][0][:name]).to eq('Crime')
           expect(actual[:overview]).to eq("When a gunman takes five lives with six shots, all evidence points to the suspect in custody. On interrogation, the suspect offers up a single note: \"Get Jack Reacher!\" So begins an extraordinary chase for the truth, pitting Jack Reacher against an unexpected enemy, with a skill for violence and a secret to keep.")
-          expect(actual[:vote_count]).to eq(5306)
+          expect(actual[:vote_count]).to eq(5307)
         end
       end
     end
@@ -58,10 +54,8 @@ RSpec.describe ImdbService do
         VCR.use_cassette 'imdb_jack_cast' do
           actual = ImdbService.movie_cast(75780)
 
-          expect(actual.class).to eq(Array)
-          expect(actual.length).to eq(10)
-          expect(actual[0]).to eq('Tom Cruise')
-          expect(actual[9]).to eq('Josh Helman') 
+          expect(actual.class).to eq(Hash)
+          expect(actual[:cast][0][:name]).to eq('Tom Cruise')
         end
       end
     end
@@ -70,11 +64,11 @@ RSpec.describe ImdbService do
         VCR.use_cassette 'imdb_jack_reviews' do
           actual = ImdbService.movie_reviews(75780)
 
-          expect(actual.class).to eq(Array)
-          expect(actual[0].class).to eq(Hash)
-          expect(actual[0][:name]).to eq('Kenneth Axel Carlsson')
-          expect(actual.last[:name]).to eq('John Chard')
-          expect(actual[0][:review].class).to eq(String)
+          expect(actual.class).to eq(Hash)
+          expect(actual[:results].class).to eq(Array)
+          expect(actual[:results][0][:author]).to eq('Kenneth Axel Carlsson')
+          expect(actual[:results][1][:author]).to eq('John Chard')
+          expect(actual[:results][0][:content].class).to eq(String)
         end
       end
     end

@@ -1,4 +1,4 @@
-class FriendsController < ApplicationController
+class Authenticated::FriendsController < Authenticated::BaseController
 
   def create
     friend = User.find_by(email: params[:friend_email])
