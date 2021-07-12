@@ -18,4 +18,24 @@ RSpec.describe "welcome page" do
 
     expect(current_path).to eq('/register')
   end
+
+  it 'has a link to log out' do
+    user = User.create(username: 'person@ex.com', password: 'ilovecatsanddogs')
+
+    visit root_path
+
+    click_on "Log in here"
+    expect(current_path).to eq("/login")
+
+    fill_in :username, with: "person@ex.com"
+    fill_in :password, with: "ilovecatsanddogs"
+
+    click_on "Log in"
+
+    expect(page).to have_content('Log out')
+
+    click_on "Log out"
+
+    expect(current_path).to eq('/')
+  end
 end
