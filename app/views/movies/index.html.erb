@@ -1,0 +1,21 @@
+<div id='search-functions'>
+  <%= button_to "Find Top Rated Movies", movies_path, method: :get %>
+
+  <%= bootstrap_form_with(url: movies_path, local: true, method: :get) do |form|%>
+    <%= form.text_field :query, label: "Search By Title" %>
+    <%= form.submit "Find Movies" %>
+  <% end %>
+</div>
+
+<% if @movies.present? %>
+  <div class='movies'>
+    <table class="movie-table">
+      <% @movies.each do |movie| %>
+        <tr> 
+          <td><%= movie[:title] %></td>
+          <td><%= movie[:vote_average] %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+<% end %>
