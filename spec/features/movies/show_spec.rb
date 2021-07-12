@@ -45,17 +45,38 @@ RSpec.describe "Movies index page" do
 
   describe 'Movie Show Page' do
     it 'has a button to create a viewing party' do
-      require 'pry'; binding.pry
+  
       expect(page).to have_button("Create Viewing Party")
     end
 
     it 'shows movie title and its details' do
-      
+
       expect(page).to have_content(@cruella.title)
-      expect(page).to have_content(@cruella.vote_average)
+      expect(page).to have_content("8.4")
       expect(page).to have_content(@cruella.runtime)
-      expect(page).to have_content(@cruella.genres)
-      expect(page).to have_content(@cruella.cast)
+      expect(page).to have_content("Comedy")
+      expect(page).to have_content("Crime")
+      # add cast 
+      # add overview
+      # number of reviews
+      # reviews and their authors
+    end
+
+    it 'shows movie overview' do
+
+      expect(page).to have_content(@cruella.overview)
+    end
+
+    it 'lists the first 10 members of the cast' do
+      
+      expect(page).to have_content("Emma Stone as Estella / Cruella")
+      expect(page).to have_content("Kayvan Novak as Roger")
+    end
+
+    it 'lists number of reviews and review content' do
+      
+      expect(page).to have_content("Emma Stone as Estella / Cruella")
+      expect(page).to have_content("Kayvan Novak as Roger")
     end
   end
 end
