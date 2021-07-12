@@ -15,8 +15,8 @@ RSpec.describe "User registration form" do
 
     click_on "Register User"
 
-    expect(current_path).to eq(dashboard_path)
-    expect(page).to have_content("Welcome, #{email}!")
+    expect(current_path).to eq(welcome_path)
+    expect(page).to have_content("Registration completed for #{email}. Please log in!")
   end
 
   it 'returns error message when you fail to register' do
