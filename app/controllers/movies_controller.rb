@@ -9,4 +9,8 @@ class MoviesController < ApplicationController
       @movies = []
     end
   end
+
+  def discover
+    @user = current_user
+  end
 end
