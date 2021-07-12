@@ -5,7 +5,9 @@ RSpec.describe "registration page" do
     visit '/register'
   end
 
-  it 'has a link to register user' do
+  it 'has a link to create account' do
+    expect(page).to have_content("Please enter info here")
+
     username = "movielover3"
     password = "abc123"
 
