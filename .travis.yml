@@ -8,7 +8,8 @@ script:
 - bundle exec rspec
 deploy:
   provider: heroku
-  api_key: HKEY
+  api_key:
+    secure: f646951c3f5b210e7f111ab7c9a5ab8f54f0b0c4126a133139b6682ddd3d90cd6b85b05483756a7867ab1635074f033adf559e013f2b44b784023eb9fe9eb3b3
   app: viewing-party-ja
   run: rails db:migrate
   on:
