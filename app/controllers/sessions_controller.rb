@@ -8,8 +8,6 @@ class SessionsController <ApplicationController
             session[:user_id] = found_user.id
             flash[:success] = "Welcome, #{found_user.username}!"
             redirect_to dashboard_path
-            # if current_user.default?
-            # redirect_to admin_dashboard_path if current_user.admin?
         else
             flash[:error] = "Your username or password are incorrect"
             redirect_to "/login"
