@@ -28,7 +28,7 @@ RSpec.describe ImdbService do
           actual = ImdbService.top_movies
 
           expect(actual.class).to eq(Array)
-          expect(actual[0][:title].include?('Luca')).to eq(true)
+          expect(actual[0][:title].include?('Tomorrow')).to eq(true)
           expect(actual[0][:title].nil?).to eq(false)
           expect(actual[0].class).to eq(Hash)
           expect(actual.count).to eq(40)
