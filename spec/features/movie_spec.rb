@@ -40,7 +40,8 @@ RSpec.describe 'Movies Page' do
         expect(page).to have_content('6.5')
         expect(page).to have_link('Jack and Jill')
         expect(page).to have_content('4.3')
-
+      end
+      VCR.use_cassette 'jack_ryan_calls' do
         click_on 'Jack Ryan'
 
         expect(page).to have_current_path('/movies/details', ignore_query: true)
