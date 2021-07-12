@@ -56,10 +56,6 @@ RSpec.describe "Movies index page" do
       expect(page).to have_content(@cruella.runtime)
       expect(page).to have_content("Comedy")
       expect(page).to have_content("Crime")
-      # add cast 
-      # add overview
-      # number of reviews
-      # reviews and their authors
     end
 
     it 'shows movie overview' do
