@@ -5,7 +5,8 @@ class MoviesController < ApplicationController
   end
 
   def show
-    # binding.pry
-    @title = params[:title]
+    @movie = ImdbService.movie_data(params[:id])
+    @cast = ImdbService.movie_cast(params[:id])
+    @reviews = ImdbService.movie_reviews(params[:id])
   end
 end
