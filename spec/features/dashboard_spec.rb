@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'dashboard page' do
+RSpec.describe 'dashboard page' do
   it 'can not access dashboard without login' do
     visit dashboard_path
     expect(current_path).to_not eq(dashboard_path)

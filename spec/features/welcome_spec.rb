@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'welcome page' do
+RSpec.describe 'welcome page' do
   before(:each)do
     @user = User.create(email: 'test123@xyz.com', password: 'viewparty')
     visit welcome_path

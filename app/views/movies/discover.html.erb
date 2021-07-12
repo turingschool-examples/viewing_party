@@ -5,9 +5,9 @@
 <h2>OR</h2><br><br>
 
 <%= bootstrap_form_with(model: @movie, url: discover_path, local: true) do |f| %>
-<%= f.text_field :search, placeholder: "Search by movie title" %><br>
+<%= f.text_field :title, placeholder: "Search by movie title" %><br>
 <%= f.submit "Find Movies" %><br><br><br><br>
 <% end %>
 
-&emsp;<%= link_to "Dashboard", dashboard_path, method: :delete %>&emsp;&emsp;&emsp;
+&emsp;<%= link_to "Back to Dashboard", dashboard_path, method: :delete %>&emsp;&emsp;&emsp;
 <%= link_to "Log out", '/logout', method: :delete %><br><br><br><br><br><br>

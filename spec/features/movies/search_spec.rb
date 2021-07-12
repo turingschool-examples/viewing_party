@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'discover movies page' do
+RSpec.describe 'Search for movies titles' do
   before(:each)do
     @user = User.create(email: 'test123@xyz.com', password: 'viewparty')
     visit welcome_path
@@ -10,7 +10,7 @@ RSpec.describe 'discover movies page' do
     click_button "Discover Movies"
   end
 
-  it 'has button Find Top Rated Movies' do
+  it 'can seach for movie titles' do
     # save_and_open_page
 
     expect(current_path).to eq(discover_path)
