@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       flash[:success] = "Welcome back, #{found_user.email}!"
       redirect_to root_path
     else
-      flash[:error] = "Your username or password are incorrect. Please try again."
+      flash[:error] = 'Your username or password are incorrect. Please try again.'
       redirect_to login_path
     end
   end
