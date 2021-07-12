@@ -15,7 +15,7 @@ RSpec.describe MovieDetails do
       reviews = VCR.use_cassette("tmdb_find_reviews") do
         service.find_reviews(337404)
       end
-      
+
       cruella = MovieDetails.new(movie, cast, reviews)
 
       expect(cruella).to be_a MovieDetails
