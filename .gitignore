@@ -22,3 +22,7 @@
 .env
 # Ignore application configuration
 /config/application.yml
+
+
+# vcr stuff
+/spec/cassettes

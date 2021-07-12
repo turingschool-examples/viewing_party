@@ -49,7 +49,7 @@ RSpec.describe 'Movies Page' do
 
         expect(page).to have_content("time")
         expect(page).to have_field("time")
-      end
+    end
 
 
       describe 'checkboxes for firends' do
@@ -59,18 +59,18 @@ RSpec.describe 'Movies Page' do
         end
       end
     end
-
   end
 
   describe 'subbmitng the form ' do
     describe 'happy path' do
-      it 'creates a new entry in the data base'do
+      it 'creates a new entry in the data base' do
       end
 
       it 'creates attendees based on the firends you invite' do
       end
 
       it 'takes you to the dash board when done' do
+
       end
     end
 
