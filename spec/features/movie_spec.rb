@@ -44,7 +44,6 @@ RSpec.describe 'Movies Page' do
         click_on 'Jack Ryan'
 
         expect(page).to have_current_path('/movies/details', ignore_query: true)
-        expect(page).to have_content('Jack Ryan')
       end
     end
   end
