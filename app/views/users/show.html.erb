@@ -1,4 +1,4 @@
-<h1><%= "Welcome #{@user.email}!" %></h1>
+<h1><%= "Welcome #{current_user.email}!" %></h1>
 
 <%= button_to 'Discover Movies', '/discover' %>
 
@@ -8,49 +8,43 @@
 <%= f.submit 'Add Friend' %>
 <% end %>
 
-<% if @user.friends.count > 0  %>
-  <h3><%= "#{@user.email}'s Friends: " %></h3>
-  <% @user.friends.each do |friend| %>
+<% if current_user.friends.count > 0  %>
+  <h3><%= "#{current_user.email}'s Friends: " %></h3>
+  <% current_user.friends.each do |friend| %>
     <p><%= friend.email %></p>
   <% end %>
 <% else %>
   <p>You currently haven't added any friends.</p>
 <% end %>
 
-<h3>Parties You are Hosting: </h3>
-<% if @user.viewing_parties > 0 %>
-  <% @user.viewing_parties.each do |party| %>
-    <%= link_to "#{party.movie_title}", url: "/movies/#{party.movie_id}", method: :get, local: true %>
-    <p>Start Time: <%= party.start_time %><p>
-    <p>Host: <%= @user.email %></p>
-    <p>Attendees: </p>
-    <% party.attendees.each do |attendee| %>
-      <% if attendee.email == @user.email %>
-        <b><%= attendee.email %></b>
-      <% else %>
-        <%= attendee.email %>
-      <% end %>
-    <% end %>
-  <% end %>
-<% else %>
-  <p>None Currently</p>
+<h2>Viewing Parties</h2>
+<% if current_user.parties.empty? && current_user.attendees.empty? %>
+  <p> You do not have any invitations and are not hosting any Viewing Parties!
 <% end %>
 
-<h3>Parties You are Hosting: </h3>
-<% if @user.viewing_parties > 0 %>
-  <% @user.viewing_parties.each do |party| %>
-    <%= link_to "#{party.movie_title}", url: "/movies/#{party.movie_id}", method: :get, local: true %>
-    <p>Start Time: <%= party.start_time %><p>
-    <p>Host: <%= @user.email %></p>
-    <p>Attendees: </p>
-    <% party.attendees.each do |attendee| %>
-      <% if attendee.email == @user.email %>
-        <b><%= attendee.email %></b>
-      <% else %>
-        <%= attendee.email %>
-      <% end %>
+<section id='invited'>
+  <h3> Viewing Parties you are invited to:</h3>
+  <% current_user.invites.each do |party| %>
+    <p>Movie Title: <%= link_to "#{party.movie_title}", url: "/movie_details/#{party.movie_id}", method: :get, local: true %></p>
+    <p>Host: <%= User.find("#{party.party_host_id}").email %></p>
+    <p>Date: <%= party.date %></p>
+    <p>Start Time: <%= party.start_time %></p>
+    <p>Invited Attendees: <%= party.attendees.each do |attendee| %></p>
+      <p><%= User.find("#{attendee.user_id}").email %></p>
     <% end %>
   <% end %>
-<% else %>
-  <p>None Currently</p>
-<% end %>
+</section>
+
+<section id='hosting'>
+  <h3>Viewing Parties You are Hosting: </h3>
+  <% if current_user.parties.count > 0 %>
+    <% current_user.parties.each do |party| %>
+      <p>Movie Title: <%= link_to "#{party.movie_title}", url: "/movies/#{party.movie_id}", method: :get, local: true %></p>
+      <p>Date: <%= party.date %></p>
+      <p>Start Time: <%= party.start_time %></p>
+      <p>Friends you have invited to attend: </p>
+    <% end %>
+  <% else %>
+    <p>None Currently</p>
+  <% end %>
+</section>
