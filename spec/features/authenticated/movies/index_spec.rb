@@ -43,16 +43,31 @@ RSpec.describe "Movies index page" do
         fill_in("query", with: "Cruella")
         click_button("Find Movies")
 
-        response_body = File.read('spec/fixtures/find_movie_by_title.json')
-        stub_request(:get, "https://api.themoviedb.org/3/search/movie?query=Cruella").
-            to_return(status: 200, body: response_body, headers: {})
+        stub_search_movie_by_title
 
-            expect(page).to_not have_content("Dilwale Dulhania Le Jayenge")
-            expect(page).to_not have_content("The Shawshank Redemption")
-            expect(page).to have_content("Cruella")
-            expect(page).to have_content("Cruella 2")
-            expect(page).to have_content("A Christmas Cruella")
-            expect(page).to have_content("Mega Mindy - Della Cruella")
+        expect(page).to_not have_content("Dilwale Dulhania Le Jayenge")
+        expect(page).to_not have_content("The Shawshank Redemption")
+        expect(page).to have_content("Cruella")
+        expect(page).to have_content("Cruella 2")
+        expect(page).to have_content("A Christmas Cruella")
+        expect(page).to have_content("Mega Mindy - Della Cruella")
+      end
+    end
+
+    context 'if user clicks movie title' do
+      it 'should link to that movie show page' do
+        expect(current_path).to eq(movies_path)
+        fill_in("query", with: "Cruella")
+        click_button("Find Movies")
+       
+        click_link "Cruella"
+        expect(current_path).to eq("/movies/337404")
+        expect(page).to have_content("Cruella")
+        expect(page).to_not have_content("Cruella 2")
+        expect(page).to have_content("Vote Average")
+        expect(page).to have_content("Runtime")
+        expect(page).to have_content("Genres")
+        expect(page).to have_content("Cast")
       end
     end
   end
