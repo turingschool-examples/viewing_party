@@ -9,17 +9,19 @@ RSpec.describe 'movies' do
     fill_in :password, with: "ilovecatsanddogs"
     click_on "Log in"
     click_on "Discover Movies"
-    click_on "Discover Top 40 Movies"
   end
 
   describe 'top 40 movies' do
     describe 'top movies info' do
       it 'has movies' do
-        expect(current_path).to eq("/movies")
-        expect(page).to have_content("Top 40 Movies")
-        expect(page).to have_content("The Tomorrow War")
-        movies = find_all('.movie')
-        expect(movies.size).to eq(40)
+        VCR.use_cassette "Top_40_movies" do
+          click_on "Discover Top 40 Movies"
+          expect(current_path).to eq("/movies")
+          expect(page).to have_content("Top 40 Movies")
+          expect(page).to have_content("The Tomorrow War")
+          movies = find_all('.movie')
+          expect(movies.size).to eq(40)
+        end
       end
     end
   end
