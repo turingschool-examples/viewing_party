@@ -1,4 +1,16 @@
 class ImdbService
+
+
+# number_of_results_asked_for = 100
+# results = []
+# x=1
+#   while number_of_results_asked_for > results.length
+#     # movies = make api call to page x
+#     # results << movies
+#     # x +=1
+#   end
+
+
   def self.top_movies_search(search)\
     imbd_api = ENV['IMDB_KEY']
     search_terms = search.gsub(' ', '+')

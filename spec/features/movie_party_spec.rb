@@ -5,25 +5,9 @@ RSpec.describe 'Movies Page' do
   let(:user) { create(:user) }
 
   describe 'page has desired info' do
-    it '' do
-      # allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-      # VCR.use_cassette 'imdb_top' do
-      #
-      #   visit '/dashboard'
-      #
-      #   expect(page).to have_button(value='Discover Top 40 Movies')
-      #
-      #   click_on 'Discover Top 40 Movies'
-      #
-      #   expect(page).to have_current_path("/discover", ignore_query: true)
-      #   expect(page).to have_button('Find Top Rated Movies')
-      #   expect(page).to have_content('Luca')
-      end
-
-
     it 'displays movie title' do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-      visit "/movie_party/new?title=Spider-Man:%20Homecoming"
+      visit "/movie_party/new?title=Spider-Man:%20Homecoming&runtime=2"
 
       expect(page).to have_content('Spider-Man: Homecoming')
     end
@@ -31,21 +15,21 @@ RSpec.describe 'Movies Page' do
     describe 'there is a form to fill out data' do
       it 'form has movie runtime field' do
         allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-        visit "/movie_party/new?title=Spider-Man:%20Homecoming"
+        visit "/movie_party/new?title=Spider-Man:%20Homecoming&runtime=2"
 
-        expect(page).to have_content('Runtime')
-        expect(page).to have_field('runtime')
+        expect(page).to have_content('Duration')
+        expect(page).to have_field('duration')
       end
       it 'sellect date field' do
         allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-        visit "/movie_party/new?title=Spider-Man:%20Homecoming"
+        visit "/movie_party/new?title=Spider-Man:%20Homecoming&runtime=2"
 
         expect(page).to have_content("date")
         expect(page).to have_field("date")
       end
       it 'start time field ' do
         allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-        visit "/movie_party/new?title=Spider-Man:%20Homecoming"
+        visit "/movie_party/new?title=Spider-Man:%20Homecoming&runtime=2"
 
         expect(page).to have_content("time")
         expect(page).to have_field("time")
@@ -64,22 +48,61 @@ RSpec.describe 'Movies Page' do
   describe 'subbmitng the form ' do
     describe 'happy path' do
       it 'creates a new entry in the data base' do
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+        visit "/movie_party/new?title=Spider-Man:%20Homecoming&runtime=20"
+
+        no_party = MovieParty.find_by(runtime: 10)
+        expect(no_party).to eq(nil)
+
+        fill_in :duration, with: 10
+        fill_in :date, with:'2-2-2022'
+        fill_in :time, with: '08:00 AM'
+
+        click_on "Save"
+
+        new_party = MovieParty.find_by(runtime: 10)
+
+        expect(new_party).to_not eq(nil)
       end
 
       it 'creates attendees based on the firends you invite' do
+
+
+
       end
 
       it 'takes you to the dash board when done' do
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+        visit "/movie_party/new?title=Spider-Man:%20Homecoming&runtime=20"
 
+        fill_in :duration, with: 10
+        fill_in :date, with:'2-2-2022'
+        fill_in :time, with: '08:00 AM'
+
+        click_on "Save"
+
+        expect(current_path).to eq("/dashboard")
       end
     end
 
     describe 'sad path' do
       it 'requires a run time' do
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+        visit "/movie_party/new?title=Spider-Man:%20Homecoming&runtime=130"
+
+        fill_in :duration, with: "2"
+        fill_in :date, with:'2-2-2022'
+        fill_in :time, with: '08:00 AM'
+
+        click_on "Save"
+
+        # expect(current_path).to eq("/movie_party/new?title=Spider-Man:%20Homecoming&runtime=130")
+
+
       end
       it 'requires runtime be greater than movie runtime' do
       end
-      it ' requires you enter in a data' do
+      it ' requires you enter in a date' do
       end
       it 'requires a start time' do
       end

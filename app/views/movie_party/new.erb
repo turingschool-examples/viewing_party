@@ -1,12 +1,10 @@
 <%= "#{@title}" %>
 
-
-
 <%= form_with url:"/movie_party/create", method: :puts, local: true do |f| %>
   <%= f.hidden_field :title, value: @title %>
 
-  <%= f.label :runtime %>
-  <%= f.number_field :runtime, required: true  %> <br><br>
+  <%= f.label :duration %>
+  <%= f.number_field :duration, required: true, min: @movie_length, value: @movie_length  %> <br><br>
 
   <%= f.label :date, 'date' %>
   <%= f.date_field :date, required: true %> <br><br>
