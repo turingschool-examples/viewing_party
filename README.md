@@ -1,5 +1,5 @@
 # Project: Viewing Party
-## Group Member Names: Kevin & Suzie
+## Group Member Names: [Kevin](https://github.com/denverdevelopments) & [Suzie](https://github.com/suzkiee)
 
 This is the base repo for the [viewing party project](https://backend.turing.io/module3/projects/viewing_party) used for Turing's Backend Module 3.
 
