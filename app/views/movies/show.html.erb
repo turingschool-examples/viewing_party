@@ -1,0 +1,17 @@
+<h1><%= @movie.title %></h1>
+<p>Runtime: <%= @movie.runtime %></p>
+<p>Genre: <%= @movie.genres %></p>
+<p>Synopsis: <%= @movie.summary %></p>
+<h3>Cast: </h3>
+<% @movie.first_ten_cast_members.each do |cast| %>
+  <p><%= cast %></p>
+<% end %>
+<h4>Reviews: </h4>
+<p>Vote Average: <%= @movie.vote_average %></p>
+<p>Total Reviews: <%= @movie.total_reviews %></p>
+<p>Reviewers:</p>
+<% @movie.reviewer_info.each do |reviewer| %>
+  <p><%= reviewer %></p>
+<% end %>
+
+<%= button_to 'Create a Viewing Party', '/viewing_party/new', method: :get, local: true %>
