@@ -11,6 +11,6 @@ class Authenticated::MoviesController < Authenticated::BaseController
   end
 
   def show
-    @movie = MovieFacade.movie_details_by_id(params[:id])
+    @movie = MovieFacade.movie_details_by_id(params[:movie_id])
   end
 end

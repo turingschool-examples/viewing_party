@@ -13,8 +13,10 @@ class MovieFacade
 
   def self.movie_details_by_id(movie_id)
     service = MovieService.new
-    movie_details = service.request_api("/3/movie/#{movie_id}")[:results] + service.    request_api("/3/movie/#{movie_id}/credits")[:results] + service.request_api("/3/movie/#{movie_id}/reviews")[:results]
-    @movie = MovieDetails.new(movie_details)
+    movie = service.request_api("/3/movie/#{movie_id}") 
+    cast = service.request_api("/3/movie/#{movie_id}/credits") 
+    reviews = service.request_api("/3/movie/#{movie_id}/reviews")
+    @movie = MovieDetails.new(movie, cast, reviews)
   end
 
 end
