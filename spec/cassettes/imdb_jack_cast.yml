@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.themoviedb.org/3/movie/75780/credits?api_key=e1dce8b90f48a3084940ca941868f474
+    uri: https://api.themoviedb.org/3/movie/75780/credits?api_key=6b310e0dcdbc8d375cce6ea3bf466eea
     body:
       encoding: US-ASCII
       string: ''
@@ -26,6 +26,7 @@ http_interactions:
       - keep-alive
       Date:
       - Mon, 12 Jul 2021 20:27:52 GMT
+
       Server:
       - openresty
       Access-Control-Allow-Origin:

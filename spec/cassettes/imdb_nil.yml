@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.themoviedb.org/3/search/movie?api_key=e1dce8b90f48a3084940ca941868f474&page=1&query=klsdjfl
+    uri: https://api.themoviedb.org/3/search/movie?api_key=6b310e0dcdbc8d375cce6ea3bf466eea&page=1&query=klsdjfl
     body:
       encoding: US-ASCII
       string: ''
@@ -53,7 +53,7 @@ http_interactions:
   recorded_at: Mon, 12 Jul 2021 19:35:13 GMT
 - request:
     method: get
-    uri: https://api.themoviedb.org/3/search/movie?api_key=e1dce8b90f48a3084940ca941868f474&page=2&query=klsdjfl
+    uri: https://api.themoviedb.org/3/search/movie?api_key=6b310e0dcdbc8d375cce6ea3bf466eea&page=2&query=klsdjfl
     body:
       encoding: US-ASCII
       string: ''

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.themoviedb.org/3/movie/75780/reviews?api_key=e1dce8b90f48a3084940ca941868f474
+    uri: https://api.themoviedb.org/3/movie/75780/reviews?api_key=6b310e0dcdbc8d375cce6ea3bf466eea
     body:
       encoding: US-ASCII
       string: ''
@@ -34,11 +34,11 @@ http_interactions:
       - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
         Content-Length, Content-Range
       X-Memc:
-      - HIT
+      - MISS, STORE
       X-Memc-Key:
       - fc1c34449a5f81809462689da37f4cd9d8d93739
       X-Memc-Age:
-      - '8274'
+      - '0'
       X-Memc-Expires:
       - '6945'
       Date:
