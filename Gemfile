@@ -27,7 +27,7 @@ group :development, :test do
   gem 'pry'
   gem 'travis'
   gem 'webmock'
-  gem 'vcr'
+  # gem 'vcr'
 end
 
 group :development do
