@@ -37,9 +37,8 @@ RSpec.describe 'Dashboard page' do
      expect(page).to have_content("You currently haven't added any friends.")
    end
 
-   xit 'shows all friends a current user has' do
-     user_2 = User.create!(email: 'roald_2@gmail.com', password_digest: 'test')
-     expect(page).to have_content(user_2.email)
+   it 'shows all friends a current user has' do
+     expect(page).to have_content(@user_2.email)
    end
 
    it 'has viewing party details' do
