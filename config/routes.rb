@@ -15,4 +15,7 @@ Rails.application.routes.draw do
   get '/movies/:movie_id', to:'authenticated/movies#show'
   get '/discover', to:'authenticated/movies#discover'
   post '/discover', to:'authenticated/movies#discover'
+
+  get '/parties/new', to:'authenticated/parties#new'
+  post '/parties', to: 'authenticated/parties#create'
 end
