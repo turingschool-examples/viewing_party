@@ -23,15 +23,15 @@ class MovieService
   def find_reviews(movie_id)
     request_api("/3/movie/#{movie_id}/reviews")
   end
-  
+
   def request_api(path)
     resp = conn('https://api.themoviedb.org/').get(path) do |faraday|
       faraday.params['api_key'] = ENV["themoviedb_key"]
     end
     parse_json(resp)
   end
-  
-  private 
+
+  private
     def parse_json(response)
       JSON.parse(response.body, symbolize_names: true)
     end

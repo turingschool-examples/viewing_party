@@ -24,7 +24,7 @@ RSpec.describe 'MovieFacade' do
 
         # require "pry"; binding.pry
         expect(movies).to be_a(Array)
-        # expect(movies.count).to eq(40)
+        expect(movies.count).to eq(5)
         expect(movies.first[:title]).to eq("Cruella")
       end
     end
