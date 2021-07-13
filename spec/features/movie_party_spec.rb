@@ -38,8 +38,53 @@ RSpec.describe 'Movies Page' do
 
       describe 'checkboxes for firends' do
         it 'if you have friends' do
+
+          friend_1 = User.create(email: 'friend@budies.com', password: 'tester')
+          friend_2 = User.create(email: 'best_friend@budies.com', password: 'tester')
+          friend_3 = User.create(email: 'anoying_aquaintence@budies.com', password: 'tester')
+          friend_4 = User.create(email: 'frennemy@budies.com', password: 'tester')
+          friend_5 = User.create(email: 'stranger@budies.com', password: 'tester')
+
+
+          friendA1 = Friend.new(friender: user, friendee: friend_1)
+          friendA2 = Friend.new(friender: user, friendee: friend_2)
+          friendA4 = Friend.new(friender: user, friendee: friend_4)
+          friendB0 = Friend.new(friender: friend_3, friendee: user)
+          friendS3 = Friend.new(friender: friend_5, friendee: friend_3)
+          friendS4 = Friend.new(friender: friend_5, friendee: friend_4)
+          friend20 = Friend.new(friender: friend_2, friendee: user)
+
+          allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+          visit "/movie_party/new?title=Spider-Man:%20Homecoming&runtime=2"
+
+          # expect(page).to have_field('friends', type: 'checkbox')
+          expect(page).to have_content(friendA1.friendee.email)
+          expect(page).to have_content(friendA2.friendee.email)
+          expect(page).to have_content(friendA4.friendee.email)
+          expect(page).to have_no_content(friendB0.friendee.email)
+          expect(page).to have_no_content(friendS3.friendee.email)
+          expect(page).to have_no_content(friendS4.friendee.email)
+          expect(page).to have_no_content(friend20.friendee.email)
+
         end
+
         it 'if  you have no friends' do
+          friend_3 = User.create(email: 'anoying_aquaintence@budies.com', password: 'tester')
+          friend_4 = User.create(email: 'frennemy@budies.com', password: 'tester')
+          friend_5 = User.create(email: 'stranger@budies.com', password: 'tester')
+
+
+          friendB0 = Friend.new(friender: friend_3, friendee: user)
+          friendS3 = Friend.new(friender: friend_5, friendee: friend_3)
+          friendS4 = Friend.new(friender: friend_5, friendee: friend_4)
+
+          allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+          visit "/movie_party/new?title=Spider-Man:%20Homecoming&runtime=2"
+
+          # expect(page).to have_field('friends', type: 'checkbox')
+          expect(page).to have_no_content(friendB0.friendee)
+          expect(page).to have_no_content(friendS3.friendee)
+          expect(page).to have_no_content(friendS4.friendee)
         end
       end
     end
