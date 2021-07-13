@@ -24,6 +24,7 @@ gem 'figaro'
 group :development, :test do
   gem 'pry'
   gem 'travis'
+  gem 'webmock'
 end
 
 group :development do
