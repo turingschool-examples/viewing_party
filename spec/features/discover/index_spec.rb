@@ -21,7 +21,7 @@ RSpec.describe 'shows all movies' do
     expect(current_path).to eq(movies_path)
   end
 
-   it 'has a search bar' do
+  it 'has a search bar' do
     expect(page).to have_content('Search For Movies by Title:')
   end
 end
