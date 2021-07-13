@@ -4,10 +4,10 @@ rbenv:
 addons:
   postgresql: 9.6
 script:
-- bundle exec rails db:{create,migrate} RAILS_ENV=test
+- bundle exec rails db:{drop,create,migrate}
 - bundle exec rspec
 deploy:
   provider: heroku
-  api_key:
+  api_key: 0ac03930ac7ad73e4782acd4540af5a7
   app:
   run: rails db:migrate
