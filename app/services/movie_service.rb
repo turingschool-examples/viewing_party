@@ -1,7 +1,3 @@
-require 'faraday'
-require 'pry'
-require 'json'
-
 class MovieService
   def request_api(path)
     resp = conn('https://api.themoviedb.org/').get(path) do |faraday|
