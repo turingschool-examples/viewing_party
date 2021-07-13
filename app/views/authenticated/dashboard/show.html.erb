@@ -3,7 +3,7 @@
 <%= button_to "Discover Movies", discover_path %><br><br>
 
 <h3>Friends</h3><br>
-<%= form_with url: dashboard_path, method: :post, local: true do |form|  %>
+<%= bootstrap_form_with url: dashboard_path, method: :post, local: true do |form|  %>
   <%= form.text_field :friend %>
   <%= form.submit 'Add Friend' %>
 <% end %>
