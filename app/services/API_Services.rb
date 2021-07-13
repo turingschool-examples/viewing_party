@@ -1,19 +1,26 @@
-class APIServices << self
-  #movie search
-  def get_search_movie(movie_search)
-    response = conn.get("3/search/movie?query=#{movie_search}")
-    parse_json(response)
-  end
+class APIServices
+  class << self
+    # def get_top_rated_movies
+    #   response_pg_1 = conn.get("3/movie/top_rated")
+    #   parse_json(response)
+    #
+    #   response_pg_2 = conn.get("3/movie/top_rated&page=2")
+    #   parse_json(response)
+    # end
 
-  private
-
-  def conn
-    Faraday.new(url: 'https://api.themoviedb.org/3') do |faraday|
-      faraday.params["X-API-KEY"] = ENV['THE_MOVIES_DB_API_KEY']
+    def get_search_movie(search_movie)
+      response = conn.get("3/search/movie?query=#{search_movie}")
+      parse_json(response)
     end
-  end
 
-  def parse_json(response)
-    JSON.parse(response.body, symbolize_names: true)
+    def conn
+      Faraday.new(url: 'https://api.themoviedb.org') do |faraday|
+        faraday.params['api_key'] = ENV['MOVIES_DB_API_KEY']
+      end
+    end
+
+    def parse_json(response)
+      JSON.parse(response.body, symbolize_names: true)
+    end
   end
 end
