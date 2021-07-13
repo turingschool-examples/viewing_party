@@ -46,7 +46,7 @@ To Create Viewing Party
 ![alt text](./21_M3-viewing-party-schema.png "Schema Diagram")
 
 ## Future Iterations 
-[] Add edit functionality to viewing parties 
-[] Add edit functionality to friends list 
-[] Consume additional API endpoints from The MovieDB API
+- [] Add edit functionality to viewing parties 
+- [] Add edit functionality to friends list 
+- [] Consume additional API endpoints from The MovieDB API
 
