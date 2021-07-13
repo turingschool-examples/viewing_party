@@ -1,10 +1,9 @@
 require 'rails_helper'
-require './app/poros/movie'
 
 RSpec.describe Movie do
   describe '#initialize' do
     it 'creates an instance of a movie' do
-      movie = Movie.new('tim', 6.5, 213213)
+      movie = Movie.new({title: 'tim', vote_average:  6.5, id: 213213})
 
       expect(movie.class).to eq(Movie)
       expect(movie.title).to eq('tim')
