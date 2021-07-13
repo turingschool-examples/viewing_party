@@ -12,7 +12,7 @@
     <table class="movie-table">
       <% @movies.each do |movie| %>
         <tr>
-          <td><%= movie[:title] %></td>
+          <td><%= link_to movie[:title], "/movies/#{movie[:id]}" %></td>
           <td><%= movie[:vote_average] %></td>
         </tr>
       <% end %>
