@@ -28,7 +28,7 @@ RSpec.describe "Movies show page" do
       expect(page).to have_content("8.4")
       expect(page).to have_content(@cruella.runtime)
       expect(page).to have_content("Comedy")
-      expect(page).to have_content("Crime")
+      expect(page).to have_content("Action")
     end
 
     it 'shows movie overview' do
