@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     user[:email] = user[:email].downcase
     new_user = User.create(user)
     if new_user.save
-      redirect_to dashboard_path
+      redirect_to welcome_path
       flash[:success] = "Registration completed for #{new_user.email}. Please log in!"
     else
       flash[:error] = "Passwords do not match"
