@@ -11,7 +11,7 @@ Viewing party is an application in which users can explore movie options and cre
 
 1. Fork and Clone the repo
 2. Install gem packages: `bundle install`
-3. Setup the database: `rails db:create`
+3. Setup the database: `rails db:{drop, create, migrate}
 
 ## How To Use It 
 If this is your first time using the app: 
