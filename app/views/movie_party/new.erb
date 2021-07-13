@@ -1,6 +1,7 @@
 <%= "#{@title}" %>
 
-<%= form_with url:"/movie_party/create", method: :puts, local: true do |f| %>
+
+<%= form_with url:"/movie_party/create", method: :puts, html: {id: "my_form"}, local: true do |f| %>
   <%= f.hidden_field :title, value: @title %>
 
   <%= f.label :duration %>

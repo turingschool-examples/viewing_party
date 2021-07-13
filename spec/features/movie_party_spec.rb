@@ -92,15 +92,22 @@ RSpec.describe 'Movies Page' do
 
         fill_in :duration, with: "2"
         fill_in :date, with:'2-2-2022'
-        fill_in :time, with: '08:00 AM'
+        fill_in :time, with: ''
 
         click_on "Save"
 
         # expect(current_path).to eq("/movie_party/new?title=Spider-Man:%20Homecoming&runtime=130")
 
+ # binding.pry
+        # message = page.find("#party_form").native.attribute("validationMessage")
+        # expect(message).to eq "Please fill out this field."
+        # expect(current_path).to eq(edit_link_path(user.links.first))
 
       end
       it 'requires runtime be greater than movie runtime' do
+
+
+
       end
       it ' requires you enter in a date' do
       end
