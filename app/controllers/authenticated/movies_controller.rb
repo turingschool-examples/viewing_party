@@ -1,4 +1,4 @@
-class MoviesController < ApplicationController
+class Authenticated::MoviesController < Authenticated::BaseController
   def index
     movie_service = MovieService.new
     if params[:query].nil?
