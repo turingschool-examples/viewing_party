@@ -13,4 +13,8 @@ class Authenticated::MoviesController < Authenticated::BaseController
   def show
     @movie = MovieFacade.movie_details_by_id(params[:movie_id])
   end
+
+  def discover
+    @user = current_user
+  end
 end
