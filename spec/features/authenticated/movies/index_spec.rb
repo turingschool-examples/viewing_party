@@ -25,11 +25,8 @@ RSpec.describe "Movies index page" do
     context "if user clicks 'Find Top Rated Movies' button" do
       it 'should return list of top rated movies and its vote average' do
         click_button 'Find Top Rated Movies'
+        stub_forty_top_rated_movies
         
-        response_body = File.read('spec/fixtures/top_rated.json')
-        stub_request(:get, "https://api.themoviedb.org/3/movie/top_rated").
-            to_return(status: 200, body: response_body, headers: {})
-
         expect(page).to have_content("Dilwale Dulhania Le Jayenge")
         expect(page).to have_content("8.7")
         expect(page).to have_content("The Shawshank Redemption")
