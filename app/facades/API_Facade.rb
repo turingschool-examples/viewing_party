@@ -34,11 +34,11 @@ class APIFacade
       "Name: #{details[:name]}, Username: #{details[:username]}, Avatar Path: #{details[:avatar_path]}, Rating: #{details[:rating]}"
     end
 
-    def self.find_movie_title(title)
-    end
-
-    def get_search_movie_details
-      APIServices.get_search_movie
-    end
+    # def self.find_movie_title(title)
+    # end
+    #
+    # def get_search_movie_details
+    #   APIServices.get_search_movie
+    # end
   end
 end
