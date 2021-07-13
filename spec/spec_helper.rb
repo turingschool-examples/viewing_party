@@ -98,3 +98,33 @@ RSpec.configure do |config|
 =end
 end
 require 'webmock/rspec'
+
+def stub_forty_top_rated_movies 
+  response_body = File.read('spec/fixtures/top_rated.json')
+  stub_request(:get, "https://api.themoviedb.org/3/movie/top_rated&page=1").
+      to_return(status: 200, body: response_body, headers: {})
+
+  response_body = File.read('spec/fixtures/top_rated_2.json')
+    stub_request(:get, "https://api.themoviedb.org/3/movie/top_rated&page=2").
+      to_return(status: 200, body: response_body, headers: {}) 
+end
+
+def stub_search_movie_by_title 
+  response_body = File.read('spec/fixtures/find_movie_by_title.json')
+  stub_request(:get, "https://api.themoviedb.org/3/search/movie?query=Cruella").
+      to_return(status: 200, body: response_body, headers: {})
+end
+
+def stub_movie_details_by_id
+  response_body = File.read('spec/fixtures/find_cast_by_id.json')
+    stub_request(:get, "https://api.themoviedb.org/3/movie/337404/credits").
+      to_return(status: 200, body: response_body, headers: {})
+
+  response_body = File.read('spec/fixtures/find_reviews.json')
+    stub_request(:get, "https://api.themoviedb.org/3/movie/337404/reviews").
+      to_return(status: 200, body: response_body, headers: {})
+
+  response_body = File.read('spec/fixtures/find_movie_by_id.json')
+    stub_request(:get, "https://api.themoviedb.org/3/movie/337404").
+      to_return(status: 200, body: response_body, headers: {})
+  end

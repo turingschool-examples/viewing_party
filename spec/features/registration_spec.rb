@@ -8,7 +8,7 @@ RSpec.describe "User registration form" do
     email = "hi@here.com"
     password = "hello"
     password_confirmation = "hello"
-
+    
     fill_in 'user[email]', with: email
     fill_in 'user[password]', with: password
     fill_in 'user[password_confirmation]', with: password_confirmation
