@@ -11,9 +11,8 @@ Viewing party is an application in which users can explore movie options and cre
 ## How To Use It 
 Head to our site: [Viewing Party](http://shrouded-plains-74033.herokuapp.com/)
 
-If this is your first time using the app: 
-1. Register with your email and password 
-2. Log in on the welcome page 
+If this is your first time using the app, register with your email and password and then login.
+Otherwise, log in on the welcome page! 
 
 To Add Friends: 
 1. Enter the email of your friend under Friends heading
