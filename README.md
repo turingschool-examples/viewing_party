@@ -7,13 +7,10 @@ This is the base repo for the [viewing party project](https://backend.turing.io/
 
 Viewing party is an application in which users can explore movie options and create a viewing party event for the user and friend's. This is our alpha version and was built over the course of eight days. 
 
-## Local Setup
-
-1. Fork and Clone the repo
-2. Install gem packages: `bundle install`
-3. Setup the database: `rails db:{drop, create, migrate}`
 
 ## How To Use It 
+Head to our site: [Viewing Party](http://shrouded-plains-74033.herokuapp.com/)
+
 If this is your first time using the app: 
 1. Register with your email and password 
 2. Log in on the welcome page 
