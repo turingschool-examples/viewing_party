@@ -13,9 +13,9 @@ Viewing Party is an application that emulates the movie going experience by conn
 
 # Collaborators
 
-@JoCoCoPo - A backend engineering student at Turing School of Software Design, Jo's technical expertise helped guide this project to its completion.
+[@JoCoCoPo](https://github.com/JoannaCoPo) - A backend engineering student at Turing School of Software Design, Jo's technical expertise helped guide this project to its completion.
 
-@Caleb1991 - Also a backend student at Turing School of Software Design, Caleb's ability to see the big picture helped bring the project goals into focus.
+[@Caleb1991](https://github.com/Caleb1991) - Also a backend student at Turing School of Software Design, Caleb's ability to see the big picture helped bring the project goals into focus.
 
 ## Setup and Install Instructions
 
