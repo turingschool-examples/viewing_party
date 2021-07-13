@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.themoviedb.org/3/search/movie?api_key=e1dce8b90f48a3084940ca941868f474&page=1&query=klsdjfl
+    uri: https://api.themoviedb.org/3/search/movie?api_key=6b310e0dcdbc8d375cce6ea3bf466eea&page=1&query=klsdjfl
     body:
       encoding: US-ASCII
       string: ''
@@ -34,7 +34,7 @@ http_interactions:
       - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
         Content-Length, Content-Range
       Date:
-      - Mon, 12 Jul 2021 19:35:13 GMT
+      - Tue, 13 Jul 2021 19:54:37 GMT
       Cache-Control:
       - public, max-age=600
       Etag:
@@ -42,18 +42,18 @@ http_interactions:
       X-Cache:
       - RefreshHit from cloudfront
       Via:
-      - 1.1 6cab218159221ab723900fb6fe65d73f.cloudfront.net (CloudFront)
+      - 1.1 6c02603f677dd5669f8ab3b41062340f.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - 0JKCLhd2unfHzw2jxBIEDa9WiB-PxoizI6R7aPXJKz4f2G9REhpEKA==
+      - Z5E6e10Z8eM6SMsQQYzoPgE_7w9ZjmbrSRP9o3lZKlfaI3ZSWHd9CQ==
     body:
       encoding: UTF-8
       string: '{"page":1,"results":[],"total_pages":0,"total_results":0}'
-  recorded_at: Mon, 12 Jul 2021 19:35:13 GMT
+  recorded_at: Tue, 13 Jul 2021 19:54:37 GMT
 - request:
     method: get
-    uri: https://api.themoviedb.org/3/search/movie?api_key=e1dce8b90f48a3084940ca941868f474&page=2&query=klsdjfl
+    uri: https://api.themoviedb.org/3/search/movie?api_key=6b310e0dcdbc8d375cce6ea3bf466eea&page=2&query=klsdjfl
     body:
       encoding: US-ASCII
       string: ''
@@ -85,7 +85,7 @@ http_interactions:
       - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
         Content-Length, Content-Range
       Date:
-      - Mon, 12 Jul 2021 19:35:13 GMT
+      - Tue, 13 Jul 2021 19:54:37 GMT
       Cache-Control:
       - public, max-age=600
       Etag:
@@ -93,13 +93,13 @@ http_interactions:
       X-Cache:
       - RefreshHit from cloudfront
       Via:
-      - 1.1 788f6ff13e09a712f5227945fa34a519.cloudfront.net (CloudFront)
+      - 1.1 48a6ccbb0ddb052ab512a3422295bd39.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - VAO5bQyHDOaL2TprniGFz2bKzOLYQXWOIl_3Id2bm3gAl9rF6BlE_g==
+      - GXKxJNR7O77jnSJ1CCSZTXOoFGsVzI9uJPPJz89XKPSNQMQxWPRpUA==
     body:
       encoding: UTF-8
       string: '{"page":2,"results":[],"total_pages":0,"total_results":0}'
-  recorded_at: Mon, 12 Jul 2021 19:35:13 GMT
+  recorded_at: Tue, 13 Jul 2021 19:54:37 GMT
 recorded_with: VCR 6.0.0

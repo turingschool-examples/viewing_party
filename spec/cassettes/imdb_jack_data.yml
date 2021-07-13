@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.themoviedb.org/3/movie/75780?api_key=e1dce8b90f48a3084940ca941868f474
+    uri: https://api.themoviedb.org/3/movie/75780?api_key=6b310e0dcdbc8d375cce6ea3bf466eea
     body:
       encoding: US-ASCII
       string: ''
@@ -25,7 +25,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Mon, 12 Jul 2021 20:27:52 GMT
+      - Tue, 13 Jul 2021 19:54:35 GMT
       Server:
       - openresty
       Access-Control-Allow-Origin:
@@ -42,23 +42,21 @@ http_interactions:
       X-Memc-Key:
       - '08c16f9706a27f06d87e5321e922c8bec4ef1612'
       X-Memc-Age:
-      - '5740'
+      - '9055'
       X-Memc-Expires:
-      - '11112'
+      - '6006'
       Etag:
-      - W/"224928afee868ebdf9e96bd51b12f7f5"
+      - W/"8f511b0cea18b09cb81b8b434024762f"
       Vary:
       - Accept-Encoding
       X-Cache:
-      - Hit from cloudfront
+      - Miss from cloudfront
       Via:
-      - 1.1 48ea53c7edffa2cdbdc32f7d94966344.cloudfront.net (CloudFront)
+      - 1.1 824a5d9ed02451bcb68b15ae5991dce0.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - mnCB-lIq5wMch5tNoqm9G6s-Ul1k9DJLDo4kegwHVrI8SeumajAb2g==
-      Age:
-      - '7131'
+      - xEXSIx3EEHT1sBt8PNB69cqwtuSc_9Pc_9SWkVxeIwA39nHEFJXzuw==
     body:
       encoding: ASCII-8BIT
       string: '{"adult":false,"backdrop_path":"/k7h4RNAarfOrF2r2YMN0P2FQSr4.jpg","belongs_to_collection":{"id":403374,"name":"Jack
@@ -67,7 +65,7 @@ http_interactions:
         points to the suspect in custody. On interrogation, the suspect offers up
         a single note: \"Get Jack Reacher!\" So begins an extraordinary chase for
         the truth, pitting Jack Reacher against an unexpected enemy, with a skill
-        for violence and a secret to keep.","popularity":51.118,"poster_path":"/zlyhKMi2aLk25nOHnNm43MpZMtQ.jpg","production_companies":[{"id":82819,"logo_path":"/5Z8WWr0Lf1tInVWwJsxPP0uMz9a.png","name":"Skydance
+        for violence and a secret to keep.","popularity":55.623,"poster_path":"/zlyhKMi2aLk25nOHnNm43MpZMtQ.jpg","production_companies":[{"id":82819,"logo_path":"/5Z8WWr0Lf1tInVWwJsxPP0uMz9a.png","name":"Skydance
         Media","origin_country":"US"},{"id":128585,"logo_path":null,"name":"H2L Media
         \"AKA\" Mutual Film Company","origin_country":""},{"id":128586,"logo_path":null,"name":"H2L
         Media Group","origin_country":""},{"id":21777,"logo_path":null,"name":"TC
@@ -75,6 +73,6 @@ http_interactions:
         Films","origin_country":""},{"id":4,"logo_path":"/fycMZt242LVjagMByZOLUGbCvv3.png","name":"Paramount","origin_country":"US"},{"id":7036,"logo_path":"/javbyY0ZCvlFJtly3tpZqf2NwLX.png","name":"CJ
         Entertainment","origin_country":"KR"}],"production_countries":[{"iso_3166_1":"US","name":"United
         States of America"}],"release_date":"2012-12-20","revenue":218340595,"runtime":130,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"}],"status":"Released","tagline":"The
-        Law Has Limits. He Does Not.","title":"Jack Reacher","video":false,"vote_average":6.5,"vote_count":5307}'
-  recorded_at: Mon, 12 Jul 2021 22:26:43 GMT
+        Law Has Limits. He Does Not.","title":"Jack Reacher","video":false,"vote_average":6.5,"vote_count":5308}'
+  recorded_at: Tue, 13 Jul 2021 19:54:35 GMT
 recorded_with: VCR 6.0.0
