@@ -8,14 +8,14 @@ class MovieDetails
               :reviews,
               :id
 
-  def initialize(movie_details)
-    @title = movie_details[:title]
-    @vote_average = movie_details[:vote_average]
-    @runtime = movie_details[:runtime]
-    @genres = movie_details[:genres]
-    @overview = movie_details[:overview]
-    @cast = movie_details[:cast]
-    @reviews = movie_details[:results]
-    @id = movie_details[:id]
+  def initialize(movie, cast, reviews)
+    @title = movie[:title]
+    @vote_average = movie[:vote_average]
+    @runtime = movie[:runtime]
+    @genres = movie[:genres]
+    @overview = movie[:overview]
+    @cast = cast[:cast]
+    @reviews = reviews[:results]
+    @id = movie[:id]
   end
 end

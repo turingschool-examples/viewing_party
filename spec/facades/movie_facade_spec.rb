@@ -29,6 +29,16 @@ RSpec.describe 'MovieFacade' do
       end
     end
 
+    describe '::movie_details_by_id' do
+      it 'returns all movies and details' do
+        response_body = File.read('spec/fixtures/top_rated.json')
+        stub_request(:get, "https://api.themoviedb.org/3/search/movie?query=Cruella").
+            to_return(status: 200, body: response_body, headers: {})
+        movie = MovieFacade.movie_details_by_id(337404)
+        
+        expect(movie).to be_a(MovieDetails)
+      end
+    end
   end
 
 

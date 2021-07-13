@@ -1,29 +1,4 @@
-require 'faraday'
-require 'pry'
-require 'json'
-
 class MovieService
-
-  def top_rated
-    request_api("/3/movie/top_rated")
-  end
-
-  def find_by_title(title)
-    request_api("/3/search/movie?query=#{title}")
-  end
-
-  def find_by_id(movie_id)
-    request_api("/3/movie/#{movie_id}")
-  end
-
-  def find_cast(movie_id)
-    request_api("/3/movie/#{movie_id}/credits")
-  end
-
-  def find_reviews(movie_id)
-    request_api("/3/movie/#{movie_id}/reviews")
-  end
-
   def request_api(path)
     resp = conn('https://api.themoviedb.org/').get(path) do |faraday|
       faraday.params['api_key'] = ENV["themoviedb_key"]
