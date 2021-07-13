@@ -1,0 +1,13 @@
+<h1>Welcome <%= @user.email[/[^@]+/] %>!</h1><br>
+
+<%= button_to "Find Top Rated Movies", movies_path, method: :get %><br><br>
+
+<h2>OR</h2><br><br>
+
+<%= bootstrap_form_with(model: @movie, url: movies_path, local: true, method: :get) do |f| %>
+<%= f.text_field :title, placeholder: "Search by movie title" %><br>
+<%= f.submit "Find Movies" %><br><br><br><br>
+<% end %>
+
+&emsp;<%= link_to "Back to Dashboard", dashboard_path, method: :delete %>&emsp;&emsp;&emsp;
+<%= link_to "Log out", '/logout', method: :delete %><br><br><br><br><br><br>

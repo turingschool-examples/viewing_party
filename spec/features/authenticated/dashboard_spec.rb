@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'dashboard page' do
+RSpec.describe 'dashboard page' do
   it 'can not access dashboard without login' do
     visit dashboard_path
     expect(current_path).to_not eq(dashboard_path)
@@ -18,6 +18,7 @@ describe 'dashboard page' do
     end
 
     it 'has button to Discover Movies, headers' do
+      expect(current_path).to eq(dashboard_path)
       expect(page).to have_content("Welcome test123!")
       expect(page).to have_button("Discover Movies")
       expect(page).to have_content("Friends")
@@ -25,6 +26,7 @@ describe 'dashboard page' do
     end
 
     it 'has Logout link to Welcome Page' do
+      expect(current_path).to eq(dashboard_path)
       expect(page).to have_link("Log out")
       click_link("Log out")
 

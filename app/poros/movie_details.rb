@@ -14,7 +14,7 @@ class MovieDetails
     @runtime = movie[:runtime]
     @genres = movie[:genres]
     @overview = movie[:overview]
-    @cast = cast[:cast] 
+    @cast = cast[:cast]
     @reviews = reviews[:results]
     @id = movie[:id]
   end
