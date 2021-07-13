@@ -4,6 +4,8 @@ rbenv:
 addons:
   postgresql: 9.6
 script:
+- bundle install
+- bundle update
 - bundle exec rails db:{drop,create,migrate} RAILS_ENV=test
 - bundle exec rspec
 deploy:
