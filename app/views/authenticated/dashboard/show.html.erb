@@ -3,6 +3,18 @@
 <%= button_to "Discover Movies", discover_path %><br><br>
 
 <h3>Friends</h3><br>
+<%= form_with url: dashboard_path, method: :post, local: true do |form|  %>
+  <%= form.text_field :friend %>
+  <%= form.submit 'Add Friend' %>
+<% end %>
+
+<% if @friend_list %>
+  <% @friend_list.each do |friend| %>
+    <%= friend.email %><br><br>
+  <% end %><br><br>
+<% else %>
+  <p>No Friends Currently</p><br><br>
+<% end %><br><br>
 
 <h3>Viewing Parties</h3><br>
 
