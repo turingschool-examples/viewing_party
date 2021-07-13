@@ -18,7 +18,7 @@ RSpec.describe 'discover movies page' do
     expect(page).to have_button("Find Top Rated Movies")
   end
 
-  it 'has search form and button Find movies' do
+  it 'has search form and button Find Top Rated Movies' do
     expect(current_path).to eq(discover_path)
     expect(page).to have_field('title')
     expect(page).to have_button('Find Top Rated Movies')
