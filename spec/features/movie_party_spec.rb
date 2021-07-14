@@ -56,15 +56,14 @@ RSpec.describe 'Movies Page' do
 
           allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
           visit "/movie_party/new?title=Spider-Man:%20Homecoming&runtime=2"
-          save_and_open_page
+          # save_and_open_page
 
-          find("input[type=checkbox][value=#{u1.id}]")
+          # find("input[type=checkbox][value=#{u1.id}]")
           expect(page).to have_content(friendA1.friendee.email)
           expect(page).to have_content(friendA2.friendee.email)
           expect(page).to have_content(friendA4.friendee.email)
           expect(page).to have_no_content(friendB0.friendee.email)
           expect(page).to have_no_content(friendS3.friendee.email)
-          expect(page).to have_no_content(friendS4.friendee.email)
           expect(page).to have_no_content(friend20.friendee.email)
 
         end
@@ -111,11 +110,109 @@ RSpec.describe 'Movies Page' do
         expect(new_party).to_not eq(nil)
       end
 
-      it 'creates attendees based on the firends you invite' do
+      describe 'creates attendees based on the firends you invite' do
+        it ' can make one attendee' do
+          allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+          visit "/movie_party/new?title=Spider-Man:%20Homecoming&runtime=20"
+
+          friend_1 = User.create(email: 'friend@budies.com', password: 'tester')
+          friend_2 = User.create(email: 'best_friend@budies.com', password: 'tester')
+          friend_3 = User.create(email: 'anoying_aquaintence@budies.com', password: 'tester')
+          friend_4 = User.create(email: 'frennemy@budies.com', password: 'tester')
+          friend_5 = User.create(email: 'stranger@budies.com', password: 'tester')
+
+          friendA1 = Friend.create!(friender: user, friendee: friend_1)
+          friendA2 = Friend.create!(friender: user, friendee: friend_2)
+          friendA4 = Friend.create!(friender: user, friendee: friend_4)
+          friendB0 = Friend.create!(friender: friend_3, friendee: user)
+          friendS3 = Friend.create!(friender: friend_5, friendee: friend_3)
+          friendS4 = Friend.create!(friender: friend_5, friendee: friend_4)
+          friend20 = Friend.create!(friender: friend_2, friendee: user)
+
+          no_one = Attendee.find_by(user_id: friend_1)
+          no_two = Attendee.find_by(user_id: friend_2)
+          no_three = Attendee.find_by(user_id: friend_3)
+          no_four = Attendee.find_by(user_id: friend_4)
+          no_five = Attendee.find_by(user_id: friend_5)
+          expect(no_one).to eq(nil)
+          expect(no_two).to eq(nil)
+          expect(no_three).to eq(nil)
+          expect(no_four).to eq(nil)
+          expect(no_five).to eq(nil)
+
+
+          fill_in :date, with:'2-2-2022'
+          fill_in :time, with: '08:00 AM'
+
+          check "#{friend_1.email}"
+
+          click_on "Save"
+
+          no_one_b = Attendee.find_by(user_id: friend_1)
+          no_two_b = Attendee.find_by(user_id: friend_2)
+          no_three_b = Attendee.find_by(user_id: friend_3)
+          no_four_b = Attendee.find_by(user_id: friend_4)
+          no_five_b = Attendee.find_by(user_id: friend_5)
+
+          expect(no_one_b.class).to eq(Attendee)
+          expect(no_two_b.class).to eq(Attendee)
+          expect(no_three_b.class).to eq(Attendee)
+          expect(no_four_b.class).to eq(Attendee)
+          expect(no_five_b.class).to eq(Attendee)
+        end
+
+
+        # it ' can make multiple attendees' do
+        #
+        #   allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+        #   visit "/movie_party/new?title=Spider-Man:%20Homecoming&runtime=20"
+        #
+        #   fill_in :date, with:'2-2-2022'
+        #   fill_in :time, with: '08:00 AM'
+        #
+        #   click_on "Save"
+        #
+        #   no_one_b = Attendee.find_by(user_id: friend_1)
+        #   no_two_b = Attendee.find_by(user_id: friend_2)
+        #   no_three_b = Attendee.find_by(user_id: friend_3)
+        #   no_four_b = Attendee.find_by(user_id: friend_4)
+        #   no_five_b = Attendee.find_by(user_id: friend_5)
+        #
+        #   expect(no_one_b.class).to eq(Attendee)
+        #   expect(no_two_b.class).to eq(Attendee)
+        #   expect(no_three_b.class).to eq(Attendee)
+        #   expect(no_four_b.class).to eq(Attendee)
+        #   expect(no_five_b.class).to eq(Attendee)
+        # end
+        #
+        # it 'can make no atendees' do
+        #   allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+        #   visit "/movie_party/new?title=Spider-Man:%20Homecoming&runtime=20"
+        #
+        #   fill_in :date, with:'2-2-2022'
+        #   fill_in :time, with: '08:00 AM'
+        #
+        #   check ''
+        #
+        #   click_on "Save"
+        #
+        #   no_one_b = Attendee.find_by(user_id: friend_1)
+        #   no_two_b = Attendee.find_by(user_id: friend_2)
+        #   no_three_b = Attendee.find_by(user_id: friend_3)
+        #   no_four_b = Attendee.find_by(user_id: friend_4)
+        #   no_five_b = Attendee.find_by(user_id: friend_5)
+        #
+        #   expect(no_one_b.class).to eq(Attendee)
+        #   expect(no_two_b.class).to eq(Attendee)
+        #   expect(no_three_b.class).to eq(Attendee)
+        #   expect(no_four_b.class).to eq(Attendee)
+        #   expect(no_five_b.class).to eq(Attendee)
+        # end
 
 
 
       end
+
 
       it 'takes you to the dash board when done' do
         allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
