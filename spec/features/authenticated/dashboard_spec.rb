@@ -9,12 +9,13 @@ RSpec.describe 'dashboard page' do
 
   describe 'dashboard page with login' do
     before(:each)do
-      @user_1 = User.create(email: 'test123@xyz.com', password: 'viewparty')
+      User.destroy_all
+      @user_1 = User.create!(email: 'test123@xyz.com', password: 'viewparty')
+
       visit welcome_path
       fill_in :email, with: "test123@xyz.com"
       fill_in :password, with: "viewparty"
       click_button "Sign In"
-      visit dashboard_path
     end
 
     it 'has button to Discover Movies page' do
@@ -26,30 +27,68 @@ RSpec.describe 'dashboard page' do
     end
 
     it 'has Friends section with Add Field button' do
+      expect(current_path).to eq(dashboard_path)
       expect(page).to have_content("Friends")
-      expect(page).to have_field('friend')
+      expect(page).to have_field('email')
       expect(page).to have_button('Add Friend')
     end
 
-    it 'shows no friends error message' do
-      expect(page).to have_content("Friends")
-      expect(page).to have_field('friend')
-      expect(page).to have_button('Add Friend')
-      click_button "Add Friend"
+    it 'shows no listed friends message' do
       expect(current_path).to eq(dashboard_path)
       expect(page).to have_content("No Friends Currently")
+      expect(page).to_not have_content("lola_rabbit@aol.com")
     end
 
-    it 'shows friends in Friends section' do
-      @user_2 = User.create(email: 'lola_rabbit@aol.com', password: 'lola')
-      @user_3 = User.create(email: 'bugs_bunny@gmail.com', password: 'bugs')
-      @user_4 = User.create(email: 'daffy_duck@yahoo.com', password: 'daffy')
-
+    it 'shows Sad Path, user not found' do
+      expect(current_path).to eq(dashboard_path)
+      expect(page).to have_field('email')
+      expect(page).to have_button('Add Friend')
       fill_in :email, with: "lola_rabbit@aol.com"
       click_button "Add Friend"
       expect(current_path).to eq(dashboard_path)
-      expect(current_path).to have_content(l"lola_rabbit@aol.com")
+      expect(page).to have_content("User not found")
+      expect(page).to_not have_content("lola_rabbit@aol.com")
     end
+
+    # it 'shows Sad Path, friend not added' do
+    #   @user_2 = User.create(email: 'lola_rabbit@aol.com', password: 'lola')
+    #
+    #   expect(current_path).to eq(dashboard_path)
+    #   expect(page).to have_field('email')
+    #   expect(page).to have_button('Add Friend')
+    #   fill_in :email, with: "lola_rabbit@aol.com"
+    #   click_button "Add Friend"
+    #   expect(current_path).to eq(dashboard_path)
+    #   expect(page).to have_content("Unable to Add Friend")
+    #   expect(page).to_not have_content("lola_rabbit@aol.com")
+    # end
+
+    it 'adds user to and shows in Friends list' do
+      @user_2 = User.create(email: 'lola_rabbit@aol.com', password: 'lola')
+
+      expect(current_path).to eq(dashboard_path)
+      expect(page).to have_field('email')
+      expect(page).to have_button('Add Friend')
+      fill_in :email, with: "lola_rabbit@aol.com"
+      click_button "Add Friend"
+      expect(current_path).to eq(dashboard_path)
+      expect(page).to have_content("#{@user_2.email[/[^@]+/]} Added as Friend")
+      expect(page).to have_content("lola_rabbit@aol.com")
+    end
+
+    # it 'shows friends in Friends section' do
+    #   @user_2 = User.create!(email: 'lola_rabbit@aol.com', password: 'lola')
+    #   @user_3 = User.create!(email: 'bugs_bunny@gmail.com', password: 'bugs')
+    #   @user_4 = User.create!(email: 'daffy_duck@yahoo.com', password: 'daffy')
+    #   Friendship.create(user: @user_1, friend: @user_2)
+    #   Friendship.create(user: @user_1, friend: @user_3)
+    #
+    #   expect(current_path).to eq(dashboard_path)
+    #   # save_and_open_page
+    #   expect(page).to have_content("lola_rabbit@aol.com")
+    #   expect(page).to have_content("bugs_bunny@gmail.com")
+    #   expect(page).to_not have_content("daffy_duck@yahoo.com")
+    # end
 
     it 'has Logout link to Welcome Page' do
       expect(current_path).to eq(dashboard_path)

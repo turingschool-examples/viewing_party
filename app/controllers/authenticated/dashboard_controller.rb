@@ -1,11 +1,9 @@
 class Authenticated::DashboardController < Authenticated::BaseController
   def show
     @user = current_user
-    @friend_list = []
-    if params[:email].present?
-      params[:email] >> @friend_list
+    @friend_list = @user.friendships.map do |friend|
+      User.find(friend.friend_id)
     end
-    render :show 
   end
 
 end

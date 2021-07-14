@@ -3,19 +3,19 @@
 <%= button_to "Discover Movies", discover_path %><br><br>
 
 <h3>Friends</h3><br>
-<%= bootstrap_form_with url: dashboard_path, method: :post, local: true do |form|  %>
-  <%= form.text_field :friend %>
+<%= bootstrap_form_with url: friendships_path, method: :post, local: true do |form|  %>
+  <%= form.email_field :email, placeholder: "Friend's Email" %>
   <%= form.submit 'Add Friend' %>
-<% end %>
+<% end %><br>
 
-<% if @friend_list %>
+<% if @friend_list.present? %>
   <% @friend_list.each do |friend| %>
-    <%= friend.email %><br><br>
+    <%= friend.email %><br>
   <% end %><br><br>
 <% else %>
-  <p>No Friends Currently</p><br><br>
+  <h5>No Friends Currently</h5><br>
 <% end %><br><br>
 
 <h3>Viewing Parties</h3><br>
 
-<%= link_to "Log out", '/logout', method: :delete %>
+<%= link_to "Log out", '/logout', method: :delete %><br><br>
