@@ -6,4 +6,14 @@ class User < ApplicationRecord
   has_many :friends, class_name: :User, through: :friendships
 
   has_secure_password
+
+  def invited_parties 
+    find_party_guests_user.map do |party_guest|
+      Party.find(party_guest.party_id)
+    end 
+  end
+
+  def find_party_guests_user
+    PartyGuest.where('guest_id = ?', self.id)
+  end
 end
