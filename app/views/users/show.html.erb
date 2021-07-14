@@ -1,7 +1,7 @@
 <h1><%= "Welcome #{current_user.email}!" %></h1>
+<p><%= link_to "Log Out", '/logout', method: :delete %></p>
+<p><%= button_to "Discover Movies", discover_path, method: :get %></p>
 
-<%= button_to "Discover Movies", discover_path, method: :get %>
-<br />
 <%= form_with url: '/user_friendships', method: :post, local: true do |f| %>
 <%= f.label "Search Friend's Email: " %>
 <%= f.text_field :email %>
