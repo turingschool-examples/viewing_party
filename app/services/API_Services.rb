@@ -8,10 +8,12 @@ class APIServices
   #   parse_json(response)
   # end
   #
-  def self.get_search_movie(search_movie)
+
+  def self.movie_title_query(movie_title)
     response = conn.get("3/search/movie?query=#{search_movie}")
     parse_json(response)
   end
+
 
   def self.conn
     Faraday.new(url: 'https://api.themoviedb.org') do |faraday|
@@ -58,5 +60,4 @@ class APIServices
       "Name: #{details[:name]}, Username: #{details[:username]}, Avatar Path: #{details[:avatar_path]}, Rating: #{details[:rating]}"
     end
   end
-  require "pry"; binding.pry
 end

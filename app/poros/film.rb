@@ -1,4 +1,4 @@
-class FilmStandard
+class Film
   attr_reader :id,
               :title,
               :vote_average,
