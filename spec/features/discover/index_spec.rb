@@ -8,8 +8,7 @@ RSpec.describe "Discover Page" do
       visit discover_path
     end
 
-    it 'displays welcome message and button to find top rated 40 movies' do
-      expect(page).to have_content('Welcome empanada_luvr@email.com')
+    it 'displays button to find top rated 40 movies' do
       expect(page).to have_button('Find Top Rated Movies')
 
       click_on "Find Top Rated Movies"
@@ -22,13 +21,10 @@ RSpec.describe "Discover Page" do
       expect(page).to have_content('Search by Movie Title')
 
       fill_in :movie_search, with: 'Shawshank Redemption'
-      fill_in :password, with: 'hocuspocus'
 
       click_button('Find Movies')
 
       expect(current_path).to eq(movies_path) #may put fist and last movies
-      # expect(page).to have_content("movie title") put one of the top 40 movie titles here
-      # expect(page).to have_content("movie title") put one of the top 40 movie titles here
     end
   end
 end
