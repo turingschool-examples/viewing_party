@@ -4,8 +4,8 @@ class MoviesFacade
 
   def self.search_by_movie_title(movie_title)
     json = APIServices.movie_title_query(movie_title)
-    json[:results.map do |result]
-      Film.new(result)
+    json[:results.map do |result_data]
+      Film.new(result_data)
     end.first(40)
   end
 
