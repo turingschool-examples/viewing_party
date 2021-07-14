@@ -6,5 +6,13 @@
   <%= f.date_field :date, placeholder: "Date:" %>
   <%= f.time_field :start_time, placeholder: "Start Time:" %>
   <%= f.text_field :duration, placeholder: "Party Duration(in minutes):", value: @movie.runtime, min: 0 %>
+  <% if @friends.present? %>
+    <h2> Invite: </h1>
+    <% @friends.each do |friend| %>
+      <%= check_box("friend", friend.id) %>
+      <%= friend.email %><br><br>
+    <% end %>
+  <% end %>
   <%= f.submit "Create Party" %>
 <% end %>
+

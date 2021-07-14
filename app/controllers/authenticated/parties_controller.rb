@@ -1,6 +1,7 @@
 class Authenticated::PartiesController < Authenticated::BaseController
   def new 
     @movie = MovieFacade.movie_details_by_id(params[:movie_id])
+    @friends = current_user.friends
   end 
 
   def create 
@@ -27,5 +28,4 @@ class Authenticated::PartiesController < Authenticated::BaseController
     def party_params
       params.permit(:movie_id, :duration, :start_time, :date)
     end
-
 end
