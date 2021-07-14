@@ -1,0 +1,10 @@
+<h1>Create a Viewing Party for: </h1>
+<h2><%= @movie.title %></h2>
+ 
+<%= bootstrap_form_with(model: @party, url: parties_path, local: true, method: :post) do |f| %>
+  <%= f.hidden_field :movie_id, value: @movie.id %>
+  <%= f.date_field :date, placeholder: "Date:" %>
+  <%= f.time_field :start_time, placeholder: "Start Time:" %>
+  <%= f.text_field :duration, placeholder: "Party Duration(in minutes):", value: @movie.runtime, min: 0 %>
+  <%= f.submit "Create Party" %>
+<% end %>

@@ -1,6 +1,7 @@
 class Party < ApplicationRecord
-  validates :start_time_day, presence: true
-  validates :movie_api_id, :duration, presence: true, numericality: true
+  validates :start_time, presence: true
+  validates :date, presence: true
+  validates :movie_id, :duration, presence: true, numericality: true
 
   belongs_to :host, class_name: :User
   has_many :party_guests, dependent: :destroy
