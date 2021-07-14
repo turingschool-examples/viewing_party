@@ -1,0 +1,15 @@
+<h1><%= @movie.title %></h1>
+
+<%= form_with url: '/party', method: :post, local: true do |f| %>
+<%= f.label 'Party Duration In Minutes (must be greater than movie runtime):' %>
+<%= f.number_field :duration, value: (@movie.runtime_in_minutes + 1) %>
+<%= f.label 'Date:' %>
+<%= f.text_field :date %>
+<%= f.label 'Start Time:' %>
+<%= f.text_field :start_time %>
+<%= f.label 'Invite Friends' %>
+<% f.text_field :movie_title, default: @movie.title %>
+<% f.number_field :movie_id, default: @movie.id %>
+<% f.number_field :party_host_id, default: @user.id %>
+<%= f.submit 'Create Viewing Party' %>
+<% end %>

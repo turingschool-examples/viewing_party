@@ -14,4 +14,4 @@
   <p><%= reviewer %></p>
 <% end %>
 
-<%= button_to 'Create a Viewing Party', '/viewing_party/new', method: :get, local: true %>
+<%= link_to 'Create a Viewing Party', "/party/new?movie_id=#{@movie.id}", method: :get, local: true %>

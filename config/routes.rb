@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'users#show'
   post '/users', to: 'users#create'
 
+  get '/party/new', to: 'party#new'
+  post '/party', to: 'party#create'
+
   get '/movies/:id', to: 'movies#show'
   post '/user_friendships', to: 'user_friendships#create'
 end
