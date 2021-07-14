@@ -20,7 +20,7 @@ RSpec.describe "Discover Page" do
     it 'allows user to search by title with a max of 40 matches' do
       expect(page).to have_content('Search by Movie Title')
 
-      fill_in :movie_search, with: 'Shawshank Redemption'
+      fill_in :movie_title, with: 'Shawshank Redemption'
 
       click_button('Find Movies')
 
