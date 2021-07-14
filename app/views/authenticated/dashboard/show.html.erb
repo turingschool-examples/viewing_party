@@ -1,9 +1,22 @@
-<h1>Welcome <%= @user.email[/[^@]+/] %>!</h1><br>
+<h1>Welcome <%= @user.email[/[^@]+/] %>!</h1><br><br>
 
 <%= button_to "Discover Movies", discover_path %><br><br>
 
-<h3>Friends</h3><br>
+<div class="left">
+<%= bootstrap_form_with(url: friendships_path, method: :post, class: 'form-inline', local: true) do |form|  %><h3 class="left">Friends</h3>&emsp;&emsp;
+  <%= form.email_field :email, placeholder: "Friend's Email", skip_label: true %>
+  &ensp;<%= form.submit 'Add Friend' %>
+<% end %><hr>
 
-<h3>Viewing Parties</h3><br>
+<% if @friend_list.present? %>
+  <% @friend_list.each do |friend| %>
+    <p class="in"><%= friend.email %></p>
+  <% end %>
+<% else %>
+  <h5>No Friends Currently</h5>
+<% end %><br><br>
 
-<%= link_to "Log out", '/logout', method: :delete %>
+<h3>Viewing Parties</h3><hr><br><br>
+</div>
+
+<%= link_to "Log out", '/logout', method: :delete %><br><br>

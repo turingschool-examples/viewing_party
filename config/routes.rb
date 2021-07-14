@@ -3,8 +3,12 @@ Rails.application.routes.draw do
 
   get "/registration", to: "users#new"
   post "/registration", to: "users#create"
+  
   get "/dashboard", to: "authenticated/dashboard#show"
-
+  
+  post "/friendships", to: "friendships#create"
+  # resources :friendships, only: [:create]
+  
   get '/', to:'sessions#welcome', as: "welcome"
   post '/', to:'sessions#create'
   # get '/logout', to: 'sessions#logout_user'
@@ -15,7 +19,7 @@ Rails.application.routes.draw do
   get '/movies/:movie_id', to:'authenticated/movies#show'
   get '/discover', to:'authenticated/movies#discover'
   post '/discover', to:'authenticated/movies#discover'
-
+  
   get '/parties/new', to:'authenticated/parties#new'
   post '/parties', to: 'authenticated/parties#create'
 end
