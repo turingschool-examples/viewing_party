@@ -46,18 +46,19 @@ RSpec.describe 'Movies Page' do
           friend_5 = User.create(email: 'stranger@budies.com', password: 'tester')
 
 
-          friendA1 = Friend.new(friender: user, friendee: friend_1)
-          friendA2 = Friend.new(friender: user, friendee: friend_2)
-          friendA4 = Friend.new(friender: user, friendee: friend_4)
-          friendB0 = Friend.new(friender: friend_3, friendee: user)
-          friendS3 = Friend.new(friender: friend_5, friendee: friend_3)
-          friendS4 = Friend.new(friender: friend_5, friendee: friend_4)
-          friend20 = Friend.new(friender: friend_2, friendee: user)
+          friendA1 = Friend.create!(friender: user, friendee: friend_1)
+          friendA2 = Friend.create!(friender: user, friendee: friend_2)
+          friendA4 = Friend.create!(friender: user, friendee: friend_4)
+          friendB0 = Friend.create!(friender: friend_3, friendee: user)
+          friendS3 = Friend.create!(friender: friend_5, friendee: friend_3)
+          friendS4 = Friend.create!(friender: friend_5, friendee: friend_4)
+          friend20 = Friend.create!(friender: friend_2, friendee: user)
 
           allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
           visit "/movie_party/new?title=Spider-Man:%20Homecoming&runtime=2"
+          save_and_open_page
 
-          # expect(page).to have_field('friends', type: 'checkbox')
+          find("input[type=checkbox][value=#{u1.id}]")
           expect(page).to have_content(friendA1.friendee.email)
           expect(page).to have_content(friendA2.friendee.email)
           expect(page).to have_content(friendA4.friendee.email)

@@ -13,9 +13,10 @@
   <%= f.label :time, 'time' %>
   <%= f.time_field :time, required: true %> <br><br>
 
-  <%= f.label :friends, 'Invite Friends' %>
-  <%= f.collection_check_boxes :friends, @friends, :id, :email %> <br>
-
-
+  <%= f.label :friends, 'Invite Friends' %><br>
+  <% @friends.each do |friend| %>
+    <%= f.label :"#{friend.friendee.email}", "#{friend.friendee.email}" %>
+    <%= f.check_box("#{friend.friendee.email}", method: :get, checked_value: "#{friend.friendee.id}", unchecked_value: nil) %><br>
+  <% end %>
   <%= f.submit %>
 <% end %>

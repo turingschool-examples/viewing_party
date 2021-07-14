@@ -5,13 +5,8 @@ class MoviePartyController < ApplicationController
     @movie_length = params[:runtime]
 
     @hoast = current_user
-    @friendships = Friend.where('friender_id = ?', @hoast.id)
-# .joins(:friendee)
-    @friends = @friendships.map do |friend|
-      friend.friendee
-    end
-
-
+    # @friendships = Friend.where('friender_id = ?', @hoast.id)
+    @friends = Friend.where('friender_id = ?', current_user.id)
   end
 
   def create
