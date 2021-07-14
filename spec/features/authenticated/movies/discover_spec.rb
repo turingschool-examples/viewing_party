@@ -11,8 +11,6 @@ RSpec.describe 'discover movies page' do
   end
 
   it 'has button Find Top Rated Movies' do
-    # save_and_open_page
-
     expect(current_path).to eq(discover_path)
     expect(page).to have_content("Welcome test123!")
     expect(page).to have_button("Find Top Rated Movies")
@@ -20,8 +18,29 @@ RSpec.describe 'discover movies page' do
 
   it 'has search form and button Find Top Rated Movies' do
     expect(current_path).to eq(discover_path)
-    expect(page).to have_field('title')
     expect(page).to have_button('Find Top Rated Movies')
+    expect(page).to have_button('Find Movies')
+  end
+
+  it 'has Dashboard link to Dashboard Page' do
+    expect(current_path).to eq(discover_path)
+    expect(page).to have_link("Dashboard")
+    click_link("Dashboard")
+
+    expect(current_path).to eq(dashboard_path)
+    expect(page).to_not have_link("Dashboard")
+    expect(page).to have_button("Discover Movies")
+  end
+
+  it 'has Logout link to Welcome Page' do
+    expect(current_path).to eq(discover_path)
+    expect(page).to have_link("Log out")
+    click_link("Log out")
+
+    expect(current_path).to eq(welcome_path)
+    expect(page).to_not have_link("Log out")
+    expect(page).to have_content("Welcome to Viewing Party")
+    expect(page).to have_link("New to Viewing Party? Register Here")
   end
 
 end
