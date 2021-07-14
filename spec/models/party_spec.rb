@@ -8,9 +8,10 @@ RSpec.describe Party, type: :model do
   end
 
   describe 'validations' do
-    it { should validate_presence_of(:start_time_day) }
-    it { should validate_presence_of(:movie_api_id) }
-    it { should validate_numericality_of(:movie_api_id) }
+    it { should validate_presence_of(:start_time) }
+    it { should validate_presence_of(:movie_id) }
+    it { should validate_presence_of(:date) }
+    it { should validate_numericality_of(:movie_id) }
     it { should validate_presence_of(:duration) }
     it { should validate_numericality_of(:duration) }
   end
