@@ -20,12 +20,12 @@ RSpec.describe "Welcome Page" do
       expect(page).to_not have_content("I already have an account")
       expect(page).to_not have_link("Log me in!")
       expect(page).to_not have_link("Register")
-      expect(page).to have_button("Log out")
+      expect(page).to have_link("Log Out")
 
-      click_button("Log out")
+      click_link("Log Out")
 
       expect(current_path).to eq(root_path)
-      expect(page).to_not have_link("Log out")
+      expect(page).to_not have_link("Log Out")
       expect(page).to have_content("I already have an account.")
       expect(page).to have_link("Register")
     end

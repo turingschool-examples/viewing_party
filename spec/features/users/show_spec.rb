@@ -20,12 +20,18 @@ RSpec.describe 'Dashboard page' do
     @party_2 = Party.create(party_host_id: @user_1.id, movie_title: 'Titanic', date: '2021-08-04', duration: 100000, start_time: "12:00:00")
     @attendee_4 = Attendee.create(party_id: @party_2.id, user_id: @user_2.id)
 
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_2)
-#
-    visit '/dashboard'
+#     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_2)
+# #
+#     visit '/dashboard'
+
+      visit '/login'
+
+      fill_in :email, with: 'empanada_luvr@email.com'
+      fill_in :password, with: 'hocuspocus'
+      click_button "Log In"
   end
 
-  xit 'has a welcome message' do
+  it 'has a welcome message' do
    expect(page).to have_content("Welcome #{@user_2.email}!")
   end
 

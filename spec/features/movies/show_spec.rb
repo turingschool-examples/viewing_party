@@ -20,13 +20,13 @@ RSpec.describe 'Movie Show Page' do
 
 
 
-  it 'shows the title, vote average, summary, genres, and runtime of the given movie' do
+  xit 'shows the title, vote average, summary, genres, and runtime of the given movie' do
       expect(page).to have_content('The Shawshank Redemption')
   end
 
-  it 'shows cast information' do
+  xit 'shows cast information' do
   end
 
-  it 'shows reviewer data' do
+  xit 'shows reviewer data' do
   end
 end

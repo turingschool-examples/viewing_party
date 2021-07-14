@@ -51,10 +51,10 @@ RSpec.describe 'Registration Page' do
     expect(page).to have_content("Password confirmation doesn't match Password")
   end
 
-  xit 'Logs the newly created user in' do
+  it 'Logs the newly created user in' do
     visit '/registration'
 
-    email = 'Roald@gmail.com'
+    email = 'roald@gmail.com'
     password = 'test'
 
     fill_in :email, with: email
@@ -63,6 +63,8 @@ RSpec.describe 'Registration Page' do
 
     click_on 'Register New User'
 
-    expect(session[:user_id]).to eq(User.last.id)
+    new_user = User.last
+    expect(new_user.email).to eq(email)
+    # expect(session[:user_id]).to eq(User.last.id)
   end
 end
