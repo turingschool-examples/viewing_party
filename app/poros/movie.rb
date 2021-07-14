@@ -6,15 +6,19 @@ class Movie
               :summary,
               :first_ten_cast_members,
               :total_reviews,
-              :reviewer_info
+              :reviewer_info,
+              :id,
+              :runtime_in_minutes
 
   def initialize(movie_id)
+    @id = movie_id
     @json_1 = APIServices.title_vote_summary_genres_runtime(movie_id)
     @json_2 = APIServices.cast_info(movie_id)
     @json_3 = APIServices.reviewer_data(movie_id)
+    @runtime_in_minutes = @json_1[:runtime]
     @title = @json_1[:original_title]
     @vote_average = @json_1[:vote_average]
-    @total_reviews = @json_3[:results].count
+    @total_reviews = @json_3[:total_results]
     @summary = @json_1[:overview]
     @runtime = convert_runtime
     @genres = create_genres
