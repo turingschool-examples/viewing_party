@@ -17,9 +17,14 @@ RSpec.describe "Movies show page" do
   end
 
   describe 'Movie Show Page' do
-    it 'has a button to create a viewing party' do
+    it 'has a button that links to create a viewing party' do
 
+      expect(current_path).to eq("/movies/#{@cruella.id}")
       expect(page).to have_button("Create Viewing Party")
+      
+      click_on "Create Viewing Party" 
+
+      expect(current_path).to eq(parties_new_path)
     end
 
     it 'shows movie title and its details' do
