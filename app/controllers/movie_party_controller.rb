@@ -20,7 +20,7 @@ class MoviePartyController < ApplicationController
     friends.each do |friend|
       if params[friend.email].to_i == 1
         friend = findparams[friend.email]
-        atendee = Friend.create({movie_party_id: party.id, user_id: friend.id})
+        atendee = Attendee.create({movie_party_id: party.id, user_id: friend.id})
       end
     end
 
