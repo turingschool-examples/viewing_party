@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_06_132404) do
+ActiveRecord::Schema.define(version: 2021_07_14_002229) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,12 +25,13 @@ ActiveRecord::Schema.define(version: 2021_07_06_132404) do
   end
 
   create_table "parties", force: :cascade do |t|
-    t.integer "movie_api_id"
+    t.integer "movie_id"
     t.float "duration"
-    t.datetime "start_time_day"
+    t.datetime "start_time"
     t.bigint "host_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "date"
     t.index ["host_id"], name: "index_parties_on_host_id"
   end
 
