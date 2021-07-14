@@ -14,5 +14,4 @@ RSpec.describe Party, type: :model do
     it { should validate_presence_of(:duration) }
     it { should validate_numericality_of(:duration) }
   end
-
 end
