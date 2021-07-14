@@ -12,6 +12,11 @@ Rails.application.routes.draw do
   get '/party/new', to: 'party#new'
   post '/party', to: 'party#create'
 
+  get '/discover', to: 'discover#index'
+
+  get '/movies', to: 'movies#index'
+
   get '/movies/:id', to: 'movies#show'
+
   post '/user_friendships', to: 'user_friendships#create'
 end

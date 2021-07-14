@@ -15,7 +15,7 @@ RSpec.describe "Welcome Page" do
 
       click_button('Log In')
 
-      expect(current_path).to eq(root_path)
+      expect(current_path).to eq('/dashboard')
       expect(page).to have_content('Welcome back, empanada_luvr@email.com')
       expect(page).to_not have_content("I already have an account")
       expect(page).to_not have_link("Log me in!")
