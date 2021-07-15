@@ -52,13 +52,13 @@ http_interactions:
       X-Cache:
       - Hit from cloudfront
       Via:
-      - 1.1 b2e880ac67c1fba390623b9fc04bd63a.cloudfront.net (CloudFront)
+      - 1.1 ed8294655bb258e13bfb027c25483ddb.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - z1GXSsnyRza2kEgvNNX0-kkAc9U-_RYqbuGZrysFwAUPtHmIsKiaXw==
+      - UbdlbOP_yIlrGZy2U9IbLhe14Yh1EG_OenviodMLJocDzOsObdSKkw==
       Age:
-      - '2587'
+      - '8895'
     body:
       encoding: ASCII-8BIT
       string: '{"id":75780,"cast":[{"adult":false,"gender":2,"id":500,"known_for_department":"Acting","name":"Tom
@@ -263,5 +263,5 @@ http_interactions:
         Second Assistant Director"},{"adult":false,"gender":0,"id":2615929,"known_for_department":"Directing","name":"Walter
         E. Myal","original_name":"Walter E. Myal","popularity":0.694,"profile_path":null,"credit_id":"5ea5f2deb39e350021e93613","department":"Directing","job":"Second
         Second Assistant Director"}]}'
-  recorded_at: Thu, 15 Jul 2021 01:16:48 GMT
+  recorded_at: Thu, 15 Jul 2021 03:01:56 GMT
 recorded_with: VCR 6.0.0
