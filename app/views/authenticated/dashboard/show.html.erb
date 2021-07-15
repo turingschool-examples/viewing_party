@@ -17,6 +17,12 @@
 <% end %><br><br>
 
 <h3>Viewing Parties</h3><hr><br><br>
+<h4>Parties You're In: </h4>
+  <% @user.parties.each do |party| %>
+    <%= party.title %>
+    <%= party.date.strftime("B% d%, Y%")%>
+    <%= party.start_time.strftime("B% d%, Y%")%>
+  <% end %>
 </div>
 
 <%= link_to "Log out", '/logout', method: :delete %><br><br>

@@ -59,11 +59,13 @@ RSpec.describe 'dashboard page' do
       fill_in :email, with: "lola_rabbit@aol.com"
       click_button "Add Friend"
       expect(current_path).to eq(dashboard_path)
-      expect(page).to have_content("Unable to Add Friend")
       expect(page).to have_content("lola_rabbit@aol.com")
+      expect(page).to have_content("#{@user_2.email[/[^@]+/]} Added as Friend")
+
       fill_in :email, with: "lola_rabbit@aol.com"
       click_button "Add Friend"
       expect(current_path).to eq(dashboard_path)
+      expect(page).to have_content("Unable to Add Friend")
 
     end
 
