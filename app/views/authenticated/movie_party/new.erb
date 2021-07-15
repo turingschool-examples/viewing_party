@@ -13,5 +13,12 @@
   <%= f.label :time, 'time' %>
   <%= f.time_field :time, required: true %> <br><br>
 
+  <%= f.label :friends, 'Invite Friends' %><br>
+  <% @friends.each do |friend| %>
+    <div id = <%= "#{friend.id}" %> >
+    <%= f.label :friend, "#{friend.email}" %>
+    <%= f.check_box( :friend, { method: :get, multiple: true }, "#{friend.id}", nil) %><br>
+    </div>
+  <% end %>
   <%= f.submit %>
 <% end %>

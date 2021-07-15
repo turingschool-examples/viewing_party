@@ -12,7 +12,7 @@
     <p>You currently have no friends.</p>
   <% else %>
     <% @friends.each do |friend| %>
-      <ul><li><%= friend.friendee.email %></li></ul>
+      <ul><li><%= friend.email %></li></ul>
     <% end %>
   <% end %>
 </div>

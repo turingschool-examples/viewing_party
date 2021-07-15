@@ -1,7 +1,7 @@
 class Authenticated::DashboardController < Authenticated::BaseController
 
   def show
-    @friends = Friend.where('friender_id = ?', current_user.id)
+    @friends = current_user.friends_list
   end
   
 end

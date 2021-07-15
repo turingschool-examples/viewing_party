@@ -40,7 +40,7 @@ RSpec.describe 'Friends' do
         expect(page).to_not have_content('You currently have no friends')
         expect(page).to have_content('tester_2@turing.orb')
         expect(page).to have_content('tester_3@turing.orb')
-        # save_and_open_page
+
       end
     end
     describe 'adding a friend not on our service' do
