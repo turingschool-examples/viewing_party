@@ -1,1 +1,26 @@
-<%= "#{@title}" %>
+<h1> <%= "#{@movie.title}" %> </h1>
+
+<%= button_to 'Create Movie Party', '/movie_party/new', params: { title: @movie.title, runtime: @movie.runtime }, method: :get %>
+
+<ul>
+  <li>Average Score: <%= @movie.vote_average %></li><br>
+  <li>Runtime: <%= @movie.runtime %></li><br>
+  <li>Number of Votes: <%= @movie.vote_count %></li><br>
+  <li>Genres:<ul><br>
+    <% @movie.genres.each do |genre| %>
+    <li><%= genre[:name]%></li><br>
+    <% end %></ul></li>
+  <li>Summary: <%= @movie.overview %></li><br>
+</ul>
+
+<h2>Cast:</h2>
+<ul><% @cast.each do |actor| %>
+      <li><%= actor %></li><br>
+    <% end %></ul>
+
+<h2>Revies:</h2>
+<% @reviews.each do |review| %>
+  <ul><%= review.name %>
+    <li><%= review.review %></li>
+  </ul>
+<% end %>    

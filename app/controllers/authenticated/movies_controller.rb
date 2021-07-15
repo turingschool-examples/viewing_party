@@ -8,6 +8,6 @@ class Authenticated::MoviesController < Authenticated::BaseController
     @movie = ImdbService.movie_data(params[:id])
     @cast = ImdbService.movie_cast(params[:id])
     @reviews = ImdbService.movie_reviews(params[:id])
-    # binding.pry
+
   end
 end
