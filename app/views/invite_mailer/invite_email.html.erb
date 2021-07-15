@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>You've been invited to watch a movie, <%= @user.email %></h1>
+    <p>
+      <%= @host.email %> has invited you to watch <%= @party.movie_title %>, on <%= @party.date_time.strftime('%A, %B %e, %Y') %> at <%= @party.date_time.strftime('%I:%M %P') %>
+    </p>
+    <p>
+      To login to the site, just follow this link: <%= @url %>.
+    </p>
+    <p>We hope to see you there!</p>
+  </body>
+</html>

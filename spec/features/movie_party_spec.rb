@@ -145,7 +145,9 @@ RSpec.describe 'Movies Page' do
           fill_in :date, with:'2-2-2022'
           fill_in :time, with: '08:00 AM'
 
-          check "#{friend_1.email}"
+          within("div##{friend_1.id}") do
+            check 'friend[]'            
+          end
 
           click_on "Save"
 
@@ -193,14 +195,20 @@ RSpec.describe 'Movies Page' do
           expect(no_five).to eq(nil)
 
           visit "/movie_party/new?title=Spider-Man:%20Homecoming&runtime=20"
-
+          # save_and_open_page
 
           fill_in :date, with:'2-2-2022'
           fill_in :time, with: '08:00 AM'
 
-          check "#{friend_1.email}"
-          check "#{friend_2.email}"
-          check "#{friend_4.email}"
+          within("div##{friend_1.id}") do
+            check 'friend[]'            
+          end
+          within("div##{friend_2.id}") do
+            check 'friend[]'            
+          end
+          within("div##{friend_4.id}") do
+            check 'friend[]'            
+          end
 
           click_on "Save"
 
@@ -279,6 +287,28 @@ RSpec.describe 'Movies Page' do
 
         expect(current_path).to eq("/dashboard")
       end
+
+      it 'sends an email with invitations' do
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+        friend_1 = User.create(email: 'friend@budies.com', password: 'tester')
+        Friend.create!(friender: user, friendee: friend_1)
+        visit "/movie_party/new?title=Spider-Man:%20Homecoming&runtime=20"
+
+        expect(InviteMailer.deliveries).to eq([])
+
+        fill_in :date, with:'2-2-2022'
+        fill_in :time, with: '08:00 AM'
+
+        within("div##{friend_1.id}") do
+          check 'friend[]'            
+        end
+
+        click_on "Save"
+
+        sleep(1)
+
+        expect(InviteMailer.deliveries).to_not eq([])
+      end
     end
 
     describe 'sad path' do
@@ -294,7 +324,7 @@ RSpec.describe 'Movies Page' do
 
         # expect(current_path).to eq("/movie_party/new?title=Spider-Man:%20Homecoming&runtime=130")
 
- # binding.pry
+        # binding.pry
         # message = page.find("#party_form").native.attribute("validationMessage")
         # expect(message).to eq "Please fill out this field."
         # expect(current_path).to eq(edit_link_path(user.links.first))
