@@ -6,7 +6,7 @@ RSpec.describe 'Movies Page' do
     it 'can be reached from the dashboard' do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
       VCR.use_cassette 'imdb_top' do
-      
+
         visit '/dashboard'
 
         expect(page).to have_button(value='Discover Top 40 Movies')
@@ -47,5 +47,23 @@ RSpec.describe 'Movies Page' do
         expect(page).to have_current_path('/movies/details', ignore_query: true)
       end
     end
+    it ' lets us know if there are no movies with searched for title' do
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      VCR.use_cassette 'imdb_top' do
+
+        visit '/discover'
+
+      end
+      VCR.use_cassette 'search_returns_nothing' do
+
+        fill_in :movie_title, with: 'asdfasdfasdf'
+        click_on 'Find Top Rated Movies'
+
+        expect(page).to have_content('No Movies Found')
+
+        expect(page).to have_current_path('/movies', ignore_query: true)
+      end
+    end
+
   end
 end

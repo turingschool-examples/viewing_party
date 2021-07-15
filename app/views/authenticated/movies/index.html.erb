@@ -7,10 +7,15 @@
 <% end %>
 
 <ol>
-  <% @movie_search.each do |movie| %>
-    <li><%= link_to "#{movie.title}", "/movies/details?id=#{movie.id}" %><ul>
-      <li><%= "Score: #{movie.vote}" %></li>
-      </ul>
-    </li>
-  <% end %>
+
+  <% if @movie_search == "No Movies Found"%>
+    <%= @movie_search %>
+  <% else %>
+    <% @movie_search.each do |movie| %>
+      <li><%= link_to "#{movie.title}", "/movies/details?id=#{movie.id}" %><ul>
+        <li><%= "Score: #{movie.vote}" %></li>
+        </ul>
+      </li>
+    <% end %>
+  <% end  %>
 </ol>
