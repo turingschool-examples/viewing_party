@@ -124,11 +124,15 @@ RSpec.describe 'dashboard page' do
         movie = VCR.use_cassette("movie_details_by_id") do
           MovieFacade.movie_details_by_id(337404)
         end
-        user = create(:mock_user)
+        user = create(:mock_user, password: 'hello')
         friend = create(:mock_user)
-        user.friends << friend
-        party = create(:mock_party, host_id: user.id, movie_id: movie.id, title: movie.title)
-        party_guests = create(:mock_party_guest, party_id: party.id, guest: friend )
+        friend.friends << user
+        party = create(:mock_party, host_id: friend.id, movie_id: movie.id, title: movie.title)
+        party_guests = create(:mock_party_guest, party_id: party.id, guest: user )
+
+        # user.friends << friend
+        # party = create(:mock_party, host_id: user.id, movie_id: movie.id, title: movie.title)
+        # party_guests = create(:mock_party_guest, party_id: party.id, guest: friend )
 
         fill_in :email, with: user.email
         fill_in :password, with: user.password
@@ -136,9 +140,9 @@ RSpec.describe 'dashboard page' do
 
         expect(page).to have_content("Parties You're In")
         expect(page).to have_content("Cruella")
-        expect(page).to have_content(party.date)
-        expect(page).to have_content(party.start_time)
-        expect(page).to have_content(@friend.email)
+        expect(page).to have_content(party.date.strftime("%B %d, %Y"))
+        expect(page).to have_content(party.start_time.strftime("%l:%M %p"))
+        expect(page).to have_content(user.email)
       end
 
       it 'shows viewing parties that user is hosting' do
