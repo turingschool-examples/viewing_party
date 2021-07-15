@@ -111,3 +111,14 @@ def search_by_movie_title_stub
          }).
        to_return(status: 200, body: json_response, headers: {})
 end
+
+# def top_rated_stub
+#   response_body_1 = File.read('spec/fixtures/top_rated_pg1.json')
+#   response_body_2 = File.read('spec/fixtures/top_rated_pg2.json')
+#
+#   stub_request(:get, "https://api.themoviedb.org/3/movie/top_rated?api_key=#{ENV['api_key']}&language=en-US&page=1").
+#   to_return(status: 200, body: response_body_1, headers: {})
+#
+#   stub_request(:get, "https://api.themoviedb.org/3/movie/top_rated?api_key=#{ENV['api_key']}&language=en-US&page=2").
+#   to_return(status: 200, body: response_body_2, headers: {})
+# end
