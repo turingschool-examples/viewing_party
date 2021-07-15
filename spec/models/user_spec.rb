@@ -39,6 +39,8 @@ RSpec.describe User, type: :model do
       it "returns all parties that user is invited to" do
 
         expect(@user.invited_parties).to eq([@party, @party_2])
+      end
+    end
 
   describe "#instance methods" do
     before(:each) do
