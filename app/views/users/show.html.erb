@@ -21,7 +21,7 @@
 <section id='invited'>
   <h3> Viewing Parties you are invited to:</h3>
   <% current_user.invites.each do |party| %>
-    <p>Movie Title: <%= link_to "#{party.movie_title}", url: "/movie_details/#{party.movie_id}", method: :get, local: true %></p>
+    <p>Movie Title: <%= link_to "#{party.movie_title}", "/movies/#{party.movie_id}", method: :get, local: true %></p>
     <p>Host: <%= User.find("#{party.party_host_id}").email %></p>
     <p>Date: <%= party.date %></p>
     <p>Start Time: <%= party.start_time %></p>
@@ -35,7 +35,7 @@
   <h3>Viewing Parties You are Hosting: </h3>
   <% if current_user.parties.count > 0 %>
     <% current_user.parties.each do |party| %>
-      <p>Movie Title: <%= link_to "#{party.movie_title}", url: "/movies/#{party.movie_id}", method: :get, local: true %></p>
+      <p>Movie Title: <%= link_to "#{party.movie_title}", "/movies/#{party.movie_id}", method: :get, local: true %></p>
       <p>Date: <%= party.date %></p>
       <p>Start Time: <%= party.start_time %></p>
       <p>Friends you have invited to attend: </p>

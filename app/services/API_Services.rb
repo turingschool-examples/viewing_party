@@ -1,7 +1,7 @@
 class APIServices
   def self.top_rated_query
-    response_pg_1 = conn.get("3/movie/top_rated?api_key=#{ENV['MOVIES_DB_API_KEY']}&page=1")
-    response_pg_2 = conn.get("3/movie/top_rated?api_key=#{ENV['MOVIES_DB_API_KEY']}&page=2")
+    response_pg_1 = conn.get("3/movie/top_rated?api_key=#{ENV['api_key']}&page=1")
+    response_pg_2 = conn.get("3/movie/top_rated?api_key=#{ENV['api_key']}&page=2")
 
     pg_1_parsed = parse_json(response_pg_1)
     pg_2_parsed = parse_json(response_pg_2)
@@ -33,7 +33,7 @@ class APIServices
 
   def self.conn
     Faraday.new(url: 'https://api.themoviedb.org') do |faraday|
-      faraday.params['api_key'] = ENV['MOVIES_DB_API_KEY']
+      faraday.params['api_key'] = ENV['api_key']
     end
   end
 

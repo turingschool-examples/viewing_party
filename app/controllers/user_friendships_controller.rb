@@ -6,10 +6,10 @@ class UserFriendshipsController < ApplicationController
     if friend.nil?
       flash[:error] = 'That user has not yet registered with this platform.'
       redirect_to '/dashboard'
-    elsif !friend.nil? && !user.friends.where('email = ?', friend.email).nil?
+    elsif !user.friends.find_by(email: friend.email).nil?
       flash[:error] = 'You are already friends with that user'
       redirect_to '/dashboard'
-    elsif !friend.nil? && !user.friends.include?(friend.email)
+    elsif
       UserFriendship.create(user: user, friend: friend)
       redirect_to '/dashboard'
     end
