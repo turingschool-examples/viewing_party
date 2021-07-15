@@ -1,36 +1,5 @@
 class ImdbService
 
-  # def self.top_movies
-  #   results_array = []
-  #   index = 1
-  #   until results_array.length >= 2
-  #     results_array.push(con.get("/3/discover/movie?sort_by=popularity.desc&page=#{index}").body)
-  #     index +=1
-  #   end
-  #   results_array.flatten.map do |page_results|
-  #     JSON.parse(page_results, symbolize_names: true)[:results]
-  #   end.flatten
-  # end
-
-  # def self.top_movies(movie_numbers = 40)
-  #   results_array = []
-  #   index = 1
-  #   until results_array.length >= movie_numbers
-  #     response = con.get("/3/discover/movie?sort_by=popularity.desc&page=#{index}")
-  #     parsed_response = JSON.parse(response.body, symbolize_names: true)
-  #     results = parsed_response[:results]
-  #     results.each do |movie|
-  #       results_array << movie
-  #     end
-  #     index +=1
-  #   end
-  #   results_array.first(movie_numbers)
-  # end
-
-
-  # def self.top_movies(movie_numbers = 40)
-  # end
-
   def self.top_movies(movie_numbers = 40)
     results_array = []
     page_number = 1
@@ -50,18 +19,40 @@ class ImdbService
     parsed_response = JSON.parse(response.body, symbolize_names: true)
   end
 
+  # def self.top_movies_search(search = nil)
+  #   search_terms = search.gsub(' ', '+')
+  #   results_array = []
+  #   index = 1
+  #   until results_array.length >= 2
+  #     results_array.push(con.get("/3/search/movie?query=#{search_terms}&page=#{index}").body)
+  #     index += 1
+  #   end
+  #   results_array.flatten.map do |page_results|
+  #     JSON.parse(page_results, symbolize_names: true)[:results]
+  #   end.flatten
+  # end
 
-  def self.top_movies_search(search = nil)
+  def self.top_movies_search(search = nil, movie_numbers = 40)
     search_terms = search.gsub(' ', '+')
     results_array = []
-    index = 1
-    until results_array.length >= 2
-      results_array.push(con.get("/3/search/movie?query=#{search_terms}&page=#{index}").body)
-      index += 1
+    page_number = 1
+    until results_array.length >= movie_numbers
+      response = top_movies_search_page(search_terms, page_number)
+      results = response[:results]
+      if results == []
+        return []
+      end
+      results.each do |movie|
+        results_array << movie
+      end
+      page_number +=1
     end
-    results_array.flatten.map do |page_results|
-      JSON.parse(page_results, symbolize_names: true)[:results]
-    end.flatten
+    results_array.first(movie_numbers)
+  end
+
+  def self.top_movies_search_page(search, page)
+    response = con.get("/3/search/movie?query=#{search}&page=#{page}")
+    parsed_response = JSON.parse(response.body, symbolize_names: true)
   end
 
   def self.movie_data(movie_id)
