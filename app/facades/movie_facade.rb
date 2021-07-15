@@ -28,7 +28,7 @@ class MovieFacade
       end
     end[0..9]
   end
-  
+
   def self.movie_review_results(id)
     review_json = ImdbService.movie_reviews(id)
     review_json[:results].map do |reviewer|
