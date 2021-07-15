@@ -17,8 +17,6 @@ class Authenticated::MoviePartyController < Authenticated::BaseController
         Attendee.create({movie_party_id: party.id, user_id: friend.id})
       end
     end
-    party.users.distinct
-    post '/email'
 
     redirect_to '/dashboard'
   end
