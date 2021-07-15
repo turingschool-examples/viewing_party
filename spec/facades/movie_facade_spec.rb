@@ -9,7 +9,7 @@ RSpec.describe MovieFacade do
 
           expect(actual.class).to eq(Array)
           expect(actual[0].class).to eq(Movie)
-          expect(actual[0].title).to eq('The Tomorrow War')
+          expect(actual[0].title).to eq('Black Widow')
         end
       end
     end

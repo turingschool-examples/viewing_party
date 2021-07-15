@@ -14,6 +14,7 @@ class Authenticated::FriendsController < Authenticated::BaseController
         flash[:error] = friend_add.errors.full_messages
       end
     end
+    
     redirect_to '/dashboard'
   end
 end

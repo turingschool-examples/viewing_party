@@ -16,7 +16,7 @@
   <%= f.label :friends, 'Invite Friends' %><br>
   <% @friends.each do |friend| %>
     <%= f.label :"#{friend.friendee.email}", "#{friend.friendee.email}" %>
-    <%= f.check_box("#{friend.friendee.email}", method: :get, checked_value: "#{friend.friendee.id}", unchecked_value: nil) %><br>
+    <%= f.check_box("#{friend.friendee.email}", { method: :get }, "#{friend.friendee}", nil) %><br>
   <% end %>
   <%= f.submit %>
 <% end %>
