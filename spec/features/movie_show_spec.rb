@@ -38,7 +38,7 @@ RSpec.describe 'movie show page' do
 
           click_on 'Create Movie Party'
 
-          expect(page).to have_current_path('/movie_party/new')
+          expect(page).to have_current_path('/movie_party/new?runtime=134&title=Black+Widow')
         end
       end
     end
