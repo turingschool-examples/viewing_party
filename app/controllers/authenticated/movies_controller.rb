@@ -5,8 +5,9 @@ class Authenticated::MoviesController < Authenticated::BaseController
   end
 
   def show
-    @movie = MovieFacade.movie_data_results(params[:id])
-    @cast = MovieFacade.movie_cast_results(params[:id])
-    @reviews = MovieFacade.movie_review_results(params[:id])
+    @movie = ImdbService.movie_data(params[:id])
+    @cast = ImdbService.movie_cast(params[:id])
+    @reviews = ImdbService.movie_reviews(params[:id])
+
   end
 end

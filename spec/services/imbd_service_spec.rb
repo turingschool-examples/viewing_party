@@ -5,32 +5,32 @@ RSpec.describe ImdbService do
     describe '.top_movies' do
       it 'returns an array containing the top movies titles and vote average' do
         VCR.use_cassette 'imdb_top' do
-          actual = ImdbService.top_movies
+          actual = ImdbService.top_movies_page(1)
 
-          expect(actual.class).to eq(Array)
-          expect(actual[0][:title].include?('Black')).to eq(true)
-          expect(actual[0][:title].nil?).to eq(false)
-          expect(actual[0].class).to eq(Hash)
+          expect(actual[:results].class).to eq(Array)
+          expect(actual[:results][0][:title].include?('Black')).to eq(true)
+          expect(actual[:results][0][:title].nil?).to eq(false)
+          expect(actual[:results][0].class).to eq(Hash)
         end
       end
     end
     describe '.top_movies_search' do
       it 'returns an array based on search' do
         VCR.use_cassette 'imdb_search' do
-          actual = ImdbService.top_movies_search('Jack')
+          actual = ImdbService.top_movies_search_page('Jack', 1)
 
-          expect(actual.class).to eq(Array)
-          expect(actual[0][:title].include?('Jack')).to eq(true)
-          expect(actual[0][:title].nil?).to eq(false)
-          expect(actual[0].class).to eq(Hash)
-          expect(actual.count).to eq(40)
+          expect(actual[:results].class).to eq(Array)
+          expect(actual[:results][0][:title].include?('Jack')).to eq(true)
+          expect(actual[:results][0][:title].nil?).to eq(false)
+          expect(actual[:results][0].class).to eq(Hash)
+          expect(actual[:results].count).to eq(20)
         end
       end
       it 'returns a hash if no title matches' do
         VCR.use_cassette 'imdb_nil' do
-          actual = ImdbService.top_movies_search('klsdjfl')
+          actual = ImdbService.top_movies_search_page('klsdjfl', 1)
 
-          expect(actual).to eq([])
+          expect(actual[:results]).to eq([])
         end
       end
     end
