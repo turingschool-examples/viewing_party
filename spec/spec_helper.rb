@@ -12,6 +12,7 @@
 # the additional setup, and require it from the spec files that actually need
 # it.
 #
+require 'webmock/rspec'
 require 'simplecov'
 SimpleCov.start 'rails'
 SimpleCov.add_filter ['spec', 'config']
@@ -97,4 +98,16 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+end
+
+def search_by_movie_title_stub
+  json_response = File.read('spec/fixtures/search_by_movie_title.json')
+  stub_request(:get, "https://api.themoviedb.org/3/search/movie?api_key=1e7effab0da2b8f84f2ae7913e2419d6&include_adult=false&language=en-US&page=1&query=Hamilton").
+       with(
+         headers: {
+        'Accept'=>'*/*',
+        'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+        'User-Agent'=>'Faraday v1.4.1'
+         }).
+       to_return(status: 200, body: json_response, headers: {})
 end
