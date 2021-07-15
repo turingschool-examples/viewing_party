@@ -34,7 +34,7 @@ class Authenticated::PartiesController < Authenticated::BaseController
     end
 
     def party_params
-      params.permit(:movie_id, :duration, :start_time, :date)
+      params.permit(:movie_id, :duration, :start_time, :date, :title)
     end
 
     def friend_params

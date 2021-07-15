@@ -17,11 +17,26 @@
 <% end %><br><br>
 
 <h3>Viewing Parties</h3><hr><br><br>
-<h4>Parties You're In: </h4>
+<h4>Parties You're Hosting: </h4><br>
   <% @user.parties.each do |party| %>
-    <%= party.title %>
-    <%= party.date.strftime("B% d%, Y%")%>
-    <%= party.start_time.strftime(%>
+    <div>
+    <h5><%= party.title %></h5>
+    <%= party.date.strftime("%B %d, %Y")%> 
+    <%= party.start_time.strftime("%l:%M %p")%>
+    </div><br>
+  <% end %>
+</div>
+
+<h4>Parties You're Invited To: </h4><br>
+  <% @user.invited_parties.each do |party| %>
+    <div>
+    <h5><%= party.title %></h5>
+    <%= party.date.strftime("%B %d, %Y")%> 
+    <%= party.start_time.strftime("%l:%M %p")%>
+    <%= party.party_guests.each do |guest| %>
+        guest.
+    <% end %>
+    </div><br>
   <% end %>
 </div>
 

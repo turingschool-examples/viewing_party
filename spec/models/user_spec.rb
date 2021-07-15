@@ -21,7 +21,7 @@ RSpec.describe User, type: :model do
       @user = create(:mock_user)
       @friend = create(:mock_user)
       @friend_2 = create(:mock_user)
-      @party = create(:mock_party, host_id: @friend.id, movie_id: @movie.id)
+      @party = create(:mock_party, host_id: @friend.id, movie_id: @movie.id, @movie.title)
       @party_guests = create(:mock_party_guest, party_id: @party.id, guest: @user )
       @party_2 = create(:mock_party, host_id: @friend_2.id, movie_id: @movie.id)
       @party_guests_2 = create(:mock_party_guest, party_id: @party_2.id, guest: @user )
