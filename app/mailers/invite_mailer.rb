@@ -1,7 +1,7 @@
 class InviteMailer < ApplicationMailer
   default from: 'party.viewer.turing@google.com'
 
-  def invite_email
+  def invite_email(params)
     @host = params[:host]
     @party = params[:party]
     @user = params[:user]

@@ -1,0 +1,9 @@
+
+You've been invited to watch a movie, <%= @user.email %>
+====================================================================
+
+<%= @host.email %> has invited you to watch <%= @party.movie_title %>, on <%= @party.date_time.strftime('%A, %B %e, %Y') %> at <%= @party.date_time.strftime('%I:%M %P') %>
+
+To login to the site, just follow this link: <%= @url %>.
+
+We hope to see you there!

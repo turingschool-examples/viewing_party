@@ -4,7 +4,7 @@ class Authenticated::MoviePartyController < Authenticated::BaseController
     @title = params[:title]
     @movie_length = params[:runtime]
 
-    @friends = current_user.friend_alias
+    @friends = current_user.friends_list
   end
 
   def create
@@ -13,15 +13,13 @@ class Authenticated::MoviePartyController < Authenticated::BaseController
     else
       date_time = nil
     end
+    party = MovieParty.create({user: current_user, movie_title: params[:title], date_time: date_time, runtime: params[:duration]})
+    params[:friend].each do |friend_id|
+      friend = User.find(friend_id.to_i)
+      Attendee.create({movie_party: party, user: friend})
+      InviteMailer.with(host: current_user, party: party, user: friend).invite_email(host: current_user, party: party, user: friend).deliver_later
+    end unless !params[:friend]
 
-    party = MovieParty.new({user_id: current_user.id, movie_title: params[:title], date_time: date_time, runtime: params[:duration]})
-    if party.save
-      friends_list.each do |friend|
-        if params.include?(friend.email)
-          Attendee.create({movie_party_id: party.id, user_id: friend.id})
-        end
-      end
-      redirect_to '/dashboard'
-    end
+    redirect_to '/dashboard'
   end
 end

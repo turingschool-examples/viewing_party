@@ -14,4 +14,10 @@ class User < ApplicationRecord
   validates :email, uniqueness: true, presence: true
   validates_presence_of :password_digest, require: true
 
+  def friends_list
+    Friend.where('friender_id = ?', id).map do |friend|
+      friend.friendee
+    end
+  end
+
 end
