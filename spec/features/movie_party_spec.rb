@@ -286,28 +286,26 @@ RSpec.describe 'Movies Page' do
         allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
         visit "/movie_party/new?title=Spider-Man:%20Homecoming&runtime=130"
 
-        fill_in :duration, with: "2"
-        fill_in :date, with:'2-2-2022'
-        fill_in :time, with: ''
-
-        click_on "Save"
-
-        # expect(current_path).to eq("/movie_party/new?title=Spider-Man:%20Homecoming&runtime=130")
-
- # binding.pry
-        # message = page.find("#party_form").native.attribute("validationMessage")
-        # expect(message).to eq "Please fill out this field."
-        # expect(current_path).to eq(edit_link_path(user.links.first))
-
-      end
-      it 'requires runtime be greater than movie runtime' do
-
-
-
+        party = MovieParty.all.count
+        page.driver.post('/movie_party/create', { :date => '2-2-2022', :time => '08:00 AM', :title => "Spider-Man: Homecoming"} )
+        expect(MovieParty.all.count).to eq(party)
       end
       it ' requires you enter in a date' do
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+        visit "/movie_party/new?title=Spider-Man:%20Homecoming&runtime=130"
+
+        party = MovieParty.all.count
+        page.driver.post('/movie_party/create', { :duration => "3", :time => '08:00 AM', :title => "Spider-Man: Homecoming"} )
+        expect(MovieParty.all.count).to eq(party)
+
       end
       it 'requires a start time' do
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+        visit "/movie_party/new?title=Spider-Man:%20Homecoming&runtime=130"
+
+        party = MovieParty.all.count
+        page.driver.post('/movie_party/create', { :date => '2-2-2022', :duration => "3", :title => "Spider-Man: Homecoming"} )
+        expect(MovieParty.all.count).to eq(party)
       end
     end
 
