@@ -81,7 +81,7 @@ RSpec.describe 'dashboard page' do
         user = create(:mock_user)
         friend = create(:mock_user)
         user.friends << friend
-        party = create(:mock_party, host_id: user.id, movie_id: movie.id)
+        party = create(:mock_party, host_id: user.id, movie_id: movie.id, title: movie.title)
         party_guests = create(:mock_party_guest, party_id: party.id, guest: friend )
       
         expect(page).to have_content("Parties You're In")
@@ -97,10 +97,9 @@ RSpec.describe 'dashboard page' do
         end
         user = create(:mock_user)
         friend = create(:mock_user)
-        user.friends << friend
-        party = create(:mock_party, host_id: friend.id, movie_id: movie.id)
+        party = create(:mock_party, host_id: friend.id, movie_id: movie.id, title: movie.title)
         party_guests = create(:mock_party_guest, party_id: party.id, guest: user )
-      
+        save_and_open_page
         expect(page).to have_content("Parties You're In")
         expect(page).to have_content("Cruella")
         expect(page).to have_content(party.date)
