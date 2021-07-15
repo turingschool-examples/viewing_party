@@ -50,23 +50,28 @@ RSpec.describe 'dashboard page' do
       expect(page).to_not have_content("lola_rabbit@aol.com")
     end
 
-    it 'shows Sad Path, friend not added' do
-      @user_2 = User.create(email: 'lola_rabbit@aol.com', password: 'lola')
-
+    it 'shows Sad Path, user can not add own email to friend list' do
       expect(current_path).to eq(dashboard_path)
-      expect(page).to have_field('email')
-      expect(page).to have_button('Add Friend')
-      fill_in :email, with: "lola_rabbit@aol.com"
+      fill_in :email, with: "test123@xyz.com"
       click_button "Add Friend"
+      expect(current_path).to eq(dashboard_path)
+      expect(page).to have_content("Unable to Add User")
+    end
+
+    it 'shows Sad Path, user can not add existing friend' do
+      click_link("Log out")
+      @user_2 = User.create!(email: 'lola_rabbit@aol.com', password: 'lola')
+      @user_1.friends.push(@user_2)
+      fill_in :email, with: "test123@xyz.com"
+      fill_in :password, with: "viewparty"
+      click_button "Sign In"
+
       expect(current_path).to eq(dashboard_path)
       expect(page).to have_content("lola_rabbit@aol.com")
-      expect(page).to have_content("#{@user_2.email[/[^@]+/]} Added as Friend")
-
       fill_in :email, with: "lola_rabbit@aol.com"
       click_button "Add Friend"
       expect(current_path).to eq(dashboard_path)
-      expect(page).to have_content("Unable to Add Friend")
-
+      expect(page).to have_content("Unable to Add User")
     end
 
     it 'adds user to and shows in Friends list' do
