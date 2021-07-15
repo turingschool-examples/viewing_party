@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.themoviedb.org/3/search/movie?api_key=e1dce8b90f48a3084940ca941868f474&page=1&query=klsdjfl
+    uri: https://api.themoviedb.org/3/search/movie?api_key=6b310e0dcdbc8d375cce6ea3bf466eea&page=1&query=klsdjfl
     body:
       encoding: US-ASCII
       string: ''
@@ -25,7 +25,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 14 Jul 2021 23:32:15 GMT
+      - Thu, 15 Jul 2021 00:33:43 GMT
       Server:
       - openresty
       Access-Control-Allow-Origin:
@@ -42,18 +42,18 @@ http_interactions:
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 ce4b35590464ed34415a13badd946ebb.cloudfront.net (CloudFront)
+      - 1.1 6c02603f677dd5669f8ab3b41062340f.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - A_uC-q_CdjMVTCQzADbaLsYpaH8jrDQS3BSNat6VDF3qh_ElYUxIMw==
+      - BdV4ow2b4JZK6AkybnSEsLHlwisnityWz4ZkZBJlQghgfadetdKsyQ==
     body:
       encoding: UTF-8
       string: '{"page":1,"results":[],"total_pages":0,"total_results":0}'
-  recorded_at: Wed, 14 Jul 2021 23:32:15 GMT
+  recorded_at: Thu, 15 Jul 2021 00:33:43 GMT
 - request:
     method: get
-    uri: https://api.themoviedb.org/3/search/movie?api_key=e1dce8b90f48a3084940ca941868f474&page=2&query=klsdjfl
+    uri: https://api.themoviedb.org/3/search/movie?api_key=6b310e0dcdbc8d375cce6ea3bf466eea&page=2&query=klsdjfl
     body:
       encoding: US-ASCII
       string: ''
@@ -76,7 +76,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 14 Jul 2021 23:32:15 GMT
+      - Thu, 15 Jul 2021 00:33:44 GMT
       Server:
       - openresty
       Access-Control-Allow-Origin:
@@ -93,13 +93,13 @@ http_interactions:
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 7d885ba806a1846198f8b666005bec93.cloudfront.net (CloudFront)
+      - 1.1 e158a5cd644f102abc630a9f56b59d78.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - OzoAkOLJZhAivPQAzqq4BgCj0qauU-zm5l4P4tJuGeuWD3uduwOcEg==
+      - "-JxqANZCGCkxkXfy3_xr-xc5gb1QW8E1gG99allZdwhTNfnUUlD07Q=="
     body:
       encoding: UTF-8
       string: '{"page":2,"results":[],"total_pages":0,"total_results":0}'
-  recorded_at: Wed, 14 Jul 2021 23:32:15 GMT
+  recorded_at: Thu, 15 Jul 2021 00:33:44 GMT
 recorded_with: VCR 6.0.0

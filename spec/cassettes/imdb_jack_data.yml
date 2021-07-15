@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.themoviedb.org/3/movie/75780?api_key=e1dce8b90f48a3084940ca941868f474
+    uri: https://api.themoviedb.org/3/movie/75780?api_key=6b310e0dcdbc8d375cce6ea3bf466eea
     body:
       encoding: US-ASCII
       string: ''
@@ -25,7 +25,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 14 Jul 2021 23:32:13 GMT
+      - Thu, 15 Jul 2021 00:33:41 GMT
       Server:
       - openresty
       Access-Control-Allow-Origin:
@@ -42,9 +42,9 @@ http_interactions:
       X-Memc-Key:
       - '08c16f9706a27f06d87e5321e922c8bec4ef1612'
       X-Memc-Age:
-      - '13137'
+      - '16825'
       X-Memc-Expires:
-      - '4652'
+      - '964'
       Etag:
       - W/"09ed72949f3493b4d0df5e67a4b9a1f6"
       Vary:
@@ -52,11 +52,11 @@ http_interactions:
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 48ea53c7edffa2cdbdc32f7d94966344.cloudfront.net (CloudFront)
+      - 1.1 ed8294655bb258e13bfb027c25483ddb.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - 1m_kpkN9DZn89A_1m7muM23-t7EmY2Fyfy_XY-oTDkTgfSz4CcYiUA==
+      - NdFrn6Khi79shklRGiejY6FMpfh1WmjstmviU8k96YBaIgs2GbnJSw==
     body:
       encoding: ASCII-8BIT
       string: '{"adult":false,"backdrop_path":"/k7h4RNAarfOrF2r2YMN0P2FQSr4.jpg","belongs_to_collection":{"id":403374,"name":"Jack
@@ -74,5 +74,5 @@ http_interactions:
         Entertainment","origin_country":"KR"}],"production_countries":[{"iso_3166_1":"US","name":"United
         States of America"}],"release_date":"2012-12-20","revenue":218340595,"runtime":130,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"}],"status":"Released","tagline":"The
         Law Has Limits. He Does Not.","title":"Jack Reacher","video":false,"vote_average":6.5,"vote_count":5310}'
-  recorded_at: Wed, 14 Jul 2021 23:32:13 GMT
+  recorded_at: Thu, 15 Jul 2021 00:33:41 GMT
 recorded_with: VCR 6.0.0
