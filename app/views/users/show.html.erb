@@ -1,0 +1,46 @@
+<h1><%= "Welcome #{current_user.email}!" %></h1>
+<p><%= link_to "Log Out", '/logout', method: :delete %></p>
+<p><%= button_to "Discover Movies", discover_path, method: :get %></p>
+
+<%= form_with url: '/user_friendships', method: :post, local: true do |f| %>
+<%= f.label "Search Friend's Email: " %>
+<%= f.text_field :email %>
+<%= f.submit 'Add Friend' %>
+<% end %>
+
+<% if current_user.friends.count > 0  %>
+  <h3><%= "#{current_user.email}'s Friends: " %></h3>
+  <% current_user.friends.each do |friend| %>
+    <p><%= friend.email %></p>
+  <% end %>
+<% else %>
+  <p>You currently haven't added any friends.</p>
+<% end %>
+
+<h2>Viewing Parties</h2>
+<section id='invited'>
+  <h3> Viewing Parties you are invited to:</h3>
+  <% current_user.invites.each do |party| %>
+    <p>Movie Title: <%= link_to "#{party.movie_title}", "/movies/#{party.movie_id}", method: :get, local: true %></p>
+    <p>Host: <%= User.find("#{party.party_host_id}").email %></p>
+    <p>Date: <%= party.date %></p>
+    <p>Start Time: <%= party.start_time %></p>
+    <p>Invited Attendees: <%= party.attendees.each do |attendee| %></p>
+      <p><%= User.find("#{attendee.user_id}").email %></p>
+    <% end %>
+  <% end %>
+</section>
+
+<section id='hosting'>
+  <h3>Viewing Parties You are Hosting: </h3>
+  <% if current_user.parties.count > 0 %>
+    <% current_user.parties.each do |party| %>
+      <p>Movie Title: <%= link_to "#{party.movie_title}", "/movies/#{party.movie_id}", method: :get, local: true %></p>
+      <p>Date: <%= party.date %></p>
+      <p>Start Time: <%= party.start_time %></p>
+      <p>Friends you have invited to attend: </p>
+    <% end %>
+  <% else %>
+    <p>None Currently</p>
+  <% end %>
+</section>
