@@ -118,7 +118,9 @@ RSpec.describe 'dashboard page' do
     end
 
     context "User dashboard has viewing parties" do
-      it 'shows viewing parties that user is hosting' do
+      it 'shows viewing parties that user is invited to' do
+        click_link("Log out")
+        User.destroy_all
         movie = VCR.use_cassette("movie_details_by_id") do
           MovieFacade.movie_details_by_id(337404)
         end
@@ -127,6 +129,10 @@ RSpec.describe 'dashboard page' do
         user.friends << friend
         party = create(:mock_party, host_id: user.id, movie_id: movie.id, title: movie.title)
         party_guests = create(:mock_party_guest, party_id: party.id, guest: friend )
+
+        fill_in :email, with: user.email
+        fill_in :password, with: user.password
+        click_button "Sign In"
 
         expect(page).to have_content("Parties You're In")
         expect(page).to have_content("Cruella")
