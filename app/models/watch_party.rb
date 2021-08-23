@@ -1,0 +1,2 @@
+class WatchParty < ApplicationRecord
+end
