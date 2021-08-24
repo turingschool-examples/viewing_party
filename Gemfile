@@ -15,6 +15,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'bootsnap'
 gem 'jbuilder', '~> 2.5'
+gem 'bcrypt'
 
 group :development, :test do
   gem 'pry'
@@ -22,6 +23,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 4.0.1'
   gem 'factory_bot_rails'
   gem 'faker'
+  gem 'shoulda-matchers'
 end
 
 group :development do
@@ -35,7 +37,7 @@ group :test do
   gem 'capybara'
   gem 'launchy'
   gem 'simplecov'
-  gem 'shoulda-matchers'
+
   gem 'orderly'
 end
 
