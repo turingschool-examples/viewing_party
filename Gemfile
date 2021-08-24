@@ -16,7 +16,10 @@ gem 'coffee-rails', '~> 4.2'
 gem 'bootsnap'
 gem 'jbuilder', '~> 2.5'
 
+
 group :development, :test do
+  gem 'faker'
+  gem 'factory_bot_rails', '~> 4.0'
   gem 'pry'
   gem 'travis'
 end
