@@ -3,9 +3,5 @@ Rails.application.routes.draw do
   get '/register', to: 'users#new', as: 'register'
   get '/dashboard', to: 'users#show', as: 'dashboard'
   post '/register', to: 'users#create'
-
-  # controller :users do
-  #   post '/dashboard', action: :login
-  #   post '/login', action: :login
-  # end
+  post '/login', to: 'users#login'
 end

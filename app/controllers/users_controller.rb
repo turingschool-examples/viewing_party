@@ -7,7 +7,7 @@ class UsersController < ApplicationController
       redirect_to '/dashboard'
     else
       flash[:error] = "Sorry, your credentials are bad."
-      render :new
+      redirect_to '/'
     end
   end
 
@@ -15,10 +15,14 @@ class UsersController < ApplicationController
   end
 
   def create
+    # require "pry"; binding.pry
     user = User.create(user_params)
     if user.save
       flash[:success] = "Welcome #{user.email}!"
       redirect_to dashboard_path
+    else
+      # flash[:error] = "Sorry, your credentials are bad."
+      render :new, notice: "Sorry, your credentials are bad."
     end
   end
 
@@ -28,6 +32,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.permit(:email, :password)
+    params.permit(:email, :password, :password_confirmation)
   end
 end
