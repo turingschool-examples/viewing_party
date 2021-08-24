@@ -21,8 +21,8 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome #{user.email}!"
       redirect_to dashboard_path
     else
-      # flash[:error] = "Sorry, your credentials are bad."
-      render :new, notice: "Sorry, your credentials are bad."
+      flash[:error] = "Sorry, your credentials are bad."
+      render :new
     end
   end
 

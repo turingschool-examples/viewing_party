@@ -1,0 +1,8 @@
+<%# have find top rated movies button %>
+
+  <%= form_with url: "/movies", method: :get, local: true do |form| %>
+      <%= form.label :search, "Search by Movie Title" %>
+      <p> <%= form.text_field :search %> </p>
+
+      <%= form.submit "Search Movies!" %>
+    <% end %>
