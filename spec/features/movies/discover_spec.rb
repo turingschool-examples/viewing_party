@@ -9,7 +9,7 @@ require 'rails_helper'
     expect(page).to have_field(:search)
     
    end
-   it 'can click the link to go to top rated movies' do
+   xit 'can click the link to go to top rated movies' do
     expect(page).to have_link("Find Top Rated Movies")
 
     click_link("Find Top Rated Movies")
