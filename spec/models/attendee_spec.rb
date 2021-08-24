@@ -5,7 +5,4 @@ RSpec.describe Attendee do
     it { should belong_to(:user) }
     it { should belong_to(:event) }
   end
-  describe 'validations' do
-
-  end
 end
