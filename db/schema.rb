@@ -26,12 +26,13 @@ ActiveRecord::Schema.define(version: 2021_08_24_142639) do
 
   create_table "events", force: :cascade do |t|
     t.string "title"
-    t.integer "host"
+    t.bigint "user_id"
     t.integer "duration"
     t.date "day"
     t.time "start_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "friendships", force: :cascade do |t|
@@ -53,5 +54,6 @@ ActiveRecord::Schema.define(version: 2021_08_24_142639) do
 
   add_foreign_key "attendees", "events"
   add_foreign_key "attendees", "users"
+  add_foreign_key "events", "users"
   add_foreign_key "friendships", "users"
 end
