@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2021_08_23_234339) do
   create_table "attendees", force: :cascade do |t|
     t.bigint "watch_party_id"
     t.bigint "user_id"
-    t.integer "status"
+    t.integer "status", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_attendees_on_user_id"
