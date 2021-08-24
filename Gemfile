@@ -35,4 +35,6 @@ group :test do
   gem 'simplecov'
 end
 
+gem 'webpacker'
+gem 'react-rails'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
