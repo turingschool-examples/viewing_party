@@ -3,9 +3,8 @@
     <%= f.label :email, class: "form-control" %>
     <%= f.text_field :email, class: "form-control" %>
     <%= f.label :password, class: "form-control" %>
-    <%= f.password_field :password, class: "form-control", id: 'password' %>
-    <%= f.submit 'Sign In' %>
+    <%= f.password_field :password, class: "form-control" %>
+    <%= f.label :password_confirmation, class: "form-control" %>
+    <%= f.password_field :password_confirmation, class: "form-control" %>
+    <%= f.submit 'Register' %>
   <% end %>
-
-
-  <%= link_to 'New to Viewing Party? Register Here', register_path %>
