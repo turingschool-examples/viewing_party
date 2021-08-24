@@ -19,6 +19,15 @@
           Thank you to <a href="https://www.themoviedb.org/about/logos-attribution">The MovieDB</a> for providing the movie data that is used in this application.
         </p>
         <p>
+          curl --request GET \
+          --url 'https://api.themoviedb.org/3/movie/76341' \
+          --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5MmE1OTE5NGJiZWM3NDZjYmM3ZWU0ZjcxZjZlMDRiOCIsInN1YiI6IjYxMjQzZDUzNmY1M2UxMDAyZjAwMjZkYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.20ifcyKg7QWYdWgowtc_ceXAWOm__g3_2YbusHVg7Iw' \
+          --header 'Content-Type: application/json;charset=utf-8'
+
+          curl "https://api.themoviedb.org/3/movie/76341?api_key=92a59194bbec746cbc7ee4f71f6e04b8"
+
+        </p>
+        <p>
           Further citation information regarding the movie data used in this project can be found <a href="http://files.grouplens.org/datasets/movielens/ml-latest-small-README.html">here.</a>
         </p>
       </div>
