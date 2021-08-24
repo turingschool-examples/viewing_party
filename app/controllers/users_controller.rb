@@ -11,6 +11,23 @@ class UsersController < ApplicationController
     end
   end
 
+  def new
+  end
+
+  def create
+    user = User.create(user_params)
+    if user.save
+      flash[:success] = "Welcome #{user.email}!"
+      redirect_to dashboard_path
+    end
+  end
+
   def show
+  end
+
+  private
+
+  def user_params
+    params.permit(:email, :password)
   end
 end

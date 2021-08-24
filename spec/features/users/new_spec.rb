@@ -19,8 +19,9 @@ require 'rails_helper'
 
        last_user = User.last
        expect(current_path).to eq('/dashboard')
+       expect(page).to have_content("Welcome #{last_user.email}!")
        expect(last_user.email).to eq(email)
-       expect(last_user.password_digest).to eq(password)
+       expect(last_user.password_digest).to_not eq(password)
      end
    end
  end
