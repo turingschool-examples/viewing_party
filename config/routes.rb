@@ -1,3 +1,8 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get '/', to: 'welcome#index'
+
+  controller :users do
+    post '/dashboard', action: :login
+    post '/login', action: :login
+  end
 end
