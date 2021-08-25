@@ -1,37 +1,13 @@
 class MoviesController < ApplicationController
   def discover
-    
   end
-  # def index
-    
-  # end
 
-  # def show
-    
+  # def movies
+  #   @popular_movies = MovieService.new.merged_movies
+  #   @search_movies = MovieService.new.movvie_search(params[:search])
   # end
-  
-  # def new
-    
-  # end
-  
-  # def create
-    
-  # end
-  
-  # def edit
-    
-  # end
-  
-  # def update
-    
-  # end
-  
-  # def destroy
-    
-  # end
-  
-# private
-  # def _params
-  #   params.permit(:)
+  #
+  # def movie_show
+  #   @movie = MovieFacade.create_movie(params[:movie_id])
   # end
 end
