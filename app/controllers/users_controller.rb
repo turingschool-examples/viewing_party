@@ -15,7 +15,6 @@ class UsersController < ApplicationController
   end
 
   def create
-    # require "pry"; binding.pry
     user = User.create(user_params)
     if user.save
       flash[:success] = "Welcome #{user.email}!"

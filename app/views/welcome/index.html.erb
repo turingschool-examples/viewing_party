@@ -1,5 +1,5 @@
 <h3>Welcome to Viewing Party</h3>
-    <%= form_with url: '/login', method: :post, locals: true do |f| %>
+    <%= form_with url: '/login', method: :post, local: true do |f| %>
     <%= f.label :email, class: "form-control" %>
     <%= f.text_field :email, class: "form-control" %>
     <%= f.label :password, class: "form-control" %>
