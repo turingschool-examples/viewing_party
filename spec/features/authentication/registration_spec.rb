@@ -19,6 +19,7 @@ RSpec.describe "User registration form" do
     click_on "Register"
 
     expect(page).to have_content("Welcome, #{username}!")
+    expect(current_path).to eq(dashboard_index_path)
   end
 
   it "doesn't create new user if password and confirmation don't match" do
