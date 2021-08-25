@@ -4,7 +4,7 @@ class Movie
               :rating,
               :genres,
               :runtime
-  
+
   def initialize(movie_info)
     @title = movie_info[:original_title]
     @description = movie_info[:overview]
