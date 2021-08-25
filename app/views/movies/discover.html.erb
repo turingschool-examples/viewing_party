@@ -1,4 +1,4 @@
-<%= link_to "Find Top Rated Movies", '/movies', params: {top_movies: true} %>
+<%= button_to "Find Top Rated Movies", '/movies', :params => { :top_movies => true }, method: :get %>
 
   <%= form_with url: "/movies", method: :get, local: true do |form| %>
       <%= form.label :search, "Search by Movie Title" %>
