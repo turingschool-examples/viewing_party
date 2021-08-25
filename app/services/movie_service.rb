@@ -25,4 +25,20 @@ class MovieService < ApiService
     json = get_json(response)
     json[:results]
   end
+
+  def get_review(id)
+    response = get_data("https://api.themoviedb.org/3/movie/#{id}/reviews").get do |f|
+      f.params['api_key'] = ENV['movie_key']
+    end
+    json = get_json(response)[:results]
+    return json[0..9] if json.count > 10
+    json
+  end
+
+  def get_cast(id)
+    response = get_data("https://api.themoviedb.org/3/movie/#{id}/credits").get do |f|
+      f.params['api_key'] = ENV['movie_key']
+    end
+    json = get_json(response)[:cast][0..9]
+  end
 end
