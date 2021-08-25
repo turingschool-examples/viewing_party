@@ -16,7 +16,18 @@ class UsersController < ApplicationController
       redirect_to new_user_path
     end
   end
-  
+
+  def login_form
+    user = User.find_by(email: params[:email])
+    if user.authenticate(params[:password])
+      flash[:success] = "Welcome, #{user.email}!"
+      redirect_to '/dashboard'
+    else
+      flash[:alert] = "Incorrect password!"
+      redirect_to root_path
+    end
+  end
+
   private
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation)

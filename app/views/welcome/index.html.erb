@@ -2,10 +2,20 @@
   <%= link_to "New? Register here", new_user_path, class: "nav-link" %>
 </div>
 
+<div class="login">
+  <%= form_with url: login_path, method: :post do |form| %>
+    <%= form.label :email, 'Email:' %>
+    <%= form.text_field :email, id: 'email' %>
+    <%= form.label :password, 'Password:' %>
+    <%= form.password_field :password, id: 'password' %>
+    <%= form.submit 'Submit' %>
+  <% end %>
+</div>
+
 <section>
   <p>welcome</p>
 </section>
 
 <section>
-  
+
 </section>
