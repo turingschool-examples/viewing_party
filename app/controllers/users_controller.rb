@@ -9,7 +9,7 @@ class UsersController < ApplicationController
       user[:email] = user[:email].downcase
       new_user = User.create(user)
       flash[:success] = "Welcome, #{new_user.email}!"
-      redirect_to root_path
+      redirect_to '/dashboard'
     else
       flash[:alert] = "Password and confirmation must match!"
       #if have time, refactor to save information
