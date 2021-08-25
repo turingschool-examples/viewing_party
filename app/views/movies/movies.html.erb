@@ -1,0 +1,25 @@
+<% if @top_movies %>
+<% @top_movies.each do |movie| %>
+  <div class="movie">
+      <div class="title">
+        <p>Title: <%= movie[:original_title] %></p>
+      </div>
+      <div class="rating">
+        <p>Rating: <%= movie[:vote_average] %></p>
+      </div>
+  </div>
+<% end %>
+  <% end  %>
+
+  <% if @search_movies %>
+<% @search_movies.each do |movie| %>
+<div class="movies_search">
+  <div class="title_search">
+    <p>Title: <%= movie[:original_title] %></p>
+  </div>
+  <div class="rating_search">
+    <p>Rating: <%= movie[:vote_average] %></p>
+  </div>
+</div>
+<% end %>
+<% end %>

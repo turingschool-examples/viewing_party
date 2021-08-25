@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   post '/login', to: 'users#login'
   # Movies Controller
   get '/discover', to: 'movies#discover', as: 'discover'
+
+  get '/movies', to: 'movies#movies'
 end
