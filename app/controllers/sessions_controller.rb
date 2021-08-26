@@ -4,6 +4,9 @@ class SessionsController < ApplicationController
   # end
 
   def show
+    if !current_user.friendships.nil?
+      @friends = current_user.friends
+    end
   end
 
   # def new

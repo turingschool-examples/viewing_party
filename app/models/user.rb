@@ -7,4 +7,9 @@ class User < ApplicationRecord
   has_many :watch_parties, through: :attendees
 
   has_secure_password
+
+  def friends
+    chums = self.friendships.map {|chum| chum.friend_id}
+    User.where(id: chums)
+  end
 end

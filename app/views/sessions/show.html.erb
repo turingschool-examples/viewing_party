@@ -1,6 +1,16 @@
 <% if current_user %>
   <%= link_to "Logout", logout_path %>
   <%= link_to "Discover Movies", discover_path %>
+
+  <% if !current_user.friendships.nil?%>
+    <% @friends.each do |friend| %>
+      <div id="user-<%= friend.id%>">
+      <%= friend.email %>
+      </div>
+    <% end %>
+  <% else %>
+    <p> You Currently have no friends. </p>
+  <% end %>
 <% else %>
   <%= render "shared/redirect" %>
 <% end %>

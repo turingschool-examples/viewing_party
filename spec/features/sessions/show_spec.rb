@@ -38,7 +38,20 @@ require 'rails_helper'
     expect(page).to have_link("Log In Here")
    end
 
-   it '' do
+   it 'can add friends' do
+    user = create(:user)
+    user2 = create(:user)
      
-   end
+    fill_in 'email', with: user.email
+    fill_in 'password', with: user.password
+    click_on 'Sign In'
+
+    fill_in :friend, with: user2.email
+    click_on :add_friend
+
+    expect(current_path).to eq('/dashboard')
+
+    within("#user-#{user2.id}")
+      expect(page).to have_content(user2.email)
+    end
  end
