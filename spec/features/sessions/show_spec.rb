@@ -11,7 +11,7 @@ require 'rails_helper'
     fill_in 'email', with: user.email
     fill_in 'password', with: user.password
     click_on 'Sign In'
-    
+
     expect(page).to have_link('Discover Movies')
 
     click_link('Discover Movies')
@@ -21,7 +21,7 @@ require 'rails_helper'
 
    it 'can find a log out button on the page' do
     user = create(:user)
-     
+
     fill_in 'email', with: user.email
     fill_in 'password', with: user.password
     click_on 'Sign In'
@@ -29,7 +29,7 @@ require 'rails_helper'
     expect(page).to have_link("Logout")
 
     click_link "Logout"
-    
+
     expect(current_path).to eq("/")
 
     visit "/dashboard"
@@ -41,13 +41,13 @@ require 'rails_helper'
    it 'can add friends' do
     user = create(:user)
     user2 = create(:user)
-     
+
     fill_in 'email', with: user.email
     fill_in 'password', with: user.password
     click_on 'Sign In'
 
     fill_in :friend, with: user2.email
-    click_on :add_friend
+    click_on "Add Friend"
 
     expect(current_path).to eq('/dashboard')
 
