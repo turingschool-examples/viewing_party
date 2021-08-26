@@ -1,0 +1,18 @@
+<h3><%= @movie.title %></h3>
+<p>Vote Average: <%= @movie.rating %> Runtime <%= @movie.runtime %></p>
+<% @movie.genres.each do |genre| %>
+  <%= genre %>
+<% end %>
+
+<p>Description <%= @movie.description %></p>
+
+<% @movie.cast.each do |hash| %>
+  <p>Actor: <%= hash[:name] %> Character: <%= hash[:character] %></p>
+<% end %>
+
+<h6>Reviews</h6>
+<% @movie.reviews.each do |review| %>
+  <p>Author <%= review[:author] %> Review <%= review[:review] %></p>
+<% end %>
+
+<%= link_to 'Create a Viewing Party for Movie' %>

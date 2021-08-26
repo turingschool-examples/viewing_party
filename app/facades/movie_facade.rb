@@ -25,20 +25,15 @@ class MovieFacade
       original_title: json[:original_title],
       overview: json[:overview],
       vote_average: json[:vote_average],
-      genres: json[:genres],
+      genres: json[:genres].map { |a| a[:name]},
       cast: cast_information(id),
       reviews: movie_review_info(id),
-      runtime: json[:runtime]
+      runtime: json[:runtime],
+      id: json[:id]
     }
   end
 
   def create_movie(id)
-    json = @service.get_movie(id)
-
-    Movie.new(json)
-  end
-
-  def top_movies
-    @service.get_popular_movies('1') + @service.get_popular_movies('2')
+    Movie.new(movie_information(id))
   end
 end

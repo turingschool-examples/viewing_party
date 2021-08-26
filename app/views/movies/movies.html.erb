@@ -2,7 +2,7 @@
 <% @top_movies.each do |movie| %>
   <div class="movie">
       <div class="title">
-        <p>Title: <%= movie[:original_title] %></p>
+        <p>Title: <%= button_to movie[:original_title], "/movies/#{movie[:id]}", method: :get %></p>
       </div>
       <div class="rating">
         <p>Rating: <%= movie[:vote_average] %></p>

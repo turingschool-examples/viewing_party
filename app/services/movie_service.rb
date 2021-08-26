@@ -41,4 +41,8 @@ class MovieService < ApiService
     end
     json = get_json(response)[:cast][0..9]
   end
+  
+  def top_movies
+    get_popular_movies('1') + get_popular_movies('2')
+  end
 end

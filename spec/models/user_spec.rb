@@ -25,7 +25,17 @@ RSpec.describe User, type: :model do
   end
 
   describe 'instance methods' do
-    describe '#' do
+    describe '#friends' do
+      it 'can give a list of all our friends' do
+        user1 = create(:user)
+        user2 = create(:user)
+        user3 = create(:user)
+
+        Friendship.create!(user: user1, friend: user2)
+        Friendship.create!(user: user1, friend: user3)
+
+        expect(user1.friends).to eq([user2, user3])
+      end
     end
   end
 end
