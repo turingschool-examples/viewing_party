@@ -8,8 +8,8 @@ RSpec.describe 'welcome page' do
     end
   end
 
-  describe 'login' do
-    it 'can login to valid user account with credentials' do
+  describe 'login and logout' do
+    it 'can login and logout to valid user account with credentials' do
       email = 'test@test.com'
       pswd = 'test'
       user = User.create!(email: email, password: pswd)
@@ -18,10 +18,17 @@ RSpec.describe 'welcome page' do
 
       fill_in :email, with: email
       fill_in :password, with: pswd
-      click_on 'Submit'
+      click_on 'Login'
 
       expect(page).to have_content("Welcome, #{email}!")
       expect(current_path).to eq(dashboard_index_path)
+
+      click_link "Logout"
+
+      expect(current_path).to eq(root_path)
+      expect(page).to_not have_link('Logout')
+      expect(page).to have_link('New? Register here')
+      expect(page).to have_button('Login')
     end
 
     it 'cannot log in with bad credentials' do
@@ -33,9 +40,9 @@ RSpec.describe 'welcome page' do
 
       fill_in :email, with: email
       fill_in :password, with: 'yay'
-      click_on 'Submit'
+      click_on 'Login'
 
-      expect(page).to have_content("Incorrect password!")
+      expect(page).to have_content("No matching account!")
       expect(current_path).to eq(root_path)
     end
   end

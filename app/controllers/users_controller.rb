@@ -18,14 +18,20 @@ class UsersController < ApplicationController
   end
 
   def login_form
-    user = User.find_by(email: params[:email])
-    if user.authenticate(params[:password])
-      flash[:success] = "Welcome, #{user.email}!"
+    found_user = User.find_by(email: params[:email])
+    if found_user.authenticate(params[:password])
+      session[:user_id] = found_user.id
+      flash[:success] = "Welcome, #{found_user.email}!"
       redirect_to '/dashboard'
     else
-      flash[:alert] = "Incorrect password!"
+      flash[:alert] = "No matching account!"
       redirect_to root_path
     end
+  end
+
+  def logout
+    session[:user_id] = nil
+    redirect_to root_path
   end
 
   private
