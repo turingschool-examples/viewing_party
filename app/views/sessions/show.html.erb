@@ -2,6 +2,13 @@
   <%= link_to "Logout", logout_path %>
   <%= link_to "Discover Movies", discover_path %>
 
+  <%= form_with url: '/friendships', method: :post, local: true do |f| %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.label :friend %>
+  <%= f.text_field :friend, placeholder: 'Enter Friend Email' %>
+  <%= f.submit "Add Friend" %>
+  <% end %>
+
   <% if !current_user.friendships.nil?%>
     <% @friends.each do |friend| %>
       <div id="user-<%= friend.id%>">
@@ -11,6 +18,8 @@
   <% else %>
     <p> You Currently have no friends. </p>
   <% end %>
+
+
 <% else %>
   <%= render "shared/redirect" %>
 <% end %>
