@@ -4,7 +4,7 @@ RSpec.describe 'welcome page' do
   describe 'display' do
     it 'shows welcome message' do
       visit root_path
-      expect(page).to have_content("welcome")
+      expect(page).to have_content("Welcome to our project")
     end
   end
 
@@ -29,6 +29,27 @@ RSpec.describe 'welcome page' do
       expect(page).to_not have_link('Logout')
       expect(page).to have_link('New? Register here')
       expect(page).to have_button('Login')
+    end
+
+    describe 'logged in user' do
+      it 'does not show log in or register user content during a logged in session' do
+        email = 'test@test.com'
+        pswd = 'test'
+        user = User.create!(email: email, password: pswd)
+
+        visit root_path
+
+        fill_in :email, with: email
+        fill_in :password, with: pswd
+        click_on 'Login'
+
+        visit root_path
+
+        expect(page).to have_link('Logout')
+        expect(page).to have_content("You are already logged in under #{email}!")
+        expect(page).to_not have_link('New? Register here')
+        expect(page).to_not have_button('Login')
+      end
     end
 
     it 'cannot log in with bad credentials' do

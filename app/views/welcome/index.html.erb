@@ -1,19 +1,25 @@
-<div class="nav">
-  <%= link_to "New? Register here", new_user_path, class: "nav-link" %>
-</div>
 
-<div class="login">
-  <%= form_with url: login_path, method: :post do |form| %>
-    <%= form.label :email, 'Email:' %>
-    <%= form.text_field :email, id: 'email' %>
-    <%= form.label :password, 'Password:' %>
-    <%= form.password_field :password, id: 'password' %>
-    <%= form.submit 'Login' %>
-  <% end %>
-</div>
+<% unless session[:user_id] %>
+  <div class="nav">
+    <%= link_to "New? Register here", new_user_path, class: "nav-link" %>
+  </div>
+
+  <div class="login">
+    <%= form_with url: login_path, method: :post do |form| %>
+      <%= form.label :email, 'Email:' %>
+      <%= form.text_field :email, id: 'email' %>
+      <%= form.label :password, 'Password:' %>
+      <%= form.password_field :password, id: 'password' %>
+      <%= form.submit 'Login' %>
+    <% end %>
+  </div>
+<% end %>
 
 <section>
-  <p>welcome</p>
+  <h3>Welcome to our project</h3>
+  <% if session[:user_id] %>
+    <p>You are already logged in under <%= current_user.email %>!</p>
+  <% end %>
 </section>
 
 <section>
