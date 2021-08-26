@@ -71,7 +71,7 @@ RSpec.describe MovieFacade do
     expect(@movie_facade.movie_review_info('550')).to eq(expected)
   end
 
-  it 'can create a movie information hash' do
+  xit 'can create a movie information hash' do
     cast_response = [{  adult: false,
             gender: 2,
             id: 819,

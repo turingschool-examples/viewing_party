@@ -1,0 +1,6 @@
+<% if current_user %>
+  <%= link_to "Logout", logout_path %>
+  <%= link_to "Discover Movies", discover_path %>
+<% else %>
+  <%= render "shared/redirect" %>
+<% end %>
