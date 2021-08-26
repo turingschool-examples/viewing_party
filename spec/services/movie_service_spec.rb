@@ -62,10 +62,10 @@ RSpec.describe MovieService do
 
     describe '#get_reviews' do
       it 'can search for a list of movies' do
-        json_response = File.read('spec/fixtures/movie_reviews.json')
+        # json_response = File.read('spec/fixtures/movie_reviews.json')
 
-        stub_request(:get, "https://api.themoviedb.org/3/movie/550/reviews?api_key=#{ENV['movie_key']}").
-        to_return(status: 200, body: json_response)
+        # stub_request(:get, "https://api.themoviedb.org/3/movie/550/reviews?api_key=#{ENV['movie_key']}").
+        # to_return(status: 200, body: json_response)
 
         # expect(page.status_code).to eq(200)
         expect(@service.get_review('550').class).to eq(Array)
