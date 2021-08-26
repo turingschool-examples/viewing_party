@@ -17,23 +17,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def login_form
-    found_user = User.find_by(email: params[:email])
-    if found_user.authenticate(params[:password])
-      session[:user_id] = found_user.id
-      flash[:success] = "Welcome, #{found_user.email}!"
-      redirect_to '/dashboard'
-    else
-      flash[:alert] = "No matching account!"
-      redirect_to root_path
-    end
-  end
-
-  def logout
-    session[:user_id] = nil
-    redirect_to root_path
-  end
-
   private
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation)
