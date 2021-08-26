@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   # Movies Controller
   get '/discover', to: 'movies#discover', as: 'discover'
   get '/movies', to: 'movies#movies'
+  # Friendships Controller
+  post '/friendships', to: 'friendships#create'
 end
