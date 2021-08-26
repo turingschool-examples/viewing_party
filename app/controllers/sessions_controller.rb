@@ -1,16 +1,16 @@
 class SessionsController < ApplicationController
   # def index
-    
+
   # end
 
   def show
-    if !current_user.friendships.nil?
+    if current_user && !current_user.friendships.nil?
       @friends = current_user.friends
     end
   end
 
   # def new
-    
+
   # end
 
   def create
@@ -26,11 +26,11 @@ class SessionsController < ApplicationController
   end
 
   # def edit
-    
+
   # end
 
   # def update
-    
+
   # end
 
   def destroy
