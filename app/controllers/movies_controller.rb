@@ -4,7 +4,7 @@ class MoviesController < ApplicationController
 
   def movies
     if params[:top_movies]
-      @top_movies = MovieFacade.new.top_movies
+      @top_movies = MovieService.new.top_movies
     elsif params[:search]
       @search_movies = MovieService.new.movie_search(params[:search])
     end
@@ -13,8 +13,4 @@ class MoviesController < ApplicationController
   def show
     @movie = MovieFacade.new.create_movie(params[:movie_id])
   end
-
-  # def movie_show
-  #   @movie = MovieFacade.create_movie(params[:movie_id])
-  # end
 end

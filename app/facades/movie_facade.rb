@@ -36,8 +36,4 @@ class MovieFacade
   def create_movie(id)
     Movie.new(movie_information(id))
   end
-
-  def top_movies
-    @service.get_popular_movies('1') + @service.get_popular_movies('2')
-  end
 end

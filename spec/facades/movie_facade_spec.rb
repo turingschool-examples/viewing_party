@@ -76,10 +76,6 @@ RSpec.describe MovieFacade do
     expect(movie.title).to eq("Fight Club")
   end
 
-  it 'can create 40 popular movies' do
-    expect(@movie_facade.top_movies.count).to eq(40)
-  end
-
   it 'can return a hash of a given movie cast' do
     expected = [{name: "Edward Norton", character: "The Narrator"}, {name: "Brad Pitt", character: "Tyler Durden"}]
 
