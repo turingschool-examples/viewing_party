@@ -1,25 +1,25 @@
 require 'rails_helper'
 
 RSpec.describe Movie do
-  before :each do
-    
-  end
-
   it 'can verify that it exists' do
-    movie = Movie.new({ 
-                        original_title: 'fight club',
-                        overview: 'the bee knees',
-                        vote_average: '7.9',
-                        genres: ['action', 'drama', 'suspense'],
-                        runtime: '139'
-                      })
-    expect(movie).to be_an_instance_of(Movie)
-    expect(movie.title).to eq('fight club')
-    expect(movie.description).to eq('the bee knees')
-    expect(movie.rating).to eq('7.9')
-    expect(movie.genres).to eq(['action', 'drama', 'suspense'])
-    expect(movie.runtime).to eq('139')
+    movie = Movie.new({original_title: 'Fight Club',
+                overview: "A ticking-time-bomb insomniac and a slippery soap salesman channel primal male aggression into a shocking new form of therapy.",
+                vote_average: '8.4',
+                genres: ["Drama"],
+                cast: [{name: "Edward Norton", character: "The Narrator"}, {name: "Brad Pitt", character: "Tyler Durden"}],
+                reviews: [{author: "Goddard", review: "Pretty awesome movie.  It shows what one crazy person can convince other crazy people to do.  Everyone needs something to believe in.  I recommend Jesus Christ, but they want Tyler Durden."}, {author: "Brett Pascoe", review: "In my top 5 of all time favourite movies. Great story line and a movie you can watch over and over again."}],
+                id: '550',
+                genres: ['Drama'],
+                runtime: '139'})
 
+    expect(movie).to be_an_instance_of(Movie)
+    expect(movie.title).to eq('Fight Club')
+    expect(movie.description).to eq("A ticking-time-bomb insomniac and a slippery soap salesman channel primal male aggression into a shocking new form of therapy.")
+    expect(movie.rating).to eq('8.4')
+    expect(movie.genres).to eq(["Drama"])
+    expect(movie.runtime).to eq('139')
+    expect(movie.cast).to eq([{name: "Edward Norton", character: "The Narrator"}, {name: "Brad Pitt", character: "Tyler Durden"}])
+    expect(movie.reviews).to eq([{author: "Goddard", review: "Pretty awesome movie.  It shows what one crazy person can convince other crazy people to do.  Everyone needs something to believe in.  I recommend Jesus Christ, but they want Tyler Durden."}, {author: "Brett Pascoe", review: "In my top 5 of all time favourite movies. Great story line and a movie you can watch over and over again."}])
+    expect(movie.id).to eq('550')
   end
 end
-

@@ -10,6 +10,10 @@ class MoviesController < ApplicationController
     end
   end
 
+  def show
+    @movie = MovieFacade.new.create_movie(params[:movie_id])
+  end
+
   # def movie_show
   #   @movie = MovieFacade.create_movie(params[:movie_id])
   # end
