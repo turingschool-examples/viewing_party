@@ -29,8 +29,6 @@ RSpec.describe MovieService do
            }).
          to_return(status: 200, body: json_response2, headers: {})
 
-      # json_response = json_response1 + json_response2
-
       expect(@service.top_movies.count).to eq(40)
     end
 
