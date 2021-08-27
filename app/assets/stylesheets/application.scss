@@ -29,3 +29,23 @@ footer {
   align-self: baseline;
   flex-direction: row;
 }
+
+.navbar-custom { background-color: red; }
+
+.container, .list {
+  list-style: none;
+  display: inline;
+}
+
+.my-button {
+  image: url("app/assets/images/zoom.svg") left no-repeat;
+}
+
+span.a {
+  display: inline; /* the default for span */
+}
+
+.movie-header {
+  float: right;
+  display: inline;
+}

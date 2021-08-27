@@ -1,15 +1,30 @@
+<br>
 <% if @top_movies %>
-<% @top_movies.each do |movie| %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Rating</th>
+    </tr>
+  </thead>
+  <% @top_movies.each do |movie| %>
   <div class="movie">
+  <tbody>
+    <tr>
       <div class="title">
-        <p>Title: <%= button_to movie[:original_title], "/movies/#{movie[:id]}", method: :get %></p>
+      <td><%= button_to movie[:original_title], "/movies/#{movie[:id]}", method: :get, class: 'btn btn-success' %></td>
       </div>
       <div class="rating">
-        <p>Rating: <%= movie[:vote_average] %></p>
+      <td><%= movie[:vote_average] %></td>
       </div>
+    </tr>
+  </tbody>
   </div>
-<% end %>
+  <% end %>
+</table>
   <% end  %>
+
 
   <% if @search_movies %>
 <% @search_movies.each do |movie| %>

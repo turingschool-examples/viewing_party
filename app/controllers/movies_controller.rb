@@ -2,7 +2,7 @@ class MoviesController < ApplicationController
   def discover
   end
 
-  def movies
+  def index
     if params[:top_movies]
       @top_movies = MovieService.new.top_movies
     elsif params[:search]

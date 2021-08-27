@@ -1,11 +1,18 @@
-<h3>Welcome to Viewing Party</h3>
+<br>
+<figure class="text-center">
+  <blockquote class="blockquote">
+    <h6 class="display-2">Welcome to Viewing Party</h6>
+  </blockquote>
+  </figure>
+<br>
     <%= form_with url: '/login', method: :post, local: true do |f| %>
-    <%= f.label :email, class: "form-control" %>
+    <%= f.label :email %>
     <%= f.text_field :email, class: "form-control" %>
-    <%= f.label :password, class: "form-control" %>
+    <%= f.label :password %>
     <%= f.password_field :password, class: "form-control", id: 'password' %>
-    <%= f.submit 'Sign In' %>
+    <br>
+    <%= f.submit 'Sign In', class: 'btn btn-primary' %>
   <% end %>
 
-
+<br>
   <%= link_to 'New to Viewing Party? Register Here', register_path %>

@@ -1,18 +1,63 @@
-<h3><%= @movie.title %></h3>
-<p>Vote Average: <%= @movie.rating %> Runtime <%= @movie.runtime %></p>
-<% @movie.genres.each do |genre| %>
-  <%= genre %>
-<% end %>
+<h3><%= @movie.title %></h3> <%= link_to 'Create a Viewing Party for Movie', '/viewingparty/new', class: 'movie-header btn btn-success' %>
+<br>
+<br>
 
-<p>Description <%= @movie.description %></p>
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="..." class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">Movie Information</h5>
+        <p class="card-text">Vote Average: <%= @movie.rating %></p>
+        <p class="card-text">Duration: <%= @movie.runtime %> minutes</p>
+        <p class="card-text">Genres: </p>
+        <% @movie.genres.each do |genre| %>
+        <%= genre %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<div class="card text-dark bg-light mb-3">
+  <div class="card-header">
+    Description
+    </div>
+  <div class="card-body">
+    <%= @movie.description %>
+  </div>
+</div>
 
-<% @movie.cast.each do |hash| %>
-  <p>Actor: <%= hash[:name] %> Character: <%= hash[:character] %></p>
-<% end %>
+<br>
 
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Actor</th>
+      <th scope="col">Character</th>
+    </tr>
+  </thead>
+  <% @movie.cast.each do |hash| %>
+  <tbody>
+    <tr>
+      <td><%= hash[:name] %></td>
+      <td><%= hash[:character] %></td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>
+<br>
 <h6>Reviews</h6>
-<% @movie.reviews.each do |review| %>
-  <p>Author <%= review[:author] %> Review <%= review[:review] %></p>
-<% end %>
-
-<%= link_to 'Create a Viewing Party for Movie' %>
+<br>
+<div class="card text-white bg-secondary mb-3">
+    <% @movie.reviews.each do |review| %>
+  <div class="card-header">
+    <%= review[:author] %>
+    </div>
+  <div class="card-body">
+    <%= review[:review] %>
+  </div>
+  <% end %>
+</div>
