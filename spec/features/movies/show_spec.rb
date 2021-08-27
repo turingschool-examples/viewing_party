@@ -17,6 +17,28 @@ require 'rails_helper'
      end
 
      it 'displays a link to create a viewing party' do
+       json_response1 = File.read('spec/fixtures/popular_movies1.json')
+
+       stub_request(:get, "https://api.themoviedb.org/3/movie/popular?api_key&page=1").
+       with(
+         headers: {
+           'Accept'=>'*/*',
+           'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+           'User-Agent'=>'Faraday v1.7.0'
+           }).
+           to_return(status: 200, body: json_response1, headers: {})
+
+           json_response2 = File.read('spec/fixtures/popular_movies2.json')
+
+           stub_request(:get, "https://api.themoviedb.org/3/movie/popular?api_key&page=2").
+           with(
+             headers: {
+               'Accept'=>'*/*',
+               'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+               'User-Agent'=>'Faraday v1.7.0'
+               }).
+               to_return(status: 200, body: json_response2, headers: {})
+
        visit '/discover'
 
        click_button("Find Top Rated Movies")
@@ -49,6 +71,17 @@ require 'rails_helper'
      end
 
      it 'can display movie search results' do
+      json_response = File.read('spec/fixtures/search_movie.json')
+
+       stub_request(:get, "https://api.themoviedb.org/3/search/movie?api_key&include_adult=false&page=1&query=fight%20club").
+         with(
+           headers: {
+       	  'Accept'=>'*/*',
+       	  'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+       	  'User-Agent'=>'Faraday v1.7.0'
+           }).
+         to_return(status: 200, body: json_response, headers: {})
+
        movies = MovieService.new.movie_search('fight club')
 
        visit '/discover'
@@ -57,6 +90,15 @@ require 'rails_helper'
        click_on "Search Movies!"
 
        expect(current_path).to eq('/movies')
+
+       expect(page).to have_css('.movies-search')
+
+       within(first('.movies-search')) do
+         expect(page).to have_css('.title-search')
+         expect(page).to have_button(movies[0][:original_title])
+         expect(page).to have_css('.rating-search')
+         expect(page).to have_content(movies[0][:vote_average])
+       end
 
        within(first('.movies-search')) do
          click_on movies[0][:original_title]
