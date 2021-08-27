@@ -58,7 +58,7 @@ require 'rails_helper'
 
        expect(current_path).to eq('/movies')
 
-       within(first('.movies_search')) do
+       within(first('.movies-search')) do
          click_on movies[0][:original_title]
        end
 

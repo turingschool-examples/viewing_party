@@ -25,12 +25,12 @@ RSpec.describe 'movie page' do
       fill_in :search, with: "fight club"
       click_on "Search Movies!"
 
-      expect(page).to have_css('.movies_search')
+      expect(page).to have_css('.movies-search')
 
-      within(first('.movies_search')) do
-        expect(page).to have_css('.title_search')
+      within(first('.movies-search')) do
+        expect(page).to have_css('.title-search')
         expect(page).to have_button(movies[0][:original_title])
-        expect(page).to have_css('.rating_search')
+        expect(page).to have_css('.rating-search')
         expect(page).to have_content(movies[0][:vote_average])
       end
     end

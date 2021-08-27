@@ -35,13 +35,13 @@
       </tr>
     </thead>
     <% @search_movies.each do |movie| %>
-    <div class="movie">
+    <div class="movies-search">
     <tbody>
       <tr>
-        <div class="title">
+        <div class="title-search">
         <td><%= button_to movie[:original_title], "/movies/#{movie[:id]}", method: :get, class: 'btn btn-success' %></td>
         </div>
-        <div class="rating">
+        <div class="rating-search">
         <td><%= movie[:vote_average] %></td>
         </div>
       </tr>
