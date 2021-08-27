@@ -62,7 +62,7 @@ RSpec.describe 'welcome page' do
       fill_in :email, with: email
       fill_in :password, with: 'yay'
       click_on 'Login'
-
+      save_and_open_page
       expect(page).to have_content("No matching account!")
       expect(current_path).to eq(root_path)
     end
