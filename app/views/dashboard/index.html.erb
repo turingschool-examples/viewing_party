@@ -17,6 +17,9 @@
     <% if current_user.follows.count == 0 %>
       <p>You currently have no friends</p>
     <% else %>
+      <% current_user.followed.each do |friend| %>
+        <p><%= friend.email %></p>
+      <% end %>
     <% end %>
   </section>
   <div class="col-6">

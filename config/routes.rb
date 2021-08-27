@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :dashboard, only: :index
   resources :sessions, only: [:new, :create, :destroy]
   resources :discover, only: :index
+  resources :friends, only: :create
 end
