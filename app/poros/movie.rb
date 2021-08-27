@@ -6,7 +6,8 @@ class Movie
               :runtime,
               :cast,
               :id,
-              :reviews
+              :reviews,
+              :image_url
 
   def initialize(movie_info)
     @title = movie_info[:original_title]
@@ -17,5 +18,6 @@ class Movie
     @id = movie_info[:id]
     @cast = movie_info[:cast]
     @reviews = movie_info[:reviews]
+    @image_url = movie_info[:image_url]
   end
 end

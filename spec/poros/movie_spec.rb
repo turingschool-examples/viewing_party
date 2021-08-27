@@ -10,7 +10,8 @@ RSpec.describe Movie do
                 reviews: [{author: "Goddard", review: "Pretty awesome movie.  It shows what one crazy person can convince other crazy people to do.  Everyone needs something to believe in.  I recommend Jesus Christ, but they want Tyler Durden."}, {author: "Brett Pascoe", review: "In my top 5 of all time favourite movies. Great story line and a movie you can watch over and over again."}],
                 id: '550',
                 genres: ['Drama'],
-                runtime: '139'})
+                runtime: '139',
+                image_url: 'https://image.tmdb.org/t/p/w500/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg'})
 
     expect(movie).to be_an_instance_of(Movie)
     expect(movie.title).to eq('Fight Club')
@@ -21,5 +22,6 @@ RSpec.describe Movie do
     expect(movie.cast).to eq([{name: "Edward Norton", character: "The Narrator"}, {name: "Brad Pitt", character: "Tyler Durden"}])
     expect(movie.reviews).to eq([{author: "Goddard", review: "Pretty awesome movie.  It shows what one crazy person can convince other crazy people to do.  Everyone needs something to believe in.  I recommend Jesus Christ, but they want Tyler Durden."}, {author: "Brett Pascoe", review: "In my top 5 of all time favourite movies. Great story line and a movie you can watch over and over again."}])
     expect(movie.id).to eq('550')
+    expect(movie.image_url).to eq('https://image.tmdb.org/t/p/w500/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg')
   end
 end
