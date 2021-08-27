@@ -4,8 +4,8 @@
     <%= link_to "New? Register here", new_user_path, class: "nav-link" %>
   </div>
 
-  <div class="login">
-    <%= form_with url: sessions_path, method: :post do |form| %>
+  <div class="">
+    <%= form_with url: sessions_path,local: true, method: :post do |form| %>
       <%= form.label :email, 'Email:' %>
       <%= form.text_field :email, id: 'email' %>
       <%= form.label :password, 'Password:' %>
