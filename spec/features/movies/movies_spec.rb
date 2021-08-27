@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe 'movie page' do
   describe 'contents' do
     it 'can display top 40 movies' do
+      
       json_response1 = File.read('spec/fixtures/popular_movies1.json')
 
       stub_request(:get, "https://api.themoviedb.org/3/movie/popular?api_key&page=1").
