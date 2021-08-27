@@ -9,7 +9,7 @@ RSpec.describe MovieService do
     it 'can create 40 popular movies' do
       json_response1 = File.read('spec/fixtures/popular_movies1.json')
 
-      stub_request(:get, "https://api.themoviedb.org/3/movie/popular?api_key&page=1").
+      stub_request(:get, "https://api.themoviedb.org/3/movie/popular?api_key=#{ENV['movie_key']}&page=1").
          with(
            headers: {
        	  'Accept'=>'*/*',
@@ -20,7 +20,7 @@ RSpec.describe MovieService do
 
       json_response2 = File.read('spec/fixtures/popular_movies2.json')
 
-      stub_request(:get, "https://api.themoviedb.org/3/movie/popular?api_key&page=2").
+      stub_request(:get, "https://api.themoviedb.org/3/movie/popular?api_key=#{ENV['movie_key']}&page=2").
          with(
            headers: {
        	  'Accept'=>'*/*',
@@ -36,7 +36,7 @@ RSpec.describe MovieService do
       it 'can return information for a single movie' do
         json_response = File.read('spec/fixtures/movie_postman.json')
 
-        stub_request(:get, "https://api.themoviedb.org/3/movie/550?api_key").
+        stub_request(:get, "https://api.themoviedb.org/3/movie/550?api_key=#{ENV['movie_key']}").
          with(
            headers: {
        	  'Accept'=>'*/*',
@@ -55,7 +55,7 @@ RSpec.describe MovieService do
       it 'returns a list of popular movies' do
         json_response1 = File.read('spec/fixtures/popular_movies1.json')
 
-        stub_request(:get, "https://api.themoviedb.org/3/movie/popular?api_key&page=1").
+        stub_request(:get, "https://api.themoviedb.org/3/movie/popular?api_key=#{ENV['movie_key']}&page=1").
            with(
              headers: {
          	  'Accept'=>'*/*',
@@ -69,7 +69,7 @@ RSpec.describe MovieService do
 
         json_response2 = File.read('spec/fixtures/popular_movies2.json')
 
-        stub_request(:get, "https://api.themoviedb.org/3/movie/popular?api_key&page=2").
+        stub_request(:get, "https://api.themoviedb.org/3/movie/popular?api_key=#{ENV['movie_key']}&page=2").
            with(
              headers: {
          	  'Accept'=>'*/*',
@@ -87,7 +87,7 @@ RSpec.describe MovieService do
       it 'can search for a list of movies' do
         json_response = File.read('spec/fixtures/search_movie.json')
 
-        stub_request(:get, "https://api.themoviedb.org/3/search/movie?api_key&include_adult=false&page=1&query=fight%20club").
+        stub_request(:get, "https://api.themoviedb.org/3/search/movie?api_key=#{ENV['movie_key']}&include_adult=false&page=1&query=fight%20club").
           with(
             headers: {
         	  'Accept'=>'*/*',
@@ -106,7 +106,7 @@ RSpec.describe MovieService do
       it 'can search for a list of movies' do
         json_response = File.read('spec/fixtures/movie_reviews.json')
 
-        stub_request(:get, "https://api.themoviedb.org/3/movie/550/reviews?api_key").
+        stub_request(:get, "https://api.themoviedb.org/3/movie/550/reviews?api_key=#{ENV['movie_key']}").
         with(
           headers: {
             'Accept'=>'*/*',
@@ -127,7 +127,7 @@ RSpec.describe MovieService do
       it 'can search for a list of movies' do
         json_response = File.read('spec/fixtures/movie_cast.json')
 
-        stub_request(:get, "https://api.themoviedb.org/3/movie/550/credits?api_key").
+        stub_request(:get, "https://api.themoviedb.org/3/movie/550/credits?api_key=#{ENV['movie_key']}").
         with(
           headers: {
             'Accept'=>'*/*',

@@ -19,7 +19,7 @@ require 'rails_helper'
      it 'displays a link to create a viewing party' do
        json_response1 = File.read('spec/fixtures/popular_movies1.json')
 
-       stub_request(:get, "https://api.themoviedb.org/3/movie/popular?api_key&page=1").
+       stub_request(:get, "https://api.themoviedb.org/3/movie/popular?api_key=#{ENV['movie_key']}&page=1").
        with(
          headers: {
            'Accept'=>'*/*',
@@ -30,7 +30,7 @@ require 'rails_helper'
 
            json_response2 = File.read('spec/fixtures/popular_movies2.json')
 
-           stub_request(:get, "https://api.themoviedb.org/3/movie/popular?api_key&page=2").
+           stub_request(:get, "https://api.themoviedb.org/3/movie/popular?api_key=#{ENV['movie_key']}&page=2").
            with(
              headers: {
                'Accept'=>'*/*',
@@ -73,7 +73,7 @@ require 'rails_helper'
      it 'can display movie search results' do
       json_response = File.read('spec/fixtures/search_movie.json')
 
-       stub_request(:get, "https://api.themoviedb.org/3/search/movie?api_key&include_adult=false&page=1&query=fight%20club").
+       stub_request(:get, "https://api.themoviedb.org/3/search/movie?api_key=#{ENV['movie_key']}&include_adult=false&page=1&query=fight%20club").
          with(
            headers: {
        	  'Accept'=>'*/*',
