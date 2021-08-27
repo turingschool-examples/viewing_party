@@ -10,10 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_24_232947) do
+ActiveRecord::Schema.define(version: 2021_08_26_190036) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attendees", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "party_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["party_id"], name: "index_attendees_on_party_id"
+    t.index ["user_id"], name: "index_attendees_on_user_id"
+  end
+
+  create_table "friends", force: :cascade do |t|
+    t.bigint "followed_id"
+    t.bigint "follower_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["followed_id"], name: "index_friends_on_followed_id"
+    t.index ["follower_id"], name: "index_friends_on_follower_id"
+  end
+
+  create_table "parties", force: :cascade do |t|
+    t.bigint "user_id"
+    t.datetime "time"
+    t.integer "movie"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_parties_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email"
@@ -22,4 +49,9 @@ ActiveRecord::Schema.define(version: 2021_08_24_232947) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "attendees", "parties"
+  add_foreign_key "attendees", "users"
+  add_foreign_key "friends", "users", column: "followed_id"
+  add_foreign_key "friends", "users", column: "follower_id"
+  add_foreign_key "parties", "users"
 end
