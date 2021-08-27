@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe CocktailService do
   describe 'getting random cocktail' do
-    it 'can return a response from the cocktail database' do
+    xit 'can return a response from the cocktail database' do
       response = '{"drinks": [{"idDrink": "178356",
       "strDrink": "Butterfly Effect",
       "strCategory": "Cocktail",
@@ -45,7 +45,7 @@ RSpec.describe CocktailService do
       expect(cocktail_service.get_random_cocktail).to eq(expected)
     end
 
-    it 'can search for a cocktail' do
+    xit 'can search for a cocktail' do
       response = '{
         "drinks": [
         {
