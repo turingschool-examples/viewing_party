@@ -47,5 +47,33 @@ require 'rails_helper'
        expect(page).to have_content("Tyler Durden")
        expect(page).to have_content("Drama")
      end
+
+     it 'can display movie search results' do
+       movies = MovieService.new.movie_search('fight club')
+
+       visit '/discover'
+
+       fill_in :search, with: "fight club"
+       click_on "Search Movies!"
+
+       expect(current_path).to eq('/movies')
+
+       within(first('.movies-search')) do
+         click_on movies[0][:original_title]
+       end
+
+       expect(current_path).to eq('/movies/550')
+       expect(page).to have_content(@movie.title)
+       expect(page).to have_content(@movie.description)
+       expect(page).to have_content(@movie.rating)
+       expect(page).to have_content(@movie.runtime)
+       expect(page).to have_content("Goddard")
+       expect(page).to have_content("Brett Pascoe")
+       expect(page).to have_content("Edward Norton")
+       expect(page).to have_content("Brad Pitt")
+       expect(page).to have_content("The Narrator")
+       expect(page).to have_content("Tyler Durden")
+       expect(page).to have_content("Drama")
+     end
    end
  end

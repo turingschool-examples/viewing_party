@@ -29,7 +29,8 @@ class MovieFacade
       cast: cast_information(id),
       reviews: movie_review_info(id),
       runtime: json[:runtime],
-      id: json[:id]
+      id: json[:id],
+      image_url: "https://image.tmdb.org/t/p/w500#{json[:poster_path]}"
     }
   end
 

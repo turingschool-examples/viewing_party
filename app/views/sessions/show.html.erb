@@ -1,24 +1,26 @@
 <% if current_user %>
-  <%= link_to "Logout", logout_path %>
-  <%= link_to "Discover Movies", discover_path %>
-
   <%= form_with url: '/friendships', method: :post, local: true do |f| %>
+  <div class="container">
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.label :friend %>
-  <%= f.text_field :friend, placeholder: 'Enter Friend Email' %>
-  <%= f.submit "Add Friend" %>
+  <br>
+  <div class="list"><%= f.text_field :friend, placeholder: 'Enter Friend Email' %></div>
+  <div class="list"><%= f.submit "Add Friend", class: 'btn btn-success' %></div>
+    <div class="list"><svg xmlns="http://www.w3.org/2000/svg" height="48" width="48" viewBox="0 0 48 48"><title>accessibility</title><g fill="#f88558" class="nc-icon-wrapper"><circle data-color="color-2" cx="24" cy="6" r="5"></circle><path d="M43,13H5a2,2,0,0,0,0,4H18V44.5a2.5,2.5,0,0,0,5,0V30h2V44.5a2.5,2.5,0,0,0,5,0V17H43a2,2,0,0,0,0-4Z" fill="#212121"></path></g></svg></div>
+  </div>
   <% end %>
 
-  <% if !current_user.friendships.nil?%>
+<br>
+<h5><%= current_user.email %> Friends</h5>
+
+  <% if !current_user.friendships.empty? %>
     <% @friends.each do |friend| %>
       <div id="user-<%= friend.id%>">
       <%= friend.email %>
       </div>
     <% end %>
-  <% else %>
-    <p> You Currently have no friends. </p>
+    <% else %>
+    <p>You Currently have no friends.</p>
   <% end %>
-
 
 <% else %>
   <%= render "shared/redirect" %>

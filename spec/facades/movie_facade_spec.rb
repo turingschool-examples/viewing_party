@@ -22,7 +22,7 @@ RSpec.describe MovieFacade do
             name: "Brad Pitt",
             original_name: "Brad Pitt",
             popularity: 25.011,
-            profile_path: "/ajNaPmXVVMJFg9GWmu6MJzTaXdV.jpg",
+            poster_path: "/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg",
             cast_id: 5,
             character: "Tyler Durden",
             credit_id: "52fe4250c3a36847f80149f7",
@@ -49,6 +49,7 @@ RSpec.describe MovieFacade do
     title: "Fight Club",
     video: false,
     runtime: "139",
+    poster_path: "/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg",
     vote_average: "8.4",
     vote_count: 22270,
     id: '550',
@@ -97,7 +98,8 @@ RSpec.describe MovieFacade do
                 reviews: [{author: "Goddard", review: "Pretty awesome movie.  It shows what one crazy person can convince other crazy people to do.  Everyone needs something to believe in.  I recommend Jesus Christ, but they want Tyler Durden."}, {author: "Brett Pascoe", review: "In my top 5 of all time favourite movies. Great story line and a movie you can watch over and over again."}],
                 id: '550',
                 genres: ['Drama'],
-                runtime: '139'}
+                runtime: '139',
+                image_url: 'https://image.tmdb.org/t/p/w500/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg'}
 
     expect(@movie_facade.movie_information('550')).to eq(expected)
   end

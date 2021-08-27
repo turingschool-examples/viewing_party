@@ -1,0 +1,52 @@
+<br>
+<% if @top_movies %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Rating</th>
+    </tr>
+  </thead>
+  <% @top_movies.each do |movie| %>
+  <div class="movie">
+  <tbody>
+    <tr>
+      <div class="title">
+      <td><%= button_to movie[:original_title], "/movies/#{movie[:id]}", method: :get, class: 'btn btn-success' %></td>
+      </div>
+      <div class="rating">
+      <td><%= movie[:vote_average] %></td>
+      </div>
+    </tr>
+  </tbody>
+  </div>
+  <% end %>
+</table>
+  <% end  %>
+
+
+  <% if @search_movies %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Rating</th>
+      </tr>
+    </thead>
+    <% @search_movies.each do |movie| %>
+    <div class="movies-search">
+    <tbody>
+      <tr>
+        <div class="title-search">
+        <td><%= button_to movie[:original_title], "/movies/#{movie[:id]}", method: :get, class: 'btn btn-success' %></td>
+        </div>
+        <div class="rating-search">
+        <td><%= movie[:vote_average] %></td>
+        </div>
+      </tr>
+    </tbody>
+    </div>
+    <% end %>
+  </table>
+<% end %>
