@@ -27,14 +27,26 @@
 
 
   <% if @search_movies %>
-<% @search_movies.each do |movie| %>
-<div class="movies_search">
-  <div class="title_search">
-    <p>Title: <%= button_to movie[:original_title], "/movies/#{movie[:original_title]}", params: {movie_id: movie[:id]} %></p>
-  </div>
-  <div class="rating_search">
-    <p>Rating: <%= movie[:vote_average] %></p>
-  </div>
-</div>
-<% end %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Rating</th>
+      </tr>
+    </thead>
+    <% @search_movies.each do |movie| %>
+    <div class="movie">
+    <tbody>
+      <tr>
+        <div class="title">
+        <td><%= button_to movie[:original_title], "/movies/#{movie[:id]}", method: :get, class: 'btn btn-success' %></td>
+        </div>
+        <div class="rating">
+        <td><%= movie[:vote_average] %></td>
+        </div>
+      </tr>
+    </tbody>
+    </div>
+    <% end %>
+  </table>
 <% end %>
