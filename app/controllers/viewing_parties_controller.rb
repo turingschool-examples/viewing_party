@@ -5,15 +5,8 @@ class ViewingPartiesController < ApplicationController
 
   def create
     viewing_party = WatchParty.create(viewing_party_params)
-    attendee = Attendee.create(watch_party: viewing_party, user: current_user, status: 0)
 
-    params[:attendees].each do |friend_id, status|
-      if status == '1'
-        Attendee.create(watch_party: viewing_party, user_id: friend_id)
-      end
-    end
-
-    redirect_to "/dashboard"
+    redirect_to :controller => 'attendees', :action => 'create', viewing_party_id: viewing_party.id, params: request.parameters
   end
 
   private

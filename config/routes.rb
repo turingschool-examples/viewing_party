@@ -17,4 +17,6 @@ Rails.application.routes.draw do
   # Viewing_parties Controller
   get '/viewing-parties/new', to: 'viewing_parties#new'
   post '/viewing-parties', to: 'viewing_parties#create'
+  # Attendees Controller
+  get '/attendees', to: 'attendees#create', as: 'new_attendees'
 end
