@@ -61,14 +61,7 @@ RSpec.describe MovieFacade do
     ]}
 
     allow_any_instance_of(MovieService).to receive(:get_movie).and_return(@response)
-
-    # @movie_facade = MovieFacade.new
   end
-
-  # it 'can verify that it exists' do
-  #   expect(@movie_facade).to be_an_instance_of(MovieFacade)
-  #   expect(@movie_facade.service).to be_an_instance_of(MovieService)
-  # end
 
   it 'can create a movie' do
     movie = MovieFacade.create_movie('550')
