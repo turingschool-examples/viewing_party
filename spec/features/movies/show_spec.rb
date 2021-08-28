@@ -51,7 +51,7 @@ require 'rails_helper'
 
        expect(current_path).to eq("/movies/436969")
 
-       expect(page).to have_link('Create a Viewing Party for Movie')
+       expect(page).to have_button('Create a Viewing Party for Movie')
      end
 
      it 'can display movie information' do

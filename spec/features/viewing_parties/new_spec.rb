@@ -86,6 +86,7 @@ RSpec.describe 'it can make a view party form' do
               expect(viewing_party.genre).to eq(['Drama'])
               expect(viewing_party.host_id).to eq(user1.id)
               expect(viewing_party.date).to eq("20/9/2021")
+              expect(viewing_party.start_time).to eq("9:00am")
 
               within("#party-#{viewing_party.id}") do
                 expect(page).to have_content(viewing_party.title)
