@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_28_172937) do
+ActiveRecord::Schema.define(version: 2021_08_28_184837) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,7 +42,6 @@ ActiveRecord::Schema.define(version: 2021_08_28_172937) do
   end
 
   create_table "watch_parties", force: :cascade do |t|
-    t.time "duration"
     t.string "movie"
     t.string "genre"
     t.string "host"
@@ -52,6 +51,7 @@ ActiveRecord::Schema.define(version: 2021_08_28_172937) do
     t.time "start_time"
     t.string "movie_id"
     t.bigint "user_id"
+    t.integer "duration"
     t.index ["user_id"], name: "index_watch_parties_on_user_id"
   end
 

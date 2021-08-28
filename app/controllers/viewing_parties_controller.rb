@@ -11,7 +11,15 @@ class ViewingPartiesController < ApplicationController
   end
 
   def create
-    require "pry"; binding.pry
+    viewing_party = WatchParty.create(viewing_party_params)
+    attendee = Attendee.create(watch_party: viewing_party, user: current_user, status: 0)
+
+    params[:attendees].each do |friend_id, status|
+      if status == '1'
+        Attendee.create(watch_party: viewing_party, user_id: friend_id)
+      end
+    end
+    # require "pry"; binding.pry
     redirect_to "/dashboard"
   end
 
@@ -25,8 +33,9 @@ class ViewingPartiesController < ApplicationController
 
   # end
 
-  # private
-  # def _params
-  #   params.permit(:)
-  # end
+  private
+
+  def viewing_party_params
+    params.permit(:duration, :movie, :date, :start_time, :movie_id, :user_id)
+  end
 end

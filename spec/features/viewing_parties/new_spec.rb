@@ -42,11 +42,11 @@ RSpec.describe 'it can make a view party form' do
           expect(current_path).to eq("/viewing-parties/new")
 
           expect(page).to have_content(@movie.title)
-          expect(page).to have_field(:duration, placeholder: @movie.runtime)
+          # expect(page).to have_field(:duration, placeholder: @movie.runtime)
           expect(page).to have_field(:date)
-          expect(page).to have_field(:time)
-          expect(page).to have_field("#{user2.id}", checked: false)
-          expect(page).to have_field("#{user3.id}", checked: false)
+          expect(page).to have_field(:start_time)
+          expect(page).to have_field("attendees[#{user2.id}]", checked: false)
+          expect(page).to have_field("attendees[#{user3.id}]", checked: false)
           expect(page).to have_button("Create Party")
         end
 
@@ -73,20 +73,31 @@ RSpec.describe 'it can make a view party form' do
               click_on 'Create a Viewing Party for Movie'
 
               fill_in :date, with: "20/9/2021"
-              fill_in :time, with: "9:00am"
-              page.check "#{user2.id}"
+              fill_in :start_time, with: Time.parse("2021-09-20 19:15")
+              page.check "attendees[#{user2.id}]"
 
               click_on 'Create Party'
 
               viewing_party = WatchParty.last
 
               expect(current_path).to eq('/dashboard')
-              expect(viewing_party.duration).to eq('139')
+              expect(viewing_party.duration).to eq(139)
               expect(viewing_party.movie).to eq('Fight Club')
-              expect(viewing_party.genre).to eq(['Drama'])
-              expect(viewing_party.host_id).to eq(user1.id)
-              expect(viewing_party.date).to eq("20/9/2021")
-              expect(viewing_party.start_time).to eq("9:00am")
+              # expect(viewing_party.genre).to eq(['Drama'])
+              # expect(viewing_party.host).to eq(user1.id)
+              expect(viewing_party.date.to_date).to eq("Mon, 20 Sep 2021".to_date)
+              expect(viewing_party.start_time.strftime('%I:%M %P')).to eq("07:15 pm")
+
+              expect(Attendee.count).to eq(2)
+
+              attendees = Attendee.last(2)
+
+              expect(attendees[0].watch_party_id).to eq(viewing_party.id)
+              expect(attendees[0].user_id).to eq(user1.id)
+
+              expect(attendees[1].watch_party_id).to eq(viewing_party.id)
+              expect(attendees[1].user_id).to eq(user2.id)
+
 
               within("#party-#{viewing_party.id}") do
                 expect(page).to have_content(viewing_party.title)
