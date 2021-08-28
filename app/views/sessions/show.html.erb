@@ -22,7 +22,13 @@
     <p>You Currently have no friends.</p>
   <% end %>
 <br>
+
+  <% if current_user.watch_parties.empty? %>
+  <p>No Viewing Parties Yet</p>
+  <%= button_to "Start A Viewing Party!", '/discover' %>
+  <% else %>
   <%= render 'sessions/view_party' %>
+  <% end %>
 
 <% else %>
   <%= render "shared/redirect" %>
