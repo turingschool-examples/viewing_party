@@ -4,7 +4,7 @@ class WatchParty < ApplicationRecord
   validates :movie, presence: true
   belongs_to :user
 
-  # def movie
-  #   MovieFacade.create_movie(self.movie_id)
-  # end
+  def chosen_movie
+    MovieFacade.create_movie(self.movie_id)
+  end
 end
