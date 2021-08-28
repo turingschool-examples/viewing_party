@@ -49,10 +49,10 @@ RSpec.describe 'it can make a view party form' do
           # expect(session[:user_id]).to eq(user.id)
 
           expect(page).to have_field(:title)
-          expect(page).to have_field(:duration)
+          # expect(page).to have_field(:duration, placeholder: @movie.runtime)
           expect(page).to have_field(:date)
           expect(page).to have_field(:time)
-          expect(page).to have_field(:friend, count: 2)
+          # expect(page).to have_field(:friend, count: 2)
           expect(page).to have_button("Create Party")
           expect(page).to have_content("The Suicide Squad")
         end
@@ -79,8 +79,9 @@ RSpec.describe 'it can make a view party form' do
 
               click_on 'Create a Viewing Party for Movie'
 
-              page.select :date, with: "20/9/2021"
+              fill_in :date, with: "20/9/2021"
               fill_in :time, with: "9:00am"
+              check "#{user2.id}"
 
               click_on 'Create Party'
 
