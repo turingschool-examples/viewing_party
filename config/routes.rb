@@ -14,4 +14,7 @@ Rails.application.routes.draw do
   get '/movies/:movie_id', to: 'movies#show'
   # Friendships Controller
   post '/friendships', to: 'friendships#create'
+  # Viewing_parties Controller
+  get '/viewing_parties/new', to: 'viewing_parties#new'
+  post '/viewing_parties', to: 'viewing_parties#create'
 end
