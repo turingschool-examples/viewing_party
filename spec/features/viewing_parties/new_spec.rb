@@ -18,9 +18,13 @@ RSpec.describe 'it can make a view party form' do
     end
 
     it 'can visit a viewing party form' do
-      user = create(:user)
+      user1 = create(:user)
+      user2 = create(:user)
+      user3 = create(:user)
+      Friendship.create!(user: user1, friend: user2)
+      Friendship.create!(user: user1, friend: user3)
 
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user1)
 
       json_response = File.read('spec/fixtures/search_movie.json')
 
@@ -33,28 +37,17 @@ RSpec.describe 'it can make a view party form' do
           }).
           to_return(status: 200, body: json_response, headers: {})
 
-          # movies = MovieService.new.movie_search('fight club')
-
-          # visit '/discover'
-          #
-          # fill_in :search, with: "fight club"
-          # click_on "Search Movies!"
-          #
-          # within(first('.movies-search')) do
-          #   click_on "Fight Club"
-          # end
           click_on 'Create a Viewing Party for Movie'
 
           expect(current_path).to eq("/viewing-parties/new")
-          # expect(session[:user_id]).to eq(user.id)
 
-          expect(page).to have_field(:title)
-          # expect(page).to have_field(:duration, placeholder: @movie.runtime)
+          expect(page).to have_content(@movie.title)
+          expect(page).to have_field(:duration, placeholder: @movie.runtime)
           expect(page).to have_field(:date)
           expect(page).to have_field(:time)
-          # expect(page).to have_field(:friend, count: 2)
+          expect(page).to have_field("#{user2.id}", checked: false)
+          expect(page).to have_field("#{user3.id}", checked: false)
           expect(page).to have_button("Create Party")
-          expect(page).to have_content("The Suicide Squad")
         end
 
         it 'user can fill out form to create a viewing party' do
@@ -81,7 +74,7 @@ RSpec.describe 'it can make a view party form' do
 
               fill_in :date, with: "20/9/2021"
               fill_in :time, with: "9:00am"
-              check "#{user2.id}"
+              page.check "#{user2.id}"
 
               click_on 'Create Party'
 
