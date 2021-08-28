@@ -13,7 +13,7 @@ require 'rails_helper'
                    genres: ['Drama'],
                    runtime: '139'})
 
-        allow_any_instance_of(MovieFacade).to receive(:create_movie).and_return(@movie)
+        allow(MovieFacade).to receive(:create_movie).and_return(@movie)
      end
 
      it 'displays a link to create a viewing party' do

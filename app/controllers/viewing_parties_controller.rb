@@ -1,13 +1,6 @@
 class ViewingPartiesController < ApplicationController
-  # def index
-
-  # end
-  # def show
-
-  # end
-
   def new
-    @movie = MovieFacade.new.create_movie(params[:movie_id])
+    @movie = MovieFacade.create_movie(params[:movie_id])
   end
 
   def create
@@ -19,19 +12,9 @@ class ViewingPartiesController < ApplicationController
         Attendee.create(watch_party: viewing_party, user_id: friend_id)
       end
     end
-    # require "pry"; binding.pry
+
     redirect_to "/dashboard"
   end
-
-  # def edit
-
-  # end
-  # def update
-
-  # end
-  # def destroy
-
-  # end
 
   private
 
