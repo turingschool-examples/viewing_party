@@ -1,11 +1,20 @@
 <h6>Viewing Parties</h6>
-<% current_user.viewing_parties.each do |viewing_party| %>
+<% if !current_user.watch_parties.nil? %>
+<% current_user.watch_parties.each do |viewing_party| %>
   <div id="party-<%= viewing_party.id %>">
     <div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
+      <img src="<%= viewing_party.chosen_movie.image_url %>" class="card-img-top" alt="poster">
       <div class="card-body">
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <h5 class="card-title"><%= viewing_party.movie %></h5>
+    <p class="card-text">Day: <%= viewing_party.date.strftime('%a, %b %e') %></p>
+    <p class="card-text">Time: <%= viewing_party.start_time.strftime('%I:%M %P') %></p>
+    <% if viewing_party.user_id == current_user.id %>
+    <p class="card-text">Hosting</p>
+    <% else %>
+    <p class="card-text">Invited</p>
+    <% end %>
   </div>
-</div>
   </div>
+  </div>
+<% end %>
 <% end %>
