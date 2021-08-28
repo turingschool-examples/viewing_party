@@ -1,10 +1,11 @@
 <h3>Welcome to Viewing Party</h3>
     <%= form_with url: '/viewing-parties', method: :post, local: true do |f| %>
     <%= f.label :title, "Movie Title", class: "form-control" %>
+    <%= f.label :movie_title, @movie.title, readonly: true %>
     <%# in our controller we are gonna have @movei.title / @movie.runtime %>
-    <%= f.text_field :title, class: "form-control" %>
+    <%# @movie.title %>
     <%= f.label :duration, class: "form-control" %>
-    <%= f.number_field :duration, class: "form-control" %>
+    <%= f.number_field :duration, placeholder: @movie.runtime, class: "form-control" %>
     <%= f.label :date, class: "form-control" %>
     <%= f.date_field :date, class: "form-control" %>
     <%= f.label :time, "Start Time", class: "form-control" %>
