@@ -1,14 +1,16 @@
 <h3>Welcome to Viewing Party</h3>
-    <%= form_with url: '/viewing_parties', method: :post, local: true do |f| %>
+    <%= form_with url: '/viewing-parties', method: :post, local: true do |f| %>
     <%= f.label :title, "Movie Title", class: "form-control" %>
-    <%= # in our controller we are gonna have @movei.title / @movie.runtime%>
+    <%# in our controller we are gonna have @movei.title / @movie.runtime %>
     <%= f.text_field :title, class: "form-control" %>
     <%= f.label :duration, class: "form-control" %>
     <%= f.number_field :duration, class: "form-control" %>
     <%= f.label :date, class: "form-control" %>
     <%= f.date_field :date, class: "form-control" %>
     <%= f.label :time, "Start Time", class: "form-control" %>
-    <%= f.date_field :time, class: "form-control" %>
+    <%= f.time_field :time, class: "form-control", class: 'btn btn-success' %>
+    <% current_user.friends.each do |friend| %>
 
+    <% end %>
     <%= f.submit 'Create Party' %>
   <% end %>
