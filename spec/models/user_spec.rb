@@ -6,6 +6,7 @@ RSpec.describe User, type: :model do
     it { should have_many(:friendships) }
     it { should have_many(:attendees) }
     it { should have_many(:watch_parties).through(:attendees) }
+    it {should have_many(:watch_parties)}
   end
 
   describe 'validations' do
@@ -16,7 +17,7 @@ RSpec.describe User, type: :model do
   end
 
   before :each do
-    
+
   end
 
   describe 'class methods' do

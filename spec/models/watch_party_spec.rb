@@ -4,6 +4,7 @@ RSpec.describe WatchParty, type: :model do
   describe 'relationships' do
     it { should have_many(:attendees) }
     it { should have_many(:users).through(:attendees) }
+    it { should belong_to(:user) }
   end
 
   describe 'validations' do
@@ -11,7 +12,7 @@ RSpec.describe WatchParty, type: :model do
   end
 
   before :each do
-    
+
   end
 
   # describe 'class methods' do
