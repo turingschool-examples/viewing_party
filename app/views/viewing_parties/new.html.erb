@@ -8,9 +8,13 @@
     <%= f.label :date, class: "form-control" %>
     <%= f.date_field :date, class: "form-control" %>
     <%= f.label :time, "Start Time", class: "form-control" %>
-    <%= f.time_field :time, class: "form-control", class: 'btn btn-success' %>
+    <%= f.time_field :time, class: "form-control" %>
+    <br>
+    <strong><h6>Invite Friends</h6></strong>
     <% current_user.friends.each do |friend| %>
-
+      <%= f.label "#{friend.email}" %>
+      <%= f.check_box "#{friend.id}" %>
     <% end %>
-    <%= f.submit 'Create Party' %>
+    <br>
+    <%= f.submit 'Create Party', class: 'btn btn-success' %>
   <% end %>
