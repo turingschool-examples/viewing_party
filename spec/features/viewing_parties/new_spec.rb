@@ -140,7 +140,7 @@ RSpec.describe 'it can make a view party form' do
               user1 = create(:user)
               user2 = create(:user)
               user3 = create(:user)
-              
+
               Friendship.create!(user: user1, friend: user2)
               Friendship.create!(user: user1, friend: user3)
 
@@ -148,7 +148,6 @@ RSpec.describe 'it can make a view party form' do
 
               Attendee.create!(watch_party: viewing_party, user: user1, status: 0)
               Attendee.create!(watch_party: viewing_party, user: user2)
-              Attendee.create!(watch_party: viewing_party, user: user3)
 
               allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user2)
 
@@ -160,5 +159,27 @@ RSpec.describe 'it can make a view party form' do
                 expect(page).to have_content("07:15 pm")
                 expect(page).to have_content('Invited')
               end
+            end
+
+            it 'movie will not display on users dashboard if they were not invited' do
+              user1 = create(:user)
+              user2 = create(:user)
+              user3 = create(:user)
+
+              Friendship.create!(user: user1, friend: user2)
+              Friendship.create!(user: user1, friend: user3)
+
+              viewing_party = WatchParty.create!(movie: "Fight Club", date: "20/9/2021", start_time: Time.parse("2021-09-20 19:15"), movie_id: '550', user: user1)
+
+              Attendee.create!(watch_party: viewing_party, user: user1, status: 0)
+              Attendee.create!(watch_party: viewing_party, user: user2)
+
+              allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user3)
+
+                visit '/dashboard'
+
+                expect(page).to_not have_css("#party-#{viewing_party.id}")
+                expect(page).to have_content("No Viewing Parties Yet")
+                expect(page).to have_button("Start A Viewing Party!")
             end
           end
