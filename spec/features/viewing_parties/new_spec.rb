@@ -98,7 +98,7 @@ RSpec.describe 'it can make a view party form' do
               expect(attendees[1].user_id).to eq(user2.id)
             end
 
-            it 'displays watch party information on users dashboard' do
+            it 'displays watch party information on users dashboard for host' do
               user1 = create(:user)
               user2 = create(:user)
               user3 = create(:user)
@@ -129,9 +129,36 @@ RSpec.describe 'it can make a view party form' do
                   viewing_party = WatchParty.last
 
               within("#party-#{viewing_party.id}") do
-                expect(page).to have_content(viewing_party.title)
-                expect(page).to have_content(viewing_party.date)
+                expect(page).to have_content(viewing_party.movie)
+                expect(page).to have_content("Mon, Sep 20")
+                expect(page).to have_content("07:15 pm")
                 expect(page).to have_content('Hosting')
+              end
+            end
+
+            it 'displays watch party information on users dashboard for an invited user' do
+              user1 = create(:user)
+              user2 = create(:user)
+              user3 = create(:user)
+              
+              Friendship.create!(user: user1, friend: user2)
+              Friendship.create!(user: user1, friend: user3)
+
+              viewing_party = WatchParty.create!(movie: "Fight Club", date: "20/9/2021", start_time: Time.parse("2021-09-20 19:15"), movie_id: '550', user: user1)
+
+              Attendee.create!(watch_party: viewing_party, user: user1, status: 0)
+              Attendee.create!(watch_party: viewing_party, user: user2)
+              Attendee.create!(watch_party: viewing_party, user: user3)
+
+              allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user2)
+
+                visit '/dashboard'
+
+              within("#party-#{viewing_party.id}") do
+                expect(page).to have_content(viewing_party.movie)
+                expect(page).to have_content("Mon, Sep 20")
+                expect(page).to have_content("07:15 pm")
+                expect(page).to have_content('Invited')
               end
             end
           end
