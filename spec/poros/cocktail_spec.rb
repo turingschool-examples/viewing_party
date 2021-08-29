@@ -6,8 +6,11 @@ require 'rails_helper'
        name: "Margarita",
        instructions: "Rub the rim of the glass with the lime slice to make the salt stick to it. Take care to moisten only the outer rim and sprinkle the salt on it.",
        image_url: 'https://www.thecocktaildb.com/images/media/drink/5noda61589575158.jpg',
-       ingredient: "Lime juice"
-     }
+       ingredients: {
+        "Tequila" => "1 1/2 oz ",
+        "Triple sec" => "1/2 oz ",
+        "Lime juice" => "1 oz ",
+        "Salt" => nil}}
 
      cocktail = Cocktail.new(attributes)
 
@@ -15,6 +18,10 @@ require 'rails_helper'
      expect(cocktail.name).to eq("Margarita")
      expect(cocktail.instructions).to eq("Rub the rim of the glass with the lime slice to make the salt stick to it. Take care to moisten only the outer rim and sprinkle the salt on it.")
      expect(cocktail.image_url).to eq('https://www.thecocktaildb.com/images/media/drink/5noda61589575158.jpg')
-     expect(cocktail.ingredient).to eq("Lime juice")
+     expect(cocktail.ingredients).to eq({
+      "Tequila" => "1 1/2 oz ",
+      "Triple sec" => "1/2 oz ",
+      "Lime juice" => "1 oz ",
+      "Salt" => nil})
    end
  end
