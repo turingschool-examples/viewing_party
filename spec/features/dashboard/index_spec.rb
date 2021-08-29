@@ -9,11 +9,11 @@ RSpec.describe "the dashboard", :vcr do
   end
 
   describe 'display' do
-    it 'displays welcome message to the user' do
+    it 'shows welcome message to the user' do
       expect(page).to have_content("Welcome #{@user.email}!")
     end
 
-    it 'displays link to discover movies' do
+    it 'shows link to discover movies and links to the discover page' do
       expect(page).to have_link('Discover Movies')
 
       click_link 'Discover Movies'
