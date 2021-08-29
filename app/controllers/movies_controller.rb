@@ -1,6 +1,10 @@
 class MoviesController < ApplicationController
   def index
-    @results = api_movies_search(search_params[:keywords])
+    if params['result'] == 'top_40'
+      @results = MovieServices.top_forty
+    else
+      @results = api_movies_search(search_params[:keywords])
+    end
   end
 
   def show
@@ -13,7 +17,7 @@ class MoviesController < ApplicationController
   end
 
   def api_movies_search(keywords)
-    json = MovieService.new.search(keywords)
+    json = MovieServices.new.search(keywords)
     Search.new.first_40_results(json)
   end
 end
