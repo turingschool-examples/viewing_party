@@ -1,6 +1,4 @@
 class MovieFacade
-  attr_reader :service
-
 
     @@service = MovieService.new
 
@@ -32,6 +30,20 @@ class MovieFacade
       id: json[:id],
       image_url: "https://image.tmdb.org/t/p/w500#{json[:poster_path]}"
     }
+  end
+
+  def self.create_top_movies
+    json = @@service.top_movies
+    json.map do |hash|
+      Movie.new(hash)
+    end
+  end
+
+  def self.create_searched_movies(search)
+    json = @@service.movie_search(search)
+    json.map do |hash|
+      Movie.new(hash)
+    end
   end
 
   def self.create_movie(id)

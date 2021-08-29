@@ -13,10 +13,10 @@
   <tbody>
     <tr>
       <div class="title">
-      <td><%= button_to movie[:original_title], "/movies/#{movie[:id]}", method: :get, class: 'btn btn-success' %></td>
+      <td><%= button_to movie.title, "/movies/#{movie.id}", method: :get, class: 'btn btn-success' %></td>
       </div>
       <div class="rating">
-      <td><%= movie[:vote_average] %></td>
+      <td><%= movie.rating %></td>
       </div>
     </tr>
   </tbody>
@@ -39,10 +39,10 @@
     <tbody>
       <tr>
         <div class="title-search">
-        <td><%= button_to movie[:original_title], "/movies/#{movie[:id]}", method: :get, class: 'btn btn-success' %></td>
+        <td><%= button_to movie.title, "/movies/#{movie.id}", method: :get, class: 'btn btn-success' %></td>
         </div>
         <div class="rating-search">
-        <td><%= movie[:vote_average] %></td>
+        <td><%= movie.rating %></td>
         </div>
       </tr>
     </tbody>
