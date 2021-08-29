@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
   def index
     if params['result'] == 'top_40'
-      @results = MovieServices.top_forty
+      @results = MovieServices.new.top_forty
     else
       @results = api_movies_search(search_params[:keywords])
     end
