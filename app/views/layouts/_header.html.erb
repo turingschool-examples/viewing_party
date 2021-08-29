@@ -46,11 +46,10 @@
             <span class="button_badge"><%= session[:likes] %></span>
           </svg>
           </a>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
           <% session[:movies].each do |info| %>
-          <li><%= button_to info[:title], viewing_parties_new_path, params: {movie_id: info[:movie_id]}, method: :get, class: 'movie-header btn btn-success' %></li>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <li><a class="dropdown-item" href="#"><%= button_to info["title"], viewing_parties_new_path, params: {movie_id: info["movie_id"]}, method: :get, class: 'movie-header btn btn-success' %></a></li></ul>
           <% end %>
-        </ul>
           </div>
           </li>
         <% end %>

@@ -16,8 +16,13 @@ class MoviesController < ApplicationController
 
   def create
     movie = MovieFacade.create_movie(params[:movie_id])
-    session[:movies] = []
-    session[:movies] << {title: movie.title, movie_id: params[:movie_id]}
+    if session[:movies].nil?
+      session[:movies] = []
+      session[:movies] << {title: movie.title, movie_id: params[:movie_id]}
+    else
+      session[:movies] << {title: movie.title, movie_id: params[:movie_id]}
+    end
+
     if session[:likes] == nil
       session[:likes] = 1
     else
