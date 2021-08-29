@@ -3,9 +3,11 @@ class AttendeesController < ApplicationController
     viewing_party = WatchParty.find(params[:viewing_party_id])
     attendee = Attendee.create(watch_party: viewing_party, user: current_user, status: 0)
 
-    params[:attendees].each do |friend_id, status|
-      if status == '1'
-        Attendee.create(watch_party: viewing_party, user_id: friend_id)
+    if params[:attendees]
+      params[:attendees].each do |friend_id, status|
+        if status == '1'
+          Attendee.create(watch_party: viewing_party, user_id: friend_id)
+        end
       end
     end
 

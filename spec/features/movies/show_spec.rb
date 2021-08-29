@@ -85,7 +85,7 @@ require 'rails_helper'
        movies = MovieService.new.movie_search('fight club')
 
        visit '/discover'
-
+# require "pry"; binding.pry
        fill_in :search, with: "fight club"
        click_on "Search Movies!"
 
