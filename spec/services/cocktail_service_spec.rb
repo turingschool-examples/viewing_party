@@ -19,15 +19,19 @@ RSpec.describe CocktailService do
     end
 
     it 'can search for a cocktail' do
+      search = 'Margarita'
+
       json_response = File.read('spec/fixtures/search_cocktail.json')
 
-      stub_request(:get, 'https://www.thecocktaildb.com/api/json/v1/1/random.php').
+      stub_request(:get, "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=#{search}").
       to_return(status: 200, body: json_response)
 
-      expect(@cocktail_service.get_random_cocktail).to have_key(:strDrink)
-      expect(@cocktail_service.get_random_cocktail).to have_key(:strInstructions)
-      expect(@cocktail_service.get_random_cocktail).to have_key(:strDrinkThumb)
-      expect(@cocktail_service.get_random_cocktail).to have_key(:strIngredient1)
+      json = @cocktail_service.search_cocktail(search)[0]
+
+      expect(json).to have_key(:strDrink)
+      expect(json).to have_key(:strInstructions)
+      expect(json).to have_key(:strDrinkThumb)
+      expect(json).to have_key(:strIngredient1)
     end
 
     it 'can search non-alcohol beverages' do
