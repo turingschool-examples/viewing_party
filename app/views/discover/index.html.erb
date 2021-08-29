@@ -1,1 +1,13 @@
+<<<<<<< HEAD
 <%= react_component("TopRatedBtn")%>
+=======
+<h1>Welcome <%= current_user.email %>!</h1>
+
+<div id="search_for_movies">
+  <%= form_with url: movies_path, local: true, method: :get do |form| %>
+    <%= form.label :keywords, 'Search by movie title:' %>
+    <%= form.text_field :keywords, id: 'keywords' %>
+    <%= form.submit 'Find Movies' %>
+  <% end %>
+</div>
+>>>>>>> main

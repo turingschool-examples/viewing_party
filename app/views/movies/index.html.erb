@@ -1,3 +1,5 @@
-<% @movies.each do |movie| %>
-<%= movie[:title] %>
+<h1>Welcome <%= current_user.email %>!</h1>
+
+<% @results.each do |movie| %>
+  <p><%= movie[:title] %>, Vote Average: <%= movie[:vote_average] %></p>
 <% end %>
