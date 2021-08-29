@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :discover, only: :index
   resources :friends, only: :create
+  recources :movies, only: [:index, :show]
 end
