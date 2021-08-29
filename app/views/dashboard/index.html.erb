@@ -1,17 +1,34 @@
+<h1>Welcome <%= current_user.email %>!</h1>
+
 <div>
+  <%=link_to "Discover Movies", discover_index_path, class: "nav-link" %>
 </div>
 
 <div class="row">
   <section class="col-6" id="friends">
-
+    <div id="add_friend">
+      <%= form_with url: friends_path,local: true, method: :post do |form| %>
+        <%= form.label :email, 'Email:' %>
+        <%= form.text_field :email, id: 'email' %>
+        <%= form.submit 'Add friend' %>
+      <% end %>
+    </div>
+    <% if current_user.follows.count == 0 %>
+      <p>You currently have no friends</p>
+    <% else %>
+      <% current_user.followed.each do |friend| %>
+        <p><%= friend.email %></p>
+      <% end %>
+    <% end %>
   </section>
   <div class="col-6">
     <section id="friends_parties">
-  
+
     </section>
     <section id="my_parties">
-    
+
     </section>
   </div>
 </div>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/6JnN1DmbqoU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+

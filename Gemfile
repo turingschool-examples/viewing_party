@@ -19,9 +19,11 @@ gem 'jbuilder', '~> 2.5'
 gem 'faraday'
 gem 'bcrypt'
 gem "bootstrap_form", "~> 4.0"
+
 group :development, :test do
   gem 'pry'
   gem 'travis'
+  gem 'figaro'
 end
 
 group :development do
@@ -37,6 +39,8 @@ group :test do
   gem 'launchy'
   gem 'simplecov'
   gem 'shoulda-matchers'
+  gem 'webmock'
+  gem 'vcr'
 end
 
 gem 'webpacker'
