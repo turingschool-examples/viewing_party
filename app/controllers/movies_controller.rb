@@ -22,12 +22,6 @@ class MoviesController < ApplicationController
     else
       session[:movies] << {title: movie.title, movie_id: params[:movie_id]}
     end
-
-    if session[:likes] == nil
-      session[:likes] = 1
-    else
-      session[:likes] += 1
-    end
     redirect_to "/movies/#{params[:movie_id]}"
   end
 end
