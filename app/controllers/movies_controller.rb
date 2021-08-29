@@ -13,4 +13,16 @@ class MoviesController < ApplicationController
   def show
     @movie = MovieFacade.create_movie(params[:movie_id])
   end
+
+  def create
+    movie = MovieFacade.create_movie(params[:movie_id])
+    session[:movies] = []
+    session[:movies] << {title: movie.title, movie_id: params[:movie_id]}
+    if session[:likes] == nil
+      session[:likes] = 1
+    else
+      session[:likes] += 1
+    end
+    redirect_to "/movies/#{params[:movie_id]}"
+  end
 end
