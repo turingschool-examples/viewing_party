@@ -26,6 +26,7 @@ RSpec.describe "discover movies", :vcr do
       end
 
       expect(current_path).to eq(movies_path)
+      expect(page).to have_content("Welcome #{@user.email}!")
     end
 
     it 'displays first 40 keywords search results' do
