@@ -20,7 +20,7 @@ class MoviesController < ApplicationController
       session[:movies] = []
       session[:movies] << {title: movie.title, movie_id: params[:movie_id]}
     else
-      session[:movies] << {title: movie.title, movie_id: params[:movie_id]}
+      session[:movies] << {title: movie.title, movie_id: params[:movie_id]} unless session[:movies].any? { |hash| hash.value?(params[:movie_id])}
     end
     redirect_to "/movies/#{params[:movie_id]}"
   end
