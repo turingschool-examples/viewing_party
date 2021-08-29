@@ -35,8 +35,11 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
+    session[:movies] = nil
+
     redirect_to '/'
   end
+
 private
   # def _params
   #   params.permit(:)

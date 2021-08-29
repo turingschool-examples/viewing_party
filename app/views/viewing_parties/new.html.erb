@@ -1,0 +1,23 @@
+    <%= form_with url: '/viewing-parties', method: :post, local: true do |f| %>
+    <%= f.hidden_field :movie_id, value: @movie.id %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :movie, value: @movie.title %>
+    <%= f.label :title, "Movie Title", class: "form-control" %>
+    <%= f.label :movie_title, @movie.title, readonly: true %>
+    <%# in our controller we are gonna have @movei.title / @movie.runtime %>
+    <%# @movie.title %>
+    <%= f.label :duration, class: "form-control" %>
+    <%= f.number_field :duration, value: @movie.runtime, class: "form-control" %>
+    <%= f.label :date, class: "form-control" %>
+    <%= f.date_field :date, class: "form-control" %>
+    <%= f.label :start_time, "Start Time", class: "form-control" %>
+    <%= f.time_field :start_time, class: "form-control" %>
+    <br>
+    <strong><h6>Invite Friends</h6></strong>
+    <% current_user.friends.each do |friend| %>
+      <%= f.label "#{friend.email}" %>
+      <%= f.check_box "attendees[#{friend.id}]", params: {controller: :attendees, action: :create} %>
+    <% end %>
+    <br>
+    <%= f.submit 'Create Party', class: 'btn btn-success' %>
+  <% end %>

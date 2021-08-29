@@ -61,17 +61,10 @@ RSpec.describe MovieFacade do
     ]}
 
     allow_any_instance_of(MovieService).to receive(:get_movie).and_return(@response)
-
-    @movie_facade = MovieFacade.new
-  end
-
-  it 'can verify that it exists' do
-    expect(@movie_facade).to be_an_instance_of(MovieFacade)
-    expect(@movie_facade.service).to be_an_instance_of(MovieService)
   end
 
   it 'can create a movie' do
-    movie = @movie_facade.create_movie('550')
+    movie = MovieFacade.create_movie('550')
 
     expect(movie).to be_an_instance_of(Movie)
     expect(movie.title).to eq("Fight Club")
@@ -80,13 +73,13 @@ RSpec.describe MovieFacade do
   it 'can return a hash of a given movie cast' do
     expected = [{name: "Edward Norton", character: "The Narrator"}, {name: "Brad Pitt", character: "Tyler Durden"}]
 
-    expect(@movie_facade.cast_information('550')).to eq(expected)
+    expect(MovieFacade.cast_information('550')).to eq(expected)
   end
 
   it 'can return a hash of just review information for a given movie' do
     expected = [{author: "Goddard", review: "Pretty awesome movie.  It shows what one crazy person can convince other crazy people to do.  Everyone needs something to believe in.  I recommend Jesus Christ, but they want Tyler Durden."}, {author: "Brett Pascoe", review: "In my top 5 of all time favourite movies. Great story line and a movie you can watch over and over again."}]
 
-    expect(@movie_facade.movie_review_info('550')).to eq(expected)
+    expect(MovieFacade.movie_review_info('550')).to eq(expected)
   end
 
   it 'can create a movie information hash' do
@@ -101,6 +94,6 @@ RSpec.describe MovieFacade do
                 runtime: '139',
                 image_url: 'https://image.tmdb.org/t/p/w500/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg'}
 
-    expect(@movie_facade.movie_information('550')).to eq(expected)
+    expect(MovieFacade.movie_information('550')).to eq(expected)
   end
 end

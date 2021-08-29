@@ -12,6 +12,12 @@ Rails.application.routes.draw do
   get '/discover', to: 'movies#discover', as: 'discover'
   get '/movies', to: 'movies#index'
   get '/movies/:movie_id', to: 'movies#show'
+  post '/clicks', to: 'movies#create'
   # Friendships Controller
   post '/friendships', to: 'friendships#create'
+  # Viewing_parties Controller
+  get '/viewing-parties/new', to: 'viewing_parties#new'
+  post '/viewing-parties', to: 'viewing_parties#create'
+  # Attendees Controller
+  get '/attendees', to: 'attendees#create', as: 'new_attendees'
 end

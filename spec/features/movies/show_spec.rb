@@ -13,7 +13,7 @@ require 'rails_helper'
                    genres: ['Drama'],
                    runtime: '139'})
 
-        allow_any_instance_of(MovieFacade).to receive(:create_movie).and_return(@movie)
+        allow(MovieFacade).to receive(:create_movie).and_return(@movie)
      end
 
      it 'displays a link to create a viewing party' do
@@ -51,7 +51,7 @@ require 'rails_helper'
 
        expect(current_path).to eq("/movies/436969")
 
-       expect(page).to have_link('Create a Viewing Party for Movie')
+       expect(page).to have_button('Create a Viewing Party for Movie')
      end
 
      it 'can display movie information' do
