@@ -96,4 +96,49 @@ RSpec.describe MovieFacade do
 
     expect(MovieFacade.movie_information('550')).to eq(expected)
   end
+
+  it 'can create the top 40 movies' do
+    json_response1 = File.read('spec/fixtures/popular_movies1.json')
+    json_response2 = File.read('spec/fixtures/popular_movies2.json')
+
+    stub_request(:get, "https://api.themoviedb.org/3/movie/popular?api_key=#{ENV['movie_key']}&page=1").
+         with(
+           headers: {
+       	  'Accept'=>'*/*',
+       	  'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+       	  'User-Agent'=>'Faraday v1.7.0'
+           }).
+         to_return(status: 200, body: json_response1, headers: {})
+
+    stub_request(:get, "https://api.themoviedb.org/3/movie/popular?api_key=#{ENV['movie_key']}&page=2").
+         with(
+           headers: {
+       	  'Accept'=>'*/*',
+       	  'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+       	  'User-Agent'=>'Faraday v1.7.0'
+           }).
+         to_return(status: 200, body: json_response2, headers: {})
+
+    movie = MovieFacade.create_top_movies[0]
+
+    expect(movie).to be_an_instance_of(Movie)
+    expect(MovieFacade.create_top_movies.size).to eq(40)
+  end
+
+  it 'can create searched movies' do
+    json_response = File.read('spec/fixtures/search_movie.json')
+
+        stub_request(:get, "https://api.themoviedb.org/3/search/movie?api_key=#{ENV['movie_key']}&include_adult=false&page=1&query=fight%20club").
+          with(
+            headers: {
+        	  'Accept'=>'*/*',
+        	  'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+        	  'User-Agent'=>'Faraday v1.7.0'
+            }).
+          to_return(status: 200, body: json_response, headers: {})
+
+    movie = MovieFacade.create_searched_movies('fight club')[0]
+
+    expect(movie).to be_an_instance_of(Movie)
+  end
 end

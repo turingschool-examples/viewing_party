@@ -24,7 +24,7 @@
 
   <% if current_user.watch_parties.empty? %>
   <p>No Viewing Parties Yet</p>
-  <%= button_to "Start A Viewing Party!", '/discover' %>
+  <%= button_to "Start A Viewing Party!", '/discover', method: :get, class: 'btn btn-primary' %>
   <% else %>
   <%= render 'sessions/view_party' %>
   <% end %>

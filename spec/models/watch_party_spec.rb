@@ -9,6 +9,9 @@ RSpec.describe WatchParty, type: :model do
 
   describe 'validations' do
     it { should validate_presence_of(:movie) }
+    it { should validate_presence_of(:date) }
+    it { should validate_presence_of(:start_time) }
+    it { should validate_presence_of(:duration) }
   end
 
   before :each do
@@ -36,7 +39,7 @@ RSpec.describe WatchParty, type: :model do
           allow(MovieFacade).to receive(:create_movie).and_return(movie)
 
           user = create(:user)
-          watch_party = WatchParty.create!(movie: "Fight Club", date: "20/9/2021", start_time: Time.parse("2021-09-20 19:15"), movie_id: '550', user: user)
+          watch_party = WatchParty.create!(movie: "Fight Club", date: "20/9/2021", start_time: Time.parse("2021-09-20 19:15"), movie_id: '550', user: user, duration: 139)
 
           expect(watch_party.chosen_movie).to eq(movie)
         end
