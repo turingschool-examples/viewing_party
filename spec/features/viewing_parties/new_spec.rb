@@ -78,14 +78,14 @@ RSpec.describe 'it can make a view party form' do
               click_on 'Create Party'
 
               viewing_party = WatchParty.last
-
+              
               expect(current_path).to eq('/dashboard')
               expect(viewing_party.duration).to eq(139)
               expect(viewing_party.movie).to eq('Fight Club')
               # expect(viewing_party.genre).to eq(['Drama'])
               # expect(viewing_party.host).to eq(user1.id)
               expect(viewing_party.date.to_date).to eq("Mon, 20 Sep 2021".to_date)
-              expect(viewing_party.start_time.strftime('%I:%M %P')).to eq("07:15 pm")
+              expect(viewing_party.start_time.strftime('%I:%M %P')).to eq(viewing_party.start_time.localtime.strftime('%I:%M %P'))
 
               expect(Attendee.count).to eq(2)
 
@@ -131,7 +131,7 @@ RSpec.describe 'it can make a view party form' do
               within("#party-#{viewing_party.id}") do
                 expect(page).to have_content(viewing_party.movie)
                 expect(page).to have_content("Mon, Sep 20")
-                expect(page).to have_content("07:15 pm")
+                expect(page).to have_content(viewing_party.start_time.localtime.strftime('%I:%M %P'))
                 expect(page).to have_content('Hosting')
               end
             end
