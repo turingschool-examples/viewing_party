@@ -8,7 +8,10 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @movie = MovieServices.new.find_movie_details(movie_find_params[:id])
+
+    movie = MovieServices.new.find_movie_details(movie_find_params[:id])
+    @movie = Movie.new(movie)
+    binding.pry
   end
 
   private

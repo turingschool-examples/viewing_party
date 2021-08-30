@@ -1,55 +1,77 @@
-<div >
-  <div class="container-fluid" >
-  <div class="row" style="width:100%; background-color: #D7D7D7; <%= @movie[:backdrop_path]? "background-image: url(https://image.tmdb.org/t/p/w500/#{@movie[:backdrop_path]}) " : nil %> ">
-    <div class="col-4">
-      <img src="https://image.tmdb.org/t/p/w500/<%=@movie[:poster_path]%>" class="card-img-top" alt="..." >
-    </div>
-    <div class="col-8" >
-      <div class="card" >
-        <div class="card-body">
-          <h5 class="card-title"><%= @movie[:title] %></h5>
-          <p class="card-text text-wrap"> Average Vote: <%= @movie[:vote_average] %> </p>
-          <p class="card-text text-wrap"> Runtime: <%= @movie[:runtime] %> minutes </p>
-          <p> Genres:
-            <% @movie[:genres].each do |genre| %>
-              <span>
-                <%= genre[:name] %>
-              </span>
-            <% end %>
-          </p>
-          <p>
-            <%= @movie[:overview] %>
-          </p>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        
-        </div>
-      </div>
-    </div>
+<div class="container-fluid px-0 mt-2 mx-n2">
+<div class="row" style="width:100% background-color: #D7D7D7; <%= @movie.backdrop_path ? "background-image: url(https://image.tmdb.org/t/p/w500/#{@movie.backdrop_path}) " : nil %> ">
+  <div class="col-4">
+    <img src="https://image.tmdb.org/t/p/w500/<%=@movie.poster_path%>" class="card-img-top" alt="..." >
   </div>
-  <h5>Cast</h5>
-  <div style="overflow-x: scroll; overflow-y: hidden; white-space: nowrap;">
-    <% @movie[:cast].each do |cast| %>
-      <div class="col-2 align-items-stretch"style="display: inline-block; width: 13rem;">
-        <div class="card" style=" width: 12rem;">
-            <img src="https://image.tmdb.org/t/p/w500/<%=cast[:profile_path]%>" class="card-img-top" alt="...">
-          <div class="card-body" style="height: 125px;">
-            <h5 class="card-title"><%= cast[:name] %></h5>
-            <p class="card-text text-wrap">As: <%= cast[:character] %></p>
+  <div class="col-8" >
+    <div class="card" >
+      <div class="card-body">
+        <h5 class="card-title"><%= @movie.title %></h5>
+        <p class="card-text text-wrap"> Average Vote: <%= @movie.vote_average %> </p>
+        <p class="card-text text-wrap"> Runtime: <%= @movie.runtime %> minutes </p>
+        <p> Genres:
+          <% @movie.genres.each do |genre| %>
+            <span>
+              <%= genre[:name] %>
+            </span>
+          <% end %>
+        </p>
+        <p>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#videoModal">
+            View Trailer
+          </button>
+          <div class="modal fade " id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content" style="height: 522px;">
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/VkhFh5Ms1vc" id="Iframe" title="Movie Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">x</button>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    <% end %>
-    <div class="col-2 align-items-stretch"style="display: inline-block; width: 13rem;">
-      <div class="card" style=" width: 12rem;">
-        <div class="card-body" style="height: 125px;">
-          <p class="card-text text-wrap"><%=link_to "See All Cast And Crew" %> </p>
-        </div>
+        </p>
+        <p>
+          <%= @movie.overview %>
+        </p>      
       </div>
     </div>
   </div>
-  <% @movie[:reviews].each do |review| %>
-    <%=  review[:author]%>
-    <%= review[:content] %>
-    <%= review[:rating] %>
-  <% end %>
 </div>
+<h5>Cast</h5>
+<div style="overflow-x: scroll; overflow-y: hidden; white-space: nowrap;">
+  <% @movie.cast.each do |cast| %>
+    <div class="col-2 align-items-stretch" style="display: inline-block; width: 13rem;">
+      <div class="card" style=" width: 12rem;">
+          <img src="https://image.tmdb.org/t/p/w500/<%=cast[:profile_path]%>" class="card-img-top" alt="...">
+        <div class="card-body" style="height: 125px;">
+          <h5 class="card-title"><%= cast[:name] %></h5>
+          <p class="card-text text-wrap">As: <%= cast[:character] %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <div class="col-2 align-items-stretch"style="display: inline-block; width: 13rem;">
+    <div class="card" style=" width: 12rem;">
+      <div class="card-body" style="height: 125px;">
+        <p class="card-text text-wrap"><%=link_to "See All Cast And Crew" %> </p>
+      </div>
+    </div>
+  </div>
+</div>
+<section id="reviews" class="container">
+  <h5><%= @movie.reviews.count %> reviews</h5>
+  <% @movie.reviews.each do |review| %>
+  <div class="col-12 ">
+    <div class="card pb-2">
+      <h5 class="card-title">
+        <img class="rounded-circle" height="100px" width="100px" src="<%=review[:author_details][:avatar_path] != nil ? "https://image.tmdb.org/t/p/w500/#{review[:author_details][:avatar_path]}" : "https://nerdist.com/wp-content/uploads/2020/07/maxresdefault.jpg"%>" >
+        Author: <%=  review[:author]%>
+      </h5>
+      <div class="card-body">
+      <h6 class="card-subtitle mb-2 text-muted">Rating: <%= review[:author_details][:rating] %></h6>
+      <p class="card-text text-wrap"><%= review[:content] %></p>
+    </div>
+  </div>
+  <% end %>
+</section>
