@@ -1,6 +1,7 @@
-<h3><%= @movie.title %> <%= button_to '/clicks', params: {movie_id: @movie.id} do %>
+<div id="likes">
+<h3><%= @movie.title %> <%= button_to '/clicks', params: {movie_id: @movie.id}, class: 'icon' do %>
     <%= image_tag('favorite.svg', "data-svg-fallback" => image_path('/app/assets/images/favorite.svg'), :align=> "center") %>
-<% end %></h3> <%= button_to 'Create a Viewing Party for Movie', viewing_parties_new_path, params: {movie_id: @movie.id}, method: :get, class: 'movie-header btn btn-success' %>
+<% end %></h3> <%= button_to 'Create a Viewing Party for Movie', viewing_parties_new_path, params: {movie_id: @movie.id}, method: :get, class: 'movie-header btn btn-success' %></div>
 <br>
 <br>
 
