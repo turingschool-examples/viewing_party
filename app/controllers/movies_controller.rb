@@ -8,12 +8,16 @@ class MoviesController < ApplicationController
   end
 
   def show
+    @movie = MovieServices.new.find_movie_details(movie_find_params[:id])
   end
 
   private
 
   def search_params
     params.permit(:keywords)
+  end
+  def movie_find_params
+    params.permit(:id)
   end
 
   def api_movies_search(keywords)

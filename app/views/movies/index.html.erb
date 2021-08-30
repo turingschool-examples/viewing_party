@@ -4,7 +4,9 @@
   <% @results.each do |movie| %>
   <div class="col-3">
     <div class="card">
-      <img src="https://image.tmdb.org/t/p/w500/<%=movie[:poster_path]%>" class="card-img-top" alt="...">
+      <a href="/movies/<%= movie[:id] %>">
+        <img src="https://image.tmdb.org/t/p/w500/<%=movie[:poster_path]%>" class="card-img-top" alt="...">
+      </a>
       <div class="card-body">
         <h5 class="card-title"><%= link_to movie[:title], movie_path(movie[:id]) %></h5>
         <p class="card-text">Vote Average: <%= movie[:vote_average] %></p>

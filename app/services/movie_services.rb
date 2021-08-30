@@ -17,4 +17,21 @@ class MovieServices < ApiService
     page_2 = "https://api.themoviedb.org/3/search/movie?api_key=#{ENV['movies_api_key']}&language=en-US&query=#{keyword}&page=2&include_adult=false"
     get_data(page_1)[:results] << get_data(page_2)[:results]
   end
+
+  def find_movie_details(id)
+    movie = basic_movie_details(id)
+    movie[:cast] = movie_cast(id)
+    movie[:reviews] = movie_reviews(id)
+    movie
+  end
+
+  def basic_movie_details(id)
+    get_data("https://api.themoviedb.org/3/movie/#{id}?api_key=#{ENV['movies_api_key']}&language=en-US")
+  end
+  def movie_cast(id)
+    get_data("https://api.themoviedb.org/3/movie/#{id}/credits?api_key=#{ENV['movies_api_key']}&language=en-US")[:cast][0..9]
+  end
+  def movie_reviews(id)
+    get_data("https://api.themoviedb.org/3/movie/#{id}/reviews?api_key=#{ENV['movies_api_key']}&language=en-US&page=1")[:results]
+  end
 end

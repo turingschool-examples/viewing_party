@@ -1,0 +1,52 @@
+<div class="container-fluid" >
+<div class="row">
+  <div class="col-4">
+    <img src="https://image.tmdb.org/t/p/w500/<%=@movie[:poster_path]%>" class="card-img-top" alt="..." >
+  </div>
+  <div class="col-8">
+    <div class="card" >
+      <div class="card-body">
+        <h5 class="card-title"><%= @movie[:title] %></h5>
+        <p class="card-text text-wrap"> Average Vote: <%= @movie[:vote_average] %> </p>
+        <p class="card-text text-wrap"> Runtime: <%= @movie[:runtime] %> minutes </p>
+        <p> Genres:
+          <% @movie[:genres].each do |genre| %>
+            <span>
+              <%= genre[:name] %>
+            </span>
+          <% end %>
+        </p>
+        <p>
+          <%= @movie[:overview] %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<h5>Cast</h5>
+<div style="overflow-x: scroll; overflow-y: hidden; white-space: nowrap;">
+  <% @movie[:cast].each do |cast| %>
+    <div class="col-2 align-items-stretch"style="display: inline-block; width: 13rem;">
+      <div class="card" style=" width: 12rem;">
+          <img src="https://image.tmdb.org/t/p/w500/<%=cast[:profile_path]%>" class="card-img-top" alt="...">
+        <div class="card-body" style="height: 125px;">
+          <h5 class="card-title"><%= cast[:name] %></h5>
+          <p class="card-text text-wrap">As: <%= cast[:character] %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <div class="col-2 align-items-stretch"style="display: inline-block; width: 13rem;">
+    <div class="card" style=" width: 12rem;">
+      <div class="card-body" style="height: 125px;">
+        <p class="card-text text-wrap"><%=link_to "See All Cast And Crew" %> </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% @movie[:reviews].each do |review| %>
+  <%=  review[:author]%>
+  <%= review[:content] %>
+  <%= review[:rating] %>
+<% end %>
