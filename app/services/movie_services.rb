@@ -17,14 +17,15 @@ class MovieServices < ApiService
     page_2 = "https://api.themoviedb.org/3/search/movie?api_key=#{ENV['movies_api_key']}&language=en-US&query=#{keyword}&page=2&include_adult=false"
     get_data(page_1)[:results] << get_data(page_2)[:results]
   end
-
+  #calls all movie details methods and combines into 1 hash
   def find_movie_details(id)
     movie = basic_movie_details(id)
     movie[:cast] = movie_cast(id)
     movie[:reviews] = movie_reviews(id)
+    movie[:video] = movie_video(id)
     movie
   end
-
+  #methods for gathering movie data pieces
   def basic_movie_details(id)
     get_data("https://api.themoviedb.org/3/movie/#{id}?api_key=#{ENV['movies_api_key']}&language=en-US")
   end
@@ -33,5 +34,8 @@ class MovieServices < ApiService
   end
   def movie_reviews(id)
     get_data("https://api.themoviedb.org/3/movie/#{id}/reviews?api_key=#{ENV['movies_api_key']}&language=en-US&page=1")[:results]
+  end
+  def movie_video(id)
+    get_data("https://api.themoviedb.org/3/movie/#{id}/videos?api_key=#{ENV['movies_api_key']}&language=en-US")[:results][0][:key]
   end
 end

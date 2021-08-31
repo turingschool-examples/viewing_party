@@ -1,43 +1,41 @@
-<div class="container-fluid px-0 mt-2 mx-n2">
-<div class="row" style="width:100% background-color: #D7D7D7; <%= @movie.backdrop_path ? "background-image: url(https://image.tmdb.org/t/p/w500/#{@movie.backdrop_path}) " : nil %> ">
+<div class="row " >
   <div class="col-4">
     <img src="https://image.tmdb.org/t/p/w500/<%=@movie.poster_path%>" class="card-img-top" alt="..." >
   </div>
-  <div class="col-8" >
-    <div class="card" >
-      <div class="card-body">
-        <h5 class="card-title"><%= @movie.title %></h5>
-        <p class="card-text text-wrap"> Average Vote: <%= @movie.vote_average %> </p>
-        <p class="card-text text-wrap"> Runtime: <%= @movie.runtime %> minutes </p>
-        <p> Genres:
-          <% @movie.genres.each do |genre| %>
-            <span>
-              <%= genre[:name] %>
-            </span>
-          <% end %>
-        </p>
-        <p>
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#videoModal">
-            View Trailer
-          </button>
-          <div class="modal fade " id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-              <div class="modal-content" style="height: 522px;">
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/VkhFh5Ms1vc" id="Iframe" title="Movie Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">x</button>
-              </div>
+  <div class="col-8" style=" background-repeat: no-repeat; background-size: cover; <%= @movie.backdrop_path ? "background-image: url(https://image.tmdb.org/t/p/w500/#{@movie.backdrop_path}) " : nil %> ">
+    <div class="p-0 m-0" style="background-color: rgba(0,0,0,0.5); width:100%; height: 100%;">
+      <h5 class="card-title" style=" filter: invert(1) grayscale(1) contrast(9)"><%= @movie.title %></h5>
+      <p class="card-text text-wrap" style="filter: invert(1) grayscale(1) contrast(9) "> Average Vote: <%= @movie.vote_average %> </p>
+      <p class="card-text text-wrap" style="filter: invert(1) grayscale(1) contrast(9)"> Runtime: <%= convert_minutes_to_hours_and_minutes(100) %> </p>
+      <p style="filter: invert(1) grayscale(1) contrast(9)"> Genres:
+        <% @movie.genres.each do |genre| %>
+        <span>
+          <%= genre[:name] %>
+        </span>
+        <% end %>
+      </p>
+      <p style="filter: invert(1) grayscale(1) contrast(9)">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#videoModal">
+          View Trailer
+        </button>
+        <div class="modal fade " id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content" style="height: 522px;">
+              <iframe width="100%" height="100%" src="https://www.youtube.com/embed/<%=@movie.video%>" id="Iframe" title="Movie Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">x</button>
             </div>
           </div>
-        </p>
-        <p>
-          <%= @movie.overview %>
-        </p>      
-      </div>
+        </div>
+      </p>
+      <p style="filter: invert(1) grayscale(1) contrast(9);  font-family: 'Source Code Pro', monospace; font-size: 1.5rem"> 
+        <%= @movie.overview %>
+      </p>      
     </div>
   </div>
 </div>
+<div class="container-fluid px-0 mt-2 mx-n2" >
 <h5>Cast</h5>
 <div style="overflow-x: scroll; overflow-y: hidden; white-space: nowrap;">
   <% @movie.cast.each do |cast| %>
@@ -75,3 +73,7 @@
   </div>
   <% end %>
 </section>
+<%= bootstrap_form_tag url: "/movies/#{278}", method: :get do |f| %>
+<input type="time" id="start" name="trip-start" step="300">
+<%= f.submit 'button_name' %>
+<% end %>

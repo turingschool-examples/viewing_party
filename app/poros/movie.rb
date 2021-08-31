@@ -1,5 +1,5 @@
 class Movie
-  attr_reader :poster_path, :backdrop_path, :title, :vote_average, :runtime, :genres, :overview, :cast, :reviews
+  attr_reader :poster_path, :backdrop_path, :title, :vote_average, :runtime, :genres, :overview, :cast, :reviews, :video
   def initialize(data)
     @poster_path  = data[:poster_path]
     @backdrop_path = data[:backdrop_path]
@@ -10,5 +10,6 @@ class Movie
     @overview = data[:overview]
     @cast = data[:cast]
     @reviews = data[:reviews]
+    @video = data[:video]
   end
 end

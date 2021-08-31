@@ -1,10 +1,14 @@
-<%= react_component("TopRatedBtn")%>
-<h1>Welcome <%= current_user.email %>!</h1>
+<div class="row justify-content-center">
+  <div class="col-12 text-center mb-2">
+    <h1>Welcome <%= current_user.email %>!</h1>
+  </div>
 
-<div id="search_for_movies">
-  <%= form_with url: movies_path, local: true, method: :get do |form| %>
-    <%= form.label :keywords, 'Search by movie title:' %>
-    <%= form.text_field :keywords, id: 'keywords' %>
-    <%= form.submit 'Find Movies' %>
-  <% end %>
+  <div class="col-6"><%= react_component("TopRatedBtn")%></div>
+
+  <div class="col-6">
+    <div id="search_for_movies">
+      <%= form_with url: movies_path, local: true, method: :get do |form| %> <%=
+      form.label :keywords, 'Search by movie title:' %> <%= form.text_field:keywords, id: 'keywords' %> <%= form.submit 'Find Movies' %> <% end %>
+    </div>
+  </div>
 </div>
