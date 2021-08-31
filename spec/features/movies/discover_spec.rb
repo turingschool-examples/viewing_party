@@ -36,5 +36,16 @@ RSpec.describe 'can find certain movies based off of criteria' do
             click_button("Find Top Rated Movies")
 
             expect(current_path).to eq('/movies')
-          end
-        end
+  end
+
+  it 'gets redirected back to the discover page if the search is blank' do
+    fill_in :search, with: ''
+
+    click_on 'Search Movies!'
+
+    expect(current_path).to eq('/discover')
+    expect(page).to have_content("Movie Search can not be blank")
+  end
+end
+
+

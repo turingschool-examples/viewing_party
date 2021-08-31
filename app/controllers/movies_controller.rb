@@ -5,8 +5,11 @@ class MoviesController < ApplicationController
   def index
     if params[:top_movies]
       @top_movies = MovieFacade.create_top_movies
+    elsif params[:search] == ""
+      flash[:alert] = "Movie Search can not be blank"
+      redirect_to '/discover'
     elsif params[:search]
-      @search_movies = MovieFacade.create_searched_movies(params[:search])
+        @search_movies = MovieFacade.create_searched_movies(params[:search])
     end
   end
 

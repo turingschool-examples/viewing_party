@@ -17,41 +17,47 @@ require 'rails_helper'
      end
 
      it 'displays a link to create a viewing party' do
-       json_response1 = File.read('spec/fixtures/popular_movies1.json')
 
-       stub_request(:get, "https://api.themoviedb.org/3/movie/popular?api_key=#{ENV['movie_key']}&page=1").
-       with(
-         headers: {
-           'Accept'=>'*/*',
-           'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-           'User-Agent'=>'Faraday v1.7.0'
-           }).
-           to_return(status: 200, body: json_response1, headers: {})
+      json_response1 = File.read('spec/fixtures/popular_movies1.json')
 
-           json_response2 = File.read('spec/fixtures/popular_movies2.json')
+      stub_request(:get, "https://api.themoviedb.org/3/movie/popular?api_key=#{ENV['movie_key']}&page=1").
+      with(
+        headers: {
+          'Accept'=>'*/*',
+          'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+          'User-Agent'=>'Faraday v1.7.0'
+          }).
+          to_return(status: 200, body: json_response1, headers: {})
 
-           stub_request(:get, "https://api.themoviedb.org/3/movie/popular?api_key=#{ENV['movie_key']}&page=2").
-           with(
-             headers: {
-               'Accept'=>'*/*',
-               'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-               'User-Agent'=>'Faraday v1.7.0'
-               }).
-               to_return(status: 200, body: json_response2, headers: {})
+          json_response2 = File.read('spec/fixtures/popular_movies2.json')
 
-       visit '/discover'
+          stub_request(:get, "https://api.themoviedb.org/3/movie/popular?api_key=#{ENV['movie_key']}&page=2").
+          with(
+            headers: {
+              'Accept'=>'*/*',
+              'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+              'User-Agent'=>'Faraday v1.7.0'
+              }).
+              to_return(status: 200, body: json_response2, headers: {})
 
-       click_button("Find Top Rated Movies")
+      user1 = create(:user)         
+      
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user1)
 
-       expect(current_path).to eq('/movies')
+      visit '/discover'
+       
 
-       within(first('.movie')) do
-         click_on "The Suicide Squad"
-       end
+      click_button("Find Top Rated Movies")
 
-       expect(current_path).to eq("/movies/436969")
+      expect(current_path).to eq('/movies')
 
-       expect(page).to have_button('Create a Viewing Party for Movie')
+      within(first('.movie')) do
+        click_on "The Suicide Squad"
+      end
+
+      expect(current_path).to eq("/movies/436969")
+
+      expect(page).to have_button('Create a Viewing Party for Movie')
      end
 
      it 'can display movie information' do

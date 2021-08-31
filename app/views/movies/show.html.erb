@@ -1,69 +1,75 @@
-<div id="likes">
-<h3><%= @movie.title %> <%= button_to '/clicks', params: {movie_id: @movie.id}, class: 'icon' do %>
-    <%= image_tag('favorite.svg', "data-svg-fallback" => image_path('/app/assets/images/favorite.svg'), :align=> "center") %>
-<% end %></h3> <%= button_to 'Create a Viewing Party for Movie', viewing_parties_new_path, params: {movie_id: @movie.id}, method: :get, class: 'movie-header btn btn-success' %></div>
-<br>
-<br>
+<% if current_user %>
+    <div id="likes">
+    <h3><%= @movie.title %> <%= button_to '/clicks', params: {movie_id: @movie.id}, class: 'icon' do %>
+        <%= image_tag('favorite.svg', "data-svg-fallback" => image_path('/app/assets/images/favorite.svg'), :align=> "center") %>
+    <% end %></h3> <%= button_to 'Create a Viewing Party for Movie', viewing_parties_new_path, params: {movie_id: @movie.id}, method: :get, class: 'movie-header btn btn-success' %></div>
+    <br>
+    <br>
 
-<br>
+    <br>
 
-<div class="card mb-3" style="max-width: 540px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="<%= @movie.image_url %>" alt="poster" style="width:180px;height:280px;">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">Movie Information</h5>
-        <p class="card-text">Vote Average: <%= @movie.rating %></p>
-        <p class="card-text">Duration: <%= @movie.runtime %> minutes</p>
-        <p class="card-text">Genres: </p>
-        <% @movie.genres.each do |genre| %>
-        <%= genre %>
-        <% end %>
+    <div class="card mb-3" style="max-width: 540px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="<%= @movie.image_url %>" alt="poster" style="width:180px;height:280px;">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Movie Information</h5>
+            <p class="card-text">Vote Average: <%= @movie.rating %></p>
+            <p class="card-text">Duration: <%= @movie.runtime %> minutes</p>
+            <p class="card-text">Genres: </p>
+            <% @movie.genres.each do |genre| %>
+            <%= genre %>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-<br>
-<div class="card text-dark bg-light mb-3">
-  <div class="card-header">
-    Description
+    <br>
+    <div class="card text-dark bg-light mb-3">
+      <div class="card-header">
+        Description
+        </div>
+      <div class="card-body">
+        <%= @movie.description %>
+      </div>
     </div>
-  <div class="card-body">
-    <%= @movie.description %>
-  </div>
-</div>
 
-<br>
+    <br>
 
-<table class="table table-striped table-hover">
-  <h5>Cast</h5>
-  <thead>
-    <tr>
-      <th scope="col">Actor</th>
-      <th scope="col">Character</th>
-    </tr>
-  </thead>
-  <% @movie.cast.each do |hash| %>
-  <tbody>
-    <tr>
-      <td><%= hash[:name] %></td>
-      <td><%= hash[:character] %></td>
-    </tr>
-  </tbody>
-  <% end %>
-</table>
-<br>
-<h5>Reviews</h5>
-<br>
-<div class="card text-white bg-secondary mb-3">
-    <% @movie.reviews.each do |review| %>
-  <div class="card-header">
-    <%= review[:author] %>
+    <table class="table table-striped table-hover">
+      <h5>Cast</h5>
+      <thead>
+        <tr>
+          <th scope="col">Actor</th>
+          <th scope="col">Character</th>
+        </tr>
+      </thead>
+      <% @movie.cast.each do |hash| %>
+      <tbody>
+        <tr>
+          <td><%= hash[:name] %></td>
+          <td><%= hash[:character] %></td>
+        </tr>
+      </tbody>
+      <% end %>
+    </table>
+    <br>
+    <h5>Reviews</h5>
+    <br>
+    <div class="card text-white bg-secondary mb-3">
+        <% @movie.reviews.each do |review| %>
+      <div class="card-header">
+        <%= review[:author] %>
+        </div>
+      <div class="card-body">
+        <%= review[:review] %>
+      </div>
+      <% end %>
     </div>
-  <div class="card-body">
-    <%= review[:review] %>
-  </div>
-  <% end %>
-</div>
+
+<% else %>
+  <%= render 'movies/guest_show' %>
+
+<% end %>
