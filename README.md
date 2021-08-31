@@ -29,7 +29,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/
+  <a href="https://www.github.com/
            /viewing_party">
     <img src="https://pyxis.nymag.com/v1/imgs/4da/630/2ec94af82a77404f4c98e1b6be9dd4e0b2-27-facebook-watch-party-logo.rsocial.w1200.jpg" alt="Logo" width="80" height="80">
   </a>
