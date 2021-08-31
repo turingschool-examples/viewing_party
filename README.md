@@ -21,7 +21,7 @@
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
 
-[![Contributors][contributors-shield]](github.com/AlexKlick/viewing_party)
+[![Contributors][contributors-shield]](https://www.github.com/AlexKlick/viewing_party)
 [![LinkedIn][linkedin-shield]](https://www.linkedin.com/in/alex-klick/)
 [![LinkedIn][linkedin-shield]](https://www.linkedin.com/in/lee-hopper/)
 
