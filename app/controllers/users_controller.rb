@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     user = User.create(user_params)
     if user.save
       session[:user_id] = user.id
+      send_mail(user)
       flash[:success] = "Welcome #{user.email}!"
       redirect_to dashboard_path
     else
@@ -18,5 +19,9 @@ class UsersController < ApplicationController
 
   def user_params
     params.permit(:email, :password, :password_confirmation)
+  end
+
+  def send_mail(user)
+    WatchPartyMailer.welcome(user).deliver_now
   end
 end
