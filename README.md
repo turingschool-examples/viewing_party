@@ -23,6 +23,7 @@
 [![Contributors][contributors-shield]](https://github.com/AlexKlick/viewing_party/graphs/contributors)
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]](https://www.linkedin.com/in/alex-klick/)
+[linkedin-shield]](https://www.linkedin.com/in/alex-klick/)
 
 
 
