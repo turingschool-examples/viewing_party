@@ -1,0 +1,14 @@
+<div id='form'>
+  <br>
+  <h3> Create <b><%= @movie[:title] %></b> Viewing Party! </h3>
+  <%= form_with url: new_party_path, method: :post, local: true do |form| %>
+    <%= form.label :duration, 'Duration of Party' %>
+    <%= form.text_field :duration, value: "#{@movie[:duration]}" %>
+    <%= form.label :date, 'Day' %>
+    <%= form.date_field :date %>
+    <%= form.label :time, 'Time' %>
+    <%= form.time_field :time %>
+    <%= form.submit 'Create Party' %>
+  <% end %>
+  <br>
+</div>

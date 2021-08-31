@@ -1,13 +1,15 @@
 require 'rails_helper'
 
-RSpec.describe "new movie party", :type => :request do
+RSpec.describe "new movie party" do
   describe 'form' do
     it 'displays form to create movie party when filled out' do
-      get new_party_path, params: {title: 'Lord of the Rings'}
+      visit new_party_path
+
+      save_and_open_page
 
       within('#form') do
-        expect(page).to have_content 'Movie Title'
-        expect(page).to have_content 'Lord of the Rings'
+        expect(page).to have_content('Movie Title')
+        expect(page).to have_content('Lord of the Rings')
       end
     end
   end

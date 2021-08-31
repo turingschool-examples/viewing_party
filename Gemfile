@@ -24,6 +24,7 @@ group :development, :test do
   gem 'pry'
   gem 'travis'
   gem 'figaro'
+  gem 'factory_bot_rails'
 end
 
 group :development do
