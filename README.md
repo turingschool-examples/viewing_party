@@ -21,7 +21,7 @@
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
 
-[![Contributors][contributors-shield]](https://www.github.com/AlexKlick/viewing_party)
+[![Contributors][contributors-shield]](https://www.github.com/AlexKlick/viewing_party/contributors)
 [![LinkedIn][linkedin-shield]](https://www.linkedin.com/in/alex-klick/)
 [![LinkedIn][linkedin-shield]](https://www.linkedin.com/in/lee-hopper/)
 
@@ -30,8 +30,8 @@
 <br />
 <p align="center">
   <a href="https://github.com/
-           /repo_name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+           /viewing_party">
+    <img src="https://pyxis.nymag.com/v1/imgs/4da/630/2ec94af82a77404f4c98e1b6be9dd4e0b2-27-facebook-watch-party-logo.rsocial.w1200.jpg" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">project_title</h3>
