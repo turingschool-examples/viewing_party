@@ -5,8 +5,6 @@
       <%= f.hidden_field :movie, value: @movie.title %>
       <%= f.label :title, "Movie Title", class: "form-control" %>
       <%= f.label :movie_title, @movie.title, readonly: true %>
-      <%# in our controller we are gonna have @movei.title / @movie.runtime %>
-      <%# @movie.title %>
       <%= f.label :duration, class: "form-control" %>
       <%= f.number_field :duration, value: @movie.runtime, class: "form-control" %>
       <%= f.label :date, class: "form-control" %>
