@@ -21,7 +21,9 @@
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
 
-
+[![Contributors][contributors-shield]](https://github.com/AlexKlick/viewing_party/graphs/contributors)
+[![LinkedIn][linkedin-shield]](https://www.linkedin.com/in/alex-klick/)
+[![LinkedIn][linkedin-shield]](https://www.linkedin.com/in/lee-hopper/)
 
 
 <!-- PROJECT LOGO -->
