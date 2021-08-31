@@ -20,7 +20,7 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-[![Contributors][contributors-shield]](https://api.github.com/repos/AlexKlick/viewing_party/contributors)
+[![Contributors][contributors-shield]](https://github.com/AlexKlick/viewing_party/graphs/contributors)
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][https://www.linkedin.com/in/alex-klick/]
 
