@@ -33,19 +33,19 @@
     <img src="https://pyxis.nymag.com/v1/imgs/4da/630/2ec94af82a77404f4c98e1b6be9dd4e0b2-27-facebook-watch-party-logo.rsocial.w1200.jpg" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">project_title</h3>
+  <h3 align="center">Viewing Party</h3>
 
   <p align="center">
-    project_description
+  A project using <a href="https://www.themoviedb.org/settings/api">themovieDB api </a> which allows users to search movies, see the top rated movies, and create their own viewing parties to watch movies with their friends!
     <br />
-    <a href="https://github.com/AlexKlick/repo_name"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/AlexKlick/viewing_party"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/AlexKlick/repo_name">View Demo</a>
+    <a href="https://github.com/AlexKlick/viewing_party">View Demo</a>
     ·
-    <a href="https://github.com/AlexKlick/repo_name/issues">Report Bug</a>
+    <a href="https://github.com/AlexKlick/viewing_party/issues">Report Bug</a>
     ·
-    <a href="https://github.com/AlexKlick/repo_name/issues">Request Feature</a>
+    <a href="https://github.com/AlexKlick/viewing_party/issues">Request Feature</a>
   </p>
 </p>
 
