@@ -13,18 +13,18 @@ RSpec.describe 'it can make a view party form' do
 
       allow(MovieFacade).to receive(:create_movie).and_return(@movie)
 
+      @user1 = create(:user)
+      @user2 = create(:user)
+      @user3 = create(:user)
+      Friendship.create!(user: @user1, friend: @user2)
+      Friendship.create!(user: @user1, friend: @user3)
+
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user1)
+
       visit "/movies/#{@movie.id}"
     end
 
     it 'can visit a viewing party form' do
-      user1 = create(:user)
-      user2 = create(:user)
-      user3 = create(:user)
-      Friendship.create!(user: user1, friend: user2)
-      Friendship.create!(user: user1, friend: user3)
-
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user1)
-
       json_response = File.read('spec/fixtures/search_movie.json')
 
       stub_request(:get, "https://api.themoviedb.org/3/search/movie?api_key=#{ENV['movie_key']}&include_adult=false&page=1&query=fight%20club").
@@ -44,19 +44,12 @@ RSpec.describe 'it can make a view party form' do
           # expect(page).to have_field(:duration, placeholder: @movie.runtime)
           expect(page).to have_field(:date)
           expect(page).to have_field(:start_time)
-          expect(page).to have_field("attendees[#{user2.id}]", checked: false)
-          expect(page).to have_field("attendees[#{user3.id}]", checked: false)
+          expect(page).to have_field("attendees[#{@user2.id}]", checked: false)
+          expect(page).to have_field("attendees[#{@user3.id}]", checked: false)
           expect(page).to have_button("Create Party")
         end
 
         it 'user can fill out form to create a viewing party' do
-          user1 = create(:user)
-          user2 = create(:user)
-          user3 = create(:user)
-          Friendship.create!(user: user1, friend: user2)
-          Friendship.create!(user: user1, friend: user3)
-
-          allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user1)
 
           json_response = File.read('spec/fixtures/search_movie.json')
 
@@ -73,7 +66,7 @@ RSpec.describe 'it can make a view party form' do
 
               fill_in :date, with: "20/9/2021"
               fill_in :start_time, with: Time.parse("2021-09-20 19:15")
-              page.check "attendees[#{user2.id}]"
+              page.check "attendees[#{@user2.id}]"
 
               click_on 'Create Party'
 
@@ -92,20 +85,13 @@ RSpec.describe 'it can make a view party form' do
               attendees = Attendee.last(2)
 
               expect(attendees[0].watch_party_id).to eq(viewing_party.id)
-              expect(attendees[0].user_id).to eq(user1.id)
+              expect(attendees[0].user_id).to eq(@user1.id)
 
               expect(attendees[1].watch_party_id).to eq(viewing_party.id)
-              expect(attendees[1].user_id).to eq(user2.id)
+              expect(attendees[1].user_id).to eq(@user2.id)
             end
 
             it 'displays watch party information on users dashboard for host' do
-              user1 = create(:user)
-              user2 = create(:user)
-              user3 = create(:user)
-              Friendship.create!(user: user1, friend: user2)
-              Friendship.create!(user: user1, friend: user3)
-
-              allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user1)
 
               json_response = File.read('spec/fixtures/search_movie.json')
 
@@ -122,7 +108,7 @@ RSpec.describe 'it can make a view party form' do
 
                   fill_in :date, with: "20/9/2021"
                   fill_in :start_time, with: Time.parse("2021-09-20 19:15")
-                  page.check "attendees[#{user2.id}]"
+                  page.check "attendees[#{@user2.id}]"
 
                   click_on 'Create Party'
 
@@ -137,19 +123,13 @@ RSpec.describe 'it can make a view party form' do
             end
 
             it 'displays watch party information on users dashboard for an invited user' do
-              user1 = create(:user)
-              user2 = create(:user)
-              user3 = create(:user)
 
-              Friendship.create!(user: user1, friend: user2)
-              Friendship.create!(user: user1, friend: user3)
+              viewing_party = WatchParty.create!(movie: "Fight Club", date: "20/9/2021", start_time: Time.parse("2021-09-20 19:15"), movie_id: '550', user: @user1, duration: 139)
 
-              viewing_party = WatchParty.create!(movie: "Fight Club", date: "20/9/2021", start_time: Time.parse("2021-09-20 19:15"), movie_id: '550', user: user1, duration: 139)
+              Attendee.create!(watch_party: viewing_party, user: @user1, status: 0)
+              Attendee.create!(watch_party: viewing_party, user: @user2)
 
-              Attendee.create!(watch_party: viewing_party, user: user1, status: 0)
-              Attendee.create!(watch_party: viewing_party, user: user2)
-
-              allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user2)
+              allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user2)
 
                 visit '/dashboard'
 
@@ -162,19 +142,13 @@ RSpec.describe 'it can make a view party form' do
             end
 
             it 'movie will not display on users dashboard if they were not invited' do
-              user1 = create(:user)
-              user2 = create(:user)
-              user3 = create(:user)
 
-              Friendship.create!(user: user1, friend: user2)
-              Friendship.create!(user: user1, friend: user3)
+              viewing_party = WatchParty.create!(movie: "Fight Club", date: "20/9/2021", start_time: Time.parse("2021-09-20 19:15"), movie_id: '550', user: @user1, duration: 139)
 
-              viewing_party = WatchParty.create!(movie: "Fight Club", date: "20/9/2021", start_time: Time.parse("2021-09-20 19:15"), movie_id: '550', user: user1, duration: 139)
+              Attendee.create!(watch_party: viewing_party, user: @user1, status: 0)
+              Attendee.create!(watch_party: viewing_party, user: @user2)
 
-              Attendee.create!(watch_party: viewing_party, user: user1, status: 0)
-              Attendee.create!(watch_party: viewing_party, user: user2)
-
-              allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user3)
+              allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user3)
 
                 visit '/dashboard'
 
@@ -184,13 +158,6 @@ RSpec.describe 'it can make a view party form' do
             end
 
             it 'can fill out half a form and be redirected to the form for not filling out all details' do
-              user1 = create(:user)
-              user2 = create(:user)
-              user3 = create(:user)
-              Friendship.create!(user: user1, friend: user2)
-              Friendship.create!(user: user1, friend: user3)
-
-              allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user1)
 
               json_response = File.read('spec/fixtures/search_movie.json')
 
@@ -206,7 +173,7 @@ RSpec.describe 'it can make a view party form' do
               click_on 'Create a Viewing Party for Movie'
 
               fill_in :start_time, with: Time.parse("2021-09-20 19:15")
-              page.check "attendees[#{user2.id}]"
+              page.check "attendees[#{@user2.id}]"
 
               click_on 'Create Party'
 
