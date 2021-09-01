@@ -1,6 +1,6 @@
 [![Contributors][contributors-shield]][contributors-url]
-[![Gunnar][linkedin-shield]][linkedin-url]
-[![Matt][linkedin-shield]][linkedin-url1]
+[![Gunnar][Gunnar-shield]][linkedin-url]
+[![Matt][Matt-shield]][linkedin-url1]
 
 
 
