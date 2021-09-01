@@ -5,8 +5,12 @@ class FriendsController < ApplicationController
     if user.present?
       Friend.create(followed_id: user.id, follower_id: current_user.id)
     else
-      flash[:alert] = "No user by this email!"
+      flash[:danger] = "No user by this email!"
     end
     redirect_to dashboard_index_path
+  end
+
+  def email_list
+    render json: User.all.select(:email, :id)
   end
 end
