@@ -9,6 +9,9 @@ class SessionsController < ApplicationController
         flash[:danger] = "No matching account!"
         redirect_to root_path
       end
+    else
+      flash[:danger] = "No matching account!"
+      redirect_to root_path
     end
   end
 

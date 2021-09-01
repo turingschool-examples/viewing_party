@@ -53,6 +53,7 @@ RSpec.describe 'welcome page' do
     end
 
     it 'cannot log in with bad credentials' do
+      Capybara.run_server = false
       email = 'test@test.com'
       pswd = 'test'
       user = User.create!(email: email, password: pswd)
