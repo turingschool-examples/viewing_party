@@ -70,7 +70,7 @@ If a user is signed in, they have the option to create a viewing party for that 
 
 ## Installation
 
-1. To run this project locally, you will need ruby 5.2.6 and well as 2.7.2.
+1. To run this project locally, you will need ruby 2.7.2 and well as Rails 5.2.6.
 2. Get a free API Key at [www.themoviedb.org](https://www.themoviedb.org/documentation/api)
 3. Clone the repo
    ```sh
@@ -84,7 +84,7 @@ If a user is signed in, they have the option to create a viewing party for that 
     ```
     bundle install
     ```
-7. [Figaro Gem Docs can be found hers](https://github.com/laserlemon/figaro)
+7. [Figaro Gem Docs can be found here](https://github.com/laserlemon/figaro)
     ```
     bundle exec figaro install
     ```
