@@ -1,5 +1,3 @@
 class DashboardController < ApplicationController
-  def index
-    binding.pry
-  end
+  def index; end
 end

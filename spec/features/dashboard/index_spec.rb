@@ -82,4 +82,34 @@ RSpec.describe "the dashboard", :vcr do
       expect(page).to have_content('No user by this email!')
     end
   end
+
+  describe 'friend_parties' do
+    it 'displays viewing parties user is attending' do
+      user = create(:user)
+      host_1 = create(:user)
+      host_2 = create(:user)
+
+      party_1 = Party.create!(movie: 'Movie 1', date: '2021-09-15', time: '11:00 PM', duration: 200, user_id: host_1.id)
+      party_2 = Party.create!(movie: 'Movie 2', date: '2021-09-16', time: '10:00 PM', duration: 150, user_id: host_2.id)
+
+      Attendee.create!(party_id: party_1.id, user_id: user.id)
+      Attendee.create!(party_id: party_2.id, user_id: user.id)
+
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+      visit dashboard_index_path
+
+      within('#friends_parties') do
+        user.attendees.each_with_index do |attendee, index|
+          within("##{attendee.party.id}") do
+            expect(page).to have_content("Party #{index + 1}")
+            expect(page).to have_content(attendee.party.movie)
+            expect(page).to have_content(attendee.party.date.strftime('%B %d, %Y'))
+            expect(page).to have_content(attendee.party.time.in_time_zone('Mountain Time (US & Canada)').strftime('%l:%M %P'))
+            expect(page).to have_content('Attending')
+          end
+        end
+      end
+    end
+  end
 end
