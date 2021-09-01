@@ -6,12 +6,12 @@ class ViewingPartiesController < ApplicationController
   def create
     viewing_party = WatchParty.create(viewing_party_params)
     if viewing_party.save
-      redirect_to :controller => 'attendees', :action => 'create', viewing_party_id: viewing_party.id, params: request.parameters
+      redirect_to controller: 'attendees', action: 'create', viewing_party_id: viewing_party.id,
+                  params: request.parameters
     else
-      flash[:alert] = "Form missing details"
-      redirect_to "/viewing-parties/new", params: request.parameters
+      flash[:alert] = 'Form missing details'
+      redirect_to '/viewing-parties/new', params: request.parameters
     end
-
   end
 
   private

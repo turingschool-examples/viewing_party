@@ -5,14 +5,12 @@ class AttendeesController < ApplicationController
 
     if params[:attendees]
       params[:attendees].each do |friend_id, status|
-        if status == '1'
-          Attendee.create(watch_party: viewing_party, user_id: friend_id)
-        end
+        Attendee.create(watch_party: viewing_party, user_id: friend_id) if status == '1'
       end
     end
 
     send_mail(viewing_party)
-    redirect_to "/dashboard"
+    redirect_to '/dashboard'
   end
 
   private

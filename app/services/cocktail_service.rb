@@ -11,9 +11,8 @@ class CocktailService < ApiService
     get_json(response)[:drinks]
   end
 
-
   def get_mocktail
-    response = get_data("https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic").get
+    response = get_data('https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic').get
 
     get_json(response)[:drinks]
   end

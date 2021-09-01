@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  def new
-  end
+  def new; end
 
   def create
     user = User.create(user_params)
@@ -9,7 +8,7 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome #{user.email}!"
       redirect_to dashboard_path
     else
-      flash[:error] = "Sorry, your credentials are bad."
+      flash[:error] = 'Sorry, your credentials are bad.'
       render :new
     end
   end

@@ -1,14 +1,11 @@
 class CocktailFacade
-
   @@service = CocktailService.new
 
   def self.create_ingredients(id)
     drink = @@service.get_drink(id)
     ingredients = []
     drink.each do |key, value|
-      if key.start_with?('strIngredient') && !value.nil?
-        ingredients << value
-      end
+      ingredients << value if key.start_with?('strIngredient') && !value.nil?
     end
     ingredients
   end
@@ -17,9 +14,7 @@ class CocktailFacade
     drink = @@service.get_drink(id)
     proportions = []
     drink.each do |key, value|
-      if key.start_with?('strMeasure') && !value.nil?
-        proportions << value
-      end
+      proportions << value if key.start_with?('strMeasure') && !value.nil?
     end
     proportions
   end

@@ -7,23 +7,21 @@ class MovieService < ApiService
   end
 
   def get_popular_movies(page)
-    response = get_data("https://api.themoviedb.org/3/movie/popular").get do |f|
+    response = get_data('https://api.themoviedb.org/3/movie/popular').get do |f|
       f.params['api_key'] = ENV['movie_key']
       f.params['page'] = page
     end
-    json = get_json(response)
-    json[:results]
+    get_json(response)[:results]
   end
 
   def movie_search(search)
-    response = get_data("https://api.themoviedb.org/3/search/movie").get do |f|
+    response = get_data('https://api.themoviedb.org/3/search/movie').get do |f|
       f.params['api_key'] = ENV['movie_key']
       f.params['query'] = search
       f.params['include_adult'] = false
       f.params['page'] = 1
     end
-    json = get_json(response)
-    json[:results]
+    get_json(response)[:results]
   end
 
   def get_review(id)
@@ -31,8 +29,8 @@ class MovieService < ApiService
       f.params['api_key'] = ENV['movie_key']
     end
     json = get_json(response)[:results]
-    return json[0..9] if json.count > 10
-    json
+
+    json.count > 10 ? json[0..9] : json
   end
 
   def get_cast(id)
@@ -41,7 +39,7 @@ class MovieService < ApiService
     end
     json = get_json(response)[:cast][0..9]
   end
-  
+
   def top_movies
     get_popular_movies('1') + get_popular_movies('2')
   end
