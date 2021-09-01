@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "the dashboard", :vcr do
   before(:each) do
-    @user = User.create!(email: 'test@test.com', password: 'pswd')
+    @user = create(:user)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
 
     visit dashboard_index_path
@@ -30,8 +30,9 @@ RSpec.describe "the dashboard", :vcr do
     end
 
     it 'can add a friend' do
-      email_1 = 'friend_1@email.com'
-      user_2 = User.create!(email: email_1, password: 'pswd')
+      user_2 = create(:user)
+      email_1 = user_2.email
+
 
       within("#friends") do
         expect(page).to_not have_content(email_1)
@@ -48,8 +49,8 @@ RSpec.describe "the dashboard", :vcr do
         expect(page).to have_content(email_1)
       end
 
-      email_2 = 'friend_2@email.com'
-      user_3 = User.create!(email: email_2, password: 'pswd')
+      user_3 = create(:user)
+      email_2 = user_3.email
 
       within("#add_friend") do
         fill_in 'email', with: email_2
@@ -69,8 +70,8 @@ RSpec.describe "the dashboard", :vcr do
     end
 
     it 'add friend sad path' do
-      email = 'friend_1@email.com'
-      user_2 = User.create!(email: email, password: 'pswd')
+      user_2 = create(:user)
+      email = user_2.email
 
       within("#add_friend") do
         fill_in 'email', with: 'error@test.com'

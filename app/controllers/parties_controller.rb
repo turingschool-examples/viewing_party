@@ -1,13 +1,14 @@
 class PartiesController < ApplicationController
   def new
-    @movie =  MovieServices.new.find_movie_details(params[:movie_id])
+    movie = MovieServices.new.find_movie_details(params[:movie_id])
+    @movie = Movie.new(movie)
     @party = Party.new
   end
 
   def create
     data = party_params
     data[:user_id] = current_user.id
-    party = Party.new(data)
+    party = Party.create(data)
     if party.save
       params[:friend_ids].each do |id|
         Attendee.create(user_id: id, party_id: party.id)
@@ -20,13 +21,7 @@ class PartiesController < ApplicationController
   end
 
   private
-
-  def convert_date(input)
-    Date::strptime(input, "%m/%d/%Y")
-  end
-
   def party_params
-    params[:date] = convert_date(params[:date])
     params[:time] = params[:time].to_time
     params.permit(:movie, :duration, :date, :time)
   end
