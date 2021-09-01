@@ -26,9 +26,16 @@
 
     </section>
     <section id="my_parties">
-
+      <% current_user.parties.each_with_index do |party, index| %>
+        <div id="#party.id"
+          <p><b>Party <%= index + 1 %></b></p>
+          <p><%= party.movie %></p>
+          <p><%= party.date.strftime('%B %d, %Y') %></p>
+          <p><%= party.time.in_time_zone('Mountain Time (US & Canada)').strftime('%l:%M %P') %></p>
+          <p>Hosting</p>
+        </div>
+      <% end %>
     </section>
   </div>
 </div>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/6JnN1DmbqoU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-

@@ -7,6 +7,9 @@ RSpec.describe User do
 
     it {should have_many(:follows)}
     it {should have_many(:followed).through(:follows)}
+
+    it {should have_many(:parties)}
+    it {should have_many(:attendees)}
   end
   describe "validations" do
     it {should validate_presence_of(:email)}

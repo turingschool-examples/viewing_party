@@ -1,0 +1,23 @@
+<div id='form'>
+  <br>
+  <h3> Create <b><%= @movie[:title] %></b> Viewing Party! </h3>
+  <%= form_with url: parties_path, method: :post, local: true do |form| %>
+    <%= form.hidden_field :movie, value: "#{@movie[:title]}" %>
+    <%= form.label :duration, 'Duration of Party' %>
+    <%= form.text_field :duration, value: "#{@movie[:duration]}" %>
+    <%= form.label :date, 'Day' %>
+    <%= form.date_field :date %>
+    <%= form.label :time, 'Time' %>
+    <%= form.time_field :time %>
+    <ul style="list-style-type:none;">
+    <% current_user.followed.each do |friend| %>
+      <li>
+        <%= check_box_tag 'friend_ids[]', friend.id %>
+        <%= h friend.email -%>
+      </li>
+    <% end %>
+    </ul>
+    <%= form.submit 'Create Party' %>
+  <% end %>
+  <br>
+</div>
