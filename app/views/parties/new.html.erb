@@ -1,10 +1,10 @@
 <div id='form'>
   <br>
-  <h3> Create <b><%= @movie[:title] %></b> Viewing Party! </h3>
+  <h3> Create <b><%= @movie.title %></b> Viewing Party! </h3>
   <%= form_with url: parties_path, method: :post, local: true do |form| %>
-    <%= form.hidden_field :movie, value: "#{@movie[:title]}" %>
+    <%= form.hidden_field :movie, value: "#{@movie.title}" %>
     <%= form.label :duration, 'Duration of Party' %>
-    <%= form.text_field :duration, value: "#{@movie[:duration]}" %>
+    <%= form.text_field :duration, value: "#{@movie.runtime}" %>
     <%= form.label :date, 'Day' %>
     <%= form.date_field :date %>
     <%= form.label :time, 'Time' %>

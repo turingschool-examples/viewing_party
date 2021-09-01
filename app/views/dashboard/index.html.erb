@@ -27,7 +27,7 @@
     </section>
     <section id="my_parties">
       <% current_user.parties.each_with_index do |party, index| %>
-        <div id="#party.id">
+        <div id="<%= party.id %>">
           <p><b>Party <%= index + 1 %></b></p>
           <p><%= party.movie %></p>
           <p><%= party.date.strftime('%B %d, %Y') %></p>

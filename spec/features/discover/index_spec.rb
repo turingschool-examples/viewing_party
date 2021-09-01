@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "discover movies", :vcr do
   before(:each) do
-    @user = User.create!(email: 'test@test.com', password: 'pswd')
+    @user = create(:user)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
   end
 
@@ -39,16 +39,12 @@ RSpec.describe "discover movies", :vcr do
         click_button 'Find Movies'
       end
 
-      expect(page).to have_content('The Suicide Squad, Vote Average: 8')
-      expect(page).to have_content('The Forever Purge, Vote Average: 7.5')
-      expect(page).to have_content('The Unholy, Vote Average: 6.9')
-      expect(page).to have_content('The Meg, Vote Average: 6.2')
-      expect(page).to have_content('The Seventh Day, Vote Average: 5.6')
+      expect(page).to have_selector('.card', count: 40)
     end
   end
 
   describe 'top forty button' do
-    it 'returns the top 40 rated movies' do
+    xit 'returns the top 40 rated movies' do
       Capybara.default_driver = :selenium_chrome_headless
       visit discover_index_path
       click_on("Top Rate Movies")

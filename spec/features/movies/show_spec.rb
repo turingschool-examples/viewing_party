@@ -1,8 +1,12 @@
 require 'rails_helper'
 
-  RSpec.describe 'Movies Show Page' do
+  RSpec.describe 'Movies Show Page', :vcr do
     describe 'create viewing party button' do
       it 'takes the user to the new viewing_party page' do
+        user = create(:user)
+
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
         visit "/movies/278"
         click_on("Create Viewing Party")
         expect(current_path).to eq(new_party_path)
