@@ -77,12 +77,23 @@ A list of commonly used resources that I find helpful are listed in the acknowle
 
 ### Built With
 
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+* Ruby 2.7.2
+* Ruby on Rails 5.2.6
 * [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
-* [Laravel](https://laravel.com)
+* HTML
+* CSS
+* Heroku
 
+#### Gems Used
 
+* Capybara
+* Pry
+* Bcrypt
+* Figaro
+* Faraday
+* Factory Bot Rails
+* Faker
+* MailCatcher
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -100,10 +111,10 @@ This is an example of how to list things you need to use the software and how to
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
+1. Get a free API Key at [www.themoviedb.org](https://www.themoviedb.org/documentation/api)
 2. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/gunnarrunner/viewing_party.git
    ```
 3. Install NPM packages
    ```sh
