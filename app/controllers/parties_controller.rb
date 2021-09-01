@@ -4,4 +4,31 @@ class PartiesController < ApplicationController
     @movie = { title: 'Lord of the Rings', duration: 190 }
     @party = Party.new
   end
+
+  def create
+    data = party_params
+    data[:user_id] = current_user.id
+    party = Party.new(data)
+    if party.save
+      params[:friend_ids].each do |id|
+        Attendee.create(user_id: id, party_id: party.id)
+      end
+      redirect_to dashboard_index_path
+    else
+      flash[:danger] = "Invalid Info"
+      redirect_to new_party_path
+    end
+  end
+
+  private
+
+  def convert_date(input)
+    Date::strptime(input, "%m/%d/%Y")
+  end
+
+  def party_params
+    params[:date] = convert_date(params[:date])
+    params[:time] = params[:time].to_time
+    params.permit(:movie, :duration, :date, :time)
+  end
 end
