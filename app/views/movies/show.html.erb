@@ -28,6 +28,7 @@
             </div>
           </div>
         </div>
+        <%=link_to "Create Viewing Party", new_party_path(movie_id: @movie.id) %>
       </p>
       <p style="filter: invert(1) grayscale(1) contrast(9);  font-family: 'Source Code Pro', monospace; font-size: 1.5rem"> 
         <%= @movie.overview %>
@@ -52,7 +53,7 @@
   <div class="col-2 align-items-stretch"style="display: inline-block; width: 13rem;">
     <div class="card" style=" width: 12rem;">
       <div class="card-body" style="height: 125px;">
-        <p class="card-text text-wrap"><%=link_to "See All Cast And Crew" %> </p>
+        <p class="card-text text-wrap"><%=link_to "See All Cast And Crew", class: 'disabled' %> </p>
       </div>
     </div>
   </div>
@@ -73,7 +74,3 @@
   </div>
   <% end %>
 </section>
-<%= bootstrap_form_tag url: "/movies/#{278}", method: :get do |f| %>
-<input type="time" id="start" name="trip-start" step="300">
-<%= f.submit 'button_name' %>
-<% end %>
