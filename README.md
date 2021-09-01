@@ -48,16 +48,9 @@ Matt Toensing: [![Matt][linkedin-shield]][linkedin-url1]
 <img width="911" alt="Screen Shot 2021-09-01 at 2 21 36 PM" src="https://user-images.githubusercontent.com/80132364/131747248-db278a4c-0eba-4806-a3b9-c11bbcacccc1.png">
 
 
-There are many great README templates available on GitHub, however, I didn't find one that really suit my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+Viewing party is an application that utilizes the Movie DB API. Users can visit our app, register to create an account, and from there find other users to create friends. Once a user registers an account, the user can utilize login/logout features. As a user and as a guest, you can discover movies by searching for a specific movie, or viewing the current top 40 popular movies section. When a user finds a movie they want to see, they can view a movie page which shows the details for the movie such as cast and any reviews available. 
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
-
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
-
-A list of commonly used resources that I find helpful are listed in the acknowledgements.
+If a user is signed in, they have the option to create a viewing party for that movie. When clicking the button to create a viewing party from the movie page, the user is redirected to page with a form. The form includes the name of the movie, and the length of the movie by default. Date and time can then be selected, and the page will show all of the friends that can be selected with a check box. Then, once the viewing party is created, the the user is defaulted back to the user dashboard, where they will see any viewing parties that they are either hosting or have been invited to. 
 
 ### Built With
 
