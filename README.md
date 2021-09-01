@@ -25,9 +25,7 @@ Matt Toensing: [![Matt][linkedin-shield]][linkedin-url1]
         <li><a href="#gems-used">Gems Used</a></li>
       </ul>
     </li>
-    <li>
-      <li><a href="#installation">Installation</a></li>
-    </li>
+     <li><a href="#installation">Installation</a></li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
