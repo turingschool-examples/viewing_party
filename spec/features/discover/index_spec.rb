@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "discover movies", :vcr do
   before(:each) do
-    @user = User.create!(email: 'test@test.com', password: 'pswd')
+    @user = create(:user)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
   end
 
