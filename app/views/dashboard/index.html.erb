@@ -23,7 +23,15 @@
   </section>
   <div class="col-6">
     <section id="friends_parties">
-
+      <% current_user.attendees.each_with_index do |attendee, index| %>
+        <div id="<%= attendee.party.id %>">
+          <p><b>Party <%= index + 1 %></b></p>
+          <p><%= attendee.party.movie %></p>
+          <p><%= attendee.party.date.strftime('%B %d, %Y') %></p>
+          <p>&nbsp;<%= attendee.party.time.in_time_zone('Mountain Time (US & Canada)').strftime('%l:%M %P') %></p>
+          <p>Attending</p>
+        </div>
+      <% end %>
     </section>
     <section id="my_parties">
       <% current_user.parties.each_with_index do |party, index| %>

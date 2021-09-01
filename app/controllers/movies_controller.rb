@@ -20,7 +20,7 @@ class MoviesController < ApplicationController
   def search_params
     params.permit(:keywords)
   end
-  
+
   def movie_find_params
     params.permit(:id)
   end
