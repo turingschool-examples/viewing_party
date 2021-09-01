@@ -11,6 +11,13 @@ class AttendeesController < ApplicationController
       end
     end
 
+    send_mail(viewing_party)
     redirect_to "/dashboard"
+  end
+
+  private
+
+  def send_mail(viewing_party)
+    WatchPartyMailer.viewing_party_invitation(viewing_party).deliver
   end
 end
