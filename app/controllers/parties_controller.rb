@@ -21,12 +21,8 @@ class PartiesController < ApplicationController
 
   private
 
-  def convert_date(input)
-    Date::strptime(input, "%m/%d/%Y")
-  end
 
   def party_params
-    params[:date] = convert_date(params[:date])
     params[:time] = params[:time].to_time
     params.permit(:movie, :duration, :date, :time)
   end

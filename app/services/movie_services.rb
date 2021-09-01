@@ -30,7 +30,6 @@ class MovieServices < ApiService
     get_json(results)
   end
   def movie_cast(id)
-    binding.pry
     results = get_data("https://api.themoviedb.org/3/movie/#{id}/credits?api_key=#{ENV['movies_api_key']}&language=en-US").get
     if get_json(results) != []
       get_json(results)[:cast][0..9]
