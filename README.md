@@ -45,7 +45,7 @@ Matt Toensing: [![Matt][linkedin-shield]][linkedin-url1]
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-<img width="1312" alt="Screen Shot 2021-08-10 at 5 24 02 PM" src="https://user-images.githubusercontent.com/80132364/131747076-a6fc1a73-9edf-4467-8616-4d87c81e54be.png">
+<img width="1119" alt="Screen Shot 2021-08-31 at 7 27 08 PM" src="https://user-images.githubusercontent.com/80132364/131747163-ba3d8113-da60-4a88-b21c-9c74910b2b14.png">
 
 
 There are many great README templates available on GitHub, however, I didn't find one that really suit my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
