@@ -1,17 +1,9 @@
 class SessionsController < ApplicationController
-  # def index
-
-  # end
-
   def show
     if current_user && !current_user.friendships.nil?
       @friends = current_user.friends
     end
   end
-
-  # def new
-
-  # end
 
   def create
     user = User.find_by(email: params[:email])
@@ -25,23 +17,10 @@ class SessionsController < ApplicationController
     end
   end
 
-  # def edit
-
-  # end
-
-  # def update
-
-  # end
-
   def destroy
     session[:user_id] = nil
     session[:movies] = nil
 
     redirect_to '/'
   end
-
-private
-  # def _params
-  #   params.permit(:)
-  # end
 end

@@ -2,7 +2,6 @@ class MovieFacade
 
     @@service = MovieService.new
 
-
   def self.cast_information(id)
     cast = @@service.get_cast(id)
     cast.map do |hash|
