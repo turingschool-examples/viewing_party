@@ -1,5 +1,17 @@
 <h1>Welcome <%= current_user.email %>!</h1>
-
-<% @results.each do |movie| %>
-  <p><%= movie.title %>, Vote Average: <%= movie.vote_average %></p>
-<% end %>
+<%= react_component("TopRatedBtn")%>
+<div class="row">
+  <% @results.each do |movie| %>
+  <div class="col-3 align-items-stretch pb-2" style="display: inline-block;">
+    <div class="card">
+      <a href="/movies/<%= movie.id %>">
+        <img src="https://image.tmdb.org/t/p/w500/<%=movie.poster_path%>" class="card-img-top" alt="..." style="height: 350px;">
+      </a>
+      <div class="card-body" style="height: 180px;">
+        <h5 class="card-title"><%= link_to movie.title, movie_path(movie.id), class: "nav-link" %></h5>
+        <p class="card-text ms-3">Vote Average: <%= movie.vote_average %></p>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

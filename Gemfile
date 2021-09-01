@@ -41,6 +41,8 @@ group :test do
   gem 'shoulda-matchers'
   gem 'webmock'
   gem 'vcr'
+  gem 'selenium-webdriver'
+  gem 'webdrivers'
 end
 
 gem 'webpacker'
