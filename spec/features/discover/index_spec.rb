@@ -44,14 +44,12 @@ RSpec.describe "discover movies", :vcr do
   end
 
   describe 'top forty button' do
-    it 'returns the top 40 rated movies' do
-      # Capybara.default_driver = :selenium_chrome_headless
+    xit 'returns the top 40 rated movies' do
+      Capybara.default_driver = :selenium_chrome_headless
       visit discover_index_path
       click_on("Top Rate Movies")
       #movies index generates 40 movie cards
       expect(page).to have_selector('.card', count: 40)
-
-      # Capybara.run_server = false
     end
   end
 end
