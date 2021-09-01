@@ -15,12 +15,13 @@ class PartiesController < ApplicationController
       end
       redirect_to dashboard_index_path
     else
-      flash[:danger] = "Invalid Info"
+      flash[:danger] = 'Invalid Info'
       redirect_to new_party_path
     end
   end
 
   private
+
   def party_params
     params[:time] = params[:time].to_time
     params.permit(:movie, :duration, :date, :time)

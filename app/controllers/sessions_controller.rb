@@ -6,11 +6,11 @@ class SessionsController < ApplicationController
         flash[:success] = "Welcome, #{found_user.email}!"
         redirect_to '/dashboard'
       else
-        flash[:danger] = "No matching account!"
+        flash[:danger] = 'No matching account!'
         redirect_to root_path
       end
     else
-      flash[:danger] = "No matching account!"
+      flash[:danger] = 'No matching account!'
       redirect_to root_path
     end
   end

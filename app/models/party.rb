@@ -3,6 +3,6 @@ class Party < ApplicationRecord
   has_many :attendees
   has_many :users, through: :attendees
 
-  validates_presence_of :user_id, :time, :movie, :duration
+  validates :user_id, :time, :movie, :duration, presence: true
   validates :duration, numericality: { only_integer: true }
 end
