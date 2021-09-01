@@ -61,7 +61,7 @@ If a user is signed in, they have the option to create a viewing party for that 
 * Capybara
 * Pry
 * Bcrypt
-* Figaro
+* [Figaro](https://github.com/laserlemon/figaro)
 * Faraday
 * Factory Bot Rails
 * Faker
@@ -76,13 +76,21 @@ If a user is signed in, they have the option to create a viewing party for that 
    ```sh
    git clone https://github.com/gunnarrunner/viewing_party.git
    ```
-4. Install NPM packages
-   ```sh
-   npm install
+4. Change Directories
    ```
-5. Enter your API in `config.js`
-   ```JS
-   const API_KEY = 'ENTER YOUR API';
+   cd viewing_party
+   ```
+5. Perform Gem installation
+    ```
+    bundle install
+    ```
+7. [Figaro Gem Docs can be found hers](https://github.com/laserlemon/figaro)
+    ```
+    bundle exec figaro install
+    ```
+9. Enter your API in `config/application.yml`
+   ```
+   movie_key = 'ENTER YOUR API'
    ```
 
 ## Usage
