@@ -3,7 +3,7 @@ class MoviesController < ApplicationController
     if params['result'] == 'top_40'
       @results = MovieServices.new.top_forty
     else
-      @results = api_movies_search(search_params[:keywords])
+      @results = MovieFacade.movies_search(search_params[:keywords])
     end
   end
 
@@ -17,6 +17,7 @@ class MoviesController < ApplicationController
   def search_params
     params.permit(:keywords)
   end
+  
   def movie_find_params
     params.permit(:id)
   end
