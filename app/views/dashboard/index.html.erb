@@ -3,7 +3,7 @@
 <div>
   <%=link_to "Discover Movies", discover_index_path, class: "nav-link" %>
 </div>
-
+<%= react_component("AddFriend")%>
 <div class="row">
   <section class="col-6" id="friends">
     <div id="add_friend">
@@ -27,7 +27,7 @@
     </section>
     <section id="my_parties">
       <% current_user.parties.each_with_index do |party, index| %>
-        <div id="#party.id"
+        <div id="#party.id">
           <p><b>Party <%= index + 1 %></b></p>
           <p><%= party.movie %></p>
           <p><%= party.date.strftime('%B %d, %Y') %></p>
@@ -38,4 +38,3 @@
     </section>
   </div>
 </div>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/6JnN1DmbqoU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

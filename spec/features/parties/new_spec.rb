@@ -21,12 +21,9 @@ RSpec.describe "new movie party" do
       movie = { title: 'Lord of the Rings', duration: 190 }
       # allow_any_instance_of(Movie).to receive(:title).and_return('Lord of the Rings')
       # allow_any_instance_of(Movie).to receive(:duration).and_return(190)
-
-      visit new_party_path
-
+      visit new_party_path(movie_id: 278)
       within('#form') do
-        expect(page).to have_content("Create #{movie[:title]} Viewing Party!")
-        expect(find_field('duration').value).to eq("#{movie[:duration]}")
+        expect(page).to have_content("Create The Shawshank Redemption Viewing Party!")
         expect(page).to have_content(user_4.email)
         expect(page).to_not have_content(user_5.email)
 
@@ -40,7 +37,7 @@ RSpec.describe "new movie party" do
       expect(current_path).to eq(dashboard_index_path)
 
       within('#my_parties') do
-        expect(page).to have_content('Lord of the Rings')
+        expect(page).to have_content('The Shawshank Redemption')
         expect(page).to have_content('August 24, 2021')
         expect(page).to have_content('7:00 pm')
         expect(page).to have_content('Hosting')
