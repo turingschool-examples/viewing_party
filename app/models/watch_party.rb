@@ -9,6 +9,6 @@ class WatchParty < ApplicationRecord
   belongs_to :user
 
   def chosen_movie
-    MovieFacade.create_movie(self.movie_id)
+    MovieFacade.create_movie(movie_id)
   end
 end

@@ -20,7 +20,7 @@ class WatchPartyMailer < ApplicationMailer
 
   def viewing_party_invitation(watch_party)
     mail(to: user_ids(watch_party),
-         bcc: ["You are Invited!"],
+         bcc: ['You are Invited!'],
          body: email_body(watch_party))
   end
 

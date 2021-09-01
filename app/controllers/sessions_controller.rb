@@ -1,8 +1,6 @@
 class SessionsController < ApplicationController
   def show
-    if current_user && !current_user.friendships.nil?
-      @friends = current_user.friends
-    end
+    @friends = current_user.friends if current_user && !current_user.friendships.nil?
   end
 
   def create
@@ -12,7 +10,7 @@ class SessionsController < ApplicationController
       flash[:success] = "Welcome, #{user.email}!"
       redirect_to '/dashboard'
     else
-      flash[:error] = "Sorry, your credentials are bad."
+      flash[:error] = 'Sorry, your credentials are bad.'
       redirect_to '/'
     end
   end
