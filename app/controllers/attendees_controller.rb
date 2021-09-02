@@ -9,7 +9,7 @@ class AttendeesController < ApplicationController
       end
     end
 
-    send_mail(viewing_party)
+    # send_mail(viewing_party)
     redirect_to '/dashboard'
   end
 
