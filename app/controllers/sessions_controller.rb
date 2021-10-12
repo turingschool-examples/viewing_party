@@ -14,8 +14,4 @@ class SessionsController < ApplicationController
     render :new
   end
   end
-  private
-  def _params
-    params.permit(:)
-  end
 end
