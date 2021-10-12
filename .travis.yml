@@ -10,5 +10,6 @@ deploy:
   provider: heroku
   api_key: czCwkImMrDmr5Irj3VUwow
   app: viewing-party-denver
-  on: main
+  on:
+    branch: main
   run: rails db:migrate
