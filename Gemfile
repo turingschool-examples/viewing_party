@@ -19,8 +19,6 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   gem 'pry'
   gem 'travis'
-  gem 'shoulda-matchers', '~> 3.1'
-  gem 'orderly'
 end
 
 group :development do
@@ -31,6 +29,8 @@ group :development do
 end
 
 group :test do
+  gem 'shoulda-matchers', '~> 3.1'
+  gem 'orderly'
   gem 'rspec-rails'
   gem 'capybara'
   gem 'launchy'
