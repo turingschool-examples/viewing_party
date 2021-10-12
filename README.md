@@ -1,22 +1,62 @@
 # Viewing Party
 
+## Background and Description
+
+"Viewing Party" is an application in which users can explore movie options and create a viewing party event for the user and friend's.
+
+## Learning Goals
+- Practice designing a normalized database schema and defining model relationships.
+- Practice loading csv files to the database.
+- Utilize advanced routing techniques including namespacing to organize and group like functionality together.
+- Utilize advanced ActiveRecord techniques to perform complex database queries.
+- Practice consuming a public API while utilizing POROs as a way to apply OOP principles to organize code.
+
+## Requirements
+- Rails 5.2.5
+- Ruby 2.7.2
+- PostgreSQL
+- Travis CI
+- Test all feature and model code
+- GitHub branching, team code reviews via GitHub comments, and github projects to track progress on user stories
+- Deploy completed code to Heroku
+
+## Database Schema
 <img width="597" alt="Screen Shot 2021-10-11 at 9 58 51 PM" src="https://user-images.githubusercontent.com/72399033/136889076-b63f675b-90b8-4531-b35a-87a336a05347.png">
 
-### About this Project
+## Setup
+* Fork this repository
+* Clone your fork
+* From the command line, install gems and set up your DB:
+    * `bundle install`
+    * `rails db:{create,migrate}`
+* Run the test suite with `bundle exec rspec`.
+* Run your development server with `rails s` to see the app in action.
 
-Viewing party is an application in which users can explore movie options and create a viewing party event for the user and friend's.
+## Phases
+1. [Database Setup](./doc/db_setup.md)
+1. [User Stories](./doc/user_stories.md)
+1. [Evaluation](./doc/evaluation.md)
 
-## Local Setup
+## Live App
+[Link to Heroku deployment](https://viewing-party-denver.herokuapp.com)
 
-1. Fork and Clone the repo
-2. Install gem packages: `bundle install`
-3. Setup the database: `rails db:create`
+## Tools Used
 
+| Development    |  Testing             |
+| :-------------:| :-------------------:|
+| Ruby 2.7.2     | SimpleCov            |
+| Rails 5.2.6    | Pry                  |
+| HTML5          | Capybara             |
+| Bootstrap      | ShouldaMatcher       |
+| Atom           | Launchy              |
+| Git            | Orderly              |
+| Github         | Factorybot/Faker     |
+| Github Project | Faraday              |
+| Postico        | RSpec                |
+| Heroku         | Travis CI            |
+|                | RuboCop              |
 
-## Versions
+## Contributors
 
-- Ruby 2.7.2
-
-- Rails 5.2.5
-
-Example wireframes to follow are found [here](https://backend.turing.io/module3/projects/viewing_party/wireframes)
+- [Isika Powers](https://github.com/Isikapowers/)
+- [Erike Kischuk](http://github.com/eakischuk/)
