@@ -9,9 +9,10 @@ RSpec.describe User, type: :model do
     it { should have_many(:followees).through(:followed_users) }
     it { should have_many(:followers).through(:following_users) }
   end
-  # describe 'validations' do
-  #   it { should validate_presence_of(:) }
-  # end
+  describe 'validations' do
+    it { should validate_presence_of(:email) }
+    it { should validate_presence_of(:password) }
+  end
   before :each do
 
   end
