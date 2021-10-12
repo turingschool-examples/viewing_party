@@ -7,6 +7,8 @@ end
 
 ruby '2.7.2'
 
+gem 'faraday'
+gem 'json'
 gem 'rails', '5.2.5'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.7'
@@ -35,6 +37,8 @@ group :test do
   gem 'capybara'
   gem 'launchy'
   gem 'simplecov'
+  gem 'factory_bot_rails'
+  gem 'faker'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
