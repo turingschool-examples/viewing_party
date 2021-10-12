@@ -1,0 +1,13 @@
+<h1>Welcome to Viewing Party!</h1>
+
+<h4>This is an application where you can create and manage viewing parties with your friends. Simply log in and head to the discover page, where you will find the best movie for you and your friends to enjoy!</h4>
+
+<% if session[:user_id] && current_user %>
+<%= link_to "Dashboard", dashboard_path %>
+<% else %>
+<h3>Click below to log in:</h3>
+<%= link_to "Log In", login_path %>
+<br>
+<h3>New Here? Create an account below:</h3>
+<%= link_to "Create an Account", registration_path %>
+<% end %>
