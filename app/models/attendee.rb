@@ -1,6 +1,5 @@
-class  < ApplicationRecord
-  validates :
-  belongs_to :
-  has_many :
-  has_many :, through: :
+class Attendee < ApplicationRecord
+  belongs_to :event
+  belongs_to :user
+
 end

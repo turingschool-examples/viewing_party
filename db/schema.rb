@@ -10,18 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_12_194054) do
+ActiveRecord::Schema.define(version: 2021_10_12_202058) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "attendees", force: :cascade do |t|
-    t.bigint "users_id"
-    t.bigint "events_id"
+    t.bigint "user_id"
+    t.bigint "event_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["events_id"], name: "index_attendees_on_events_id"
-    t.index ["users_id"], name: "index_attendees_on_users_id"
+    t.index ["event_id"], name: "index_attendees_on_event_id"
+    t.index ["user_id"], name: "index_attendees_on_user_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -29,10 +29,9 @@ ActiveRecord::Schema.define(version: 2021_10_12_194054) do
     t.date "date"
     t.datetime "time"
     t.integer "runtime"
-    t.bigint "users_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["users_id"], name: "index_events_on_users_id"
+    t.bigint "user_id"
   end
 
   create_table "friendships", force: :cascade do |t|
@@ -49,7 +48,7 @@ ActiveRecord::Schema.define(version: 2021_10_12_194054) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "attendees", "events", column: "events_id"
-  add_foreign_key "attendees", "users", column: "users_id"
-  add_foreign_key "events", "users", column: "users_id"
+  add_foreign_key "attendees", "events"
+  add_foreign_key "attendees", "users"
+  add_foreign_key "events", "users", name: "events_user_id_fkey"
 end

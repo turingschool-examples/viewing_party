@@ -1,13 +1,10 @@
 require 'rails_helper'
-RSpec.describe , type: :model do
+RSpec.describe Attendee, type: :model do
   describe 'relationships' do
-    it { should belong_to(:) }
-    it { should have_many(:) }
-    it { should have_many(:).through(:) }
+    it { should belong_to(:event) }
+    it { should belong_to(:user) }
   end
-  describe 'validations' do
-    it { should validate_presence_of(:) }
-  end
+  
   before :each do
 
   end
