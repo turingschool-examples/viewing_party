@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
 
   get '/users', to: 'users#new', as: '/registration'
-  resources :users, oinly: [:new, :create]
+  resources :users, only: [:create]
+
+  get '/dashboard', controller: :users, action: :show
 end
