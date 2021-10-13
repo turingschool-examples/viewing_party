@@ -1,6 +1,5 @@
 class WelcomeController < ApplicationController
-  def index
-  end
+  def index; end
 
   def login
     user = User.find_by(email: params[:email])
