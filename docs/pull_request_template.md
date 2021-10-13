@@ -1,6 +1,6 @@
 ____ Wrote/Add Tests ____ Implemented New Features ____ Reviewed Codes ____ Fixed Issues
 
-# Neccesary checkmarks:
+# Necesary checkmarks:
 
 - [ ] All Tests are Passing
 
@@ -9,6 +9,7 @@ ____ Wrote/Add Tests ____ Implemented New Features ____ Reviewed Codes ____ Fixe
 # Type of change:
 
 - [ ] Bug fix (non-breaking change which fixes an issue)
+- [ ] Fix typos
 - [ ] New feature (non-breaking change which adds functionality)
 - [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
 - [ ] This change requires a documentation update
