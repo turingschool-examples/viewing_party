@@ -3,5 +3,7 @@ Rails.application.routes.draw do
   root "welcome#index"
   post "/", to: "welcome#login"
 
-  resources :users
+  resources :users, only: [:new, :create]
+
+  get '/dashboard', to: 'users#show', as: 'dashboard'
 end
