@@ -6,4 +6,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
 
   get '/dashboard', to: 'users#show', as: 'dashboard'
+
+  get '/logout', to: 'users#destroy'
+  delete '/logout', to: 'users#destroy'
 end
