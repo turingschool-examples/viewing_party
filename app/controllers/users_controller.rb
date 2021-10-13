@@ -4,9 +4,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = user_params
-    user[:email] = user[:email].downcase
-    new_user = User.new(user)
+    new_user = User.new(downcased_user_params)
     if new_user.save
       session[:user_id] = new_user.id
       flash[:success] = 'Success! Welcome to Viewing Party!'
@@ -21,9 +19,16 @@ class UsersController < ApplicationController
     @user = User.find(session[:user_id])
   end
 
+
   private
 
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :last_name)
+  end
+
+  def downcased_user_params
+    user = user_params
+    user[:email] = user[:email].downcase
+    user
   end
 end
