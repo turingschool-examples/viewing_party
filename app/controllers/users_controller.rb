@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome, #{new_user.email}!"
       redirect_to dashboard_path
     else
-      redirect_to "/users"
+      redirect_to registration_path
       flash[:error] = "Error: #{error_message(new_user.errors)}"
     end
   end

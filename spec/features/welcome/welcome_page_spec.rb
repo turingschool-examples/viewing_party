@@ -17,7 +17,7 @@ RSpec.describe 'welcome index page' do
     expect(page).to have_link('Create an Account')
   end
 
-  xit 'links the users to log-in and register' do
+  it 'links the users to log-in and register' do
     click_on 'Log In'
     expect(current_path).to eq(login_path)
 
