@@ -16,6 +16,6 @@ class MovieInfo
     @overview = movie[:overview]
     @cast = movie[:cast]
     @reviews = movie[:results]
-    @id = movie[id]
+    @id = movie[:id]
   end
 end
