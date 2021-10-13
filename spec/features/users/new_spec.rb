@@ -27,7 +27,7 @@ RSpec.describe 'user registration page' do
     fill_in 'user[password_confirmation]', with: '    '
     click_on "Create User"
     expect(page).to have_content("Error: Password confirmation doesn't match Password")
-    expect(current_path).to eq('/users')
+    expect(current_path).to eq(registration_path)
   end
 
   it 'has a sad path if confirmation does nor match' do
@@ -40,7 +40,7 @@ RSpec.describe 'user registration page' do
     fill_in 'user[password_confirmation]', with: password_1
     click_on "Create User"
     expect(page).to have_content("Error: Password confirmation doesn't match Password")
-    expect(current_path).to eq('/users')
+    expect(current_path).to eq(registration_path)
   end
 
   it 'has a sad path if no password is provided' do
@@ -53,7 +53,7 @@ RSpec.describe 'user registration page' do
     fill_in 'user[password_confirmation]', with: password_1
     click_on "Create User"
     expect(page).to have_content("Error: Password confirmation doesn't match Password")
-    expect(current_path).to eq('/users')
+    expect(current_path).to eq(registration_path)
   end
 
   it 'has a sad path if no email is provided' do
@@ -66,6 +66,6 @@ RSpec.describe 'user registration page' do
     fill_in 'user[password_confirmation]', with: password
     click_on "Create User"
     expect(page).to have_content("Error: Email can't be blank")
-    expect(current_path).to eq('/users')
+    expect(current_path).to eq(registration_path)
   end
 end
