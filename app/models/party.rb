@@ -1,6 +1,6 @@
 class Party < ApplicationRecord
-  validates_presence_of :movie_title
-  validates_presence_of :duration
-  validates_presence_of :time
-  validates_presence_of :date
+  validates :movie_title, presence: true
+  validates :duration, presence: true
+  validates :time, presence: true
+  validates :date, presence: true
 end

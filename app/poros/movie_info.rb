@@ -18,3 +18,4 @@ class MovieInfo
     @reviews = movie[:results]
     @id = movie[id]
   end
+end
