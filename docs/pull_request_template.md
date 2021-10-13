@@ -2,9 +2,9 @@ ____ Wrote/Add Tests ____ Implemented New Features ____ Reviewed Codes ____ Fixe
 
 # Neccesary checkmarks:
 
-- [] All Tests are Passing
+- [ ] All Tests are Passing
 
-- [] The code will run locally
+- [ ] The code will run locally
 
 # Type of change:
 
@@ -23,11 +23,11 @@ ____ Wrote/Add Tests ____ Implemented New Features ____ Reviewed Codes ____ Fixe
 
 # Testing Changes
 
-- [] No Tests have been changed
-- [] Some Tests have been changed
-- [] All of the Tests have been changed(Please describe what in the world happened)
+- [ ] No Tests have been changed
+- [ ] Some Tests have been changed
+- [ ] All of the Tests have been changed(Please describe what in the world happened)
      - What have been changes?
-- [] Add new tests for features/models
+- [ ] Add new tests for features/models
     
 # Checklist:
 
