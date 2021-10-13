@@ -25,7 +25,7 @@ RSpec.describe "Welcome Page" do
 
       click_on "Sign In"
 
-      expect(current_path).to eq(user_path(@user))
+      expect(current_path).to eq(dashboard_path(@user))
 
       expect(page).to have_content("Welcome, #{@user.first_name}!")
     end

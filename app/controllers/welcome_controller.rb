@@ -8,7 +8,7 @@ class WelcomeController < ApplicationController
       session[:user_id] = user.id
       flash[:success] = "Welcome, #{user.first_name}!"
 
-      redirect_to user_path(user)
+      redirect_to dashboard_path(user)
     else
       flash[:error] = 'Error: Please make sure your credentials are correct.'
 
