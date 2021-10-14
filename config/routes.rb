@@ -12,7 +12,10 @@ Rails.application.routes.draw do
 
   get '/movies', to: 'movies#index'
   post '/movies', to: 'movies#index'
+  get '/movies/:movie_id', to: 'movies#show'
 
   get '/discover', to:'movies#discover'
   post '/discover', to:'movies#discover'
+
+  resources :parties
 end
