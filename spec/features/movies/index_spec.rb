@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Movies Index Page' do
   before :each do
-    @user = User.create!(email: "test123@xyz.com", password: "banana", first_name: "James", last_name: "Doe")
+    @user = create(:mock_user)
 
     visit movies_path
   end
@@ -16,7 +16,7 @@ RSpec.describe 'Movies Index Page' do
       expect(page).to have_button('Find Movies')
     end
 
-    it 'displays the movie results' do
+    xit 'displays the movie results' do
     end
   end
 end
