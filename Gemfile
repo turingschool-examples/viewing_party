@@ -19,6 +19,8 @@ gem 'bootsnap'
 gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'tmdb-api'
+gem 'figaro'
+gem 'pusher'
 
 
 group :development, :test do
