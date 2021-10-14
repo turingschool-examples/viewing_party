@@ -7,4 +7,9 @@ RSpec.describe Party do
     it { should validate_presence_of(:time) }
     it { should validate_presence_of(:date) }
   end
+
+  describe 'relationships' do
+    it { should have_many(:attendees).dependent(:destroy) }
+    it { should have_many(:users).through(:attendees) }
+  end
 end

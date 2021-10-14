@@ -9,6 +9,13 @@ RSpec.describe User do
     it { should validate_presence_of(:last_name) }
   end
 
+  describe 'relationships' do
+    it { should have_many(:attendees).dependent(:destroy) }
+    it { should have_many(:parties).through(:attendees) }
+    it { should have_many(:friendships) }
+    it { should have_many(:friends).through(:friendships) }
+  end
+
   describe 'instance methods' do
     describe '#full_name' do
       it 'returns user full name' do
