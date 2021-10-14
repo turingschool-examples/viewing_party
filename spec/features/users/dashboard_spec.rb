@@ -25,10 +25,11 @@ RSpec.describe 'dashboard page' do
     fill_in 'password', with: @user_1.password
 
     click_on 'Submit'
+    
     expect(page).to have_content("My Friends:")
   end
 
-  xit 'has message for no friends' do
+  it 'has message for no friends' do
     visit "/"
     click_on "Log In"
 

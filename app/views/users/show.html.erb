@@ -5,3 +5,7 @@
   <%= form.text_field :user_search, id: :user_search %>
   <%= form.submit 'Add Friend' %>
 <% end %>
+
+<% if current_user.no_friends? %>
+    <h3>You Have No Followers</h3>
+<% end %>

@@ -14,4 +14,7 @@ class User < ApplicationRecord
     !followers.where(id: user_id).empty?
   end
 
+  def no_friends?
+    followers.count == 0
+  end
 end
