@@ -18,6 +18,10 @@ gem 'coffee-rails', '~> 4.2'
 gem 'bootsnap'
 gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
+gem 'vcr', '~> 5.0'
+gem 'webmock', '~> 3.7', '>= 3.7.6'
+gem 'tmdb-api'
+
 
 group :development, :test do
   gem 'pry'
