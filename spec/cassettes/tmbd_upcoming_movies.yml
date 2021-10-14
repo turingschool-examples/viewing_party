@@ -1,0 +1,195 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.themoviedb.org/3/movie/upcoming?api_key
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Wed, 13 Oct 2021 22:48:05 GMT
+      Server:
+      - openresty
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
+        Content-Length, Content-Range
+      Cache-Control:
+      - public, max-age=300
+      X-Cache:
+      - Error from cloudfront
+      Via:
+      - 1.1 7d885ba806a1846198f8b666005bec93.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - DEN50-C2
+      X-Amz-Cf-Id:
+      - uTtzqhN76WROjGeoRddg4QTmjH__1lbNki6FdbizsQpR5RTbmHtx0Q==
+    body:
+      encoding: UTF-8
+      string: '{"status_code":7,"status_message":"Invalid API key: You must be granted
+        a valid key.","success":false}
+
+'
+    http_version: null
+  recorded_at: Wed, 13 Oct 2021 22:48:05 GMT
+- request:
+    method: get
+    uri: http://api.themoviedb.org/3/movie/upcoming?api_key=a6bac940a8ecbd07ecfa134de156d00d
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Wed, 13 Oct 2021 23:01:31 GMT
+      Server:
+      - openresty
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
+        Content-Length, Content-Range
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 48ea53c7edffa2cdbdc32f7d94966344.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - DEN50-C2
+      X-Amz-Cf-Id:
+      - gnR6J5IjQQ2wLLd1KzI3hzUQi2e1eGPmomIm3Hjwbn_SlpVU8y-8YA==
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJkYXRlcyI6eyJtYXhpbXVtIjoiMjAyMS0xMS0wNCIsIm1pbmltdW0iOiIyMDIxLTEwLTEyIn0sInBhZ2UiOjEsInJlc3VsdHMiOlt7ImFkdWx0IjpmYWxzZSwiYmFja2Ryb3BfcGF0aCI6Ii90OW55RjNyMFdBbEo3S3I2eGNSWUk0anI5am0uanBnIiwiZ2VucmVfaWRzIjpbODc4LDI4XSwiaWQiOjU4MDQ4OSwib3JpZ2luYWxfbGFuZ3VhZ2UiOiJlbiIsIm9yaWdpbmFsX3RpdGxlIjoiVmVub206IExldCBUaGVyZSBCZSBDYXJuYWdlIiwib3ZlcnZpZXciOiJBZnRlciBmaW5kaW5nIGEgaG9zdCBib2R5IGluIGludmVzdGlnYXRpdmUgcmVwb3J0ZXIgRWRkaWUgQnJvY2ssIHRoZSBhbGllbiBzeW1iaW90ZSBtdXN0IGZhY2UgYSBuZXcgZW5lbXksIENhcm5hZ2UsIHRoZSBhbHRlciBlZ28gb2Ygc2VyaWFsIGtpbGxlciBDbGV0dXMgS2FzYWR5LiIsInBvcHVsYXJpdHkiOjEwNzIyLjMxNiwicG9zdGVyX3BhdGgiOiIvcmprbU4xZG5pVUhWWUF0d3VWM1RqaTdGc0RPLmpwZyIsInJlbGVhc2VfZGF0ZSI6IjIwMjEtMDktMzAiLCJ0aXRsZSI6IlZlbm9tOiBMZXQgVGhlcmUgQmUgQ2FybmFnZSIsInZpZGVvIjpmYWxzZSwidm90ZV9hdmVyYWdlIjo3LjIsInZvdGVfY291bnQiOjQ3N30seyJhZHVsdCI6ZmFsc2UsImJhY2tkcm9wX3BhdGgiOiIva1RPaGVWbXFTQkRJUkdyUUx2MlNpU2M4OW9zLmpwZyIsImdlbnJlX2lkcyI6WzE2LDM1LDEwNzUxXSwiaWQiOjYzOTcyMSwib3JpZ2luYWxfbGFuZ3VhZ2UiOiJlbiIsIm9yaWdpbmFsX3RpdGxlIjoiVGhlIEFkZGFtcyBGYW1pbHkgMiIsIm92ZXJ2aWV3IjoiVGhlIEFkZGFtcyBnZXQgdGFuZ2xlZCB1cCBpbiBtb3JlIHdhY2t5IGFkdmVudHVyZXMgYW5kIGZpbmQgdGhlbXNlbHZlcyBpbnZvbHZlZCBpbiBoaWxhcmlvdXMgcnVuLWlucyB3aXRoIGFsbCBzb3J0cyBvZiB1bnN1c3BlY3RpbmcgY2hhcmFjdGVycy4iLCJwb3B1bGFyaXR5IjoyODYxLjEwNiwicG9zdGVyX3BhdGgiOiIveFlMQmd3N2RIeUVxbWNyU2syU3EzYXN1U3E1LmpwZyIsInJlbGVhc2VfZGF0ZSI6IjIwMjEtMTAtMDEiLCJ0aXRsZSI6IlRoZSBBZGRhbXMgRmFtaWx5IDIiLCJ2aWRlbyI6ZmFsc2UsInZvdGVfYXZlcmFnZSI6Ny42LCJ2b3RlX2NvdW50IjoyMzl9LHsiYWR1bHQiOmZhbHNlLCJiYWNrZHJvcF9wYXRoIjoiL2hyem95OHZ2VXJ4UWl4T00xMXB3VzlBWDdCdS5qcGciLCJnZW5yZV9pZHMiOls4MCwxOF0sImlkIjo1MjQzNjksIm9yaWdpbmFsX2xhbmd1YWdlIjoiZW4iLCJvcmlnaW5hbF90aXRsZSI6IlRoZSBNYW55IFNhaW50cyBvZiBOZXdhcmsiLCJvdmVydmlldyI6IllvdW5nIEFudGhvbnkgU29wcmFubyBpcyBncm93aW5nIHVwIGluIG9uZSBvZiB0aGUgbW9zdCB0dW11bHR1b3VzIGVyYXMgaW4gTmV3YXJrLCBOLkouLCBoaXN0b3J5LCBiZWNvbWluZyBhIG1hbiBqdXN0IGFzIHJpdmFsIGdhbmdzdGVycyBzdGFydCB0byByaXNlIHVwIGFuZCBjaGFsbGVuZ2UgdGhlIGFsbC1wb3dlcmZ1bCBEaU1lbyBjcmltZSBmYW1pbHkuIENhdWdodCB1cCBpbiB0aGUgY2hhbmdpbmcgdGltZXMgaXMgdGhlIHVuY2xlIGhlIGlkb2xpemVzLCBEaWNraWUgTW9sdGlzYW50aSwgd2hvc2UgaW5mbHVlbmNlIG92ZXIgaGlzIG5lcGhldyB3aWxsIGhlbHAgc2hhcGUgdGhlIGltcHJlc3Npb25hYmxlIHRlZW5hZ2VyIGludG8gdGhlIGFsbC1wb3dlcmZ1bCBtb2IgYm9zcywgVG9ueSBTb3ByYW5vLiIsInBvcHVsYXJpdHkiOjE5MDEuODUxLCJwb3N0ZXJfcGF0aCI6Ii8xVWtiUFFzcFBicTFGUGJGUDRWVjFFTENmU04uanBnIiwicmVsZWFzZV9kYXRlIjoiMjAyMS0wOS0yMiIsInRpdGxlIjoiVGhlIE1hbnkgU2FpbnRzIG9mIE5ld2FyayIsInZpZGVvIjpmYWxzZSwidm90ZV9hdmVyYWdlIjo2LjcsInZvdGVfY291bnQiOjEwMH0seyJhZHVsdCI6ZmFsc2UsImJhY2tkcm9wX3BhdGgiOiIvYWt3ZzFzN2hWNWxqZVNZRmZrdzdoVEhqVnFrLmpwZyIsImdlbnJlX2lkcyI6WzE2LDM1LDEyLDEwNzUxXSwiaWQiOjQ1OTE1MSwib3JpZ2luYWxfbGFuZ3VhZ2UiOiJlbiIsIm9yaWdpbmFsX3RpdGxlIjoiVGhlIEJvc3MgQmFieTogRmFtaWx5IEJ1c2luZXNzIiwib3ZlcnZpZXciOiJUaGUgVGVtcGxldG9uIGJyb3RoZXJzIOKAlCBUaW0gYW5kIGhpcyBCb3NzIEJhYnkgbGl0dGxlIGJybyBUZWQg4oCUIGhhdmUgYmVjb21lIGFkdWx0cyBhbmQgZHJpZnRlZCBhd2F5IGZyb20gZWFjaCBvdGhlci4gQnV0IGEgbmV3IGJvc3MgYmFieSB3aXRoIGEgY3V0dGluZy1lZGdlIGFwcHJvYWNoIGFuZCBhIGNhbi1kbyBhdHRpdHVkZSBpcyBhYm91dCB0byBicmluZyB0aGVtIHRvZ2V0aGVyIGFnYWluIOKApiBhbmQgaW5zcGlyZSBhIG5ldyBmYW1pbHkgYnVzaW5lc3MuIiwicG9wdWxhcml0eSI6OTQ0Ljk1OSwicG9zdGVyX3BhdGgiOiIvdVdTdGtLOGJxOWl4WTNmYzd5MjA5WmxlQ29GLmpwZyIsInJlbGVhc2VfZGF0ZSI6IjIwMjEtMDctMDEiLCJ0aXRsZSI6IlRoZSBCb3NzIEJhYnk6IEZhbWlseSBCdXNpbmVzcyIsInZpZGVvIjpmYWxzZSwidm90ZV9hdmVyYWdlIjo3LjcsInZvdGVfY291bnQiOjE0OTV9LHsiYWR1bHQiOmZhbHNlLCJiYWNrZHJvcF9wYXRoIjoiL3RGQlZYbnFtc21vU0ZSM3JibHRUZmRHSU1nVi5qcGciLCJnZW5yZV9pZHMiOlsyNyw1M10sImlkIjo3NzQwMjEsIm9yaWdpbmFsX2xhbmd1YWdlIjoiZW4iLCJvcmlnaW5hbF90aXRsZSI6IkRlbW9uaWMiLCJvdmVydmlldyI6IkEgeW91bmcgd29tYW4gdW5sZWFzaGVzIHRlcnJpZnlpbmcgZGVtb25zIHdoZW4gc3VwZXJuYXR1cmFsIGZvcmNlcyBhdCB0aGUgcm9vdCBvZiBhIGRlY2FkZXMtb2xkIHJpZnQgYmV0d2VlbiBtb3RoZXIgYW5kIGRhdWdodGVyIGFyZSBydXRobGVzc2x5IHJldmVhbGVkLiIsInBvcHVsYXJpdHkiOjgxNS42MTIsInBvc3Rlcl9wYXRoIjoiL3RjS3RYNFhXWnE2dmhHd2htbUI4dGhkYWFiVi5qcGciLCJyZWxlYXNlX2RhdGUiOiIyMDIxLTA3LTI5IiwidGl0bGUiOiJEZW1vbmljIiwidmlkZW8iOmZhbHNlLCJ2b3RlX2F2ZXJhZ2UiOjUuMSwidm90ZV9jb3VudCI6NTZ9LHsiYWR1bHQiOmZhbHNlLCJiYWNrZHJvcF9wYXRoIjoiL3FENDV4SEEzNUhkSkRHT2FBMUFnRHdpV0VnTy5qcGciLCJnZW5yZV9pZHMiOlsxMDc0OSwxOF0sImlkIjo3NDQyNzUsIm9yaWdpbmFsX2xhbmd1YWdlIjoiZW4iLCJvcmlnaW5hbF90aXRsZSI6IkFmdGVyIFdlIEZlbGwiLCJvdmVydmlldyI6Ikp1c3QgYXMgVGVzc2EncyBsaWZlIGJlZ2lucyB0byBiZWNvbWUgdW5nbHVlZCwgbm90aGluZyBpcyB3aGF0IHNoZSB0aG91Z2h0IGl0IHdvdWxkIGJlLiBOb3QgaGVyIGZyaWVuZHMgbm9yIGhlciBmYW1pbHkuIFRoZSBvbmx5IHBlcnNvbiB0aGF0IHNoZSBzaG91bGQgYmUgYWJsZSB0byByZWx5IG9uIGlzIEhhcmRpbiwgd2hvIGlzIGZ1cmlvdXMgd2hlbiBoZSBkaXNjb3ZlcnMgdGhlIG1hc3NpdmUgc2VjcmV0IHRoYXQgc2hlJ3MgYmVlbiBrZWVwaW5nLiBCZWZvcmUgVGVzc2EgbWFrZXMgdGhlIGJpZ2dlc3QgZGVjaXNpb24gb2YgaGVyIGxpZmUsIGV2ZXJ5dGhpbmcgY2hhbmdlcyBiZWNhdXNlIG9mIHJldmVsYXRpb25zIGFib3V0IGhlciBmYW1pbHkuIiwicG9wdWxhcml0eSI6NzI0LjQ3LCJwb3N0ZXJfcGF0aCI6Ii8zV2Z2ak5XcjVrMVp6d3c4MWIzR1djOEtRaGIuanBnIiwicmVsZWFzZV9kYXRlIjoiMjAyMS0wOS0wMSIsInRpdGxlIjoiQWZ0ZXIgV2UgRmVsbCIsInZpZGVvIjpmYWxzZSwidm90ZV9hdmVyYWdlIjo4LCJ2b3RlX2NvdW50IjozMzV9LHsiYWR1bHQiOmZhbHNlLCJiYWNrZHJvcF9wYXRoIjoiL3U1RnA5R0J5OVc4ZnFrdUdmTEJ1dW9KZjU3Wi5qcGciLCJnZW5yZV9pZHMiOlsxMiwyOCw1M10sImlkIjozNzAxNzIsIm9yaWdpbmFsX2xhbmd1YWdlIjoiZW4iLCJvcmlnaW5hbF90aXRsZSI6Ik5vIFRpbWUgdG8gRGllIiwib3ZlcnZpZXciOiJCb25kIGhhcyBsZWZ0IGFjdGl2ZSBzZXJ2aWNlIGFuZCBpcyBlbmpveWluZyBhIHRyYW5xdWlsIGxpZmUgaW4gSmFtYWljYS4gSGlzIHBlYWNlIGlzIHNob3J0LWxpdmVkIHdoZW4gaGlzIG9sZCBmcmllbmQgRmVsaXggTGVpdGVyIGZyb20gdGhlIENJQSB0dXJucyB1cCBhc2tpbmcgZm9yIGhlbHAuIFRoZSBtaXNzaW9uIHRvIHJlc2N1ZSBhIGtpZG5hcHBlZCBzY2llbnRpc3QgdHVybnMgb3V0IHRvIGJlIGZhciBtb3JlIHRyZWFjaGVyb3VzIHRoYW4gZXhwZWN0ZWQsIGxlYWRpbmcgQm9uZCBvbnRvIHRoZSB0cmFpbCBvZiBhIG15c3RlcmlvdXMgdmlsbGFpbiBhcm1lZCB3aXRoIGRhbmdlcm91cyBuZXcgdGVjaG5vbG9neS4iLCJwb3B1bGFyaXR5Ijo2MzAuMjg0LCJwb3N0ZXJfcGF0aCI6Ii9pVWd5Z3QzZnNjUm9LV0NWMWQwQzdGYk05VFAuanBnIiwicmVsZWFzZV9kYXRlIjoiMjAyMS0wOS0yOSIsInRpdGxlIjoiTm8gVGltZSB0byBEaWUiLCJ2aWRlbyI6ZmFsc2UsInZvdGVfYXZlcmFnZSI6Ny4zLCJ2b3RlX2NvdW50Ijo1OTF9LHsiYWR1bHQiOmZhbHNlLCJiYWNrZHJvcF9wYXRoIjoiLzNwSXFkMWhnWjJ4cXpXRXlpWXA0YmxxRTlGaS5qcGciLCJnZW5yZV9pZHMiOls1MywzNiwxOF0sImlkIjo1MjIyNDEsIm9yaWdpbmFsX2xhbmd1YWdlIjoiZW4iLCJvcmlnaW5hbF90aXRsZSI6IlRoZSBDb3VyaWVyIiwib3ZlcnZpZXciOiJDb2xkIFdhciBzcHkgR3JldmlsbGUgV3lubmUgYW5kIGhpcyBSdXNzaWFuIHNvdXJjZSB0cnkgdG8gcHV0IGFuIGVuZCB0byB0aGUgQ3ViYW4gTWlzc2lsZSBDcmlzaXMuIiwicG9wdWxhcml0eSI6NTI5LjQ3MywicG9zdGVyX3BhdGgiOiIvekZJakt0WnJ6aG1jN0hlY2RGWFhqc0xSMklnLmpwZyIsInJlbGVhc2VfZGF0ZSI6IjIwMjEtMDMtMTgiLCJ0aXRsZSI6IlRoZSBDb3VyaWVyIiwidmlkZW8iOmZhbHNlLCJ2b3RlX2F2ZXJhZ2UiOjcuMSwidm90ZV9jb3VudCI6NDIwfSx7ImFkdWx0IjpmYWxzZSwiYmFja2Ryb3BfcGF0aCI6Ii9ha252RnlKVVFRb1pGdG1Gbll6S2k0dkd2NEouanBnIiwiZ2VucmVfaWRzIjpbMjgsMTIsODc4XSwiaWQiOjQzODYzMSwib3JpZ2luYWxfbGFuZ3VhZ2UiOiJlbiIsIm9yaWdpbmFsX3RpdGxlIjoiRHVuZSIsIm92ZXJ2aWV3IjoiUGF1bCBBdHJlaWRlcywgYSBicmlsbGlhbnQgYW5kIGdpZnRlZCB5b3VuZyBtYW4gYm9ybiBpbnRvIGEgZ3JlYXQgZGVzdGlueSBiZXlvbmQgaGlzIHVuZGVyc3RhbmRpbmcsIG11c3QgdHJhdmVsIHRvIHRoZSBtb3N0IGRhbmdlcm91cyBwbGFuZXQgaW4gdGhlIHVuaXZlcnNlIHRvIGVuc3VyZSB0aGUgZnV0dXJlIG9mIGhpcyBmYW1pbHkgYW5kIGhpcyBwZW9wbGUuIEFzIG1hbGV2b2xlbnQgZm9yY2VzIGV4cGxvZGUgaW50byBjb25mbGljdCBvdmVyIHRoZSBwbGFuZXQncyBleGNsdXNpdmUgc3VwcGx5IG9mIHRoZSBtb3N0IHByZWNpb3VzIHJlc291cmNlIGluIGV4aXN0ZW5jZS1hIGNvbW1vZGl0eSBjYXBhYmxlIG9mIHVubG9ja2luZyBodW1hbml0eSdzIGdyZWF0ZXN0IHBvdGVudGlhbC1vbmx5IHRob3NlIHdobyBjYW4gY29ucXVlciB0aGVpciBmZWFyIHdpbGwgc3Vydml2ZS4iLCJwb3B1bGFyaXR5Ijo0MTcuNDkxLCJwb3N0ZXJfcGF0aCI6Ii9zMUZoTUFyOTFXTDhENURlSE9jdUJFTHRpSEouanBnIiwicmVsZWFzZV9kYXRlIjoiMjAyMS0wOS0xNSIsInRpdGxlIjoiRHVuZSIsInZpZGVvIjpmYWxzZSwidm90ZV9hdmVyYWdlIjo4LjEsInZvdGVfY291bnQiOjE0Nzh9LHsiYWR1bHQiOmZhbHNlLCJiYWNrZHJvcF9wYXRoIjoiL2ZScnBPSUx5WHVXYVdMbXFGN2tYZU1Wd0lUUS5qcGciLCJnZW5yZV9pZHMiOlsyNyw1MywxMiw5NjQ4XSwiaWQiOjUyMjQ0NCwib3JpZ2luYWxfbGFuZ3VhZ2UiOiJlbiIsIm9yaWdpbmFsX3RpdGxlIjoiQmxhY2sgV2F0ZXI6IEFieXNzIiwib3ZlcnZpZXciOiJBbiBhZHZlbnR1cmUtbG92aW5nIGNvdXBsZSBjb252aW5jZSB0aGVpciBmcmllbmRzIHRvIGV4cGxvcmUgYSByZW1vdGUsIHVuY2hhcnRlZCBjYXZlIHN5c3RlbSBpbiB0aGUgZm9yZXN0cyBvZiBOb3J0aGVybiBBdXN0cmFsaWEuIFdpdGggYSB0cm9waWNhbCBzdG9ybSBhcHByb2FjaGluZywgdGhleSBhYnNlaWwgaW50byB0aGUgbW91dGggb2YgdGhlIGNhdmUsIGJ1dCB3aGVuIHRoZSBjYXZlcyBzdGFydCB0byBmbG9vZCwgdGVuc2lvbnMgcmlzZSBhcyBveHlnZW4gbGV2ZWxzIGZhbGwgYW5kIHRoZSBmcmllbmRzIGZpbmQgdGhlbXNlbHZlcyB0cmFwcGVkLiBVbmtub3duIHRvIHRoZW0sIHRoZSBzdG9ybSBoYXMgYWxzbyBicm91Z2h0IGluIGEgcGFjayBvZiBkYW5nZXJvdXMgYW5kIGh1bmdyeSBjcm9jb2RpbGVzLiIsInBvcHVsYXJpdHkiOjM4MS4wMDcsInBvc3Rlcl9wYXRoIjoiLzk1UzZQaW5RSXZWZTR1SkFkODJhMmlHWjByQS5qcGciLCJyZWxlYXNlX2RhdGUiOiIyMDIwLTA3LTA5IiwidGl0bGUiOiJCbGFjayBXYXRlcjogQWJ5c3MiLCJ2aWRlbyI6ZmFsc2UsInZvdGVfYXZlcmFnZSI6NS4xLCJ2b3RlX2NvdW50IjoyNzV9LHsiYWR1bHQiOmZhbHNlLCJiYWNrZHJvcF9wYXRoIjoiLzVXUEtrZlZjTXRRMFlPdlNvdmJteHZOcTNpMS5qcGciLCJnZW5yZV9pZHMiOlsyNyw1M10sImlkIjo1NjUwMjgsIm9yaWdpbmFsX2xhbmd1YWdlIjoiZW4iLCJvcmlnaW5hbF90aXRsZSI6IkNhbmR5bWFuIiwib3ZlcnZpZXciOiJBbnRob255IGFuZCBoaXMgcGFydG5lciBtb3ZlIGludG8gYSBsb2Z0IGluIHRoZSBub3cgZ2VudHJpZmllZCBDYWJyaW5pLUdyZWVuLCBhbmQgYWZ0ZXIgYSBjaGFuY2UgZW5jb3VudGVyIHdpdGggYW4gb2xkLXRpbWVyIGV4cG9zZXMgQW50aG9ueSB0byB0aGUgdHJ1ZSBzdG9yeSBiZWhpbmQgQ2FuZHltYW4sIGhlIHVua25vd2luZ2x5IG9wZW5zIGEgZG9vciB0byBhIGNvbXBsZXggcGFzdCB0aGF0IHVucmF2ZWxzIGhpcyBvd24gc2FuaXR5IGFuZCB1bmxlYXNoZXMgYSB0ZXJyaWZ5aW5nIHdhdmUgb2YgdmlvbGVuY2UuIiwicG9wdWxhcml0eSI6MzQ3LjE2MSwicG9zdGVyX3BhdGgiOiIvZHFvc2haUExOc1hsQzFxdHo1bjM0cmFVeXJFLmpwZyIsInJlbGVhc2VfZGF0ZSI6IjIwMjEtMDgtMjUiLCJ0aXRsZSI6IkNhbmR5bWFuIiwidmlkZW8iOmZhbHNlLCJ2b3RlX2F2ZXJhZ2UiOjYuNSwidm90ZV9jb3VudCI6NDU0fSx7ImFkdWx0IjpmYWxzZSwiYmFja2Ryb3BfcGF0aCI6Ii9rSUc4MUUwSDRDeHVZSVJneU55RDB6M0tTbE0uanBnIiwiZ2VucmVfaWRzIjpbMjcsNTNdLCJpZCI6NjEwMjUzLCJvcmlnaW5hbF9sYW5ndWFnZSI6ImVuIiwib3JpZ2luYWxfdGl0bGUiOiJIYWxsb3dlZW4gS2lsbHMiLCJvdmVydmlldyI6Ik1pbnV0ZXMgYWZ0ZXIgTGF1cmllIFN0cm9kZSwgaGVyIGRhdWdodGVyIEthcmVuIGFuZCBncmFuZGRhdWdodGVyIEFsbHlzb24gbGVmdCBtYXNrZWQgbW9uc3RlciBNaWNoYWVsIE15ZXJzIGNhZ2VkIGFuZCBidXJuaW5nIGluIExhdXJpZSdzIGJhc2VtZW50LCBMYXVyaWUgaXMgcnVzaGVkIHRvIHRoZSBob3NwaXRhbCB3aXRoIGxpZmUtdGhyZWF0ZW5pbmcgaW5qdXJpZXMsIGJlbGlldmluZyBzaGUgZmluYWxseSBraWxsZWQgaGVyIGxpZmVsb25nIHRvcm1lbnRvci4gQnV0IHdoZW4gTWljaGFlbCBtYW5hZ2VzIHRvIGZyZWUgaGltc2VsZiBmcm9tIExhdXJpZSdzIHRyYXAsIGhpcyByaXR1YWwgYmxvb2RiYXRoIHJlc3VtZXMuIEFzIExhdXJpZSBmaWdodHMgaGVyIHBhaW4gYW5kIHByZXBhcmVzIHRvIGRlZmVuZCBoZXJzZWxmIGFnYWluc3QgaGltLCBzaGUgaW5zcGlyZXMgYWxsIG9mIEhhZGRvbmZpZWxkIHRvIHJpc2UgdXAgYWdhaW5zdCB0aGVpciB1bnN0b3BwYWJsZSBtb25zdGVyLiBUaGUgU3Ryb2RlIHdvbWVuIGpvaW4gYSBncm91cCBvZiBvdGhlciBzdXJ2aXZvcnMgb2YgTWljaGFlbCdzIGZpcnN0IHJhbXBhZ2Ugd2hvIGRlY2lkZSB0byB0YWtlIG1hdHRlcnMgaW50byB0aGVpciBvd24gaGFuZHMsIGZvcm1pbmcgYSB2aWdpbGFudGUgbW9iIHRoYXQgc2V0cyBvdXQgdG8gaHVudCBNaWNoYWVsIGRvd24sIG9uY2UgYW5kIGZvciBhbGwuIiwicG9wdWxhcml0eSI6MjYyLjcwMywicG9zdGVyX3BhdGgiOiIvMWhUMUhYaFNnTEhXM1hFQWNzZ3NaTmZoYmlZLmpwZyIsInJlbGVhc2VfZGF0ZSI6IjIwMjEtMTAtMTQiLCJ0aXRsZSI6IkhhbGxvd2VlbiBLaWxscyIsInZpZGVvIjpmYWxzZSwidm90ZV9hdmVyYWdlIjo4LjQsInZvdGVfY291bnQiOjR9LHsiYWR1bHQiOmZhbHNlLCJiYWNrZHJvcF9wYXRoIjoiLzNHNndFVDllTHZZbjNhb0lqOE5mUUZocFlFQi5qcGciLCJnZW5yZV9pZHMiOls4NzgsMjgsMTIsMThdLCJpZCI6NTI0NDM0LCJvcmlnaW5hbF9sYW5ndWFnZSI6ImVuIiwib3JpZ2luYWxfdGl0bGUiOiJFdGVybmFscyIsIm92ZXJ2aWV3IjoiVGhlIEV0ZXJuYWxzIGFyZSBhIHRlYW0gb2YgYW5jaWVudCBhbGllbnMgd2hvIGhhdmUgYmVlbiBsaXZpbmcgb24gRWFydGggaW4gc2VjcmV0IGZvciB0aG91c2FuZHMgb2YgeWVhcnMuIFdoZW4gYW4gdW5leHBlY3RlZCB0cmFnZWR5IGZvcmNlcyB0aGVtIG91dCBvZiB0aGUgc2hhZG93cywgdGhleSBhcmUgZm9yY2VkIHRvIHJldW5pdGUgYWdhaW5zdCBtYW5raW5k4oCZcyBtb3N0IGFuY2llbnQgZW5lbXksIHRoZSBEZXZpYW50cy4iLCJwb3B1bGFyaXR5IjoyMDguNjU4LCJwb3N0ZXJfcGF0aCI6Ii82QWRYd0ZUUlRBemdnRDJRVVR0NUI3SkZHS0wuanBnIiwicmVsZWFzZV9kYXRlIjoiMjAyMS0xMS0wMyIsInRpdGxlIjoiRXRlcm5hbHMiLCJ2aWRlbyI6ZmFsc2UsInZvdGVfYXZlcmFnZSI6MCwidm90ZV9jb3VudCI6MH0seyJhZHVsdCI6ZmFsc2UsImJhY2tkcm9wX3BhdGgiOiIvNEJPZ1NHd0VFSFp1RGhpSFVPc3JYYUpCcW9jLmpwZyIsImdlbnJlX2lkcyI6WzE4LDM2XSwiaWQiOjYxNzY1Mywib3JpZ2luYWxfbGFuZ3VhZ2UiOiJlbiIsIm9yaWdpbmFsX3RpdGxlIjoiVGhlIExhc3QgRHVlbCIsIm92ZXJ2aWV3IjoiS2luZyBDaGFybGVzIFZJIGRlY2xhcmVzIHRoYXQgS25pZ2h0IEplYW4gZGUgQ2Fycm91Z2VzIHNldHRsZSBoaXMgZGlzcHV0ZSB3aXRoIGhpcyBzcXVpcmUgYnkgY2hhbGxlbmdpbmcgaGltIHRvIGEgZHVlbC4iLCJwb3B1bGFyaXR5IjoxNjEuOTE0LCJwb3N0ZXJfcGF0aCI6Ii96anJKRTBmcHpQdlg4c2FKWGo4Vk5mY2pCb1UuanBnIiwicmVsZWFzZV9kYXRlIjoiMjAyMS0xMC0xMyIsInRpdGxlIjoiVGhlIExhc3QgRHVlbCIsInZpZGVvIjpmYWxzZSwidm90ZV9hdmVyYWdlIjo4LCJ2b3RlX2NvdW50Ijo4fSx7ImFkdWx0IjpmYWxzZSwiYmFja2Ryb3BfcGF0aCI6Ii8yblU1SDhYSWd0TWtKcnhzcnlQNm5KdUFIUS5qcGciLCJnZW5yZV9pZHMiOlsxNiwxOCwxMiwxMDc1MV0sImlkIjo4MDUwNTEsIm9yaWdpbmFsX2xhbmd1YWdlIjoiZW4iLCJvcmlnaW5hbF90aXRsZSI6IlNtZWxsaXZpbGxlIiwib3ZlcnZpZXciOiJUaGUgT2dnbHkgZmFtaWx5IGFycml2ZSBhdCB0aGUgbXVuaWNpcGFsIHJ1YmJpc2ggZHVtcCBvZiBTbWVsbGl2aWxsZSBhbmQgbXVzdCBsb29rIGZvciBhIG5ldyBob21lLCBidXQgdGhleSBuZXZlciBmZWVsIHJlYWxseSB3ZWxjb21lIGFueXdoZXJlLiBUaGV5IHN0aW5rIGFuZCBhcmUgZm9yIG1vc3QgaHVtYW5zIGp1c3QgYSB0YWQgdG9vIG9nZ2x5LiBXaGVuIEZpcmVib3R0b20sIHRoZSBmYW1pbHkgZHJhZ29uLCBjcmFzaC1sYW5kcyBvbiB0aGUgcnVuLWRvd24gcnViYmlzaCB0aXAgb2YgdGhlIHNtYWxsIHRvd24gb2YgU21lbGxpdmlsbGUsIHRoZSBPZ2dsaWVzIGF0IG9uY2UgZmVlbCBhdCBob21lLiBBbmQgaXQncyBoZXJlIHRoZXkgd2FudCB0byBzdGF5LiIsInBvcHVsYXJpdHkiOjE0Ny41NTYsInBvc3Rlcl9wYXRoIjoiL3c3UEo3ZkJFWU91YUFNS2ZZYTR6bXc0NXYzTi5qcGciLCJyZWxlYXNlX2RhdGUiOiIyMDIxLTAxLTAxIiwidGl0bGUiOiJUaGUgT2dnbGllczogV2VsY29tZSB0byBTbWVsbGl2aWxsZSIsInZpZGVvIjpmYWxzZSwidm90ZV9hdmVyYWdlIjo3LjUsInZvdGVfY291bnQiOjI5fSx7ImFkdWx0IjpmYWxzZSwiYmFja2Ryb3BfcGF0aCI6Ii8yUkhqZDEwd3F2NTd4WXpaa05LOFNsMDlEZHQuanBnIiwiZ2VucmVfaWRzIjpbMTYsMjgsMzUsMTQsMTJdLCJpZCI6NzY4NzQ0LCJvcmlnaW5hbF9sYW5ndWFnZSI6ImphIiwib3JpZ2luYWxfdGl0bGUiOiLlg5Xjga7jg5Ljg7zjg63jg7zjgqLjgqvjg4fjg5/jgqIgVEhFIE1PVklFIOODr+ODvOODq+ODiSDjg5Ljg7zjg63jg7zjgrog44Of44OD44K344On44OzIiwib3ZlcnZpZXciOiJBIG15c3RlcmlvdXMgZ3JvdXAgY2FsbGVkIEh1bWFyaXplIHN0cm9uZ2x5IGJlbGlldmVzIGluIHRoZSBRdWlyayBTaW5ndWxhcml0eSBEb29tc2RheSB0aGVvcnkgd2hpY2ggc3RhdGVzIHRoYXQgd2hlbiBxdWlya3MgZ2V0IG1peGVkIGZ1cnRoZXIgaW4gd2l0aCBmdXR1cmUgZ2VuZXJhdGlvbnMsIHRoYXQgcG93ZXIgd2lsbCBicmluZyBmb3J0aCB0aGUgZW5kIG9mIGh1bWFuaXR5LiBJbiBvcmRlciB0byBzYXZlIGV2ZXJ5b25lLCB0aGUgUHJvLUhlcm9lcyBhcm91bmQgdGhlIHdvcmxkIGFzayBVQSBBY2FkZW15IGhlcm9lcy1pbi10cmFpbmluZyB0byBhc3Npc3QgdGhlbSBhbmQgZm9ybSBhIHdvcmxkLWNsYXNzaWMgc2VsZWN0ZWQgaGVybyB0ZWFtLiBJdCBpcyB1cCB0byB0aGUgaGVyb2VzIHRvIHNhdmUgdGhlIHdvcmxkIGFuZCB0aGUgZnV0dXJlIG9mIGhlcm9lcyBpbiB3aGF0IGlzIHRoZSBtb3N0IGRhbmdlcm91cyBjcmlzaXMgdG8gdGFrZSBwbGFjZSB5ZXQgaW4gTXkgSGVybyBBY2FkZW15LiIsInBvcHVsYXJpdHkiOjEzNy40MDMsInBvc3Rlcl9wYXRoIjoiLzROVXpjS3RZUEtrZlR3S3NMandOdDhuUklYVi5qcGciLCJyZWxlYXNlX2RhdGUiOiIyMDIxLTA4LTA2IiwidGl0bGUiOiJNeSBIZXJvIEFjYWRlbWlhOiBXb3JsZCBIZXJvZXMnIE1pc3Npb24iLCJ2aWRlbyI6ZmFsc2UsInZvdGVfYXZlcmFnZSI6Ni45LCJ2b3RlX2NvdW50IjoxMX0seyJhZHVsdCI6ZmFsc2UsImJhY2tkcm9wX3BhdGgiOiIvNU1sdlQ0RFpJZGtwYjdBOXQzNzVIVm9pSjF2LmpwZyIsImdlbnJlX2lkcyI6WzI4LDEyLDE4LDUzXSwiaWQiOjY0NjIwNywib3JpZ2luYWxfbGFuZ3VhZ2UiOiJlbiIsIm9yaWdpbmFsX3RpdGxlIjoiVGhlIEljZSBSb2FkIiwib3ZlcnZpZXciOiJBZnRlciBhIHJlbW90ZSBkaWFtb25kIG1pbmUgY29sbGFwc2VzIGluIGZhciBub3J0aGVybiBDYW5hZGEsIGFuIGljZSByb2FkIGRyaXZlciBtdXN0IGxlYWQgYW4gaW1wb3NzaWJsZSByZXNjdWUgbWlzc2lvbiBvdmVyIGEgZnJvemVuIG9jZWFuIHRvIHNhdmUgdGhlIHRyYXBwZWQgbWluZXJzLiIsInBvcHVsYXJpdHkiOjEyNy4yNzksInBvc3Rlcl9wYXRoIjoiL2VPSDl5aDVyN1FENG45NGdicDdrVUxmMmZ0Ni5qcGciLCJyZWxlYXNlX2RhdGUiOiIyMDIxLTA2LTI0IiwidGl0bGUiOiJUaGUgSWNlIFJvYWQiLCJ2aWRlbyI6ZmFsc2UsInZvdGVfYXZlcmFnZSI6Ny4yLCJ2b3RlX2NvdW50Ijo2OTJ9LHsiYWR1bHQiOmZhbHNlLCJiYWNrZHJvcF9wYXRoIjoiL2c2d3VmZ3R5Y0pDUDUwOHRsQzNjclNZRkNnQy5qcGciLCJnZW5yZV9pZHMiOlszNywxOF0sImlkIjo3NDkyNzQsIm9yaWdpbmFsX2xhbmd1YWdlIjoiZW4iLCJvcmlnaW5hbF90aXRsZSI6IkNyeSBNYWNobyIsIm92ZXJ2aWV3IjoiTWlrZSBNaWxvLCBhIG9uZS10aW1lIHJvZGVvIHN0YXIgYW5kIHdhc2hlZC11cCBob3JzZSBicmVlZGVyLCB0YWtlcyBhIGpvYiBmcm9tIGFuIGV4LWJvc3MgdG8gYnJpbmcgdGhlIG1hbidzIHlvdW5nIHNvbiBob21lIGZyb20gTWV4aWNvLiIsInBvcHVsYXJpdHkiOjExOC42OSwicG9zdGVyX3BhdGgiOiIvd3FhYVdBbFhnTE5HZEFlbVU3d052Rlo3MGhyLmpwZyIsInJlbGVhc2VfZGF0ZSI6IjIwMjEtMDktMTYiLCJ0aXRsZSI6IkNyeSBNYWNobyIsInZpZGVvIjpmYWxzZSwidm90ZV9hdmVyYWdlIjo2LjgsInZvdGVfY291bnQiOjE3NH0seyJhZHVsdCI6ZmFsc2UsImJhY2tkcm9wX3BhdGgiOiIvOTlPaXlFT3NGZWNCaVM1WGtoUUFCOThybFA2LmpwZyIsImdlbnJlX2lkcyI6WzE2LDg3OCwxMDc1MSwzNV0sImlkIjo0ODIzMjEsIm9yaWdpbmFsX2xhbmd1YWdlIjoiZW4iLCJvcmlnaW5hbF90aXRsZSI6IlJvbidzIEdvbmUgV3JvbmciLCJvdmVydmlldyI6IkluIGEgd29ybGQgd2hlcmUgd2Fsa2luZywgdGFsa2luZywgZGlnaXRhbGx5IGNvbm5lY3RlZCBib3RzIGhhdmUgYmVjb21lIGNoaWxkcmVuJ3MgYmVzdCBmcmllbmRzLCBhbiAxMS15ZWFyLW9sZCBmaW5kcyB0aGF0IGhpcyByb2JvdCBidWRkeSBkb2Vzbid0IHF1aXRlIHdvcmsgdGhlIHNhbWUgYXMgdGhlIG90aGVycyBkby4iLCJwb3B1bGFyaXR5IjoxMDUuNjA1LCJwb3N0ZXJfcGF0aCI6Ii9nQTlReFNyYXZDMkVWRWtFS2d5RW1EcmZMMGUuanBnIiwicmVsZWFzZV9kYXRlIjoiMjAyMS0xMC0xNSIsInRpdGxlIjoiUm9uJ3MgR29uZSBXcm9uZyIsInZpZGVvIjpmYWxzZSwidm90ZV9hdmVyYWdlIjoyLCJ2b3RlX2NvdW50IjoxfSx7ImFkdWx0IjpmYWxzZSwiYmFja2Ryb3BfcGF0aCI6Ii80VHo4VjhhUmltOGNGZ0tFV3ByU1VqQnk4dFkuanBnIiwiZ2VucmVfaWRzIjpbMTgsMTA0MDIsMTA3NDldLCJpZCI6Nzc2NTAzLCJvcmlnaW5hbF9sYW5ndWFnZSI6ImVuIiwib3JpZ2luYWxfdGl0bGUiOiJDT0RBIiwib3ZlcnZpZXciOiJBcyBhIENPREEgKENoaWxkIG9mIERlYWYgQWR1bHRzKSwgUnVieSBpcyB0aGUgb25seSBoZWFyaW5nIHBlcnNvbiBpbiBoZXIgZGVhZiBmYW1pbHkuIFdoZW4gdGhlIGZhbWlseSdzIGZpc2hpbmcgYnVzaW5lc3MgaXMgdGhyZWF0ZW5lZCwgUnVieSBmaW5kcyBoZXJzZWxmIHRvcm4gYmV0d2VlbiBwdXJzdWluZyBoZXIgbG92ZSBvZiBtdXNpYyBhbmQgaGVyIGZlYXIgb2YgYWJhbmRvbmluZyBoZXIgcGFyZW50cy4iLCJwb3B1bGFyaXR5Ijo5Ni4yNDQsInBvc3Rlcl9wYXRoIjoiL0J6VmptbThsMjNyUHNpakxpTkxVenVRdHlkLmpwZyIsInJlbGVhc2VfZGF0ZSI6IjIwMjEtMDctMzAiLCJ0aXRsZSI6IkNPREEiLCJ2aWRlbyI6ZmFsc2UsInZvdGVfYXZlcmFnZSI6OC4zLCJ2b3RlX2NvdW50IjoyMjN9XSwidG90YWxfcGFnZXMiOjI0LCJ0b3RhbF9yZXN1bHRzIjo0NjN9
+    http_version: null
+  recorded_at: Wed, 13 Oct 2021 23:01:32 GMT
+- request:
+    method: get
+    uri: http://api.themoviedb.org/movie/upcoming?api_key=a6bac940a8ecbd07ecfa134de156d00d
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Content-Type:
+      - text/html
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Wed, 13 Oct 2021 23:25:15 GMT
+      Server:
+      - openresty
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Error from cloudfront
+      Via:
+      - 1.1 ee9de9e6182ae0c8e8f119177e905245.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - DEN50-C2
+      X-Amz-Cf-Id:
+      - y5hrWyAbHhHgnMDmDyaz8q5iy1BQLVyiuKK10VFlLK0qZ9OCn4iUKQ==
+    body:
+      encoding: ASCII-8BIT
+      string: "<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404
+        Not Found</h1></center>\r\n<hr><center>openresty</center>\r\n</body>\r\n</html>\r\n"
+    http_version: null
+  recorded_at: Wed, 13 Oct 2021 23:25:15 GMT
+- request:
+    method: get
+    uri: http://api.themoviedb.org/movie/upcoming?api_key
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Content-Type:
+      - text/html
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 14 Oct 2021 02:00:02 GMT
+      Server:
+      - openresty
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Error from cloudfront
+      Via:
+      - 1.1 a44b9db7a2d103360945ab52619e5016.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - DEN50-C2
+      X-Amz-Cf-Id:
+      - uLJBz_o-oqVmve_XCSpweWZzjgbLgtlFIf4tpf3ULsje9hoxkkeZfQ==
+    body:
+      encoding: ASCII-8BIT
+      string: "<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404
+        Not Found</h1></center>\r\n<hr><center>openresty</center>\r\n</body>\r\n</html>\r\n"
+    http_version: null
+  recorded_at: Thu, 14 Oct 2021 02:00:03 GMT
+recorded_with: VCR 5.1.0
