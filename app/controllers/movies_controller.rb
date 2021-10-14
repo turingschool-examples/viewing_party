@@ -12,7 +12,7 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @movie = MovieFacade.movie_info_by_id[:movie_id]
+    @movie = MovieFacade.movie_info_by_id(:movie_id)
   end
 
   def discover
