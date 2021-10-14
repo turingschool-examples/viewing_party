@@ -1,4 +1,7 @@
-<h3>Welcome <%= @user.first_name %>! </h3>
+<%= render 'users/navbar' %><br>
+
+<h3>Welcome <%= @user.first_name %>! </h3><br>
+
 <%= button_to 'Find Top Rated Movies', movies_path %>
 
 <% form_with url: movies_path, method: :post, local: true do |form| %>

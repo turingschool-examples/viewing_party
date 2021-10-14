@@ -1,5 +1,23 @@
+<%= render 'navbar' %><br>
+
 <h2>Welcome <%= @user.full_name %>!</h2><br>
 
-<h5>You can now invite your friends and start viewing parties!</h5>
+<h5>You can now invite your friends and start viewing parties!</h5><br>
 
-<%= link_to "Log Out", logout_path %>
+<h5>Viewing Parties</h5>
+<hr style="width:50%", size="10", color=black>
+
+<h6>Parties You're Hosting:</h6>
+  <% @user.parties.each do |party| %>
+  <h6><%= link_to party.title, "/movies/#{party.movie_id}" %></h6>
+  <h6><%= party.date.strftime('%l:%M %p') %></h6>
+
+  <h6>Party Attendees:</h6>
+  <ul>
+    <% party.attendees.each do |attendee| %>
+      <% if attendee != current_user %>
+      <li><%= attendee.full_name %></li>
+      <% end %>
+    <% end %>
+  </ul>
+  <% end %>
