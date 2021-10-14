@@ -37,10 +37,10 @@ RSpec.describe 'dashboard page' do
 
     click_on 'Submit'
 
-    expect(page).to have_content("You currently have no friends")
+    expect(page).to have_content("You currently have no friends.")
   end
 
-  xit 'can search for another user by email address' do
+  it 'can search for another user by email address' do
     visit "/"
     click_on "Log In"
 
@@ -51,7 +51,7 @@ RSpec.describe 'dashboard page' do
 
     fill_in 'user_search', with: @user_3.email
 
-    expect(page).to have_button('Add Friend')
+    expect(page).to have_button("Add Friend")
   end
 
   xit 'returns a flash message if the user searched does not exist in the database' do
@@ -81,8 +81,6 @@ RSpec.describe 'dashboard page' do
 
     click_on 'Add Friend'
 
-    visit "/dashboard"
-
-    expect(page).to have_content("#{@user_3.email}")
+    expect(page).to have_content("You are now following #{@user_3.email}!")
   end
 end

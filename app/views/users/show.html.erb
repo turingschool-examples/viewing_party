@@ -1,1 +1,7 @@
 <h2>My Friends:</h2>
+
+<%= form_with url: dashboard_path, local: true do |form| %>
+  <%= form.label :user_search, 'Search For New Friend:' %>
+  <%= form.text_field :user_search, id: :user_search %>
+  <%= form.submit 'Add Friend' %>
+<% end %>
