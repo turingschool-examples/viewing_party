@@ -9,4 +9,6 @@ Rails.application.routes.draw do
 
   get '/logout', to: 'sessions#destroy'
   delete '/logout', to: 'sessions#destroy'
+
+  resources :friendships, only: [:create]
 end
