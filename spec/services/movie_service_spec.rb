@@ -11,14 +11,15 @@ RSpec.describe MovieService do
 
   describe 'instance methods' do
     describe '#request_api' do
-     it 'can connect to tmdb api' do
-        VCR.use_cassette("tmbd_upcoming_movies") do
-          response = @movie.request_api('/movie/upcoming')
+     it 'can connect to tmdb api', :vcr do
+        VCR.use_cassette('tmbd_upcoming_movies') do
+          response = @movie.request_api('/3/movie/upcoming')
 
+          expect(page.status).to eq(200)
           expect(response).to have_key(:results)
           expect(response).to have_key(:page)
           expect(response[:results]).to be_an(Array)
-          expect(response[:results].first[:title]).to eq("The Boss Baby: Family Business")
+          expect(response[:results].first[:title]).to eq('The Boss Baby: Family Business')
         end
       end
     end
