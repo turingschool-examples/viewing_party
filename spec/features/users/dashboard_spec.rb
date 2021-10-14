@@ -25,7 +25,7 @@ RSpec.describe 'dashboard page' do
     fill_in 'password', with: @user_1.password
 
     click_on 'Submit'
-    
+
     expect(page).to have_content("My Friends:")
   end
 
@@ -55,7 +55,7 @@ RSpec.describe 'dashboard page' do
     expect(page).to have_button("Add Friend")
   end
 
-  xit 'returns a flash message if the user searched does not exist in the database' do
+  it 'returns a flash message if the user searched does not exist in the database' do
     visit "/"
     click_on "Log In"
 
