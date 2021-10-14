@@ -1,14 +1,19 @@
-<h2>Welcome <%= @user.full_name %>!</h2><br>
+<h2>Welcome <%= current_user.full_name %>!</h2><br>
 
 <h5>You can now invite your friends and start viewing parties!</h5>
 
 <%= link_to "Log Out", logout_path %>
 <section id='friends'>
   <h5>Friends</h5>
- <% if @user.friends.empty? %>
+  <%= form_with model: @friendship, method: :post, local: true do |f| %>
+    <%= f.label :friend_email, "Friend's Email:" %>
+    <%= f.text_field :friend_email %>
+    <%= f.submit 'Add Friend' %>
+  <% end %>
+ <% if current_user.friends.empty? %>
     <p>You currently have no friends</p>
  <% else %>
-   <% @user.friends.each do |friend| %>
+   <% current_user.friends.each do |friend| %>
    <%= friend.full_name %>
    <% end %>
  <% end %>
