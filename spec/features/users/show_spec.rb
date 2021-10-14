@@ -2,14 +2,17 @@ require 'rails_helper'
 
 RSpec.describe 'User Dashboard Page' do
   before :each do
+    @user = create(:mock_user)
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+
     visit dashboard_path
   end
 
   describe 'User dashboard has viewing parties' do
-    it 'shows viewing parties that user is hosting' do
+    xit 'shows viewing parties that user is hosting' do
 
-      click_on "Log Out"
-      save_and_open_page
+      click_link "Log Out"
 
       User.destroy_all
       movie = VCR.use_cassette("movie_info_by_id") do
@@ -20,7 +23,7 @@ RSpec.describe 'User Dashboard Page' do
       friend = create(:mock_user)
       user.friends << friend
 
-      party = create(:mock_party, host_id: user.id, movie_id: movie.id, title: movie.title)
+      party = create(:mock_party)
       user.parties << party
 
       attendees = create(:mock_attendee, party_id: party.id, attendee: friend)
@@ -36,6 +39,7 @@ RSpec.describe 'User Dashboard Page' do
       expect(page).to have_content(party.title)
       expect(page).to have_content(party.date.strftime("%B %d, %Y"))
       expect(page).to have_content(party.time.strftime("%l:%M %p"))
+      expect(page).to have_content(friend.full_name)
       expect(page).to have_content(friend.email)
      end
    end

@@ -4,6 +4,8 @@ RSpec.describe 'Movies Index Page' do
   before :each do
     @user = create(:mock_user)
 
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+
     visit movies_path
   end
 
@@ -11,7 +13,7 @@ RSpec.describe 'Movies Index Page' do
     it 'displays all the search functions' do
 
       expect(page).to have_content("Welcome #{@user.first_name}!")
-      expect(page).to have_button('Find Top rated Movies')
+      expect(page).to have_button('Find Top Rated Movies')
       expect(page).to have_field('Search by movie title')
       expect(page).to have_button('Find Movies')
     end

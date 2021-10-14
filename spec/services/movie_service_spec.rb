@@ -15,11 +15,10 @@ RSpec.describe MovieService do
         VCR.use_cassette('tmbd_upcoming_movies') do
           response = @movie.request_api('/3/movie/upcoming')
 
-          expect(page.status).to eq(200)
           expect(response).to have_key(:results)
           expect(response).to have_key(:page)
           expect(response[:results]).to be_an(Array)
-          expect(response[:results].first[:title]).to eq('The Boss Baby: Family Business')
+          expect(response[:results].first[:title]).to eq('Venom: Let There Be Carnage')
         end
       end
     end
