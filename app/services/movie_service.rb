@@ -1,6 +1,6 @@
 class MovieService
   def request_api(path)
-    response = conn('http://api.themoviedb.org/').get(path)
+    response = conn('http://api.themoviedb.org').get(path)
     parse_json(response)
   end
 
@@ -12,7 +12,7 @@ class MovieService
   end
 
   def conn(url)
-    Faraday.new(url: url, params: {api_key: ENV['TMDB_API_KEY']})
+    Faraday.new(url: url, params: {api_key: Pusher.key })
   end
 
 end
