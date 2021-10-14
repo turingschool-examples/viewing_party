@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :attendees, dependent: :destroy
   has_many :parties, through: :attendees
   has_many :friendships
+  has_many :friends, through: :friendships
 
   has_secure_password
 
