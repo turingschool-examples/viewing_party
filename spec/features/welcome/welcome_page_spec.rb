@@ -17,10 +17,20 @@ RSpec.describe 'welcome index page' do
     expect(page).to have_link('Create an Account')
   end
 
-  it 'links the users to log-in and register' do
+  it 'links the users to log-in' do
+    user = User.create!(email: 'test@test.com', password: 'password123', password_confirmation: 'password123')
+
     click_on 'Log In'
     expect(current_path).to eq(login_path)
+    fill_in :email, with: user.email
+    fill_in :password, with: user.password
+    click_on 'Submit'
+    expect(page).to have_content("Welcome, #{user.email}")
+    expect(current_path).to eq(dashboard_path)
 
+
+  end
+  it 'links user to register' do
     visit root_path
     click_on 'Create an Account'
     expect(current_path).to eq(registration_path)
