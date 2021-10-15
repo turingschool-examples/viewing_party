@@ -12,12 +12,19 @@
   <h6><%= link_to party.title, "/movies/#{party.movie_id}" %></h6>
   <h6><%= party.date.strftime('%l:%M %p') %></h6>
 
-  <h6>Party Attendees:</h6>
-  <ul>
-    <% party.attendees.each do |attendee| %>
-      <% if attendee != current_user %>
-      <li><%= attendee.full_name %></li>
-      <% end %>
-    <% end %>
-  </ul>
+<%= link_to "Log Out", logout_path %>
+<section id='friends'>
+  <h5>Friends</h5>
+  <%= form_with model: @friendship, method: :post, local: true do |f| %>
+    <%= f.label :friend_email, "Friend's Email:" %>
+    <%= f.text_field :friend_email %>
+    <%= f.submit 'Add Friend' %>
   <% end %>
+ <% if current_user.friends.empty? %>
+    <p>You currently have no friends</p>
+ <% else %>
+   <% current_user.friends.each do |friend| %>
+   <%= friend.full_name %>
+   <% end %>
+ <% end %>
+</section>

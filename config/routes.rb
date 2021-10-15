@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
   delete '/logout', to: 'sessions#destroy'
 
+<<<<<<< HEAD
   get '/movies', to: 'movies#index'
   post '/movies', to: 'movies#index'
   get '/movies/:movie_id', to: 'movies#show'
@@ -18,4 +19,6 @@ Rails.application.routes.draw do
   post '/discover', to:'movies#discover'
 
   resources :parties
+
+  resources :friendships, only: [:create]
 end

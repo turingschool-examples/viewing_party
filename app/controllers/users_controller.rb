@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
+    @friendship = Friendship.new
   end
 
   private
