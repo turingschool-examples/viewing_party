@@ -22,6 +22,7 @@ group :development, :test do
   gem 'bcrypt'
   gem 'orderly'
   gem 'shoulda-matchers', '~> 3.1'
+  gem 'figaro'
 end
 
 group :development do

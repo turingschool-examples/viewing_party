@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   resources :users, only: [:create]
 
   get '/dashboard', controller: :users, action: :show
-  resources :movies, only: [:index]
+  get '/discover', to: 'discovers#index'
 end

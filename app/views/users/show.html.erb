@@ -1,4 +1,17 @@
 <h1>Welcome, <%=current_user.email%>!</h1>
-<%= button_to 'Discover Movies', movies_path, method: :get %>
+<%= button_to 'Discover Movies', discover_path, method: :get %>
 
 <h2>Viewing Parties</h2>
+<%current_user.events.each do |event|  %>
+<ul>
+  <li><%=event.title%></li>
+  <li><%=event.date %></li>
+  <li><%=event.time  %> </li>
+  <li>Hosting</li>
+  <%event.attendees.each do |attendee| %>
+  <ul>
+    <li> <%= attendee.user.email %> </li>
+  </ul>
+  <%end%>
+</ul>
+<%end%>
