@@ -1,37 +1,17 @@
-<h3><%= @movie.title %><h3><br>
-  
-<%= button_to "Create Viewing Party", parties_new_path, method: :get, local: true, params: { movie_id: @movie.id } %>
+<%= render 'users/navbar' %><br>
 
-<table class="movie-details-table">
+<h3><%= @movie.title %><h3><br>
+
+<%= button_to "Create Viewing Party", new_party_path, method: :get, local: true, params: { movie_id: @movie.id } %><br>
+
+<table class="movie-info-table">
     <tr>
-      <th>Vote Average</th>
-      <th>Runtime</th>
-      <th>Genres</th>
+      <th>Vote Average: <%= @movie.vote_average %></th>
+      <th>Runtime: <%= @movie.runtime %></th>
+      <th>Genres:</th>
     </tr>
     <tr>
         <td><%= @movie.vote_average %></td>
         <td><%= @movie.runtime %></td>
-        <td>
-          <ul><% @movie.genres.each do |genre| %>
-            <li><%= genre[:name] %></li>
-          <% end %></ul>
-        </td>
     </tr>
 </table>
-
-<h2>Summary</h2>
-<%= @movie.overview %>
-
-<h2>Cast</h2>
-<ol>
-  <% @movie.cast.each do |member| %>
-    <li><%= member[:name] %> as <%= member[:character] %></li>
-  <% end %>
-</ol>
-
-<h2>Reviews<h2>
-<h3>Total Number of Reviews: <%= @movie.reviews.size %></h3>
-<% @movie.reviews.each do |review| %>
-  <h3>Written By: <%= review[:author] %></h3>
-  <p> <%= review[:content] %></p>
-<% end %>
