@@ -5,13 +5,13 @@ RSpec.describe MovieService do
     @movie = MovieService.new
   end
 
-  it 'exists' do
+  xit 'exists' do
     expect(@movie).to be_a(MovieService)
   end
 
   describe 'instance methods' do
     describe '#request_api' do
-     it 'can connect to tmdb api', :vcr do
+     xit 'can connect to tmdb api', :vcr do
         VCR.use_cassette('tmbd_upcoming_movies') do
           response = @movie.request_api('/3/movie/upcoming')
 

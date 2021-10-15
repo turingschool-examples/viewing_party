@@ -10,7 +10,7 @@ RSpec.describe 'Movies Index Page' do
   end
 
   describe 'show movie results' do
-    it 'displays all the search functions' do
+    xit 'displays all the search functions' do
 
       expect(page).to have_content("Welcome #{@user.first_name}!")
       expect(page).to have_button('Find Top Rated Movies')
@@ -18,7 +18,7 @@ RSpec.describe 'Movies Index Page' do
       expect(page).to have_button('Find Movies')
     end
 
-    it 'displays the movie results'
-    
+    xit 'displays the movie results'
+
   end
 end
