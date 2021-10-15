@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   get '/movies', to: 'movies#index'
   post '/movies', to: 'movies#index'
-  get '/movies/:movie_id', to: 'movies#show'
+  get '/movies/:movie_id', to: 'movies#show', as: 'movie'
 
   get '/discover', to:'movies#discover'
   post '/discover', to:'movies#discover'
