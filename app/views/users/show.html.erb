@@ -2,7 +2,10 @@
 <%= button_to 'Discover Movies', discover_path, method: :get %>
 
 <h2>Viewing Parties</h2>
+<section id ="hostin-parties">
+
 <%current_user.events.each do |event|  %>
+<%if event.user_id == current_user.id %>
 <ul>
   <li><%=event.title%></li>
   <li><%=event.date %></li>
@@ -14,4 +17,25 @@
   </ul>
   <%end%>
 </ul>
+<% end %>
 <%end%>
+</section>
+
+<section id ="invited-parties">
+
+  <%current_user.events.each do |event|  %>
+  <% if event.user_id != current_user.id %>
+  <ul>
+    <li><%=event.title%></li>
+    <li><%=event.date %></li>
+    <li><%=event.time  %> </li>
+    <li> <%=event.user.email %> is hosting </li>
+    <%event.attendees.each do |attendee| %>
+    <ul>
+      <li> <%= attendee.user.email %> </li>
+    </ul>
+    <%end%>
+  </ul>
+  <% end %>
+  <%end%>
+</section>
