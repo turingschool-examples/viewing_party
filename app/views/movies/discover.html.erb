@@ -1,0 +1,16 @@
+<%= render 'users/navbar' %><br><br>
+
+<div align="center">
+
+<h3>Welcome <%= @user.first_name %>!</h3><br><br>
+
+<%= button_to "Find Top Rated Movies", movies_path, mothod: :get %><br><br>
+
+<h5>OR</h5><br><br>
+
+<%= form_with url: movies_path, local: true, class: 'form-inline', align: 'center', method: :get do |form| %><span class="tab"></span>
+  <%= form.text_field :query, placeholder: "Search by movie title", skip_label: true %>
+  <%= form.submit "Find Movies" %>
+<% end %><br><br><br>
+
+</div>
