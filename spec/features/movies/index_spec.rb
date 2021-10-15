@@ -18,7 +18,7 @@ RSpec.describe 'Movies Index Page' do
       expect(page).to have_button('Find Movies')
     end
 
-    xit 'displays the movie results' do
-    end
+    it 'displays the movie results'
+    
   end
 end
