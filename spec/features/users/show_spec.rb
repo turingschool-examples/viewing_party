@@ -1,17 +1,20 @@
 require 'rails_helper'
-RSpec.describe 'user dashboard page' do
-  before(:each) do
+
+RSpec.describe 'User Dashboard Page' do
+  before :each do
     @user = create(:mock_user)
     @friend_1 = create(:mock_user)
     @friend_2 = create(:mock_user)
     # @friendship_2 = create(:mock_friendship, user: @user, friend: @friend_2)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+
+    visit dashboard_path
   end
 
   describe 'friendships' do
     context 'has no friends to display' do
       it 'displays no friends if no friends' do
-        visit dashboard_path
+
         within('#friends') do
           expect(page).to have_content("You currently have no friends")
         end
@@ -21,7 +24,9 @@ RSpec.describe 'user dashboard page' do
     context 'has friends to display' do
       it 'displays friend names' do
         friendship_1 = create(:mock_friendship, user: @user, friend: @friend_1)
+
         visit dashboard_path
+
         within('#friends') do
           expect(page).to have_content(@friend_1.full_name)
           expect(page).to_not have_content(@friend_2.full_name)
@@ -31,14 +36,14 @@ RSpec.describe 'user dashboard page' do
 
     context 'add friends by email' do
       it 'has form to add friend' do
-        visit dashboard_path
+
         within('#friends') do
           expect(page).to have_field('friendship[friend_email]')
           expect(page).to have_button('Add Friend')
         end
       end
       it 'adds friends by email' do
-        visit dashboard_path
+
         within('#friends') do
           expect(page).to have_content("You currently have no friends")
 
@@ -55,7 +60,7 @@ RSpec.describe 'user dashboard page' do
       end
 
       it 'will not add users without correct email' do
-        visit dashboard_path
+
         within('#friends') do
           expect(page).to have_content("You currently have no friends")
 
@@ -71,7 +76,7 @@ RSpec.describe 'user dashboard page' do
       end
 
       it 'will not let user add self' do
-        visit dashboard_path
+
         within('#friends') do
           expect(page).to have_content("You currently have no friends")
 
@@ -81,10 +86,77 @@ RSpec.describe 'user dashboard page' do
         expect(current_path).to eq(dashboard_path)
 
         expect(page).to have_content('You cannot add yourself as a friend.')
+
         within('#friends') do
           expect(page).to have_content("You currently have no friends")
         end
       end
     end
   end
+
+  describe 'User dashboard has viewing parties' do
+    xit 'shows viewing parties that user is hosting' do
+
+      click_link "Log Out"
+
+      # User.destroy_all
+
+      fill_in :first_name, with: @user.first_name
+      fill_in :last_name, with: @user.last_name
+      fill_in :email, with: @user.email
+      fill_in :password, with: @user.password
+
+      click_on "Sign In"
+
+      movie = VCR.use_cassette("movie_info_by_id") do
+        MovieFacade.movie_info_by_id(337404)
+      end
+
+      # user = create(:mock_user, password: 'hello')
+      # friend = create(:mock_user)
+      @user.friends << @friend_1
+
+      party = create(:mock_party, movie_id: movie.id, movie_title: movie.title)
+
+      attendee_host = create(:mock_attendee, party: party, user: @user, status: 0)
+
+      attendee = create(:mock_attendee, party: party, user: @friend_1, status: 1)
+
+      expect(page).to have_content("Parties You're Hosting:")
+      expect(page).to have_content(party.movie_title)
+      expect(page).to have_content(party.date.strftime("%B %d, %Y"))
+      expect(page).to have_content(party.time.strftime("%l:%M %p"))
+      expect(page).to have_content(friend.full_name)
+      expect(page).to have_content(friend.email)
+     end
+   end
+
+   xit 'shows viewing parties that user is invited to' do
+
+      click_link("Log Out")
+
+      User.destroy_all
+      movie = VCR.use_cassette("movie_info_by_id") do
+        MovieFacade.movie_info_by_id(337404)
+      end
+      user = create(:mock_user, password: 'hello')
+      friend = create(:mock_user)
+      friend.friends << user
+      party = create(:mock_party, host_id: friend.id, movie_id: movie.id, title: movie.title)
+      party_guests = create(:mock_party_guest, party_id: party.id, guest: user )
+
+      # user.friends << friend
+      # party = create(:mock_party, host_id: user.id, movie_id: movie.id, title: movie.title)
+      # party_guests = create(:mock_party_guest, party_id: party.id, guest: friend )
+
+      fill_in :email, with: user.email
+      fill_in :password, with: user.password
+      click_button "Sign In"
+
+      expect(page).to have_content("Parties You're In")
+      expect(page).to have_content("Cruella")
+      expect(page).to have_content(party.date.strftime("%B %d, %Y"))
+      expect(page).to have_content(party.start_time.strftime("%l:%M %p"))
+      expect(page).to have_content(user.email)
+    end
 end

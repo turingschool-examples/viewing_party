@@ -1,0 +1,30 @@
+<%= render 'users/navbar' %><br>
+
+<h3>Welcome <%= @user.first_name %>! </h3><br>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <%= button_to 'Find Top Rated Movies', movies_path %><br>
+    </div>
+    <div class="col">
+      <%= form_with url: movies_path, local: true, method: :get do |form| %>
+        <%= form.text_field :query, placeholder: "Search by movie title", skip_label: true %>
+        <%= form.submit "Find Movies" %>
+      <% end %><br>
+    </div>
+  </div>
+
+<% if @movies.present? %>
+  <div id='movies'>
+    <table class="movie-table">
+      <% @movies.each do |movie| %>
+        <tr>
+          <td><%= link_to movie[:title], "/movies/#{movie[:id]}" %></td>
+          <td>Vote Average: <%= movie[:vote_average] %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+<% end %>
+</div><br><br>

@@ -1,4 +1,5 @@
-<h1>Welcome to Viewing Party</h1>
+<h1>Welcome to Viewing Party</h1><br>
+
 <p>Please Register for an Account</p>
 <%= form_with model: @user, local: true do |f| %>
   <%= f.label :first_name, "First Name:" %>
@@ -12,5 +13,6 @@
   <%= f.label :password_confirmation, 'Password Confirmation:' %>
   <%= f.password_field :password_confirmation %>
   <%= f.submit 'Register User' %>
-<% end %>
+<% end %><br><br>
+
 <%= link_to 'Already Registered? Log in Here', root_path %>
