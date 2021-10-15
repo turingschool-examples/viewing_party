@@ -14,6 +14,7 @@ class MovieFacade
     movie = service.request_api("/3/movie/#{movie_id}")
     cast = service.request_api("/3/movie/#{movie_id}/credits")
     reviews = service.request_api("/3/movie/#{movie_id}/reviews")
-    @movie = MovieInfo.new(movie, cast, reviews)
+
+    MovieInfo.new(movie, cast, reviews)
   end
 end

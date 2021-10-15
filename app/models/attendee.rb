@@ -4,5 +4,5 @@ class Attendee < ApplicationRecord
 
   validates :status, presence: true
 
-  enum status: ["host", "invited", "available"]
+  enum status: { 'host' => 0, 'invited' => 1, 'available' => 2 }
 end

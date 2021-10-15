@@ -2,13 +2,13 @@ class MoviesController < ApplicationController
   def index
     @user = current_user
 
-    if params[:query].nil?
-      @movies = MovieFacade.forty_top_rated_movies
-    elsif params[:query].present?
-      @movies = MovieFacade.search_movie_title(params[:query])
-    else
-      @movies = []
-    end
+    @movies = if params[:query].nil?
+                MovieFacade.forty_top_rated_movies
+              elsif params[:query].present?
+                MovieFacade.search_movie_title(params[:query])
+              else
+                []
+              end
   end
 
   def show

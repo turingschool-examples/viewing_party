@@ -4,7 +4,6 @@ class MovieService
     parse_json(response)
   end
 
-
   private
 
   def parse_json(response)
@@ -12,7 +11,6 @@ class MovieService
   end
 
   def conn(url)
-    Faraday.new(url: url, params: {api_key: Pusher.key })
+    Faraday.new(url: url, params: { api_key: Pusher.key })
   end
-
 end
