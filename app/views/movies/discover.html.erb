@@ -1,6 +1,8 @@
-<%= render 'users/navbar' %><br>
+<%= render 'users/navbar' %><br><br>
 
-<h3>Welcome <%= @user.first_name %>!</h3><br>
+<div align="center">
+
+<h3>Welcome <%= @user.first_name %>!</h3><br><br>
 
 <%= button_to "Find Top Rated Movies", movies_path, mothod: :get %><br><br>
 
@@ -10,3 +12,5 @@
   <%= form.text_field :query, placeholder: "Search by movie title", skip_label: true %>
   <%= form.submit "Find Movies" %>
 <% end %><br><br><br>
+
+</div>
