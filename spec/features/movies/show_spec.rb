@@ -6,10 +6,6 @@ RSpec.describe 'Movies Show Page' do
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
 
-    # service = MovieService.new
-    # @movie = VCR.use_cassette('movie_info_by_id') do
-    #   MovieFacade.movie_info_by_id(337404)
-    # end
     stub_movie_info_by_id
 
     visit movie_path(337404)
