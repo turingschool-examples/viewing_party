@@ -11,6 +11,7 @@ deploy:
   api_key:
     secure: lMLHvC+aylsm6BzjD8B83ynZHX39YFwGVUrjTsr2d11mLYc6+0vhNy2Ce40VMBOjPdgGSwLfzNeeFq3QiKuyJGtzgdV+vYNLbaqnz0ABExpvra0Ui5aJbDg1fYMLFB/lQFk9SLF8dXBEu4aaNYs6VXDQEY7ox1/2RbuZFfR8ArrZYkdrtgL0ZFYdIqceFPCa+msa4CAwhM+W7gTTb8KAVUr1MHg90jWMnwCN1Z8LPSqWedrFC0SQpD2LwmGoRrDyLQNGwYMmC7dhIenXjm48sMlHlIAU9D0u05jsDkBKZQ3eYxYnjYfIkaxTGzfz71XmjB21o+p/INIdqyWNMJwFkDphjYRLrw7ev8T6y6R0KYdVfMPAJuuvcJgOudQVOPMscuh+6gOdMhQV4va/7yviJ99rOIkT6VrqnvSIJegS22LeOaHFQ59tObOasKJn54T09J+qLJdnO/lmrkzD0jV/eorYr8/RifQH57AppYK/hLIVhKmI+vybw+g/23kA1AMkiB2xY8idgJmyRjxT3Ajg9BzizpLkJzp1ydBJ3aOKJVcO8Rs8SGSfLMKQqG+Hxy4tQNmI1s3dtTPw2y2puIHsc6Hbib7CeS7Ga0P0BUkA2V3YXycy+BnzlFJl4XbavcrJWo4yx6OoNohNZ5TZDpOofV8bLSqfg+vVLqk617e1/54=
   app: viewing-party-denver
+  skip_cleanup: true
   on:
     branch: main
   run: rails db:migrate

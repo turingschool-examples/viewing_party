@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe MovieService do
   before(:each) do
     @movie = MovieService.new
+    
   end
 
   xit 'exists' do
