@@ -12,9 +12,11 @@
 # the additional setup, and require it from the spec files that actually need
 # it.
 #
+require 'webmock/rspec'
 require 'simplecov'
 SimpleCov.start 'rails'
 SimpleCov.add_filter ['spec', 'config']
+
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
@@ -96,4 +98,34 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+end
+
+def stub_top_forty_rated_movies
+  response_body = File.read('spec/fixtures/top_rated.json')
+  stub_request(:get, 'https://api.themoviedb.org/3/movie/top_rated&page=1').
+    to_return(status: 200, body: response_body, headers: {})
+
+  response_body = File.read('spec/fixtures/top_rated_2.json')
+  stub_request(:get, 'https://api.themoviedb.org/3/movie/top_rated&page=1').
+    to_return(status: 200, body: response_body, headers: {})
+end
+
+def stub_search_movie_by_title
+  response_body = File.read('spec/fixtures/find_movie_by_title.json')
+  stub_request(:get, 'https://api.themoviedb.org/3/search/movie?query=Cruella').
+    to_return(status: 200, body: response_body, headers: {})
+end
+
+def stub_movie_info_by_id
+  response_body = File.read('spec/fixtures/find_cast_by_id.json')
+  cast = stub_request(:get, 'https://api.themoviedb.org/3/movie/337404/credits').
+    to_return(status: 200, body: response_body, headers: {})
+
+  response_body = File.read('spec/fixtures/find_reviews.json')
+  reviews = stub_request(:get, "https://api.themoviedb.org/3/movie/337404/reviews").
+    to_return(status: 200, body: response_body, headers: {})
+
+  response_body = File.read('spec/fixtures/find_movie_by_id.json')
+  movie = stub_request(:get, "https://api.themoviedb.org/3/movie/337404").
+    to_return(status: 200, body: response_body, headers: {})
 end
