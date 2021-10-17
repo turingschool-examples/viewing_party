@@ -122,7 +122,7 @@ RSpec.describe 'dashboard page' do
     expect(page).to have_content("User not found. Please try your search again.")
   end
 
-  xit 'shows all added friends when there are friends' do
+  it 'shows all added friends when there are friends' do
     visit "/"
     click_on "Log In"
 
@@ -135,6 +135,14 @@ RSpec.describe 'dashboard page' do
 
     click_on 'Add Friend'
 
-    expect(page).to have_content("You are now following #{@user_3.email}!")
+    fill_in 'user_search', with: @user_1.email
+
+    click_on 'Add Friend'
+
+    expect(page).to have_content("#{@user_3.email}")
+
+    expect(page).to have_content("#{@user_1.email}")
+
+    expect(page).to have_no_content("You currently have no friends.")
   end
 end
