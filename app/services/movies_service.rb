@@ -9,5 +9,6 @@ class MoviesService
   def top_40
   first = get_data("https://api.themoviedb.org/3/movie/top_rated?api_key=#{ENV['API_KEY']}&language=en-US&page=1")
   second = get_data("https://api.themoviedb.org/3/movie/top_rated?api_key=#{ENV['API_KEY']}&language=en-US&page=2")
+  first[:results] + second[:results]
   end
 end
