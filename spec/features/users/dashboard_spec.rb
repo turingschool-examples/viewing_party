@@ -55,6 +55,57 @@ RSpec.describe 'dashboard page' do
     expect(page).to have_button("Add Friend")
   end
 
+  it 'returns a flash message if the user tries to add itself' do
+    visit "/"
+    click_on "Log In"
+
+    fill_in 'email', with: @user_2.email
+    fill_in 'password', with: @user_2.password
+
+    click_on 'Submit'
+
+    fill_in 'user_search', with: @user_2.email
+
+    click_on 'Add Friend'
+
+    expect(page).to have_content("You cannot follow yourself!")
+  end
+
+  it 'returns a flash message if the user tries to add a friend they already have' do
+    @user_4 = User.create(email: 'blank@test.com', password: 'password4')
+    @user_2.followers << @user_4
+
+    visit "/"
+    click_on "Log In"
+
+    fill_in 'email', with: @user_2.email
+    fill_in 'password', with: @user_2.password
+
+    click_on 'Submit'
+
+    fill_in 'user_search', with: @user_4.email
+
+    click_on 'Add Friend'
+
+    expect(page).to have_content("You already follow #{@user_4.email}!")
+  end
+
+  it 'returns a successful flash message when the user adds a friend' do
+    visit "/"
+    click_on "Log In"
+
+    fill_in 'email', with: @user_2.email
+    fill_in 'password', with: @user_2.password
+
+    click_on 'Submit'
+
+    fill_in 'user_search', with: @user_3.email
+
+    click_on 'Add Friend'
+
+    expect(page).to have_content("You are now following #{@user_3.email}!")
+  end
+
   it 'returns a flash message if the user searched does not exist in the database' do
     visit "/"
     click_on "Log In"
@@ -65,6 +116,8 @@ RSpec.describe 'dashboard page' do
     click_on 'Submit'
 
     fill_in 'user_search', with: 'blah@test.com'
+
+    click_on 'Add Friend'
 
     expect(page).to have_content("User not found. Please try your search again.")
   end
