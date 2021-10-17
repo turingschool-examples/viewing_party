@@ -1,7 +1,7 @@
 require 'rails_helper'
 RSpec.describe User, type: :model do
   describe 'relationships' do
-    it { should have_many(:attendees) }
+    # it { should have_many(:attendees) }
     it { should have_many(:followed_users) }
     it { should have_many(:following_users) }
     it { should have_many(:events) }

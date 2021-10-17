@@ -14,8 +14,8 @@ RSpec.describe 'user registration page' do
     fill_in 'user[password_confirmation]', with: password
     click_on "Create User"
 
-    expect(page).to have_content("Welcome, #{email}!")
     expect(current_path).to eq(dashboard_path)
+    expect(page).to have_content("Welcome, #{email}!")
   end
 
   it 'has a sad path if no confirmation is provided' do
