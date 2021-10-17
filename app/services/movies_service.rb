@@ -1,4 +1,4 @@
-class MovieService
+class MoviesService
 
   def get_data(endpoint)
     response = Faraday.get(endpoint)
