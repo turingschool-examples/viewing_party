@@ -26,7 +26,6 @@ class PartiesController < ApplicationController
     end
   end
 
-
   private
 
   def party_params
@@ -36,5 +35,4 @@ class PartiesController < ApplicationController
   def friend_params
     params.require(:friend).permit!
   end
-
 end
