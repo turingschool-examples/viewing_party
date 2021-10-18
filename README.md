@@ -44,17 +44,6 @@
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
-      ### Built With
-      <ul>
-        <li>Rails 5.2.5</li>
-        <li>Ruby 2.7.2</li>
-        <li>Rspec</li>
-        <li>Travis CI</li>
-        <li>Webmock VCR</li>
-        <li>react-rails gem</li>
-        <li>PostgreSQL</li>
-      </ul>
-    </li>
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
@@ -74,8 +63,19 @@
 
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
-
+## About The Project 
+   #### Built With
+   <li>
+      <ul>
+        <li>Rails 5.2.5</li>
+        <li>Ruby 2.7.2</li>
+        <li>Rspec</li>
+        <li>Travis CI</li>
+        <li>Webmock VCR</li>
+        <li>react-rails gem</li>
+        <li>PostgreSQL</li>
+      </ul>
+    </li>
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
 Here's a blank template to get started:
@@ -169,8 +169,6 @@ Project Link: [https://github.com/AlexKlick/repo_name](https://github.com/AlexKl
 * []()
 * []()
 * []()
-
-
 
 
 
