@@ -64,6 +64,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project 
    ### Built Using:
+   |      |   |    |      |
 |   :----:    |    :----:     |    :----:     |    :----:     |
 | Ruby 2.7.2  | SQL           | SimpleCov     | Github        |
 | Rails 5.2.5 | ActiveRecord  | BootStrap     | VSCode        |
