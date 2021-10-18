@@ -105,14 +105,20 @@ To get a local copy up and running follow these simple steps.
 - Upon successful creation, redirected to dashboard
 - To view movies, navigate to the discover page
 - Search movies or view top movies
-
+<br />
 Individual Movie Show Page
 ![Individual Movie Show Page](https://user-images.githubusercontent.com/60951642/137794242-19f90ead-d5a8-4810-9141-47eadbc44fdc.png)
+<br />
 Movie Trailer Modal
 ![Movie Trailer](https://user-images.githubusercontent.com/60951642/137793918-4a379a46-7b5a-43ab-8333-92da1e27f7a9.png)
+<br />
 Dynamic horizonally scrollable content
 ![Dynamic horizonally scrollable content](https://user-images.githubusercontent.com/60951642/137776834-ee15d515-bbf0-4eaa-9286-c0d566fc2fba.png)
+<br />
 Top Movies Index Page
+![Top Movies](https://user-images.githubusercontent.com/60951642/137795577-5b6544e3-2d2b-4725-82fe-eec9bfcf9702.png)
+<br />
+Search Movies
 ![Top Movies](https://user-images.githubusercontent.com/60951642/137794042-beb4c97f-ab5e-4671-b3b5-608bc3a3a2df.png)
 
 
