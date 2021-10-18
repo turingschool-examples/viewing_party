@@ -91,7 +91,7 @@ To get a local copy up and running follow these simple steps.
     rails db:create
    ```
 4. Migrate DB
-       ```sh
+    ```sh
     rails db:migrate
    ```
 5. Run Server Locally
