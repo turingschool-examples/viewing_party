@@ -114,6 +114,7 @@ Movie Trailer Modal
 <br />
 Dynamic horizonally scrollable content
 ![Dynamic horizonally scrollable content](https://user-images.githubusercontent.com/60951642/137776834-ee15d515-bbf0-4eaa-9286-c0d566fc2fba.png)
+
 <br />
 Top Movies Index Page
 ![Top Movies](https://user-images.githubusercontent.com/60951642/137795577-5b6544e3-2d2b-4725-82fe-eec9bfcf9702.png)
