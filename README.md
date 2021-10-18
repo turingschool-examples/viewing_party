@@ -64,37 +64,18 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project 
-   #### Built With
-   <li>
-      <ul>
-        <li>Rails 5.2.5</li>
-        <li>Ruby 2.7.2</li>
-        <li>Rspec</li>
-        <li>Travis CI</li>
-        <li>Webmock VCR</li>
-        <li>react-rails gem</li>
-        <li>PostgreSQL</li>
-      </ul>
-    </li>
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+   #### Built Using:
+|             |               |               |               |
+|   :----:    |    :----:     |    :----:     |    :----:     |
+| Ruby 2.7.2  | SQL           | SimpleCov     | Github        |
+| Rails 5.2.5 | ActiveRecord  | BootStrap     | VSCode        |
+| RSpec       | HTML5         | Capybara      | Launchy       |
+| Pry         | CSS3          | ShouldaMatcher| Orderly       |
 
-Here's a blank template to get started:
-**To avoid retyping too much info. Do a search and replace with your text editor for the following:**
-`github_username`, `repo_name`, `twitter_handle`, `email`, `project_title`, `project_description`
-
-
-### Built With
-
-* []()
-* []()
-* []()
-
-
-
-<!-- GETTING STARTED -->
 ## Getting Started
 
 To get a local copy up and running follow these simple steps.
+
 
 ### Prerequisites
 
