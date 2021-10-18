@@ -47,7 +47,6 @@
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
@@ -64,8 +63,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project 
-   #### Built Using:
-|             |               |               |               |
+   ### Built Using:
 |   :----:    |    :----:     |    :----:     |    :----:     |
 | Ruby 2.7.2  | SQL           | SimpleCov     | Github        |
 | Rails 5.2.5 | ActiveRecord  | BootStrap     | VSCode        |
@@ -100,42 +98,6 @@ To get a local copy up and running follow these simple steps.
    ```
 
 
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-
-
-<!-- ROADMAP -->
-## Roadmap
-
-See the [open issues](https://github.com/AlexKlick/repo_name/issues) for a list of proposed features (and known issues).
-
-
-
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-
-
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE` for more information.
-
-
-
 <!-- CONTACT -->
 ## Contact
 
@@ -143,10 +105,19 @@ Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email
 
 Project Link: [https://github.com/AlexKlick/repo_name](https://github.com/AlexKlick/repo_name)
 
-## Screenshots
+<!-- USAGE EXAMPLES -->
+## Usage
+- Visit <a href="https://viewing-partie.herokuapp.com/users/new">registration page</a> 
+- Create new account, does not require an actual password for this demonstration. ex: user@user.com
+- Upon successful creation, redirected to dashboard
+- To view movies, navigate to the discover page
+- Search movies or view top movies
+- 
 ![Dynamic horizonally scrollable content](https://user-images.githubusercontent.com/60951642/137776834-ee15d515-bbf0-4eaa-9286-c0d566fc2fba.png)
+![Movie Trailer](https://user-images.githubusercontent.com/60951642/137793918-4a379a46-7b5a-43ab-8333-92da1e27f7a9.png)
+![Top Movies](https://user-images.githubusercontent.com/60951642/137794042-beb4c97f-ab5e-4671-b3b5-608bc3a3a2df.png)
+![Individual Movie Show Page](https://user-images.githubusercontent.com/60951642/137794242-19f90ead-d5a8-4810-9141-47eadbc44fdc.png)
 
-<!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 
 * []()
