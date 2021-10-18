@@ -2,11 +2,16 @@
 <h1>Welcome, <%=current_user.email%>!</h1>
 <%= button_to 'Discover Movies', discover_path, method: :get %>
 
+
+
 <h2>My Friends:</h2>
 <br>
 
+<section id="friendships">
+
 <% if current_user.no_friends? %>
   <h3>You currently have no friends.</h3>
+  <br>
 <% else %>
   <% current_user.followers.each do |follower| %>
     <p><%= follower.email %></p>
@@ -20,6 +25,8 @@
   <%= form.text_field :user_search, id: :user_search %>
   <%= form.submit 'Add Friend' %>
 <% end %>
+
+</section>
 
 <h2>Viewing Parties</h2>
 <section id ="hostin-parties">
@@ -59,4 +66,3 @@
   <% end %>
   <%end%>
 </section>
-
