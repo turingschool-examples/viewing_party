@@ -17,3 +17,5 @@ module ViewingParty
     # the framework and any gems in your application.
   end
 end
+
+Figaro.require_keys(Pusher.key)

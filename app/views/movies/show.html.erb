@@ -1,17 +1,37 @@
 <%= render 'users/navbar' %><br>
 
-<h3><%= @movie.title %><h3><br>
+<h3>Title: <%= @movie.title %><h3><br>
 
-<%= button_to "Create Viewing Party", new_party_path, method: :get, local: true, params: { movie_id: @movie.id } %><br>
+<%= button_to 'Create Viewing Party', new_party_path, method: :get, local: true, params: { movie_id: @movie.id }, class: 'center' %><br>
 
-<table class="movie-info-table">
-    <tr>
-      <th>Vote Average: <%= @movie.vote_average %></th>
-      <th>Runtime: <%= @movie.runtime %></th>
-      <th>Genres:</th>
-    </tr>
-    <tr>
-        <td><%= @movie.vote_average %></td>
-        <td><%= @movie.runtime %></td>
-    </tr>
-</table>
+<h5>
+  Vote Average: <%= @movie.vote_average %>  |  Runtime: <%= @movie.runtime %>  |  Genre(s): <% @movie.genres.select do |genre| %>
+  <%= genre[:name] %>
+<% end %></h5>
+<hr style="width:50% length:80%", size="10", color=black><br>
+
+<h5><b>Summary:</b></h5>
+  <p>
+  <%= @movie.overview %><br><br>
+  </p>
+
+<h5><b>Cast:</b></h5>
+  <p>
+  <% @movie.cast.map do |data| %>
+  <%= data[:name] %> as <%= data[:character] %> |
+  <% end %>
+  </p>
+
+<hr style="width:50% length:80%", size="10", color=black><br>
+
+<h5><b><%= @movie.reviews.count %> Review(s)</h5></b><br>
+  <div class="card">
+  <div class="card-body">
+    <% @movie.reviews.each do |review| %>
+    <p>
+    <b>Author: <%= review[:author] %></b><br><br>
+    <%= review[:content] %>
+    </p>
+    <% end %>
+  </div>
+</div><br><br>

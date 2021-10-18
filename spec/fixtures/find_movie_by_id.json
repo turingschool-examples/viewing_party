@@ -1,0 +1,101 @@
+{
+  "page": 1,
+  "results": [
+      {
+          "adult": false,
+          "backdrop_path": "/6MKr3KgOLmzOP6MSuZERO41Lpkt.jpg",
+          "genre_ids": [
+              35,
+              80
+          ],
+          "id": 337404,
+          "original_language": "en",
+          "original_title": "Cruella",
+          "overview": "In 1970s London amidst the punk rock revolution, a young grifter named Estella is determined to make a name for herself with her designs. She befriends a pair of young thieves who appreciate her appetite for mischief, and together they are able to build a life for themselves on the London streets. One day, Estella’s flair for fashion catches the eye of the Baroness von Hellman, a fashion legend who is devastatingly chic and terrifyingly haute. But their relationship sets in motion a course of events and revelations that will cause Estella to embrace her wicked side and become the raucous, fashionable and revenge-bent Cruella.",
+          "popularity": 1937.647,
+          "poster_path": "/rTh4K5uw9HypmpGslcKd4QfHl93.jpg",
+          "release_date": "2021-05-26",
+          "title": "Cruella",
+          "video": false,
+          "vote_average": 8.5,
+          "vote_count": 3854
+      },
+      {
+          "adult": false,
+          "backdrop_path": null,
+          "genre_ids": [
+              80,
+              35,
+              18
+          ],
+          "id": 836454,
+          "original_language": "en",
+          "original_title": "Cruella 2",
+          "overview": "Sequel to 2021's Cruella.",
+          "popularity": 5.319,
+          "poster_path": null,
+          "release_date": "",
+          "title": "Cruella 2",
+          "video": false,
+          "vote_average": 0,
+          "vote_count": 0
+      },
+      {
+          "adult": false,
+          "backdrop_path": "/kuStRV9ItXESNvuEGDZMsm65yfv.jpg",
+          "genre_ids": [
+              16,
+              10751
+          ],
+          "id": 750955,
+          "original_language": "en",
+          "original_title": "A Christmas Cruella",
+          "overview": "The ghosts of Christmases past, present and future haunt Cruella's dreams.",
+          "popularity": 2.987,
+          "poster_path": "/fuky5xZG2pZDwdeQFrllqNbC2Co.jpg",
+          "release_date": "1997-12-20",
+          "title": "A Christmas Cruella",
+          "video": false,
+          "vote_average": 0,
+          "vote_count": 0
+      },
+      {
+          "adult": false,
+          "backdrop_path": "/zIVwv4lgm0FwxbEcjILGcz0hAKL.jpg",
+          "genre_ids": [],
+          "id": 324895,
+          "original_language": "nl",
+          "original_title": "Mega Mindy - Della Cruella",
+          "overview": "",
+          "popularity": 1.902,
+          "poster_path": "/tns1HkyOSVipEAu2kd5ouTMkS4d.jpg",
+          "release_date": "2014-05-15",
+          "title": "Mega Mindy - Della Cruella",
+          "video": false,
+          "vote_average": 5,
+          "vote_count": 2
+      },
+      {
+          "adult": false,
+          "backdrop_path": null,
+          "genre_ids": [
+              10751,
+              99,
+              16
+          ],
+          "id": 534112,
+          "original_language": "en",
+          "original_title": "Cruella De Vil: Drawn to Be Bad",
+          "overview": "Bonus short on the 101 Dalmatians Diamond Edition Blu-ray featuring interviews with the people who worked on the movie.",
+          "popularity": 4.173,
+          "poster_path": "/47jLL1HGnwNrqC7nDhOCLuFX5id.jpg",
+          "release_date": "2008-03-04",
+          "title": "Cruella De Vil: Drawn to Be Bad",
+          "video": true,
+          "vote_average": 0,
+          "vote_count": 0
+      }
+  ],
+  "total_pages": 1,
+  "total_results": 5
+}
