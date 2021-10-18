@@ -22,13 +22,34 @@
    <% end %>
  <% end %><br><br>
 </section>
+
 <hr style="width:50% length:80%", size="10", color=black><br><br>
 
+<section id='parties'>
 <h5>Viewing Parties</h5>
 <hr style="width:50% length:80%", size="10", color=black>
-
-<h6>Parties You're Hosting:</h6>
   <% current_user.parties.each do |party| %>
-  <h6><%= link_to party.title, "/movies/#{party.movie_id}" %></h6>
-  <h6><%= party.date.strftime('%l:%M %p') %></h6>
+  <div class="card", id='party-<%= party.id %>'>
+    <ul><strong><%= link_to party.movie_title, movie_path(party.movie_id) %></strong>
+      <li><%= party.date.strftime("%B %d, %Y") %></li>
+      <li><%= party.time.strftime("%l:%M %p") %></li>
+      <li id='party-host'>Host: <% if party.host == current_user %>
+                  You are the host
+                <% else %>
+                  <%= party.host.full_name %>
+                <% end %>
+      </li>
+      <li id='party-invited'>Attendees: <% party.invited_users.each do |invited| %>
+                    <ul>
+                      <% if invited == current_user %>
+                        <li><b><%= invited.full_name %></b></li>
+                      <% else %>
+                        <li><%= invited.full_name %></li>
+                      <% end %>
+                    </ul>
+                    <% end %>
+      </li>
+    </ul>
+  </div>
   <% end %><br><br>
+</section>
