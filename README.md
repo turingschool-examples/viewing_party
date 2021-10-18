@@ -23,12 +23,12 @@
   <h3 align="center">Viewing Party</h3>
 
   <p align="center">
-  A project using <a href="https://www.themoviedb.org/settings/api">themovieDB api </a> which allows users to search movies, see the top rated movies, and create their own viewing parties to watch movies with their friends!
+  A project using <a href="https://www.themoviedb.org/settings/api">themovieDB api </a> which allows users to search movies, see the top rated movies, and create their own viewing parties to watch movies with their friends! A paired programming project, completed in a 6 day timeframe, while at <a href="https://turing.edu/">Turing School of Software Design</a>
     <br />
     <a href="https://github.com/AlexKlick/viewing_party"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://viewing-partie.herokuapp.com/">View Demo</a>
+    <a href="https://viewing-partie.herokuapp.com/">View Demo (takes about 20-30 seconds for the heroku dynos to load)</a>
     ·
     <a href="https://github.com/AlexKlick/viewing_party/issues">Report Bug</a>
     ·
