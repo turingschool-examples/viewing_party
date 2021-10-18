@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   resources :users, only: [:create]
 
   get '/dashboard', controller: :users, action: :show
+
+  post '/dashboard', controller: :users, action: :find
+
   get '/discover', to: 'discovers#index'
   resources :movies
 end

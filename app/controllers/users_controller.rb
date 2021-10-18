@@ -18,6 +18,24 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+  end
+
+  def find
+    @found_user = User.find_by(email: params[:user_search].downcase)
+    if !@found_user.nil? && @found_user.email == current_user.email
+      flash[:alert] = 'You cannot follow yourself!'
+    elsif !@found_user.nil? && current_user.friends_with?(@found_user.id)
+      flash[:alert] = "You already follow #{@found_user.email}!"
+    elsif !@found_user.nil? && !current_user.friends_with?(@found_user.id)
+      current_user.followers << @found_user
+      flash[:alert] = "You are now following #{@found_user.email}!"
+    else
+      flash[:alert] = "User not found. Please try your search again."
+    end
+    redirect_to dashboard_path(current_user.id)
+  end
+
   private
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation)
