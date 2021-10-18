@@ -1,16 +1,3 @@
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Thanks again! Now go create something AMAZING! :D
-***
-***
-***
-*** To avoid retyping too much info. Do a search and replace for the following:
-*** github_username, repo_name, twitter_handle, email, project_title, project_description
--->
-
-
 
 <!-- PROJECT SHIELDS -->
 <!--
@@ -41,7 +28,7 @@
     <a href="https://github.com/AlexKlick/viewing_party"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/AlexKlick/viewing_party">View Demo</a>
+    <a href="https://viewing-partie.herokuapp.com/">View Demo</a>
     ·
     <a href="https://github.com/AlexKlick/viewing_party/issues">Report Bug</a>
     ·
@@ -59,6 +46,13 @@
       <a href="#about-the-project">About The Project</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
+        <li>Rails 5.2.5</li>
+        <li>Ruby 2.7.2</li>
+        <li>Rspec</li>
+        <li>Travis CI</li>
+        <li>Webmock VCR</li>
+        <li>react-rails gem</li>
+        
       </ul>
     </li>
     <li>
