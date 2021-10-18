@@ -1,19 +1,18 @@
 require 'rails_helper'
 
-RSpec.describe 'User Dashboard Page' do
+RSpec.describe 'User Dashboard Page', type: :feature do
   before :each do
     @user = create(:mock_user)
     @friend_1 = create(:mock_user)
     @friend_2 = create(:mock_user)
     # @friendship_2 = create(:mock_friendship, user: @user, friend: @friend_2)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
-
-    visit dashboard_path
   end
 
   describe 'friendships' do
     context 'has no friends to display' do
       it 'displays no friends if no friends' do
+        visit dashboard_path
 
         within('#friends') do
           expect(page).to have_content("You currently have no friends")
@@ -35,6 +34,9 @@ RSpec.describe 'User Dashboard Page' do
     end
 
     context 'add friends by email' do
+      before(:each) do
+        visit dashboard_path
+      end
       it 'has form to add friend' do
 
         within('#friends') do
@@ -95,68 +97,44 @@ RSpec.describe 'User Dashboard Page' do
   end
 
   describe 'User dashboard has viewing parties' do
-    xit 'shows viewing parties that user is hosting' do
+    it 'shows viewing parties that user is hosting', :vcr do
+      movie = MovieFacade.movie_info_by_id(337404)
 
-      click_link "Log Out"
-
-      # User.destroy_all
-
-      fill_in :first_name, with: @user.first_name
-      fill_in :last_name, with: @user.last_name
-      fill_in :email, with: @user.email
-      fill_in :password, with: @user.password
-
-      click_on "Sign In"
-
-      movie = VCR.use_cassette("movie_info_by_id") do
-        MovieFacade.movie_info_by_id(337404)
+      party = create(:mock_party, movie_title: movie.title, movie_id: movie.id)
+      attendee_host = create(:mock_attendee, party_id: party.id, user_id: @user.id, status: 0)
+      attendee = create(:mock_attendee, party: party, user: @friend_1, status: 1)
+      visit dashboard_path
+      within("#party-#{party.id}") do
+        expect(page).to have_content(party.movie_title)
+        expect(page).to have_content(party.date.strftime("%B %d, %Y"))
+        expect(page).to have_content(party.time.strftime("%l:%M %p"))
+        expect(page).to have_content("You are the host")
+        expect(page).to have_content(@friend_1.full_name)
       end
+    end
 
-      # user = create(:mock_user, password: 'hello')
-      # friend = create(:mock_user)
-      @user.friends << @friend_1
+
+    it 'shows viewing parties that user is invited to', :vcr do
+      movie = MovieFacade.movie_info_by_id(155)
 
       party = create(:mock_party, movie_id: movie.id, movie_title: movie.title)
+      attendee_host = create(:mock_attendee, party: party, user: @friend_1)
+      attendee_1 = create(:mock_attendee, party: party, user: @user, status: 1)
+      attendee_2 = create(:mock_attendee, party: party, user: @friend_2, status: 1)
+      visit dashboard_path
 
-      attendee_host = create(:mock_attendee, party: party, user: @user, status: 0)
-
-      attendee = create(:mock_attendee, party: party, user: @friend_1, status: 1)
-
-      expect(page).to have_content("Parties You're Hosting:")
-      expect(page).to have_content(party.movie_title)
-      expect(page).to have_content(party.date.strftime("%B %d, %Y"))
-      expect(page).to have_content(party.time.strftime("%l:%M %p"))
-      expect(page).to have_content(friend.full_name)
-      expect(page).to have_content(friend.email)
-     end
-   end
-
-   xit 'shows viewing parties that user is invited to' do
-
-      click_link("Log Out")
-
-      User.destroy_all
-      movie = VCR.use_cassette("movie_info_by_id") do
-        MovieFacade.movie_info_by_id(337404)
+      within("#party-#{party.id}") do
+        expect(page).to have_content(movie.title)
+        expect(page).to have_content(party.date.strftime("%B %d, %Y"))
+        expect(page).to have_content(party.time.strftime("%l:%M %p"))
+        within('#party-host') do
+          expect(page).to have_content("Host: #{@friend_1.full_name}")
+        end
+        within('#party-invited') do
+          expect(page).to have_content(@user.full_name)
+          expect(page).to have_content(@friend_2.full_name)
+        end
       end
-      user = create(:mock_user, password: 'hello')
-      friend = create(:mock_user)
-      friend.friends << user
-      party = create(:mock_party, host_id: friend.id, movie_id: movie.id, title: movie.title)
-      party_guests = create(:mock_party_guest, party_id: party.id, guest: user )
-
-      # user.friends << friend
-      # party = create(:mock_party, host_id: user.id, movie_id: movie.id, title: movie.title)
-      # party_guests = create(:mock_party_guest, party_id: party.id, guest: friend )
-
-      fill_in :email, with: user.email
-      fill_in :password, with: user.password
-      click_button "Sign In"
-
-      expect(page).to have_content("Parties You're In")
-      expect(page).to have_content("Cruella")
-      expect(page).to have_content(party.date.strftime("%B %d, %Y"))
-      expect(page).to have_content(party.start_time.strftime("%l:%M %p"))
-      expect(page).to have_content(user.email)
     end
+  end
 end
