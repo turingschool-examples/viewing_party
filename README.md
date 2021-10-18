@@ -52,7 +52,7 @@
         <li>Travis CI</li>
         <li>Webmock VCR</li>
         <li>react-rails gem</li>
-        
+        <li>PostgreSQL</li>
       </ul>
     </li>
     <li>
