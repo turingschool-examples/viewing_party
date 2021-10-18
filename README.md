@@ -44,8 +44,8 @@
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
+      ### Built With
       <ul>
-        <li><a href="#built-with">Built With</a></li>
         <li>Rails 5.2.5</li>
         <li>Ruby 2.7.2</li>
         <li>Rspec</li>
