@@ -23,7 +23,7 @@
   <h3 align="center">Viewing Party</h3>
 
   <p align="center">
-  A project using <a href="https://www.themoviedb.org/settings/api">themovieDB api </a> which allows users to search movies, see the top rated movies, and create their own viewing parties to watch movies with their friends! A paired programming project, completed in a 6 day timeframe, while at <a href="https://turing.edu/">Turing School of Software Design</a>
+  A project using <a href="https://www.themoviedb.org/documentation/api">themovieDB api </a> which allows users to search movies, see the top rated movies, and create their own viewing parties to watch movies with their friends! A paired programming project, completed in a 6 day timeframe, while at <a href="https://turing.edu/">Turing School of Software Design</a>
     <br />
     <a href="https://github.com/AlexKlick/viewing_party"><strong>Explore the docs »</strong></a>
     <br />
@@ -98,32 +98,26 @@ To get a local copy up and running follow these simple steps.
     rails server
    ```
 
-
-<!-- CONTACT -->
-## Contact
-
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email
-
-Project Link: [https://github.com/AlexKlick/repo_name](https://github.com/AlexKlick/repo_name)
-
 <!-- USAGE EXAMPLES -->
 ## Usage
 - Visit <a href="https://viewing-partie.herokuapp.com/users/new">registration page</a> 
-- Create new account, does not require an actual password for this demonstration. ex: user@user.com
+- Create new account, does not require an actual email for this demonstration. ex: user@user.com
 - Upon successful creation, redirected to dashboard
 - To view movies, navigate to the discover page
 - Search movies or view top movies
-- 
-![Dynamic horizonally scrollable content](https://user-images.githubusercontent.com/60951642/137776834-ee15d515-bbf0-4eaa-9286-c0d566fc2fba.png)
-![Movie Trailer](https://user-images.githubusercontent.com/60951642/137793918-4a379a46-7b5a-43ab-8333-92da1e27f7a9.png)
-![Top Movies](https://user-images.githubusercontent.com/60951642/137794042-beb4c97f-ab5e-4671-b3b5-608bc3a3a2df.png)
+
+Individual Movie Show Page
 ![Individual Movie Show Page](https://user-images.githubusercontent.com/60951642/137794242-19f90ead-d5a8-4810-9141-47eadbc44fdc.png)
+Movie Trailer Modal
+![Movie Trailer](https://user-images.githubusercontent.com/60951642/137793918-4a379a46-7b5a-43ab-8333-92da1e27f7a9.png)
+Dynamic horizonally scrollable content
+![Dynamic horizonally scrollable content](https://user-images.githubusercontent.com/60951642/137776834-ee15d515-bbf0-4eaa-9286-c0d566fc2fba.png)
+Top Movies Index Page
+![Top Movies](https://user-images.githubusercontent.com/60951642/137794042-beb4c97f-ab5e-4671-b3b5-608bc3a3a2df.png)
+
 
 ## Acknowledgements
-
-* []()
-* []()
-* []()
+<a href="https://www.themoviedb.org/documentation/api">TheMovieDB</a>
 
 
 
