@@ -161,7 +161,6 @@ Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email
 Project Link: [https://github.com/AlexKlick/repo_name](https://github.com/AlexKlick/repo_name)
 
 ## Screenshots
-[![]](https://user-images.githubusercontent.com/60951642/137776834-ee15d515-bbf0-4eaa-9286-c0d566fc2fba.png)
 ![Dynamic horizonally scrollable content](https://user-images.githubusercontent.com/60951642/137776834-ee15d515-bbf0-4eaa-9286-c0d566fc2fba.png)
 
 <!-- ACKNOWLEDGEMENTS -->
