@@ -76,26 +76,28 @@
 
 To get a local copy up and running follow these simple steps.
 
-
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
-
 ### Installation
 
 1. Clone the repo
    ```sh
    git clone https://github.com/AlexKlick/repo_name.git
    ```
-2. Install NPM packages
-   ```sh
-   npm install
+2. Install Gems
+     ```sh
+   bundle install
    ```
-
+3. Create Database
+     ```sh
+    rails db:create
+   ```
+4. Migrate DB
+       ```sh
+    rails db:migrate
+   ```
+5. Run Server Locally
+   ```sh
+    rails server
+   ```
 
 
 <!-- USAGE EXAMPLES -->
