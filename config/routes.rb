@@ -11,8 +11,8 @@ Rails.application.routes.draw do
 
   get '/dashboard', controller: :users, action: :show
 
-  post '/dashboard', controller: :users, action: :find 
+  post '/dashboard', controller: :users, action: :find
 
   get '/discover', to: 'discovers#index'
-
+  resources :movies
 end
