@@ -1,11 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe 'User Dashboard Page', type: :feature do
+
   before :each do
     @user = create(:mock_user)
     @friend_1 = create(:mock_user)
     @friend_2 = create(:mock_user)
-    # @friendship_2 = create(:mock_friendship, user: @user, friend: @friend_2)
+
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
   end
 
@@ -93,6 +94,18 @@ RSpec.describe 'User Dashboard Page', type: :feature do
           expect(page).to have_content("You currently have no friends")
         end
       end
+
+      it 'will not add duplicate friends' do
+        @user.friends << @friend_1
+        visit dashboard_path
+
+        within('#friends') do
+          fill_in 'friendship[friend_email]', with: @friend_1.email
+          click_on 'Add Friend'
+        end
+        expect(current_path).to eq(dashboard_path)
+        expect(page).to have_content("#{@friend_1.full_name} is already your friend.")
+      end
     end
   end
 
@@ -135,6 +148,17 @@ RSpec.describe 'User Dashboard Page', type: :feature do
           expect(page).to have_content(@friend_2.full_name)
         end
       end
+    end
+  end
+
+  describe 'logout' do
+    it 'can log out' do
+      visit dashboard_path
+
+      click_on 'Log Out'
+
+      expect(current_path).to eq(root_path)
+      expect(page).to have_no_content(@user.first_name)
     end
   end
 end

@@ -4,6 +4,11 @@ class MovieService
     parse_json(response)
   end
 
+  def image_request_api(path)
+    response = conn_2('https://image.tmdb.org').get(path)
+    # parse_json(response)
+  end
+
   private
 
   def parse_json(response)
@@ -12,5 +17,9 @@ class MovieService
 
   def conn(url)
     Faraday.new(url: url, params: { api_key: Pusher.key })
+  end
+
+  def conn_2(url)
+    Faraday.new(url: url)
   end
 end
