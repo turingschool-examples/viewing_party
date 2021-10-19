@@ -14,14 +14,18 @@ RSpec.describe 'discover movies page' do
   end
 
   it 'has a button to view top 40 movies' do
-    expect(page).to have_button('Discover Top 40 Movies')
-    click_on 'Discover Top 40 Movies'
-    expect(current_path).to eq(movies_path)
+    VCR.use_cassette('top_40') do
+      expect(page).to have_button('Discover Top 40 Movies')
+      click_on 'Discover Top 40 Movies'
+      expect(current_path).to eq(movies_path)
+    end
   end
 
   it 'has a form to find movies by title' do
-    expect(page).to have_field(:search)
-    click_on("Search by Movie Title")
-    expect(current_path).to eq(movies_path)
+    VCR.use_cassette('movie_search') do
+      expect(page).to have_field(:search)
+      click_on("Search by Movie Title")
+      expect(current_path).to eq(movies_path)
+    end
   end
 end
