@@ -20,4 +20,7 @@ Rails.application.routes.draw do
   resources :parties
 
   resources :friendships, only: [:create]
+
+  resources :room_messages
+  resources :rooms
 end
