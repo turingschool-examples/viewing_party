@@ -1,0 +1,21 @@
+require 'rails_helper'
+
+describe MoviesFacade do
+  it '#top_40_movies returns movie objects' do
+    VCR.use_cassette('top 40') do
+      one_top_movie = MoviesFacade.top_40_movies.first
+
+      expect(one_top_movie).to be_a Movie
+      expect(one_top_movie.title).to eq('Dilwale Dulhania Le Jayenge')
+    end
+  end
+
+  it '#search() returns movie objects' do
+    VCR.use_cassette('search') do
+      one_search_result = MoviesFacade.search('Holes').first
+
+      expect(one_search_result).to be_a Movie
+      expect(one_search_result.title).to eq('Holes')
+    end
+  end
+end
