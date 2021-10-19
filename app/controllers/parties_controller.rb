@@ -7,13 +7,19 @@ class PartiesController < ApplicationController
   end
 
   def create
-    party = party_params
     movie = MovieFacade.movie_info_by_id(params[:movie_id])
-
-    if party[:duration].to_i >= movie.runtime.to_i
-      new_party = Party.create(party)
+    if party_params[:duration].to_i >= movie.runtime.to_i
+      party_info = party_params
+      if party_info[:date] != ""
+        party_info[:date] = Date.strptime(party_info[:date].gsub('/', '-'), "%m-%d-%Y")
+      end
+      new_party = Party.create(party_info)
       if new_party.save
-
+        Attendee.create(party: new_party, user: current_user, status: 0)
+        invited_users = params[:invited]
+        invited_users.each do |invitee|
+          Attendee.create!(party: new_party, user_id: invitee, status: 1)
+        end
         redirect_to dashboard_path
         flash[:success] = 'Party has been created successfully. Have fun!'
       else
