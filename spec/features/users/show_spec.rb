@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'User Dashboard Page', type: :feature do
+
   before :each do
     @user = create(:mock_user)
     @friend_1 = create(:mock_user)
@@ -153,7 +154,7 @@ RSpec.describe 'User Dashboard Page', type: :feature do
   describe 'logout' do
     it 'can log out' do
       visit dashboard_path
-      
+
       click_on 'Log Out'
 
       expect(current_path).to eq(root_path)

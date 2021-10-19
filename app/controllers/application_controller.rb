@@ -7,9 +7,8 @@ class ApplicationController < ActionController::Base
     if session[:user_id]
       @current_user ||= User.find(session[:user_id])
     else
-      flash[:error] = 'Please login in or register an account.'
-
       redirect_to new_user_path
+      flash[:error] = 'Please login in or register an account.'
     end
   end
 
