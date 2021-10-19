@@ -5,7 +5,7 @@ RSpec.describe 'User Dashboard Page', type: :feature do
     @user = create(:mock_user)
     @friend_1 = create(:mock_user)
     @friend_2 = create(:mock_user)
-    # @friendship_2 = create(:mock_friendship, user: @user, friend: @friend_2)
+
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
   end
 
@@ -147,6 +147,17 @@ RSpec.describe 'User Dashboard Page', type: :feature do
           expect(page).to have_content(@friend_2.full_name)
         end
       end
+    end
+  end
+
+  describe 'logout' do
+    it 'can log out' do
+      visit dashboard_path
+      
+      click_on 'Log Out'
+
+      expect(current_path).to eq(root_path)
+      expect(page).to have_no_content(@user.first_name)
     end
   end
 end
