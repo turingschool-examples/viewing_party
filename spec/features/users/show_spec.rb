@@ -93,6 +93,18 @@ RSpec.describe 'User Dashboard Page', type: :feature do
           expect(page).to have_content("You currently have no friends")
         end
       end
+
+      it 'will not add duplicate friends' do
+        @user.friends << @friend_1
+        visit dashboard_path
+
+        within('#friends') do
+          fill_in 'friendship[friend_email]', with: @friend_1.email
+          click_on 'Add Friend'
+        end
+        expect(current_path).to eq(dashboard_path)
+        expect(page).to have_content("#{@friend_1.full_name} is already your friend.")
+      end
     end
   end
 

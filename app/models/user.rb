@@ -13,4 +13,8 @@ class User < ApplicationRecord
   def full_name
     "#{first_name} #{last_name}"
   end
+
+  def current_friend(friend)
+    friends.where('friend_id = ?', friend.id).present?
+  end
 end
