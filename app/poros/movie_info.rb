@@ -22,9 +22,11 @@ class MovieInfo
   end
 
   def get_poster
-    service = MovieService.new
-    image = service.image_request_api("/t/p/w300#{@poster}")
-    image.env.url.to_s
+    # service = MovieService.new
+    # image = service.image_request_api("/t/p/w300#{@poster}")
+    # image.env.url.to_s
+    # "https://image.tmdb.org/t/p/w300#{@poster}"
+    MovieFacade.movie_poster(@poster)
   end
 
   def no_cast
