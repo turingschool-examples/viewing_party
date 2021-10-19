@@ -10,9 +10,7 @@ class PartiesController < ApplicationController
     movie = MovieFacade.movie_info_by_id(params[:movie_id])
     if party_params[:duration].to_i >= movie.runtime.to_i
       party_info = party_params
-      if party_info[:date] != ""
-        party_info[:date] = Date.strptime(party_info[:date].gsub('/', '-'), "%Y-%m-%d")
-      end
+      party_info[:date] = Date.strptime(party_info[:date].gsub('/', '-'), '%Y-%m-%d') if party_info[:date] != ''
       new_party = Party.create(party_info)
       if new_party.save
         Attendee.create(party: new_party, user: current_user, status: 0)
