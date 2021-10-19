@@ -18,19 +18,19 @@
 <h5><b>Cast:</b></h5>
   <p>
   <% @movie.cast.map do |data| %>
-  <%= data[:name] %> as <%= data[:character] %> |
+    <%= data[:name] %> as <%= data[:character] %> |
   <% end %>
   </p>
 
 <hr style="width:50% length:80%", size="10", color=black><br>
 
 <h5><b><%= @movie.reviews.count %> Review(s)</h5></b><br>
-  <div class="card">
+<div class="card">
   <div class="card-body">
     <% @movie.reviews.each do |review| %>
     <p>
-    <b>Author: <%= review[:author] %></b><br><br>
-    <%= review[:content] %>
+      <b>Author: <%= review[:author] %></b><br><br>
+      <%= review[:content] %>
     </p>
     <% end %>
   </div>

@@ -13,8 +13,4 @@ class User < ApplicationRecord
   def full_name
     "#{first_name} #{last_name}"
   end
-
-  def find_party_attendees
-    Attendee.where('attendee_id = ?', id)
-  end
 end

@@ -19,10 +19,7 @@
 
 # Ignore test coverage
 /coverage/*
-<<<<<<< HEAD
-/spec/fixtures
-=======
+
 
 # Ignore application configuration
->>>>>>> fd7537cec2259fae593b228c6266169d58d3f069
 /config/application.yml

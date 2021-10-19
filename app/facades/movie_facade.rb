@@ -1,7 +1,9 @@
 class MovieFacade
   def self.forty_top_rated_movies
     service = MovieService.new
-    service.request_api('/3/movie/top_rated?page=1')[:results] + service.request_api('/3/movie/top_rated?page=2')[:results]
+    page1 = '/3/movie/top_rated?page=1'
+    page2 = '/3/movie/top_rated?page=2'
+    service.request_api(page1)[:results] + service.request_api(page2)[:results]
   end
 
   def self.search_movie_title(title)
