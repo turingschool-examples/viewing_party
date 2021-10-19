@@ -6,7 +6,8 @@ class MovieInfo
               :overview,
               :cast,
               :reviews,
-              :id
+              :id,
+              :poster
 
   def initialize(movie, cast = no_cast, reviews = no_reviews)
     @title = movie[:title]
@@ -17,6 +18,13 @@ class MovieInfo
     @cast = cast[:cast]
     @reviews = reviews[:results]
     @id = movie[:id]
+    @poster = movie[:poster_path]
+  end
+
+  def get_poster
+    service = MovieService.new
+    image = service.image_request_api("/t/p/w300#{@poster}")
+    image.env.url.to_s
   end
 
   def no_cast

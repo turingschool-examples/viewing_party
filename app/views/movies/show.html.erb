@@ -4,6 +4,8 @@
 
 <%= button_to 'Create Viewing Party', new_party_path, method: :get, local: true, params: { movie_id: @movie.id }, class: 'center' %><br>
 
+<img src="<%= @movie.get_poster %>" alt="<%= @movie.title %>">
+
 <h5>
   Vote Average: <%= @movie.vote_average %>  |  Runtime: <%= @movie.runtime %>  |  Genre(s): <% @movie.genres.select do |genre| %>
   <%= genre[:name] %>
@@ -17,8 +19,8 @@
 
 <h5><b>Cast:</b></h5>
   <p>
-  <% @movie.cast.map do |data| %>
-    <%= data[:name] %> as <%= data[:character] %> |
+  <% @movie.cast.take(10).map do |data| %>
+  <b><%= data[:name] %></b> as <%= data[:character] %> |
   <% end %>
   </p>
 

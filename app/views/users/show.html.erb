@@ -30,7 +30,10 @@
 <hr style="width:50% length:80%", size="10", color=black>
   <% current_user.parties.each do |party| %>
   <div class="card", id='party-<%= party.id %>'>
-    <ul><strong><%= link_to party.movie_title, movie_path(party.movie_id) %></strong>
+    <ul>
+      <img src="<%= party.get_movie_poster %>" alt="<%= party.movie_title %>" align="center"><br><br>
+
+      <strong><%= link_to party.movie_title, movie_path(party.movie_id) %></strong>
       <li><%= party.date.strftime("%B %d, %Y") %></li>
       <li><%= party.time.strftime("%l:%M %p") %></li>
       <li id='party-host'>Host: <% if party.host == current_user %>
