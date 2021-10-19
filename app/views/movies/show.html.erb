@@ -17,8 +17,8 @@
 
 <h5><b>Cast:</b></h5>
   <p>
-  <% @movie.cast.map do |data| %>
-    <%= data[:name] %> as <%= data[:character] %> |
+  <% @movie.cast.take(10).map do |data| %>
+  <b><%= data[:name] %></b> as <%= data[:character] %> |
   <% end %>
   </p>
 
