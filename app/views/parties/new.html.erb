@@ -4,15 +4,19 @@
 
 <h3>Viewing Party Details for <%= @movie.title %></h3><br>
 
-<%= form_with(model: @party, url: parties_path, method: :post, local: true) do |form| %>
+<%= form_with model: @party, url: '/parties', method: :post, local: true do |form| %>
   <%= form.hidden_field :movie_id, value: @movie.id %>
   <%= form.hidden_field :movie_title, value: @movie.title %>
   <%= form.label :duration, 'Duration:' %>
   <%= form.text_field :duration, placeholder: 'in minutes', value: @movie.runtime, min: @movie.runtime %><br><br>
   <%= form.label :date, 'Date:' %>
-  <%= form.date_field :date %><br><br>
+  <%= form.date_field :date, min: Date.current %><br><br>
   <%= form.label :time, 'Time:' %>
   <%= form.time_field :time %><br><br>
+  <% current_user.friends.each do |friend| %>
+    <%= form.check_box :invited, { multiple: true }, friend.id, nil %>
+    <%= form.label :invited, friend.full_name %>
+  <% end %><br><br>
   <%= form.submit 'Create Party' %>
 <% end %>
 </div>
