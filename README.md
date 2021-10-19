@@ -1,4 +1,4 @@
-# Viewing Party
+# Viewing Party [![Build Status](https://app.travis-ci.com/Isikapowers/viewing_party.svg?branch=main)](https://app.travis-ci.com/Isikapowers/viewing_party)
 
 ## Background and Description
 
