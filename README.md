@@ -1,7 +1,7 @@
 # Viewing Party [![Build Status](https://app.travis-ci.com/Isikapowers/viewing_party.svg?branch=main)](https://app.travis-ci.com/Isikapowers/viewing_party)
 
 ## Table of contents
-* [Background_and_Description](#background-and-description)
+* [Description](#description)
 * [Learning Goals](#learning-goals)
 * [Requirements](#requirements)
 * [Database Schema](#database-schema)
@@ -10,22 +10,24 @@
 * [Tools Used](#tools-used)
 * [Contributors](#contributors)
 
-## Background and Description
+## Description
 
 "Viewing Party" is an application in which users can explore movie options and create a viewing party event for the user and friend's.
 
 ## Learning Goals
-- Practice designing a normalized database schema and defining model relationships.
-- Practice loading csv files to the database.
-- Utilize advanced routing techniques including namespacing to organize and group like functionality together.
+- Practice designing a self referential join relationship and schema.
+- Practice API consumption and private API-Key maintenance.
+- Practice using OOP principles: utilizing the facade design pattern.
 - Utilize advanced ActiveRecord techniques to perform complex database queries.
-- Practice consuming a public API while utilizing POROs as a way to apply OOP principles to organize code.
+- Utilize authentication and session.
+- Utilize `bcrypt` to secure users' passwords.
 
 ## Requirements
 - Rails 5.2.5
 - Ruby 2.7.2
 - PostgreSQL
 - Travis CI
+- [Movie Database API](https://www.themoviedb.org/)
 - Test all feature and model code
 - GitHub branching, team code reviews via GitHub comments, and github projects to track progress on user stories
 - Deploy completed code to Heroku
@@ -36,10 +38,12 @@
 ## Setup
 * Fork this repository
 * Clone your fork
+* [API Key from the movie database](https://developers.themoviedb.org/4/auth/user-authorization-1) is required
 * From the command line, install gems and set up your DB:
     * `bundle install`
     * `rails db:{create,migrate}`
 * Run the test suite with `bundle exec rspec`.
+* Run RuboCop linter with `bundle exec rubocop`.
 * Run your development server with `rails s` to see the app in action.
 
 ## Live App
@@ -59,9 +63,9 @@
 | Github Project | Faraday              |
 | Postico        | RSpec                |
 | Heroku         | Travis CI            |
-|                | RuboCop              |
+| Bcrypt         | RuboCop              |
 
 ## Contributors
 
 - [Isika Powers](https://github.com/Isikapowers/)
-- [Erike Kischuk](http://github.com/eakischuk/)
+- [Erika Kischuk](http://github.com/eakischuk/)
