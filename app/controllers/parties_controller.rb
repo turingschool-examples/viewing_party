@@ -39,7 +39,7 @@ class PartiesController < ApplicationController
   def invite_guests(invitees, party)
     Attendee.create(party: party, user: current_user, status: 0)
     invitees.each do |invitee|
-      Attendee.create!(party: party, user_id: invitee, status: 1)
+      Attendee.create(party: party, user_id: invitee, status: 1)
     end
   end
 end
