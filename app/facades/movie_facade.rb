@@ -3,12 +3,18 @@ class MovieFacade
     service = MovieService.new
     page1 = '/3/movie/top_rated?page=1'
     page2 = '/3/movie/top_rated?page=2'
-    service.request_api(page1)[:results] + service.request_api(page2)[:results]
+    movies_json = service.request_api(page1)[:results] + service.request_api(page2)[:results]
+    movies_json.map do |movie_info|
+      MovieInfo.new(movie_info)
+    end
   end
 
   def self.search_movie_title(title)
     service = MovieService.new
-    service.request_api("/3/search/movie?query=#{title}")[:results]
+    search_results_json = service.request_api("/3/search/movie?query=#{title}")[:results]
+    search_results_json.map do |movie_info|
+      MovieInfo.new(movie_info)
+    end
   end
 
   def self.movie_info_by_id(movie_id)
