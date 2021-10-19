@@ -10,7 +10,7 @@
   <%= form.label :duration, 'Duration:' %>
   <%= form.text_field :duration, placeholder: 'in minutes', value: @movie.runtime, min: @movie.runtime %><br><br>
   <%= form.label :date, 'Date:' %>
-  <%= form.date_field :date, min: Date.current %><br><br>
+  <%= form.date_field :date, min: Date.current, value: Date.today %><br><br>
   <%= form.label :time, 'Time:' %>
   <%= form.time_field :time %><br><br>
   <% current_user.friends.each do |friend| %>
