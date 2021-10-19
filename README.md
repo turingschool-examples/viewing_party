@@ -1,5 +1,15 @@
 # Viewing Party [![Build Status](https://app.travis-ci.com/Isikapowers/viewing_party.svg?branch=main)](https://app.travis-ci.com/Isikapowers/viewing_party)
 
+## Table of contents
+* [Background_and_Description](#background-and-description)
+* [Learning Goals](#learning-goals)
+* [Requirements](#requirements)
+* [Database Schema](#database-schema)
+* [Setup](#setup)
+* [Live App](#live-app)
+* [Tools Used](#tools-used)
+* [Contributors](#contributors)
+
 ## Background and Description
 
 "Viewing Party" is an application in which users can explore movie options and create a viewing party event for the user and friend's.
@@ -31,11 +41,6 @@
     * `rails db:{create,migrate}`
 * Run the test suite with `bundle exec rspec`.
 * Run your development server with `rails s` to see the app in action.
-
-## Phases
-1. [Database Setup](./doc/db_setup.md)
-1. [User Stories](./doc/user_stories.md)
-1. [Evaluation](./doc/evaluation.md)
 
 ## Live App
 [Link to Heroku deployment](https://viewing-party-denver.herokuapp.com)
