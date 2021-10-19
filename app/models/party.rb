@@ -18,4 +18,9 @@ class Party < ApplicationRecord
       User.find(atnde.user_id)
     end
   end
+
+  def get_movie_poster
+    movie_details = MovieFacade.movie_info_by_id(movie_id)
+    movie_details.get_poster
+  end
 end
