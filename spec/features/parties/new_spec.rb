@@ -39,7 +39,7 @@ RSpec.describe 'Party New Page' do
       visit '/parties/new?movie_id=337404'
 
       fill_in 'duration', with: '200'
-      fill_in :date, with: '10/20/2023'
+      fill_in :date, with: '2023/10/21'
       fill_in :time, with: '05:00 PM'
       check "invited[]", with: @friend_1.id
       check "invited[]", with: @friend_2.id
@@ -71,7 +71,7 @@ RSpec.describe 'Party New Page' do
       visit '/parties/new?movie_id=337404'
 
       fill_in 'duration', with: 100
-      fill_in :date, with: '10/20/2021'
+      fill_in :date, with: '2023/10/27'
       fill_in :time, with: '05:00 PM'
 
       click_on "Create Party"
