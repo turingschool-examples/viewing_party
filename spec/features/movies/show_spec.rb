@@ -43,7 +43,7 @@ RSpec.describe 'movie show page' do
   end
 
   xit 'displays the movie genre(s)' do
-    expect(page).to have_content(@movie.genres)
+    expect(page).to have_content(@movie.genres_translated)
   end
 
   xit 'displays the movie overview' do
@@ -51,7 +51,7 @@ RSpec.describe 'movie show page' do
   end
 
   xit 'displays the movie cast members' do
-    expect(page).to have_content(@movie.first_10_cast_members)
+    expect(page).to have_content(@movie.first_10_cast_members.first.name)
   end
 
   xit 'displays the movies total reviews' do
@@ -59,7 +59,7 @@ RSpec.describe 'movie show page' do
   end
 
   xit 'displays the movie reviews authors and information' do
-    expect(page).to have_content(@movie.reviews[authors])
-    expect(page).to have_content(@movie.reviews[authors][details])
+    expect(page).to have_content(@movie.reviews.first.author)
+    expect(page).to have_content(@movie.reviews.first.content)
   end
 end
