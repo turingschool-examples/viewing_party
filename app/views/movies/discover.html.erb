@@ -3,14 +3,21 @@
 <div align="center">
 
 <h3>Welcome <%= @user.first_name %>!</h3><br><br>
+<section id='movies-streaming'>
+  <h4 align='center'>Streaming</h4>
+  <%= button_to "Find Top Rated Movies", movies_path(top_forty: :true) %><br>
 
-<%= button_to "Find Top Rated Movies", movies_path, mothod: :get %><br><br>
+  <h6>OR</h6><br>
 
-<h5>OR</h5><br><br>
-
-<%= form_with url: movies_path, local: true, class: 'form-inline', align: 'center', method: :get do |form| %><span class="tab"></span>
-  <%= form.text_field :query, placeholder: "Search by movie title", skip_label: true %>
-  <%= form.submit "Find Movies" %>
-<% end %><br><br><br>
-
+  <%= form_with url: movies_path, local: true, class: 'form-inline', align: 'center', method: :get do |form| %><span class="tab"></span>
+    <%= form.text_field :query, placeholder: "Search by movie title", skip_label: true %>
+    <%= form.submit "Find Movies" %>
+  <% end %><br><br><br>
+</section>
+<section id='movies-theatre'>
+  <h4 align='center'>In Theatres</h4>
+  <%= button_to 'Now Playing', movies_path(now_playing: :true) %><br>
+  <h6>OR</h6><br>
+  <%= button_to 'Coming Soon', movies_path(coming_soon: :true) %><br>
+</section>
 </div>

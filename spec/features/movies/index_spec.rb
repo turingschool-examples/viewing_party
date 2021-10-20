@@ -11,18 +11,15 @@ RSpec.describe 'Movies Index Page' do
 
   describe 'show movie results' do
     it 'displays all the search functions' do
-
       expect(page).to have_content("Welcome #{@user.first_name}!")
       expect(page).to have_button('Find Top Rated Movies')
       expect(page).to have_field('Search by movie title')
       expect(page).to have_button('Find Movies')
     end
 
-    it 'displays the top 40 rated movie results when there is not param present' do
-
+    it 'displays the top 40 rated movie results when there is not param present', :vcr do
+      visit discover_path
       click_on 'Find Top Rated Movies'
-
-      stub_top_forty_rated_movies
 
       expect(current_path).to eq(movies_path)
       expect(page).to have_content("Dilwale Dulhania Le Jayenge")
@@ -73,6 +70,30 @@ RSpec.describe 'Movies Index Page' do
       expect(page).to have_content("Runtime")
       expect(page).to have_content("Genre(s)")
       expect(page).to have_content("Cast")
+    end
+
+    it 'displays now playing when params present', :vcr do
+      movies = MovieFacade.now_playing
+      movie_1 = movies[0]
+      movie_2 = movies[1]
+      visit discover_path
+      click_on 'Now Playing'
+      expect(page).to have_content(movie_1.title)
+      expect(page).to have_content("Vote Average: #{movie_1.vote_average}")
+      expect(page).to have_content(movie_2.title)
+      expect(page).to have_content("Vote Average: #{movie_2.vote_average}")
+    end
+
+    it 'displays upcoming movies when params present', :vcr do
+      movies = MovieFacade.upcoming
+      movie_1 = movies[0]
+      movie_2 = movies[1]
+      visit discover_path
+      click_on 'Coming Soon'
+      expect(page).to have_content(movie_1.title)
+      expect(page).to have_content("Vote Average: #{movie_1.vote_average}")
+      expect(page).to have_content(movie_2.title)
+      expect(page).to have_content("Vote Average: #{movie_2.vote_average}")
     end
   end
 end
