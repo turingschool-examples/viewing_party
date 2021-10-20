@@ -9,7 +9,7 @@ class MovieInfo
               :id,
               :poster
 
-  def initialize(movie, cast, reviews)
+  def initialize(movie, cast = no_cast, reviews = no_reviews)
     @title = movie[:title]
     @vote_average = movie[:vote_average]
     @runtime = movie[:runtime]
@@ -21,9 +21,15 @@ class MovieInfo
     @poster = movie[:poster_path]
   end
 
-  def movie_poster
-    service = MovieService.new
-    image = service.image_request_api("/t/p/w300#{@poster}")
-    image.env.url.to_s
+  def poster_url
+    "https://image.tmdb.org/t/p/w300#{@poster}"
+  end
+
+  def no_cast
+    { cast: nil }
+  end
+
+  def no_reviews
+    { results: nil }
   end
 end

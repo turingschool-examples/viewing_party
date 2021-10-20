@@ -5,23 +5,31 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <%= button_to 'Find Top Rated Movies', movies_path %><br>
+      <%= button_to 'Find Top Rated Movies', movies_path(top_forty: :true) %>
     </div>
     <div class="col">
       <%= form_with url: movies_path, local: true, method: :get do |form| %>
         <%= form.text_field :query, placeholder: "Search by movie title", skip_label: true %>
         <%= form.submit "Find Movies" %>
-      <% end %><br>
+      <% end %>
     </div>
-  </div>
+    <div class="row">
+      <div class="col">
+        <%= button_to 'Now Playing', movies_path(now_playing: :true) %>
+      </div>
+      <div class="col">
+        <%= button_to 'Coming Soon', movies_path(coming_soon: :true) %>
+      </div>
+    </div>
+  </div><br>
 
 <% if @movies.present? %>
   <div id='movies'>
     <table class="movie-table">
       <% @movies.each do |movie| %>
         <tr>
-          <td><%= link_to movie[:title], "/movies/#{movie[:id]}" %></td>
-          <td>Vote Average: <%= movie[:vote_average] %></td>
+          <td><%= link_to movie.title, "/movies/#{movie.id}" %></td>
+          <td>Vote Average: <%= movie.vote_average %></td>
         </tr>
       <% end %>
     </table>
