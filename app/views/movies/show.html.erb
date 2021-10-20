@@ -2,7 +2,7 @@
 
 <h3 align="center">Title: <%= @movie.title %><h3><br>
 
-<img src="<%= @movie.get_poster %>" alt="<%= @movie.title %>" class="center"><br>
+<img src="<%= @movie.movie_poster %>" alt="<%= @movie.title %>" class="center"><br>
 
 <%= button_to 'Create Viewing Party', new_party_path, method: :get, local: true, params: { movie_id: @movie.id }, class:"center" %><br>
 

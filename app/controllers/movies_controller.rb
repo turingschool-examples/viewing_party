@@ -4,7 +4,8 @@ class MoviesController < ApplicationController
 
     @movies = if params[:query].nil?
                 MovieFacade.forty_top_rated_movies
-              else params[:query].present?
+              else
+                params[:query].present?
                 MovieFacade.search_movie_title(params[:query])
               end
   end

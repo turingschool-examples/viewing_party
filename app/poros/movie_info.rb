@@ -21,7 +21,7 @@ class MovieInfo
     @poster = movie[:poster_path]
   end
 
-  def get_poster
+  def movie_poster
     service = MovieService.new
     image = service.image_request_api("/t/p/w300#{@poster}")
     image.env.url.to_s
