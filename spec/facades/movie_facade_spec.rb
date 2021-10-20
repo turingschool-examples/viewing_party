@@ -38,9 +38,9 @@ RSpec.describe MovieFacade do
     expect(movie_info_array[0]).to be_a(MovieInfo)
   end
 
-  it '#movie_poster' do
-    movie = MovieFacade.movie_info_by_id(52)
-    poster_url = MovieFacade.movie_poster(movie.poster)
-    expect(poster_url).to be_a(String)
-  end
+  # it '#movie_poster' do
+  #   movie = MovieFacade.movie_info_by_id(52)
+  #   poster_url = MovieFacade.movie_poster(movie.poster)
+  #   expect(poster_url).to be_a(String)
+  # end
 end

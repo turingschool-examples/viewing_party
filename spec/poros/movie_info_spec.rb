@@ -27,7 +27,7 @@ RSpec.describe 'Movie Info Poros' do
         MovieFacade.movie_info_by_id(337404)
       end
 
-      expect(cruella.get_poster).to eq ('https://image.tmdb.org/t/p/w300/wToO8opxkGwKgSfJ1JK8tGvkG6U.jpg')
+      expect(cruella.poster_url).to eq ('https://image.tmdb.org/t/p/w300/wToO8opxkGwKgSfJ1JK8tGvkG6U.jpg')
     end
   end
 end

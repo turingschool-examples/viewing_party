@@ -19,8 +19,8 @@ class Party < ApplicationRecord
     end
   end
 
-  def get_movie_poster
+  def movie_poster_url
     movie_details = MovieFacade.movie_info_by_id(movie_id)
-    movie_details.get_poster
+    movie_details.poster_url
   end
 end

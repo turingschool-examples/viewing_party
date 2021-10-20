@@ -31,7 +31,7 @@
   <% current_user.parties.each do |party| %>
   <div class="card", id='party-<%= party.id %>'>
     <ul>
-      <img src="<%= party.get_movie_poster %>" alt="<%= party.movie_title %>" align="center"><br><br>
+      <img src="<%= party.movie_poster_url %>" alt="<%= party.movie_title %>" align="center"><br><br>
 
       <strong><%= link_to party.movie_title, movie_path(party.movie_id) %></strong>
       <li><%= party.date.strftime("%B %d, %Y") %></li>

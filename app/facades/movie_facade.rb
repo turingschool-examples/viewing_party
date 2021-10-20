@@ -40,9 +40,9 @@ class MovieFacade
     end
   end
 
-  def self.movie_poster(movie_poster)
-    service = MovieService.new
-    image = service.image_request_api("/t/p/w300#{movie_poster}")
-    image.env.url.to_s
-  end
+  # def self.movie_poster(movie_poster)
+  #   service = MovieService.new
+  #   image = service.image_request_api("/t/p/w300#{movie_poster}")
+  #   image.env.url.to_s
+  # end
 end

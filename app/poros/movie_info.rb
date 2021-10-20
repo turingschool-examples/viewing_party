@@ -21,19 +21,16 @@ class MovieInfo
     @poster = movie[:poster_path]
   end
 
-  def get_poster
-    # service = MovieService.new
-    # image = service.image_request_api("/t/p/w300#{@poster}")
-    # image.env.url.to_s
-    # "https://image.tmdb.org/t/p/w300#{@poster}"
-    MovieFacade.movie_poster(@poster)
+  def poster_url
+    # MovieFacade.movie_poster(@poster)
+    "https://image.tmdb.org/t/p/w300#{@poster}"
   end
 
   def no_cast
-    {cast: nil}
+    { cast: nil }
   end
 
   def no_reviews
-    {results: nil}
+    { results: nil }
   end
 end
