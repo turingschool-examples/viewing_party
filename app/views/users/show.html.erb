@@ -17,42 +17,56 @@
     <p>You currently have no friends</p>
  <% else %>
    <b>List of Friends:</b><br>
-   <% current_user.friends.each do |friend| %>
-   <%= friend.full_name %>
-   <% end %>
+   <ul>
+     <% current_user.friends.each do |friend| %>
+     <li><%= friend.full_name %></li>
+     <% end %>
+   </ul>
  <% end %><br><br>
 </section>
 
-<hr style="width:50% length:80%", size="10", color=black><br><br>
 
 <section id='parties'>
 <h5>Viewing Parties</h5>
-<hr style="width:50% length:80%", size="10", color=black>
-  <% current_user.parties.each do |party| %>
-  <div class="card", id='party-<%= party.id %>'>
-    <ul>
-      <img src="<%= party.get_movie_poster %>" alt="<%= party.movie_title %>" align="center"><br><br>
 
-      <strong><%= link_to party.movie_title, movie_path(party.movie_id) %></strong>
-      <li><%= party.date.strftime("%B %d, %Y") %></li>
-      <li><%= party.time.strftime("%l:%M %p") %></li>
-      <li id='party-host'>Host: <% if party.host == current_user %>
-                  You are the host
-                <% else %>
-                  <%= party.host.full_name %>
-                <% end %>
-      </li>
-      <li id='party-invited'>Attendees: <% party.invited_users.each do |invited| %>
-                    <ul>
-                      <% if invited == current_user %>
-                        <li><b><%= invited.full_name %></b></li>
-                      <% else %>
-                        <li><%= invited.full_name %></li>
-                      <% end %>
-                    </ul>
-                    <% end %>
-      </li>
-    </ul>
-  </div>
-  <% end %><br><br>
-</section>
+<hr style="width:50% length:80%", size="10", color=black>
+<% current_user.parties.each do |party| %>
+  <div class="card", style="width: 18rem;", id='party-<%= party.id %>'>
+    <img class="card-img-top" src="<%= party.get_movie_poster %>" alt="<%= party.movie_title %>">
+      <div class="card-body">
+        <a href="<%= movie_path(party.movie_id) %>" class="card-link"><%= party.movie_title %></a>
+        <%= link_to 'Cancel', party_path(party), method: :delete, data: { confirm: 'Are you sure you want to delete this?' }, class:'card-link' %>
+      </div>
+
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item" id='party-host'>
+          <b>Host:</b>
+             <% if party.host == current_user %>
+                You are the host
+             <% else %>
+                <%= party.host.full_name %>
+             <% end %>
+
+        </li>
+        <li class="list-group-item">
+           <b>Date:</b> <%= party.date.strftime("%B %d, %Y") %>
+        </li>
+        <li class="list-group-item">
+           <b>Time:</b> <%= party.time.strftime("%l:%M %p") %>
+        </li>
+        <li class="list-group-item" id='party-invited'>
+          <b>Attendees:</b>
+            <% party.invited_users.each do |invited| %>
+            <ul>
+              <% if invited == current_user %>
+                 <li><b><%= invited.full_name %></b></li>
+              <% else %>
+                 <li><%= invited.full_name %></li>
+              <% end %>
+            </ul>
+          <% end %>
+          </li>
+      </ul>
+</div>
+<% end %>
+</section><br><br>
