@@ -22,7 +22,6 @@ class MovieInfo
   end
 
   def poster_url
-    # MovieFacade.movie_poster(@poster)
     "https://image.tmdb.org/t/p/w300#{@poster}"
   end
 
