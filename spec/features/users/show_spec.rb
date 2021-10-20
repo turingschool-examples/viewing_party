@@ -138,6 +138,7 @@ RSpec.describe 'User Dashboard Page', type: :feature do
 
       within("#party-#{party.id}") do
         expect(page).to have_content(movie.title)
+        expect(page).to have_css("img[alt*='#{movie.title}']")
         expect(page).to have_content(party.date.strftime("%B %d, %Y"))
         expect(page).to have_content(party.time.strftime("%l:%M %p"))
         within('#party-host') do
