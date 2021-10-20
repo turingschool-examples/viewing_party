@@ -13,12 +13,10 @@ class Movie
     @reviews = results[:reviews]
   end
 
-  def first_10_cast_members
-
-  end
-
   def genres_translated
-
+    @genres.map do |genre_hash|
+      genre_hash[:name]
+    end
   end
-  
+
 end

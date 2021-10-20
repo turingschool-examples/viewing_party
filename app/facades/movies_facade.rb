@@ -16,9 +16,17 @@ class MoviesFacade
 
     def details(movie_id)
       data = MoviesService.movie_details(movie_id)
-      data.map do |data|
-        Movie.new(data)
-      end
+      Movie.new(data)
+    end
+
+    def reviews(movie_id)
+      data = MoviesService.movie_reviews(movie_id)
+      MovieReview.new(data)
+    end
+
+    def cast(movie_id)
+      data = MoviesService.movie_cast(movie_id)
+      Movie.new(data)
     end
   end
 end
