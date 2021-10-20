@@ -33,7 +33,7 @@
 - Deploy completed code to Heroku
 
 ## Database Schema
-<img width="597" alt="Screen Shot 2021-10-11 at 9 58 51 PM" src="https://user-images.githubusercontent.com/72399033/136889076-b63f675b-90b8-4531-b35a-87a336a05347.png">
+<img width="599" alt="Screen Shot 2021-10-20 at 3 11 09 PM" src="https://user-images.githubusercontent.com/72399033/138172813-e892a835-7389-4e37-a70d-247b65ddc249.png">
 
 ## Setup
 * Fork this repository
