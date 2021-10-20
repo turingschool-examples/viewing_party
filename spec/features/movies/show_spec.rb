@@ -19,47 +19,95 @@ RSpec.describe 'movie show page' do
 #  Count of total reviews
 #  Each review's author and information
   before :each do
-    @movie = Movie.new()
-    visit "/movies/#{@movie.id}"
   end
   it 'has a button to create a viewing party' do
-    expect(page).to have_button('Create Viewing Party')
+    VCR.use_cassette('viewingparty-link') do
+      @movie = MoviesFacade.details(238)
 
-    click_button 'Create Viewing Party'
+      visit "/movies/#{@movie.id}"
+      expect(page).to have_link('Create Viewing Party')
 
-    expect(current_path).to eq("/events/new")
+      click_link 'Create Viewing Party'
+
+      expect(current_path).to eq("/events/new")
+
+    end
   end
 
-  xit 'displays the movie title' do
-    expect(page).to have_content(@moive.title)
+  it 'displays the movie title' do
+    VCR.use_cassette('viewingparty-details') do
+      @movie = MoviesFacade.details(238)
+
+      visit "/movies/#{@movie.id}"
+      expect(page).to have_content(@movie.title)
+    end
   end
 
-  xit 'displays the movie vote average' do
-    expect(page).to have_content(@movie.vote_average)
+  it 'displays the movie vote average' do
+    VCR.use_cassette('viewingparty-details') do
+      @movie = MoviesFacade.details(238)
+
+      visit "/movies/#{@movie.id}"
+      expect(page).to have_content(@movie.vote_average)
+    end
   end
 
-  xit 'displays the movie runtime' do
-    expect(page).to have_content(@movie.runtime)
+  it 'displays the movie runtime' do
+    VCR.use_cassette('viewingparty-details') do
+      @movie = MoviesFacade.details(238)
+
+      visit "/movies/#{@movie.id}"
+      expect(page).to have_content(@movie.runtime)
+    end
   end
 
-  xit 'displays the movie genre(s)' do
-    expect(page).to have_content(@movie.genres_translated)
+  it 'displays the movie genre(s)' do
+    VCR.use_cassette('viewingparty-details') do
+      @movie = MoviesFacade.details(238)
+
+      visit "/movies/#{@movie.id}"
+      expect(page).to have_content(@movie.genres_translated)
+    end
   end
 
-  xit 'displays the movie overview' do
-    expect(page).to have_content(@movie.overview)
+  it 'displays the movie overview' do
+    VCR.use_cassette('viewingparty-details') do
+      @movie = MoviesFacade.details(238)
+
+      visit "/movies/#{@movie.id}"
+      expect(page).to have_content(@movie.overview)
+    end
   end
 
-  xit 'displays the movie cast members' do
-    expect(page).to have_content(@movie.first_10_cast_members.first.name)
+  it 'displays the movie cast members' do
+    VCR.use_cassette('viewingparty-cast') do
+      @movie = MoviesFacade.details(238)
+      @movie_cast = MoviesFacade.cast(238)
+
+      visit "/movies/#{@movie.id}"
+
+      expect(page).to have_content(@movie_cast.first_10_cast_members.first[:name])
+    end
   end
 
-  xit 'displays the movies total reviews' do
-    expect(page).to have_content(@movie.total_results)
+  it 'displays the movies total reviews' do
+    VCR.use_cassette('viewingparty-reviews') do
+      @movie = MoviesFacade.details(238)
+      @movie_reviews = MoviesFacade.reviews(238)
+
+      visit "/movies/#{@movie.id}"
+      expect(page).to have_content(@movie_reviews.total_results)
+    end
   end
 
-  xit 'displays the movie reviews authors and information' do
-    expect(page).to have_content(@movie.reviews.first.author)
-    expect(page).to have_content(@movie.reviews.first.content)
+  it 'displays the movie reviews authors and information' do
+    VCR.use_cassette('viewingparty-reviews') do
+      @movie = MoviesFacade.details(238)
+      @movie_reviews = MoviesFacade.reviews(238)
+
+      visit "/movies/#{@movie.id}"
+      expect(page).to have_content(@movie_reviews.reviews.first[:author_details][:name])
+      # expect(page).to have_content(@movie_reviews.reviews.first[:content])
+    end
   end
 end

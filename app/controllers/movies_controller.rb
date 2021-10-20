@@ -7,8 +7,8 @@ class MoviesController < ApplicationController
               end
   end
   def show
-    @movie = MoviesFacade.details(params[:movie_id])
-    @movie_review = MoviesFacade.reviews(params[:movie_id])
-    @movie_cast = MoviesFacade.cast(params[:movie_id])
+    @movie = MoviesFacade.details(params[:id])
+    @movie_review = MoviesFacade.reviews(params[:id])
+    @movie_cast = MoviesFacade.cast(params[:id])
   end
 end

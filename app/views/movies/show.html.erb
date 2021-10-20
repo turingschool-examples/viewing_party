@@ -1,5 +1,8 @@
 <h1> Movie Details Page for: <%= @movie.title %></h1>
 
+<%= link_to "Create Viewing Party", new_event_path, action: :get %>
+
+
 <h3> Vote Average:</h3><p><%= @movie.vote_average %></p>
 <br>
 <h3> Runtime:</h3><p><%= @movie.runtime %></p>
@@ -9,12 +12,12 @@
 <h3> Summary:</h3><p><%= @movie.overview %></p>
 <br>
 <h3> Cast Members:</h3>
-<% @movie.first_10_cast_members.each do |cast_member| %>
-  <p><%= cast_member.name %>, <%= cast_member.character %></p>
+<% @movie_cast.first_10_cast_members.each do |cast_member| %>
+  <p><%= cast_member[:name] %>, <%= cast_member[:character] %></p>
   <% end %>
 <br>
-<h3> Number of Reviews:</h3><p><%= @movie.total_results %></p>
-<% @movie.reviews.each do |review| %>
-  <h5> Author:</h5><p><%= review.author.name %></p>
-  <h5> Review:</h5><p><%= review.content %></p>
+<h3> Number of Reviews:</h3><p><%= @movie_review.total_results %></p>
+<% @movie_review.reviews.each do |review| %>
+  <h5> Author:</h5><p><%= review[:author_details][:name] %></p>
+  <h5> Review:</h5><p><%= review[:content] %></p>
 <% end %>

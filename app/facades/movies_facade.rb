@@ -21,12 +21,12 @@ class MoviesFacade
 
     def reviews(movie_id)
       data = MoviesService.movie_reviews(movie_id)
-      MovieReview.new(data)
+      MovieReviews.new(data)
     end
 
     def cast(movie_id)
       data = MoviesService.movie_cast(movie_id)
-      Movie.new(data)
+      MovieCast.new(data)
     end
   end
 end
