@@ -24,6 +24,14 @@ class PartiesController < ApplicationController
     end
   end
 
+  # def destroy
+  #   party = Party.find(params[:id])
+  #   party.destroy
+  #
+  #   redirect_to dashboard_path
+  #   flash[:danger] = "#{party.movie_title} viewing party has been deleted."
+  # end
+
   private
 
   def party_params

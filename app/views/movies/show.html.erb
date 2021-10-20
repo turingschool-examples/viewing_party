@@ -1,10 +1,12 @@
 <%= render 'users/navbar' %><br>
 
-<h3>Title: <%= @movie.title %><h3><br>
+<h3 align="center">Title: <%= @movie.title %><h3><br>
 
-<%= button_to 'Create Viewing Party', new_party_path, method: :get, local: true, params: { movie_id: @movie.id }, class: 'center' %><br>
+<img src="<%= @movie.poster_url %>" alt="<%= @movie.title %>" class="center"><br>
 
-<img src="<%= @movie.poster_url %>" alt="<%= @movie.title %>">
+<%= button_to 'Create Viewing Party', new_party_path, method: :get, local: true, params: { movie_id: @movie.id }, class:"center" %><br>
+
+<hr style="width:50% length:80%", size="10", color=black><br>
 
 <h5>
   Vote Average: <%= @movie.vote_average %>  |  Runtime: <%= @movie.runtime %>  |  Genre(s): <% @movie.genres.select do |genre| %>

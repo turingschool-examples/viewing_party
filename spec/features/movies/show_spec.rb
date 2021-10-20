@@ -36,6 +36,7 @@ RSpec.describe 'Movies Show Page' do
       expect(page).to have_content('Cruella')
       expect(page).to have_content(134)
       expect(page).to have_content('Emma Stone as Estella')
+      expect(page).to have_css("img[alt*='Cruella']")
     end
   end
 end
