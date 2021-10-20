@@ -16,5 +16,12 @@ class MoviesService
       two = get_data("https://api.themoviedb.org/3/search/movie?api_key=#{ENV['API_KEY']}&language=en-US&query=#{title}&page=2&include_adult=false")
       one[:results] + two[:results]
     end
-end
+
+    def self.movie_details(movie_id)
+      details = get_data("https://api.themoviedb.org/3/movie/{movie_id}?api_key=#{ENV['API_KEY']}&language=en-US")
+      genres = get_data("https://api.themoviedb.org/3/genre/movie/list?api_key=#{ENV['API_KEY']}&language=en-US")
+      reviews = get_data("https://api.themoviedb.org/3/movie/{movie_id}?api_key=<<api_key>>&language=en-US")
+      details[:results] + reviews[:results] + genres[:results]
+    end
+  end
 end

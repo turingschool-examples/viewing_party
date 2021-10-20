@@ -13,5 +13,12 @@ class MoviesFacade
         Movie.new(data)
       end
     end
-end
+
+    def details(movie_id)
+      data = MoviesService.movie_details(movie_id)
+      data.map do |data|
+        Movie.new(data)
+      end
+    end
+  end
 end

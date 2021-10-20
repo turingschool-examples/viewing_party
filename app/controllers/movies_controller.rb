@@ -6,4 +6,7 @@ class MoviesController < ApplicationController
                 MoviesFacade.top_40_movies
               end
   end
+  def show
+    
+  end
 end
