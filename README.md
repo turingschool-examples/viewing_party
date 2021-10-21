@@ -1,7 +1,5 @@
 # Viewing Party [![Build Status](https://app.travis-ci.com/Isikapowers/viewing_party.svg?branch=main)](https://app.travis-ci.com/Isikapowers/viewing_party)
 
-![Website Status](https://img.shields.io/website?down_color=lightgrey&down_message=offline&style=plastic&up_color=blue&up_message=online&url=https%3A%2F%2Fwww.viewing-party-denver.herokuapp.com)
-
 ## Table of contents
 * [Description](#description)
 * [Learning Goals](#learning-goals)
