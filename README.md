@@ -7,9 +7,7 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-[vscode]: https://github.com/Microsoft/vscode
-[vue]: https://github.com/vuejs/vue
-[bootstrap]: https://github.com/twbs/bootstrap
+
 [![Contributors][contributors-shield]](https://www.github.com/AlexKlick/viewing_party/contributors)
 [![LinkedIn][linkedin-shield]](https://www.linkedin.com/in/alex-klick/)
 [![LinkedIn][linkedin-shield]](https://www.linkedin.com/in/lee-hopper/)
