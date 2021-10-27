@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get '/discover', to:'movies#discover'
   post '/discover', to:'movies#discover'
 
-  resources :parties
+  resources :parties, only: [:new, :create, :destroy]
 
   resources :friendships, only: [:create]
 end
