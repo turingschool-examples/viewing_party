@@ -20,7 +20,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'figaro'
 gem 'pusher'
-
+gem 'redis'
+gem 'simple_form'
+gem 'warden'
 
 group :development, :test do
   gem 'pry'
