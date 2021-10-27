@@ -17,17 +17,17 @@ RSpec.describe 'Movie Info Poros' do
       expect(cruella.overview.size).to eq(633)
       expect(cruella.reviews.size).to eq(6)
       expect(cruella.id).to eq(337404)
-      expect(cruella.poster).to eq('/wToO8opxkGwKgSfJ1JK8tGvkG6U.jpg')
+      expect(cruella.poster).to eq('/rTh4K5uw9HypmpGslcKd4QfHl93.jpg')
     end
 
     it 'can display a poster', :vcr do
-      service = MovieService.new
+      MovieService.new
 
       cruella = VCR.use_cassette('movie_info_by_id') do
         MovieFacade.movie_info_by_id(337404)
       end
 
-      expect(cruella.poster_url).to eq ('https://image.tmdb.org/t/p/w300/wToO8opxkGwKgSfJ1JK8tGvkG6U.jpg')
+      expect(cruella.poster_url).to eq ('https://image.tmdb.org/t/p/w300/rTh4K5uw9HypmpGslcKd4QfHl93.jpg')
     end
   end
 end
