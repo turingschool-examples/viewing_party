@@ -1,15 +1,19 @@
+
+  <div><%= react_component("MovieDetails", props=@movie)%></div>
+
+  <div><%= react_component("AddFriend", props=@friends)%></div>
 <div class="row " >
   <div class="col-4">
     <img src="https://image.tmdb.org/t/p/w500/<%=@movie.poster_path%>" class="card-img-top" alt="..." >
   </div>
   <div class="col-8" style=" background-repeat: no-repeat; background-size: cover; <%= @movie.backdrop_path ? "background-image: url(https://image.tmdb.org/t/p/w500/#{@movie.backdrop_path}) " : nil %> ">
-    <div class="p-0 m-0" style="background-color: rgba(0,0,0,0.5); width:100%; height: 100%;">
-      <h5 class="card-title ps-3 pt-3" style=" filter: invert(1) grayscale(1) contrast(9)"><%= @movie.title %></h5>
+    <div class="p-0 m-0" >
+      <h5 class="card-title ps-3 pt-3" ><%= @movie.title %></h5>
       <div class="ui horizontal statistic m-3">
-        <div class="value" style=" filter: invert(1) grayscale(1) contrast(9)">
+        <div class="value" >
           <%= @movie.vote_average %>
         </div>
-        <div class="label" style=" filter: invert(1) grayscale(1) contrast(9)" >
+        <div class="label"  >
           Average
         </div>
       </div>

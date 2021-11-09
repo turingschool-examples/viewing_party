@@ -1,16 +1,3 @@
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Thanks again! Now go create something AMAZING! :D
-***
-***
-***
-*** To avoid retyping too much info. Do a search and replace for the following:
-*** github_username, repo_name, twitter_handle, email, project_title, project_description
--->
-
-
 
 <!-- PROJECT SHIELDS -->
 <!--
@@ -36,12 +23,12 @@
   <h3 align="center">Viewing Party</h3>
 
   <p align="center">
-  A project using <a href="https://www.themoviedb.org/settings/api">themovieDB api </a> which allows users to search movies, see the top rated movies, and create their own viewing parties to watch movies with their friends!
+  A project using <a href="https://www.themoviedb.org/documentation/api">themovieDB api </a> which allows users to search movies, see the top rated movies, and create their own viewing parties to watch movies with their friends! A paired programming project, completed in a 6 day timeframe, while at <a href="https://turing.edu/">Turing School of Software Design</a>
     <br />
     <a href="https://github.com/AlexKlick/viewing_party"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/AlexKlick/viewing_party">View Demo</a>
+    <a href="https://viewing-partie.herokuapp.com/">View Demo (takes about 20-30 seconds for the heroku dynos to load)</a>
     ·
     <a href="https://github.com/AlexKlick/viewing_party/issues">Report Bug</a>
     ·
@@ -57,14 +44,9 @@
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
@@ -80,35 +62,18 @@
 
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## About The Project 
+   ### Built Using:
+   |      |   |    |      |
+|   :----:    |    :----:     |    :----:     |    :----:     |
+| Ruby 2.7.2  | SQL           | SimpleCov     | Github        |
+| Rails 5.2.5 | ActiveRecord  | BootStrap     | VSCode        |
+| RSpec       | HTML5         | Capybara      | Launchy       |
+| Pry         | CSS3          | ShouldaMatcher| Orderly       |
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-Here's a blank template to get started:
-**To avoid retyping too much info. Do a search and replace with your text editor for the following:**
-`github_username`, `repo_name`, `twitter_handle`, `email`, `project_title`, `project_description`
-
-
-### Built With
-
-* []()
-* []()
-* []()
-
-
-
-<!-- GETTING STARTED -->
 ## Getting Started
 
 To get a local copy up and running follow these simple steps.
-
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
 
 ### Installation
 
@@ -116,66 +81,50 @@ This is an example of how to list things you need to use the software and how to
    ```sh
    git clone https://github.com/AlexKlick/repo_name.git
    ```
-2. Install NPM packages
-   ```sh
-   npm install
+2. Install Gems
+     ```sh
+   bundle install
    ```
-
-
+3. Create Database
+     ```sh
+    rails db:create
+   ```
+4. Migrate DB
+    ```sh
+    rails db:migrate
+   ```
+5. Run Server Locally
+   ```sh
+    rails server
+   ```
 
 <!-- USAGE EXAMPLES -->
 ## Usage
+- Visit <a href="https://viewing-partie.herokuapp.com/users/new">registration page</a> 
+- Create new account, does not require an actual email for this demonstration. ex: user@user.com
+- Upon successful creation, redirected to dashboard
+- To view movies, navigate to the discover page
+- Search movies or view top movies
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+Individual Movie Show Page
+![Individual Movie Show Page](https://user-images.githubusercontent.com/60951642/137794242-19f90ead-d5a8-4810-9141-47eadbc44fdc.png)
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+Movie Trailer Modal
+![Movie Trailer](https://user-images.githubusercontent.com/60951642/137793918-4a379a46-7b5a-43ab-8333-92da1e27f7a9.png)
 
-
-
-<!-- ROADMAP -->
-## Roadmap
-
-See the [open issues](https://github.com/AlexKlick/repo_name/issues) for a list of proposed features (and known issues).
-
-
-
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+Dynamic horizonally scrollable content
+![Dynamic horizonally scrollable content](https://user-images.githubusercontent.com/60951642/137776834-ee15d515-bbf0-4eaa-9286-c0d566fc2fba.png)
 
 
+Top Movies Index Page
+![Top Movies](https://user-images.githubusercontent.com/60951642/137795577-5b6544e3-2d2b-4725-82fe-eec9bfcf9702.png)
 
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE` for more information.
-
-
-
-<!-- CONTACT -->
-## Contact
-
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email
-
-Project Link: [https://github.com/AlexKlick/repo_name](https://github.com/AlexKlick/repo_name)
+Search Movies
+![Top Movies](https://user-images.githubusercontent.com/60951642/137794042-beb4c97f-ab5e-4671-b3b5-608bc3a3a2df.png)
 
 
-
-<!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
-
-* []()
-* []()
-* []()
-
-
+<a href="https://www.themoviedb.org/documentation/api">TheMovieDB</a>
 
 
 

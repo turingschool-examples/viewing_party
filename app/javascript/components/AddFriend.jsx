@@ -1,14 +1,5 @@
 import React from "react";
-var content = [
-  { title: "Andorra" },
-  { title: "United Arab Emirates" },
-  { email: "Afghanistan" },
-  { email: "Antigua" },
-  { email: "Anguilla" },
-  { email: "Albania" },
-  { email: "Armenia" },
-  // etc
-];
+
 class AddFriend extends React.Component {
   constructor(props) {
     super(props);
@@ -35,6 +26,7 @@ class AddFriend extends React.Component {
       });
   };
   render() {
+    console.log(props);
     console.log(this.state.users);
     return (
       <div>
