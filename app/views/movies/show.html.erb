@@ -1,7 +1,6 @@
 
-  <div><%= react_component("MovieDetails", props=@movie)%></div>
+  <div><%= react_component("pages/MovieDetails", props=@movie)%></div>
 
-  <div><%= react_component("AddFriend", props=@friends)%></div>
 <div class="row " >
   <div class="col-4">
     <img src="https://image.tmdb.org/t/p/w500/<%=@movie.poster_path%>" class="card-img-top" alt="..." >
