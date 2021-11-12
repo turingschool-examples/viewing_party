@@ -1,60 +1,72 @@
 <%= react_component("pages/MovieDetails", props=@movie)%>
-<div class="col-6" >
-<h5>Cast</h5>
-<div style="overflow-x: scroll; overflow-y: hidden; white-space: nowrap;">
-  <% @movie.cast.each do |cast| %>
-    <div class="col-2 align-items-stretch" style="display: inline-block; width: 13rem;">
+      <p style="filter: invert(1) grayscale(1) contrast(9)">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#videoModal">
+          View Trailer
+        </button>
+        <div class="modal fade " id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-xxl">
+              <iframe src="https://www.youtube.com/embed/<%=@movie.video%>" id="Iframe" title="Movie Trailer" frameborder="0" allow="fullscreen;" ></iframe>
+          </div>
+        </div>
+<div class="row p-3">
+  <div class="col-6 ">
+    <h5>Cast</h5>
+    <div style="overflow-x: scroll; overflow-y: hidden; white-space: nowrap;">
+      <% @movie.cast.each do |cast| %>
+        <div class="col-2 align-items-stretch" style="display: inline-block; width: 13rem;">
+          <div class="card" style=" width: 12rem;">
+            <img src="https://image.tmdb.org/t/p/w500/<%=cast[:profile_path]%>" class="card-img-top" alt="...">
+            <div class="card-body" style="height: 125px;">
+              <h5 class="card-title"><%= cast[:name] %></h5>
+              <p class="card-text text-wrap">As: <%= cast[:character] %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <div class="col-2 align-items-stretch"style="display: inline-block; width: 13rem;">
       <div class="card" style=" width: 12rem;">
-          <img src="https://image.tmdb.org/t/p/w500/<%=cast[:profile_path]%>" class="card-img-top" alt="...">
         <div class="card-body" style="height: 125px;">
-          <h5 class="card-title"><%= cast[:name] %></h5>
-          <p class="card-text text-wrap">As: <%= cast[:character] %></p>
+          <p class="card-text text-wrap"><%=link_to "See All Cast And Crew", class: 'disabled' %> </p>
         </div>
       </div>
     </div>
-  <% end %>
-  <div class="col-2 align-items-stretch"style="display: inline-block; width: 13rem;">
-    <div class="card" style=" width: 12rem;">
-      <div class="card-body" style="height: 125px;">
-        <p class="card-text text-wrap"><%=link_to "See All Cast And Crew", class: 'disabled' %> </p>
+  </div>
+  </div>
+  <div class="col-6" style="height: 500px; overflow:scroll;">
+    <div class="ui horizontal statistic m-3">
+      <div class="value">
+        <%= @movie.reviews.count %>
+      </div>
+      <div class="label">
+        Views
       </div>
     </div>
+    <% @movie.reviews.each do |review| %>
+    <div>
+      <div class="card pb-2">
+        <div class="row">
+          <div class="col-2">
+            <h5 class="card-title m-3 p">
+              <img class="rounded-circle" height="100px" width="100px" src="<%=review[:author_details][:avatar_path] != nil ? "https://image.tmdb.org/t/p/w500/#{review[:author_details][:avatar_path]}" : "https://nerdist.com/wp-content/uploads/2020/07/maxresdefault.jpg"%>" >
+            </h5>
+          </div>
+          <div class="col-6 text-start">
+            <h5 class="card-title m-3 mt-5">
+            Author: <%=  review[:author]%>
+          </h5>
+          </div>
+        </div>
+          <div class="ui horizontal statistic m-3">
+            <div class="value">
+              <%= review[:author_details][:rating] != nil ? review[:author_details][:rating] : "No " %>
+            </div>
+            <div class="label">
+              Rating
+            </div>
+          </div>
+        <p class="card-text text-wrap m-4"><%= review[:content] %></p>
+      </div>
+    </div>
+    <% end %>
   </div>
 </div>
-<section id="reviews" class="container">
-  <div class="ui horizontal statistic m-3">
-    <div class="value">
-      <%= @movie.reviews.count %>
-    </div>
-    <div class="label">
-      Views
-    </div>
-  </div>
-  <% @movie.reviews.each do |review| %>
-  <div class="col-12 ">
-    <div class="card pb-2">
-      <div class="row">
-        <div class="col-2">
-          <h5 class="card-title m-3 p">
-            <img class="rounded-circle" height="100px" width="100px" src="<%=review[:author_details][:avatar_path] != nil ? "https://image.tmdb.org/t/p/w500/#{review[:author_details][:avatar_path]}" : "https://nerdist.com/wp-content/uploads/2020/07/maxresdefault.jpg"%>" >
-          </h5>
-        </div>
-        <div class="col-6 text-start">
-          <h5 class="card-title m-3 mt-5">
-          Author: <%=  review[:author]%>
-        </h5>
-        </div>
-      </div>
-        <div class="ui horizontal statistic m-3">
-          <div class="value">
-            <%= review[:author_details][:rating] != nil ? review[:author_details][:rating] : "No " %>
-          </div>
-          <div class="label">
-            Rating
-          </div>
-        </div>
-      <p class="card-text text-wrap m-4"><%= review[:content] %></p>
-    </div>
-  </div>
-  <% end %>
-</section>

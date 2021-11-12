@@ -14,6 +14,6 @@ class Movie
     @reviews = data[:reviews]
     @video = data[:video]
     @id = data[:id]
-    @release = data[:release_date][0..3]
+    @release = data[:release_date][0..3] if data[:release_date]
   end
 end
