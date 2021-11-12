@@ -1,51 +1,5 @@
-
-  <div><%= react_component("pages/MovieDetails", props=@movie)%></div>
-
-<div class="row " >
-  <div class="col-4">
-    <img src="https://image.tmdb.org/t/p/w500/<%=@movie.poster_path%>" class="card-img-top" alt="..." >
-  </div>
-  <div class="col-8" style=" background-repeat: no-repeat; background-size: cover; <%= @movie.backdrop_path ? "background-image: url(https://image.tmdb.org/t/p/w500/#{@movie.backdrop_path}) " : nil %> ">
-    <div class="p-0 m-0" >
-      <h5 class="card-title ps-3 pt-3" ><%= @movie.title %></h5>
-      <div class="ui horizontal statistic m-3">
-        <div class="value" >
-          <%= @movie.vote_average %>
-        </div>
-        <div class="label"  >
-          Average
-        </div>
-      </div>
-      <p class="card-text text-wrap ms-3" style="filter: invert(1) grayscale(1) contrast(9)"> Runtime: <%= convert_minutes_to_hours_and_minutes(100) %> </p>
-      <p class="ms-3" style="filter: invert(1) grayscale(1) contrast(9)"> Genres:       </p>
-        <div class="ui tabular menu mb-3">
-          <% @movie.genres.each do |genre| %>
-          <a class="item active" data-tab="third "style=""><%= genre[:name] %></a>
-          <% end %>
-        </div>
-      <p style="filter: invert(1) grayscale(1) contrast(9)">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#videoModal">
-          View Trailer
-        </button>
-        <div class="modal fade " id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg">
-            <div class="modal-content" style="height: 522px;">
-              <iframe width="100%" height="100%" src="https://www.youtube.com/embed/<%=@movie.video%>" id="Iframe" title="Movie Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">x</button>
-            </div>
-          </div>
-        </div>
-        <%=link_to "Create Viewing Party", new_party_path(movie_id: @movie.id), class: "btn btn-primary", style:"filter: invert(1) grayscale(1) contrast(9)" %>
-      </p>
-      <p style="filter: invert(1) grayscale(1) contrast(9);  font-family: 'Source Code Pro', monospace; font-size: 1.5rem"> 
-        <%= @movie.overview %>
-      </p>      
-    </div>
-  </div>
-</div>
-<div class="container-fluid px-0 mt-2 mx-n2" >
+<%= react_component("pages/MovieDetails", props=@movie)%>
+<div class="col-6" >
 <h5>Cast</h5>
 <div style="overflow-x: scroll; overflow-y: hidden; white-space: nowrap;">
   <% @movie.cast.each do |cast| %>
