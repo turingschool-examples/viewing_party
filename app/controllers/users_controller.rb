@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   def create
     new_user = User.new(downcased_user_params)
     if new_user.save
+      UserMailer.with(user: user).sign_up_email.deliver
       session[:user_id] = new_user.id
       flash[:success] = 'Success! Welcome to Viewing Party!'
       redirect_to dashboard_path
